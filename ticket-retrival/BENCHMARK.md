@@ -18,8 +18,6 @@ Risorse correlate al dataset:
 ### 2. Prototipi
 Per capire come funziona il benchmark ti consiglio di leggere la [documentazione dei prototipi](retrival/README.md).
 
-Per usare una callback personalizzata, definisci un nuovo modulo del prototipo che la passi al costruttore di Dense, poi indica quel file con `--prototype`.
-
 ### 3. Metriche di valutazione
 
 Il benchmark valuta ogni prototipo attraverso le seguenti metriche:

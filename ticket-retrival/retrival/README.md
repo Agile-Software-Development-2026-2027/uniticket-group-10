@@ -73,7 +73,7 @@ from pathlib import Path
 from retrival.base import Ticket
 from retrival.prototypes.dense import Dense
 
-records = json.loads(Path("dataset.json").read_text(encoding="utf-8"))
+records = json.loads(Path("tickets.json").read_text(encoding="utf-8"))
 tickets = [Ticket.from_dict(record) for record in records]
 
 # Definiamo una callback.
@@ -104,7 +104,7 @@ restano su disco.
 ## Avvio interattivo
 
 Eseguire i comandi dalla cartella **`ticket-retrival`**, che contiene
-`dataset.json` e il pacchetto `retrival`:
+`tickets.json` e il pacchetto `retrival`:
 
 ```bash
 uv run python -m retrival.prototypes.bm25

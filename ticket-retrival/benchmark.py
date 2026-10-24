@@ -127,7 +127,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, add_help=False, allow_abbrev=False)
     parser.add_argument("--prototype", type=Path, required=True,
                         help="Percorso di un file .py")
-    parser.add_argument("--dataset", type=Path, default=directory / "dataset.json")
+    parser.add_argument("--dataset", type=Path, default=directory / "tickets.json")
     parser.add_argument("--eval-set", type=Path, default=directory / "evaluation_dataset.json")
     selection, _ = parser.parse_known_args()
     try:

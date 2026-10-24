@@ -72,7 +72,7 @@ class Dense(Prototype):
 
 def main():
     logging.basicConfig(level=logging.INFO, format="%(message)s")
-    tickets = json.loads(Path("dataset.json").read_text(encoding="utf-8"))
+    tickets = json.loads(Path("tickets.json").read_text(encoding="utf-8"))
     titles = {ticket["ticket_category_id"]: ticket["title"] for ticket in tickets}
     dense = Dense(tickets)
     while True:

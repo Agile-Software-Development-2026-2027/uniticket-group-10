@@ -1,0 +1,2063 @@
+[
+  {
+    "ticket_category_id": 3,
+    "title": "Abilitazione accesso sbarra cubi 45B e 46B",
+    "description": "Si richiede l'abilitazione per l'apertura della sbarra di accesso al parcheggio dei cubi 45B e 46B",
+    "structure": {
+      "id": 19,
+      "name": "DInCi"
+    }
+  },
+  {
+    "ticket_category_id": 4,
+    "title": "Accettazione e Conferimento incarico riguardante attività di tutorato, nonché attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)",
+    "description": "Accettazione e Conferimento incarico riguardante attività di tutorato, nonché attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 5,
+    "title": "Accettazione e Conferimento incarico riguardante attività di tutorato, nonchè attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)",
+    "description": "Accettazione e Conferimento incarico riguardante attività di tutorato, nonchè attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)",
+    "structure": {
+      "id": 18,
+      "name": "DIMES"
+    }
+  },
+  {
+    "ticket_category_id": 6,
+    "title": "Accettazione incarichi di docenza",
+    "description": "Accettazione incarichi di docenza per attività formative a.a. 2025/26",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 7,
+    "title": "Accettazione incarichi di docenza - DD 375 2026",
+    "description": "Accettazione incarichi di docenza per attività formative a.a. 2026/27 – Bando DD 375 del 26 maggio 2026",
+    "structure": {
+      "id": 17,
+      "name": "DIMEG"
+    }
+  },
+  {
+    "ticket_category_id": 8,
+    "title": "Accettazione incarichi di docenza - DD 438/2026",
+    "description": "Accettazione incarichi di docenza per attività formative a.a. 2026/27 – DD 438 del 24 giugno 2026",
+    "structure": {
+      "id": 17,
+      "name": "DIMEG"
+    }
+  },
+  {
+    "ticket_category_id": 9,
+    "title": "Accettazione incarichi di docenza - DD 536 2026",
+    "description": "Accettazione incarichi di docenza per attività formative a.a. 2026/27 – DD 536 del 1 settembre 2026",
+    "structure": {
+      "id": 17,
+      "name": "DIMEG"
+    }
+  },
+  {
+    "ticket_category_id": 11,
+    "title": "ACCORDO INDIVIDUALE PER LO SVOLGIMENTO DELL’ATTIVITÀ LAVORATIVA IN MODALITÀ DI LAVORO AGILE (Circolare prot. n. 97650 del 30 marzo 2026)",
+    "description": "ACCORDO INDIVIDUALE PER LO SVOLGIMENTO DELL’ATTIVITÀ LAVORATIVA IN MODALITÀ DI LAVORO AGILE (Circolare prot. n. 97650 del 30 marzo 2026)",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 14,
+    "title": "Aggiornamento Bandi",
+    "description": "Aggiornamento Bandi",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 15,
+    "title": "Aggiornamento profilo tessera utente",
+    "description": "Modulo per richiedere l'aggiornamento del profilo di utente del Catalogo Online",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 16,
+    "title": "Annullamento iscrizione LM in ipotesi",
+    "description": "Modulo riservato agli immatricolati LM in ipotesi che non rispettano la condizione prevista dal bando di ammissione.\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 20,
+    "title": "Assistenza TIROCINIO  e  Sistemi Informatici per i Corsi di Studio del DiBEST (ESSE3, microsoft TEAMS, email istituzionale, piani di studio, esami, Ecc.)",
+    "description": "Assistenza TIROCINIO  e Sistemi Informatici Assistenza Sistemi Informatici per i Corsi di Studio del DiBEST (ESSE3, microsoft TEAMS, email istituzionale, piani di studio, esami, Ecc.)",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 21,
+    "title": "Attestato Esame sostenuto",
+    "description": "Attestato Esame sostenuto",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 22,
+    "title": "Attestato Frequenza Lezione",
+    "description": "Attestato Frequenza Lezione",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 24,
+    "title": "Attivazione di un incarico di ricerca (art. 22-ter legge 240/2010)",
+    "description": "Modulo per l'attivazione di un incarico di ricerca  (art. 22-ter legge 240/2010) presso il Dipartimento di Fisica - UNICAL",
+    "structure": {
+      "id": 29,
+      "name": "Fisica"
+    }
+  },
+  {
+    "ticket_category_id": 30,
+    "title": "Autorizzazione accesso ai quartieri residenziali con autovettura",
+    "description": "L'assegnatario di alloggio universitario o foresteria può richiedere l'autorizzazione all'accesso con autovettura al proprio quartiere. Può presentare richiesta l'assegnatario proprietario di autoveicolo o che abbia in uso permanente un autoveicolo di proprietà di uno dei genitori o altro familiare.",
+    "structure": {
+      "id": 8,
+      "name": "Centro Residenziale"
+    }
+  },
+  {
+    "ticket_category_id": 33,
+    "title": "Autorizzazione utilizzo mezzo straordinario",
+    "description": "Ai sensi del \"Regolamento missioni e trasferte e relativi rimborsi spesa\" emanato con decreto rettorale 5 marzo 2021, n. 419.",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 35,
+    "title": "BATS - Chiedi al Bibliotecario",
+    "description": "Come possiamo aiutarti? Inserisci il tuo quesito in questo spazio",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 36,
+    "title": "BATS - Prenotazione dell'Assistenza bibliografica personalizzata su risorse online",
+    "description": "",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 37,
+    "title": "BATS - Prenotazione sala studio/multimediale per attività collaborative o individuali",
+    "description": "Modulo di richiesta di prenotazione della sala studio/multimediale per studiare anche in gruppo, a voce moderata, utilizzando 15 postazioni singole di cui 10 dotate di PC , 2 postazioni multiple da 4, 6 o 8 posti. L'utilizzo è consentito prenotando gli intervalli di tempo \r\n9:00-13:00 / 13:00-17:00 / 17:00-20:00.\r\nI PC introdotti dovranno essere collegati in rete esclusivamente tramite la rete Wi-fi.\r\nPrima di accedere alla sala è obbligatorio presentarsi allo sportello.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 39,
+    "title": "BATS - Richiedi Tessera Utente",
+    "description": "Si richiede il rilascio della tessera utente della BATS",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 40,
+    "title": "BATS - Richiesta carichi pendenti",
+    "description": "Questo modulo serve per la verifica della posizione utente (carichi pendenti) da effettuare obbligatoriamente a conclusione carriera: fine corso, fine periodo di studio ERASMUS, stage, ecc...\r\nPresa in carico questa richiesta la tessera della biblioteca verrà disattivata.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 41,
+    "title": "BATS - Richiesta di accesso a tirocini presso la Biblioteca di Area Tecnico-Scientifica",
+    "description": "Sono richieste alcune informazioni preliminari di accesso ai tirocini presso la BATS",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 42,
+    "title": "BATS - Richiesta di consultazione di Tesi di laurea",
+    "description": "Questo modulo serve per prenotare la consultazione delle tesi di laurea, collocate presso la Biblioteca Area Tecnico Scientifica dell’Unical.\r\nSarete contattati via mail al fine di fissare un appuntamento il prima possibile.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 43,
+    "title": "BATS - Richiesta di consultazione Sezione Specialistica Cartografia - Progetto Speciale 26",
+    "description": "La sezione di Cartografia, con annesse sottosezioni specialistiche, è aperta al pubblico dal Lunedì al Venerdì dalle ore 9:00 alle ore 13:00 e anche al pomeriggio dal Lunedì al Mercoledì dalle ore 13:00 alle ore 17:00.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 44,
+    "title": "BATS - Richiesta di Document Delivery (Articoli di riviste)",
+    "description": "La Biblioteca Area Tecnico-Scientifica (BATS) fornisce ai suoi utenti istituzionali, tramite il servizio di Document Delivery, la possibilità di avere copie di documenti non posseduti dalla biblioteca (articoli, parti di atti, ecc.). In particolare, il servizio Document Delivery (DD), dietro formale richiesta, fornisce copie di documenti (per lo più articoli di periodici, ma non solo) recuperati da altre biblioteche nazionali ed estere o in banche dati bibliografiche.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 45,
+    "title": "BATS - Richiesta Libri in Prestito Interbibliotecario (ILL request)",
+    "description": "La Biblioteca Area Tecnico-Scientifica (BATS) fornisce ai suoi utenti istituzionali, tramite il servizio di prestito interbibliotecario, la possibilità di consultare documenti non posseduti dalla biblioteca. In particolare, il servizio di prestito interbibliotecario (ILL = InterLibrary Loan) fornisce il prestito, in ambito nazionale o estero, di un documento appartenente ad altra biblioteca, dietro formale richiesta\r\nPer il servizio si pagano le spese postali e le eventuali commissioni richieste",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 46,
+    "title": "BAU - Candidatura a tirocini presso la Biblioteca di Area umanistica",
+    "description": "Sono richieste alcune informazioni preliminari per la candidatura a tirocini presso la BAU",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 47,
+    "title": "BAU - Chiedi al Bibliotecario",
+    "description": "Come possiamo aiutarti? Inserisci qui di seguito la tua richiesta alla Biblioteca di Area Umanistica F. E. Fagiani.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 48,
+    "title": "BAU - DD Richiesta di fornitura di articoli in periodici",
+    "description": "Questo modulo serve per richiedere articoli pubblicati in periodici non presenti nelle biblioteche di ateneo. \r\nIl servizio è riservato a docenti, ricercatori, dottorandi e studenti afferenti ai dipartimenti DiCES e DISU dell'Università della Calabria.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 49,
+    "title": "BAU - Prenotazione dell'Assistenza bibliografica individuale personalizzata",
+    "description": "Sistema Bibliotecario di Ateneo – Questo modulo serve per prenotare il servizio di assistenza bibliografica personalizzata. Sarai contattato da un bibliotecario per concordare data e orario",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 50,
+    "title": "BAU - Prenotazione sala per studio di gruppo",
+    "description": "Modulo di richiesta di prenotazione sala BAU per studio di gruppo",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 52,
+    "title": "BAU - Richiesta di accesso a sale studio fondi speciali BAU",
+    "description": "Richiesta di accesso a sale studio fondi speciali BAU",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 53,
+    "title": "BAU - Richiesta di consultazione / prestito di periodici cartacei collocati presso BAU/Polo Umanistico",
+    "description": "Richiesta di consultazione / prestito di periodici cartacei collocati presso BAU/Polo Umanistico",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 54,
+    "title": "BAU - Richiesta di consultazione tesi di laurea/dottorato",
+    "description": "Prenotazione per la consultazione in sede di tesi di laurea/dottorato su supporto fisico (stampa/CD-Rom) collocate presso la Biblioteca di Area Umanistica F. E. Fagiani",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 55,
+    "title": "BAU - Richiesta Tessera Utente",
+    "description": "Si richiede il rilascio della tessera utente della Biblioteca di Area Umanistica F. E. Fagiani (BAU).",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 56,
+    "title": "BAU – DD Richiesta di fornitura di parti di libro",
+    "description": "Questo modulo serve per richiedere capitoli o porzioni di volumi non presenti nelle biblioteche di ateneo. \r\nIl servizio è riservato a docenti, ricercatori, dottorandi e studenti afferenti ai dipartimenti DiCES e DISU dell'Università della Calabria.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 57,
+    "title": "BAU – DESIDERATA",
+    "description": "Gli utenti afferenti al Dipartimento di Culture, Educazione e Società e al Dipartimento di Studi Umanistici possono utilizzare questo modulo per proporre alla Biblioteca di Area Umanistica l’acquisto di libri o altri materiali bibliografici ritenuti importanti per i propri studi e interessi. \r\nSi prega di inserire con precisione i dati bibliografici e di indicare in sintesi il motivo della richiesta.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 58,
+    "title": "BAU – ILL Richiesta di prestito inter-bibliotecario",
+    "description": "Il presente modulo serve per richiedere libri non presenti nelle biblioteche di ateneo. Il servizio è riservato a docenti, ricercatori, dottorandi e studenti afferenti ai dipartimenti DiCES e DISU dell'Università della Calabria.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 59,
+    "title": "BAU – Richiesta di consultazione e/o prestito di libri cartacei no self-service - collocati nella torre libraria BAU/Polo Umanistico",
+    "description": "Richiesta di consultazione e/o prestito di libri cartacei no self-service - collocati nella torre libraria BAU/Polo Umanistico",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 61,
+    "title": "Cambio gruppo/classe - Semestre Aperto a.a. 2026/27",
+    "description": "",
+    "structure": {
+      "id": 13,
+      "name": "DFSSN"
+    }
+  },
+  {
+    "ticket_category_id": 65,
+    "title": "Certification for international students for exams or graduation on-line",
+    "description": "Insert here a brief description and then provide the requested information ...",
+    "structure": {
+      "id": 45,
+      "name": "Unical vs Covid19"
+    }
+  },
+  {
+    "ticket_category_id": 70,
+    "title": "Comunicazione Fine attività di studio all'estero",
+    "description": "Comunicazione Fine attività di studio all'estero",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 72,
+    "title": "Conferimento Incarichi di  Insegnamento",
+    "description": "Conferimento Incarichi di  Insegnamento",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 73,
+    "title": "Conferimento Incarico di insegnamento - 1",
+    "description": "Con il presente modulo vengono compilati i documenti necessari per la stipula del contratto per lo svolgimento di incarichi di insegnamento",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 74,
+    "title": "Conferimento Incarico di Insegnamento - DeMaCS",
+    "description": "Conferimento Incarico di Insegnamento - Bando per la copertura di insegnamenti per affidamento o, in subordine, per contratto ex art. 23 c.2 L. 240/2010",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 79,
+    "title": "Copertura Assicurativa Escursione",
+    "description": "Copertura Assicurativa Escursione Didattica",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 85,
+    "title": "Denuncia infortunio per SOGGETTO ESTERNO",
+    "description": "Modulo da utilizzare per i SOGGETTI ESTERNI ALL'ATENEO in caso di infortunio per avviare la pratica presso gli uffici competenti",
+    "structure": {
+      "id": 21,
+      "name": "Direzione Affari Generali e Attività Negoziali - Area Servizi Generali"
+    }
+  },
+  {
+    "ticket_category_id": 86,
+    "title": "Denuncia infortunio per STUDENTE UNICAL",
+    "description": "Modulo da utilizzare per gli STUDENTI UNICAL in caso di infortunio per avviare la pratica presso gli uffici competenti",
+    "structure": {
+      "id": 21,
+      "name": "Direzione Affari Generali e Attività Negoziali - Area Servizi Generali"
+    }
+  },
+  {
+    "ticket_category_id": 87,
+    "title": "Dichiarazione aggiuntiva Isee Parificato",
+    "description": "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 88,
+    "title": "Dichiarazione semestre filtro medicina altro Ateneo",
+    "description": "Modulo riservato agli iscritti al semestre filtro di medicina in altri Atenei",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 90,
+    "title": "Documentazione per contributo mobilità internazionale a.a. 2025/2026 - prima rata/saldo",
+    "description": "Al fine di autorizzare l’erogazione della prima rata o del saldo del contributo di mobilità internazionale per l’a.a. 2025/2026, lo studente interessato è tenuto ad allegare il biglietto di andata (ed eventualmente anche di ritorno).\r\nGli studenti che hanno già concluso il periodo di mobilità all'estero possono ricevere l'intero contributo spettante inviando, oltre ai biglietti di viaggio, la certificazione attestante il periodo all'estero rilasciata dall'ente ospitante.",
+    "structure": {
+      "id": 8,
+      "name": "Centro Residenziale"
+    }
+  },
+  {
+    "ticket_category_id": 111,
+    "title": "Domanda di partecipazione al programma DUnicAL Career per studenti-atleti aa 2026/2027",
+    "description": "Domanda di partecipazione al programma DUnicAL Career per studenti-atleti aa 2026/2027",
+    "structure": {
+      "id": 6,
+      "name": "Area Socialità nel Campus"
+    }
+  },
+  {
+    "ticket_category_id": 112,
+    "title": "Domanda di riconoscimento attività extra universitarie (ai sensi dell’art. 25 del Regolamento Studenti)",
+    "description": "Domanda di riconoscimento attività extra universitarie (ai sensi dell’art. 25 del Regolamento Studenti)",
+    "structure": {
+      "id": 26,
+      "name": "DiSPeS"
+    }
+  },
+  {
+    "ticket_category_id": 116,
+    "title": "Domanda di riconoscimento esami/cfu - DiCTC",
+    "description": "Per studenti iscritti a un corso di studio afferente al Dipartimento di Chimica e Tecnologie Chimiche e che chiedono il riconoscimento di esami sostenuti in una precedente carriera",
+    "structure": {
+      "id": 10,
+      "name": "CTC"
+    }
+  },
+  {
+    "ticket_category_id": 117,
+    "title": "Domanda di riconoscimento esami/cfu - DIMES",
+    "description": "Per studenti iscritti a un corso di studio afferente al Dipartimento di  Ingegneria Informatica, Modellistica, Elettronica e Sistemistica e che chiedono il riconoscimento di esami sostenuti in una precedente carriera",
+    "structure": {
+      "id": 18,
+      "name": "DIMES"
+    }
+  },
+  {
+    "ticket_category_id": 119,
+    "title": "Domanda di riconoscimento esami/cfu - DISCAG",
+    "description": "Per studenti iscritti a un corso di studio afferente al Dipartimento di Scienze Aziendali e Giuridiche e che chiedono il riconoscimento di esami sostenuti in una precedente carriera",
+    "structure": {
+      "id": 25,
+      "name": "DiScAG"
+    }
+  },
+  {
+    "ticket_category_id": 120,
+    "title": "Domanda di riconoscimento esami/cfu - DISPES",
+    "description": "Per studenti iscritti a un corso di studio afferente al Dipartimento di Scienze Politiche e Sociali e che chiedono il riconoscimento di esami sostenuti in una precedente carriera",
+    "structure": {
+      "id": 26,
+      "name": "DiSPeS"
+    }
+  },
+  {
+    "ticket_category_id": 121,
+    "title": "Domanda di riconoscimento esami/cfu - DISU",
+    "description": "Per studenti iscritti a un corso di studio afferente al Dipartimento di Studi Umanistici e che chiedono il riconoscimento di esami sostenuti in una precedente carriera",
+    "structure": {
+      "id": 27,
+      "name": "DiSU"
+    }
+  },
+  {
+    "ticket_category_id": 122,
+    "title": "Domanda di riconoscimento esami/cfu - Farmacia e Scienze della Salute e della Nutrizione",
+    "description": "Per studenti iscritti ai Corsi di Studio (FA, CTF, SN, ISFPS ed SNM) afferenti al Dipartimento di Farmacia e Scienze della Salute e della Nutrizione e che chiedono il riconoscimento di esami sostenuti in una precedente carriera",
+    "structure": {
+      "id": 13,
+      "name": "DFSSN"
+    }
+  },
+  {
+    "ticket_category_id": 123,
+    "title": "Domanda di Rinuncia agli studi",
+    "description": "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.\r\nModulo per richiedere la chiusura della carriera",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 124,
+    "title": "DOMANDA DI RINUNCIA ALLA SCUOLA DI SPECIALIZZAZIONE MEDICA",
+    "description": "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.\r\nModulo per richiedere la chiusura della carriera",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 138,
+    "title": "Domanda Lavoro Finale (Richiesta TESI)",
+    "description": "Modulo di Richiesta Tesi",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 139,
+    "title": "Domanda studenti in momentaneo stato di necessità",
+    "description": "Il sussidio potrà\tessere richiesto:\r\na) per risolvere o fronteggiare una situazione molto grave di disagio economico;\r\nb) per estinguere eventuali proprie posizioni debitorie relative a tasse e  contributi non pagati.\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 141,
+    "title": "Duplicato pergamena di laurea",
+    "description": "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.\r\nModulo per richiedere il duplicato per furto/smarrimento",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 144,
+    "title": "E3 - Richiesta assistenza Esse3",
+    "description": "",
+    "structure": {
+      "id": 5,
+      "name": "Area Servizi Informatici e Tecnologici"
+    }
+  },
+  {
+    "ticket_category_id": 146,
+    "title": "EL-S1 - Richiesta supporto piattaforma e-learning di Ateneo",
+    "description": "Modulo di richiesta supporto piattaforma e-learning Moodle di Ateneo (non MS Teams)",
+    "structure": {
+      "id": 5,
+      "name": "Area Servizi Informatici e Tecnologici"
+    }
+  },
+  {
+    "ticket_category_id": 172,
+    "title": "Fisioterapia - Richiesta riconoscimento esami",
+    "description": "Richiesta riconoscimento esami carriere precedenti",
+    "structure": {
+      "id": 13,
+      "name": "DFSSN"
+    }
+  },
+  {
+    "ticket_category_id": 173,
+    "title": "Future matricole: prenotazione appuntamento Servizio Inclusione",
+    "description": "Sportello dedicato alle future matricole per ricevere informazioni generali sui servizi, orientamento e per la definizione dei supporti personalizzati per lo svolgimento delle prove di ingresso",
+    "structure": {
+      "id": 36,
+      "name": "Servizio studenti con disabilità DSA e BES"
+    }
+  },
+  {
+    "ticket_category_id": 175,
+    "title": "Gestione Inserimento News e Avvisi -  Docenti",
+    "description": "Gestione Inserimento News e Avvisi  -  Docenti",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 176,
+    "title": "Gestione Inserimento News e Avvisi - PTA",
+    "description": "Gestione Inserimento News e Avvisi - PTA",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 177,
+    "title": "Helpdesk  Situazione tasse",
+    "description": "",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 179,
+    "title": "I Martedì in UniCal",
+    "description": "Richiesta attività di Orientamento presso l'Università della Calabria \"Martedì in Unical\" \r\nla richiesta deve pervenire 10 giorni prima della data di interesse tra quelle indicate sul portale",
+    "structure": {
+      "id": 42,
+      "name": "Ufficio Orientamento"
+    }
+  },
+  {
+    "ticket_category_id": 182,
+    "title": "Infermieristica - Richiesta convalida Esami",
+    "description": "Richiesta convalida esami da precedenti carriere",
+    "structure": {
+      "id": 13,
+      "name": "DFSSN"
+    }
+  },
+  {
+    "ticket_category_id": 183,
+    "title": "Info su decadenza",
+    "description": "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.\r\nDettaglia qui la tua richiesta.",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 184,
+    "title": "Info su Rimborso tasse",
+    "description": "Richiesta per info sui rimborsi\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 186,
+    "title": "Inserimento Bandi",
+    "description": "Attraverso questa richiesta si chiede di inserire sul sito diam.unical.it, i contenuti in una delle tre aree presenti in https://diam.unical.it/dipartimento/organizzazione/documenti-bandi-e-concorsi/. I contenuti diditati nei form verranno integralmente inseriti nell'articolo associato.",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 189,
+    "title": "Invio Certificazione di disabilità/invalidità e/o DSA",
+    "description": "Modulo invio di Certificazione di disabilità/invalidità  e/o DSA",
+    "structure": {
+      "id": 36,
+      "name": "Servizio studenti con disabilità DSA e BES"
+    }
+  },
+  {
+    "ticket_category_id": 193,
+    "title": "ISEE PARIFICATO",
+    "description": "Modulo dedicato all'invio dell'ISEE PARIFICATO, studenti residenti all’estero - scadenza 31 dicembre 2026.\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 197,
+    "title": "LMCU RESTAURO - Richiesta di assegnazione di prova finale",
+    "description": "Richiesta assegnazione prova finale corso di laurea magistrale a ciclo unico in Conservazione e Restauro dei beni Culturali",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 212,
+    "title": "Master - Accettazione incarico",
+    "description": "Accettazione incarico nell'ambito del Master attivati presso il Dipartimento di Matematica e Informatica.",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 213,
+    "title": "Master - Accettazione incarico (generico)",
+    "description": "Modulo di accettazione incarico generico",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 214,
+    "title": "Master - Consegna registro attività didattiche",
+    "description": "Consegna registro delle ore frontali svolte presso i Master attivati dal Dipartimento di Matematica e Informatica.",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 215,
+    "title": "Medicina e Chirurgia TD - Riconoscimento Esami",
+    "description": "Richiesta riconoscimento esami precedenti carriere",
+    "structure": {
+      "id": 13,
+      "name": "DFSSN"
+    }
+  },
+  {
+    "ticket_category_id": 217,
+    "title": "Modifica email personale per recupero password Esse3",
+    "description": "1) \"password dimenticata\" da https://unical.esse3.cineca.it\r\n2) inserire solo il codice fiscale\r\n3) entro 15 minuti sulla mail arriverà un link per impostare la password (controllare anche spam)\r\nIL LINK HA VALIDITA' UN'ORA, dopodiché la procedura dovrà essere ripetuta\r\n4) dopo aver impostato la password attendere circa 10 minuti per accedere ad Esse3 (il nome utente è il codice fiscale)\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 218,
+    "title": "Modifica email personale per recupero password Esse3",
+    "description": "Recupero password accesso ESSE3 per iscritti o iscrivendi al sostegno, 24-30-36-60cfu. . \r\nDopo la risposta di modifica dell'indirizzo e-mail:\r\n1) attivare la procedura \"password dimenticata\" dal menu di ESSE3 https://unical.esse3.cineca.it\r\n2) inserire solo il codice fiscale e procedere\r\n3) entro 15 minuti sulla mail arriverà un link per impostare la password (controllare anche spam); il link scade dopo un'ora.\r\n4) attendere 15 minuti prima di accedere ad ESSE3.\r\n5) Username è il codice fiscale",
+    "structure": {
+      "id": 3,
+      "name": "Area post laurea - Settore Formazione insegnanti ed esami di stato"
+    }
+  },
+  {
+    "ticket_category_id": 227,
+    "title": "Modulistica Autorizzazione Tutoraggio SIACE",
+    "description": "Istanze di Autorizzazione per Tutoraggio SIACE -  Autorizzazione tutoraggio per attività didattiche",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 228,
+    "title": "Modulo di delega",
+    "description": "Modulo da compilare per delegare una persona di fiducia presso lo sportello dei Servizi Didattici",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 229,
+    "title": "Modulo di richiesta ricongiunzione",
+    "description": "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.\r\nRichiesta per la ripresa degli studi",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 230,
+    "title": "Modulo per l’assegnazione della tesi di laurea",
+    "description": "indicare se la richiesta è per la Laurea Triennale oppure Magistrale",
+    "structure": {
+      "id": 29,
+      "name": "Fisica"
+    }
+  },
+  {
+    "ticket_category_id": 237,
+    "title": "Pagamento delle tasse universitarie con la carta del docente",
+    "description": "La CARTA DOCENTE può essere utilizzata per il pagamento totale o parziale del contributo annuale omnicomprensivo (CA).  \r\nNon può essere utilizzata per il pagamento di: tassa regionale per il diritto allo studio universitario, imposta di bollo, assicurazione, more e contributi a vario titolo.  \r\n*Attenzione*: il bonus deve avere valore uguale o inferiore alla rata da pagare.",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 238,
+    "title": "Parere Certificazioni Internazionali in Lingua Inglese",
+    "description": "Richiesta riconoscimento certificazione internazionale di lingua inglese",
+    "structure": {
+      "id": 7,
+      "name": "Centro Linguistico di Ateneo"
+    }
+  },
+  {
+    "ticket_category_id": 242,
+    "title": "Patrocinio  del dipartimento",
+    "description": "Richiesta di concessione del patrocinio  del dipartimento Dices",
+    "structure": {
+      "id": 16,
+      "name": "DiCES"
+    }
+  },
+  {
+    "ticket_category_id": 248,
+    "title": "Pre-screening del risultato inventivo",
+    "description": "Coloro che ritengano di aver conseguito un risultato di ricerca, suscettibile di tutela mediante il ricorso a diritti di Proprietà Intellettuale, possono sottometterlo, a nome del referente del gruppo di ricerca, a pre-screening richiedendo un appuntamento con il team di ARIIS",
+    "structure": {
+      "id": 4,
+      "name": "Area Ricerca, Innovazione e Impatto Sociale"
+    }
+  },
+  {
+    "ticket_category_id": 252,
+    "title": "Prenotazione visita",
+    "description": "",
+    "structure": {
+      "id": 38,
+      "name": "Sistema Museale"
+    }
+  },
+  {
+    "ticket_category_id": 253,
+    "title": "Presa di Servizio Mentor per le esigenze dei Corsi di Laurea del DiBEST",
+    "description": "Presa di Servizio Mentor per le esigenze dei Corsi di Laurea del DiBEST",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 254,
+    "title": "Presa di Servizio per attività di tutoraggio e mentoring per gli/le studenti/esse in mobilità all’estero",
+    "description": "Presa di Servizio per attività di tutoraggio e mentoring per gli/le studenti/esse in mobilità all’estero",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 262,
+    "title": "Preventivo di trasferimento da altro Ateneo al Corso di Laurea in Informatica",
+    "description": "Richiesta Preventivo di trasferimento da altro Ateneo al Corso di Laurea in Informatica",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 263,
+    "title": "Primavera in Unical",
+    "description": "Richiesta attività di Orientamento presso l'Università della Calabria \"Primavera in Unical\" \r\nla richiesta deve pervenire 10 giorni prima della data di interesse tra quelle indicate sul portale",
+    "structure": {
+      "id": 42,
+      "name": "Ufficio Orientamento"
+    }
+  },
+  {
+    "ticket_category_id": 264,
+    "title": "Problematiche di Accesso alle risorse telematiche mediante SSO di Ateneo (Unical ID, SPID, CIE)",
+    "description": "Problematiche relative alla indisponibilità o eventuali anomalie di funzionamento del SingleSignOn di Ateneo.",
+    "structure": {
+      "id": 5,
+      "name": "Area Servizi Informatici e Tecnologici"
+    }
+  },
+  {
+    "ticket_category_id": 270,
+    "title": "Proposta nomina Cultore della Materia",
+    "description": "Proposta di nomina a Cultore della Materia",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 273,
+    "title": "Pubblicazione Notizie sul Portale del Dipartimento",
+    "description": "Cortesemente inserisci una breve descrizione della richiesta",
+    "structure": {
+      "id": 29,
+      "name": "Fisica"
+    }
+  },
+  {
+    "ticket_category_id": 275,
+    "title": "RC2 - RICHIESTA CERTIFICATO DIGITALE X.509 (TCS) - (Esterni) (Nota 1)",
+    "description": "Il Consortium GARR partecipa al Trusted Certificate Service (TCS) promosso da Géant a favore delle reti della ricerca europee. Tramite questo servizio, il Consortium GARR offre gratuitamente alla propria comunità certificati digitali x.509 emessi da una delle maggiori Certification Authority commerciali: HARICA. - (Nota 2)",
+    "structure": {
+      "id": 5,
+      "name": "Area Servizi Informatici e Tecnologici"
+    }
+  },
+  {
+    "ticket_category_id": 277,
+    "title": "Recupero crediti a.a. 2021/22",
+    "description": "Ticket riservato agli studenti in debito di tasse e contributi che hanno ricevuto formale diffida da parte dell'università",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 282,
+    "title": "Richiesta altri esoneri previsti dal Regolamento Tasse",
+    "description": "Modulo per richiedere un esonero non già presente nelle tipologie su ticket.unical.it.\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 283,
+    "title": "Richiesta Anticipo Insegnamenti",
+    "description": "Richiesta Anticipo Insegnamenti",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 284,
+    "title": "Richiesta apertura appello SFP vecchio ordinamento",
+    "description": "Richiesta apertura appello SFP vecchio ordinamento",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 285,
+    "title": "Richiesta assegnazione tesi - Dipartimento di Farmacia e Scienze della Salute e della Nutrizione DFSSN",
+    "description": "Si ricorda che la domanda di richiesta tesi deve essere controfirmata CON FIRMA DIGITALE almeno dal/la relatore/relatrice interno/a.",
+    "structure": {
+      "id": 13,
+      "name": "DFSSN"
+    }
+  },
+  {
+    "ticket_category_id": 291,
+    "title": "Richiesta attività di Orientamento presso l'Università della Calabria",
+    "description": "Richiesta Orientamento Universitario per studentesse e studenti degli istituti secondari di secondo grado",
+    "structure": {
+      "id": 42,
+      "name": "Ufficio Orientamento"
+    }
+  },
+  {
+    "ticket_category_id": 292,
+    "title": "Richiesta attività di Orientamento presso le scuole",
+    "description": "Attività di Orientamento presso le scuole",
+    "structure": {
+      "id": 42,
+      "name": "Ufficio Orientamento"
+    }
+  },
+  {
+    "ticket_category_id": 294,
+    "title": "Richiesta Autorizzazione a compiere la missione",
+    "description": "Richiesta Autorizzazione a compiere la missione",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 295,
+    "title": "Richiesta autorizzazione a compiere missione/trasferta su progetti finanziati e O.r.s.i.",
+    "description": "Utilizzare il presente modulo esclusivamente per missioni/trasferta che siano soggetti a carta intestata specifica (come O.r.s.i. e progetti finanziati). Non saranno prese in carico richieste  diverse che invece dovranno essere presentata tramite piattaforma mysol.",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 298,
+    "title": "Richiesta autorizzazione per ricerca finalizzata alla tesi di laurea SFP",
+    "description": "Richiesta di autorizzazione ad attività di ricerca finalizzata all'elaborazione della Tesi di Laurea per gli studenti del Corso di Laurea Magistrale a ciclo unico in Scienze della Formazione Primaria",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 299,
+    "title": "Richiesta avvio doppio titolo - DUAL degree",
+    "description": "Richiesta avvio doppio titolo - DUAL degree",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 300,
+    "title": "Richiesta Avvio Erasmus Studio",
+    "description": "Richiesta Avvio Erasmus Studio",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 301,
+    "title": "Richiesta Avvio Erasmus Traineeship",
+    "description": "Richiesta Avvio Erasmus Traineeship",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 302,
+    "title": "Richiesta Badge",
+    "description": "richiesta badge",
+    "structure": {
+      "id": 16,
+      "name": "DiCES"
+    }
+  },
+  {
+    "ticket_category_id": 303,
+    "title": "Richiesta cambio Classe (CdL Ingegneria Biomedica)",
+    "description": "Richiesta cambio Classe (CdL Ingegneria Biomedica)",
+    "structure": {
+      "id": 18,
+      "name": "DIMES"
+    }
+  },
+  {
+    "ticket_category_id": 305,
+    "title": "Richiesta Cambio Tempo Pieno / Part-time",
+    "description": "Richiesta Cambio Tempo Pieno / Part-time",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 306,
+    "title": "RICHIESTA CAMBIO TEMPO PIENO/PART-TIME",
+    "description": "Richiesta cambio tempo pieno/part-time",
+    "structure": {
+      "id": 18,
+      "name": "DIMES"
+    }
+  },
+  {
+    "ticket_category_id": 307,
+    "title": "Richiesta cambio tutor accademico tirocinio e/o relatore tesi",
+    "description": "Richiesta cambio tutor accademico tirocinio e/o relatore tesi",
+    "structure": {
+      "id": 16,
+      "name": "DiCES"
+    }
+  },
+  {
+    "ticket_category_id": 308,
+    "title": "Richiesta cancellazione errata iscrizione",
+    "description": "Richiesta cancellazione errata iscrizione",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 309,
+    "title": "Richiesta certificati - DISU",
+    "description": "Richiesta certificati",
+    "structure": {
+      "id": 27,
+      "name": "DiSU"
+    }
+  },
+  {
+    "ticket_category_id": 310,
+    "title": "Richiesta certificati di iscrizione, laurea e diploma supplement",
+    "description": "",
+    "structure": {
+      "id": 10,
+      "name": "CTC"
+    }
+  },
+  {
+    "ticket_category_id": 311,
+    "title": "Richiesta certificati di iscrizione, laurea e diploma supplement",
+    "description": "SOLO PER UTENTI ESTERNI (senza carriere presenti in esse3)",
+    "structure": {
+      "id": 19,
+      "name": "DInCi"
+    }
+  },
+  {
+    "ticket_category_id": 312,
+    "title": "Richiesta certificati di iscrizione, laurea e diploma supplement (i)",
+    "description": "SOLO PER UTENTI INTERNI (con carriere presenti in esse3)",
+    "structure": {
+      "id": 19,
+      "name": "DInCi"
+    }
+  },
+  {
+    "ticket_category_id": 313,
+    "title": "Richiesta Certificati per i corsi di  TFA -  SSIS - Sostegno 1° e 2° Grado - FI(30/36/60cfu) - 24cfu",
+    "description": "Questa  procedura serve per richiedere il certificato in bollo virtuale per i corsi di  specializzazione/abilitazione all'insegnamento",
+    "structure": {
+      "id": 3,
+      "name": "Area post laurea - Settore Formazione insegnanti ed esami di stato"
+    }
+  },
+  {
+    "ticket_category_id": 314,
+    "title": "Richiesta certificato attestante la copertura assicurativa per ASSEGNISTI, BORSISTI, DOTTORANDI, STUDENTI",
+    "description": "Richiesta per il rilascio di un certificato attestante la copertura assicurativa per i sinistri da infortunio e contro il rischio per la Responsabilità Civile per ASSEGNISTI, BORSISTI, DOTTORANDI, STUDENTI",
+    "structure": {
+      "id": 21,
+      "name": "Direzione Affari Generali e Attività Negoziali - Area Servizi Generali"
+    }
+  },
+  {
+    "ticket_category_id": 315,
+    "title": "Richiesta certificato attestante la copertura assicurativa per NEO-LAUREATI (entro 12 mesi dal conseguimento del titolo)",
+    "description": "Richiesta per il rilascio di un certificato attestante la copertura assicurativa per i sinistri da infortunio e contro il rischio per la Responsabilità Civile per NEO-LAUREATI (o similari) entro i 12 mesi dal conseguimento del titolo",
+    "structure": {
+      "id": 21,
+      "name": "Direzione Affari Generali e Attività Negoziali - Area Servizi Generali"
+    }
+  },
+  {
+    "ticket_category_id": 316,
+    "title": "Richiesta Certificato di Iscrizione",
+    "description": "Richiesta certificato di iscrizione",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 317,
+    "title": "Richiesta certificato di iscrizione/Laurea/Diploma Supplement",
+    "description": "Richiesta certificato di iscrizione/Laurea/Diploma Supplement",
+    "structure": {
+      "id": 18,
+      "name": "DIMES"
+    }
+  },
+  {
+    "ticket_category_id": 318,
+    "title": "Richiesta certificato di laurea",
+    "description": "Richiesta certificato di laurea",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 319,
+    "title": "Richiesta Certificato Uso Estero/Questura - Certificate Foreign Use/Questura",
+    "description": "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 321,
+    "title": "Richiesta Chiusura Erasmus Studio",
+    "description": "Riconoscimento delle attività formative svolte all'estero e dei relativi CFU acquisiti",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 322,
+    "title": "Richiesta Chiusura Erasmus Traineeship",
+    "description": "Richiesta Chiusura Erasmus Traineeship",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 327,
+    "title": "Richiesta di Acquisto Materiale",
+    "description": "Inserisci una descrizione generica dell'acquisto (obbligatorio).",
+    "structure": {
+      "id": 29,
+      "name": "Fisica"
+    }
+  },
+  {
+    "ticket_category_id": 328,
+    "title": "Richiesta di Assegnazione Tesi",
+    "description": "Modulo richiesta per assegnazione tesi",
+    "structure": {
+      "id": 16,
+      "name": "DiCES"
+    }
+  },
+  {
+    "ticket_category_id": 329,
+    "title": "Richiesta di assegnazione tesi",
+    "description": "Allegare la richiesta di assegnazione tesi firmata dal relatore. Il modulo è disponibile al seguente link: https://disu.unical.it/didattica/iscriversi-studiare-laurearsi/modulistica-studenti/",
+    "structure": {
+      "id": 27,
+      "name": "DiSU"
+    }
+  },
+  {
+    "ticket_category_id": 331,
+    "title": "Richiesta di ausili didattico-tecnologici per studenti con disabilità/DSA",
+    "description": "Richiesta di ausili didattico-tecnologici per studenti con disabilità/DSA",
+    "structure": {
+      "id": 36,
+      "name": "Servizio studenti con disabilità DSA e BES"
+    }
+  },
+  {
+    "ticket_category_id": 333,
+    "title": "RICHIESTA DI AVVIO TIROCINIO Ing. per l'Ambiente e il Territorio",
+    "description": "RICHIESTA DI AVVIO TIROCINIO Ing. per l'Ambiente e il Territorio",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 334,
+    "title": "RICHIESTA DI AVVIO TIROCINIO Tecnologie del Mare e dell'Ambiente",
+    "description": "RICHIESTA DI AVVIO TIROCINIO Tecnologie del Mare e dell'Ambiente",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 337,
+    "title": "Richiesta di cambio manifesto",
+    "description": "Richiesta di cambio manifesto",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 338,
+    "title": "Richiesta di certificato",
+    "description": "Richiesta di certificato",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 346,
+    "title": "Richiesta di informazioni/supporto per studenti",
+    "description": "Richiesta di informazioni/supporto per studenti",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 352,
+    "title": "Richiesta di modifica dati anagrafici su ESSE3",
+    "description": "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 358,
+    "title": "Richiesta di registrazione del Tirocinio svolto in Dipartimento (Informatica)",
+    "description": "Richiesta di registrazione del Tirocinio svolto in Dipartimento dagli studenti di Informatica del DeMaCS",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 359,
+    "title": "Richiesta di Riassegnazione Tutor – A.A. 2026/2027",
+    "description": "La presente richiesta di riassegnazione del tutor per l'Anno Accademico 2026/2027 è esclusivamente riservata a studenti e studentesse che hanno già partecipato e frequentato le attività di tutorato nel corso dell'Anno Accademico 2025/2026.",
+    "structure": {
+      "id": 36,
+      "name": "Servizio studenti con disabilità DSA e BES"
+    }
+  },
+  {
+    "ticket_category_id": 361,
+    "title": "Richiesta di riconoscimento di attività extra o para-universitarie (corso di Laurea in Informatica Triennale e Magistrale)",
+    "description": "Richiesta di riconoscimento di attività extra o para-universitarie",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 365,
+    "title": "Richiesta di supporto tecnico per utenti istituzionali (Proxy, banche dati, pubblicazioni in Open Access...)",
+    "description": "Con il seguente modulo si richiede il supporto tecnico per problematiche relative a tutti i servizi della biblioteca digitale (es. Proxy, banche dati, pubblicazioni in Open Access)",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 374,
+    "title": "Richiesta Diploma Supplement",
+    "description": "Richiesta rilascio Diploma Supplement",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 377,
+    "title": "Richiesta Elaborato  Finale Tecnologie del Mare e della Navigazione",
+    "description": "Richiesta Elaborato  Finale Tecnologie del Mare e della Navigazione",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 378,
+    "title": "Richiesta Elaborato Finale (Studenti Triennale)",
+    "description": "Autorizzazione allo svolgimento dell'elaborato finale",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 380,
+    "title": "Richiesta esonero dalla frequenza delle lezioni",
+    "description": "Richiesta esonero dalla frequenza delle lezioni",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 382,
+    "title": "Richiesta Generica",
+    "description": "Richiesta Generica",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 383,
+    "title": "Richiesta inserimento attività formative aggiuntive",
+    "description": "Richiesta inserimento attività formative aggiuntive",
+    "structure": {
+      "id": 26,
+      "name": "DiSPeS"
+    }
+  },
+  {
+    "ticket_category_id": 386,
+    "title": "RIchiesta licenza software STATA/SE 19 Win/Mac",
+    "description": "",
+    "structure": {
+      "id": 12,
+      "name": "DESF"
+    }
+  },
+  {
+    "ticket_category_id": 387,
+    "title": "Richiesta licenza software Stata/SE 19 Windows/MAC",
+    "description": "",
+    "structure": {
+      "id": 25,
+      "name": "DiScAG"
+    }
+  },
+  {
+    "ticket_category_id": 388,
+    "title": "Richiesta liquidazione rata Master tramite Carta del Docente",
+    "description": "Con la presente è possibile richiedere la liquidazione delle rate di un Master attraverso la Carta del docente",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 389,
+    "title": "Richiesta Manutenzione",
+    "description": "Attreverso l'attivazione di questa richiesta l'utente segnala una problematica da ripristinare riguardante la struttura, il laboratorio, l'aula o quanto altro",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 390,
+    "title": "Richiesta missione",
+    "description": "Inserire qui eventuali note sulla richiesta di missione",
+    "structure": {
+      "id": 18,
+      "name": "DIMES"
+    }
+  },
+  {
+    "ticket_category_id": 392,
+    "title": "Richiesta per il rilascio di certificazione di carriera universitaria",
+    "description": "Richiesta per il rilascio di certificazione di carriera universitaria",
+    "structure": {
+      "id": 26,
+      "name": "DiSPeS"
+    }
+  },
+  {
+    "ticket_category_id": 397,
+    "title": "Richiesta recupero lezioni per gravi e comprovati motivi di salute - Semestre aperto 2026/27",
+    "description": "",
+    "structure": {
+      "id": 13,
+      "name": "DFSSN"
+    }
+  },
+  {
+    "ticket_category_id": 400,
+    "title": "Richiesta revisione preventiva del tutor per approvazione materiali d’esame da parte del docente",
+    "description": "Richiesta per sottoporre tabelle, formulari e mappe concettuali al tutor di riferimento per una revisione preventiva, prima che il materiale venga inviato al docente del Corso per l’approvazione finale. L’obiettivo è garantire che i materiali didattici proposti siano corretti, pertinenti e conformi alle linee guida",
+    "structure": {
+      "id": 36,
+      "name": "Servizio studenti con disabilità DSA e BES"
+    }
+  },
+  {
+    "ticket_category_id": 403,
+    "title": "Richiesta riconoscimento titolo di studio conseguito all'estero",
+    "description": "Richiesta riconoscimento titolo di studio conseguito all'estero",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 404,
+    "title": "Richiesta Rilascio Certificato",
+    "description": "Richiesta Rilascio Certificato - Bollo assolto virtualmente ai sensi dell'art. 6 D.M. 17 giugno 2014",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 405,
+    "title": "Richiesta rilascio certificato/pergamena Master/CAF",
+    "description": "Richiesta rilascio certificato/pergamena",
+    "structure": {
+      "id": 2,
+      "name": "Area Offerta Formativa"
+    }
+  },
+  {
+    "ticket_category_id": 409,
+    "title": "Richiesta rimborso spese missione",
+    "description": "Richiesta rimborso spese missione",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 410,
+    "title": "Richiesta Semestre Aggiuntivo",
+    "description": "Richiesta semestre aggiuntivo per gli iscritti ai corsi di studio che accedono, contemporaneamente, agli insegnamenti dei percorsi formativi FIT (24 CFU)",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 416,
+    "title": "Richiesta supporti prove d'ammissione",
+    "description": "Richiesta supporti prove d'ammissione",
+    "structure": {
+      "id": 36,
+      "name": "Servizio studenti con disabilità DSA e BES"
+    }
+  },
+  {
+    "ticket_category_id": 418,
+    "title": "Richiesta tesi di laurea (Studenti Magistrale)",
+    "description": "Autorizzazione allo svolgimento della tesi di laurea",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 419,
+    "title": "Richiesta Tesi di Laurea MATEMATICA",
+    "description": "Richiesta di assegnazione Tesi di Laurea per gli studenti dei Corsi di Laurea Triennale e Magistrale in MATEMATICA",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 420,
+    "title": "Richiesta Tesi di Laurea SFP",
+    "description": "Richiesta della Tesi di Laurea per gli studenti del Corso di Laurea Magistrale a ciclo unico in Scienze della Formazione Primaria",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 422,
+    "title": "Richiesta Tutor per attività di supporto metodologico allo studio individuale studenti con disabilità",
+    "description": "Richiesta Tutor per attività di supporto metodologico allo studio individuale",
+    "structure": {
+      "id": 36,
+      "name": "Servizio studenti con disabilità DSA e BES"
+    }
+  },
+  {
+    "ticket_category_id": 423,
+    "title": "Richiesta Tutor per attività di supporto metodologico allo studio individuale studenti con DSA",
+    "description": "Richiesta Tutor per attività di supporto metodologico allo studio individuale",
+    "structure": {
+      "id": 36,
+      "name": "Servizio studenti con disabilità DSA e BES"
+    }
+  },
+  {
+    "ticket_category_id": 424,
+    "title": "Richiesta valutazione e diagnosi per sospetto DSA",
+    "description": "Richiesta valutazione e diagnosi per sospetto DSA",
+    "structure": {
+      "id": 36,
+      "name": "Servizio studenti con disabilità DSA e BES"
+    }
+  },
+  {
+    "ticket_category_id": 425,
+    "title": "Richiesta Variazione Erasmus Studio",
+    "description": "Richiesta Variazione Erasmus Studio",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 426,
+    "title": "Richiesta Variazione Erasmus Traineeship",
+    "description": "Richiesta Variazione Erasmus Traineeship",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 431,
+    "title": "Richieste URP",
+    "description": "",
+    "structure": {
+      "id": 43,
+      "name": "Ufficio Relazioni con il Pubblico (URP)"
+    }
+  },
+  {
+    "ticket_category_id": 436,
+    "title": "Rientro da sospensione",
+    "description": "Richiesta ripresa studi.\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 437,
+    "title": "Rilascio Badge Magnetico Studenti in Tesi o Tirocinio",
+    "description": "Richiesta di Rilascio di Badge Magnetico per l'accesso ai Locali del Dipartimento per Studenti che hanno richiesto l'assegnazione della Tesi o del Tirocinio",
+    "structure": {
+      "id": 29,
+      "name": "Fisica"
+    }
+  },
+  {
+    "ticket_category_id": 439,
+    "title": "Rimborso spese di missione",
+    "description": "RICHIESTA di rimborso spese di missione",
+    "structure": {
+      "id": 16,
+      "name": "DiCES"
+    }
+  },
+  {
+    "ticket_category_id": 440,
+    "title": "Rimborso Spese Fondo Economale",
+    "description": "Attraverso l'utilizzo del modulo si richiede il Rimborso Spese a mezzo Fondo Economale",
+    "structure": {
+      "id": 14,
+      "name": "DIAm"
+    }
+  },
+  {
+    "ticket_category_id": 441,
+    "title": "Rinuncia /sospensione - percorso sostegno o 30/36/60cfu",
+    "description": "Rinuncia /sospensione - percorso sostegno o 30/36/60cfu",
+    "structure": {
+      "id": 3,
+      "name": "Area post laurea - Settore Formazione insegnanti ed esami di stato"
+    }
+  },
+  {
+    "ticket_category_id": 442,
+    "title": "Rinuncia incarichi di docenza",
+    "description": "Rinuncia incarichi di docenza per attività formative a.a. 2025/26",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 443,
+    "title": "Rinuncia incarico riguardante attività di tutorato, nonché attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)",
+    "description": "Rinuncia incarico riguardante attività di tutorato, nonché attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)",
+    "structure": {
+      "id": 18,
+      "name": "DIMES"
+    }
+  },
+  {
+    "ticket_category_id": 444,
+    "title": "Rinuncia incarico riguardante attività di tutorato, nonché attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)",
+    "description": "",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 446,
+    "title": "S1 - Problemi accesso account Office365 (Teams) - account  @studenti.unical.it e @servizimicrosoft.unical.it",
+    "description": "Descrivi qui il problema riscontrato ...",
+    "structure": {
+      "id": 5,
+      "name": "Area Servizi Informatici e Tecnologici"
+    }
+  },
+  {
+    "ticket_category_id": 450,
+    "title": "Scuola Superiore di Scienze delle Amministrazione Pubbliche - Servizio consegna tesi",
+    "description": "Procedura telematica prenotazione e consegna elaborato finale seduta del XX XXXX 2023, per i Master di II livello della Scuola Superiore di Scienze delle Pubbliche Amministrazioni.",
+    "structure": {
+      "id": 39,
+      "name": "SSSAP - Scuola Superiore di Scienze delle Amministrazioni Pubbliche"
+    }
+  },
+  {
+    "ticket_category_id": 451,
+    "title": "Segnalazione barriera architettoniche",
+    "description": "Segnalazione barriera architettonica che impedisce e/o ostacola l’accesso ad una struttura dell’Ateneo",
+    "structure": {
+      "id": 36,
+      "name": "Servizio studenti con disabilità DSA e BES"
+    }
+  },
+  {
+    "ticket_category_id": 452,
+    "title": "Segnalazione criticità salute e sicurezza",
+    "description": "Modulo da sottoporre all'attenzione degli RLS per segnalare situazioni di pericolo, suggerimenti di prevenzione o carenze nei dispositivi di protezione.",
+    "structure": {
+      "id": 32,
+      "name": "Rappresentanti dei Lavoratori per la Sicurezza"
+    }
+  },
+  {
+    "ticket_category_id": 453,
+    "title": "Segnalazione Unical SIM",
+    "description": "Richiesta di supporto",
+    "structure": {
+      "id": 45,
+      "name": "Unical vs Covid19"
+    }
+  },
+  {
+    "ticket_category_id": 454,
+    "title": "Segnalazioni e Reclami / Complaints - CdS DESF",
+    "description": "Il seguente modulo è riservato agli studenti e alle studentesse iscritti/e ai CdS del DESF che intendono inoltrare segnalazioni e reclami.\r\nThe following form is reserved for students enrolled in DESF courses who wish to submit complaints.",
+    "structure": {
+      "id": 12,
+      "name": "DESF"
+    }
+  },
+  {
+    "ticket_category_id": 455,
+    "title": "Servizio di Trasporto e accompagnamento studenti con disabilità",
+    "description": "Richiesta per Servizio di Trasporto e accompagnamento studenti con disabilità",
+    "structure": {
+      "id": 36,
+      "name": "Servizio studenti con disabilità DSA e BES"
+    }
+  },
+  {
+    "ticket_category_id": 473,
+    "title": "Sistemi Informativi – Segnalazione problema informatico Borsa di studio e Alloggi",
+    "description": "Modulo di segnalazione problema informatico relativo a Borse di studio e Alloggi",
+    "structure": {
+      "id": 8,
+      "name": "Centro Residenziale"
+    }
+  },
+  {
+    "ticket_category_id": 474,
+    "title": "Sistemi Informativi – Segnalazione problema informatico Domanda Servizio Foresteria",
+    "description": "Modulo di segnalazione problema informatico relativo alla domanda per il servizio foresteria",
+    "structure": {
+      "id": 8,
+      "name": "Centro Residenziale"
+    }
+  },
+  {
+    "ticket_category_id": 475,
+    "title": "Sistemi Informativi – Segnalazione problema informatico Servizio Mensa",
+    "description": "Modulo di segnalazione problema informatico riscontrato per il servizio mensa",
+    "structure": {
+      "id": 8,
+      "name": "Centro Residenziale"
+    }
+  },
+  {
+    "ticket_category_id": 476,
+    "title": "Sistemi Informativi – Segnalazione problema informatico sito o app",
+    "description": "Modulo di segnalazione problema informatico riscontrato sul sito soscr.unical.it o sull'app Unical Life",
+    "structure": {
+      "id": 8,
+      "name": "Centro Residenziale"
+    }
+  },
+  {
+    "ticket_category_id": 477,
+    "title": "Sospensione temporanea degli studi",
+    "description": "Può essere richiesta per effettuare l’iscrizione a percorsi incompatibili con la carriera universitaria:\r\n- Scuola di specializzazione\r\n- Scuola militare (durata 3 anni) \r\n- Accademia militare (durata 5 anni)\r\n- Dottorato di ricerca\r\n- Master\r\nOppure per:\r\n- Nascita o adozione figli\r\n- Infermità grave e prolungata\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 479,
+    "title": "SRS -  Richiesta Abilitazione Servizi",
+    "description": "Questo modulo permette di richiedere l'accesso dall'esterno ai servizi informatici erogati dall'università della Calabria",
+    "structure": {
+      "id": 5,
+      "name": "Area Servizi Informatici e Tecnologici"
+    }
+  },
+  {
+    "ticket_category_id": 480,
+    "title": "SRS - Assistenza servizio Wi-Fi del Centro Residenziale",
+    "description": "SRS - Assistenza tecnica relativa al servizio Wi-Fi del Centro Residenziale",
+    "structure": {
+      "id": 5,
+      "name": "Area Servizi Informatici e Tecnologici"
+    }
+  },
+  {
+    "ticket_category_id": 483,
+    "title": "SRS - Registrazione DNS",
+    "description": "Utilizzando questo modulo è possibile richiedere la registrazione di un dominio unical.it, di un sottodominio dipartimento.unical.it, di un sito unical.it o di un mail host",
+    "structure": {
+      "id": 5,
+      "name": "Area Servizi Informatici e Tecnologici"
+    }
+  },
+  {
+    "ticket_category_id": 487,
+    "title": "SRS - Segnalazione problemi della rete wifi di Ateneo",
+    "description": "Segnalazione problemi della rete wifi negli uffici, aule, laboratori e altri spazi comuni del Campus",
+    "structure": {
+      "id": 5,
+      "name": "Area Servizi Informatici e Tecnologici"
+    }
+  },
+  {
+    "ticket_category_id": 489,
+    "title": "SRS - Telefonia - Richiesta trasloco",
+    "description": "Trasloco Linea Telefonica",
+    "structure": {
+      "id": 5,
+      "name": "Area Servizi Informatici e Tecnologici"
+    }
+  },
+  {
+    "ticket_category_id": 494,
+    "title": "Studente indipendente",
+    "description": "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 495,
+    "title": "Sussidi a studenti meritevoli ed in momentaneo stato di bisogno",
+    "description": "Lo studente che si trova in condizioni di dichiarato stato di bisogno, a causa del verificarsi di gravi eventi personali o riguardanti il proprio nucleo familiare, tali da compromettere la prosecuzione degli studi, può richiedere la concessione di un sussidio straordinario, fermo restando il possesso dei requisiti economici e di merito previsti. Per maggiori informazioni consultare il link https://www.unical.it/didattica/diritto-allo-studio/altri-benefici/sussidi/",
+    "structure": {
+      "id": 8,
+      "name": "Centro Residenziale"
+    }
+  },
+  {
+    "ticket_category_id": 497,
+    "title": "Svolgimento Attività di studio all'estero",
+    "description": "Svolgimento Attività di studio all'estero",
+    "structure": {
+      "id": 11,
+      "name": "DeMaCS"
+    }
+  },
+  {
+    "ticket_category_id": 498,
+    "title": "Svolgimento Attività di studio all'estero",
+    "description": "Svolgimento Attività di studio all'estero",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 500,
+    "title": "TAR - Chiedi al Bibliotecario",
+    "description": "Come possiamo aiutarti? Inserisci il tuo quesito in questo spazio",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 501,
+    "title": "TAR - Prenotazione dell'Assistenza bibliografica personalizzata per le risorse online",
+    "description": "Stai prenotando il servizio di assistenza bibliografica per le risorse online. Sarai contattato da un bibliotecario per concordare data e orario.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 502,
+    "title": "TAR - Proposta di acquisto libri",
+    "description": "La Biblioteca di scienze economiche e sociali \"E. Tarantelli\" fornisce agli utenti istituzionali (docenti, ricercatori, assegnisti) la possibilità di richiedere l'acquisto di libri, previo parere del comitato tecnico Scientifico.\r\nLe proposte saranno esaminate dal CTS ogni 3 mesi.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 503,
+    "title": "TAR - Richiedi Tessera Utente",
+    "description": "Si richiede il rilascio della tessera utente della Biblioteca di scienze economiche e sociali \"E. Tarantelli\".",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 504,
+    "title": "TAR - Richiesta di accesso a tirocini presso la Biblioteca \"E. Tarantelli\"",
+    "description": "Sono richieste alcune informazioni preliminari di accesso ai tirocini presso la Biblioteca \"E. Tarantelli\"",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 505,
+    "title": "TAR - Richiesta di accesso alla banca dati Bloomberg Terminal",
+    "description": "Bloomberg T. ‎‎fornisce dati in tempo reale su ogni mercato, ultime notizie, ricerche approfondite, potenti analisi, strumenti di comunicazione in un'unica soluzione completamente integrata.‎\r\nCon questo modulo si chiede l'accesso alla postazione allocata al 2° piano torre della Biblioteca \"E.Tarantelli\". \r\nE' consultabile esclusivamente da docenti, ricercatori, dottorandi e tesisti. \r\nSolo al 1° accesso l’utente deve registrarsi assistito dal personale preposto.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 506,
+    "title": "TAR - Richiesta di consultazione di CD-ROM - Banche dati in locale - DVD - Microfilm",
+    "description": "Questo modulo serve per prenotare la consultazione di CD-ROM - Banche dati in locale - DVD - Microfilm, collocati presso la Biblioteca \"E. Tarantelli\" dell’Unical.\r\nSarete contattati per fissare un appuntamento.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 507,
+    "title": "TAR - Richiesta di consultazione di Tesi di laurea",
+    "description": "Questo modulo serve per prenotare la consultazione delle tesi di laurea, collocate presso la Biblioteca \"E. Tarantelli\" dell’Unical.\r\nSarete contattati per fissare un appuntamento.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 508,
+    "title": "TAR - Richiesta di Document Delivery (Articoli di riviste)",
+    "description": "La Biblioteca di S.E.S. \"E.Tarantelli\" fornisce ai suoi utenti istituzionali, tramite il servizio di Document Delivery, la possibilità di avere copie di documenti non posseduti dalla biblioteca (articoli, parti di atti, ecc.). In particolare, il servizio Document Delivery (DD), dietro formale richiesta, fornisce copie di documenti (per lo più articoli di periodici, ma non solo) recuperati da altre biblioteche nazionali ed estere o in banche dati bibliografiche.",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 509,
+    "title": "TAR - Richiesta Libri in Prestito Interbibliotecario (ILL request)",
+    "description": "La Biblioteca di S.E.S. \"E.Tarantelli\" fornisce ai suoi utenti istituzionali, tramite il servizio di prestito interbibliotecario, la possibilità di consultare documenti non posseduti dalla biblioteca. In particolare, il servizio di prestito interbibliotecario (ILL = InterLibrary Loan) fornisce il prestito, in ambito nazionale o estero, di un documento appartenente ad altra biblioteca, dietro formale richiesta\r\nPer il servizio si pagano le spese postali e le eventuali commissioni richieste",
+    "structure": {
+      "id": 37,
+      "name": "Sistema Bibliotecario - Servizio Automazione Biblioteche"
+    }
+  },
+  {
+    "ticket_category_id": 514,
+    "title": "TSP - Richiesta assistenza software per la gestione tirocini (personale Unical)",
+    "description": "Inserisci la descrizione della richiesta di supporto.............",
+    "structure": {
+      "id": 5,
+      "name": "Area Servizi Informatici e Tecnologici"
+    }
+  },
+  {
+    "ticket_category_id": 516,
+    "title": "UID1 - Richiesta Registrazione ServiceProvider SAML2",
+    "description": "Richiesta Registrazione ServiceProvider SAML2",
+    "structure": {
+      "id": 5,
+      "name": "Area Servizi Informatici e Tecnologici"
+    }
+  },
+  {
+    "ticket_category_id": 517,
+    "title": "Unicontr - Assistenza problemi tecnici",
+    "description": "Richieste di assistenza per l'accesso al sistema, anomalie nel caricamento documenti, altri malfunzionamenti informatici",
+    "structure": {
+      "id": 24,
+      "name": "Direzione Risorse Umane"
+    }
+  },
+  {
+    "ticket_category_id": 518,
+    "title": "Unicontr - Supporto nella compilazione",
+    "description": "Richiesta di chiarimenti nella compilazione della modulistica pre-contrattuale",
+    "structure": {
+      "id": 24,
+      "name": "Direzione Risorse Umane"
+    }
+  },
+  {
+    "ticket_category_id": 519,
+    "title": "Utilizzo Droni",
+    "description": "",
+    "structure": {
+      "id": 19,
+      "name": "DInCi"
+    }
+  },
+  {
+    "ticket_category_id": 522,
+    "title": "V3 - Richiesta credenziali per Utenti ospiti (guest.unical.it)",
+    "description": "Richiesta di accessi wireless e wired mediante il servizio https://guest.unical.it",
+    "structure": {
+      "id": 5,
+      "name": "Area Servizi Informatici e Tecnologici"
+    }
+  },
+  {
+    "ticket_category_id": 524,
+    "title": "Variazione attività di studio all'estero",
+    "description": "Variazione attività di studio all'estero",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 525,
+    "title": "Variazione Richiesta tesi",
+    "description": "Variazione Richiesta tesi",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 526,
+    "title": "Verifica tassa pergamena di laurea",
+    "description": "Modulo riservato ai laureati prima del 2010 - SOLO pergamene di laurea (no post laurea)\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "structure": {
+      "id": 34,
+      "name": "Servizi Didattici"
+    }
+  },
+  {
+    "ticket_category_id": 527,
+    "title": "Visiting Professor in Entrata",
+    "description": "Visiting Professor in entrata",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 528,
+    "title": "Visiting Professor in Uscita",
+    "description": "Visiting Professor in Uscita",
+    "structure": {
+      "id": 15,
+      "name": "DiBEST"
+    }
+  },
+  {
+    "ticket_category_id": 529,
+    "title": "W1 - Segnalazioni sul funzionamento di uniTicket",
+    "description": "Segnalazione di malfunzionamenti o di proposte di miglioramento della piattaforma uniTicket",
+    "structure": {
+      "id": 5,
+      "name": "Area Servizi Informatici e Tecnologici"
+    }
+  }
+]

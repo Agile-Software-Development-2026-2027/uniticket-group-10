@@ -44,7 +44,7 @@ uv run python dataset/generation/generate_queries.py
 ## Generare query per tutti i ticket
 
 ```bash
-uv run python dataset/generate_dataset.py dataset.json \
+uv run python dataset/generate_dataset.py tickets.json \
   --output evaluation_dataset_nuovo.json \
   --parallel 2
 ```

@@ -70,7 +70,7 @@ class BM25(Prototype):
 
 
 def main():
-    tickets = json.loads(Path("dataset.json").read_text(encoding="utf-8"))
+    tickets = json.loads(Path("tickets.json").read_text(encoding="utf-8"))
     bm25 = BM25(tickets)
     titles = {ticket.ticket_category_id: ticket.title for ticket in bm25.tickets}
     while True:

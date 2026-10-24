@@ -2,6 +2,9 @@
 - Generare un nuovo dataset che comprenda i campi del form e una descrizione testuale per ogni ticket.
 - Generare una descrizione testuale per ogni ticket in modo che possiamo valutare un nuovo prototipo.
 
+## Disclaimer
+Prevalentemente vibe coded questa parte... tanto è un prototipo.
+
 # Generazione del dataset di valutazione
 
 Questa cartella contiene gli strumenti per generare query realistiche a partire

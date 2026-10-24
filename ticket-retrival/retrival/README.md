@@ -198,15 +198,6 @@ hybrid = Hybrid(tickets, alpha=0.7, candidate_k=15)
 results = hybrid.search(query, k=5)
 ```
 
-Hybrid costruisce internamente Dense e BM25 sullo stesso catalogo. Per configurarli
-puoi passare `dense_kwargs` e `bm25_kwargs`, anche tramite la CLI:
-
-```bash
-uv run python benchmark.py --prototype retrival/prototypes/hybrid.py \
-  --alpha 0.7 --candidate-k 15 \
-  --dense-kwargs '{"device":"cpu"}' --bm25-kwargs '{"k1":1.2}'
-```
-
 Hybrid recupera
 `max(k, candidate_k)` risultati da Dense e chiama
 `BM25.search_within()` solo su questi. La fusione usa:
@@ -215,10 +206,4 @@ Hybrid recupera
 score = alpha * dense_score + (1 - alpha) * bm25_score
 ```
 
-Con `alpha=0.7` i pesi sono 70% Dense e 30% BM25. Anche con `alpha=0` i risultati
-restano limitati ai candidati di Dense. Aumentare `candidate_k` permette a BM25 di
-considerare più ticket; non può recuperare quelli esclusi da Dense.
-
-Per confrontare configurazioni, usare le stesse query di valutazione e variare
-testo dei documenti, modello, parametri BM25, `alpha` o `candidate_k`. Gli esempi
-aggiunti ai documenti devono essere separati dalle query usate per valutare.
+Con `alpha=0.7` i pesi sono 70% Dense e 30% BM25.

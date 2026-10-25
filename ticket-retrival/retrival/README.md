@@ -3,6 +3,63 @@
 L'obiettivo è avere un'interfaccia condivisa, `Prototype` in `base.py`, per poter
 eseguire gli stessi benchmark sui vari prototipi.
 
+**Nota bene:** non è ancora stato fatto praticamente nulla, quindi se stai leggendo questo e vuoi lavorare ai prototipi, sentiti libero di farlo.
+
+## Note su quello che ho fatto...
+I prototipi attualmente implementati (male) sono stati realizzati in modo abbastanza sperimentale, giusto per capirne rapidamente il funzionamento.
+Il metodo che ho utilizzato inizialmente genera un unico embedding a partire dalla concatenazione del titolo e della descrizione del ticket.
+
+Gemini mi segnala che l' approccio potrebbe presentare alcune limitazioni:
+
+> [!WARNING]
+> **Informazioni irrilevanti** 
+>
+> Il titolo e la descrizione possono contenere informazioni amministrative, dettagli procedurali o altri elementi non direttamente collegati all'intento dell'utente.
+>
+> Queste informazioni potrebbero introdurre rumore semantico e influenzare la rappresentazione vettoriale, rendendo più difficile identificare il ticket effettivamente richiesto.
+>
+> Potrebbe c'entrare qualcosa riguardo la Self-Attention, ma ne so poco in merito... bisognerebbe approfondire
+
+> [!WARNING]
+> **Diluizione semantica**
+>
+> Un embedding rappresenta un testo attraverso un vettore di dimensione fissa (ad esempio 768, 1024 o 1536 dimensioni). C'è un limite fisico a quanto significato può essere compresso in quel singolo vettore
+>
+> Quando il testo contiene molte informazioni o concetti differenti, un unico vettore potrebbe non riuscire a rappresentarli tutti con la stessa precisione.
+>
+> Ad esempio, se una descrizione contiene 300 parole ma l'informazione rilevante è concentrata in poche parole, come *"stampante non accesa"*, il relativo significato potrebbe essere meno evidente nell'embedding complessivo.
+> 
+> Questo però non so se vale con ogni modello di embeddings, bisognerebbe studiare questo.
+
+Approcci da provare
+- Per ogni ticket, generiamo degli "intenti", ogni intento sarà un embedding associato a quel ticket.
+
+## Ricetta per creare un prototipo
+
+1. **Implementa il metodo `search`** definito nell'interfaccia condivisa `Prototype`, rispettando il formato di input e output previsto.
+2. **Scegli e sperimenta un approccio** di retrieval.
+3. **Esegui il benchmark** per valutare le prestazioni del prototipo e confrontarle con quelle degli altri.
+
+> [!IMPORTANT]
+> **Se scegli di utilizzare gli embedding**, verifica come generare correttamente quelli dei documenti e delle query.
+>
+> Ogni modello potrebbe richiedere convenzioni differenti, ad esempio prefissi come `query:` e `passage:`, oppure istruzioni specifiche (*instruct*). Consulta sempre la documentazione del modello scelto, perché il formato utilizzato può influenzare significativamente i risultati.
+
+> [!TIP]
+> **Puoi anche combinare più approcci!**
+>
+> Ad esempio, il prototipo *Hybrid* combina la ricerca tramite embedding con BM25.
+>
+> Potresti sperimentare combinazioni simili, come:
+> - **Embedding + JEV:** per combinare differenti strategie di retrieval.
+> - **Embedding + Reranker:** per riordinare i risultati iniziali utilizzando un modello più preciso.
+> - **BM25 + Embedding + Reranker:** per sfruttare sia la ricerca lessicale sia quella semantica, seguite da una fase di reranking.
+>
+> Non è necessario inventare un approccio completamente nuovo: puoi partire dai prototipi esistenti, combinarli e provare a migliorarne le prestazioni.
+
+> [!NOTE]
+> L'obiettivo è **sperimentare e confrontare approcci differenti attraverso il benchmark**, non necessariamente realizzare subito la soluzione migliore.
+
 ## Interfaccia condivisa
 
 ```python
@@ -198,15 +255,6 @@ hybrid = Hybrid(tickets, alpha=0.7, candidate_k=15)
 results = hybrid.search(query, k=5)
 ```
 
-Hybrid costruisce internamente Dense e BM25 sullo stesso catalogo. Per configurarli
-puoi passare `dense_kwargs` e `bm25_kwargs`, anche tramite la CLI:
-
-```bash
-uv run python benchmark.py --prototype retrival/prototypes/hybrid.py \
-  --alpha 0.7 --candidate-k 15 \
-  --dense-kwargs '{"device":"cpu"}' --bm25-kwargs '{"k1":1.2}'
-```
-
 Hybrid recupera
 `max(k, candidate_k)` risultati da Dense e chiama
 `BM25.search_within()` solo su questi. La fusione usa:
@@ -215,10 +263,4 @@ Hybrid recupera
 score = alpha * dense_score + (1 - alpha) * bm25_score
 ```
 
-Con `alpha=0.7` i pesi sono 70% Dense e 30% BM25. Anche con `alpha=0` i risultati
-restano limitati ai candidati di Dense. Aumentare `candidate_k` permette a BM25 di
-considerare più ticket; non può recuperare quelli esclusi da Dense.
-
-Per confrontare configurazioni, usare le stesse query di valutazione e variare
-testo dei documenti, modello, parametri BM25, `alpha` o `candidate_k`. Gli esempi
-aggiunti ai documenti devono essere separati dalle query usate per valutare.
+Con `alpha=0.7` i pesi sono 70% Dense e 30% BM25.

@@ -1,0 +1,4170 @@
+{
+  "parentesi_corrette": [
+    {
+      "path": "allTicketsFlat[6].fields[11].options[39].label",
+      "prima": "\"0782 - CONSERVAZIONE E RESTAURO DEI BENI CULTURALI (ABILITANTE AI SENSI DEL D.LGS N.42/2004) 27008305 - RILIEVO\r\n3D E DOCUMENTAZIONE GRAFICA PER IL RESTAURO (ESE) ore:36 Primo Semestre\"",
+      "dopo": "\"0782 - CONSERVAZIONE E RESTAURO DEI BENI CULTURALI (ABILITANTE AI SENSI DEL D.LGS N.42/2004) 27008305 - RILIEVO 3D E DOCUMENTAZIONE GRAFICA PER IL RESTAURO (ESE) ore:36 Primo Semestre\""
+    },
+    {
+      "path": "allTicketsFlat[6].fields[11].options[46].label",
+      "prima": "\"0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009055 -\r\nFondamenti e applicazioni di sistemi di propulsione navale (ESE) ore:21 Secondo Semestre\"",
+      "dopo": "\"0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009055 - Fondamenti e applicazioni di sistemi di propulsione navale (ESE) ore:21 Secondo Semestre\""
+    },
+    {
+      "path": "allTicketsFlat[6].fields[12].options[2].label",
+      "prima": "di NON essere iscritto alla gestione separata INPS perché lavoratore autonomo la cui attività oggetto di incarico è strettamente connessa all’attività di lavoro autonomo esercitata abitualmente (in tal caso il docente-professionista sarà obbligato, in quanto titolare di partita IVA, ad emettere regolare fattura)",
+      "dopo": "di NON essere iscritto alla gestione separata INPS perché lavoratore autonomo la cui attività oggetto di incarico è strettamente connessa all'attività di lavoro autonomo esercitata abitualmente (in tal caso il docente-professionista sarà obbligato, in quanto titolare di partita IVA, ad emettere regolare fattura)"
+    },
+    {
+      "path": "allTicketsFlat[7].fields[11].options[2].label",
+      "prima": "di NON essere iscritto alla gestione separata INPS perché lavoratore autonomo la cui attività oggetto di incarico è strettamente connessa all’attività di lavoro autonomo esercitata abitualmente (in tal caso il docente-professionista sarà obbligato, in quanto titolare di partita IVA, ad emettere regolare fattura)",
+      "dopo": "di NON essere iscritto alla gestione separata INPS perché lavoratore autonomo la cui attività oggetto di incarico è strettamente connessa all'attività di lavoro autonomo esercitata abitualmente (in tal caso il docente-professionista sarà obbligato, in quanto titolare di partita IVA, ad emettere regolare fattura)"
+    },
+    {
+      "path": "allTicketsFlat[8].fields[11].options[2].label",
+      "prima": "di NON essere iscritto alla gestione separata INPS perché lavoratore autonomo la cui attività oggetto di incarico è strettamente connessa all’attività di lavoro autonomo esercitata abitualmente (in tal caso il docente-professionista sarà obbligato, in quanto titolare di partita IVA, ad emettere regolare fattura)",
+      "dopo": "di NON essere iscritto alla gestione separata INPS perché lavoratore autonomo la cui attività oggetto di incarico è strettamente connessa all'attività di lavoro autonomo esercitata abitualmente (in tal caso il docente-professionista sarà obbligato, in quanto titolare di partita IVA, ad emettere regolare fattura)"
+    },
+    {
+      "path": "allTicketsFlat[46].fields[2].options[2].label",
+      "prima": "Istruzioni per l’uso del catalogo",
+      "dopo": "Istruzioni per l'uso del catalogo"
+    },
+    {
+      "path": "allTicketsFlat[46].fields[2].options[3].label",
+      "prima": "Istruzioni per l’uso delle banche dati bibliografiche",
+      "dopo": "Istruzioni per l'uso delle banche dati bibliografiche"
+    },
+    {
+      "path": "allTicketsFlat[51].fields[12].options[0].label",
+      "prima": "Dichiaro di conoscere e impegnarmi ad osservare, nel corso della eventuale consultazione del suddetto Fondo speciale,  la normativa vigente in materia di diritto d'autore e copyright  (L. 633/1941 e s.m.i., Direttiva CEE n. 2019/790/UE)",
+      "dopo": "Dichiaro di conoscere e impegnarmi ad osservare, nel corso della eventuale consultazione del suddetto Fondo speciale, la normativa vigente in materia di diritto d'autore e copyright (L. 633/1941 e s.m.i., Direttiva CEE n. 2019/790/UE)"
+    },
+    {
+      "path": "allTicketsFlat[71].fields[15].options[1].label",
+      "prima": "372478 - 27007946 - LABORATORIO DI RESTAURO 1 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 225 ORE - 9 CFU conferito con D.D. n. 242 del 28/05/2026  con compenso al netto degli oneri a carico dell'amministrazione di € 6120.00",
+      "dopo": "372478 - 27007946 - LABORATORIO DI RESTAURO 1 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 225 ORE - 9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6120.00"
+    },
+    {
+      "path": "allTicketsFlat[71].fields[15].options[2].label",
+      "prima": "347595 - 27007947 - LABORATORIO DI RESTAURO 2 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 250 ORE -10 CFU conferito con  D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6800.00",
+      "dopo": "347595 - 27007947 - LABORATORIO DI RESTAURO 2 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 250 ORE -10 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6800.00"
+    },
+    {
+      "path": "allTicketsFlat[73].fields[18].options[3].label",
+      "prima": "27009516 - NEUROSYMBOLIC AI 27009517 - FOUNDATIONS OF NEUROSYMBOLIC AI - SSD INF/01 - 2 Anno - Primo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE",
+      "dopo": "27009516 - NEUROSYMBOLIC AI 27009517 - FOUNDATIONS OF NEUROSYMBOLIC AI - SSD INF/01 - 2 Anno - Primo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE"
+    },
+    {
+      "path": "allTicketsFlat[73].fields[19].options[2].label",
+      "prima": "- di NON essere iscritto alla gestione separata INPS perché lavoratore autonomo la cui attività oggetto di incarico è strettamente connessa all’attività di lavoro autonomo esercitata abitualmente (in tal caso il docente-professionista sarà obbligato, in quanto titolare di partita IVA, ad emettere regolare fattura)",
+      "dopo": "- di NON essere iscritto alla gestione separata INPS perché lavoratore autonomo la cui attività oggetto di incarico è strettamente connessa all'attività di lavoro autonomo esercitata abitualmente (in tal caso il docente-professionista sarà obbligato, in quanto titolare di partita IVA, ad emettere regolare fattura)"
+    },
+    {
+      "path": "allTicketsFlat[78].fields[6].options[10].label",
+      "prima": "Masteri di II Livello in Tecnologie e metodi avanzati per l’individuazione e l’analisi di materie prime e seconde di uso industriale (La Russa-Costanzo)",
+      "dopo": "Masteri di II Livello in Tecnologie e metodi avanzati per l'individuazione e l'analisi di materie prime e seconde di uso industriale (La Russa-Costanzo)"
+    },
+    {
+      "path": "allTicketsFlat[138].fields[6].options[0].label",
+      "prima": "il conferimento\t di\t un\t incarico\t di\t collaborazione\t part-time,\t il\t cui\t compenso\t sarà\t utilizzato\t per\t\r\nl’estinzione,\tcompleta\to\tparziale,\tdel\tdebito",
+      "dopo": "il conferimento di un incarico di collaborazione part-time, il cui compenso sarà utilizzato per l'estinzione, completa o parziale, del debito"
+    },
+    {
+      "path": "allTicketsFlat[138].fields[6].options[1].label",
+      "prima": "l'esonero\tdal\tpagamento\tdi\tuna\tparte\tdei\tdebiti\tmaturati",
+      "dopo": "l'esonero dal pagamento di una parte dei debiti maturati"
+    },
+    {
+      "path": "allTicketsFlat[138].fields[6].options[2].label",
+      "prima": "la rateizzazione\tdi\tuna\tparte\tdei\tdebiti\tmaturati",
+      "dopo": "la rateizzazione di una parte dei debiti maturati"
+    },
+    {
+      "path": "allTicketsFlat[237].fields[7].options[4].label",
+      "prima": "Dipartimento di Ingegneria dell’Ambiente - (DIAm)",
+      "dopo": "Dipartimento di Ingegneria dell'Ambiente - (DIAm)"
+    },
+    {
+      "path": "allTicketsFlat[251].fields[24].options[0].label",
+      "prima": "Rimuseum + 1 sezione MuSNOB\t(½ giornata) - 80 €",
+      "dopo": "Rimuseum + 1 sezione MuSNOB (½ giornata) - 80 €"
+    },
+    {
+      "path": "allTicketsFlat[251].fields[24].options[4].label",
+      "prima": "MuSNOB 3 sezioni\t(giornata intera) - 100 €",
+      "dopo": "MuSNOB 3 sezioni (giornata intera) - 100 €"
+    },
+    {
+      "path": "allTicketsFlat[281].fields[2].options[4].label",
+      "prima": "Insignito del Premio “Alfieri del Lavoro”",
+      "dopo": "Insignito del Premio \"Alfieri del Lavoro\""
+    },
+    {
+      "path": "allTicketsFlat[281].fields[2].options[5].label",
+      "prima": "Vincitore di medaglia d’oro ai campionati sportivi universitari",
+      "dopo": "Vincitore di medaglia d'oro ai campionati sportivi universitari"
+    },
+    {
+      "path": "allTicketsFlat[281].fields[2].options[6].label",
+      "prima": "Vincitore delle fasi regionali delle Olimpiadi promosse e finanziate ovvero organizzate dalla “Direzione generale per gli ordinamenti scolastici” del MIUR riservate agli studenti delle Scuole superiori, svolte nell'anno di immatricolazione all'Università",
+      "dopo": "Vincitore delle fasi regionali delle Olimpiadi promosse e finanziate ovvero organizzate dalla \"Direzione generale per gli ordinamenti scolastici\" del MIUR riservate agli studenti delle Scuole superiori, svolte nell'anno di immatricolazione all'Università"
+    },
+    {
+      "path": "allTicketsFlat[290].fields[2].options[0].label",
+      "prima": "Visita alle strutture dell’Ateneo",
+      "dopo": "Visita alle strutture dell'Ateneo"
+    },
+    {
+      "path": "allTicketsFlat[316].fields[14].options[6].label",
+      "prima": "Iscrizione con esami e date\r\n Iscrizione corsi singoli con esami e date",
+      "dopo": "Iscrizione con esami e date Iscrizione corsi singoli con esami e date"
+    },
+    {
+      "path": "allTicketsFlat[389].fields[7].options[1].label",
+      "prima": "Aula DIAM B - Cubo 42B - 2 piano",
+      "dopo": "Aula DIAM B - Cubo 42B - 2 piano"
+    },
+    {
+      "path": "allTicketsFlat[389].fields[7].options[2].label",
+      "prima": "Aula DIAM C - Cubo 42B - 2 piano",
+      "dopo": "Aula DIAM C - Cubo 42B - 2 piano"
+    },
+    {
+      "path": "allTicketsFlat[389].fields[7].options[3].label",
+      "prima": "Aula DIAM D - Cubo 42B - 2 piano",
+      "dopo": "Aula DIAM D - Cubo 42B - 2 piano"
+    },
+    {
+      "path": "allTicketsFlat[389].fields[7].options[4].label",
+      "prima": "Aula DIAM E - Cubo 39C - piano terra",
+      "dopo": "Aula DIAM E - Cubo 39C - piano terra"
+    },
+    {
+      "path": "allTicketsFlat[389].fields[7].options[5].label",
+      "prima": "Aula DIAM F - Cubo 39C - 2 piano",
+      "dopo": "Aula DIAM F - Cubo 39C - 2 piano"
+    },
+    {
+      "path": "allTicketsFlat[389].fields[7].options[7].label",
+      "prima": "Aula DIAM H - Cubo 39C - 2 piano",
+      "dopo": "Aula DIAM H - Cubo 39C - 2 piano"
+    },
+    {
+      "path": "allTicketsFlat[389].fields[7].options[10].label",
+      "prima": "Aula informatica - Cubo 45A - piano terra",
+      "dopo": "Aula informatica - Cubo 45A - piano terra"
+    },
+    {
+      "path": "allTicketsFlat[440].fields[3].options[0].label",
+      "prima": "Spese postali e spese per l’acquisto di valori bollati",
+      "dopo": "Spese postali e spese per l'acquisto di valori bollati"
+    },
+    {
+      "path": "allTicketsFlat[440].fields[3].options[4].label",
+      "prima": "Spese per l’acquisto di pubblicazioni periodiche e simili per",
+      "dopo": "Spese per l'acquisto di pubblicazioni periodiche e simili per"
+    },
+    {
+      "path": "allTicketsFlat[440].fields[7].options[2].label",
+      "prima": "Ricevuta riportante la descrizione dell’acquisto e del pagamento",
+      "dopo": "Ricevuta riportante la descrizione dell'acquisto e del pagamento"
+    },
+    {
+      "path": "allTicketsFlat[487].fields[5].options[30].label",
+      "prima": "Dipartimento di Ingegneria dell’Ambiente - DIAm",
+      "dopo": "Dipartimento di Ingegneria dell'Ambiente - DIAm"
+    },
+    {
+      "path": "allTicketsFlat[489].fields[11].options[9].label",
+      "prima": "Direzione Affari generali e Attività Negoziale - Area Gare d’appalto",
+      "dopo": "Direzione Affari generali e Attività Negoziale - Area Gare d'appalto"
+    },
+    {
+      "path": "allTicketsFlat[489].fields[11].options[49].label",
+      "prima": "Sistema Bibliotecario d’Ateneo - Servizio Automazione biblioteche",
+      "dopo": "Sistema Bibliotecario d'Ateneo - Servizio Automazione biblioteche"
+    },
+    {
+      "path": "allTicketsFlat[489].fields[11].options[50].label",
+      "prima": "Sistema Bibliotecario d’Ateneo - Servizio Amministrativo-Logistico",
+      "dopo": "Sistema Bibliotecario d'Ateneo - Servizio Amministrativo-Logistico"
+    },
+    {
+      "path": "allTicketsFlat[489].fields[11].options[51].label",
+      "prima": "Sistema Bibliotecario d’Ateneo - Polo Economico-giuridico - Settore Risorse bibliografiche",
+      "dopo": "Sistema Bibliotecario d'Ateneo - Polo Economico-giuridico - Settore Risorse bibliografiche"
+    },
+    {
+      "path": "allTicketsFlat[489].fields[11].options[52].label",
+      "prima": "Sistema Bibliotecario d’Ateneo - Polo Economico-giuridico - Settore Servizi al pubblico",
+      "dopo": "Sistema Bibliotecario d'Ateneo - Polo Economico-giuridico - Settore Servizi al pubblico"
+    },
+    {
+      "path": "allTicketsFlat[489].fields[11].options[53].label",
+      "prima": "Sistema Bibliotecario d’Ateneo - Polo Umanistico - Settore Risorse bibliografiche",
+      "dopo": "Sistema Bibliotecario d'Ateneo - Polo Umanistico - Settore Risorse bibliografiche"
+    },
+    {
+      "path": "allTicketsFlat[489].fields[11].options[54].label",
+      "prima": "Sistema Bibliotecario d’Ateneo - Polo Umanistico - Settore Servizi al pubblico",
+      "dopo": "Sistema Bibliotecario d'Ateneo - Polo Umanistico - Settore Servizi al pubblico"
+    },
+    {
+      "path": "allTicketsFlat[489].fields[11].options[55].label",
+      "prima": "Sistema Bibliotecario d’Ateneo - Polo Scientifico - Settore Risorse bibliografiche",
+      "dopo": "Sistema Bibliotecario d'Ateneo - Polo Scientifico - Settore Risorse bibliografiche"
+    },
+    {
+      "path": "allTicketsFlat[489].fields[11].options[56].label",
+      "prima": "Sistema Bibliotecario d’Ateneo - Polo Scientifico - Settore Servizi al pubblico",
+      "dopo": "Sistema Bibliotecario d'Ateneo - Polo Scientifico - Settore Servizi al pubblico"
+    },
+    {
+      "path": "allTicketsFlat[495].fields[4].options[0].label",
+      "prima": "il conferimento di un incarico di collaborazione part-time, il cui compenso sarà utilizzato per l’estinzione, completa o parziale, del debito",
+      "dopo": "il conferimento di un incarico di collaborazione part-time, il cui compenso sarà utilizzato per l'estinzione, completa o parziale, del debito"
+    },
+    {
+      "path": "allTicketsFlat[495].fields[4].options[1].label",
+      "prima": "l’esonero dal pagamento di una parte dei debiti maturati",
+      "dopo": "l'esonero dal pagamento di una parte dei debiti maturati"
+    },
+    {
+      "path": "allTicketsFlat[237].fields[6].options[8].label",
+      "prima": "IELTS C2 (8.0-9.0",
+      "dopo": "IELTS C2 (8.0-9.0)"
+    },
+    {
+      "path": "allTicketsFlat[237].fields[6].options[9].label",
+      "prima": "Trinity College London ISE 1(B1)",
+      "dopo": "Trinity College London ISE 1 (B1)"
+    }
+  ],
+  "label_compattate": [
+    {
+      "path": "allTicketsFlat[237].fields[6].options[16].label",
+      "prima": "TOEFL PBT Paper-Based Test (PBT) A partire dal punteggio 513",
+      "dopo": "TOEFL PBT (≥513)"
+    }
+  ],
+  "duplicati_rimossi": [
+    {
+      "path": "allTicketsFlat[4].fields[12].options[16]",
+      "value": "ELEMENTI di ALGEBRA LINEARE per il CdL in INGEGNERIA CHIMICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[4].fields[12].options[17]",
+      "value": "ANALISI MATEMATICA II e ANALISI NUMERICA per il CdL in INGEGNERIA CHIMICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[4].fields[12].options[18]",
+      "value": "COMPLEMENTI DI CHIMICA per il CdL in INGEGNERIA CHIMICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[4].fields[12].options[19]",
+      "value": "FISICA Modulo 2: Elettricità e Magnetismo per il CdL in INGEGNERIA CHIMICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[4].fields[12].options[20]",
+      "value": "METODI MATEMATICI 1 per il CdL in INGEGNERIA ELETTRONICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[4].fields[12].options[21]",
+      "value": "FISICA I - Modulo 2: Elettricità e Magnetismo per il CdL in INGEGNERIA ELETTRONICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[4].fields[12].options[22]",
+      "value": "MATEMATICA NUMERICA per il CdL in INGEGNERIA ELETTRONICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[4].fields[12].options[23]",
+      "value": "ELETTROTECNICA per il CdL in INGEGNERIA ELETTRONICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[4].fields[12].options[24]",
+      "value": "FONDAMENTI DI INFORMATICA per il CdL in INGEGNERIA ELETTRONICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[4].fields[12].options[25]",
+      "value": "FISICA - MECCANICA ED ELEMENTI DI TERMODINAMICA - CORSO A per il CdL in INGEGNERIA INFORMATICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[4].fields[12].options[26]",
+      "value": "FONDAMENTI DI INFORMATICA II - CORSO A per il CdL in INGEGNERIA INFORMATICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[4].fields[12].options[27]",
+      "value": "FONDAMENTI DI INFORMATICA II - CORSO B per il CdL in INGEGNERIA INFORMATICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[4].fields[12].options[28]",
+      "value": "FISICA - MECCANICA ED ELEMENTI DI TERMODINAMICA - CORSO B per il CdL in INGEGNERIA INFORMATICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[4].fields[12].options[29]",
+      "value": "MATEMATICA E ALGEBRA LINEARE - Modulo 2: Algebra lineare per il CdL in INGEGNERIA INFORMATICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[4].fields[12].options[30]",
+      "value": "BIOLOGIA per il CdL in INGEGNERIA BIOMEDICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[4].fields[12].options[31]",
+      "value": "FONDAMENTI DI INFORMATICA per il CdL in INGEGNERIA BIOMEDICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[72].fields[18].options[62]",
+      "value": "27007287 - Didattica e Pedagogia speciale per l'inclusione 27007290 - Laboratorio di didattica speciale - SSD M-PED/03 - 1 Anno - Annualità - 4 CFU - LAB-Laboratorio:48 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA"
+    },
+    {
+      "path": "allTicketsFlat[72].fields[18].options[65]",
+      "value": "27000002 - FONDAMENTI DI INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE"
+    },
+    {
+      "path": "allTicketsFlat[72].fields[18].options[68]",
+      "value": "27008284 - INFORMATICA E GIS PER LA GESTIONE DEI DATI TERRITORIALI - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0730 - SCIENZE GEOLOGICHE"
+    },
+    {
+      "path": "allTicketsFlat[72].fields[18].options[70]",
+      "value": "27001025 - INFORMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0810 - SCIENZE NATURALI E AMBIENTALI"
+    },
+    {
+      "path": "allTicketsFlat[73].fields[18].options[12]",
+      "value": "27002142 - INTRODUZIONE ALL'INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0731 - BIOLOGIA"
+    },
+    {
+      "path": "allTicketsFlat[73].fields[18].options[22]",
+      "value": "27002222 - ALGORITMI PARALLELI E SISTEMI DISTRIBUITI - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+    },
+    {
+      "path": "allTicketsFlat[73].fields[18].options[34]",
+      "value": "27007784 - FONDAMENTI DI PROGRAMMAZIONE 2 - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA"
+    },
+    {
+      "path": "allTicketsFlat[73].fields[18].options[65]",
+      "value": "27006100 - EDUCAZIONE E ATTIVITA' MOTORIE PER L'ETA' EVOLUTIVA - SSD M-EDF/02 - 4 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA"
+    },
+    {
+      "path": "allTicketsFlat[73].fields[18].options[68]",
+      "value": "27005434 - Didattica e metodologia della ricerca 27005436 - Metodologia della ricerca educativa - SSD M-PED/04 - 4 Anno - Secondo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA"
+    },
+    {
+      "path": "allTicketsFlat[73].fields[18].options[70]",
+      "value": "27000002 - FONDAMENTI DI INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE"
+    },
+    {
+      "path": "allTicketsFlat[73].fields[18].options[73]",
+      "value": "27001025 - INFORMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0810 - SCIENZE NATURALI E AMBIENTALI"
+    },
+    {
+      "path": "allTicketsFlat[73].fields[18].options[79]",
+      "value": "27007786 - FONDAMENTI DI RETI E SICUREZZA INFORMATICA - SSD INF/01 - 3 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+    },
+    {
+      "path": "allTicketsFlat[73].fields[18].options[80]",
+      "value": "27007785 - USER INTERFACES DESIGN - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+    },
+    {
+      "path": "allTicketsFlat[73].fields[18].options[86]",
+      "value": "27007287 - Didattica e Pedagogia speciale per l'inclusione 27007290 - Laboratorio di didattica speciale - SSD M-PED/03 - 1 Anno - Annualità - 1,5 CFU - LAB-Laboratorio:18 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA"
+    },
+    {
+      "path": "allTicketsFlat[172].fields[11].options[4]",
+      "value": "NON SELEZIONATO"
+    },
+    {
+      "path": "allTicketsFlat[172].fields[11].options[5]",
+      "value": "10:30-11:30"
+    },
+    {
+      "path": "allTicketsFlat[172].fields[11].options[6]",
+      "value": "11:30-12:30"
+    },
+    {
+      "path": "allTicketsFlat[172].fields[11].options[7]",
+      "value": "NON SELEZIONATO"
+    },
+    {
+      "path": "allTicketsFlat[172].fields[11].options[11]",
+      "value": "NON SELEZIONATO"
+    },
+    {
+      "path": "allTicketsFlat[172].fields[11].options[12]",
+      "value": "9:30-10:30"
+    },
+    {
+      "path": "allTicketsFlat[172].fields[11].options[13]",
+      "value": "10:30-11:30"
+    },
+    {
+      "path": "allTicketsFlat[172].fields[11].options[14]",
+      "value": "11:30-12:30"
+    },
+    {
+      "path": "allTicketsFlat[172].fields[11].options[15]",
+      "value": "NON SELEZIONATO"
+    },
+    {
+      "path": "allTicketsFlat[172].fields[11].options[16]",
+      "value": "10:30-11:30"
+    },
+    {
+      "path": "allTicketsFlat[172].fields[11].options[17]",
+      "value": "11:30-12:30"
+    },
+    {
+      "path": "allTicketsFlat[172].fields[11].options[18]",
+      "value": "NON SELEZIONATO"
+    },
+    {
+      "path": "allTicketsFlat[172].fields[11].options[19]",
+      "value": "14:30-15:30"
+    },
+    {
+      "path": "allTicketsFlat[172].fields[11].options[20]",
+      "value": "15:30-16:30"
+    },
+    {
+      "path": "allTicketsFlat[172].fields[11].options[21]",
+      "value": "16:30-17:30"
+    },
+    {
+      "path": "allTicketsFlat[269].fields[10].options[5]",
+      "value": "Informatica Triennale"
+    },
+    {
+      "path": "allTicketsFlat[269].fields[10].options[6]",
+      "value": "Informatica Magistrale"
+    },
+    {
+      "path": "allTicketsFlat[269].fields[10].options[7]",
+      "value": "Matematica Triennale"
+    },
+    {
+      "path": "allTicketsFlat[269].fields[10].options[8]",
+      "value": "Matematica Magistrale"
+    },
+    {
+      "path": "allTicketsFlat[269].fields[10].options[9]",
+      "value": "Scienze della Formazione Primaria"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[33]",
+      "value": "DECADENZA"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[34]",
+      "value": "DECADENZA CON ANNI ACCADEMICI"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[35]",
+      "value": "DECADENZA CON ANNI ACCADEMICI ED ESAMI"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[36]",
+      "value": "DECADENZA CON ESAMI"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[37]",
+      "value": "DECADENZA CON PIANO"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[38]",
+      "value": "ISCRIZIONE"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[39]",
+      "value": "ISCRIZIONE CON ANNI ACCADEMICI"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[40]",
+      "value": "ISCRIZIONE CON ANNI ACCADEMICI ED ESAMI"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[41]",
+      "value": "ISCRIZIONE CON ESAMI"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[42]",
+      "value": "ISCRIZIONE CON ESAMI CORSI SINGOLI"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[43]",
+      "value": "ISCRIZIONE CON ESAMI DA SUPERARE"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[44]",
+      "value": "ISCRIZIONE CON ESAMI E DATE"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[45]",
+      "value": "ISCRIZIONE CON ESAMI E STRUTTURA CORSI SINGOLI"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[46]",
+      "value": "ISCRIZIONE CON ESAMI SOSTENUTI SENZA VOTO E DATA ED ESAMI DA SOSTENERE"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[47]",
+      "value": "ISCRIZIONE CON PIANO"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[48]",
+      "value": "ISCRIZIONE CORSI SINGOLI"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[49]",
+      "value": "LAUREA"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[50]",
+      "value": "LAUREA CON ANNI ACCADEMICI"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[51]",
+      "value": "LAUREA CON ANNI ACCADEMICI ED ESAMI"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[52]",
+      "value": "LAUREA CON ESAMI E DATE"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[53]",
+      "value": "LAUREA CON ESAMI SENZA DATA"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[54]",
+      "value": "LAUREA CON ESAMI, TESI E RELATORE"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[55]",
+      "value": "LAUREA CON PIANO"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[56]",
+      "value": "LAUREA CON TASSE"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[57]",
+      "value": "LAUREA CON TESI"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[58]",
+      "value": "LAUREA SENZA VOTO"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[59]",
+      "value": "RINUNCIA"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[60]",
+      "value": "RINUNCIA CON ANNI ACC. ED ESAMI"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[61]",
+      "value": "RINUNCIA CON ANNI ACCADEMICI"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[62]",
+      "value": "RINUNCIA CON ESAMI"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[63]",
+      "value": "RINUNCIA CON PIANO"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[64]",
+      "value": "SUPPLEMENTO AL DIPLOMA"
+    },
+    {
+      "path": "allTicketsFlat[337].fields[5].options[65]",
+      "value": "CORSO AGGIUNTIVO PER LE ATTIVITÀ FORMATIVE PER GLI ALUNNI IN SITUAZIONE DI DISABILITÀ"
+    },
+    {
+      "path": "allTicketsFlat[392].fields[12].options[11]",
+      "value": "iscrizione"
+    },
+    {
+      "path": "allTicketsFlat[392].fields[12].options[12]",
+      "value": "iscrizione con esami"
+    },
+    {
+      "path": "allTicketsFlat[392].fields[12].options[13]",
+      "value": "iscrizione con anni accademici"
+    },
+    {
+      "path": "allTicketsFlat[392].fields[12].options[14]",
+      "value": "iscrizione con anni accademici ed esami"
+    },
+    {
+      "path": "allTicketsFlat[392].fields[12].options[15]",
+      "value": "di laurea"
+    },
+    {
+      "path": "allTicketsFlat[392].fields[12].options[16]",
+      "value": "di laurea con esami"
+    },
+    {
+      "path": "allTicketsFlat[392].fields[12].options[17]",
+      "value": "di laurea con esami, relatore e titolo della tesi"
+    },
+    {
+      "path": "allTicketsFlat[392].fields[12].options[18]",
+      "value": "di iscrizione a corsi singoli"
+    },
+    {
+      "path": "allTicketsFlat[392].fields[12].options[19]",
+      "value": "di diploma supplement - non è richiesta alcuna marca da bollo"
+    },
+    {
+      "path": "allTicketsFlat[392].fields[12].options[20]",
+      "value": "di rinuncia agli studi con esami"
+    },
+    {
+      "path": "allTicketsFlat[392].fields[12].options[21]",
+      "value": "di decadenza con esami"
+    },
+    {
+      "path": "allTicketsFlat[439].fields[8].options[6]",
+      "value": "Aereo"
+    },
+    {
+      "path": "allTicketsFlat[439].fields[8].options[7]",
+      "value": "Treno"
+    },
+    {
+      "path": "allTicketsFlat[439].fields[8].options[8]",
+      "value": "Autobus"
+    },
+    {
+      "path": "allTicketsFlat[439].fields[8].options[9]",
+      "value": "Mezzo proprio"
+    },
+    {
+      "path": "allTicketsFlat[439].fields[8].options[10]",
+      "value": "Mezzo a noleggio"
+    },
+    {
+      "path": "allTicketsFlat[439].fields[8].options[11]",
+      "value": "Nave"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[16]",
+      "value": "ELEMENTI di ALGEBRA LINEARE per il CdL in INGEGNERIA CHIMICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[17]",
+      "value": "ANALISI MATEMATICA II e ANALISI NUMERICA per il CdL in INGEGNERIA CHIMICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[18]",
+      "value": "COMPLEMENTI DI CHIMICA per il CdL in INGEGNERIA CHIMICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[19]",
+      "value": "FISICA Modulo 2: Elettricità e Magnetismo per il CdL in INGEGNERIA CHIMICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[20]",
+      "value": "METODI MATEMATICI 1 per il CdL in INGEGNERIA ELETTRONICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[21]",
+      "value": "FISICA I - Modulo 2: Elettricità e Magnetismo per il CdL in INGEGNERIA ELETTRONICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[22]",
+      "value": "MATEMATICA NUMERICA per il CdL in INGEGNERIA ELETTRONICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[23]",
+      "value": "ELETTROTECNICA per il CdL in INGEGNERIA ELETTRONICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[24]",
+      "value": "FONDAMENTI DI INFORMATICA per il CdL in INGEGNERIA ELETTRONICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[25]",
+      "value": "FISICA - MECCANICA ED ELEMENTI DI TERMODINAMICA - CORSO A per il CdL in INGEGNERIA INFORMATICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[26]",
+      "value": "FONDAMENTI DI INFORMATICA II - CORSO A per il CdL in INGEGNERIA INFORMATICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[27]",
+      "value": "FONDAMENTI DI INFORMATICA II - CORSO B per il CdL in INGEGNERIA INFORMATICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[28]",
+      "value": "FISICA - MECCANICA ED ELEMENTI DI TERMODINAMICA - CORSO B per il CdL in INGEGNERIA INFORMATICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[29]",
+      "value": "MATEMATICA E ALGEBRA LINEARE - Modulo 2: Algebra lineare per il CdL in INGEGNERIA INFORMATICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[30]",
+      "value": "BIOLOGIA per il CdL in INGEGNERIA BIOMEDICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[443].fields[12].options[31]",
+      "value": "FONDAMENTI DI INFORMATICA per il CdL in INGEGNERIA BIOMEDICA conferito con D.D. n. 563 del 19.11.2025 per un totale di 40 ore e un importo di 1000.00 euro"
+    },
+    {
+      "path": "allTicketsFlat[479].fields[8].options[5]",
+      "value": "Server"
+    },
+    {
+      "path": "allTicketsFlat[479].fields[8].options[6]",
+      "value": "Client"
+    },
+    {
+      "path": "allTicketsFlat[479].fields[8].options[7]",
+      "value": "NAS"
+    },
+    {
+      "path": "allTicketsFlat[479].fields[8].options[8]",
+      "value": "Stampante di Rete"
+    },
+    {
+      "path": "allTicketsFlat[479].fields[8].options[9]",
+      "value": "Altro - usa campo Descrizione sistema se non in elenco"
+    },
+    {
+      "path": "allTicketsFlat[483].fields[6].options[6]",
+      "value": "Dominio"
+    },
+    {
+      "path": "allTicketsFlat[483].fields[6].options[7]",
+      "value": "Alias"
+    },
+    {
+      "path": "allTicketsFlat[483].fields[6].options[8]",
+      "value": "Record CNAME"
+    },
+    {
+      "path": "allTicketsFlat[483].fields[6].options[9]",
+      "value": "Record TXT"
+    },
+    {
+      "path": "allTicketsFlat[483].fields[6].options[10]",
+      "value": "Mail host"
+    },
+    {
+      "path": "allTicketsFlat[483].fields[6].options[11]",
+      "value": "Indirizzo Google Site"
+    },
+    {
+      "path": "allTicketsFlat[524].fields[11].options[2]",
+      "value": "Modifica Learning Agreement"
+    },
+    {
+      "path": "allTicketsFlat[524].fields[11].options[3]",
+      "value": "Variazione periodo permanenza estero"
+    },
+    {
+      "path": "allTicketsFlat[527].fields[2].options[10]",
+      "value": "Maschio"
+    },
+    {
+      "path": "allTicketsFlat[527].fields[2].options[11]",
+      "value": "Femmina"
+    },
+    {
+      "path": "allTicketsFlat[527].fields[2].options[12]",
+      "value": "Non definito"
+    },
+    {
+      "path": "allTicketsFlat[527].fields[2].options[13]",
+      "value": "Professore Ordinario"
+    },
+    {
+      "path": "allTicketsFlat[527].fields[2].options[14]",
+      "value": "Professore Associato"
+    },
+    {
+      "path": "allTicketsFlat[527].fields[2].options[15]",
+      "value": "Ricercatore a tempo indeterminato"
+    },
+    {
+      "path": "allTicketsFlat[527].fields[2].options[16]",
+      "value": "Ricercatore a tempo determinato"
+    },
+    {
+      "path": "allTicketsFlat[527].fields[2].options[17]",
+      "value": "Dottorando"
+    },
+    {
+      "path": "allTicketsFlat[527].fields[2].options[18]",
+      "value": "Dottore di Ricerca"
+    },
+    {
+      "path": "allTicketsFlat[527].fields[2].options[19]",
+      "value": "Studente"
+    },
+    {
+      "path": "allTicketsFlat[237].fields[6].options[10]",
+      "value": "Trinity College London ISE 1(B1)"
+    }
+  ],
+  "PLACEHOLDER_RILEVATI": [],
+  "POSSIBILI_DUPLICATI": [
+    {
+      "path_a": "allTicketsFlat[6].fields[11].options[5]",
+      "path_b": "allTicketsFlat[6].fields[11].options[6]",
+      "label_a": "0708 - INGEGNERIA MECCANICA 27000078 - LABORATORIO CAM (LAB) ore: 9 Secondo Semestre",
+      "label_b": "0708 - INGEGNERIA MECCANICA 27000078 - LABORATORIO CAM (ESE) ore: 3 Secondo Semestre"
+    },
+    {
+      "path_a": "allTicketsFlat[6].fields[11].options[13]",
+      "path_b": "allTicketsFlat[6].fields[11].options[14]",
+      "label_a": "0770 - INGEGNERIA GESTIONALE 27009154 - ADVANCED ENTERPRISE PLATFORMS (LEZ) ore:20 Secondo Semestre",
+      "label_b": "0770 - INGEGNERIA GESTIONALE 27009154 - ADVANCED ENTERPRISE PLATFORMS (ESE) ore:15 Secondo Semestre"
+    },
+    {
+      "path_a": "allTicketsFlat[6].fields[11].options[25]",
+      "path_b": "allTicketsFlat[6].fields[11].options[26]",
+      "label_a": "0772 - INGEGNERIA MECCANICA 27006447 - MECCATRONICA (ESE) ore: 6 Primo Semestre",
+      "label_b": "0772 - INGEGNERIA MECCANICA 27006447 - MECCATRONICA (LAB) ore:15 Primo Semestre"
+    },
+    {
+      "path_a": "allTicketsFlat[6].fields[11].options[27]",
+      "path_b": "allTicketsFlat[6].fields[11].options[28]",
+      "label_a": "0772 - INGEGNERIA MECCANICA 27006448 - PROTOTIPAZIONE RAPIDA (LAB) ore:24 Secondo Semestre",
+      "label_b": "0772 - INGEGNERIA MECCANICA 27006448 - PROTOTIPAZIONE RAPIDA (ESE) ore: 6 Secondo Semestre"
+    },
+    {
+      "path_a": "allTicketsFlat[6].fields[11].options[34]",
+      "path_b": "allTicketsFlat[6].fields[11].options[35]",
+      "label_a": "0772 - INGEGNERIA MECCANICA 27010392 - TECNOLOGIE SOSTENIBILI PER LA LAVORAZIONE DI MATERIALI POLIMERICI E COMPOSITI (ESE) ore:15 Primo Semestre",
+      "label_b": "0772 - INGEGNERIA MECCANICA 27010392 - TECNOLOGIE SOSTENIBILI PER LA LAVORAZIONE DI MATERIALI POLIMERICI E COMPOSITI (LAB) ore:15 Primo Semestre"
+    },
+    {
+      "path_a": "allTicketsFlat[6].fields[11].options[36]",
+      "path_b": "allTicketsFlat[6].fields[11].options[37]",
+      "label_a": "0774 - INGEGNERIA EDILE-ARCHITETTURA 27005500 - TECNOLOGIE EDILIZIE 27005501 - LABORATORIO DI TECNOLOGIE EDILIZIE (ESE) ore:25 Secondo Semestre",
+      "label_b": "0774 - INGEGNERIA EDILE-ARCHITETTURA 27005500 - TECNOLOGIE EDILIZIE 27005501 - LABORATORIO DI TECNOLOGIE EDILIZIE (LAB) ore:15 Secondo Semestre"
+    },
+    {
+      "path_a": "allTicketsFlat[6].fields[11].options[41]",
+      "path_b": "allTicketsFlat[6].fields[11].options[42]",
+      "label_a": "0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE 27010467 - AUGMENTED REALITY AND METAVERSE (LAB) ore:24 Secondo Semestre",
+      "label_b": "0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE 27010467 - AUGMENTED REALITY AND METAVERSE (LEZ) ore:14 Secondo Semestre"
+    },
+    {
+      "path_a": "allTicketsFlat[6].fields[11].options[44]",
+      "path_b": "allTicketsFlat[6].fields[11].options[45]",
+      "label_a": "0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009041 - Gestione sostenibile delle infrastrutture e dei terminals portuali (ESE) ore:21 Primo Semestre",
+      "label_b": "0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009041 - Gestione sostenibile delle infrastrutture e dei terminals portuali (LEZ) ore:36 Primo Semestre"
+    },
+    {
+      "path_a": "allTicketsFlat[6].fields[11].options[61]",
+      "path_b": "allTicketsFlat[6].fields[11].options[62]",
+      "label_a": "0871 - INGEGNERIA MECCANICA 27006436 - DISEGNO DI MACCHINE 27006439 - DISEGNO DI MACCHINE/CAD PRIMA PARTE (ESE) ore:21 Primo Semestre",
+      "label_b": "0871 - INGEGNERIA MECCANICA 27006436 - DISEGNO DI MACCHINE 27006439 - DISEGNO DI MACCHINE/CAD PRIMA PARTE (LAB) ore:14 Primo Semestre"
+    },
+    {
+      "path_a": "allTicketsFlat[6].fields[11].options[65]",
+      "path_b": "allTicketsFlat[6].fields[11].options[66]",
+      "label_a": "0872 - INGEGNERIA ENERGETICA 27008550 - IMPIANTI DI POTENZA A RIDOTTE EMISSIONI DI CARBONIO (LAB) ore:20 Secondo Semestre",
+      "label_b": "0872 - INGEGNERIA ENERGETICA 27008550 - IMPIANTI DI POTENZA A RIDOTTE EMISSIONI DI CARBONIO (ESE) ore:15 Secondo Semestre"
+    },
+    {
+      "path_a": "allTicketsFlat[6].fields[11].options[67]",
+      "path_b": "allTicketsFlat[6].fields[11].options[68]",
+      "label_a": "0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (ESE) ore:18 Primo Semestre",
+      "label_b": "0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (LEZ) ore:32 Primo Semestre"
+    },
+    {
+      "path_a": "allTicketsFlat[6].fields[11].options[67]",
+      "path_b": "allTicketsFlat[6].fields[11].options[69]",
+      "label_a": "0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (ESE) ore:18 Primo Semestre",
+      "label_b": "0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (LAB) ore: 2 Primo Semestre"
+    },
+    {
+      "path_a": "allTicketsFlat[6].fields[11].options[68]",
+      "path_b": "allTicketsFlat[6].fields[11].options[69]",
+      "label_a": "0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (LEZ) ore:32 Primo Semestre",
+      "label_b": "0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (LAB) ore: 2 Primo Semestre"
+    },
+    {
+      "path_a": "allTicketsFlat[6].fields[11].options[72]",
+      "path_b": "allTicketsFlat[6].fields[11].options[73]",
+      "label_a": "0876 - INGEGNERIA CHIMICA 27009472 - TECNOLOGIE MANUFATTURIERE PER L'INDUSTRIA ALIMENTARE E I BIOPROCESSI (ESE) ore: 8 Secondo Semestre",
+      "label_b": "0876 - INGEGNERIA CHIMICA 27009472 - TECNOLOGIE MANUFATTURIERE PER L'INDUSTRIA ALIMENTARE E I BIOPROCESSI (LAB) ore:10 Secondo Semestre"
+    },
+    {
+      "path_a": "allTicketsFlat[72].fields[18].options[3]",
+      "path_b": "allTicketsFlat[72].fields[18].options[4]",
+      "label_a": "27007800 - DEEP LEARNING - SSD INF/01 - 2 Anno - Primo Semestre - 1.33 CFU - LAB-Laboratorio:16 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE",
+      "label_b": "27007800 - DEEP LEARNING - SSD INF/01 - 2 Anno - Primo Semestre - 0.67 CFU - LAB-Laboratorio:8 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE"
+    },
+    {
+      "path_a": "allTicketsFlat[72].fields[18].options[11]",
+      "path_b": "allTicketsFlat[72].fields[18].options[12]",
+      "label_a": "27006494 - ARCHITETTURE E TECNOLOGIE WEB - SSD INF/01 - 3 Anno - Secondo Semestre - 3 CFU - LAB-Laboratorio:21 - CdS 0711 - COMUNICAZIONE E DAMS",
+      "label_b": "27006494 - ARCHITETTURE E TECNOLOGIE WEB - SSD INF/01 - 3 Anno - Secondo Semestre - 3 CFU - LEZ-Lezione:21 - CdS 0711 - COMUNICAZIONE E DAMS"
+    },
+    {
+      "path_a": "allTicketsFlat[72].fields[18].options[13]",
+      "path_b": "allTicketsFlat[72].fields[18].options[14]",
+      "label_a": "27006282 - RETI SOCIALI E NEW MEDIA - SSD INF/01 - 1 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:28 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL'INFORMAZIONE",
+      "label_b": "27006282 - RETI SOCIALI E NEW MEDIA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:14 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL'INFORMAZIONE"
+    },
+    {
+      "path_a": "allTicketsFlat[72].fields[18].options[16]",
+      "path_b": "allTicketsFlat[72].fields[18].options[17]",
+      "label_a": "27008262 - MACHINE E DEEP LEARNING AVANZATO - SSD INF/01 - 2 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:28 - CdS 0820 - DATA SCIENCE PER LE STRATEGIE AZIENDALI",
+      "label_b": "27008262 - MACHINE E DEEP LEARNING AVANZATO - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:14 - CdS 0820 - DATA SCIENCE PER LE STRATEGIE AZIENDALI"
+    },
+    {
+      "path_a": "allTicketsFlat[72].fields[18].options[23]",
+      "path_b": "allTicketsFlat[72].fields[18].options[24]",
+      "label_a": "27005226 - ASPETTI ETICI E GIURIDICI DELL'INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0733 - INFORMATICA",
+      "label_b": "27005226 - ASPETTI ETICI E GIURIDICI DELL'INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[72].fields[18].options[37]",
+      "path_b": "allTicketsFlat[72].fields[18].options[38]",
+      "label_a": "27008536 - ANALISI MATEMATICA 1 A - SSD MAT/05 - 1 Anno - Primo Semestre - 1.44 CFU - ESE-Esercitazione:18 - CdS 0703 - INGEGNERIA CIVILE",
+      "label_b": "27008543 - ANALISI MATEMATICA 1 B - SSD MAT/05 - 1 Anno - Secondo Semestre - 1.44 CFU - ESE-Esercitazione:18 - CdS 0703 - INGEGNERIA CIVILE"
+    },
+    {
+      "path_a": "allTicketsFlat[72].fields[18].options[37]",
+      "path_b": "allTicketsFlat[72].fields[18].options[39]",
+      "label_a": "27008536 - ANALISI MATEMATICA 1 A - SSD MAT/05 - 1 Anno - Primo Semestre - 1.44 CFU - ESE-Esercitazione:18 - CdS 0703 - INGEGNERIA CIVILE",
+      "label_b": "27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2.16 CFU - ESE-Esercitazione:27 - CdS 0703 - INGEGNERIA CIVILE"
+    },
+    {
+      "path_a": "allTicketsFlat[72].fields[18].options[40]",
+      "path_b": "allTicketsFlat[72].fields[18].options[41]",
+      "label_a": "27002284 - ANALISI MATEMATICA 1 - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:33 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA",
+      "label_b": "27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:33 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA"
+    },
+    {
+      "path_a": "allTicketsFlat[72].fields[18].options[42]",
+      "path_b": "allTicketsFlat[72].fields[18].options[43]",
+      "label_a": "27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:33 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA",
+      "label_b": "27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:40 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA"
+    },
+    {
+      "path_a": "allTicketsFlat[72].fields[18].options[44]",
+      "path_b": "allTicketsFlat[72].fields[18].options[45]",
+      "label_a": "27000001 - ANALISI MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 9.10 CFU - LEZ-Lezione:76 - CdS 0704 - INGEGNERIA ELETTRONICA",
+      "label_b": "27000001 - ANALISI MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2.90 CFU - ESE-Esercitazione:36 - CdS 0704 - INGEGNERIA ELETTRONICA"
+    },
+    {
+      "path_a": "allTicketsFlat[72].fields[18].options[47]",
+      "path_b": "allTicketsFlat[72].fields[18].options[48]",
+      "label_a": "27006081 - MATEMATICA I Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 6.80 CFU - LEZ-Lezione:57 - CdS 0707 - INGEGNERIA INFORMATICA",
+      "label_b": "27006081 - MATEMATICA I Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0707 - INGEGNERIA INFORMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[72].fields[18].options[49]",
+      "path_b": "allTicketsFlat[72].fields[18].options[50]",
+      "label_a": "27005730 - ANALISI MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2.40 CFU - ESE-Esercitazione:30 - CdS 0809 - INGEGNERIA PER L'AMBIENTE E LA SICUREZZA DEL TERRITORIO",
+      "label_b": "27000009 - ANALISI MATEMATICA II - SSD MAT/05 - 2 Anno - Primo Semestre - 2.40 CFU - ESE-Esercitazione:30 - CdS 0809 - INGEGNERIA PER L'AMBIENTE E LA SICUREZZA DEL TERRITORIO"
+    },
+    {
+      "path_a": "allTicketsFlat[72].fields[18].options[53]",
+      "path_b": "allTicketsFlat[72].fields[18].options[54]",
+      "label_a": "27005585 - GEOMETRIA 1 - SSD MAT/03 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA",
+      "label_b": "27005606 - GEOMETRIA 2 - SSD MAT/03 - 2 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[72].fields[18].options[53]",
+      "path_b": "allTicketsFlat[72].fields[18].options[55]",
+      "label_a": "27005585 - GEOMETRIA 1 - SSD MAT/03 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA",
+      "label_b": "27005609 - GEOMETRIA 3 - SSD MAT/03 - 3 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[72].fields[18].options[54]",
+      "path_b": "allTicketsFlat[72].fields[18].options[55]",
+      "label_a": "27005606 - GEOMETRIA 2 - SSD MAT/03 - 2 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA",
+      "label_b": "27005609 - GEOMETRIA 3 - SSD MAT/03 - 3 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[9]",
+      "path_b": "allTicketsFlat[73].fields[18].options[10]",
+      "label_a": "27007798 - VIRTUAL REALITY - SSD INF/01 - 1 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE",
+      "label_b": "27007798 - VIRTUAL REALITY - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[12]",
+      "path_b": "allTicketsFlat[73].fields[18].options[13]",
+      "label_a": "27006081 - MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0728 - CHIMICA",
+      "label_b": "27006081 - MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0728 - CHIMICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[14]",
+      "path_b": "allTicketsFlat[73].fields[18].options[69]",
+      "label_a": "27006279 - MODELLI INFORMATICI E STRATEGIE DI COMUNICAZIONE - SSD INF/01 - 1 Anno - Primo Semestre - 4 CFU - ESE-Esercitazione:28 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL'INFORMAZIONE",
+      "label_b": "27006279 - MODELLI INFORMATICI E STRATEGIE DI COMUNICAZIONE - SSD INF/01 - 1 Anno - Primo Semestre - 5 CFU - LEZ-Lezione:35 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL'INFORMAZIONE"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[16]",
+      "path_b": "allTicketsFlat[73].fields[18].options[17]",
+      "label_a": "27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0826 - FARMACIA",
+      "label_b": "27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0826 - FARMACIA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[21]",
+      "path_b": "allTicketsFlat[73].fields[18].options[22]",
+      "label_a": "27002208 - ANALISI MATEMATICA - Gruppo A - SSD MAT/05 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0733 - INFORMATICA",
+      "label_b": "27002208 - ANALISI MATEMATICA - Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0733 - INFORMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[23]",
+      "path_b": "allTicketsFlat[73].fields[18].options[24]",
+      "label_a": "27005226 - ASPETTI ETICI E GIURIDICI DELL'INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0733 - INFORMATICA",
+      "label_b": "27005226 - ASPETTI ETICI E GIURIDICI DELL'INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[29]",
+      "path_b": "allTicketsFlat[73].fields[18].options[30]",
+      "label_a": "27000002 - FONDAMENTI DI INFORMATICA - Gruppo A - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+      "label_b": "27000002 - FONDAMENTI DI INFORMATICA - Gruppo B - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[29]",
+      "path_b": "allTicketsFlat[73].fields[18].options[70]",
+      "label_a": "27000002 - FONDAMENTI DI INFORMATICA - Gruppo A - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+      "label_b": "27000002 - FONDAMENTI DI INFORMATICA - Gruppo A - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[29]",
+      "path_b": "allTicketsFlat[73].fields[18].options[71]",
+      "label_a": "27000002 - FONDAMENTI DI INFORMATICA - Gruppo A - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+      "label_b": "27000002 - FONDAMENTI DI INFORMATICA - Gruppo B - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[30]",
+      "path_b": "allTicketsFlat[73].fields[18].options[70]",
+      "label_a": "27000002 - FONDAMENTI DI INFORMATICA - Gruppo B - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+      "label_b": "27000002 - FONDAMENTI DI INFORMATICA - Gruppo A - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[30]",
+      "path_b": "allTicketsFlat[73].fields[18].options[71]",
+      "label_a": "27000002 - FONDAMENTI DI INFORMATICA - Gruppo B - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+      "label_b": "27000002 - FONDAMENTI DI INFORMATICA - Gruppo B - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[33]",
+      "path_b": "allTicketsFlat[73].fields[18].options[34]",
+      "label_a": "27000107 - MATEMATICA DISCRETA - Gruppo A - SSD MAT/03 - 1 Anno - Secondo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0733 - INFORMATICA",
+      "label_b": "27000107 - MATEMATICA DISCRETA - Gruppo B - SSD MAT/03 - 1 Anno - Secondo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0733 - INFORMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[37]",
+      "path_b": "allTicketsFlat[73].fields[18].options[38]",
+      "label_a": "27002141 - MATEMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0759 - INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE",
+      "label_b": "27002141 - MATEMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0759 - INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[40]",
+      "path_b": "allTicketsFlat[73].fields[18].options[51]",
+      "label_a": "27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2.16 CFU - ESE-Esercitazione:27 - CdS 0703 - INGEGNERIA CIVILE",
+      "label_b": "27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2.64 CFU - ESE-Esercitazione:33 - CdS 0708 - INGEGNERIA MECCANICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[43]",
+      "path_b": "allTicketsFlat[73].fields[18].options[44]",
+      "label_a": "27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 7.20 CFU - LEZ-Lezione:60 - CdS 0705 - INGEGNERIA GESTIONALE",
+      "label_b": "27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[43]",
+      "path_b": "allTicketsFlat[73].fields[18].options[73]",
+      "label_a": "27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 7.20 CFU - LEZ-Lezione:60 - CdS 0705 - INGEGNERIA GESTIONALE",
+      "label_b": "27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 4.08 CFU - LEZ-Lezione:34 - CdS 0703 - INGEGNERIA CIVILE"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[45]",
+      "path_b": "allTicketsFlat[73].fields[18].options[46]",
+      "label_a": "27002284 - ANALISI MATEMATICA 1 - SSD MAT/05 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE",
+      "label_b": "27000009 - ANALISI MATEMATICA II - SSD MAT/05 - 2 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[47]",
+      "path_b": "allTicketsFlat[73].fields[18].options[48]",
+      "label_a": "27006081 - MATEMATICA I - Gruppo A - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0707 - INGEGNERIA INFORMATICA",
+      "label_b": "27006081 - MATEMATICA I - Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0707 - INGEGNERIA INFORMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[49]",
+      "path_b": "allTicketsFlat[73].fields[18].options[50]",
+      "label_a": "27008853 - MATEMATICA E ALGEBRA LINEARE 27008855 - Modulo 2: ALGEBRA LINEARE - SSD MAT/02 - 1 Anno - Secondo Semestre - 0.70 CFU - ESE-Esercitazione:9 - CdS 0707 - INGEGNERIA INFORMATICA",
+      "label_b": "27008853 - MATEMATICA E ALGEBRA LINEARE 27008855 - Modulo 2: ALGEBRA LINEARE - SSD MAT/02 - 1 Anno - Secondo Semestre - 2.30 CFU - LEZ-Lezione:19 - CdS 0707 - INGEGNERIA INFORMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[52]",
+      "path_b": "allTicketsFlat[73].fields[18].options[53]",
+      "label_a": "27000001 - ANALISI MATEMATICA I 27000162 - MODULO 1 - SSD MAT/05 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0708 - INGEGNERIA MECCANICA",
+      "label_b": "27000001 - ANALISI MATEMATICA I 27000163 - MODULO 2 - SSD MAT/05 - 1 Anno - Secondo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0708 - INGEGNERIA MECCANICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[55]",
+      "path_b": "allTicketsFlat[73].fields[18].options[56]",
+      "label_a": "27005585 - GEOMETRIA 1 - SSD MAT/03 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA",
+      "label_b": "27005609 - GEOMETRIA 3 - SSD MAT/03 - 3 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[60]",
+      "path_b": "allTicketsFlat[73].fields[18].options[61]",
+      "label_a": "27006100 - EDUCAZIONE E ATTIVITA' MOTORIE PER L'ETA' EVOLUTIVA - SSD M-EDF/02 - 4 Anno - Primo Semestre - 8 CFU - LEZ-Lezione:56 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA",
+      "label_b": "27006100 - EDUCAZIONE E ATTIVITA' MOTORIE PER L'ETA' EVOLUTIVA - SSD M-EDF/02 - 4 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[70]",
+      "path_b": "allTicketsFlat[73].fields[18].options[71]",
+      "label_a": "27000002 - FONDAMENTI DI INFORMATICA - Gruppo A - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA",
+      "label_b": "27000002 - FONDAMENTI DI INFORMATICA - Gruppo B - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA"
+    },
+    {
+      "path_a": "allTicketsFlat[73].fields[18].options[74]",
+      "path_b": "allTicketsFlat[73].fields[18].options[75]",
+      "label_a": "27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 3.4 CFU - LEZ-Lezione:34 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA",
+      "label_b": "27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 1.76 CFU - ESE-Esercitazione:29 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[2]",
+      "path_b": "allTicketsFlat[326].fields[4].options[8]",
+      "label_a": "PNT12B0574 - CUBO 12B piano 5 stanza 74 - Archivio",
+      "label_b": "PNT12B0583 - CUBO 12B piano 5 stanza 83 - Archivio"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[3]",
+      "path_b": "allTicketsFlat[326].fields[4].options[4]",
+      "label_a": "PNT12B0578 - CUBO 12B piano 5 stanza 78 - Laboratorio Sismologia",
+      "label_b": "PNT12B0579 - CUBO 12B piano 5 stanza 79 - Laboratorio Sismologia"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[9]",
+      "path_b": "allTicketsFlat[326].fields[4].options[10]",
+      "label_a": "PNT12B0585 - CUBO 12B piano 5 stanza 85 - Archivio e deposito strumenti",
+      "label_b": "PNT12B0586 - CUBO 12B piano 5 stanza 86 - Archivio e deposito strumenti"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[24]",
+      "path_b": "allTicketsFlat[326].fields[4].options[25]",
+      "label_a": "PNT30C0201 - CUBO 30C piano 2 stanza 1 - Aula FIS 1",
+      "label_b": "PNT30C0202 - CUBO 30C piano 2 stanza 2 - Aula FIS 2"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[24]",
+      "path_b": "allTicketsFlat[326].fields[4].options[26]",
+      "label_a": "PNT30C0201 - CUBO 30C piano 2 stanza 1 - Aula FIS 1",
+      "label_b": "PNT30C0203 - CUBO 30C piano 2 stanza 3 - Aula FIS 3"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[24]",
+      "path_b": "allTicketsFlat[326].fields[4].options[27]",
+      "label_a": "PNT30C0201 - CUBO 30C piano 2 stanza 1 - Aula FIS 1",
+      "label_b": "PNT30C0204 - CUBO 30C piano 2 stanza 4 - Aula FIS 4"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[25]",
+      "path_b": "allTicketsFlat[326].fields[4].options[26]",
+      "label_a": "PNT30C0202 - CUBO 30C piano 2 stanza 2 - Aula FIS 2",
+      "label_b": "PNT30C0203 - CUBO 30C piano 2 stanza 3 - Aula FIS 3"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[25]",
+      "path_b": "allTicketsFlat[326].fields[4].options[27]",
+      "label_a": "PNT30C0202 - CUBO 30C piano 2 stanza 2 - Aula FIS 2",
+      "label_b": "PNT30C0204 - CUBO 30C piano 2 stanza 4 - Aula FIS 4"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[26]",
+      "path_b": "allTicketsFlat[326].fields[4].options[27]",
+      "label_a": "PNT30C0203 - CUBO 30C piano 2 stanza 3 - Aula FIS 3",
+      "label_b": "PNT30C0204 - CUBO 30C piano 2 stanza 4 - Aula FIS 4"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[28]",
+      "path_b": "allTicketsFlat[326].fields[4].options[29]",
+      "label_a": "PNT30C0205 - CUBO 30C piano 2 stanza 5 - Spazio Studenti 2",
+      "label_b": "PNT30C0206 - CUBO 30C piano 2 stanza 6 - Spazio Studenti 1"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[43]",
+      "path_b": "allTicketsFlat[326].fields[4].options[48]",
+      "label_a": "PNT30C0502 - CUBO 30C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT30C0507 - CUBO 30C piano 5 stanza 7 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[43]",
+      "path_b": "allTicketsFlat[326].fields[4].options[51]",
+      "label_a": "PNT30C0502 - CUBO 30C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT30C0603 - CUBO 30C piano 6 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[43]",
+      "path_b": "allTicketsFlat[326].fields[4].options[52]",
+      "label_a": "PNT30C0502 - CUBO 30C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT30C0604 - CUBO 30C piano 6 stanza 4 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[43]",
+      "path_b": "allTicketsFlat[326].fields[4].options[61]",
+      "label_a": "PNT30C0502 - CUBO 30C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT30C0703 - CUBO 30C piano 7 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[43]",
+      "path_b": "allTicketsFlat[326].fields[4].options[70]",
+      "label_a": "PNT30C0502 - CUBO 30C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT30D0102 - CUBO 30D piano 1 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[43]",
+      "path_b": "allTicketsFlat[326].fields[4].options[88]",
+      "label_a": "PNT30C0502 - CUBO 30C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0503 - CUBO 31C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[43]",
+      "path_b": "allTicketsFlat[326].fields[4].options[89]",
+      "label_a": "PNT30C0502 - CUBO 30C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0504 - CUBO 31C piano 5 stanza 4 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[43]",
+      "path_b": "allTicketsFlat[326].fields[4].options[110]",
+      "label_a": "PNT30C0502 - CUBO 30C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0702 - CUBO 31C piano 7 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[43]",
+      "path_b": "allTicketsFlat[326].fields[4].options[156]",
+      "label_a": "PNT30C0502 - CUBO 30C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0502 - CUBO 33B piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[43]",
+      "path_b": "allTicketsFlat[326].fields[4].options[189]",
+      "label_a": "PNT30C0502 - CUBO 30C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0412 - CUBO 33C piano 4 stanza 12 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[43]",
+      "path_b": "allTicketsFlat[326].fields[4].options[192]",
+      "label_a": "PNT30C0502 - CUBO 30C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0502 - CUBO 33C piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[43]",
+      "path_b": "allTicketsFlat[326].fields[4].options[193]",
+      "label_a": "PNT30C0502 - CUBO 30C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[43]",
+      "path_b": "allTicketsFlat[326].fields[4].options[199]",
+      "label_a": "PNT30C0502 - CUBO 30C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0509 - CUBO 33C piano 5 stanza 9 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[43]",
+      "path_b": "allTicketsFlat[326].fields[4].options[201]",
+      "label_a": "PNT30C0502 - CUBO 30C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0511 - CUBO 33C piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[48]",
+      "path_b": "allTicketsFlat[326].fields[4].options[51]",
+      "label_a": "PNT30C0507 - CUBO 30C piano 5 stanza 7 - Studio assegnisti/dottorandi",
+      "label_b": "PNT30C0603 - CUBO 30C piano 6 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[48]",
+      "path_b": "allTicketsFlat[326].fields[4].options[52]",
+      "label_a": "PNT30C0507 - CUBO 30C piano 5 stanza 7 - Studio assegnisti/dottorandi",
+      "label_b": "PNT30C0604 - CUBO 30C piano 6 stanza 4 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[48]",
+      "path_b": "allTicketsFlat[326].fields[4].options[61]",
+      "label_a": "PNT30C0507 - CUBO 30C piano 5 stanza 7 - Studio assegnisti/dottorandi",
+      "label_b": "PNT30C0703 - CUBO 30C piano 7 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[48]",
+      "path_b": "allTicketsFlat[326].fields[4].options[88]",
+      "label_a": "PNT30C0507 - CUBO 30C piano 5 stanza 7 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0503 - CUBO 31C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[48]",
+      "path_b": "allTicketsFlat[326].fields[4].options[89]",
+      "label_a": "PNT30C0507 - CUBO 30C piano 5 stanza 7 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0504 - CUBO 31C piano 5 stanza 4 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[48]",
+      "path_b": "allTicketsFlat[326].fields[4].options[192]",
+      "label_a": "PNT30C0507 - CUBO 30C piano 5 stanza 7 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0502 - CUBO 33C piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[48]",
+      "path_b": "allTicketsFlat[326].fields[4].options[193]",
+      "label_a": "PNT30C0507 - CUBO 30C piano 5 stanza 7 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[48]",
+      "path_b": "allTicketsFlat[326].fields[4].options[199]",
+      "label_a": "PNT30C0507 - CUBO 30C piano 5 stanza 7 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0509 - CUBO 33C piano 5 stanza 9 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[48]",
+      "path_b": "allTicketsFlat[326].fields[4].options[201]",
+      "label_a": "PNT30C0507 - CUBO 30C piano 5 stanza 7 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0511 - CUBO 33C piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[49]",
+      "path_b": "allTicketsFlat[326].fields[4].options[58]",
+      "label_a": "PNT30C0601 - CUBO 30C piano 6 stanza 1 - Laboratorio Radiazioni non ionizzanti (FTSM)",
+      "label_b": "PNT30C0610 - CUBO 30C piano 6 stanza 10 - Laboratorio Radiazioni Ionizzanti (FTSM)"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[51]",
+      "path_b": "allTicketsFlat[326].fields[4].options[52]",
+      "label_a": "PNT30C0603 - CUBO 30C piano 6 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT30C0604 - CUBO 30C piano 6 stanza 4 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[51]",
+      "path_b": "allTicketsFlat[326].fields[4].options[61]",
+      "label_a": "PNT30C0603 - CUBO 30C piano 6 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT30C0703 - CUBO 30C piano 7 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[51]",
+      "path_b": "allTicketsFlat[326].fields[4].options[88]",
+      "label_a": "PNT30C0603 - CUBO 30C piano 6 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0503 - CUBO 31C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[51]",
+      "path_b": "allTicketsFlat[326].fields[4].options[180]",
+      "label_a": "PNT30C0603 - CUBO 30C piano 6 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0403 - CUBO 33C piano 4 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[51]",
+      "path_b": "allTicketsFlat[326].fields[4].options[193]",
+      "label_a": "PNT30C0603 - CUBO 30C piano 6 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[52]",
+      "path_b": "allTicketsFlat[326].fields[4].options[61]",
+      "label_a": "PNT30C0604 - CUBO 30C piano 6 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT30C0703 - CUBO 30C piano 7 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[52]",
+      "path_b": "allTicketsFlat[326].fields[4].options[72]",
+      "label_a": "PNT30C0604 - CUBO 30C piano 6 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT30D0104 - CUBO 30D piano 1 stanza 4 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[52]",
+      "path_b": "allTicketsFlat[326].fields[4].options[89]",
+      "label_a": "PNT30C0604 - CUBO 30C piano 6 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0504 - CUBO 31C piano 5 stanza 4 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[59]",
+      "path_b": "allTicketsFlat[326].fields[4].options[63]",
+      "label_a": "PNT30C0701 - CUBO 30C piano 7 stanza 1 - CRATI",
+      "label_b": "PNT30C0705 - CUBO 30C piano 7 stanza 5 - CRATI"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[61]",
+      "path_b": "allTicketsFlat[326].fields[4].options[88]",
+      "label_a": "PNT30C0703 - CUBO 30C piano 7 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0503 - CUBO 31C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[61]",
+      "path_b": "allTicketsFlat[326].fields[4].options[110]",
+      "label_a": "PNT30C0703 - CUBO 30C piano 7 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0702 - CUBO 31C piano 7 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[61]",
+      "path_b": "allTicketsFlat[326].fields[4].options[116]",
+      "label_a": "PNT30C0703 - CUBO 30C piano 7 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0708 - CUBO 31C piano 7 stanza 8 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[61]",
+      "path_b": "allTicketsFlat[326].fields[4].options[180]",
+      "label_a": "PNT30C0703 - CUBO 30C piano 7 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0403 - CUBO 33C piano 4 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[61]",
+      "path_b": "allTicketsFlat[326].fields[4].options[193]",
+      "label_a": "PNT30C0703 - CUBO 30C piano 7 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[69]",
+      "path_b": "allTicketsFlat[326].fields[4].options[70]",
+      "label_a": "PNT30D0101 - CUBO 30D piano 1 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT30D0102 - CUBO 30D piano 1 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[69]",
+      "path_b": "allTicketsFlat[326].fields[4].options[72]",
+      "label_a": "PNT30D0101 - CUBO 30D piano 1 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT30D0104 - CUBO 30D piano 1 stanza 4 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[69]",
+      "path_b": "allTicketsFlat[326].fields[4].options[127]",
+      "label_a": "PNT30D0101 - CUBO 30D piano 1 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31D0105 - CUBO 31D piano 1 stanza 5 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[70]",
+      "path_b": "allTicketsFlat[326].fields[4].options[72]",
+      "label_a": "PNT30D0102 - CUBO 30D piano 1 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT30D0104 - CUBO 30D piano 1 stanza 4 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[70]",
+      "path_b": "allTicketsFlat[326].fields[4].options[127]",
+      "label_a": "PNT30D0102 - CUBO 30D piano 1 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31D0105 - CUBO 31D piano 1 stanza 5 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[72]",
+      "path_b": "allTicketsFlat[326].fields[4].options[127]",
+      "label_a": "PNT30D0104 - CUBO 30D piano 1 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31D0105 - CUBO 31D piano 1 stanza 5 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[77]",
+      "path_b": "allTicketsFlat[326].fields[4].options[78]",
+      "label_a": "PNT31C0301 - CUBO 31C piano 3 stanza 1 - Aula informatica 3",
+      "label_b": "PNT31C0302 - CUBO 31C piano 3 stanza 2 - Aula informatica 2"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[77]",
+      "path_b": "allTicketsFlat[326].fields[4].options[79]",
+      "label_a": "PNT31C0301 - CUBO 31C piano 3 stanza 1 - Aula informatica 3",
+      "label_b": "PNT31C0303 - CUBO 31C piano 3 stanza 3 - Aula informatica 1"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[78]",
+      "path_b": "allTicketsFlat[326].fields[4].options[79]",
+      "label_a": "PNT31C0302 - CUBO 31C piano 3 stanza 2 - Aula informatica 2",
+      "label_b": "PNT31C0303 - CUBO 31C piano 3 stanza 3 - Aula informatica 1"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[86]",
+      "path_b": "allTicketsFlat[326].fields[4].options[155]",
+      "label_a": "PNT31C0501 - CUBO 31C piano 5 stanza 1 - Sala riunioni",
+      "label_b": "PNT33B0501 - CUBO 33B piano 5 stanza 1 - Sala riunioni"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[86]",
+      "path_b": "allTicketsFlat[326].fields[4].options[191]",
+      "label_a": "PNT31C0501 - CUBO 31C piano 5 stanza 1 - Sala riunioni",
+      "label_b": "PNT33C0501 - CUBO 33C piano 5 stanza 1 - Sala riunioni"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[88]",
+      "path_b": "allTicketsFlat[326].fields[4].options[89]",
+      "label_a": "PNT31C0503 - CUBO 31C piano 5 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0504 - CUBO 31C piano 5 stanza 4 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[88]",
+      "path_b": "allTicketsFlat[326].fields[4].options[110]",
+      "label_a": "PNT31C0503 - CUBO 31C piano 5 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0702 - CUBO 31C piano 7 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[88]",
+      "path_b": "allTicketsFlat[326].fields[4].options[116]",
+      "label_a": "PNT31C0503 - CUBO 31C piano 5 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0708 - CUBO 31C piano 7 stanza 8 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[88]",
+      "path_b": "allTicketsFlat[326].fields[4].options[180]",
+      "label_a": "PNT31C0503 - CUBO 31C piano 5 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0403 - CUBO 33C piano 4 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[88]",
+      "path_b": "allTicketsFlat[326].fields[4].options[192]",
+      "label_a": "PNT31C0503 - CUBO 31C piano 5 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0502 - CUBO 33C piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[88]",
+      "path_b": "allTicketsFlat[326].fields[4].options[193]",
+      "label_a": "PNT31C0503 - CUBO 31C piano 5 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[88]",
+      "path_b": "allTicketsFlat[326].fields[4].options[199]",
+      "label_a": "PNT31C0503 - CUBO 31C piano 5 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0509 - CUBO 33C piano 5 stanza 9 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[88]",
+      "path_b": "allTicketsFlat[326].fields[4].options[201]",
+      "label_a": "PNT31C0503 - CUBO 31C piano 5 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0511 - CUBO 33C piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[89]",
+      "path_b": "allTicketsFlat[326].fields[4].options[110]",
+      "label_a": "PNT31C0504 - CUBO 31C piano 5 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0702 - CUBO 31C piano 7 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[89]",
+      "path_b": "allTicketsFlat[326].fields[4].options[116]",
+      "label_a": "PNT31C0504 - CUBO 31C piano 5 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0708 - CUBO 31C piano 7 stanza 8 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[89]",
+      "path_b": "allTicketsFlat[326].fields[4].options[158]",
+      "label_a": "PNT31C0504 - CUBO 31C piano 5 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0504 - CUBO 33B piano 5 stanza 4 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[89]",
+      "path_b": "allTicketsFlat[326].fields[4].options[192]",
+      "label_a": "PNT31C0504 - CUBO 31C piano 5 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0502 - CUBO 33C piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[89]",
+      "path_b": "allTicketsFlat[326].fields[4].options[193]",
+      "label_a": "PNT31C0504 - CUBO 31C piano 5 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[89]",
+      "path_b": "allTicketsFlat[326].fields[4].options[199]",
+      "label_a": "PNT31C0504 - CUBO 31C piano 5 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0509 - CUBO 33C piano 5 stanza 9 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[89]",
+      "path_b": "allTicketsFlat[326].fields[4].options[201]",
+      "label_a": "PNT31C0504 - CUBO 31C piano 5 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0511 - CUBO 33C piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[110]",
+      "path_b": "allTicketsFlat[326].fields[4].options[116]",
+      "label_a": "PNT31C0702 - CUBO 31C piano 7 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT31C0708 - CUBO 31C piano 7 stanza 8 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[110]",
+      "path_b": "allTicketsFlat[326].fields[4].options[189]",
+      "label_a": "PNT31C0702 - CUBO 31C piano 7 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0412 - CUBO 33C piano 4 stanza 12 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[110]",
+      "path_b": "allTicketsFlat[326].fields[4].options[192]",
+      "label_a": "PNT31C0702 - CUBO 31C piano 7 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0502 - CUBO 33C piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[137]",
+      "path_b": "allTicketsFlat[326].fields[4].options[142]",
+      "label_a": "PNT33B0204 - CUBO 33B piano 2 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0401 - CUBO 33B piano 4 stanza 1 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[137]",
+      "path_b": "allTicketsFlat[326].fields[4].options[154]",
+      "label_a": "PNT33B0204 - CUBO 33B piano 2 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0414 - CUBO 33B piano 4 stanza 14 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[137]",
+      "path_b": "allTicketsFlat[326].fields[4].options[156]",
+      "label_a": "PNT33B0204 - CUBO 33B piano 2 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0502 - CUBO 33B piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[137]",
+      "path_b": "allTicketsFlat[326].fields[4].options[158]",
+      "label_a": "PNT33B0204 - CUBO 33B piano 2 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0504 - CUBO 33B piano 5 stanza 4 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[137]",
+      "path_b": "allTicketsFlat[326].fields[4].options[165]",
+      "label_a": "PNT33B0204 - CUBO 33B piano 2 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0511 - CUBO 33B piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[142]",
+      "path_b": "allTicketsFlat[326].fields[4].options[154]",
+      "label_a": "PNT33B0401 - CUBO 33B piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0414 - CUBO 33B piano 4 stanza 14 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[142]",
+      "path_b": "allTicketsFlat[326].fields[4].options[156]",
+      "label_a": "PNT33B0401 - CUBO 33B piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0502 - CUBO 33B piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[142]",
+      "path_b": "allTicketsFlat[326].fields[4].options[158]",
+      "label_a": "PNT33B0401 - CUBO 33B piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0504 - CUBO 33B piano 5 stanza 4 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[142]",
+      "path_b": "allTicketsFlat[326].fields[4].options[165]",
+      "label_a": "PNT33B0401 - CUBO 33B piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0511 - CUBO 33B piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[142]",
+      "path_b": "allTicketsFlat[326].fields[4].options[178]",
+      "label_a": "PNT33B0401 - CUBO 33B piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0401 - CUBO 33C piano 4 stanza 1 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[142]",
+      "path_b": "allTicketsFlat[326].fields[4].options[180]",
+      "label_a": "PNT33B0401 - CUBO 33B piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0403 - CUBO 33C piano 4 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[142]",
+      "path_b": "allTicketsFlat[326].fields[4].options[187]",
+      "label_a": "PNT33B0401 - CUBO 33B piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0410 - CUBO 33C piano 4 stanza 10 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[142]",
+      "path_b": "allTicketsFlat[326].fields[4].options[189]",
+      "label_a": "PNT33B0401 - CUBO 33B piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0412 - CUBO 33C piano 4 stanza 12 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[142]",
+      "path_b": "allTicketsFlat[326].fields[4].options[201]",
+      "label_a": "PNT33B0401 - CUBO 33B piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0511 - CUBO 33C piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[149]",
+      "path_b": "allTicketsFlat[326].fields[4].options[155]",
+      "label_a": "PNT33B0408 - CUBO 33B piano 4 stanza 8 - Sala riunioni",
+      "label_b": "PNT33B0501 - CUBO 33B piano 5 stanza 1 - Sala riunioni"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[149]",
+      "path_b": "allTicketsFlat[326].fields[4].options[161]",
+      "label_a": "PNT33B0408 - CUBO 33B piano 4 stanza 8 - Sala riunioni",
+      "label_b": "PNT33B0507 - CUBO 33B piano 5 stanza 7 - Sala riunioni"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[149]",
+      "path_b": "allTicketsFlat[326].fields[4].options[184]",
+      "label_a": "PNT33B0408 - CUBO 33B piano 4 stanza 8 - Sala riunioni",
+      "label_b": "PNT33C0407 - CUBO 33C piano 4 stanza 7 - Sala riunioni"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[154]",
+      "path_b": "allTicketsFlat[326].fields[4].options[156]",
+      "label_a": "PNT33B0414 - CUBO 33B piano 4 stanza 14 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0502 - CUBO 33B piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[154]",
+      "path_b": "allTicketsFlat[326].fields[4].options[158]",
+      "label_a": "PNT33B0414 - CUBO 33B piano 4 stanza 14 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0504 - CUBO 33B piano 5 stanza 4 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[154]",
+      "path_b": "allTicketsFlat[326].fields[4].options[165]",
+      "label_a": "PNT33B0414 - CUBO 33B piano 4 stanza 14 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0511 - CUBO 33B piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[154]",
+      "path_b": "allTicketsFlat[326].fields[4].options[178]",
+      "label_a": "PNT33B0414 - CUBO 33B piano 4 stanza 14 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0401 - CUBO 33C piano 4 stanza 1 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[154]",
+      "path_b": "allTicketsFlat[326].fields[4].options[180]",
+      "label_a": "PNT33B0414 - CUBO 33B piano 4 stanza 14 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0403 - CUBO 33C piano 4 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[154]",
+      "path_b": "allTicketsFlat[326].fields[4].options[187]",
+      "label_a": "PNT33B0414 - CUBO 33B piano 4 stanza 14 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0410 - CUBO 33C piano 4 stanza 10 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[154]",
+      "path_b": "allTicketsFlat[326].fields[4].options[189]",
+      "label_a": "PNT33B0414 - CUBO 33B piano 4 stanza 14 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0412 - CUBO 33C piano 4 stanza 12 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[155]",
+      "path_b": "allTicketsFlat[326].fields[4].options[161]",
+      "label_a": "PNT33B0501 - CUBO 33B piano 5 stanza 1 - Sala riunioni",
+      "label_b": "PNT33B0507 - CUBO 33B piano 5 stanza 7 - Sala riunioni"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[155]",
+      "path_b": "allTicketsFlat[326].fields[4].options[191]",
+      "label_a": "PNT33B0501 - CUBO 33B piano 5 stanza 1 - Sala riunioni",
+      "label_b": "PNT33C0501 - CUBO 33C piano 5 stanza 1 - Sala riunioni"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[156]",
+      "path_b": "allTicketsFlat[326].fields[4].options[158]",
+      "label_a": "PNT33B0502 - CUBO 33B piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0504 - CUBO 33B piano 5 stanza 4 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[156]",
+      "path_b": "allTicketsFlat[326].fields[4].options[165]",
+      "label_a": "PNT33B0502 - CUBO 33B piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0511 - CUBO 33B piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[156]",
+      "path_b": "allTicketsFlat[326].fields[4].options[189]",
+      "label_a": "PNT33B0502 - CUBO 33B piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0412 - CUBO 33C piano 4 stanza 12 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[156]",
+      "path_b": "allTicketsFlat[326].fields[4].options[192]",
+      "label_a": "PNT33B0502 - CUBO 33B piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0502 - CUBO 33C piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[156]",
+      "path_b": "allTicketsFlat[326].fields[4].options[193]",
+      "label_a": "PNT33B0502 - CUBO 33B piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[156]",
+      "path_b": "allTicketsFlat[326].fields[4].options[199]",
+      "label_a": "PNT33B0502 - CUBO 33B piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0509 - CUBO 33C piano 5 stanza 9 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[156]",
+      "path_b": "allTicketsFlat[326].fields[4].options[201]",
+      "label_a": "PNT33B0502 - CUBO 33B piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0511 - CUBO 33C piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[158]",
+      "path_b": "allTicketsFlat[326].fields[4].options[165]",
+      "label_a": "PNT33B0504 - CUBO 33B piano 5 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33B0511 - CUBO 33B piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[158]",
+      "path_b": "allTicketsFlat[326].fields[4].options[192]",
+      "label_a": "PNT33B0504 - CUBO 33B piano 5 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0502 - CUBO 33C piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[158]",
+      "path_b": "allTicketsFlat[326].fields[4].options[193]",
+      "label_a": "PNT33B0504 - CUBO 33B piano 5 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[158]",
+      "path_b": "allTicketsFlat[326].fields[4].options[199]",
+      "label_a": "PNT33B0504 - CUBO 33B piano 5 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0509 - CUBO 33C piano 5 stanza 9 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[158]",
+      "path_b": "allTicketsFlat[326].fields[4].options[201]",
+      "label_a": "PNT33B0504 - CUBO 33B piano 5 stanza 4 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0511 - CUBO 33C piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[161]",
+      "path_b": "allTicketsFlat[326].fields[4].options[184]",
+      "label_a": "PNT33B0507 - CUBO 33B piano 5 stanza 7 - Sala riunioni",
+      "label_b": "PNT33C0407 - CUBO 33C piano 4 stanza 7 - Sala riunioni"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[161]",
+      "path_b": "allTicketsFlat[326].fields[4].options[191]",
+      "label_a": "PNT33B0507 - CUBO 33B piano 5 stanza 7 - Sala riunioni",
+      "label_b": "PNT33C0501 - CUBO 33C piano 5 stanza 1 - Sala riunioni"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[165]",
+      "path_b": "allTicketsFlat[326].fields[4].options[178]",
+      "label_a": "PNT33B0511 - CUBO 33B piano 5 stanza 11 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0401 - CUBO 33C piano 4 stanza 1 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[165]",
+      "path_b": "allTicketsFlat[326].fields[4].options[192]",
+      "label_a": "PNT33B0511 - CUBO 33B piano 5 stanza 11 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0502 - CUBO 33C piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[165]",
+      "path_b": "allTicketsFlat[326].fields[4].options[193]",
+      "label_a": "PNT33B0511 - CUBO 33B piano 5 stanza 11 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[165]",
+      "path_b": "allTicketsFlat[326].fields[4].options[199]",
+      "label_a": "PNT33B0511 - CUBO 33B piano 5 stanza 11 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0509 - CUBO 33C piano 5 stanza 9 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[165]",
+      "path_b": "allTicketsFlat[326].fields[4].options[201]",
+      "label_a": "PNT33B0511 - CUBO 33B piano 5 stanza 11 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0511 - CUBO 33C piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[178]",
+      "path_b": "allTicketsFlat[326].fields[4].options[180]",
+      "label_a": "PNT33C0401 - CUBO 33C piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0403 - CUBO 33C piano 4 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[178]",
+      "path_b": "allTicketsFlat[326].fields[4].options[187]",
+      "label_a": "PNT33C0401 - CUBO 33C piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0410 - CUBO 33C piano 4 stanza 10 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[178]",
+      "path_b": "allTicketsFlat[326].fields[4].options[189]",
+      "label_a": "PNT33C0401 - CUBO 33C piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0412 - CUBO 33C piano 4 stanza 12 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[178]",
+      "path_b": "allTicketsFlat[326].fields[4].options[192]",
+      "label_a": "PNT33C0401 - CUBO 33C piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0502 - CUBO 33C piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[178]",
+      "path_b": "allTicketsFlat[326].fields[4].options[193]",
+      "label_a": "PNT33C0401 - CUBO 33C piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[178]",
+      "path_b": "allTicketsFlat[326].fields[4].options[199]",
+      "label_a": "PNT33C0401 - CUBO 33C piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0509 - CUBO 33C piano 5 stanza 9 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[178]",
+      "path_b": "allTicketsFlat[326].fields[4].options[201]",
+      "label_a": "PNT33C0401 - CUBO 33C piano 4 stanza 1 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0511 - CUBO 33C piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[180]",
+      "path_b": "allTicketsFlat[326].fields[4].options[187]",
+      "label_a": "PNT33C0403 - CUBO 33C piano 4 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0410 - CUBO 33C piano 4 stanza 10 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[180]",
+      "path_b": "allTicketsFlat[326].fields[4].options[189]",
+      "label_a": "PNT33C0403 - CUBO 33C piano 4 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0412 - CUBO 33C piano 4 stanza 12 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[180]",
+      "path_b": "allTicketsFlat[326].fields[4].options[192]",
+      "label_a": "PNT33C0403 - CUBO 33C piano 4 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0502 - CUBO 33C piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[180]",
+      "path_b": "allTicketsFlat[326].fields[4].options[193]",
+      "label_a": "PNT33C0403 - CUBO 33C piano 4 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[180]",
+      "path_b": "allTicketsFlat[326].fields[4].options[199]",
+      "label_a": "PNT33C0403 - CUBO 33C piano 4 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0509 - CUBO 33C piano 5 stanza 9 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[180]",
+      "path_b": "allTicketsFlat[326].fields[4].options[201]",
+      "label_a": "PNT33C0403 - CUBO 33C piano 4 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0511 - CUBO 33C piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[184]",
+      "path_b": "allTicketsFlat[326].fields[4].options[191]",
+      "label_a": "PNT33C0407 - CUBO 33C piano 4 stanza 7 - Sala riunioni",
+      "label_b": "PNT33C0501 - CUBO 33C piano 5 stanza 1 - Sala riunioni"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[187]",
+      "path_b": "allTicketsFlat[326].fields[4].options[189]",
+      "label_a": "PNT33C0410 - CUBO 33C piano 4 stanza 10 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0412 - CUBO 33C piano 4 stanza 12 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[187]",
+      "path_b": "allTicketsFlat[326].fields[4].options[192]",
+      "label_a": "PNT33C0410 - CUBO 33C piano 4 stanza 10 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0502 - CUBO 33C piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[187]",
+      "path_b": "allTicketsFlat[326].fields[4].options[193]",
+      "label_a": "PNT33C0410 - CUBO 33C piano 4 stanza 10 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[187]",
+      "path_b": "allTicketsFlat[326].fields[4].options[199]",
+      "label_a": "PNT33C0410 - CUBO 33C piano 4 stanza 10 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0509 - CUBO 33C piano 5 stanza 9 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[187]",
+      "path_b": "allTicketsFlat[326].fields[4].options[201]",
+      "label_a": "PNT33C0410 - CUBO 33C piano 4 stanza 10 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0511 - CUBO 33C piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[189]",
+      "path_b": "allTicketsFlat[326].fields[4].options[192]",
+      "label_a": "PNT33C0412 - CUBO 33C piano 4 stanza 12 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0502 - CUBO 33C piano 5 stanza 2 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[189]",
+      "path_b": "allTicketsFlat[326].fields[4].options[193]",
+      "label_a": "PNT33C0412 - CUBO 33C piano 4 stanza 12 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[189]",
+      "path_b": "allTicketsFlat[326].fields[4].options[199]",
+      "label_a": "PNT33C0412 - CUBO 33C piano 4 stanza 12 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0509 - CUBO 33C piano 5 stanza 9 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[189]",
+      "path_b": "allTicketsFlat[326].fields[4].options[201]",
+      "label_a": "PNT33C0412 - CUBO 33C piano 4 stanza 12 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0511 - CUBO 33C piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[192]",
+      "path_b": "allTicketsFlat[326].fields[4].options[193]",
+      "label_a": "PNT33C0502 - CUBO 33C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[192]",
+      "path_b": "allTicketsFlat[326].fields[4].options[199]",
+      "label_a": "PNT33C0502 - CUBO 33C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0509 - CUBO 33C piano 5 stanza 9 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[192]",
+      "path_b": "allTicketsFlat[326].fields[4].options[201]",
+      "label_a": "PNT33C0502 - CUBO 33C piano 5 stanza 2 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0511 - CUBO 33C piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[193]",
+      "path_b": "allTicketsFlat[326].fields[4].options[199]",
+      "label_a": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0509 - CUBO 33C piano 5 stanza 9 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[193]",
+      "path_b": "allTicketsFlat[326].fields[4].options[201]",
+      "label_a": "PNT33C0503 - CUBO 33C piano 5 stanza 3 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0511 - CUBO 33C piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[326].fields[4].options[199]",
+      "path_b": "allTicketsFlat[326].fields[4].options[201]",
+      "label_a": "PNT33C0509 - CUBO 33C piano 5 stanza 9 - Studio assegnisti/dottorandi",
+      "label_b": "PNT33C0511 - CUBO 33C piano 5 stanza 11 - Studio assegnisti/dottorandi"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[1]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 2"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[2]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 3"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[3]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 4"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[4]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 5"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[5]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 6"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[6]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 7"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[7]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 8"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[8]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 9"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[9]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 10"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[10]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 11"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[11]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 12"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[12]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 13"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[13]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 14"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[14]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 15"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[15]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 16"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[0]",
+      "path_b": "allTicketsFlat[480].fields[3].options[19]",
+      "label_a": "Maisonnettes Blocco 1",
+      "label_b": "Maisonnettes Blocco 20"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[2]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 3"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[3]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 4"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[4]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 5"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[5]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 6"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[6]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 7"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[7]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 8"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[8]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 9"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[9]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 10"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[10]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 11"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[11]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 12"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[12]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 13"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[13]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 14"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[14]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 15"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[15]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 16"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[1]",
+      "path_b": "allTicketsFlat[480].fields[3].options[19]",
+      "label_a": "Maisonnettes Blocco 2",
+      "label_b": "Maisonnettes Blocco 20"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[3]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 4"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[4]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 5"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[5]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 6"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[6]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 7"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[7]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 8"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[8]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 9"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[9]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 10"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[10]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 11"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[11]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 12"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[12]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 13"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[13]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 14"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[14]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 15"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[15]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 16"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[2]",
+      "path_b": "allTicketsFlat[480].fields[3].options[19]",
+      "label_a": "Maisonnettes Blocco 3",
+      "label_b": "Maisonnettes Blocco 20"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[4]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 5"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[5]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 6"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[6]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 7"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[7]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 8"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[8]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 9"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[9]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 10"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[10]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 11"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[11]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 12"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[12]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 13"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[13]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 14"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[14]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 15"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[15]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 16"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[3]",
+      "path_b": "allTicketsFlat[480].fields[3].options[19]",
+      "label_a": "Maisonnettes Blocco 4",
+      "label_b": "Maisonnettes Blocco 20"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[4]",
+      "path_b": "allTicketsFlat[480].fields[3].options[5]",
+      "label_a": "Maisonnettes Blocco 5",
+      "label_b": "Maisonnettes Blocco 6"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[4]",
+      "path_b": "allTicketsFlat[480].fields[3].options[6]",
+      "label_a": "Maisonnettes Blocco 5",
+      "label_b": "Maisonnettes Blocco 7"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[4]",
+      "path_b": "allTicketsFlat[480].fields[3].options[7]",
+      "label_a": "Maisonnettes Blocco 5",
+      "label_b": "Maisonnettes Blocco 8"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[4]",
+      "path_b": "allTicketsFlat[480].fields[3].options[8]",
+      "label_a": "Maisonnettes Blocco 5",
+      "label_b": "Maisonnettes Blocco 9"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[4]",
+      "path_b": "allTicketsFlat[480].fields[3].options[9]",
+      "label_a": "Maisonnettes Blocco 5",
+      "label_b": "Maisonnettes Blocco 10"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[4]",
+      "path_b": "allTicketsFlat[480].fields[3].options[10]",
+      "label_a": "Maisonnettes Blocco 5",
+      "label_b": "Maisonnettes Blocco 11"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[4]",
+      "path_b": "allTicketsFlat[480].fields[3].options[11]",
+      "label_a": "Maisonnettes Blocco 5",
+      "label_b": "Maisonnettes Blocco 12"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[4]",
+      "path_b": "allTicketsFlat[480].fields[3].options[12]",
+      "label_a": "Maisonnettes Blocco 5",
+      "label_b": "Maisonnettes Blocco 13"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[4]",
+      "path_b": "allTicketsFlat[480].fields[3].options[13]",
+      "label_a": "Maisonnettes Blocco 5",
+      "label_b": "Maisonnettes Blocco 14"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[4]",
+      "path_b": "allTicketsFlat[480].fields[3].options[14]",
+      "label_a": "Maisonnettes Blocco 5",
+      "label_b": "Maisonnettes Blocco 15"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[4]",
+      "path_b": "allTicketsFlat[480].fields[3].options[15]",
+      "label_a": "Maisonnettes Blocco 5",
+      "label_b": "Maisonnettes Blocco 16"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[4]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 5",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[4]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 5",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[4]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 5",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[4]",
+      "path_b": "allTicketsFlat[480].fields[3].options[19]",
+      "label_a": "Maisonnettes Blocco 5",
+      "label_b": "Maisonnettes Blocco 20"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[5]",
+      "path_b": "allTicketsFlat[480].fields[3].options[6]",
+      "label_a": "Maisonnettes Blocco 6",
+      "label_b": "Maisonnettes Blocco 7"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[5]",
+      "path_b": "allTicketsFlat[480].fields[3].options[7]",
+      "label_a": "Maisonnettes Blocco 6",
+      "label_b": "Maisonnettes Blocco 8"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[5]",
+      "path_b": "allTicketsFlat[480].fields[3].options[8]",
+      "label_a": "Maisonnettes Blocco 6",
+      "label_b": "Maisonnettes Blocco 9"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[5]",
+      "path_b": "allTicketsFlat[480].fields[3].options[9]",
+      "label_a": "Maisonnettes Blocco 6",
+      "label_b": "Maisonnettes Blocco 10"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[5]",
+      "path_b": "allTicketsFlat[480].fields[3].options[10]",
+      "label_a": "Maisonnettes Blocco 6",
+      "label_b": "Maisonnettes Blocco 11"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[5]",
+      "path_b": "allTicketsFlat[480].fields[3].options[11]",
+      "label_a": "Maisonnettes Blocco 6",
+      "label_b": "Maisonnettes Blocco 12"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[5]",
+      "path_b": "allTicketsFlat[480].fields[3].options[12]",
+      "label_a": "Maisonnettes Blocco 6",
+      "label_b": "Maisonnettes Blocco 13"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[5]",
+      "path_b": "allTicketsFlat[480].fields[3].options[13]",
+      "label_a": "Maisonnettes Blocco 6",
+      "label_b": "Maisonnettes Blocco 14"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[5]",
+      "path_b": "allTicketsFlat[480].fields[3].options[14]",
+      "label_a": "Maisonnettes Blocco 6",
+      "label_b": "Maisonnettes Blocco 15"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[5]",
+      "path_b": "allTicketsFlat[480].fields[3].options[15]",
+      "label_a": "Maisonnettes Blocco 6",
+      "label_b": "Maisonnettes Blocco 16"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[5]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 6",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[5]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 6",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[5]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 6",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[5]",
+      "path_b": "allTicketsFlat[480].fields[3].options[19]",
+      "label_a": "Maisonnettes Blocco 6",
+      "label_b": "Maisonnettes Blocco 20"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[6]",
+      "path_b": "allTicketsFlat[480].fields[3].options[7]",
+      "label_a": "Maisonnettes Blocco 7",
+      "label_b": "Maisonnettes Blocco 8"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[6]",
+      "path_b": "allTicketsFlat[480].fields[3].options[8]",
+      "label_a": "Maisonnettes Blocco 7",
+      "label_b": "Maisonnettes Blocco 9"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[6]",
+      "path_b": "allTicketsFlat[480].fields[3].options[9]",
+      "label_a": "Maisonnettes Blocco 7",
+      "label_b": "Maisonnettes Blocco 10"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[6]",
+      "path_b": "allTicketsFlat[480].fields[3].options[10]",
+      "label_a": "Maisonnettes Blocco 7",
+      "label_b": "Maisonnettes Blocco 11"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[6]",
+      "path_b": "allTicketsFlat[480].fields[3].options[11]",
+      "label_a": "Maisonnettes Blocco 7",
+      "label_b": "Maisonnettes Blocco 12"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[6]",
+      "path_b": "allTicketsFlat[480].fields[3].options[12]",
+      "label_a": "Maisonnettes Blocco 7",
+      "label_b": "Maisonnettes Blocco 13"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[6]",
+      "path_b": "allTicketsFlat[480].fields[3].options[13]",
+      "label_a": "Maisonnettes Blocco 7",
+      "label_b": "Maisonnettes Blocco 14"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[6]",
+      "path_b": "allTicketsFlat[480].fields[3].options[14]",
+      "label_a": "Maisonnettes Blocco 7",
+      "label_b": "Maisonnettes Blocco 15"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[6]",
+      "path_b": "allTicketsFlat[480].fields[3].options[15]",
+      "label_a": "Maisonnettes Blocco 7",
+      "label_b": "Maisonnettes Blocco 16"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[6]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 7",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[6]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 7",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[6]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 7",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[6]",
+      "path_b": "allTicketsFlat[480].fields[3].options[19]",
+      "label_a": "Maisonnettes Blocco 7",
+      "label_b": "Maisonnettes Blocco 20"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[7]",
+      "path_b": "allTicketsFlat[480].fields[3].options[8]",
+      "label_a": "Maisonnettes Blocco 8",
+      "label_b": "Maisonnettes Blocco 9"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[7]",
+      "path_b": "allTicketsFlat[480].fields[3].options[9]",
+      "label_a": "Maisonnettes Blocco 8",
+      "label_b": "Maisonnettes Blocco 10"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[7]",
+      "path_b": "allTicketsFlat[480].fields[3].options[10]",
+      "label_a": "Maisonnettes Blocco 8",
+      "label_b": "Maisonnettes Blocco 11"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[7]",
+      "path_b": "allTicketsFlat[480].fields[3].options[11]",
+      "label_a": "Maisonnettes Blocco 8",
+      "label_b": "Maisonnettes Blocco 12"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[7]",
+      "path_b": "allTicketsFlat[480].fields[3].options[12]",
+      "label_a": "Maisonnettes Blocco 8",
+      "label_b": "Maisonnettes Blocco 13"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[7]",
+      "path_b": "allTicketsFlat[480].fields[3].options[13]",
+      "label_a": "Maisonnettes Blocco 8",
+      "label_b": "Maisonnettes Blocco 14"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[7]",
+      "path_b": "allTicketsFlat[480].fields[3].options[14]",
+      "label_a": "Maisonnettes Blocco 8",
+      "label_b": "Maisonnettes Blocco 15"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[7]",
+      "path_b": "allTicketsFlat[480].fields[3].options[15]",
+      "label_a": "Maisonnettes Blocco 8",
+      "label_b": "Maisonnettes Blocco 16"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[7]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 8",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[7]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 8",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[7]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 8",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[7]",
+      "path_b": "allTicketsFlat[480].fields[3].options[19]",
+      "label_a": "Maisonnettes Blocco 8",
+      "label_b": "Maisonnettes Blocco 20"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[8]",
+      "path_b": "allTicketsFlat[480].fields[3].options[9]",
+      "label_a": "Maisonnettes Blocco 9",
+      "label_b": "Maisonnettes Blocco 10"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[8]",
+      "path_b": "allTicketsFlat[480].fields[3].options[10]",
+      "label_a": "Maisonnettes Blocco 9",
+      "label_b": "Maisonnettes Blocco 11"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[8]",
+      "path_b": "allTicketsFlat[480].fields[3].options[11]",
+      "label_a": "Maisonnettes Blocco 9",
+      "label_b": "Maisonnettes Blocco 12"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[8]",
+      "path_b": "allTicketsFlat[480].fields[3].options[12]",
+      "label_a": "Maisonnettes Blocco 9",
+      "label_b": "Maisonnettes Blocco 13"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[8]",
+      "path_b": "allTicketsFlat[480].fields[3].options[13]",
+      "label_a": "Maisonnettes Blocco 9",
+      "label_b": "Maisonnettes Blocco 14"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[8]",
+      "path_b": "allTicketsFlat[480].fields[3].options[14]",
+      "label_a": "Maisonnettes Blocco 9",
+      "label_b": "Maisonnettes Blocco 15"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[8]",
+      "path_b": "allTicketsFlat[480].fields[3].options[15]",
+      "label_a": "Maisonnettes Blocco 9",
+      "label_b": "Maisonnettes Blocco 16"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[8]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 9",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[8]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 9",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[8]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 9",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[8]",
+      "path_b": "allTicketsFlat[480].fields[3].options[19]",
+      "label_a": "Maisonnettes Blocco 9",
+      "label_b": "Maisonnettes Blocco 20"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[9]",
+      "path_b": "allTicketsFlat[480].fields[3].options[10]",
+      "label_a": "Maisonnettes Blocco 10",
+      "label_b": "Maisonnettes Blocco 11"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[9]",
+      "path_b": "allTicketsFlat[480].fields[3].options[11]",
+      "label_a": "Maisonnettes Blocco 10",
+      "label_b": "Maisonnettes Blocco 12"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[9]",
+      "path_b": "allTicketsFlat[480].fields[3].options[12]",
+      "label_a": "Maisonnettes Blocco 10",
+      "label_b": "Maisonnettes Blocco 13"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[9]",
+      "path_b": "allTicketsFlat[480].fields[3].options[13]",
+      "label_a": "Maisonnettes Blocco 10",
+      "label_b": "Maisonnettes Blocco 14"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[9]",
+      "path_b": "allTicketsFlat[480].fields[3].options[14]",
+      "label_a": "Maisonnettes Blocco 10",
+      "label_b": "Maisonnettes Blocco 15"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[9]",
+      "path_b": "allTicketsFlat[480].fields[3].options[15]",
+      "label_a": "Maisonnettes Blocco 10",
+      "label_b": "Maisonnettes Blocco 16"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[9]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 10",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[9]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 10",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[9]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 10",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[9]",
+      "path_b": "allTicketsFlat[480].fields[3].options[19]",
+      "label_a": "Maisonnettes Blocco 10",
+      "label_b": "Maisonnettes Blocco 20"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[10]",
+      "path_b": "allTicketsFlat[480].fields[3].options[11]",
+      "label_a": "Maisonnettes Blocco 11",
+      "label_b": "Maisonnettes Blocco 12"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[10]",
+      "path_b": "allTicketsFlat[480].fields[3].options[12]",
+      "label_a": "Maisonnettes Blocco 11",
+      "label_b": "Maisonnettes Blocco 13"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[10]",
+      "path_b": "allTicketsFlat[480].fields[3].options[13]",
+      "label_a": "Maisonnettes Blocco 11",
+      "label_b": "Maisonnettes Blocco 14"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[10]",
+      "path_b": "allTicketsFlat[480].fields[3].options[14]",
+      "label_a": "Maisonnettes Blocco 11",
+      "label_b": "Maisonnettes Blocco 15"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[10]",
+      "path_b": "allTicketsFlat[480].fields[3].options[15]",
+      "label_a": "Maisonnettes Blocco 11",
+      "label_b": "Maisonnettes Blocco 16"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[10]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 11",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[10]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 11",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[10]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 11",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[11]",
+      "path_b": "allTicketsFlat[480].fields[3].options[12]",
+      "label_a": "Maisonnettes Blocco 12",
+      "label_b": "Maisonnettes Blocco 13"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[11]",
+      "path_b": "allTicketsFlat[480].fields[3].options[13]",
+      "label_a": "Maisonnettes Blocco 12",
+      "label_b": "Maisonnettes Blocco 14"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[11]",
+      "path_b": "allTicketsFlat[480].fields[3].options[14]",
+      "label_a": "Maisonnettes Blocco 12",
+      "label_b": "Maisonnettes Blocco 15"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[11]",
+      "path_b": "allTicketsFlat[480].fields[3].options[15]",
+      "label_a": "Maisonnettes Blocco 12",
+      "label_b": "Maisonnettes Blocco 16"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[11]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 12",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[11]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 12",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[11]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 12",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[11]",
+      "path_b": "allTicketsFlat[480].fields[3].options[19]",
+      "label_a": "Maisonnettes Blocco 12",
+      "label_b": "Maisonnettes Blocco 20"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[12]",
+      "path_b": "allTicketsFlat[480].fields[3].options[13]",
+      "label_a": "Maisonnettes Blocco 13",
+      "label_b": "Maisonnettes Blocco 14"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[12]",
+      "path_b": "allTicketsFlat[480].fields[3].options[14]",
+      "label_a": "Maisonnettes Blocco 13",
+      "label_b": "Maisonnettes Blocco 15"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[12]",
+      "path_b": "allTicketsFlat[480].fields[3].options[15]",
+      "label_a": "Maisonnettes Blocco 13",
+      "label_b": "Maisonnettes Blocco 16"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[12]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 13",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[12]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 13",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[12]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 13",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[13]",
+      "path_b": "allTicketsFlat[480].fields[3].options[14]",
+      "label_a": "Maisonnettes Blocco 14",
+      "label_b": "Maisonnettes Blocco 15"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[13]",
+      "path_b": "allTicketsFlat[480].fields[3].options[15]",
+      "label_a": "Maisonnettes Blocco 14",
+      "label_b": "Maisonnettes Blocco 16"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[13]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 14",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[13]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 14",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[13]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 14",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[14]",
+      "path_b": "allTicketsFlat[480].fields[3].options[15]",
+      "label_a": "Maisonnettes Blocco 15",
+      "label_b": "Maisonnettes Blocco 16"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[14]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 15",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[14]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 15",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[14]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 15",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[15]",
+      "path_b": "allTicketsFlat[480].fields[3].options[16]",
+      "label_a": "Maisonnettes Blocco 16",
+      "label_b": "Maisonnettes Blocco 17"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[15]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 16",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[15]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 16",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[16]",
+      "path_b": "allTicketsFlat[480].fields[3].options[17]",
+      "label_a": "Maisonnettes Blocco 17",
+      "label_b": "Maisonnettes Blocco 18"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[16]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 17",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[17]",
+      "path_b": "allTicketsFlat[480].fields[3].options[18]",
+      "label_a": "Maisonnettes Blocco 18",
+      "label_b": "Maisonnettes Blocco 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[20]",
+      "path_b": "allTicketsFlat[480].fields[3].options[21]",
+      "label_a": "Martensson \"A\" sett. A",
+      "label_b": "Martensson \"A\" sett. B"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[20]",
+      "path_b": "allTicketsFlat[480].fields[3].options[22]",
+      "label_a": "Martensson \"A\" sett. A",
+      "label_b": "Martensson \"A\" sett. C"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[20]",
+      "path_b": "allTicketsFlat[480].fields[3].options[23]",
+      "label_a": "Martensson \"A\" sett. A",
+      "label_b": "Martensson \"A\" sett. D"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[20]",
+      "path_b": "allTicketsFlat[480].fields[3].options[24]",
+      "label_a": "Martensson \"A\" sett. A",
+      "label_b": "Martensson \"A\" sett. E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[20]",
+      "path_b": "allTicketsFlat[480].fields[3].options[25]",
+      "label_a": "Martensson \"A\" sett. A",
+      "label_b": "Martensson \"A\" sett. F"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[20]",
+      "path_b": "allTicketsFlat[480].fields[3].options[26]",
+      "label_a": "Martensson \"A\" sett. A",
+      "label_b": "Martensson \"A\" sett. G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[20]",
+      "path_b": "allTicketsFlat[480].fields[3].options[27]",
+      "label_a": "Martensson \"A\" sett. A",
+      "label_b": "Martensson \"A\" sett. H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[20]",
+      "path_b": "allTicketsFlat[480].fields[3].options[28]",
+      "label_a": "Martensson \"A\" sett. A",
+      "label_b": "Martensson \"A\" sett. I"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[20]",
+      "path_b": "allTicketsFlat[480].fields[3].options[29]",
+      "label_a": "Martensson \"A\" sett. A",
+      "label_b": "Martensson \"A\" sett. L"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[20]",
+      "path_b": "allTicketsFlat[480].fields[3].options[30]",
+      "label_a": "Martensson \"A\" sett. A",
+      "label_b": "Martensson \"A\" sett. M"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[21]",
+      "path_b": "allTicketsFlat[480].fields[3].options[22]",
+      "label_a": "Martensson \"A\" sett. B",
+      "label_b": "Martensson \"A\" sett. C"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[21]",
+      "path_b": "allTicketsFlat[480].fields[3].options[23]",
+      "label_a": "Martensson \"A\" sett. B",
+      "label_b": "Martensson \"A\" sett. D"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[21]",
+      "path_b": "allTicketsFlat[480].fields[3].options[24]",
+      "label_a": "Martensson \"A\" sett. B",
+      "label_b": "Martensson \"A\" sett. E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[21]",
+      "path_b": "allTicketsFlat[480].fields[3].options[25]",
+      "label_a": "Martensson \"A\" sett. B",
+      "label_b": "Martensson \"A\" sett. F"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[21]",
+      "path_b": "allTicketsFlat[480].fields[3].options[26]",
+      "label_a": "Martensson \"A\" sett. B",
+      "label_b": "Martensson \"A\" sett. G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[21]",
+      "path_b": "allTicketsFlat[480].fields[3].options[27]",
+      "label_a": "Martensson \"A\" sett. B",
+      "label_b": "Martensson \"A\" sett. H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[21]",
+      "path_b": "allTicketsFlat[480].fields[3].options[28]",
+      "label_a": "Martensson \"A\" sett. B",
+      "label_b": "Martensson \"A\" sett. I"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[21]",
+      "path_b": "allTicketsFlat[480].fields[3].options[29]",
+      "label_a": "Martensson \"A\" sett. B",
+      "label_b": "Martensson \"A\" sett. L"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[21]",
+      "path_b": "allTicketsFlat[480].fields[3].options[30]",
+      "label_a": "Martensson \"A\" sett. B",
+      "label_b": "Martensson \"A\" sett. M"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[22]",
+      "path_b": "allTicketsFlat[480].fields[3].options[23]",
+      "label_a": "Martensson \"A\" sett. C",
+      "label_b": "Martensson \"A\" sett. D"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[22]",
+      "path_b": "allTicketsFlat[480].fields[3].options[24]",
+      "label_a": "Martensson \"A\" sett. C",
+      "label_b": "Martensson \"A\" sett. E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[22]",
+      "path_b": "allTicketsFlat[480].fields[3].options[25]",
+      "label_a": "Martensson \"A\" sett. C",
+      "label_b": "Martensson \"A\" sett. F"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[22]",
+      "path_b": "allTicketsFlat[480].fields[3].options[26]",
+      "label_a": "Martensson \"A\" sett. C",
+      "label_b": "Martensson \"A\" sett. G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[22]",
+      "path_b": "allTicketsFlat[480].fields[3].options[27]",
+      "label_a": "Martensson \"A\" sett. C",
+      "label_b": "Martensson \"A\" sett. H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[22]",
+      "path_b": "allTicketsFlat[480].fields[3].options[28]",
+      "label_a": "Martensson \"A\" sett. C",
+      "label_b": "Martensson \"A\" sett. I"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[22]",
+      "path_b": "allTicketsFlat[480].fields[3].options[29]",
+      "label_a": "Martensson \"A\" sett. C",
+      "label_b": "Martensson \"A\" sett. L"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[22]",
+      "path_b": "allTicketsFlat[480].fields[3].options[30]",
+      "label_a": "Martensson \"A\" sett. C",
+      "label_b": "Martensson \"A\" sett. M"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[23]",
+      "path_b": "allTicketsFlat[480].fields[3].options[24]",
+      "label_a": "Martensson \"A\" sett. D",
+      "label_b": "Martensson \"A\" sett. E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[23]",
+      "path_b": "allTicketsFlat[480].fields[3].options[25]",
+      "label_a": "Martensson \"A\" sett. D",
+      "label_b": "Martensson \"A\" sett. F"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[23]",
+      "path_b": "allTicketsFlat[480].fields[3].options[26]",
+      "label_a": "Martensson \"A\" sett. D",
+      "label_b": "Martensson \"A\" sett. G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[23]",
+      "path_b": "allTicketsFlat[480].fields[3].options[27]",
+      "label_a": "Martensson \"A\" sett. D",
+      "label_b": "Martensson \"A\" sett. H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[23]",
+      "path_b": "allTicketsFlat[480].fields[3].options[28]",
+      "label_a": "Martensson \"A\" sett. D",
+      "label_b": "Martensson \"A\" sett. I"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[23]",
+      "path_b": "allTicketsFlat[480].fields[3].options[29]",
+      "label_a": "Martensson \"A\" sett. D",
+      "label_b": "Martensson \"A\" sett. L"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[23]",
+      "path_b": "allTicketsFlat[480].fields[3].options[30]",
+      "label_a": "Martensson \"A\" sett. D",
+      "label_b": "Martensson \"A\" sett. M"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[24]",
+      "path_b": "allTicketsFlat[480].fields[3].options[25]",
+      "label_a": "Martensson \"A\" sett. E",
+      "label_b": "Martensson \"A\" sett. F"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[24]",
+      "path_b": "allTicketsFlat[480].fields[3].options[26]",
+      "label_a": "Martensson \"A\" sett. E",
+      "label_b": "Martensson \"A\" sett. G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[24]",
+      "path_b": "allTicketsFlat[480].fields[3].options[27]",
+      "label_a": "Martensson \"A\" sett. E",
+      "label_b": "Martensson \"A\" sett. H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[24]",
+      "path_b": "allTicketsFlat[480].fields[3].options[28]",
+      "label_a": "Martensson \"A\" sett. E",
+      "label_b": "Martensson \"A\" sett. I"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[24]",
+      "path_b": "allTicketsFlat[480].fields[3].options[29]",
+      "label_a": "Martensson \"A\" sett. E",
+      "label_b": "Martensson \"A\" sett. L"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[24]",
+      "path_b": "allTicketsFlat[480].fields[3].options[30]",
+      "label_a": "Martensson \"A\" sett. E",
+      "label_b": "Martensson \"A\" sett. M"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[25]",
+      "path_b": "allTicketsFlat[480].fields[3].options[26]",
+      "label_a": "Martensson \"A\" sett. F",
+      "label_b": "Martensson \"A\" sett. G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[25]",
+      "path_b": "allTicketsFlat[480].fields[3].options[27]",
+      "label_a": "Martensson \"A\" sett. F",
+      "label_b": "Martensson \"A\" sett. H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[25]",
+      "path_b": "allTicketsFlat[480].fields[3].options[28]",
+      "label_a": "Martensson \"A\" sett. F",
+      "label_b": "Martensson \"A\" sett. I"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[25]",
+      "path_b": "allTicketsFlat[480].fields[3].options[29]",
+      "label_a": "Martensson \"A\" sett. F",
+      "label_b": "Martensson \"A\" sett. L"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[25]",
+      "path_b": "allTicketsFlat[480].fields[3].options[30]",
+      "label_a": "Martensson \"A\" sett. F",
+      "label_b": "Martensson \"A\" sett. M"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[26]",
+      "path_b": "allTicketsFlat[480].fields[3].options[27]",
+      "label_a": "Martensson \"A\" sett. G",
+      "label_b": "Martensson \"A\" sett. H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[26]",
+      "path_b": "allTicketsFlat[480].fields[3].options[28]",
+      "label_a": "Martensson \"A\" sett. G",
+      "label_b": "Martensson \"A\" sett. I"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[26]",
+      "path_b": "allTicketsFlat[480].fields[3].options[29]",
+      "label_a": "Martensson \"A\" sett. G",
+      "label_b": "Martensson \"A\" sett. L"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[26]",
+      "path_b": "allTicketsFlat[480].fields[3].options[30]",
+      "label_a": "Martensson \"A\" sett. G",
+      "label_b": "Martensson \"A\" sett. M"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[27]",
+      "path_b": "allTicketsFlat[480].fields[3].options[28]",
+      "label_a": "Martensson \"A\" sett. H",
+      "label_b": "Martensson \"A\" sett. I"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[27]",
+      "path_b": "allTicketsFlat[480].fields[3].options[29]",
+      "label_a": "Martensson \"A\" sett. H",
+      "label_b": "Martensson \"A\" sett. L"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[27]",
+      "path_b": "allTicketsFlat[480].fields[3].options[30]",
+      "label_a": "Martensson \"A\" sett. H",
+      "label_b": "Martensson \"A\" sett. M"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[28]",
+      "path_b": "allTicketsFlat[480].fields[3].options[29]",
+      "label_a": "Martensson \"A\" sett. I",
+      "label_b": "Martensson \"A\" sett. L"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[28]",
+      "path_b": "allTicketsFlat[480].fields[3].options[30]",
+      "label_a": "Martensson \"A\" sett. I",
+      "label_b": "Martensson \"A\" sett. M"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[29]",
+      "path_b": "allTicketsFlat[480].fields[3].options[30]",
+      "label_a": "Martensson \"A\" sett. L",
+      "label_b": "Martensson \"A\" sett. M"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[31]",
+      "path_b": "allTicketsFlat[480].fields[3].options[32]",
+      "label_a": "Martensson \"B\" corpo N",
+      "label_b": "Martensson \"B\" corpo O"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[31]",
+      "path_b": "allTicketsFlat[480].fields[3].options[33]",
+      "label_a": "Martensson \"B\" corpo N",
+      "label_b": "Martensson \"B\" corpo P"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[31]",
+      "path_b": "allTicketsFlat[480].fields[3].options[34]",
+      "label_a": "Martensson \"B\" corpo N",
+      "label_b": "Martensson \"B\" corpo Q"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[31]",
+      "path_b": "allTicketsFlat[480].fields[3].options[35]",
+      "label_a": "Martensson \"B\" corpo N",
+      "label_b": "Martensson \"B\" corpo R"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[31]",
+      "path_b": "allTicketsFlat[480].fields[3].options[36]",
+      "label_a": "Martensson \"B\" corpo N",
+      "label_b": "Martensson \"B\" corpo S"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[32]",
+      "path_b": "allTicketsFlat[480].fields[3].options[33]",
+      "label_a": "Martensson \"B\" corpo O",
+      "label_b": "Martensson \"B\" corpo P"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[32]",
+      "path_b": "allTicketsFlat[480].fields[3].options[34]",
+      "label_a": "Martensson \"B\" corpo O",
+      "label_b": "Martensson \"B\" corpo Q"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[32]",
+      "path_b": "allTicketsFlat[480].fields[3].options[35]",
+      "label_a": "Martensson \"B\" corpo O",
+      "label_b": "Martensson \"B\" corpo R"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[32]",
+      "path_b": "allTicketsFlat[480].fields[3].options[36]",
+      "label_a": "Martensson \"B\" corpo O",
+      "label_b": "Martensson \"B\" corpo S"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[33]",
+      "path_b": "allTicketsFlat[480].fields[3].options[34]",
+      "label_a": "Martensson \"B\" corpo P",
+      "label_b": "Martensson \"B\" corpo Q"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[33]",
+      "path_b": "allTicketsFlat[480].fields[3].options[35]",
+      "label_a": "Martensson \"B\" corpo P",
+      "label_b": "Martensson \"B\" corpo R"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[33]",
+      "path_b": "allTicketsFlat[480].fields[3].options[36]",
+      "label_a": "Martensson \"B\" corpo P",
+      "label_b": "Martensson \"B\" corpo S"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[34]",
+      "path_b": "allTicketsFlat[480].fields[3].options[35]",
+      "label_a": "Martensson \"B\" corpo Q",
+      "label_b": "Martensson \"B\" corpo R"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[34]",
+      "path_b": "allTicketsFlat[480].fields[3].options[36]",
+      "label_a": "Martensson \"B\" corpo Q",
+      "label_b": "Martensson \"B\" corpo S"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[35]",
+      "path_b": "allTicketsFlat[480].fields[3].options[36]",
+      "label_a": "Martensson \"B\" corpo R",
+      "label_b": "Martensson \"B\" corpo S"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[37]",
+      "path_b": "allTicketsFlat[480].fields[3].options[38]",
+      "label_a": "Molicelle Corpo 1",
+      "label_b": "Molicelle Corpo 2"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[37]",
+      "path_b": "allTicketsFlat[480].fields[3].options[39]",
+      "label_a": "Molicelle Corpo 1",
+      "label_b": "Molicelle Corpo 3"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[37]",
+      "path_b": "allTicketsFlat[480].fields[3].options[40]",
+      "label_a": "Molicelle Corpo 1",
+      "label_b": "Molicelle Corpo 4"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[37]",
+      "path_b": "allTicketsFlat[480].fields[3].options[41]",
+      "label_a": "Molicelle Corpo 1",
+      "label_b": "Molicelle Corpo 5"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[37]",
+      "path_b": "allTicketsFlat[480].fields[3].options[42]",
+      "label_a": "Molicelle Corpo 1",
+      "label_b": "Molicelle Corpo 6"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[37]",
+      "path_b": "allTicketsFlat[480].fields[3].options[43]",
+      "label_a": "Molicelle Corpo 1",
+      "label_b": "Molicelle Corpo 7"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[37]",
+      "path_b": "allTicketsFlat[480].fields[3].options[44]",
+      "label_a": "Molicelle Corpo 1",
+      "label_b": "Molicelle Corpo 8"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[38]",
+      "path_b": "allTicketsFlat[480].fields[3].options[39]",
+      "label_a": "Molicelle Corpo 2",
+      "label_b": "Molicelle Corpo 3"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[38]",
+      "path_b": "allTicketsFlat[480].fields[3].options[40]",
+      "label_a": "Molicelle Corpo 2",
+      "label_b": "Molicelle Corpo 4"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[38]",
+      "path_b": "allTicketsFlat[480].fields[3].options[41]",
+      "label_a": "Molicelle Corpo 2",
+      "label_b": "Molicelle Corpo 5"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[38]",
+      "path_b": "allTicketsFlat[480].fields[3].options[42]",
+      "label_a": "Molicelle Corpo 2",
+      "label_b": "Molicelle Corpo 6"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[38]",
+      "path_b": "allTicketsFlat[480].fields[3].options[43]",
+      "label_a": "Molicelle Corpo 2",
+      "label_b": "Molicelle Corpo 7"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[38]",
+      "path_b": "allTicketsFlat[480].fields[3].options[44]",
+      "label_a": "Molicelle Corpo 2",
+      "label_b": "Molicelle Corpo 8"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[39]",
+      "path_b": "allTicketsFlat[480].fields[3].options[40]",
+      "label_a": "Molicelle Corpo 3",
+      "label_b": "Molicelle Corpo 4"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[39]",
+      "path_b": "allTicketsFlat[480].fields[3].options[41]",
+      "label_a": "Molicelle Corpo 3",
+      "label_b": "Molicelle Corpo 5"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[39]",
+      "path_b": "allTicketsFlat[480].fields[3].options[42]",
+      "label_a": "Molicelle Corpo 3",
+      "label_b": "Molicelle Corpo 6"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[39]",
+      "path_b": "allTicketsFlat[480].fields[3].options[43]",
+      "label_a": "Molicelle Corpo 3",
+      "label_b": "Molicelle Corpo 7"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[39]",
+      "path_b": "allTicketsFlat[480].fields[3].options[44]",
+      "label_a": "Molicelle Corpo 3",
+      "label_b": "Molicelle Corpo 8"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[40]",
+      "path_b": "allTicketsFlat[480].fields[3].options[41]",
+      "label_a": "Molicelle Corpo 4",
+      "label_b": "Molicelle Corpo 5"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[40]",
+      "path_b": "allTicketsFlat[480].fields[3].options[42]",
+      "label_a": "Molicelle Corpo 4",
+      "label_b": "Molicelle Corpo 6"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[40]",
+      "path_b": "allTicketsFlat[480].fields[3].options[43]",
+      "label_a": "Molicelle Corpo 4",
+      "label_b": "Molicelle Corpo 7"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[40]",
+      "path_b": "allTicketsFlat[480].fields[3].options[44]",
+      "label_a": "Molicelle Corpo 4",
+      "label_b": "Molicelle Corpo 8"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[41]",
+      "path_b": "allTicketsFlat[480].fields[3].options[42]",
+      "label_a": "Molicelle Corpo 5",
+      "label_b": "Molicelle Corpo 6"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[41]",
+      "path_b": "allTicketsFlat[480].fields[3].options[43]",
+      "label_a": "Molicelle Corpo 5",
+      "label_b": "Molicelle Corpo 7"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[41]",
+      "path_b": "allTicketsFlat[480].fields[3].options[44]",
+      "label_a": "Molicelle Corpo 5",
+      "label_b": "Molicelle Corpo 8"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[42]",
+      "path_b": "allTicketsFlat[480].fields[3].options[43]",
+      "label_a": "Molicelle Corpo 6",
+      "label_b": "Molicelle Corpo 7"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[42]",
+      "path_b": "allTicketsFlat[480].fields[3].options[44]",
+      "label_a": "Molicelle Corpo 6",
+      "label_b": "Molicelle Corpo 8"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[43]",
+      "path_b": "allTicketsFlat[480].fields[3].options[44]",
+      "label_a": "Molicelle Corpo 7",
+      "label_b": "Molicelle Corpo 8"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[45]",
+      "path_b": "allTicketsFlat[480].fields[3].options[46]",
+      "label_a": "Monaci sett. A",
+      "label_b": "Monaci sett. B"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[45]",
+      "path_b": "allTicketsFlat[480].fields[3].options[47]",
+      "label_a": "Monaci sett. A",
+      "label_b": "Monaci sett. C"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[45]",
+      "path_b": "allTicketsFlat[480].fields[3].options[48]",
+      "label_a": "Monaci sett. A",
+      "label_b": "Monaci sett. D"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[45]",
+      "path_b": "allTicketsFlat[480].fields[3].options[49]",
+      "label_a": "Monaci sett. A",
+      "label_b": "Monaci sett. E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[45]",
+      "path_b": "allTicketsFlat[480].fields[3].options[50]",
+      "label_a": "Monaci sett. A",
+      "label_b": "Monaci sett. F"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[45]",
+      "path_b": "allTicketsFlat[480].fields[3].options[51]",
+      "label_a": "Monaci sett. A",
+      "label_b": "Monaci sett. G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[45]",
+      "path_b": "allTicketsFlat[480].fields[3].options[52]",
+      "label_a": "Monaci sett. A",
+      "label_b": "Monaci sett. H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[46]",
+      "path_b": "allTicketsFlat[480].fields[3].options[47]",
+      "label_a": "Monaci sett. B",
+      "label_b": "Monaci sett. C"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[46]",
+      "path_b": "allTicketsFlat[480].fields[3].options[48]",
+      "label_a": "Monaci sett. B",
+      "label_b": "Monaci sett. D"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[46]",
+      "path_b": "allTicketsFlat[480].fields[3].options[49]",
+      "label_a": "Monaci sett. B",
+      "label_b": "Monaci sett. E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[46]",
+      "path_b": "allTicketsFlat[480].fields[3].options[50]",
+      "label_a": "Monaci sett. B",
+      "label_b": "Monaci sett. F"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[46]",
+      "path_b": "allTicketsFlat[480].fields[3].options[51]",
+      "label_a": "Monaci sett. B",
+      "label_b": "Monaci sett. G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[46]",
+      "path_b": "allTicketsFlat[480].fields[3].options[52]",
+      "label_a": "Monaci sett. B",
+      "label_b": "Monaci sett. H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[47]",
+      "path_b": "allTicketsFlat[480].fields[3].options[48]",
+      "label_a": "Monaci sett. C",
+      "label_b": "Monaci sett. D"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[47]",
+      "path_b": "allTicketsFlat[480].fields[3].options[49]",
+      "label_a": "Monaci sett. C",
+      "label_b": "Monaci sett. E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[47]",
+      "path_b": "allTicketsFlat[480].fields[3].options[50]",
+      "label_a": "Monaci sett. C",
+      "label_b": "Monaci sett. F"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[47]",
+      "path_b": "allTicketsFlat[480].fields[3].options[51]",
+      "label_a": "Monaci sett. C",
+      "label_b": "Monaci sett. G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[47]",
+      "path_b": "allTicketsFlat[480].fields[3].options[52]",
+      "label_a": "Monaci sett. C",
+      "label_b": "Monaci sett. H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[48]",
+      "path_b": "allTicketsFlat[480].fields[3].options[49]",
+      "label_a": "Monaci sett. D",
+      "label_b": "Monaci sett. E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[48]",
+      "path_b": "allTicketsFlat[480].fields[3].options[50]",
+      "label_a": "Monaci sett. D",
+      "label_b": "Monaci sett. F"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[48]",
+      "path_b": "allTicketsFlat[480].fields[3].options[51]",
+      "label_a": "Monaci sett. D",
+      "label_b": "Monaci sett. G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[48]",
+      "path_b": "allTicketsFlat[480].fields[3].options[52]",
+      "label_a": "Monaci sett. D",
+      "label_b": "Monaci sett. H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[49]",
+      "path_b": "allTicketsFlat[480].fields[3].options[50]",
+      "label_a": "Monaci sett. E",
+      "label_b": "Monaci sett. F"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[49]",
+      "path_b": "allTicketsFlat[480].fields[3].options[51]",
+      "label_a": "Monaci sett. E",
+      "label_b": "Monaci sett. G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[49]",
+      "path_b": "allTicketsFlat[480].fields[3].options[52]",
+      "label_a": "Monaci sett. E",
+      "label_b": "Monaci sett. H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[50]",
+      "path_b": "allTicketsFlat[480].fields[3].options[51]",
+      "label_a": "Monaci sett. F",
+      "label_b": "Monaci sett. G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[50]",
+      "path_b": "allTicketsFlat[480].fields[3].options[52]",
+      "label_a": "Monaci sett. F",
+      "label_b": "Monaci sett. H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[51]",
+      "path_b": "allTicketsFlat[480].fields[3].options[52]",
+      "label_a": "Monaci sett. G",
+      "label_b": "Monaci sett. H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[53]",
+      "path_b": "allTicketsFlat[480].fields[3].options[54]",
+      "label_a": "San Gennaro corpo A",
+      "label_b": "San Gennaro corpo B"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[53]",
+      "path_b": "allTicketsFlat[480].fields[3].options[55]",
+      "label_a": "San Gennaro corpo A",
+      "label_b": "San Gennaro corpo C"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[53]",
+      "path_b": "allTicketsFlat[480].fields[3].options[56]",
+      "label_a": "San Gennaro corpo A",
+      "label_b": "San Gennaro corpo D"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[53]",
+      "path_b": "allTicketsFlat[480].fields[3].options[57]",
+      "label_a": "San Gennaro corpo A",
+      "label_b": "San Gennaro corpo E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[53]",
+      "path_b": "allTicketsFlat[480].fields[3].options[58]",
+      "label_a": "San Gennaro corpo A",
+      "label_b": "San Gennaro corpo F"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[53]",
+      "path_b": "allTicketsFlat[480].fields[3].options[59]",
+      "label_a": "San Gennaro corpo A",
+      "label_b": "San Gennaro corpo G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[53]",
+      "path_b": "allTicketsFlat[480].fields[3].options[60]",
+      "label_a": "San Gennaro corpo A",
+      "label_b": "San Gennaro corpo H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[54]",
+      "path_b": "allTicketsFlat[480].fields[3].options[55]",
+      "label_a": "San Gennaro corpo B",
+      "label_b": "San Gennaro corpo C"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[54]",
+      "path_b": "allTicketsFlat[480].fields[3].options[56]",
+      "label_a": "San Gennaro corpo B",
+      "label_b": "San Gennaro corpo D"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[54]",
+      "path_b": "allTicketsFlat[480].fields[3].options[57]",
+      "label_a": "San Gennaro corpo B",
+      "label_b": "San Gennaro corpo E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[54]",
+      "path_b": "allTicketsFlat[480].fields[3].options[58]",
+      "label_a": "San Gennaro corpo B",
+      "label_b": "San Gennaro corpo F"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[54]",
+      "path_b": "allTicketsFlat[480].fields[3].options[59]",
+      "label_a": "San Gennaro corpo B",
+      "label_b": "San Gennaro corpo G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[54]",
+      "path_b": "allTicketsFlat[480].fields[3].options[60]",
+      "label_a": "San Gennaro corpo B",
+      "label_b": "San Gennaro corpo H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[55]",
+      "path_b": "allTicketsFlat[480].fields[3].options[56]",
+      "label_a": "San Gennaro corpo C",
+      "label_b": "San Gennaro corpo D"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[55]",
+      "path_b": "allTicketsFlat[480].fields[3].options[57]",
+      "label_a": "San Gennaro corpo C",
+      "label_b": "San Gennaro corpo E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[55]",
+      "path_b": "allTicketsFlat[480].fields[3].options[58]",
+      "label_a": "San Gennaro corpo C",
+      "label_b": "San Gennaro corpo F"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[55]",
+      "path_b": "allTicketsFlat[480].fields[3].options[59]",
+      "label_a": "San Gennaro corpo C",
+      "label_b": "San Gennaro corpo G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[55]",
+      "path_b": "allTicketsFlat[480].fields[3].options[60]",
+      "label_a": "San Gennaro corpo C",
+      "label_b": "San Gennaro corpo H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[56]",
+      "path_b": "allTicketsFlat[480].fields[3].options[57]",
+      "label_a": "San Gennaro corpo D",
+      "label_b": "San Gennaro corpo E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[56]",
+      "path_b": "allTicketsFlat[480].fields[3].options[58]",
+      "label_a": "San Gennaro corpo D",
+      "label_b": "San Gennaro corpo F"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[56]",
+      "path_b": "allTicketsFlat[480].fields[3].options[59]",
+      "label_a": "San Gennaro corpo D",
+      "label_b": "San Gennaro corpo G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[56]",
+      "path_b": "allTicketsFlat[480].fields[3].options[60]",
+      "label_a": "San Gennaro corpo D",
+      "label_b": "San Gennaro corpo H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[57]",
+      "path_b": "allTicketsFlat[480].fields[3].options[58]",
+      "label_a": "San Gennaro corpo E",
+      "label_b": "San Gennaro corpo F"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[57]",
+      "path_b": "allTicketsFlat[480].fields[3].options[59]",
+      "label_a": "San Gennaro corpo E",
+      "label_b": "San Gennaro corpo G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[57]",
+      "path_b": "allTicketsFlat[480].fields[3].options[60]",
+      "label_a": "San Gennaro corpo E",
+      "label_b": "San Gennaro corpo H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[58]",
+      "path_b": "allTicketsFlat[480].fields[3].options[59]",
+      "label_a": "San Gennaro corpo F",
+      "label_b": "San Gennaro corpo G"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[58]",
+      "path_b": "allTicketsFlat[480].fields[3].options[60]",
+      "label_a": "San Gennaro corpo F",
+      "label_b": "San Gennaro corpo H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[59]",
+      "path_b": "allTicketsFlat[480].fields[3].options[60]",
+      "label_a": "San Gennaro corpo G",
+      "label_b": "San Gennaro corpo H"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[61]",
+      "path_b": "allTicketsFlat[480].fields[3].options[62]",
+      "label_a": "Chiodo 1 - Corpo 18",
+      "label_b": "Chiodo 1 - Corpo 19"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[64]",
+      "path_b": "allTicketsFlat[480].fields[3].options[65]",
+      "label_a": "Chiodo 2 - Corpo A",
+      "label_b": "Chiodo 2 - Corpo B"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[64]",
+      "path_b": "allTicketsFlat[480].fields[3].options[66]",
+      "label_a": "Chiodo 2 - Corpo A",
+      "label_b": "Chiodo 2 - Corpo C"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[64]",
+      "path_b": "allTicketsFlat[480].fields[3].options[67]",
+      "label_a": "Chiodo 2 - Corpo A",
+      "label_b": "Chiodo 2 - Corpo D"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[64]",
+      "path_b": "allTicketsFlat[480].fields[3].options[68]",
+      "label_a": "Chiodo 2 - Corpo A",
+      "label_b": "Chiodo 2 - Corpo E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[65]",
+      "path_b": "allTicketsFlat[480].fields[3].options[66]",
+      "label_a": "Chiodo 2 - Corpo B",
+      "label_b": "Chiodo 2 - Corpo C"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[65]",
+      "path_b": "allTicketsFlat[480].fields[3].options[67]",
+      "label_a": "Chiodo 2 - Corpo B",
+      "label_b": "Chiodo 2 - Corpo D"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[65]",
+      "path_b": "allTicketsFlat[480].fields[3].options[68]",
+      "label_a": "Chiodo 2 - Corpo B",
+      "label_b": "Chiodo 2 - Corpo E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[66]",
+      "path_b": "allTicketsFlat[480].fields[3].options[67]",
+      "label_a": "Chiodo 2 - Corpo C",
+      "label_b": "Chiodo 2 - Corpo D"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[66]",
+      "path_b": "allTicketsFlat[480].fields[3].options[68]",
+      "label_a": "Chiodo 2 - Corpo C",
+      "label_b": "Chiodo 2 - Corpo E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[67]",
+      "path_b": "allTicketsFlat[480].fields[3].options[68]",
+      "label_a": "Chiodo 2 - Corpo D",
+      "label_b": "Chiodo 2 - Corpo E"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[69]",
+      "path_b": "allTicketsFlat[480].fields[3].options[70]",
+      "label_a": "Nervoso Stabile A",
+      "label_b": "Nervoso Stabile B"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[69]",
+      "path_b": "allTicketsFlat[480].fields[3].options[71]",
+      "label_a": "Nervoso Stabile A",
+      "label_b": "Nervoso Stabile C"
+    },
+    {
+      "path_a": "allTicketsFlat[480].fields[3].options[70]",
+      "path_b": "allTicketsFlat[480].fields[3].options[71]",
+      "label_a": "Nervoso Stabile B",
+      "label_b": "Nervoso Stabile C"
+    },
+    {
+      "path_a": "allTicketsFlat[489].fields[11].options[7]",
+      "path_b": "allTicketsFlat[489].fields[11].options[10]",
+      "label_a": "Direzione Affari generali e Attività Negoziale - Area Affari generali",
+      "label_b": "Direzione Affari generali e Attività Negoziale - Area Servizi generali"
+    },
+    {
+      "path_a": "allTicketsFlat[489].fields[11].options[20]",
+      "path_b": "allTicketsFlat[489].fields[11].options[21]",
+      "label_a": "Direzione Didattica e Servizi agli Studenti - Area (Macro) Settori servizi didattica e studenti dipartimentali",
+      "label_b": "Direzione Didattica e Servizi agli Studenti - (Macro) Settori servizi didattica e studenti dipartimentali"
+    },
+    {
+      "path_a": "allTicketsFlat[489].fields[11].options[24]",
+      "path_b": "allTicketsFlat[489].fields[11].options[28]",
+      "label_a": "Direzione Finanziaria -Settore Ciclo attivo",
+      "label_b": "Direzione Finanziaria -Settore Ciclo passivo"
+    },
+    {
+      "path_a": "allTicketsFlat[489].fields[11].options[53]",
+      "path_b": "allTicketsFlat[489].fields[11].options[55]",
+      "label_a": "Sistema Bibliotecario d'Ateneo - Polo Umanistico - Settore Risorse bibliografiche",
+      "label_b": "Sistema Bibliotecario d'Ateneo - Polo Scientifico - Settore Risorse bibliografiche"
+    },
+    {
+      "path_a": "allTicketsFlat[489].fields[11].options[54]",
+      "path_b": "allTicketsFlat[489].fields[11].options[56]",
+      "label_a": "Sistema Bibliotecario d'Ateneo - Polo Umanistico - Settore Servizi al pubblico",
+      "label_b": "Sistema Bibliotecario d'Ateneo - Polo Scientifico - Settore Servizi al pubblico"
+    }
+  ]
+}

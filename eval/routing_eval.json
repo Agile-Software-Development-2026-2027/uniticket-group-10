@@ -1,0 +1,312 @@
+[
+  {
+    "query": "Non riesco a connettermi al wifi dell'università",
+    "expected": [
+      "ict__srs-segnalazione-problemi-della-rete-wifi-di-ateneo"
+    ]
+  },
+  {
+    "query": "In aula il segnale wireless cade continuamente",
+    "expected": [
+      "ict__srs-segnalazione-problemi-della-rete-wifi-di-ateneo"
+    ]
+  },
+  {
+    "query": "Nella mia stanza alle Maisonnettes internet non funziona",
+    "expected": [
+      "ict__srs-assistenza-servizio-wi-fi-del-centro-residenziale"
+    ]
+  },
+  {
+    "query": "Non riesco ad accedere a Teams con l'account studenti",
+    "expected": [
+      "ict__s1-problemi-accesso-account-office365-teams-account-studentiunicalit-e-servizimicrosoftunicalit"
+    ]
+  },
+  {
+    "query": "Ho dimenticato la password di Esse3 e la mail di recupero è quella vecchia",
+    "expected": [
+      "servizi-didattici__modifica-email-personale-per-recupero-password-esse3",
+      "post-laurea__modifica-email-personale-per-recupero-password-esse3"
+    ]
+  },
+  {
+    "query": "Esse3 mi dà errore quando provo a prenotare un appello",
+    "expected": [
+      "ict__e3-richiesta-assistenza-esse3"
+    ]
+  },
+  {
+    "query": "Non riesco a entrare con SPID nei servizi online dell'ateneo",
+    "expected": [
+      "ict__problematiche-di-accesso-alle-risorse-telematiche-mediante-sso-di-ateneo-unical-id-spid-cie"
+    ]
+  },
+  {
+    "query": "La piattaforma e-learning non mi fa vedere il corso a cui sono iscritto",
+    "expected": [
+      "ict__el-s1-richiesta-supporto-piattaforma-e-learning-di-ateneo"
+    ]
+  },
+  {
+    "query": "Devo far valutare il mio certificato IELTS di inglese",
+    "expected": [
+      "cla__parere-certificazioni-internazionali-in-lingua-inglese"
+    ]
+  },
+  {
+    "query": "Vorrei inviare qualcosa riguardante il riconoscimento di attività extracurriculari",
+    "expected": [
+      "demacs__richiesta-di-riconoscimento-di-attivita-extra-o-para-universitarie-corso-di-laurea-in-informatica-triennale-e-magistrale",
+      "dispes__domanda-di-riconoscimento-attivita-extra-universitarie-ai-sensi-dellart-25-del-regolamento-studenti"
+    ]
+  },
+  {
+    "query": "Ho sostenuto esami in un altro ateneo e vorrei farli convalidare",
+    "expected": [
+      "ctc__domanda-di-riconoscimento-esamicfu-dictc",
+      "dimes__domanda-di-riconoscimento-esamicfu-dimes",
+      "discag__domanda-di-riconoscimento-esamicfu-discag",
+      "dispes__domanda-di-riconoscimento-esamicfu-dispes",
+      "disu__domanda-di-riconoscimento-esamicfu-disu",
+      "dfssn__domanda-di-riconoscimento-esamicfu-farmacia-e-scienze-della-salute-e-della-nutrizione",
+      "dfssn__fisioterapia-richiesta-riconoscimento-esami",
+      "dfssn__medicina-e-chirurgia-td-riconoscimento-esami",
+      "dfssn__infermieristica-richiesta-convalida-esami"
+    ]
+  },
+  {
+    "query": "Ho deciso di lasciare l'università definitivamente",
+    "expected": [
+      "servizi-didattici__domanda-di-rinuncia-agli-studi"
+    ]
+  },
+  {
+    "query": "Vorrei mettere in pausa la mia carriera universitaria per un anno",
+    "expected": [
+      "servizi-didattici__sospensione-temporanea-degli-studi"
+    ]
+  },
+  {
+    "query": "Ho perso la pergamena di laurea e me ne serve una copia",
+    "expected": [
+      "servizi-didattici__duplicato-pergamena-di-laurea"
+    ]
+  },
+  {
+    "query": "Sul mio profilo risulta una rata delle tasse non pagata ma l'ho pagata",
+    "expected": [
+      "servizi-didattici__helpdesk-situazione-tasse"
+    ]
+  },
+  {
+    "query": "Posso pagare le tasse universitarie usando la carta del docente?",
+    "expected": [
+      "servizi-didattici__pagamento-delle-tasse-universitarie-con-la-carta-del-docente"
+    ]
+  },
+  {
+    "query": "Ho pagato le tasse due volte e vorrei indietro i soldi",
+    "expected": [
+      "servizi-didattici__info-su-rimborso-tasse"
+    ]
+  },
+  {
+    "query": "Sono in difficoltà economica e avrei bisogno di un aiuto",
+    "expected": [
+      "centro-residenziale__sussidi-a-studenti-meritevoli-ed-in-momentaneo-stato-di-bisogno",
+      "servizi-didattici__domanda-studenti-in-momentaneo-stato-di-necessita"
+    ]
+  },
+  {
+    "query": "Devo entrare con la macchina nei quartieri residenziali",
+    "expected": [
+      "centro-residenziale__autorizzazione-accesso-ai-quartieri-residenziali-con-autovettura"
+    ]
+  },
+  {
+    "query": "L'app della mensa non mi fa vedere i pasti consumati",
+    "expected": [
+      "centro-residenziale__sistemi-informativi-segnalazione-problema-informatico-servizio-mensa"
+    ]
+  },
+  {
+    "query": "Vorrei partire in Erasmus per studio, sono iscritto a ingegneria per l'ambiente",
+    "expected": [
+      "diam__richiesta-avvio-erasmus-studio"
+    ]
+  },
+  {
+    "query": "Sono rientrato dall'Erasmus e devo chiudere la pratica",
+    "expected": [
+      "diam__richiesta-chiusura-erasmus-studio",
+      "diam__richiesta-chiusura-erasmus-traineeship"
+    ]
+  },
+  {
+    "query": "Lavoro e vorrei passare da tempo pieno a part-time",
+    "expected": [
+      "dibest__richiesta-cambio-tempo-pieno-part-time",
+      "dimes__richiesta-cambio-tempo-pienopart-time"
+    ]
+  },
+  {
+    "query": "Mi serve un certificato di iscrizione",
+    "expected": [
+      "dibest__richiesta-certificato-di-iscrizione",
+      "dimes__richiesta-certificato-di-iscrizionelaureadiploma-supplement",
+      "ctc__richiesta-certificati-di-iscrizione-laurea-e-diploma-supplement",
+      "dinci__richiesta-certificati-di-iscrizione-laurea-e-diploma-supplement",
+      "dinci__richiesta-certificati-di-iscrizione-laurea-e-diploma-supplement-i",
+      "disu__richiesta-certificati-disu",
+      "demacs__richiesta-di-certificato",
+      "diam__richiesta-rilascio-certificato",
+      "dispes__richiesta-per-il-rilascio-di-certificazione-di-carriera-universitaria"
+    ]
+  },
+  {
+    "query": "Mi serve un certificato da presentare in questura per il permesso di soggiorno",
+    "expected": [
+      "servizi-didattici__richiesta-certificato-uso-esteroquestura-certificate-foreign-usequestura"
+    ]
+  },
+  {
+    "query": "Vorrei chiedere l'assegnazione della tesi di laurea",
+    "expected": [
+      "dices__richiesta-di-assegnazione-tesi",
+      "disu__richiesta-di-assegnazione-tesi",
+      "dfssn__richiesta-assegnazione-tesi-dipartimento-di-farmacia-e-scienze-della-salute-e-della-nutrizione-dfssn",
+      "fisica__modulo-per-lassegnazione-della-tesi-di-laurea",
+      "dibest__domanda-lavoro-finale-richiesta-tesi",
+      "diam__richiesta-tesi-di-laurea-studenti-magistrale",
+      "demacs__richiesta-tesi-di-laurea-matematica",
+      "demacs__richiesta-tesi-di-laurea-sfp",
+      "diam__richiesta-elaborato-finale-studenti-triennale",
+      "diam__richiesta-elaborato-finale-tecnologie-del-mare-e-della-navigazione"
+    ]
+  },
+  {
+    "query": "Credo di avere la dislessia e vorrei fare una valutazione",
+    "expected": [
+      "servizio-studenti-con-disabilita-dsa-e-bes__richiesta-valutazione-e-diagnosi-per-sospetto-dsa"
+    ]
+  },
+  {
+    "query": "Sono uno studente con disabilità e mi servirebbe un tutor per studiare",
+    "expected": [
+      "servizio-studenti-con-disabilita-dsa-e-bes__richiesta-tutor-per-attivita-di-supporto-metodologico-allo-studio-individuale-studenti-con-disabilita",
+      "servizio-studenti-con-disabilita-dsa-e-bes__richiesta-tutor-per-attivita-di-supporto-metodologico-allo-studio-individuale-studenti-con-dsa",
+      "servizio-studenti-con-disabilita-dsa-e-bes__richiesta-di-riassegnazione-tutor-aa-20262027"
+    ]
+  },
+  {
+    "query": "C'è un gradino che impedisce di entrare in aula con la carrozzina",
+    "expected": [
+      "servizio-studenti-con-disabilita-dsa-e-bes__segnalazione-barriera-architettoniche"
+    ]
+  },
+  {
+    "query": "Vorrei prenotare una sala in biblioteca per studiare in gruppo",
+    "expected": [
+      "sab__bau-prenotazione-sala-per-studio-di-gruppo"
+    ]
+  },
+  {
+    "query": "Vorrei fare la tessera della biblioteca",
+    "expected": [
+      "sab__bats-richiedi-tessera-utente",
+      "sab__bau-richiesta-tessera-utente",
+      "sab__tar-richiedi-tessera-utente"
+    ]
+  },
+  {
+    "query": "La biblioteca non ha il libro che mi serve, si può chiedere a un'altra biblioteca?",
+    "expected": [
+      "sab__bats-richiesta-libri-in-prestito-interbibliotecario-ill-request",
+      "sab__bau-ill-richiesta-di-prestito-inter-bibliotecario",
+      "sab__tar-richiesta-libri-in-prestito-interbibliotecario-ill-request"
+    ]
+  },
+  {
+    "query": "Sono uno studente e mi sono fatto male durante un'esercitazione in laboratorio",
+    "expected": [
+      "dagan-area-servizi-generali__denuncia-infortunio-per-studente-unical"
+    ]
+  },
+  {
+    "query": "Vorrei la licenza di Stata da installare sul mio portatile",
+    "expected": [
+      "desf__richiesta-licenza-software-statase-19-winmac",
+      "discag__richiesta-licenza-software-statase-19-windowsmac"
+    ]
+  },
+  {
+    "query": "uniTicket non mi fa allegare i file alla richiesta",
+    "expected": [
+      "ict__w1-segnalazioni-sul-funzionamento-di-uniticket"
+    ]
+  },
+  {
+    "query": "Sono un insegnante e vorrei portare la classe a visitare i musei dell'università",
+    "expected": [
+      "sistema-museale__prenotazione-visita"
+    ]
+  },
+  {
+    "query": "Ho cambiato residenza e devo aggiornare i miei dati anagrafici",
+    "expected": [
+      "servizi-didattici__richiesta-di-modifica-dati-anagrafici-su-esse3"
+    ]
+  },
+  {
+    "query": "Non sostengo esami da molti anni, vorrei sapere se sono decaduto",
+    "expected": [
+      "servizi-didattici__info-su-decadenza"
+    ]
+  },
+  {
+    "query": "Sono uno studente e vorrei chiedere al centro residenziale se sia possibile aggiungere la pizza bianca al menu",
+    "expected": [
+      "NONE",
+      "urp__richieste-urp"
+    ]
+  },
+  {
+    "query": "Vorrei prenotare un campo da calcetto per sabato pomeriggio",
+    "expected": [
+      "NONE",
+      "urp__richieste-urp"
+    ]
+  },
+  {
+    "query": "Il distributore di bevande al cubo 30 si è mangiato le monete",
+    "expected": [
+      "NONE",
+      "urp__richieste-urp"
+    ]
+  },
+  {
+    "query": "Che tempo farà domani a Rende?",
+    "expected": [
+      "NONE"
+    ]
+  },
+  {
+    "query": "Vorrei comprare un'auto usata",
+    "expected": [
+      "NONE"
+    ]
+  },
+  {
+    "query": "Mi consigli una buona pizzeria a Cosenza?",
+    "expected": [
+      "NONE"
+    ]
+  },
+  {
+    "query": "Sto avendo problemi con l'immatricolazione",
+    "expected": [
+      "NONE"
+    ]
+  }
+]

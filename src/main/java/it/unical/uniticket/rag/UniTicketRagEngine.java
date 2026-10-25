@@ -1,0 +1,451 @@
+package it.unical.uniticket.rag;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import it.unical.uniticket.api.dto.CatalogExport;
+import it.unical.uniticket.api.dto.CategoryFormSchema;
+import it.unical.uniticket.llm.EmbeddingClient;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.security.MessageDigest;
+import java.text.Normalizer;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+public class UniTicketRagEngine {
+
+    private final List<CategoryFormSchema> catalog;
+    private final List<List<String>> docTokens;
+    private final Map<String, Integer> docFreq;
+    private final double avgDocLength;
+    private final EmbeddingClient embeddingClient;
+    private final List<float[]> categoryEmbeddings;
+    private final Map<String, float[]> titleEmbeddingCache = new ConcurrentHashMap<>();
+    private final boolean useStopwords;
+    private final boolean useDomainSynonyms;
+
+    // Parametri standard Okapi BM25
+    private static final double K1 = 1.5;
+    private static final double B = 0.75;
+    private static final int RRF_K = 60;
+    private static final double MIN_EMB_SIMILARITY = 0.30;
+
+    private static final Set<String> ITALIAN_STOPWORDS = new HashSet<>(Arrays.asList(
+            "il", "lo", "la", "i", "gli", "le", "un", "uno", "una", "di", "a", "da", "in", "con",
+            "su", "per", "tra", "fra", "del", "dello", "della", "dei", "degli", "delle", "al",
+            "allo", "alla", "ai", "agli", "alle", "dal", "dallo", "dalla", "dai", "dagli", "dalle",
+            "nel", "nello", "nella", "nei", "negli", "nelle", "sul", "sullo", "sulla", "sui",
+            "sugli", "sulle", "che", "chi", "cui", "non", "piu", "quale", "quanto", "quanti",
+            "quanta", "quante", "quello", "quelli", "quella", "quelle", "questo", "questi",
+            "questa", "queste", "si", "no", "ed", "od", "ma", "se", "perche", "anche", "come",
+            "dove", "quando", "mio", "mia", "miei", "mie", "tuo", "tua", "vorrei", "devo", "posso",
+            "fare", "avere", "essere", "richiesta", "campo", "opzioni", "note", "modello", "modulo",
+            // Parole di riempimento frequenti nelle richieste: senza filtrarle, BM25 premia
+            // titoli come "...incarico riguardante attività di tutorato".
+            "riguardante", "riguardanti", "riguardo", "inerente", "inerenti", "relativo", "relativa",
+            "relativi", "relative", "inviare", "mandare", "qualcosa", "qualche"
+    ));
+
+    // Espansione sinonimi di dominio UniCal per aumentare il recall lessicale
+    private static final Map<String, List<String>> DOMAIN_SYNONYMS = new HashMap<>();
+    private static final Map<String, List<String>> QUERY_TOKEN_ALIASES = new HashMap<>();
+    static {
+        DOMAIN_SYNONYMS.put("wifi", Arrays.asList("eduroam", "eduroam_cr", "wireless", "rete", "access", "point"));
+        DOMAIN_SYNONYMS.put("eduroam", Arrays.asList("wifi", "wi-fi", "wireless", "rete", "centro", "residenziale"));
+        DOMAIN_SYNONYMS.put("teams", Arrays.asList("office365", "office", "365", "studenti", "servizimicrosoft"));
+        DOMAIN_SYNONYMS.put("inglese", Arrays.asList("cla", "cambridge", "ielts", "toefl", "trinity", "b1", "b2", "c1"));
+        DOMAIN_SYNONYMS.put("cambridge", Arrays.asList("cla", "inglese", "certificazioni", "internazionali", "lingua"));
+        DOMAIN_SYNONYMS.put("ielts", Arrays.asList("cla", "inglese", "certificazioni", "internazionali", "lingua"));
+        DOMAIN_SYNONYMS.put("auto", Arrays.asList("autovettura", "veicolo", "targa", "parcheggio", "quartieri"));
+        DOMAIN_SYNONYMS.put("macchina", Arrays.asList("autovettura", "veicolo", "targa", "quartieri", "residenziali"));
+        DOMAIN_SYNONYMS.put("mensa", Arrays.asList("ristorazione", "pasto", "centro", "residenziale"));
+        DOMAIN_SYNONYMS.put("alloggio", Arrays.asList("alloggi", "stanza", "borsa", "posto", "maisonnettes", "martensson", "chiodo", "molicelle"));
+        DOMAIN_SYNONYMS.put("erasmus", Arrays.asList("mobilita", "internazionale", "estero", "biglietto", "rata", "saldo"));
+        DOMAIN_SYNONYMS.put("supporto", Arrays.asList("sussidio", "sussidi", "aiuto", "sostegno", "assistenza"));
+        DOMAIN_SYNONYMS.put("economico", Arrays.asList("economia", "disagio", "bisogno", "necessita", "contributo", "tasse"));
+        DOMAIN_SYNONYMS.put("difficolta", Arrays.asList("disagio", "bisogno", "necessita", "stato di bisogno"));
+        DOMAIN_SYNONYMS.put("richiedere", Arrays.asList("domanda", "richiesta"));
+        DOMAIN_SYNONYMS.put("borsa", Arrays.asList("sussidio", "beneficio", "diritto allo studio"));
+        DOMAIN_SYNONYMS.put("extracurriculari", Arrays.asList("extra", "para", "universitarie", "extrauniversitarie"));
+        DOMAIN_SYNONYMS.put("extracurricolari", Arrays.asList("extra", "para", "universitarie", "extrauniversitarie"));
+
+        // Correzioni conservative per refusi frequenti nelle richieste in linguaggio naturale.
+        QUERY_TOKEN_ALIASES.put("difficiolt", Arrays.asList("difficolt"));
+    }
+
+    public static class ScoredCategory {
+        public final CategoryFormSchema schema;
+        public final double score;
+
+        public ScoredCategory(CategoryFormSchema schema, double score) {
+            this.schema = schema;
+            this.score = score;
+        }
+    }
+
+    public UniTicketRagEngine(File catalogJsonFile) throws IOException {
+        this(catalogJsonFile, null, true, true);
+    }
+
+    public UniTicketRagEngine(File catalogJsonFile, EmbeddingClient embeddingClient) throws IOException {
+        this(catalogJsonFile, embeddingClient, true, true);
+    }
+
+    /**
+     * Crea il motore RAG permettendo di valutare separatamente l'effetto delle
+     * normalizzazioni lessicali sul ranking BM25.
+     *
+     * <p>Gli embeddings non vengono modificati da questi flag: ricevono sempre
+     * il testo originale delle categorie e della query.</p>
+     *
+     * @param useStopwords      se false, conserva tutte le parole nella tokenizzazione BM25
+     * @param useDomainSynonyms se false, disabilita l'espansione dei sinonimi di dominio
+     */
+    public UniTicketRagEngine(File catalogJsonFile, EmbeddingClient embeddingClient,
+                             boolean useStopwords, boolean useDomainSynonyms) throws IOException {
+        this(catalogJsonFile, embeddingClient, useStopwords, useDomainSynonyms, null);
+    }
+
+    public UniTicketRagEngine(File catalogJsonFile, EmbeddingClient embeddingClient,
+                             boolean useStopwords, boolean useDomainSynonyms,
+                             File embeddingCacheFile) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        CatalogExport export = mapper.readValue(catalogJsonFile, CatalogExport.class);
+        this.catalog = export.allTicketsFlat != null ? export.allTicketsFlat : Collections.emptyList();
+        this.useStopwords = useStopwords;
+        this.useDomainSynonyms = useDomainSynonyms;
+        this.docTokens = new ArrayList<>(catalog.size());
+        this.docFreq = new HashMap<>();
+
+        long totalLen = 0;
+        for (CategoryFormSchema item : catalog) {
+            // Diamo peso triplo al titolo della categoria e doppio alle note per migliorare il ranking
+            String weightedCorpus = (item.categoryTitle + " " + item.categoryTitle + " " + item.categoryTitle + " ")
+                    + (item.structureName + " " + item.structureSlug + " ")
+                    + (item.categoryNotes != null ? item.categoryNotes + " " + item.categoryNotes + " " : "")
+                    + (item.ragSearchText != null ? item.ragSearchText : "");
+
+            List<String> tokens = tokenize(weightedCorpus);
+            docTokens.add(tokens);
+            totalLen += tokens.size();
+
+            Set<String> uniqueTokens = new HashSet<>(tokens);
+            for (String token : uniqueTokens) {
+                docFreq.put(token, docFreq.getOrDefault(token, 0) + 1);
+            }
+        }
+        this.avgDocLength = catalog.isEmpty() ? 1.0 : (double) totalLen / catalog.size();
+        this.embeddingClient = embeddingClient;
+        this.categoryEmbeddings = embeddingClient == null || catalog.isEmpty()
+                ? Collections.emptyList() : loadOrComputeCategoryEmbeddings(catalogJsonFile, embeddingCacheFile);
+    }
+
+    private List<float[]> loadOrComputeCategoryEmbeddings(File catalogJsonFile, File cacheFile) {
+        String fingerprint = catalogFingerprint(catalogJsonFile);
+        if (cacheFile != null) {
+            List<float[]> cached = loadEmbeddingCache(cacheFile, fingerprint);
+            if (cached != null) {
+                System.out.println("✅ Embeddings categorie caricati dalla cache: "
+                        + cacheFile.getPath());
+                return cached;
+            }
+        }
+        List<float[]> computed = precomputeCategoryEmbeddings();
+        if (!computed.isEmpty() && cacheFile != null) {
+            saveEmbeddingCache(cacheFile, fingerprint, computed);
+        }
+        return computed;
+    }
+
+    private List<float[]> precomputeCategoryEmbeddings() {
+        List<String> texts = new ArrayList<>(catalog.size());
+        for (CategoryFormSchema category : catalog) {
+            StringBuilder text = new StringBuilder(category.categoryTitle == null ? "" : category.categoryTitle);
+            text.append(" | ");
+            if (category.categoryNotes != null && !category.categoryNotes.trim().isEmpty()) {
+                text.append(category.categoryNotes).append(" | ");
+            }
+
+            text.append(category.structureName == null ? "" : category.structureName);
+            texts.add(text.toString());
+        }
+        try {
+            List<float[]> vectors = embeddingClient.embedBatch(texts);
+            if (vectors.size() != catalog.size()) {
+                throw new IllegalStateException("Numero di embeddings diverso dal catalogo.");
+            }
+            return vectors;
+        } catch (RuntimeException e) {
+            System.err.println("Impossibile calcolare gli embeddings delle categorie: " + e.getMessage());
+            return Collections.emptyList();
+        }
+    }
+
+    private List<float[]> loadEmbeddingCache(File cacheFile, String fingerprint) {
+        try {
+            if (!cacheFile.isFile()) return null;
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode root = mapper.readTree(cacheFile);
+            if (!fingerprint.equals(root.path("catalogFingerprint").asText())
+                    || root.path("embeddings").size() != catalog.size()) {
+                return null;
+            }
+            List<float[]> result = new ArrayList<>();
+            for (JsonNode embedding : root.path("embeddings")) {
+                if (!embedding.isArray() || embedding.isEmpty()) return null;
+                float[] vector = new float[embedding.size()];
+                for (int i = 0; i < embedding.size(); i++) {
+                    vector[i] = (float) embedding.get(i).asDouble();
+                }
+                result.add(vector);
+            }
+            return result;
+        } catch (Exception e) {
+            System.err.println("Cache embeddings non utilizzabile: " + e.getMessage());
+            return null;
+        }
+    }
+
+    private void saveEmbeddingCache(File cacheFile, String fingerprint, List<float[]> embeddings) {
+        try {
+            File parent = cacheFile.getParentFile();
+            if (parent != null && !parent.exists() && !parent.mkdirs()) {
+                throw new IOException("impossibile creare " + parent);
+            }
+            ObjectMapper mapper = new ObjectMapper();
+            ObjectNode root = mapper.createObjectNode();
+            root.put("catalogFingerprint", fingerprint);
+            ArrayNode values = root.putArray("embeddings");
+            for (float[] embedding : embeddings) {
+                ArrayNode vector = values.addArray();
+                for (float value : embedding) vector.add(value);
+            }
+            File temporary = new File(cacheFile.getPath() + ".tmp");
+            mapper.writeValue(temporary, root);
+            try {
+                Files.move(temporary.toPath(), cacheFile.toPath(),
+                        java.nio.file.StandardCopyOption.REPLACE_EXISTING,
+                        java.nio.file.StandardCopyOption.ATOMIC_MOVE);
+            } catch (java.nio.file.AtomicMoveNotSupportedException e) {
+                Files.move(temporary.toPath(), cacheFile.toPath(),
+                        java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+            }
+        } catch (Exception e) {
+            System.err.println("Impossibile salvare la cache embeddings: " + e.getMessage());
+        }
+    }
+
+    private String catalogFingerprint(File catalogJsonFile) {
+        try {
+            byte[] digest = MessageDigest.getInstance("SHA-256")
+                    .digest(Files.readAllBytes(catalogJsonFile.toPath()));
+            StringBuilder result = new StringBuilder();
+            for (byte value : digest) result.append(String.format("%02x", value));
+            return result.toString();
+        } catch (Exception e) {
+            throw new IllegalStateException("Impossibile calcolare l'impronta del catalogo.", e);
+        }
+    }
+
+    /**
+     * Restituisce i Top-K moduli più rilevanti per la query dell'utente.
+     *
+     * @param userQuery          Domanda in linguaggio naturale dell'utente
+     * @param topK               Numero massimo di candidati da passare a JEV (consigliato: 5 - 8)
+     * @param onlyAccessible     Se true, filtra solo i moduli con accessible == true
+     */
+    public List<ScoredCategory> searchTopK(String userQuery, int topK, boolean onlyAccessible) {
+        List<String> baseQueryTokens = tokenize(userQuery);
+        List<String> normalizedQueryTokens = new ArrayList<>(baseQueryTokens);
+        for (String token : baseQueryTokens) {
+            normalizedQueryTokens.addAll(QUERY_TOKEN_ALIASES.getOrDefault(token, Collections.emptyList()));
+        }
+        Set<String> expandedQueryTokenSet = new LinkedHashSet<>(normalizedQueryTokens);
+
+        if (useDomainSynonyms) {
+            // Stemma sia le chiavi sia i valori del dizionario: la query e i documenti
+            // sono stemmati, quindi confrontare termini non normalizzati fa perdere
+            // espansioni come "supporto" -> "sussidio".
+            for (Map.Entry<String, List<String>> synonym : DOMAIN_SYNONYMS.entrySet()) {
+                List<String> synonymKeys = tokenize(synonym.getKey());
+                if (normalizedQueryTokens.stream().anyMatch(synonymKeys::contains)) {
+                    synonym.getValue().stream()
+                            .flatMap(value -> tokenize(value).stream())
+                            .forEach(expandedQueryTokenSet::add);
+                }
+            }
+        }
+        List<String> expandedQueryTokens = new ArrayList<>(expandedQueryTokenSet);
+
+        List<ScoredCategory> results = new ArrayList<>();
+        int N = catalog.size();
+
+        for (int i = 0; i < N; i++) {
+            CategoryFormSchema schema = catalog.get(i);
+            if (onlyAccessible && !schema.accessible) {
+                continue;
+            }
+
+            List<String> dTokens = docTokens.get(i);
+            if (dTokens.isEmpty()) continue;
+
+            Map<String, Integer> termFreq = new HashMap<>();
+            for (String t : dTokens) {
+                termFreq.put(t, termFreq.getOrDefault(t, 0) + 1);
+            }
+
+            double score = 0.0;
+            int docLen = dTokens.size();
+
+            for (String qToken : expandedQueryTokens) {
+                int tf = termFreq.getOrDefault(qToken, 0);
+                if (tf == 0) continue;
+
+                int df = docFreq.getOrDefault(qToken, 0);
+                double idf = Math.log(1.0 + (N - df + 0.5) / (df + 0.5));
+                double numerator = tf * (K1 + 1.0);
+                double denominator = tf + K1 * (1.0 - B + B * (docLen / avgDocLength));
+
+                score += idf * (numerator / denominator);
+            }
+
+            // Bonus leggero per i moduli attivi/accessibili a parità di match
+            if (score > 0 && schema.accessible) {
+                score *= 1.15;
+            }
+
+            if (score > 0) {
+                results.add(new ScoredCategory(schema, score));
+            }
+        }
+
+        results.sort((a, b) -> Double.compare(b.score, a.score));
+        return results.stream().limit(topK).collect(Collectors.toList());
+    }
+
+    public List<ScoredCategory> searchTopKHybrid(String userQuery, int topK, boolean onlyAccessible) {
+        if (embeddingClient == null || categoryEmbeddings.isEmpty()) {
+            return searchTopK(userQuery, topK, onlyAccessible);
+        }
+        try {
+            int poolSize = Math.max(topK * 4, 20);
+            return fuseRRF(searchTopK(userQuery, poolSize, onlyAccessible),
+                    searchTopKEmbedding(userQuery, poolSize, onlyAccessible), topK);
+        } catch (RuntimeException e) {
+            System.err.println("Fallback a BM25 puro: " + e.getMessage());
+            return searchTopK(userQuery, topK, onlyAccessible);
+        }
+    }
+
+    private List<ScoredCategory> searchTopKEmbedding(String userQuery, int topK, boolean onlyAccessible) {
+        float[] queryVector = embeddingClient.embed(userQuery);
+        List<ScoredCategory> results = new ArrayList<>();
+        for (int i = 0; i < catalog.size(); i++) {
+            CategoryFormSchema schema = catalog.get(i);
+            if (onlyAccessible && !schema.accessible) continue;
+            double score = EmbeddingUtils.cosine(queryVector, categoryEmbeddings.get(i));
+            if (score >= MIN_EMB_SIMILARITY) results.add(new ScoredCategory(schema, score));
+        }
+        results.sort((a, b) -> Double.compare(b.score, a.score));
+        return results.stream().limit(topK).collect(Collectors.toList());
+    }
+
+    private List<ScoredCategory> fuseRRF(List<ScoredCategory> first, List<ScoredCategory> second, int topK) {
+        Map<String, Double> scores = new HashMap<>();
+        Map<String, CategoryFormSchema> schemas = new HashMap<>();
+        for (int rank = 0; rank < first.size(); rank++) {
+            String slug = first.get(rank).schema.compositeSlug;
+            schemas.put(slug, first.get(rank).schema);
+            scores.merge(slug, 1.0 / (RRF_K + rank + 1), Double::sum);
+        }
+        for (int rank = 0; rank < second.size(); rank++) {
+            String slug = second.get(rank).schema.compositeSlug;
+            schemas.put(slug, second.get(rank).schema);
+            scores.merge(slug, 1.0 / (RRF_K + rank + 1), Double::sum);
+        }
+        return scores.entrySet().stream()
+                .map(entry -> new ScoredCategory(schemas.get(entry.getKey()), entry.getValue()))
+                .sorted((a, b) -> Double.compare(b.score, a.score))
+                .limit(topK)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Similarità semantica tra i titoli di due moduli, ignorando le parti tra parentesi
+     * e il nome della struttura, che di solito contengono solo corso o dipartimento.
+     * Restituisce -1 se gli embeddings non sono disponibili.
+     */
+    public double titleSimilarity(CategoryFormSchema a, CategoryFormSchema b) {
+        if (embeddingClient == null || categoryEmbeddings.isEmpty()) return -1.0;
+        try {
+            float[] first = titleEmbeddingCache.computeIfAbsent(a.compositeSlug,
+                    slug -> embeddingClient.embed(normalizeTitle(a)));
+            float[] second = titleEmbeddingCache.computeIfAbsent(b.compositeSlug,
+                    slug -> embeddingClient.embed(normalizeTitle(b)));
+            return EmbeddingUtils.cosine(first, second);
+        } catch (RuntimeException e) {
+            System.err.println("Impossibile confrontare i titoli dei moduli: " + e.getMessage());
+            return -1.0;
+        }
+    }
+
+    private String normalizeTitle(CategoryFormSchema schema) {
+        String title = schema.categoryTitle == null ? "" : schema.categoryTitle.replaceAll("\\([^)]*\\)", " ");
+        if (schema.structureName != null && !schema.structureName.trim().isEmpty()) {
+            title = title.replaceAll("(?i)\\b" + Pattern.quote(schema.structureName.trim()) + "\\b", " ");
+        }
+        return title.replaceAll("[\\s\\-–]+$", "").replaceAll("\\s+", " ").trim();
+    }
+
+    public Optional<CategoryFormSchema> findByCompositeSlug(String compositeSlug) {
+        return catalog.stream()
+                .filter(c -> c.compositeSlug.equalsIgnoreCase(compositeSlug))
+                .findFirst();
+    }
+
+    private List<String> tokenize(String text) {
+        if (text == null || text.isEmpty()) return Collections.emptyList();
+
+        // Rimuove accenti e normalizza in minuscolo
+        String normalized = Normalizer.normalize(text.toLowerCase(Locale.ITALIAN), Normalizer.Form.NFD)
+                .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+
+        String[] rawTokens = normalized.split("[^a-z0-9_]+");
+        List<String> cleanTokens = new ArrayList<>();
+
+        for (String token : rawTokens) {
+            if (token.length() < 2) continue;
+            if (useStopwords && ITALIAN_STOPWORDS.contains(token)) continue;
+            cleanTokens.add(stemItalianLight(token));
+        }
+        return cleanTokens;
+    }
+
+    /**
+     * Stemmer leggero per la lingua italiana (unifica singolari/plurali/coniugazioni comuni).
+     */
+    private String stemItalianLight(String word) {
+        if (word.length() <= 4) return word;
+        if (word.endsWith("iche")) {
+            return word.substring(0, word.length() - 2);
+        }
+        if (word.endsWith("zioni") || word.endsWith("zione")) {
+            return word.substring(0, word.length() - 5) + "zion";
+        }
+        if (word.endsWith("menti") || word.endsWith("mento")) {
+            return word.substring(0, word.length() - 5) + "ment";
+        }
+        char last = word.charAt(word.length() - 1);
+        if (last == 'a' || last == 'e' || last == 'i' || last == 'o') {
+            return word.substring(0, word.length() - 1);
+        }
+        return word;
+    }
+}

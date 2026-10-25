@@ -1,6 +1,6 @@
 package it.unical.uniticket.app;
 
-import it.unical.uniticket.forms.UniTicketAgentPipeline.RoutingDecision;
+import it.unical.uniticket.routing.RoutingDecision;
 import it.unical.uniticket.llm.LlmClient;
 import it.unical.uniticket.llm.EmbeddingClient;
 import it.unical.uniticket.llm.OllamaEmbeddingClient;
@@ -128,9 +128,22 @@ public class Main {
                         initialUserMessage + "\nPrecisazione: " + clarification, 5, clarifyOptions);
             }
             System.out.println("\n🎯 Decisione aggiornata:");
+            System.out.println("   ├── Azione         : " + decision.action);
             System.out.println("   ├── Modulo scelto : " + decision.selectedCompositeSlug);
             System.out.println("   ├── Confidenza    : " + decision.confidence);
             System.out.println("   └── Motivazione   : " + decision.reasoning);
+            if ("CLARIFY".equalsIgnoreCase(decision.action)
+                    && decision.selectedCompositeSlug.equalsIgnoreCase("NONE")) {
+                System.out.println("\n❓ Non ho identificato una scelta certa. Le opzioni restano:");
+                for (int i = 0; i < decision.clarifyOptions.size(); i++) {
+                    ScoredCategory candidate = decision.clarifyOptions.get(i);
+                    System.out.printf("   %d) [%s] %s (%s)%n", i + 1,
+                            candidate.schema.structureName, candidate.schema.categoryTitle,
+                            candidate.schema.compositeSlug);
+                }
+                System.out.println(decision.clarifyingQuestion);
+                return;
+            }
         }
 
         if ("NONE".equalsIgnoreCase(decision.selectedCompositeSlug) || decision.matchedSchema == null) {

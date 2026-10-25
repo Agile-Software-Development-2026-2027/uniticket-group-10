@@ -2,7 +2,7 @@ package it.unical.uniticket.eval;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import it.unical.uniticket.forms.UniTicketAgentPipeline.RoutingDecision;
+import it.unical.uniticket.routing.RoutingDecision;
 import it.unical.uniticket.llm.OllamaEmbeddingClient;
 import it.unical.uniticket.llm.OllamaLlmClient;
 import it.unical.uniticket.rag.UniTicketRagEngine;

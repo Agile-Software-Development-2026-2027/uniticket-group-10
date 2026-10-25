@@ -3,7 +3,6 @@ package it.unical.uniticket.routing;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import it.unical.uniticket.api.dto.CategoryFormSchema;
-import it.unical.uniticket.forms.UniTicketAgentPipeline;
 import it.unical.uniticket.llm.LlmClient;
 import it.unical.uniticket.rag.UniTicketRagEngine;
 import it.unical.uniticket.rag.UniTicketRagEngine.ScoredCategory;
@@ -36,18 +35,18 @@ public class TicketRouter {
         this.llmClient = llmClient;
     }
 
-    public UniTicketAgentPipeline.RoutingDecision route(String userRequest, int topK) {
+    public RoutingDecision route(String userRequest, int topK) {
         return route(userRequest, topK, Collections.emptyList());
     }
 
-    public UniTicketAgentPipeline.RoutingDecision route(String userRequest, int topK,
-                                                        List<ScoredCategory> previousCandidates) {
+    public RoutingDecision route(String userRequest, int topK,
+                                 List<ScoredCategory> previousCandidates) {
         if (isGenericEnrollmentRequest(userRequest)) {
             return genericEnrollmentClarification();
         }
         List<ScoredCategory> retrieved = ragEngine.searchTopKHybrid(userRequest, topK, false);
         List<ScoredCategory> candidates = mergeCandidates(previousCandidates, retrieved, topK);
-        UniTicketAgentPipeline.RoutingDecision decision = new UniTicketAgentPipeline.RoutingDecision();
+        RoutingDecision decision = new RoutingDecision();
         decision.ragCandidates = candidates;
         if (candidates.isEmpty()) {
             decision.action = "NONE";
@@ -107,7 +106,41 @@ public class TicketRouter {
             decision.action = "NONE".equalsIgnoreCase(decision.selectedCompositeSlug)
                     ? "NONE" : "SELECT";
         }
+        if ("NONE".equals(decision.action)) {
+            ScoredCategory confirmed = findStrongTextMatch(userRequest, candidates);
+            if (confirmed != null) {
+                decision.action = "SELECT";
+                decision.selectedCompositeSlug = confirmed.schema.compositeSlug;
+                decision.matchedSchema = confirmed.schema;
+                decision.confidence = 0.9;
+                decision.reasoning = "La richiesta contiene un termine specifico coerente con il modulo "
+                        + confirmed.schema.categoryTitle + ".";
+            } else if (previousCandidates.isEmpty()) {
+                List<ScoredCategory> accessible = candidates.stream()
+                        .filter(candidate -> candidate.schema.accessible)
+                        .collect(Collectors.toList());
+                if (!accessible.isEmpty()) {
+                    decision.action = "CLARIFY";
+                    decision.selectedCompositeSlug = "NONE";
+                    decision.clarifyOptions = accessible;
+                    decision.clarifyingQuestion = "Non riesco a confermare automaticamente un modulo. "
+                            + "Scegli un'opzione, indica 0 se nessuna è pertinente oppure aggiungi un dettaglio.";
+                    decision.reasoning = "Il modello ha restituito NONE, ma sono presenti candidati accessibili "
+                            + "da verificare con l'utente.";
+                }
+            }
+        }
         if ("NONE".equals(decision.action) && !previousCandidates.isEmpty()) {
+            ScoredCategory confirmed = findTextConfirmedCandidate(userRequest, previousCandidates);
+            if (confirmed != null) {
+                decision.action = "SELECT";
+                decision.selectedCompositeSlug = confirmed.schema.compositeSlug;
+                decision.matchedSchema = confirmed.schema;
+                decision.confidence = 0.9;
+                decision.reasoning = "La precisazione dell'utente conferma il candidato "
+                        + confirmed.schema.categoryTitle + ".";
+                return decision;
+            }
             decision.action = "CLARIFY";
             decision.selectedCompositeSlug = "NONE";
             decision.matchedSchema = null;
@@ -156,6 +189,55 @@ public class TicketRouter {
         return decision;
     }
 
+    private ScoredCategory findTextConfirmedCandidate(String userRequest,
+                                                      List<ScoredCategory> previousCandidates) {
+        String normalizedRequest = normalizeForMatch(userRequest);
+        ScoredCategory best = null;
+        int bestMatches = 0;
+        int secondMatches = 0;
+        for (ScoredCategory candidate : previousCandidates) {
+            if (!candidate.schema.accessible) continue;
+            String title = normalizeForMatch(candidate.schema.categoryTitle);
+            int matches = 0;
+            for (String token : title.split(" ")) {
+                if (token.length() >= 5 && normalizedRequest.contains(token)) {
+                    matches++;
+                }
+            }
+            if (matches > bestMatches) {
+                secondMatches = bestMatches;
+                bestMatches = matches;
+                best = candidate;
+            } else if (matches > secondMatches) {
+                secondMatches = matches;
+            }
+        }
+        return bestMatches >= 2 && bestMatches > secondMatches ? best : null;
+    }
+
+    private ScoredCategory findStrongTextMatch(String userRequest, List<ScoredCategory> candidates) {
+        String request = normalizeForMatch(userRequest);
+        Set<String> specificTerms = new HashSet<>(Arrays.asList(
+                "sito", "app", "wifi", "wireless", "teams", "esse3", "mensa",
+                "erasmus", "ielts", "cambridge", "stato", "borsa", "tasse"));
+        for (ScoredCategory candidate : candidates) {
+            if (!candidate.schema.accessible) continue;
+            String title = normalizeForMatch(candidate.schema.categoryTitle);
+            boolean exactSpecificMatch = specificTerms.stream()
+                    .anyMatch(term -> request.contains(term) && title.contains(term));
+            if (exactSpecificMatch) return candidate;
+        }
+        return null;
+    }
+
+    private String normalizeForMatch(String text) {
+        if (text == null) return "";
+        return text.toLowerCase(Locale.ITALIAN)
+                .replaceAll("[^a-z0-9àèéìòù ]", " ")
+                .replaceAll("\\s+", " ")
+                .trim();
+    }
+
     private List<ScoredCategory> mergeCandidates(List<ScoredCategory> previous,
                                                  List<ScoredCategory> retrieved, int topK) {
         List<ScoredCategory> merged = new ArrayList<>();
@@ -188,8 +270,8 @@ public class TicketRouter {
         return mentionsEnrollment && !namesSpecificSystem;
     }
 
-    private UniTicketAgentPipeline.RoutingDecision genericEnrollmentClarification() {
-        UniTicketAgentPipeline.RoutingDecision decision = new UniTicketAgentPipeline.RoutingDecision();
+    private RoutingDecision genericEnrollmentClarification() {
+        RoutingDecision decision = new RoutingDecision();
         decision.action = "CLARIFY";
         decision.selectedCompositeSlug = "NONE";
         decision.confidence = 1.0;

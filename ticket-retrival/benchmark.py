@@ -1,6 +1,10 @@
 """Benchmark dei prototipi: Hit@1, Hit@5, Hit@10 e MRR@5."""
 
 import argparse
+import hashlib
+import math
+import statistics
+from time import perf_counter
 import json
 import logging
 import sys
@@ -90,6 +94,8 @@ def _metrics(ranks):
     count = len(ranks)
     return {
         "count": count,
+        "top1_accuracy": sum(rank == 1 for rank in ranks) / count if count else None,
+        **{f"recall@{k}": sum(rank is not None and rank <= k for rank in ranks) / count if count else None for k in (1, 5, 10)},
         **{
             f"hit@{k}": sum(rank is not None and rank <= k for rank in ranks) / count if count else None
             for k in (1, 5, 10)
@@ -98,25 +104,76 @@ def _metrics(ranks):
     }
 
 
+def _summary(ranks, times, errors, abstentions):
+    ordered = sorted(times)
+    return {
+        **_metrics(ranks),
+        "errors": errors,
+        "abstentions": abstentions,
+        "latency_ms": {
+            "count": len(times),
+            "mean": statistics.mean(times) if times else None,
+            "median": statistics.median(times) if times else None,
+            "p95": ordered[math.ceil(.95 * len(ordered)) - 1] if times else None,
+        },
+    }
+
+
 def evaluate(prototype: Prototype, eval_set: List[TicketEvaluation]):
-    """Media per query; ogni query ha un solo ticket atteso. I fallimenti valgono zero."""
-    all_ranks = []
-    by_query_type = {}
+    """Single-label evaluation. Failed calls and abstentions stay in the denominator."""
+    valid_ids = {ticket.ticket_category_id for ticket in prototype.tickets}
+    # Invalid ground truth is a dataset problem, not a classifier error.
+    for ticket in eval_set:
+        if ticket["ticket_category_id"] not in valid_ids:
+            raise ValueError(f"Ground truth outside catalog: {ticket['ticket_category_id']}")
+        for queries in ticket["queries"].values():
+            if not isinstance(queries, list) or any(not isinstance(q, str) or not q.strip() for q in queries):
+                raise ValueError("Each query must be a non-empty string")
+    all_ranks, all_times, by_type, details = [], [], {}, []
+    errors = abstentions = 0
     for ticket in eval_set:
         expected_id = ticket["ticket_category_id"]
         for query_type, queries in ticket["queries"].items():
-            ranks = by_query_type.setdefault(query_type, [])
-            for query in queries:
-                results = prototype.search(query, k=10)
-                rank = next((
-                    position for position, (ticket_id, _) in enumerate(results[:10], start=1)
-                    if ticket_id == expected_id
-                ), None)
-                ranks.append(rank)
+            group = by_type.setdefault(query_type, {"ranks": [], "times": [], "errors": 0, "abstentions": 0})
+            for query_index, query in enumerate(queries):
+                started = perf_counter()
+                error = None
+                predicted = []
+                try:
+                    results = prototype.search(query, k=10)
+                    if not isinstance(results, list):
+                        raise ValueError("search() must return a list")
+                    seen = set()
+                    for category_id, score in results:
+                        if category_id not in valid_ids or category_id in seen or not math.isfinite(float(score)):
+                            raise ValueError("Invalid or duplicate category ID or non-finite score")
+                        seen.add(category_id)
+                        predicted.append(category_id)
+                except Exception as exc:
+                    error = type(exc).__name__  # No provider messages or credentials in reports.
+                    predicted = []
+                elapsed = (perf_counter() - started) * 1000
+                rank = predicted.index(expected_id) + 1 if expected_id in predicted[:10] else None
+                abstention = not predicted and error is None
+                errors += int(error is not None)
+                abstentions += int(abstention)
+                group["errors"] += int(error is not None)
+                group["abstentions"] += int(abstention)
+                group["ranks"].append(rank)
+                group["times"].append(elapsed)
                 all_ranks.append(rank)
+                all_times.append(elapsed)
+                details.append({"expected_id": expected_id, "query_type": query_type,
+                                "query_index": query_index, "predicted_ids": predicted[:10],
+                                "rank": rank, "latency_ms": elapsed, "error": error})
     return {
-        "overall": _metrics(all_ranks),
-        "by_query_type": {query_type: _metrics(ranks) for query_type, ranks in by_query_type.items()},
+        "overall": _summary(all_ranks, all_times, errors, abstentions),
+        "by_query_type": {name: _summary(g["ranks"], g["times"], g["errors"], g["abstentions"])
+                          for name, g in by_type.items()},
+        "coverage": {"catalog_categories": len(valid_ids),
+                     "evaluated_categories": len({t["ticket_category_id"] for t in eval_set if any(t["queries"].values())}),
+                     "uncovered_category_ids": sorted(valid_ids - {t["ticket_category_id"] for t in eval_set if any(t["queries"].values())})},
+        "cases": details,
     }
 
 
@@ -141,10 +198,24 @@ def main():
         kwargs = {name: vars(args)[name] for name in names if name in vars(args)}
         tickets = json.loads(args.dataset.read_text(encoding="utf-8"))
         eval_set = json.loads(args.eval_set.read_text(encoding="utf-8"))
+        started = perf_counter()
         prototype = prototype_class(tickets=tickets, **kwargs)
-    except (ValueError, TypeError, ImportError, AttributeError, OSError) as exc:
+        initialization_ms = (perf_counter() - started) * 1000
+    except (ValueError, TypeError, ImportError, AttributeError, OSError, NotImplementedError) as exc:
         parser.error(str(exc))
-    print(json.dumps(evaluate(prototype, eval_set), ensure_ascii=False, indent=2))
+    try:
+        report = evaluate(prototype, eval_set)
+    except (ValueError, TypeError, KeyError) as exc:
+        parser.error(str(exc))
+    report["initialization_ms"] = initialization_ms
+    report["experiment"] = {
+        "prototype": str(args.prototype), "parameters": kwargs,
+        "catalog_sha256": hashlib.sha256(args.dataset.read_bytes()).hexdigest(),
+        "evaluation_sha256": hashlib.sha256(args.eval_set.read_bytes()).hexdigest(),
+        "python": sys.version.split()[0],
+        "protocol": "single-label; k=10; no warmup/retries; latency includes search and result validation; initialization separate; errors count as misses",
+    }
+    print(json.dumps(report, ensure_ascii=False, indent=2, default=str))
 
 
 if __name__ == "__main__":

@@ -57,3 +57,44 @@ uv run python benchmark.py --prototype retrival/prototypes/dense.py --eval-set g
 - Benchmark multi-lingue (inglese, spagnolo, ...)
 - Trovare un prototipo che permetta il multi-lingua
 
+
+
+## Estensione del 25 ottobre 2026 — protocollo single-label
+
+Restano `hit@1`, `hit@5`, `hit@10` e `mrr@5`. Nuovi campi, sia globali sia
+per tipo di query:
+
+- `top1_accuracy`: frazione di richieste con prima categoria corretta.
+- `recall@1`, `recall@5`, `recall@10`: con UN SOLO ID corretto per query
+  coincidono con i rispettivi Hit@K. Non sono macro-recall per categoria.
+- `latency_ms`: numero osservazioni, media, mediana e p95 (nearest-rank).
+  Misura `search(query, k=10)` e la validazione del risultato, anche sui fallimenti.
+- `errors`: eccezioni o output non validi; `abstentions`: lista vuota senza errore.
+  Entrambi rimangono nel denominatore e valgono come mancati successi.
+
+La preparazione del modello/indice è riportata separatamente in `initialization_ms`.
+Non include gli import, e può includere download/cache del costruttore. Non ci sono
+warm-up o retry automatici: la prima ricerca è inclusa. Per confronti affidabili
+ripetere le esecuzioni e annotare hardware, device e stato della cache.
+
+`coverage` segnala categorie senza query. `cases` conserva risultati per caso con
+indice della query, tipo, ID atteso, predizioni ed eventuale classe di errore.
+`experiment` conserva hash dei due input, percorso prototipo, parametri CLI espliciti
+e versione Python. I default non esplicitati vanno ricondotti alla versione del codice:
+registrare anche commit/modello/prompt per gli esperimenti definitivi.
+
+ID inventati, duplicati e score non finiti rendono la prova un errore. Ground truth
+fuori catalogo viene rifiutata. Il protocollo non implementa ancora etichette multiple
+né valuta l'astensione come risposta corretta; concordarli prima di estenderlo.
+Un classificatore con un unico ID non ha una graduatoria Top-5: le metriche vengono
+calcolate sull'output disponibile e non vanno interpretate come retrieval di 5 candidati.
+
+Verifica su Windows, dalla cartella `ticket-retrival`:
+
+```powershell
+.\.venv-bm25\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+Report locali della verifica conservati in `results.local/bm25-before-20261025-111038.json`
+e `results.local/bm25-after-20261025-111159.json`. Tutte le metriche preesistenti,
+anche per tipo di query, sono identiche. Nessuna modifica a catalogo o dataset.

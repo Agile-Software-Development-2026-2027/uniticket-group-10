@@ -1,23 +1,66 @@
-# CI: runs on every pull request and on every push to main.
-# The job "test" is a required check on main: a pull request cannot be merged until it is green.
-# Do not rename the job.
-name: CI
+#Se invece vogliamo utilizzare Zulip e fare i test su server Github, 
+#questo esegue i tests a ogni push che viene fatto
+#da posizionare in .github/workflows/
 
+name: Acceptance Tests
+
+# 1. TRIGGERS 
 on:
-  pull_request:
   push:
-    branches: [main]
-  workflow_dispatch: # lets you run CI by hand from the Actions tab
-
-concurrency:
-  group: ci-${{ github.ref }}
-  cancel-in-progress: true
+    branches: [ "main", "SCRUM-32" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
+  build-and-test:
+    # 3. WHERE & MATRIX 
+    runs-on: ${{ matrix.os }}
+    # Oppure se lo si vuole runnare in locale 
+    # runs-on: self-hosted
+    strategy:
+      fail-fast: false # Se fallisce Python 3.10, non fermare il test per il 3.11
+      matrix:
+        os: [ubuntu-latest] 
+        python-version: ["3.10", "3.11"]
+
     steps:
-      - uses: actions/checkout@v4
-      # Add here the steps that build and test your project.
-      # Until then this job does nothing and always passes.
+      # 4. SETTING UP TOOLS (Checkout del codice)
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 4b. SETUP PYTHON & CACHING
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip' 
+
+      # 5. ESECUZIONE TRAMITE MAKEFILE 
+      - name: Install dependencies
+        run: make install
+
+      - name: Run Unit & Integration Tests
+        run: make test-local
+
+      - name: Run Acceptance Tests
+        run: make test-acceptance
+
+      # 6. NOTIFICHE ZULIP 
+      - name: Notifica Zulip Successo
+        if: success()
+        run: |
+          curl -X POST ${{ secrets.ZULIP_URL }}/api/v1/messages \
+            -u ${{ secrets.ZULIP_BOT_EMAIL }}:${{ secrets.ZULIP_API_KEY }} \
+            -d "type=stream" \
+            -d "to=pipeline-alerts" \
+            -d "topic=Esito Build" \
+            -d "content= Test passati su Python ${{ matrix.python-version }}"
+      - name: Invia notifica di FALLIMENTO su Zulip
+        if: failure()
+        run: |
+          curl -X POST ${{ secrets.ZULIP_URL }}/api/v1/messages \
+            -u ${{ secrets.ZULIP_BOT_EMAIL }}:${{ secrets.ZULIP_API_KEY }} \
+            -d "type=stream" \
+            -d "to=pipeline-alerts" \
+            -d "topic=Esito Build" \
+            -d "content= **Attention:** Acceptance test failed. "

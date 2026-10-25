@@ -33,7 +33,6 @@ def load_prototype_class(path):
         relative_path = path.relative_to(Path(__file__).resolve().parent)
     except ValueError:
         # I file esterni possono importare il contratto con prototypes.base.
-        # I file esterni possono importare il contratto con prototypes.base.
         module_name = "_benchmark_prototype"
         spec = spec_from_file_location(module_name, path)
         module = module_from_spec(spec)

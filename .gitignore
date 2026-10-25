@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-*./dummy_datasets
+dummy_datasets/
 # Virtual environments
 .venv*/
 venv/
@@ -43,3 +43,14 @@ coverage.xml
 
 # macOS
 .DS_Store
+
+# Personal tools, machine settings and local experiment outputs
+/.local-tools/
+/.local/
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+*.log
+/ticket-retrival/results.local/
+/ticket-retrival/.cache/

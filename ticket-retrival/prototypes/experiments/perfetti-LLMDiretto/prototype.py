@@ -1,5 +1,5 @@
 """Scaffold only: no provider, prompt or model chosen yet."""
-from retrival.base import Prototype
+from prototypes.base import Prototype
 
 
 class PerfettiLLMDiretto(Prototype):

@@ -1,7 +1,9 @@
 import unittest
+import json
+from pathlib import Path
 from unittest.mock import patch
 from benchmark import evaluate, load_prototype_class
-from retrival.base import Prototype
+from prototypes.base import Prototype
 
 
 class Fake(Prototype):
@@ -46,3 +48,30 @@ class BenchmarkTests(unittest.TestCase):
         result = evaluate(self.prototype, [])
         self.assertIsNone(result['overall']['top1_accuracy'])
         self.assertIsNone(result['overall']['latency_ms']['mean'])
+
+
+class LayoutRegressionTests(unittest.TestCase):
+    def test_relocated_personal_prototype_loads(self):
+        root = Path(__file__).resolve().parents[1]
+        prototype = load_prototype_class(root / 'prototypes/experiments/perfetti-LLMDiretto/prototype.py')
+        self.assertTrue(issubclass(prototype, Prototype))
+        with self.assertRaises(NotImplementedError):
+            prototype(tickets=[])
+
+    
+   # def test_duplicate_tail_remains_evaluated(self):
+    #    class Empty(Prototype):
+     #       def search(self, query, k=5):
+      #          return []
+       # root = Path(__file__).resolve().parents[1]
+        #data = json.loads((root / 'evaluation_dataset_a1.json').read_text(encoding='utf-8'))
+        #catalog = json.loads((root / 'tickets.json').read_text(encoding='utf-8'))
+        #tail_start = next(i for i, row in enumerate(data) if row.get('review_group'))
+        #self.assertTrue(all(row.get('review_group') == 'duplicate_queries_pending_review' for row in data[tail_start:]))
+        #expected = sum(len(qs) for row in data for qs in row['queries'].values())
+        #regular_count = sum(len(qs) for row in data[:tail_start] for qs in row['queries'].values())
+        #report = evaluate(Empty(catalog), data)
+        #self.assertEqual(report['overall']['count'], expected)
+        #self.assertGreater(expected, regular_count)
+        #self.assertEqual(report['overall']['abstentions'], expected)
+        #self.assertEqual(report['coverage']['uncovered_category_ids'], [])

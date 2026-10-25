@@ -14,7 +14,7 @@ from inspect import Parameter, getmembers, isabstract, isclass, signature
 from pathlib import Path
 from typing import Dict, List, TypedDict, get_type_hints
 
-from retrival.base import Prototype
+from prototypes.base import Prototype
 
 
 class TicketEvaluation(TypedDict):
@@ -31,7 +31,7 @@ def load_prototype_class(path):
     try:
         relative_path = path.relative_to(Path(__file__).resolve().parent)
     except ValueError:
-        # I file esterni possono importare il contratto con retrival.base.
+        # I file esterni possono importare il contratto con prototypes.base.
         module_name = "_benchmark_prototype"
         spec = spec_from_file_location(module_name, path)
         module = module_from_spec(spec)

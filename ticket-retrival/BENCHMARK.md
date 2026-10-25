@@ -11,12 +11,12 @@ Un insieme di query realistiche che simulino le richieste degli utenti.
 Risorse correlate al dataset:
 
 - [Documentazione del dataset](dataset/README.md)
-- [Documentazione della generazione delle query](dataset/generation/README.md)
+- [Documentazione della generazione delle query](dataset/README.md)
 - [Prompt usato per generare le query](dataset/generation/GENERATION_PROMPT.md)
 - [Configurazione del backend](dataset/generate.yaml)
 
 ### 2. Prototipi
-Per capire come funziona il benchmark ti consiglio di leggere la [documentazione dei prototipi](retrival/README.md).
+Per capire come funziona il benchmark ti consiglio di leggere la [documentazione dei prototipi](prototypes/README.md).
 
 ### 3. Metriche di valutazione
 
@@ -39,7 +39,7 @@ La preparazione iniziale del prototipo è misurata separatamente (`initializatio
 ## 4. Far girare il benchmark su un prototipo
 
 ```bash
-uv run python benchmark.py --help
+uv run python benchmark.py --prototype prototypes/experiments/perfetti-LLMDiretto/prototype.py --help
 ```
 Usa --help per vedere quali parametri sono disponibili
 
@@ -49,14 +49,16 @@ uv run python benchmark.py --prototype custom_prototype.py --help
 Usa `--prototype` e `--help` per vedere quali parametri sono disponibili (definiti da `custom_prototype.py` nel costruttore, il parametro `tickets` viene iniettato in automatico).
 
 ```bash
-uv run python benchmark.py --prototype retrival/prototypes/dense.py --help
+uv run python benchmark.py --prototype prototypes/experiments/perfetti-LLMDiretto/prototype.py --help
 ```
 
 Per eseguire il benchmark:
 
 ```bash
-uv run python benchmark.py --prototype retrival/prototypes/dense.py --eval-set good_evaluation_dataset.json > risultati_dense.json
+uv run python benchmark.py --prototype prototypes/experiments/perfetti-LLMDiretto/prototype.py --eval-set evaluation_dataset_a1.json > risultati_llm.json
 ```
+
+Lo scheletro LLM mostra i parametri con `--help`, ma non esegue ancora classificazioni: il costruttore segnala `NotImplementedError`. BM25, Dense e Hybrid sono stati rimossi nella riorganizzazione; i loro risultati precedenti restano storici.
 
 # TODO
 - Benchmark multi-lingue (inglese, spagnolo, ...)

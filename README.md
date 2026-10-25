@@ -1,7 +1,7 @@
 # UniTicketChatbot
 
 > [!WARNING]
-> **This is a messy prototype. It was pretty much vibecoded (I don't like it but I can't keep up otherwise).** The architecture evolved organically through trial and error — expect dead code, half-finished ideas, commented-out submission logic, and hardcoded constants whose values were tuned empirically with no scientific rigour. You have been warned.
+> **This is a messy prototype. It was pretty much vibecoded (I don't like it but I can't keep up otherwise). The final result won't be vibecoded, of course, since I already lost "control" of the codebase. :)** The architecture evolved organically through trial and error — expect dead code, half-finished ideas, commented-out submission logic, and hardcoded constants whose values were tuned empirically with no scientific rigour. You have been warned.
 
 A Java prototype that helps users of the [UniTicket](https://uniticket.unical.it) platform at the University of Calabria find and fill in the right support ticket form, using natural language. It combines lexical search (BM25), semantic search (embeddings), LLM-based routing, and conversational slot-filling — all talking to a locally running [Ollama](https://ollama.com) instance.
 

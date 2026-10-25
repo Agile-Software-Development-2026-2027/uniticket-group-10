@@ -4,6 +4,7 @@ from pathlib import Path
 from unittest.mock import patch
 from benchmark import evaluate, load_prototype_class
 from prototypes.base import Prototype
+from prototypes.models import Ticket
 
 
 class Fake(Prototype):
@@ -16,7 +17,7 @@ class Fake(Prototype):
 
 class BenchmarkTests(unittest.TestCase):
     def setUp(self):
-        self.prototype = Fake([{'ticket_category_id': 1}, {'ticket_category_id': 2}])
+        self.prototype = Fake([Ticket(id=1, title="Uno"), Ticket(id=2, title="Due")])
 
     def test_metrics_and_clock(self):
         data = [{'ticket_category_id': 1, 'queries': {'direct': ['correct', 'second', 'empty', 'error']}}]

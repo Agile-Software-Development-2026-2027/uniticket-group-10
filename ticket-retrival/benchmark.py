@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Dict, List, TypedDict, get_type_hints
 
 from prototypes.base import Prototype
+from prototypes.models import load_tickets
 
 
 class TicketEvaluation(TypedDict):
@@ -31,6 +32,7 @@ def load_prototype_class(path):
     try:
         relative_path = path.relative_to(Path(__file__).resolve().parent)
     except ValueError:
+        # I file esterni possono importare il contratto con prototypes.base.
         # I file esterni possono importare il contratto con prototypes.base.
         module_name = "_benchmark_prototype"
         spec = spec_from_file_location(module_name, path)
@@ -121,7 +123,7 @@ def _summary(ranks, times, errors, abstentions):
 
 def evaluate(prototype: Prototype, eval_set: List[TicketEvaluation]):
     """Single-label evaluation. Failed calls and abstentions stay in the denominator."""
-    valid_ids = {ticket.ticket_category_id for ticket in prototype.tickets}
+    valid_ids = {ticket.id for ticket in prototype.tickets}
     # Invalid ground truth is a dataset problem, not a classifier error.
     for ticket in eval_set:
         if ticket["ticket_category_id"] not in valid_ids:
@@ -196,7 +198,7 @@ def main():
     args = parser.parse_args()
     try:
         kwargs = {name: vars(args)[name] for name in names if name in vars(args)}
-        tickets = json.loads(args.dataset.read_text(encoding="utf-8"))
+        tickets = load_tickets(args.dataset)
         eval_set = json.loads(args.eval_set.read_text(encoding="utf-8"))
         started = perf_counter()
         prototype = prototype_class(tickets=tickets, **kwargs)

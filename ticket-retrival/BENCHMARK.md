@@ -23,7 +23,13 @@ Per capire come funziona il benchmark ti consiglio di leggere la [documentazione
 Il benchmark valuta ogni prototipo attraverso le seguenti metriche:
 
 - **Hit@K (Hit Rate at K):** misura la percentuale di query per cui il ticket corretto compare tra i primi K risultati, indipendentemente dalla posizione. Ad esempio, Hit@5 = 0.90 significa che nel 90% delle query il ticket corretto compare tra i primi 5 risultati.
-- **MRR@5 (Mean Reciprocal Rank at 5):** misura quanto in alto viene posizionato il ticket corretto nei primi 5 risultati. Per ogni query viene assegnato un punteggio pari a `1 / posizione` del primo risultato corretto (0 se non compare nei primi 5). La media costituisce l'MRR@5.
+- ~~**MRR@5 (Mean Reciprocal Rank at 5):** misura quanto in alto viene posizionato il ticket corretto nei primi 5 risultati. Per ogni query viene assegnato un punteggio pari a `1 / posizione` del primo risultato corretto (0 se non compare nei primi 5). La media costituisce l'MRR@5.~~
+
+**Le metriche attuali non vanno bene.**
+
+#### TODO: Metriche da considerare:
+- Median Rank: mediana della posizione del ticket corretto. Permette di valutare la prestazione tipica, risultando meno sensibile ai rank estremi rispetto alla media dei rank.
+- P90 / P95 Rank: percentili della distribuzione dei rank. Indicano entro quale posizione viene recuperato il ticket corretto per almeno il 90% o il 95% delle query, evidenziando le difficoltà nella coda della distribuzione.
 
 ## 4. Far girare il benchmark su un prototipo
 

@@ -6,7 +6,7 @@ Esperimenti per individuare il form UniTicket più pertinente a una richiesta de
 
 1. [Descrizione del benchmark e istruzioni per l’esecuzione](./BENCHMARK.md)
 2. [Generazione delle query e descrizione del dataset](./dataset/README.md)
-3. [Implementazione dei prototipi e stato attuale dello sviluppo](./retrival/README.md)
+3. [Implementazione dei prototipi e stato attuale dello sviluppo](./prototypes/README.md)
 
 
 

@@ -20,16 +20,21 @@ Per capire come funziona il benchmark ti consiglio di leggere la [documentazione
 
 ### 3. Metriche di valutazione
 
-Il benchmark valuta ogni prototipo attraverso le seguenti metriche:
+Il benchmark valuta richieste **single-label**: per ogni query è previsto un solo ID di categoria corretto.
+Le metriche sono calcolate sia globalmente sia per tipologia di query (`direct`, `paraphrase`, `indirect`).
 
-- **Hit@K (Hit Rate at K):** misura la percentuale di query per cui il ticket corretto compare tra i primi K risultati, indipendentemente dalla posizione. Ad esempio, Hit@5 = 0.90 significa che nel 90% delle query il ticket corretto compare tra i primi 5 risultati.
-- ~~**MRR@5 (Mean Reciprocal Rank at 5):** misura quanto in alto viene posizionato il ticket corretto nei primi 5 risultati. Per ogni query viene assegnato un punteggio pari a `1 / posizione` del primo risultato corretto (0 se non compare nei primi 5). La media costituisce l'MRR@5.~~
+- **Hit@1, Hit@5, Hit@10:** quota delle query per cui la categoria corretta compare entro i primi K risultati.
+- **Top-1 Accuracy (`top1_accuracy`):** quota delle query con categoria corretta al primo posto; coincide con Hit@1.
+- **Recall@1, Recall@5, Recall@10:** nell'attuale valutazione single-label coincidono numericamente con Hit@K (non rappresentano una macro-recall tra categorie).
+- **MRR@5:** media dell'inverso della posizione della prima categoria corretta entro le prime cinque; metrica storica mantenuta nei report.
+- **Latenza (`latency_ms`):** media, mediana e p95 dei tempi di `search()` e di validazione del risultato, espressi in millisecondi.
+- **Errori (`errors`):** eccezioni durante la ricerca o risultati non validi.
+- **Astensioni (`abstentions`):** assenza di risultati senza errori.
 
-**Le metriche attuali non vanno bene.**
+Errori e astensioni restano nel denominatore e valgono come mancati successi.
+La preparazione iniziale del prototipo è misurata separatamente (`initialization_ms`).
 
-#### TODO: Metriche da considerare:
-- Median Rank: mediana della posizione del ticket corretto. Permette di valutare la prestazione tipica, risultando meno sensibile ai rank estremi rispetto alla media dei rank.
-- P90 / P95 Rank: percentili della distribuzione dei rank. Indicano entro quale posizione viene recuperato il ticket corretto per almeno il 90% o il 95% delle query, evidenziando le difficoltà nella coda della distribuzione.
+**Metriche da valutare in futuro:** Median Rank, P90 Rank e P95 Rank. Queste non sono ancora implementate e richiedono di definire come trattare le categorie assenti dalla Top-K.
 
 ## 4. Far girare il benchmark su un prototipo
 
@@ -57,44 +62,26 @@ uv run python benchmark.py --prototype retrival/prototypes/dense.py --eval-set g
 - Benchmark multi-lingue (inglese, spagnolo, ...)
 - Trovare un prototipo che permetta il multi-lingua
 
+## 5. Controlli e riproducibilità
 
+Il benchmark esteso include:
 
-## Estensione del 25 ottobre 2026 — protocollo single-label
+- **Validazione dell'input:** rifiuto di Ground Truth non presenti nel catalogo e query vuote o non valide.
+- **Validazione dell'output:** rilevazione di ID sconosciuti o duplicati e punteggi non finiti.
+- **`coverage`:** conteggio delle categorie coperte dal dataset e identificativi delle categorie senza query.
+- **`cases`:** dettagli delle predizioni, posizione della categoria corretta, latenza ed eventuale classe di errore per ogni richiesta.
+- **`experiment`:** percorsi, parametri CLI espliciti, versione Python e SHA-256 del catalogo e del dataset.
 
-Restano `hit@1`, `hit@5`, `hit@10` e `mrr@5`. Nuovi campi, sia globali sia
-per tipo di query:
+Il protocollo usa fino a 10 candidati per query, non applica warm-up o retry e include la prima ricerca nel calcolo delle latenze. Gli hash identificano i file utilizzati, ma per la riproducibilità completa occorre registrare anche commit, modello, parametri e ambiente.
 
-- `top1_accuracy`: frazione di richieste con prima categoria corretta.
-- `recall@1`, `recall@5`, `recall@10`: con UN SOLO ID corretto per query
-  coincidono con i rispettivi Hit@K. Non sono macro-recall per categoria.
-- `latency_ms`: numero osservazioni, media, mediana e p95 (nearest-rank).
-  Misura `search(query, k=10)` e la validazione del risultato, anche sui fallimenti.
-- `errors`: eccezioni o output non validi; `abstentions`: lista vuota senza errore.
-  Entrambi rimangono nel denominatore e valgono come mancati successi.
+Un prototipo che restituisce un solo ID non produce una vera Top-5 o Top-10: in quel caso la Top-1 è la misura primaria della classificazione. Non sono ancora previsti Ground Truth multi-label né casi in cui l'astensione sia considerata corretta.
 
-La preparazione del modello/indice è riportata separatamente in `initialization_ms`.
-Non include gli import, e può includere download/cache del costruttore. Non ci sono
-warm-up o retry automatici: la prima ricerca è inclusa. Per confronti affidabili
-ripetere le esecuzioni e annotare hardware, device e stato della cache.
+**Risultati delle esecuzioni:** [RISULTATI-BENCHMARK.md](RISULTATI-BENCHMARK.md).
 
-`coverage` segnala categorie senza query. `cases` conserva risultati per caso con
-indice della query, tipo, ID atteso, predizioni ed eventuale classe di errore.
-`experiment` conserva hash dei due input, percorso prototipo, parametri CLI espliciti
-e versione Python. I default non esplicitati vanno ricondotti alla versione del codice:
-registrare anche commit/modello/prompt per gli esperimenti definitivi.
+### Test automatici
 
-ID inventati, duplicati e score non finiti rendono la prova un errore. Ground truth
-fuori catalogo viene rifiutata. Il protocollo non implementa ancora etichette multiple
-né valuta l'astensione come risposta corretta; concordarli prima di estenderlo.
-Un classificatore con un unico ID non ha una graduatoria Top-5: le metriche vengono
-calcolate sull'output disponibile e non vanno interpretate come retrieval di 5 candidati.
+Dalla cartella `ticket-retrival`:
 
-Verifica su Windows, dalla cartella `ticket-retrival`:
-
-```powershell
-.\.venv-bm25\Scripts\python.exe -m unittest discover -s tests -v
+```bash
+uv run python -m unittest discover -s tests -v
 ```
-
-Report locali della verifica conservati in `results.local/bm25-before-20261025-111038.json`
-e `results.local/bm25-after-20261025-111159.json`. Tutte le metriche preesistenti,
-anche per tipo di query, sono identiche. Nessuna modifica a catalogo o dataset.

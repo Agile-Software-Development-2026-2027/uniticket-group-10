@@ -36,7 +36,7 @@ Per farvi un esempio (id: 480):
 </p>
 
 ### La soluzione?
-
+Generare una descrizione semanticamente più ricca a partire dall'intera struttura del ticket.
 <p align="center">
   <img src="_images/fields.png" width="700">
 </p>

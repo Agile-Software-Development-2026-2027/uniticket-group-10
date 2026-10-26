@@ -5,6 +5,11 @@ Prerequisiti
 ------------
 - Python installato e disponibile dal terminale come `python`.
 - Git installato e repository aperto nella cartella principale del progetto.
+- GNU Make installato e disponibile dal terminale come `make`.
+
+Su Windows, installare una distribuzione di GNU Make e verificare che il comando
+`make` sia incluso nel `PATH`. L'hook esegue `make test-local`, quindi senza
+GNU Make i commit vengono bloccati con un errore `Executable 'make' not found`.
 
 Installazione e attivazione
 ---------------------------

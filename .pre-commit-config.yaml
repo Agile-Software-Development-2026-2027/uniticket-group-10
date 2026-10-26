@@ -2,11 +2,11 @@ repos:
   - repo: local
     hooks:
       - id: make-test
-        name: Esecuzione test 
+        name: Esecuzione test
         entry: make test-local
         language: system
+        stages: [manual]
         pass_filenames: false
         always_run: true
-
-      #Da inserire nella cartella del progetto allo stesso livello di tests/
-      #consente di runnare i tests Unit e Integration prima di fare il commit
+# Da inserire nella cartella del progetto allo stesso livello di tests/
+# Consente di eseguire i test Unit e Integration manualmente.

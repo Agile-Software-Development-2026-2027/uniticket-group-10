@@ -69,11 +69,3 @@ Se cambi prompt o configurazione del modello, scegli un nuovo file di output!
 
 ## TODO
 - Aggiungere test sulla qualità delle query prodotte dal prompt.
-
-## Revisione GT — 25 ottobre 2026
-
-Il file attivo è `../evaluation_dataset.json`: 229 categorie e 2.061 richieste sintetiche (3 direct, 3 paraphrase, 3 indirect per categoria). Sono stati aggiunti gli esempi mancanti e precisati dipartimento, biblioteca, corso, bando o tipo di utente dove necessario. Non sono stati inseriti ID di risposta nei testi delle richieste.
-
-I record che contenevano duplicati sono in fondo: `original_duplicate_queries` conserva i testi precedenti per confronto; il benchmark valuta soltanto `queries`, con il contesto aggiornato. `gt_review` segnala lo stato della revisione. Le 47 richieste ambigue sono spostate in fondo in record `review_group: ambiguous_gt`, con `ambiguity_group` e `target_category_ids`. Gli ID di origine possono ripetersi; i 9 esempi per categoria si contano sommando tutti i record. Il benchmark separa queste query dalle 2.014 single-target. Vedi [Ambiguità GT](../AMBIGUITA-GT.md).
-
-La revisione non certifica tutte le GT. Prima di un confronto finale servono revisione umana e separazione sviluppo/test per gruppi di richieste equivalenti; il test non deve alimentare prompt, esempi del router o tuning. Le vecchie misure A0 non si riferiscono al dataset corrente.

@@ -37,5 +37,3 @@
 | `paraphrase` | 558 | 37,99% | 56,81% | 67,56% | 0,452001 | 1,0213 | 1,6126 |
 | `indirect` | 558 | 32,80% | 54,30% | 63,44% | 0,407348 | 1,3586 | 2,0903 |
 
-
-Current dataset revision (2026-10-25): `evaluation_dataset.json` now contains 229 categories and 2,061 contextualized queries. GT review is pending; no results have been measured on this revision. All A0 results above refer to the previous dataset.

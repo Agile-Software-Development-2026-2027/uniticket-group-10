@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Dict, List, TypedDict, get_type_hints
 
 from prototypes.base import Prototype
+from prototypes.models import load_tickets
 
 
 class TicketEvaluation(TypedDict):
@@ -119,23 +120,13 @@ def _summary(ranks, times, errors, abstentions):
     }
 
 
-def _evaluate_records(prototype: Prototype, eval_set: List[TicketEvaluation]):
+def evaluate(prototype: Prototype, eval_set: List[TicketEvaluation]):
     """Single-label evaluation. Failed calls and abstentions stay in the denominator."""
-    valid_ids = {ticket.ticket_category_id for ticket in prototype.tickets}
+    valid_ids = {ticket.id for ticket in prototype.tickets}
     # Invalid ground truth is a dataset problem, not a classifier error.
     for ticket in eval_set:
         if ticket["ticket_category_id"] not in valid_ids:
             raise ValueError(f"Ground truth outside catalog: {ticket['ticket_category_id']}")
-        targets = ticket.get("target_category_ids", [ticket["ticket_category_id"]])
-        if (not isinstance(targets, list) or not targets
-                or any(type(t) is not int or t not in valid_ids for t in targets)
-                or len(set(targets)) != len(targets)):
-            raise ValueError("GT targets must be unique catalog IDs")
-        if ticket.get("review_group") == "ambiguous_gt":
-            if len(targets) < 2 or not ticket.get("ambiguity_group"):
-                raise ValueError("Ambiguous GT requires a group and at least two explicit targets")
-        elif len(targets) != 1 or targets[0] != ticket["ticket_category_id"]:
-            raise ValueError("Alternative targets require review_group=ambiguous_gt")
         for queries in ticket["queries"].values():
             if not isinstance(queries, list) or any(not isinstance(q, str) or not q.strip() for q in queries):
                 raise ValueError("Each query must be a non-empty string")
@@ -143,7 +134,6 @@ def _evaluate_records(prototype: Prototype, eval_set: List[TicketEvaluation]):
     errors = abstentions = 0
     for ticket in eval_set:
         expected_id = ticket["ticket_category_id"]
-        targets = ticket.get("target_category_ids", [expected_id])
         for query_type, queries in ticket["queries"].items():
             group = by_type.setdefault(query_type, {"ranks": [], "times": [], "errors": 0, "abstentions": 0})
             for query_index, query in enumerate(queries):
@@ -164,7 +154,7 @@ def _evaluate_records(prototype: Prototype, eval_set: List[TicketEvaluation]):
                     error = type(exc).__name__  # No provider messages or credentials in reports.
                     predicted = []
                 elapsed = (perf_counter() - started) * 1000
-                rank = next((i for i, category_id in enumerate(predicted[:10], 1) if category_id in targets), None)
+                rank = predicted.index(expected_id) + 1 if expected_id in predicted[:10] else None
                 abstention = not predicted and error is None
                 errors += int(error is not None)
                 abstentions += int(abstention)
@@ -176,7 +166,6 @@ def _evaluate_records(prototype: Prototype, eval_set: List[TicketEvaluation]):
                 all_times.append(elapsed)
                 details.append({"expected_id": expected_id, "query_type": query_type,
                                 "query_index": query_index, "predicted_ids": predicted[:10],
-                                "target_category_ids": targets, "ambiguity_group": ticket.get("ambiguity_group"),
                                 "rank": rank, "latency_ms": elapsed, "error": error})
     return {
         "overall": _summary(all_ranks, all_times, errors, abstentions),
@@ -187,53 +176,6 @@ def _evaluate_records(prototype: Prototype, eval_set: List[TicketEvaluation]):
                      "uncovered_category_ids": sorted(valid_ids - {t["ticket_category_id"] for t in eval_set if any(t["queries"].values())})},
         "cases": details,
     }
-
-
-
-def _alternative_metrics(summary):
-    """Any candidate may be acceptable; this is not multi-label recall."""
-    return {
-        "count": summary["count"],
-        "any_target_top1_accuracy": summary["top1_accuracy"],
-        **{f"any_target_hit@{k}": summary[f"hit@{k}"] for k in (1, 5, 10)},
-        "first_candidate_mrr@5": summary["mrr@5"],
-        **{key: summary[key] for key in ("errors", "abstentions", "latency_ms")},
-    }
-
-
-def evaluate(prototype: Prototype, eval_set: List[TicketEvaluation]):
-    """Keep provisional alternative GT results separate from single-target scores."""
-    regular = [r for r in eval_set if r.get("review_group") != "ambiguous_gt"]
-    ambiguous = [r for r in eval_set if r.get("review_group") == "ambiguous_gt"]
-    # Validation is already performed before search within each subset; validate
-    # targets from the second subset first without evaluating its queries.
-    valid_ids = {t.ticket_category_id for t in prototype.tickets}
-    for row in ambiguous:
-        targets = row.get("target_category_ids")
-        if (not isinstance(targets, list) or len(targets) < 2
-                or any(type(t) is not int or t not in valid_ids for t in targets)
-                or len(set(targets)) != len(targets) or not row.get("ambiguity_group")):
-            raise ValueError("Ambiguous GT requires a group and at least two unique catalog targets")
-    report = _evaluate_records(prototype, regular)
-    alt = _evaluate_records(prototype, ambiguous)
-    by_group = {}
-    for case in alt["cases"]:
-        by_group.setdefault(case["ambiguity_group"], []).append(case)
-    report["ambiguous"] = {
-        "status": "provisional; alternatives require professor review",
-        "overall": _alternative_metrics(alt["overall"]),
-        "by_query_type": {k: _alternative_metrics(v) for k, v in alt["by_query_type"].items()},
-        "by_group": {name: _alternative_metrics(_summary(
-            [c["rank"] for c in cases], [c["latency_ms"] for c in cases],
-            sum(c["error"] is not None for c in cases),
-            sum(not c["predicted_ids"] and c["error"] is None for c in cases)))
-            for name, cases in by_group.items()},
-        "cases": alt["cases"],
-    }
-    report["dataset_counts"] = {"single_target": report["overall"]["count"],
-                                "ambiguous": alt["overall"]["count"],
-                                "total": report["overall"]["count"] + alt["overall"]["count"]}
-    return report
 
 
 def main():
@@ -255,7 +197,7 @@ def main():
     args = parser.parse_args()
     try:
         kwargs = {name: vars(args)[name] for name in names if name in vars(args)}
-        tickets = json.loads(args.dataset.read_text(encoding="utf-8"))
+        tickets = load_tickets(args.dataset)
         eval_set = json.loads(args.eval_set.read_text(encoding="utf-8"))
         started = perf_counter()
         prototype = prototype_class(tickets=tickets, **kwargs)
@@ -272,7 +214,7 @@ def main():
         "catalog_sha256": hashlib.sha256(args.dataset.read_bytes()).hexdigest(),
         "evaluation_sha256": hashlib.sha256(args.eval_set.read_bytes()).hexdigest(),
         "python": sys.version.split()[0],
-        "protocol": "single-target scores; provisional alternative GT reported separately with any-target hits; k=10; no warmup/retries; latency includes search and result validation; initialization separate; errors count as misses",
+        "protocol": "single-label; k=10; no warmup/retries; latency includes search and result validation; initialization separate; errors count as misses",
     }
     print(json.dumps(report, ensure_ascii=False, indent=2, default=str))
 

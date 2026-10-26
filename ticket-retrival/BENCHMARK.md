@@ -76,7 +76,7 @@ Il benchmark esteso include:
 
 Il protocollo usa fino a 10 candidati per query, non applica warm-up o retry e include la prima ricerca nel calcolo delle latenze. Gli hash identificano i file utilizzati, ma per la riproducibilità completa occorre registrare anche commit, modello, parametri e ambiente.
 
-Un prototipo che restituisce un solo ID non produce una vera Top-5 o Top-10: in quel caso la Top-1 è la misura primaria della classificazione. Non sono ancora previsti casi in cui l'astensione sia considerata corretta.
+Un prototipo che restituisce un solo ID non produce una vera Top-5 o Top-10: in quel caso la Top-1 è la misura primaria della classificazione. Non sono ancora previsti Ground Truth multi-label né casi in cui l'astensione sia considerata corretta.
 
 **Risultati delle esecuzioni:** [RISULTATI-BENCHMARK.md](RISULTATI-BENCHMARK.md).
 
@@ -87,7 +87,3 @@ Dalla cartella `ticket-retrival`:
 ```bash
 uv run python -m unittest discover -s tests -v
 ```
-
-### GT alternative provvisorie
-
-I record `review_group: ambiguous_gt` dichiarano `target_category_ids` (almeno due ID) e `ambiguity_group`. `ticket_category_id` indica solo la categoria di origine. Il report principale (`overall`, `by_query_type`, `coverage`, `cases`) riguarda le sole query single-target; `ambiguous` contiene i risultati separati e per gruppo, con successo se almeno un target compare nei primi K. `any_target_hit@k` non è recall multi-label. `dataset_counts` riporta i conteggi separati e totale. Le alternative sono ancora da confermare: [casi per il docente](AMBIGUITA-GT.md).

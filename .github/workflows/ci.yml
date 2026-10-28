@@ -12,9 +12,9 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: ${{ matrix.os }}
+    #runs-on: ${{ matrix.os }}
     # Oppure se lo si vuole runnare in locale 
-    # runs-on: self-hosted
+    runs-on: self-hosted
     strategy:
       fail-fast: false 
       matrix:
@@ -39,7 +39,7 @@ jobs:
 
       - name: Run Acceptance Tests
         run: make test-acceptance
-
+#
       - name: Notifica Zulip Successo
         if: success()
         run: |

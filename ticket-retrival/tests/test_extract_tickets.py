@@ -63,4 +63,3 @@ class ComplexFieldsTests(unittest.TestCase):
         self.assertEqual(field["id"], 3)
         self.assertEqual(field["choices"], ["Accesso", "Materiali"])
         self.assertEqual(field["valore"], "Accesso;Materiali")
-        

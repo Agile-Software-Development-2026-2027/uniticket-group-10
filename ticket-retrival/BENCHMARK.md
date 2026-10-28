@@ -24,9 +24,8 @@ Il benchmark valuta richieste **single-label**: per ogni query è previsto un so
 Le metriche sono calcolate sia globalmente sia per tipologia di query (`direct`, `paraphrase`, `indirect`).
 
 - **Hit@1, Hit@5, Hit@10:** quota delle query per cui la categoria corretta compare entro i primi K risultati.
-- **Top-1 Accuracy (`top1_accuracy`):** quota delle query con categoria corretta al primo posto; coincide con Hit@1.
-- **Recall@1, Recall@5, Recall@10:** nell'attuale valutazione single-label coincidono numericamente con Hit@K (non rappresentano una macro-recall tra categorie).
-- **MRR@5:** media dell'inverso della posizione della prima categoria corretta entro le prime cinque; metrica storica mantenuta nei report.
+- **MRR@5:** media dell'inverso della posizione della prima categoria corretta entro le prime cinque.
+- **P95 Rank (`p95_rank`):** rank entro cui viene recuperato il ticket corretto per almeno il 95% delle query.
 - **Latenza (`latency_ms`):** media, mediana e p95 dei tempi di `search()` e di validazione del risultato, espressi in millisecondi.
 - **Errori (`errors`):** eccezioni durante la ricerca o risultati non validi.
 - **Astensioni (`abstentions`):** assenza di risultati senza errori.
@@ -34,7 +33,12 @@ Le metriche sono calcolate sia globalmente sia per tipologia di query (`direct`,
 Errori e astensioni restano nel denominatore e valgono come mancati successi.
 La preparazione iniziale del prototipo è misurata separatamente (`initialization_ms`).
 
-**Metriche da valutare in futuro:** Median Rank, P90 Rank e P95 Rank. Queste non sono ancora implementate e richiedono di definire come trattare le categorie assenti dalla Top-K.
+Sono riportate anche due metriche per ticket, usando tutte le tipologie di query insieme:
+
+- **Ticket senza alcun successo@10:** `coverage["tickets_without_hit@10"]` conta i ticket per cui nessuna query recupera l'ID corretto nelle prime 10 posizioni. Gli ID sono in `coverage["ticket_ids_without_hit@10"]`.
+- **Successi@10 per ticket:** `by_ticket["<ticket_id>"]["hit@10"]` è la quota delle query di quel ticket con rank ≤ 10, espressa tra 0 e 1 (moltiplicare per 100 per la percentuale). `count` è il numero di query del ticket, inclusi errori e astensioni. Eventuali righe del dataset con lo stesso ID vengono aggregate.
+
+Si considerano solo i ticket con almeno una query. Quelli senza query restano in `coverage.uncovered_category_ids` e non vengono contati come ticket senza successi. Con zero query, `by_ticket` è vuoto e il conteggio dei ticket senza successi è 0. Nel JSON le chiavi di `by_ticket` sono gli ID convertiti in stringhe.
 
 ## 4. Far girare il benchmark su un prototipo
 
@@ -74,9 +78,11 @@ Il benchmark esteso include:
 - **`cases`:** dettagli delle predizioni, posizione della categoria corretta, latenza ed eventuale classe di errore per ogni richiesta.
 - **`experiment`:** percorsi, parametri CLI espliciti, versione Python e SHA-256 del catalogo e del dataset.
 
-Il protocollo usa fino a 10 candidati per query, non applica warm-up o retry e include la prima ricerca nel calcolo delle latenze. Gli hash identificano i file utilizzati, ma per la riproducibilità completa occorre registrare anche commit, modello, parametri e ambiente.
+Il protocollo richiede tutti i ticket del catalogo per query e conserva l'intera classifica in `cases[].predicted_ids`. Hit@K e MRR@5 mantengono le rispettive soglie. Non applica warm-up o retry e include la prima ricerca nel calcolo delle latenze. La latenza misura ora il recupero e la validazione della classifica completa: non è direttamente confrontabile con quella delle precedenti esecuzioni a `k=10`. Gli hash identificano i file utilizzati, ma per la riproducibilità completa occorre registrare anche commit, modello, parametri e ambiente.
 
-Un prototipo che restituisce un solo ID non produce una vera Top-5 o Top-10: in quel caso la Top-1 è la misura primaria della classificazione. Non sono ancora previsti Ground Truth multi-label né casi in cui l'astensione sia considerata corretta.
+Per prototipi che usano `k` anche per selezionare o riordinare i candidati, come Hybrid, richiedere l'intero catalogo può cambiare anche l'ordine dei primi risultati. Il parametro `experiment.protocol` identifica il nuovo protocollo.
+
+Un prototipo che restituisce un solo ID non produce una vera Top-5 o Top-10: in quel caso Hit@1 è la misura primaria della classificazione. Non sono ancora previsti Ground Truth multi-label né casi in cui l'astensione sia considerata corretta.
 
 **Risultati delle esecuzioni:** [RISULTATI-BENCHMARK.md](RISULTATI-BENCHMARK.md).
 

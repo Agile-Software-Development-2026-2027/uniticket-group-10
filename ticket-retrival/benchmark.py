@@ -93,13 +93,12 @@ def add_constructor_arguments(parser, prototype_class):
 
 def _metrics(ranks):
     count = len(ranks)
+    ordered = sorted(ranks, key=lambda rank: math.inf if rank is None else rank)
     return {
         "count": count,
-        "top1_accuracy": sum(rank == 1 for rank in ranks) / count if count else None,
-        **{f"recall@{k}": sum(rank is not None and rank <= k for rank in ranks) / count if count else None for k in (1, 5, 10)},
+        "p95_rank": ordered[math.ceil(.95 * count) - 1] if count else None,
         **{
-            f"hit@{k}": sum(rank is not None and rank <= k for rank in ranks) / count if count else None
-            for k in (1, 5, 10)
+            f"hit@{k}": sum(rank is not None and rank <= k for rank in ranks) / count if count else None for k in (1, 5, 10)
         },
         "mrr@5": sum(1 / rank for rank in ranks if rank is not None and rank <= 5) / count if count else None,
     }
@@ -131,6 +130,7 @@ def evaluate(prototype: Prototype, eval_set: List[TicketEvaluation]):
             if not isinstance(queries, list) or any(not isinstance(q, str) or not q.strip() for q in queries):
                 raise ValueError("Each query must be a non-empty string")
     all_ranks, all_times, by_type, details = [], [], {}, []
+    ranks_by_ticket = {}
     errors = abstentions = 0
     for ticket in eval_set:
         expected_id = ticket["ticket_category_id"]
@@ -141,7 +141,7 @@ def evaluate(prototype: Prototype, eval_set: List[TicketEvaluation]):
                 error = None
                 predicted = []
                 try:
-                    results = prototype.search(query, k=10)
+                    results = prototype.search(query, k=len(prototype.tickets))
                     if not isinstance(results, list):
                         raise ValueError("search() must return a list")
                     seen = set()
@@ -154,7 +154,7 @@ def evaluate(prototype: Prototype, eval_set: List[TicketEvaluation]):
                     error = type(exc).__name__  # No provider messages or credentials in reports.
                     predicted = []
                 elapsed = (perf_counter() - started) * 1000
-                rank = predicted.index(expected_id) + 1 if expected_id in predicted[:10] else None
+                rank = predicted.index(expected_id) + 1 if expected_id in predicted else None
                 abstention = not predicted and error is None
                 errors += int(error is not None)
                 abstentions += int(abstention)
@@ -163,15 +163,25 @@ def evaluate(prototype: Prototype, eval_set: List[TicketEvaluation]):
                 group["ranks"].append(rank)
                 group["times"].append(elapsed)
                 all_ranks.append(rank)
+                ranks_by_ticket.setdefault(expected_id, []).append(rank)
                 all_times.append(elapsed)
                 details.append({"expected_id": expected_id, "query_type": query_type,
-                                "query_index": query_index, "predicted_ids": predicted[:10],
+                                "query_index": query_index, "predicted_ids": predicted,
                                 "rank": rank, "latency_ms": elapsed, "error": error})
+    by_ticket = {
+        ticket_id: {"count": len(ranks),
+                    "hit@10": sum(rank is not None and rank <= 10 for rank in ranks) / len(ranks)}
+        for ticket_id, ranks in sorted(ranks_by_ticket.items())
+    }
+    tickets_without_hits = [ticket_id for ticket_id, metrics in by_ticket.items() if metrics["hit@10"] == 0]
     return {
         "overall": _summary(all_ranks, all_times, errors, abstentions),
+        "by_ticket": by_ticket,
         "by_query_type": {name: _summary(g["ranks"], g["times"], g["errors"], g["abstentions"])
                           for name, g in by_type.items()},
         "coverage": {"catalog_categories": len(valid_ids),
+                     "tickets_without_hit@10": len(tickets_without_hits),
+                     "ticket_ids_without_hit@10": tickets_without_hits,
                      "evaluated_categories": len({t["ticket_category_id"] for t in eval_set if any(t["queries"].values())}),
                      "uncovered_category_ids": sorted(valid_ids - {t["ticket_category_id"] for t in eval_set if any(t["queries"].values())})},
         "cases": details,
@@ -214,7 +224,7 @@ def main():
         "catalog_sha256": hashlib.sha256(args.dataset.read_bytes()).hexdigest(),
         "evaluation_sha256": hashlib.sha256(args.eval_set.read_bytes()).hexdigest(),
         "python": sys.version.split()[0],
-        "protocol": "single-label; k=10; no warmup/retries; latency includes search and result validation; initialization separate; errors count as misses",
+        "protocol": "single-label; k=catalog size; full ranking; no warmup/retries; latency includes search and result validation; initialization separate; errors count as misses",
     }
     print(json.dumps(report, ensure_ascii=False, indent=2, default=str))
 

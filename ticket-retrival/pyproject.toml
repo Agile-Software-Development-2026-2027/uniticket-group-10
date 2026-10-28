@@ -13,4 +13,5 @@ dependencies = [
     "openai-codex==0.163.0",
     "pydantic==2.14.1",
     "PyYAML==6.0.3",
+    "tzdata; sys_platform == 'win32'",
 ]

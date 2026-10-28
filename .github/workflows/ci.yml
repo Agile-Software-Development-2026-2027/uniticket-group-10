@@ -19,7 +19,7 @@ jobs:
       fail-fast: false 
       matrix:
         os: [ubuntu-latest] 
-        python-version: ["3.10", "3.11"]
+        python-version: ["3.12"]
 
     steps:
       - name: Checkout repository
@@ -40,21 +40,4 @@ jobs:
       - name: Run Acceptance Tests
         run: make test-acceptance
 
-      - name: Notifica Zulip Successo
-        if: success()
-        run: |
-          curl -X POST ${{ secrets.ZULIP_URL }}/api/v1/messages \
-            -u ${{ secrets.ZULIP_BOT_EMAIL }}:${{ secrets.ZULIP_API_KEY }} \
-            -d "type=stream" \
-            -d "to=pipeline-alerts" \
-            -d "topic=Esito Build" \
-            -d "content= Test passati su Python ${{ matrix.python-version }}"
-      - name: Invia notifica di FALLIMENTO su Zulip
-        if: failure()
-        run: |
-          curl -X POST ${{ secrets.ZULIP_URL }}/api/v1/messages \
-            -u ${{ secrets.ZULIP_BOT_EMAIL }}:${{ secrets.ZULIP_API_KEY }} \
-            -d "type=stream" \
-            -d "to=pipeline-alerts" \
-            -d "topic=Esito Build" \
-            -d "content= **Attention:** Acceptance test failed. "
+        # Eventualmente implementare sistema di notifica Zulip

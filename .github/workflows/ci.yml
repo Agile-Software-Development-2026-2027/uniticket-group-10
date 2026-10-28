@@ -4,7 +4,6 @@
 
 name: Acceptance Tests
 
-# 1. TRIGGERS 
 on:
   push:
     branches: [ "main", "SCRUM-32" ]
@@ -13,29 +12,25 @@ on:
 
 jobs:
   build-and-test:
-    # 3. WHERE & MATRIX 
     runs-on: ${{ matrix.os }}
     # Oppure se lo si vuole runnare in locale 
     # runs-on: self-hosted
     strategy:
-      fail-fast: false # Se fallisce Python 3.10, non fermare il test per il 3.11
+      fail-fast: false 
       matrix:
         os: [ubuntu-latest] 
         python-version: ["3.10", "3.11"]
 
     steps:
-      # 4. SETTING UP TOOLS (Checkout del codice)
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 4b. SETUP PYTHON & CACHING
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
           cache: 'pip' 
 
-      # 5. ESECUZIONE TRAMITE MAKEFILE 
       - name: Install dependencies
         run: make install
 
@@ -45,7 +40,6 @@ jobs:
       - name: Run Acceptance Tests
         run: make test-acceptance
 
-      # 6. NOTIFICHE ZULIP 
       - name: Notifica Zulip Successo
         if: success()
         run: |

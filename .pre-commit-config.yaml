@@ -5,7 +5,8 @@ repos:
         name: Esecuzione test
         entry: make test-local
         language: system
-        stages: [manual]
+        #stages: [manual] 
+        #decommentarlo se si vuole disattivare l'esecuzione automatica dei test pre-commit
         pass_filenames: false
         always_run: true
 # Da inserire nella cartella del progetto allo stesso livello di tests/

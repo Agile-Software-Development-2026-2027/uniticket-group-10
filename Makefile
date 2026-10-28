@@ -10,17 +10,17 @@ install:
 # Obiettivo per i test veloci (Unit & Integration)
 test-local:
 	@echo "Esecuzione test Unit e Integration (Locali)..."
-	python -m pytest tests/unit_integration/ -v
+	python -m pytest ticket-retrival/tests/ -v
 
 # Obiettivo per i test lenti (Acceptance)
 test-acceptance:
 	@echo "Esecuzione test di Accettazione (CI/CD)..."
-	python -m pytest tests/acceptance/ -v
+	python -m pytest ticket-retrival/tests/ -v
 
 # Obiettivo per runnarli tutti 
 test-all:
 	@echo "Esecuzione di tutti i test..."
-	python -m pytest tests/ -v
+	python -m pytest ticket-retrival/tests/ -v
 
 clean:
 	@echo "Pulizia dei file temporanei..."

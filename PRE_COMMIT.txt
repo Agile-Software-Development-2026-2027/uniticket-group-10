@@ -4,12 +4,8 @@ COME ABILITARE PRE-COMMIT
 Prerequisiti
 ------------
 - Python installato e disponibile dal terminale come `python`.
-- Git installato e repository aperto nella cartella principale del progetto.
-- GNU Make installato e disponibile dal terminale come `make`.
-
-Su Windows, installare una distribuzione di GNU Make e verificare che il comando
-`make` sia incluso nel `PATH`. L'hook esegue `make test-local`, quindi senza
-GNU Make i commit vengono bloccati con un errore `Executable 'make' not found`.
+- Git (non GitHub desktop) installato e repository aperto nella cartella principale del progetto.
+- GNU Make installato eseguendo da terminale "winget install GnuWin32.make" e inserendo nelle variabili d'ambiente di Windows, nel PATH, 
 
 Installazione e attivazione
 ---------------------------
@@ -30,7 +26,7 @@ Per eseguire l'hook manualmente su tutti i file:
 
 Per lanciare direttamente i test Unit/Integration:
 
-    python -m pytest tests/unit_integration/ -v
+    python -m pytest tests/ -v
 
 Se l'hook viene rimosso o non è attivo, eseguire di nuovo `pre-commit install`
 dalla cartella principale del repository.

@@ -1,0 +1,11 @@
+{% extends "main_menu.html" %}
+{% block menu_post_buttons %}
+    {{ block.super }}
+    {% if request.user.is_authenticated %}
+    <li class="nav-item">
+        <a class="nav-link" href="/assistant">
+            <span>Assistente</span>
+        </a>
+    </li>
+    {% endif %}
+{% endblock %}

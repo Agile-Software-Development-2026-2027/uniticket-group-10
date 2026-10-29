@@ -1,0 +1,23 @@
+{% if replies %}
+    <div id="chatbot-quick-replies" class="chatbot-quick-replies" role="group" aria-label="Suggerimenti per iniziare">
+        {% for reply in replies %}
+            {% if reply.type == "ticket" or reply.type == "reply_text" %}
+                {% if reply.type == "ticket" %}
+                    <form method="get" action="{% url 'assistant_workspace' %}#chatbot-request-panel">
+                        <button type="submit" class="chatbot-quick-reply" name="ticket_id" value="{{ reply.ticket_id }}">
+                            {{ reply.label }}
+                        </button>
+                    </form>
+                {% else %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="_assistant_action" value="message">
+                        <button type="submit" class="chatbot-quick-reply" name="message" value="{{ reply.message|default:reply.label }}">
+                            {{ reply.label }}
+                        </button>
+                    </form>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}

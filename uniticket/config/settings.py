@@ -5,7 +5,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 
 
-ROOT_URLCONF = "uni_ticket_project.urls"
+ROOT_URLCONF = "assistant.urls"
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -94,6 +94,8 @@ DATABASES = {
 # Application definition
 INSTALLED_APPS = [
     'accounts',
+    'navbar',
+    'assistant',
 
     'django.contrib.admin',
     'django.contrib.auth',

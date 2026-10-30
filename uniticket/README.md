@@ -5,9 +5,12 @@ Richiede Docker con Docker Compose.
 Dalla root del repository:
 
 ```bash
+git submodule update --init --recursive
 cd uniticket
 docker compose up --build
 ```
+
+Il primo comando scarica anche il codice upstream, necessario per la build Docker.
 
 Apri http://localhost:8000.
 

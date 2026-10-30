@@ -19,5 +19,6 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      # Add here the steps that build and test your project.
-      # Until then this job does nothing and always passes.
+      - name: Build Docker image
+        working-directory: uniticket
+        run: docker compose build

@@ -1,0 +1,28 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'assistant/widget.css' %}">
+
+<div id="assistant-widget" class="assistant-widget"
+     data-search-url="{% url 'assistant_search' %}"
+     data-open-url="{% url 'assistant_open' %}"
+     data-storage-key="assistant-chat-{{ request.user.pk }}">
+
+    <section id="assistant-panel" class="assistant-panel" aria-label="Assistente" hidden>
+        <header class="assistant-header">
+            <strong>Assistente</strong>
+            <button type="button" class="assistant-reset">Nuova conversazione</button>
+            <button type="button" class="assistant-close" aria-label="Chiudi l'assistente">✕</button>
+        </header>
+        <div class="assistant-messages" role="log" aria-live="polite"></div>
+        <form class="assistant-form">
+            {% csrf_token %}
+            <textarea name="query" rows="2" maxlength="500" required
+                      placeholder="Descrivi cosa ti serve…"></textarea>
+            <button type="submit">Invia</button>
+        </form>
+    </section>
+
+    <button type="button" class="assistant-launcher" aria-controls="assistant-panel"
+            aria-expanded="false" aria-label="Apri l'assistente">💬</button>
+</div>
+
+<script src="{% static 'assistant/widget.js' %}" defer></script>

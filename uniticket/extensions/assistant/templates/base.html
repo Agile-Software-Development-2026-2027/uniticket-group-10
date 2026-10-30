@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block bottom_scripts %}
+{{ block.super }}
+{% if request.user.is_authenticated %}
+    {% include "assistant_widget.html" %}
+{% endif %}
+{% endblock bottom_scripts %}

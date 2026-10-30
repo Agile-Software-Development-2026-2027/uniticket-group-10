@@ -98,3 +98,16 @@ def workspace(request):
     })
     context.update(ticket_form)
     return render(request, "workspace.html", context)
+
+
+@login_required
+def open_category(request):
+    #apre il modulo di uniticket della categoria scelta
+    category = _get_selected_category(request)
+    if category is None:
+        raise Http404("Tipologia di richiesta non indicata")
+    return redirect(
+        "uni_ticket:add_new_ticket",
+        structure_slug=category.organizational_structure.slug,
+        category_slug=category.slug,
+    )

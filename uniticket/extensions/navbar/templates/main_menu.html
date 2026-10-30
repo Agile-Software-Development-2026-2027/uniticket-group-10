@@ -3,7 +3,7 @@
     {{ block.super }}
     {% if request.user.is_authenticated %}
     <li class="nav-item">
-        <a class="nav-link" href="/assistant">
+        <a class="nav-link" href="/assistant" data-assistant-open>
             <span>Assistente</span>
         </a>
     </li>

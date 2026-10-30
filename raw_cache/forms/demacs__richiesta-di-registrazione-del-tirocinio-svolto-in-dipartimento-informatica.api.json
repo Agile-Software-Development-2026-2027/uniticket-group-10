@@ -1,0 +1,93 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:50.203033Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-di-registrazione-del-tirocinio-svolto-in-dipartimento-informatica/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta di registrazione del Tirocinio svolto in Dipartimento (Informatica)",
+    "description" : "Richiesta di registrazione del Tirocinio svolto in Dipartimento dagli studenti di Informatica del DeMaCS",
+    "protocol_required" : false,
+    "slug" : "richiesta-di-registrazione-del-tirocinio-svolto-in-dipartimento-informatica",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 725,
+      "fields" : {
+        "category" : 676,
+        "title" : "Note Operative",
+        "text" : "- Alla presente richiesta deve essere allegata\r\n [l'attestazione di fine tirocinio](https://www.unical.it/media/medias/2025/AttestazioneDipartimento.docx)\r\n  compilata in ogni sua parte e firmata dal Tutor Accademico.\r\n- La registrazione del tirocinio avverrà alla prima data utile della sessione di riferimento. Occorre pertanto registrarsi su Esse3 al primo appello utile successivo alla data di consegna dell'attestato.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta di registrazione del Tirocinio svolto in Dipartimento (Informatica)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta di registrazione del Tirocinio svolto in Dipartimento (Informatica)\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta di registrazione del Tirocinio svolto in Dipartimento dagli studenti di Informatica del DeMaCS",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta di registrazione del Tirocinio svolto in Dipartimento dagli studenti di Informatica del DeMaCS</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "attestazione_di_fine_tirocinio",
+      "label" : "Attestazione di fine Tirocinio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"attestazione_di_fine_tirocinio\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

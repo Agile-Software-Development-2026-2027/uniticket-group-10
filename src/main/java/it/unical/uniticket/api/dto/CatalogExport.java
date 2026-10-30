@@ -6,6 +6,7 @@ import java.util.List;
 public class CatalogExport {
     public String scrapedAt;
     public String baseUrl;
+    public String catalogVersion;
     public List<StructureEntry> structures = new ArrayList<>();
     public List<CategoryFormSchema> allTicketsFlat = new ArrayList<>();
 }

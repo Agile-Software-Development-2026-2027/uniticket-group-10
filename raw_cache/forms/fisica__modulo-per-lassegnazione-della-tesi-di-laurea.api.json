@@ -1,0 +1,311 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:16.024831Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/fisica/modulo-per-lassegnazione-della-tesi-di-laurea/ticket/new/",
+  "jsonBody" : {
+    "name" : "Modulo per l’assegnazione della tesi di laurea",
+    "description" : "indicare se la richiesta è per la Laurea Triennale oppure Magistrale",
+    "protocol_required" : true,
+    "slug" : "modulo-per-lassegnazione-della-tesi-di-laurea",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 531,
+      "fields" : {
+        "category" : 454,
+        "title" : "Note Operative",
+        "text" : "ATTENZIONE NON INVIARE IL MODULO, MA SEGUI LE INDICAZIONI\r\n\r\n- Il modulo va solo compilato ma non inviato.\r\n\r\n- Clicca sulla voce **Se la richiesta che stai compilando deve essere completata e sottoscritta da un altro utente (es. Direttore Dipartimento, responsabile ufficio, ecc.), clicca qui;**\r\n\r\n- Mettere segno di spunta su **Tieni traccia della mia compilazione nel ticket**\r\n\r\n- Premere il pulsante Genera URL per inviarlo alla **Relatrice/relatore interna/o**\r\n\r\n-  Preparare una mail alla **Relatrice/relatore interna/o**  e incollare lo URL generato\r\n\r\n- Il la **Relatrice/relatore interna/o** provvederà ad inviare la richiesta tramite il servizio UniTicket",
+        "ordinamento" : 10,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 532,
+      "fields" : {
+        "category" : 454,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 20,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Modulo per l’assegnazione della tesi di laurea",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Modulo per l’assegnazione della tesi di laurea\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "indicare se la richiesta è per la Laurea Triennale oppure Magistrale",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nindicare se la richiesta è per la Laurea Triennale oppure Magistrale</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "il_la_sottoscritto_a_cognome,_nome_e_numero_di_matricola:",
+      "label" : "Il/la sottoscritto/a (Cognome, Nome e numero di Matricola):",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_la_sottoscritto_a_cognome,_nome_e_numero_di_matricola:\">",
+      "type" : "text"
+    }, {
+      "id" : "codice_fiscale:",
+      "label" : "Codice Fiscale:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_fiscale:\">",
+      "type" : "text"
+    }, {
+      "id" : "iscritto_a_al_corso_di_studi_in:",
+      "label" : "Iscritto/a al Corso di Studi in:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"iscritto_a_al_corso_di_studi_in:\">",
+      "type" : "text"
+    }, {
+      "id" : "curriculum:",
+      "label" : "Curriculum:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "da compilare solo se iscritta/o alla Laurea Magistrale",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"curriculum:\">",
+      "type" : "text"
+    }, {
+      "id" : "titolo:",
+      "label" : "Titolo:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"titolo:\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "docente_relatore_interno_principale",
+      "label" : "Docente relatore interno principale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il link che verrà generato al termine della compilazione della domanda dovrà essere inviato esclusivamente al/alla Relatore/rice principale",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"docente_relatore_interno_principale\">",
+      "type" : "text"
+    }, {
+      "id" : "del_dipartimento_di:",
+      "label" : "del Dipartimento di:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"del_dipartimento_di:\">",
+      "type" : "text"
+    }, {
+      "id" : "altre_i_relatrici_ori_interne_i_e_o_correlatrici_ori",
+      "label" : "Altre/i relatrici/ori interne/i e/o correlatrici/ori",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "specificare se si tratta della prima o della seconda categoria",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"altre_i_relatrici_ori_interne_i_e_o_correlatrici_ori\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "relatrici_relatori_esterne_i_indicare_la_struttura_di_provenienza,_ad_es._altro_ateneo_o_ente_di_ricerca",
+      "label" : "Relatrici/relatori esterne/i (indicare la struttura di provenienza, ad es. altro ateneo o ente di ricerca)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"relatrici_relatori_esterne_i_indicare_la_struttura_di_provenienza,_ad_es._altro_ateneo_o_ente_di_ricerca\">",
+      "type" : "text"
+    }, {
+      "id" : "il_numero_di_cfu_conseguiti_ad_oggi_è",
+      "label" : "il numero di CFU conseguiti ad oggi è",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_numero_di_cfu_conseguiti_ad_oggi_è\">",
+      "type" : "text"
+    }, {
+      "id" : "deve_ancora_sostenere_i_seguenti_esami:",
+      "label" : "deve ancora sostenere i seguenti esami:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"deve_ancora_sostenere_i_seguenti_esami:\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "recapito_telefonico",
+      "label" : "Recapito telefonico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"recapito_telefonico\">",
+      "type" : "text"
+    }, {
+      "id" : "e-mail_istituzionale",
+      "label" : "E-mail istituzionale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail_istituzionale\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "eventuale_altro_indirizzo_e-mail",
+      "label" : "Eventuale altro indirizzo e-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"eventuale_altro_indirizzo_e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "note_operative",
+      "label" : "Note Operative",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"note_operative\" value=\"\">",
+      "type" : "hidden"
+    } ]
+  },
+  "rawTextBody" : null
+}

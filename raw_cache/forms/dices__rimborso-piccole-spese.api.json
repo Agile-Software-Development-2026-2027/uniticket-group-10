@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:12.585119Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/dices/rimborso-piccole-spese/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

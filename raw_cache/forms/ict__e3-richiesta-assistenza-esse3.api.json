@@ -1,0 +1,45 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:55.564703Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/ict/e3-richiesta-assistenza-esse3/ticket/new/",
+  "jsonBody" : {
+    "name" : "E3 - Richiesta assistenza Esse3",
+    "description" : "",
+    "protocol_required" : false,
+    "slug" : "e3-richiesta-assistenza-esse3",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "E3 - Richiesta assistenza Esse3",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"E3 - Richiesta assistenza Esse3\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

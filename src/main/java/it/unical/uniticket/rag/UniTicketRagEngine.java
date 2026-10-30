@@ -25,6 +25,7 @@ public class UniTicketRagEngine {
     private final List<List<String>> docTokens;
     private final Map<String, Integer> docFreq;
     private final double avgDocLength;
+    private final Set<String> activeStructureSlugs;
     private final EmbeddingClient embeddingClient;
     private final List<float[]> categoryEmbeddings;
     private final Map<String, float[]> titleEmbeddingCache = new ConcurrentHashMap<>();
@@ -36,6 +37,7 @@ public class UniTicketRagEngine {
     private static final double B = 0.75;
     private static final int RRF_K = 60;
     private static final double MIN_EMB_SIMILARITY = 0.30;
+    private static final String EMBEDDING_INDEX_VERSION = "v4-rag-search-text-after-core-fields";
 
     private static final Set<String> ITALIAN_STOPWORDS = new HashSet<>(Arrays.asList(
             "il", "lo", "la", "i", "gli", "le", "un", "uno", "una", "di", "a", "da", "in", "con",
@@ -73,6 +75,10 @@ public class UniTicketRagEngine {
         DOMAIN_SYNONYMS.put("difficolta", Arrays.asList("disagio", "bisogno", "necessita", "stato di bisogno"));
         DOMAIN_SYNONYMS.put("richiedere", Arrays.asList("domanda", "richiesta"));
         DOMAIN_SYNONYMS.put("borsa", Arrays.asList("sussidio", "beneficio", "diritto allo studio"));
+        DOMAIN_SYNONYMS.put("cancellarmi", Arrays.asList("cancellazione", "rinuncia", "chiusura", "cessazione"));
+        DOMAIN_SYNONYMS.put("cancellarsi", Arrays.asList("cancellazione", "rinuncia", "chiusura", "cessazione"));
+        DOMAIN_SYNONYMS.put("cancellare", Arrays.asList("cancellazione", "rinuncia", "chiusura", "cessazione"));
+        DOMAIN_SYNONYMS.put("cancellazione", Arrays.asList("rinuncia", "chiusura", "cessazione"));
         DOMAIN_SYNONYMS.put("extracurriculari", Arrays.asList("extra", "para", "universitarie", "extrauniversitarie"));
         DOMAIN_SYNONYMS.put("extracurricolari", Arrays.asList("extra", "para", "universitarie", "extrauniversitarie"));
 
@@ -83,10 +89,28 @@ public class UniTicketRagEngine {
     public static class ScoredCategory {
         public final CategoryFormSchema schema;
         public final double score;
+        public final double rrfScore;
+        public final double bm25Score;
+        public final double embeddingScore;
+        public final List<CategoryFormSchema> groupVariants;
 
         public ScoredCategory(CategoryFormSchema schema, double score) {
+            this(schema, score, 0.0, 0.0, 0.0, Collections.emptyList());
+        }
+
+        private ScoredCategory(CategoryFormSchema schema, double score,
+                               double rrfScore, double bm25Score, double embeddingScore,
+                               List<CategoryFormSchema> groupVariants) {
             this.schema = schema;
             this.score = score;
+            this.rrfScore = rrfScore;
+            this.bm25Score = bm25Score;
+            this.embeddingScore = embeddingScore;
+            this.groupVariants = Collections.unmodifiableList(new ArrayList<>(groupVariants));
+        }
+
+        private ScoredCategory withGroupVariants(List<CategoryFormSchema> variants) {
+            return new ScoredCategory(schema, score, rrfScore, bm25Score, embeddingScore, variants);
         }
     }
 
@@ -121,6 +145,12 @@ public class UniTicketRagEngine {
         this.catalog = export.allTicketsFlat != null ? export.allTicketsFlat : Collections.emptyList();
         this.useStopwords = useStopwords;
         this.useDomainSynonyms = useDomainSynonyms;
+        this.activeStructureSlugs = new HashSet<>();
+        for (it.unical.uniticket.api.dto.StructureEntry structure : export.structures) {
+            if (structure.active && structure.structureSlug != null) {
+                activeStructureSlugs.add(structure.structureSlug.toLowerCase(Locale.ROOT));
+            }
+        }
         this.docTokens = new ArrayList<>(catalog.size());
         this.docFreq = new HashMap<>();
 
@@ -130,7 +160,8 @@ public class UniTicketRagEngine {
             String weightedCorpus = (item.categoryTitle + " " + item.categoryTitle + " " + item.categoryTitle + " ")
                     + (item.structureName + " " + item.structureSlug + " ")
                     + (item.categoryNotes != null ? item.categoryNotes + " " + item.categoryNotes + " " : "")
-                    + (item.ragSearchText != null ? item.ragSearchText : "");
+                    + (item.ragSearchText != null ? item.ragSearchText : "")
+                    + (item.jevCriterionSummary != null ? " " + item.jevCriterionSummary : "");
 
             List<String> tokens = tokenize(weightedCorpus);
             docTokens.add(tokens);
@@ -148,7 +179,7 @@ public class UniTicketRagEngine {
     }
 
     private List<float[]> loadOrComputeCategoryEmbeddings(File catalogJsonFile, File cacheFile) {
-        String fingerprint = catalogFingerprint(catalogJsonFile);
+        String fingerprint = catalogFingerprint(catalogJsonFile) + ":" + EMBEDDING_INDEX_VERSION;
         if (cacheFile != null) {
             List<float[]> cached = loadEmbeddingCache(cacheFile, fingerprint);
             if (cached != null) {
@@ -167,13 +198,11 @@ public class UniTicketRagEngine {
     private List<float[]> precomputeCategoryEmbeddings() {
         List<String> texts = new ArrayList<>(catalog.size());
         for (CategoryFormSchema category : catalog) {
-            StringBuilder text = new StringBuilder(category.categoryTitle == null ? "" : category.categoryTitle);
-            text.append(" | ");
-            if (category.categoryNotes != null && !category.categoryNotes.trim().isEmpty()) {
-                text.append(category.categoryNotes).append(" | ");
-            }
-
-            text.append(category.structureName == null ? "" : category.structureName);
+            StringBuilder text = new StringBuilder();
+            appendEmbeddingPart(text, category.categoryTitle);
+            appendEmbeddingPart(text, category.categoryNotes);
+            appendEmbeddingPart(text, category.structureName);
+            appendEmbeddingPart(text, category.ragSearchText);
             texts.add(text.toString());
         }
         try {
@@ -186,6 +215,12 @@ public class UniTicketRagEngine {
             System.err.println("Impossibile calcolare gli embeddings delle categorie: " + e.getMessage());
             return Collections.emptyList();
         }
+    }
+
+    private void appendEmbeddingPart(StringBuilder target, String value) {
+        if (value == null || value.trim().isEmpty()) return;
+        if (target.length() > 0) target.append(" | ");
+        target.append(value.trim());
     }
 
     private List<float[]> loadEmbeddingCache(File cacheFile, String fingerprint) {
@@ -259,7 +294,8 @@ public class UniTicketRagEngine {
      *
      * @param userQuery          Domanda in linguaggio naturale dell'utente
      * @param topK               Numero massimo di candidati da passare a JEV (consigliato: 5 - 8)
-     * @param onlyAccessible     Se true, filtra solo i moduli con accessible == true
+     * @param onlyAccessible     Parametro mantenuto per compatibilità; la ricerca principale
+     *                           filtra sempre i moduli non selezionabili
      */
     public List<ScoredCategory> searchTopK(String userQuery, int topK, boolean onlyAccessible) {
         List<String> baseQueryTokens = tokenize(userQuery);
@@ -289,7 +325,7 @@ public class UniTicketRagEngine {
 
         for (int i = 0; i < N; i++) {
             CategoryFormSchema schema = catalog.get(i);
-            if (onlyAccessible && !schema.accessible) {
+            if (!isSelectable(schema)) {
                 continue;
             }
 
@@ -316,18 +352,19 @@ public class UniTicketRagEngine {
                 score += idf * (numerator / denominator);
             }
 
-            // Bonus leggero per i moduli attivi/accessibili a parità di match
-            if (score > 0 && schema.accessible) {
-                score *= 1.15;
-            }
-
             if (score > 0) {
-                results.add(new ScoredCategory(schema, score));
+                results.add(new ScoredCategory(schema, score, 0.0, score, 0.0,
+                        Collections.emptyList()));
             }
         }
 
         results.sort((a, b) -> Double.compare(b.score, a.score));
-        return results.stream().limit(topK).collect(Collectors.toList());
+        double maximum = results.isEmpty() ? 1.0 : results.get(0).score;
+        return results.stream()
+                .map(result -> new ScoredCategory(result.schema, result.score, 0.0,
+                        result.score / maximum, 0.0, Collections.emptyList()))
+                .limit(topK)
+                .collect(Collectors.toList());
     }
 
     public List<ScoredCategory> searchTopKHybrid(String userQuery, int topK, boolean onlyAccessible) {
@@ -335,7 +372,7 @@ public class UniTicketRagEngine {
             return searchTopK(userQuery, topK, onlyAccessible);
         }
         try {
-            int poolSize = Math.max(topK * 4, 20);
+            int poolSize = Math.max(topK * 6, 30);
             return fuseRRF(searchTopK(userQuery, poolSize, onlyAccessible),
                     searchTopKEmbedding(userQuery, poolSize, onlyAccessible), topK);
         } catch (RuntimeException e) {
@@ -349,32 +386,122 @@ public class UniTicketRagEngine {
         List<ScoredCategory> results = new ArrayList<>();
         for (int i = 0; i < catalog.size(); i++) {
             CategoryFormSchema schema = catalog.get(i);
-            if (onlyAccessible && !schema.accessible) continue;
+            if (!isSelectable(schema)) continue;
             double score = EmbeddingUtils.cosine(queryVector, categoryEmbeddings.get(i));
-            if (score >= MIN_EMB_SIMILARITY) results.add(new ScoredCategory(schema, score));
+            if (score >= MIN_EMB_SIMILARITY) {
+                results.add(new ScoredCategory(schema, score, 0.0, 0.0, score,
+                        Collections.emptyList()));
+            }
         }
         results.sort((a, b) -> Double.compare(b.score, a.score));
         return results.stream().limit(topK).collect(Collectors.toList());
     }
 
     private List<ScoredCategory> fuseRRF(List<ScoredCategory> first, List<ScoredCategory> second, int topK) {
-        Map<String, Double> scores = new HashMap<>();
-        Map<String, CategoryFormSchema> schemas = new HashMap<>();
+        Map<String, ScoredCategory> candidates = new HashMap<>();
         for (int rank = 0; rank < first.size(); rank++) {
-            String slug = first.get(rank).schema.compositeSlug;
-            schemas.put(slug, first.get(rank).schema);
-            scores.merge(slug, 1.0 / (RRF_K + rank + 1), Double::sum);
+            ScoredCategory candidate = first.get(rank);
+            String slug = candidate.schema.compositeSlug;
+            double rrf = 1.0 / (RRF_K + rank + 1);
+            candidates.merge(slug, new ScoredCategory(candidate.schema, rrf, rrf,
+                    candidate.bm25Score, candidate.embeddingScore, Collections.emptyList()),
+                    (oldValue, newValue) -> mergeScores(oldValue, newValue));
         }
         for (int rank = 0; rank < second.size(); rank++) {
-            String slug = second.get(rank).schema.compositeSlug;
-            schemas.put(slug, second.get(rank).schema);
-            scores.merge(slug, 1.0 / (RRF_K + rank + 1), Double::sum);
+            ScoredCategory candidate = second.get(rank);
+            String slug = candidate.schema.compositeSlug;
+            double rrf = 1.0 / (RRF_K + rank + 1);
+            candidates.merge(slug, new ScoredCategory(candidate.schema, rrf, rrf,
+                    candidate.bm25Score, candidate.embeddingScore, Collections.emptyList()),
+                    (oldValue, newValue) -> mergeScores(oldValue, newValue));
         }
-        return scores.entrySet().stream()
-                .map(entry -> new ScoredCategory(schemas.get(entry.getKey()), entry.getValue()))
+        List<ScoredCategory> ranked = candidates.values().stream()
                 .sorted((a, b) -> Double.compare(b.score, a.score))
-                .limit(topK)
                 .collect(Collectors.toList());
+        return clusterBeforeTopK(ranked, topK);
+    }
+
+    private ScoredCategory mergeScores(ScoredCategory first, ScoredCategory second) {
+        return new ScoredCategory(first.schema, first.score + second.score,
+                first.rrfScore + second.rrfScore,
+                Math.max(first.bm25Score, second.bm25Score),
+                Math.max(first.embeddingScore, second.embeddingScore),
+                Collections.emptyList());
+    }
+
+    private List<ScoredCategory> clusterBeforeTopK(List<ScoredCategory> ranked, int topK) {
+        List<ScoredCategory> representatives = new ArrayList<>();
+        for (ScoredCategory candidate : ranked) {
+            ScoredCategory matching = null;
+            for (ScoredCategory representative : representatives) {
+                if (!differentStructure(candidate.schema, representative.schema)) continue;
+                if (samePractice(candidate.schema, representative.schema)) {
+                    matching = representative;
+                    break;
+                }
+            }
+            if (matching == null) {
+                representatives.add(candidate);
+            } else if (candidate.score > matching.score) {
+                int index = representatives.indexOf(matching);
+                representatives.set(index, candidate);
+            }
+        }
+
+        List<ScoredCategory> clustered = new ArrayList<>();
+        for (ScoredCategory representative : representatives) {
+            List<CategoryFormSchema> variants = new ArrayList<>();
+            for (ScoredCategory candidate : ranked) {
+                if (samePractice(candidate.schema, representative.schema)) {
+                    variants.add(candidate.schema);
+                }
+            }
+            clustered.add(representative.withGroupVariants(variants));
+        }
+        clustered.sort((a, b) -> Double.compare(b.score, a.score));
+        return clustered.stream().limit(topK).collect(Collectors.toList());
+    }
+
+    private boolean samePractice(CategoryFormSchema first, CategoryFormSchema second) {
+        String firstTitle = normalizeTitle(first);
+        String secondTitle = normalizeTitle(second);
+        if (firstTitle.equalsIgnoreCase(secondTitle)) return true;
+        return titleSimilarity(first, second) >= 0.85;
+    }
+
+    private boolean differentStructure(CategoryFormSchema first, CategoryFormSchema second) {
+        return !Objects.equals(normalizeKey(first.structureSlug), normalizeKey(second.structureSlug));
+    }
+
+    private String normalizeKey(String value) {
+        return value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
+    }
+
+    private boolean isSelectable(CategoryFormSchema schema) {
+        return schema.accessible
+                && (activeStructureSlugs.isEmpty()
+                || activeStructureSlugs.contains(normalizeKey(schema.structureSlug)));
+    }
+
+    /**
+     * Fallback esplicito per diagnostica e messaggi informativi: non fa parte
+     * del pool principale passato al router.
+     */
+    public List<ScoredCategory> searchTopKIncludingInaccessible(String userQuery, int topK) {
+        List<ScoredCategory> results = new ArrayList<>();
+        for (int i = 0; i < catalog.size(); i++) {
+            CategoryFormSchema schema = catalog.get(i);
+            List<String> tokens = docTokens.get(i);
+            if (tokens.isEmpty()) continue;
+            Set<String> queryTokens = new HashSet<>(tokenize(userQuery));
+            long matches = tokens.stream().filter(queryTokens::contains).count();
+            if (matches > 0) {
+                results.add(new ScoredCategory(schema, matches, 0.0, matches, 0.0,
+                        Collections.emptyList()));
+            }
+        }
+        results.sort((a, b) -> Double.compare(b.score, a.score));
+        return results.stream().limit(topK).collect(Collectors.toList());
     }
 
     /**
@@ -417,6 +544,7 @@ public class UniTicketRagEngine {
         String normalized = Normalizer.normalize(text.toLowerCase(Locale.ITALIAN), Normalizer.Form.NFD)
                 .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
 
+        normalized = normalized.replaceAll("(?i)\\b(?:l|dell|all|dall|nell|sull|un|quest|quell|d)['’]", "");
         String[] rawTokens = normalized.split("[^a-z0-9_]+");
         List<String> cleanTokens = new ArrayList<>();
 
@@ -433,14 +561,21 @@ public class UniTicketRagEngine {
      */
     private String stemItalianLight(String word) {
         if (word.length() <= 4) return word;
-        if (word.endsWith("iche")) {
-            return word.substring(0, word.length() - 2);
+        if (word.endsWith("chi") || word.endsWith("che")) {
+            return word.substring(0, word.length() - 3) + "c";
+        }
+        if (word.endsWith("ghi") || word.endsWith("ghe")) {
+            return word.substring(0, word.length() - 3) + "g";
         }
         if (word.endsWith("zioni") || word.endsWith("zione")) {
             return word.substring(0, word.length() - 5) + "zion";
         }
         if (word.endsWith("menti") || word.endsWith("mento")) {
             return word.substring(0, word.length() - 5) + "ment";
+        }
+        if (word.length() > 5 && (word.endsWith("ia") || word.endsWith("ie")
+                || word.endsWith("io") || word.endsWith("ii"))) {
+            return word.substring(0, word.length() - 1);
         }
         char last = word.charAt(word.length() - 1);
         if (last == 'a' || last == 'e' || last == 'i' || last == 'o') {

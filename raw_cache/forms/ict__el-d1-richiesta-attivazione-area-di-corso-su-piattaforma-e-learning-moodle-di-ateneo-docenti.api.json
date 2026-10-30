@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:55.756149Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/el-d1-richiesta-attivazione-area-di-corso-su-piattaforma-e-learning-moodle-di-ateneo-docenti/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

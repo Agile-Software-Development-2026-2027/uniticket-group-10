@@ -1,0 +1,229 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:20.327380Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dimeg/accettazione-incarichi-di-docenza-dd-536-2026/ticket/new/",
+  "jsonBody" : {
+    "name" : "Accettazione incarichi di docenza - DD 536 2026",
+    "description" : "Accettazione incarichi di docenza per attività formative a.a. 2026/27 – DD 536 del 1 settembre 2026",
+    "protocol_required" : false,
+    "slug" : "accettazione-incarichi-di-docenza-dd-536-2026",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Accettazione incarichi di docenza - DD 536 2026",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Accettazione incarichi di docenza - DD 536 2026\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Accettazione incarichi di docenza per attività formative a.a. 2026/27 – DD 536 del 1 settembre 2026",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nAccettazione incarichi di docenza per attività formative a.a. 2026/27 – DD 536 del 1 settembre 2026</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "il_la_sottoscritto_a",
+      "label" : "Il/la sottoscritto/a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "nome e cognome",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_la_sottoscritto_a\">",
+      "type" : "text"
+    }, {
+      "id" : "luogo_di_nascita:",
+      "label" : "Luogo di nascita:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Città e provincia",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"luogo_di_nascita:\">",
+      "type" : "text"
+    }, {
+      "id" : "data_di_nascita",
+      "label" : "Data di nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_di_nascita\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "residente_in:",
+      "label" : "Residente in:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "indicare via e numero civico",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"residente_in:\">",
+      "type" : "text"
+    }, {
+      "id" : "cap",
+      "label" : "CAP",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cap\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "città",
+      "label" : "Città",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "indicare città e provincia",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"città\">",
+      "type" : "text"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "numero_di_telefono_cellulare",
+      "label" : "Numero di telefono cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"numero_di_telefono_cellulare\">",
+      "type" : "text"
+    }, {
+      "id" : "dichiara_di_accettare_l'incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_approvazione_atti_dd_561_del_15_09_2026",
+      "label" : "Dichiara di accettare l'incarico per il/i seguente/i insegnamento/i conferiti con Approvazione Atti DD 561 del 15/09/2026",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "0772 - INGEGNERIA MECCANICA 27007547 - DINAMICA DEL VEICOLO (ESE) ore:16 Primo Semestre",
+        "value" : "0772 - INGEGNERIA MECCANICA 27007547 - DINAMICA DEL VEICOLO (ESE) ore:16 Primo Semestre"
+      }, {
+        "text" : "\r\n0842 - INFORMATICA 27000023 - RICERCA OPERATIVA (ESE) ore:24 Primo Semestre",
+        "value" : "\r\n0842 - INFORMATICA 27000023 - RICERCA OPERATIVA (ESE) ore:24 Primo Semestre"
+      }, {
+        "text" : "\r\n0842 - INFORMATICA 27000023 - RICERCA OPERATIVA (LAB) ore:12 Primo Semestre",
+        "value" : "\r\n0842 - INFORMATICA 27000023 - RICERCA OPERATIVA (LAB) ore:12 Primo Semestre"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_approvazione_atti_dd_561_del_15_09_2026\" value=\"0772 - INGEGNERIA MECCANICA 27007547 - DINAMICA DEL VEICOLO (ESE) ore:16 Primo Semestre\">\n 0772 - INGEGNERIA MECCANICA 27007547 - DINAMICA DEL VEICOLO (ESE) ore:16 Primo Semestre</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_approvazione_atti_dd_561_del_15_09_2026\" value=\"\r\n0842 - INFORMATICA 27000023 - RICERCA OPERATIVA (ESE) ore:24 Primo Semestre\">\n \r\n0842 - INFORMATICA 27000023 - RICERCA OPERATIVA (ESE) ore:24 Primo Semestre</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_approvazione_atti_dd_561_del_15_09_2026\" value=\"\r\n0842 - INFORMATICA 27000023 - RICERCA OPERATIVA (LAB) ore:12 Primo Semestre\">\n \r\n0842 - INFORMATICA 27000023 - RICERCA OPERATIVA (LAB) ore:12 Primo Semestre</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "dichiara",
+      "label" : "Dichiara",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"dichiara\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"di essere iscritto alla gestione separata INPS\">di essere iscritto alla gestione separata INPS</option>\n\n  <option value=\"di NON essere iscritto alla gestione separata INPS e di provvedere tempestivamente all&#x27;iscrizione, essendo necessaria ai fini della stipula del contratto\">di NON essere iscritto alla gestione separata INPS e di provvedere tempestivamente all&#x27;iscrizione, essendo necessaria ai fini della stipula del contratto</option>\n\n  <option value=\"di NON essere iscritto alla gestione separata INPS perché lavoratore autonomo la cui attività oggetto di incarico è strettamente connessa all’attività di lavoro autonomo esercitata abitualmente (in tal caso il docente-professionista sarà obbligato, in quanto titolare di partita IVA, ad emettere regolare fattura)\">di NON essere iscritto alla gestione separata INPS perché lavoratore autonomo la cui attività oggetto di incarico è strettamente connessa all’attività di lavoro autonomo esercitata abitualmente (in tal caso il docente-professionista sarà obbligato, in quanto titolare di partita IVA, ad emettere regolare fattura)</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "eventuale_autorizzazione_a_svolgere_l'incarico_dottorandi,_assegnisti,_borsisti_o_comunicazione_pta,_dip._pubblica_amm.",
+      "label" : "Eventuale Autorizzazione a svolgere l'incarico (Dottorandi, Assegnisti, Borsisti) o Comunicazione (PTA, Dip. Pubblica Amm.)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"eventuale_autorizzazione_a_svolgere_l&#x27;incarico_dottorandi,_assegnisti,_borsisti_o_comunicazione_pta,_dip._pubblica_amm.\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

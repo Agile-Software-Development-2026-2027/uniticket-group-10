@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:23.408867Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/post-laurea/sostegno-ordinario-riservato-303660cfu-buono-docenti-riduzione-tassa-eo-percorso-abbreviato/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

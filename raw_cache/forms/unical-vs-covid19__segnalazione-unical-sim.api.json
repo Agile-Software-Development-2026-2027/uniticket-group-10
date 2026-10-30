@@ -1,0 +1,150 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:17.202731Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/unical-vs-covid19/segnalazione-unical-sim/ticket/new/",
+  "jsonBody" : {
+    "name" : "Segnalazione Unical SIM",
+    "description" : "Richiesta di supporto",
+    "protocol_required" : false,
+    "slug" : "segnalazione-unical-sim",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 141,
+      "fields" : {
+        "category" : 140,
+        "title" : "ISTRUZIONI PER L'UTENTE",
+        "text" : "Prima di inviare la richiesta ti invitiamo a:\r\n\r\n- leggere con attenzione la scheda informativa sull'iniziativa\r\n- leggere le FAQ pubblicate sulla pagina web dell'iniziativa",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Segnalazione Unical SIM",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Segnalazione Unical SIM\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta di supporto",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta di supporto</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "tipo_di_richiesta",
+      "label" : "Tipo di richiesta",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"tipo_di_richiesta\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Problemi in fase di compilazione della domanda\">Problemi in fase di compilazione della domanda</option>\n\n  <option value=\"Mancata attivazione della SIM\">Mancata attivazione della SIM</option>\n\n  <option value=\"Altro\">Altro</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "descrivere_le_difficoltà_riscontrate",
+      "label" : "Descrivere le difficoltà riscontrate",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Fornire elementi utili a verificare la situazione e/o comprendere cosa non ha funzionato",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"descrivere_le_difficoltà_riscontrate\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "associazione_studentesca",
+      "label" : "Associazione studentesca",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Se la scelta è stata effettuata, indicare l'associazione studentesca indicata / da indicare nella domanda altrimenti indicare \"nessuna\"",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"associazione_studentesca\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"nessuna\">nessuna</option>\n\n  <option value=\"A.L.F.A.\">A.L.F.A.</option>\n\n  <option value=\"Agorà\">Agorà</option>\n\n  <option value=\"Alfarma – Alternativa libera di farmacia\">Alfarma – Alternativa libera di farmacia</option>\n\n  <option value=\"Aurora\">Aurora</option>\n\n  <option value=\"Campus Informa Studenti\">Campus Informa Studenti</option>\n\n  <option value=\"IgeA\">IgeA</option>\n\n  <option value=\"Informa studenti farmacia\">Informa studenti farmacia</option>\n\n  <option value=\"Insieme\">Insieme</option>\n\n  <option value=\"Itaca\">Itaca</option>\n\n  <option value=\"La Fenice\">La Fenice</option>\n\n  <option value=\"RDU\">RDU</option>\n\n  <option value=\"SUD\">SUD</option>\n\n  <option value=\"Unicalmente\">Unicalmente</option>\n\n  <option value=\"Università Futura\">Università Futura</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "email",
+      "label" : "Email",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare l'indirizzo email di contatto più diretto",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"email\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "telefono",
+      "label" : "Telefono",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il contatto telefonico sarà utilizzato solo se necessario",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono\">",
+      "type" : "text"
+    } ]
+  },
+  "rawTextBody" : null
+}

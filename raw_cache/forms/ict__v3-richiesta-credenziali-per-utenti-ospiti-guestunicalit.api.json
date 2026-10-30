@@ -1,0 +1,171 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:35.752095Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/ict/v3-richiesta-credenziali-per-utenti-ospiti-guestunicalit/ticket/new/",
+  "jsonBody" : {
+    "name" : "V3 - Richiesta credenziali per Utenti ospiti (guest.unical.it)",
+    "description" : "Richiesta di accessi wireless e wired mediante il servizio https://guest.unical.it",
+    "protocol_required" : false,
+    "slug" : "v3-richiesta-credenziali-per-utenti-ospiti-guestunicalit",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 1,
+      "fields" : {
+        "category" : 2,
+        "title" : "Dichiara di",
+        "text" : "- Avere preso visione della scheda di servizio [guest.unical.it](https://www2.unical.it/portale/strutture/centri/centroict/schdeserviziict/guestunical/);\r\n- Nel caso in cui debba richiedere delle credenziali per più di un ospite, allegare [il modello in formato excel](https://www.unical.it/media/medias/2022/template_account_guest_rete_unical.ods), opportunamente compilato.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "V3 - Richiesta credenziali per Utenti ospiti (guest.unical.it)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"V3 - Richiesta credenziali per Utenti ospiti (guest.unical.it)\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta di accessi wireless e wired mediante il servizio https://guest.unical.it",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta di accessi wireless e wired mediante il servizio https://guest.unical.it</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "telefono",
+      "label" : "Telefono",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Fisso o Mobile",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono\">",
+      "type" : "text"
+    }, {
+      "id" : "credenziali_attive_dal",
+      "label" : "Credenziali attive dal",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "Data di attivazione delle credenziali",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"credenziali_attive_dal\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "al",
+      "label" : "al",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "data di scadenza delle credenziali. ATTENZIONE: non saranno considerati valori superiori ai 2 anni.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"al\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "descrizione_attività",
+      "label" : "Descrizione Attività",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Descrizione dell'attività per la quale si richiedono le credenziali",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"descrizione_attività\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "richiede_che_le_seguenti_anagrafiche_vengano_attivate",
+      "label" : "Richiede che le seguenti anagrafiche vengano attivate",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "inserire almeno first_name, last_name e email",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-richiede_che_le_seguenti_anagrafiche_vengano_attivate\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-first_name\">First name:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-first_name\" id=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-first_name\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-last_name\">Last name:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-last_name\" id=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-last_name\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-place_of_birth\">Place of birth:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-place_of_birth\" id=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-place_of_birth\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-date_of_birth\">Date of birth:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-date_of_birth\" id=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-date_of_birth\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-codice_fiscale\">Codice fiscale:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-codice_fiscale\" id=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-codice_fiscale\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-email\">Email:</label></th>\n    <td>\n      \n      <input type=\"email\" name=\"richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-email\" maxlength=\"320\" id=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-email\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-tel\">Tel:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-tel\" id=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-tel\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-valid_until\">Valid until:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-valid_until\" id=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN-valid_until\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-richiede_che_le_seguenti_anagrafiche_vengano_attivate-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"richiede_che_le_seguenti_anagrafiche_vengano_attivate-TOTAL_FORMS\" value=\"0\" id=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-TOTAL_FORMS\"><input type=\"hidden\" name=\"richiede_che_le_seguenti_anagrafiche_vengano_attivate-INITIAL_FORMS\" value=\"0\" id=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-INITIAL_FORMS\"><input type=\"hidden\" name=\"richiede_che_le_seguenti_anagrafiche_vengano_attivate-MIN_NUM_FORMS\" value=\"0\" id=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"richiede_che_le_seguenti_anagrafiche_vengano_attivate-MAX_NUM_FORMS\" value=\"1000\" id=\"id_richiede_che_le_seguenti_anagrafiche_vengano_attivate-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-richiede_che_le_seguenti_anagrafiche_vengano_attivate\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "allegato_con_inserimenti_multipli",
+      "label" : "Allegato con inserimenti multipli",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegato_con_inserimenti_multipli\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,348 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:26.454973Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/ict/srs-telefonia-richiesta-trasloco/ticket/new/",
+  "jsonBody" : {
+    "name" : "SRS - Telefonia - Richiesta trasloco",
+    "description" : "Trasloco Linea Telefonica",
+    "protocol_required" : true,
+    "slug" : "srs-telefonia-richiesta-trasloco",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 912,
+      "fields" : {
+        "category" : 695,
+        "title" : "ISTRUZIONI E DEFINIZIONE DEI RUOLI",
+        "text" : "Ai fini del presente procedimento di abilitazione servizi e in conformità con le policy di sicurezza informatica di Ateneo, si precisa che:\r\n\r\n- **Soggetto richiedente (riportato in alto dal sistema)**: Identifica il **Responsabile della struttura (Sottoscrittore/Validatore)**, ovverosia l'organo di vertice (Direttore/Dirigente) che valida formalmente l'esigenza istituzionale e autorizza l'apertura delle porte sui sistemi firewall di Ateneo.\r\n- **Soggetto Utilizzatore/Amministratore di sistema (da indicare nel corpo del modulo)**: È il beneficiario finale del servizio di rete (es. docente, ricercatore, personale, ditta esterna) o l'Amministratore di Sistema / Referente Tecnico che accede al portale, inserisce i parametri di rete e assume la responsabilità della conformità tecnica della richiesta.\r\n\r\nLe richieste devono essere **compilate dal Referente Tecnico (Soggetto Utilizzatore/Amministratore di sistema)**, responsabile della gestione e/o dell’utilizzo del servizio richiesto, e **sottoscritte dal Responsabile della Struttura** (direttore, dirigente, responsabile di area) utilizzando un modulo on-line con i seguenti passaggi:\r\n\r\n1. Il **Referente Tecnico (Soggetto Utilizzatore/Amministratore di sistema)**\r\n\t- accede al modulo con le credenziali di ateneo\r\n\t- compila il modulo on-line accettandone le clausole (nota: si suggerisce di modificare la descrizione predefinita per richiamare lo specifico servizio richiesto)\r\n\t- clicca sul link in fondo alla pagina (sotto il pulsante INVIA) per generare un link al modulo compilato\r\n\t- invia il link generato (per email o altro canale) al responsabile della struttura\r\n2. Il **Responsabile della Struttura** (direttore, dirigente, responsabile di area)\r\n\t- clicca sul link ricevuto, accede con le proprie credenziali istituzionali e verifica ed, eventualmente, modifica il contenuto tecnico;\r\n\t- cliccando su **INVIA, rilascia formale autorizzazione amministrativa** all'attivazione del servizio per conto del  **Referente Tecnico (Soggetto Utilizzatore/Amministratore di sistema)** indicato , assumendone la validità istituzionale.\r\n\r\nIl modulo viene inviato e protocollato automaticamente mentre il sistema manda una email di conferma dell’invio al responsabile della struttura.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 762,
+      "fields" : {
+        "category" : 695,
+        "title" : "ISTRUZIONI PER LA COMPILAZIONE",
+        "text" : "Le richieste devono essere **compilate dal referente tecnico**, responsabile della gestione e/o dell’utilizzo del servizio richiesto, e **sottoscritte dal responsabile della struttura** (direttore, dirigente,  responsabile di area) utilizzando un modulo on-line con i seguenti passaggi:  \r\n\r\n1. Il ***referente***\r\n    - accede al modulo con le credenziali di ateneo  \r\n    - compila il modulo on-line accettandone le clausole \r\n    - clicca sul link in fondo alla pagina (sotto il pulsante INVIA) per generare un link al modulo compilato  \r\n    - invia il link generato (per email o altro canale) al responsabile della struttura  \r\n  \r\n2. Il ***responsabile della struttura*** (direttore, dirigente, responsabile di area)  \r\n    - clicca sul link ricevuto  \r\n    - accede al modulo con le credenziali di ateneo  \r\n    - verifica e eventualmente modifica il contenuto e clicca su INVIA   \r\n\r\nIl modulo viene inviato e protocollato automaticamente mentre il sistema manda una email di conferma dell’invio al responsabile della struttura.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : true,
+        "is_active" : false
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 763,
+      "fields" : {
+        "category" : 695,
+        "title" : "Dichiarazioni del referente",
+        "text" : "Il sottoscritto, dichiara:\r\n\r\ndi assumere la responsabilità che deriva dall’utilizzo e dalla gestione degli stessi;\r\n\r\ndi impegnarsi a comunicare tempestivamente al Responsabile dell'Area Servizi Informatici e Tecnologici (ASIT) la variazione dei dati dichiarati o la dismissione del servizio;\r\n\r\ndi essere a conoscenza e di accettare le norme di buon uso delle risorse di rete espresse nel documento “Netiquette\" e le “Acceptable Use Policy – AUP” del GARR pubblicate sul sito web del GARR (www.garr.it)[https://www.garr.it] e di impegnarsi a rispettarle;\r\n\r\ndi accettare che, in caso di erronea o falsa dichiarazione, il Responsabile dell'ASIT potrà provvedere alla immediata revoca delle attivazioni richieste salvo ogni più ampia azione legale;\r\n\r\ndi essere a conoscenza e rispettare le vigenti norme sulla privacy;\r\n\r\nautorizzare il trattamento dei dati riportati nel presente documento ai sensi dell’art. 13 del Regolamento UE n. 2016/679",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : true,
+        "is_active" : false
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 913,
+      "fields" : {
+        "category" : 695,
+        "title" : "Dichiarazione del Referente Tecnico (Utilizzatore/Amministratore di Sistema)",
+        "text" : "Il sottoscritto (**Amministratore di Sistema / Utilizzatore del Servizio identificato come Referente Tecnico**), dichiara:\r\n\r\n- di assumere la responsabilità tecnica derivante dall'istruttoria, dalla configurazione dei parametri di rete inseriti e dalla gestione dei sistemi interessati;\r\n- di attestare che l'apertura dei servizi è finalizzata esclusivamente a consentire le attività istituzionali del **Soggetto Utilizzatore ovvero Amministratore di Sistema / Referente Tecnico** indicato nel presente modulo di richiesta;\r\n- di impegnarsi a comunicare tempestivamente al Responsabile dell'Area Servizi Informatici e Tecnologici (ASIT) la variazione dei dati dichiarati o la dismissione del servizio;\r\n- di essere a conoscenza e di accettare le norme di buon uso delle risorse di rete espresse nel documento “Netiquette\" e le “Acceptable Use Policy – AUP” del GARR pubblicate sul sito web del GARR (www.garr.it)[https://www.garr.it] e di impegnarsi a rispettarle;\r\n- di accettare che, in caso di erronea o falsa dichiarazione, il Responsabile dell'ASIT potrà provvedere alla immediata revoca delle attivazioni richieste salvo ogni più ampia azione legale;\r\n- di essere a conoscenza e rispettare le vigenti norme sulla privacy e di autorizzare il trattamento dei dati riportati nel presente documento ai sensi del **Regolamento (UE) 2016/679 (GDPR)**, coordinato con il **D.Lgs. 196/2003 (Codice della Privacy)**, come modificato dal **D.Lgs. 101/2018**",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "SRS - Telefonia - Richiesta trasloco",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"SRS - Telefonia - Richiesta trasloco\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Trasloco Linea Telefonica",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nTrasloco Linea Telefonica</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "A cui è assegnato il numero",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "A cui è assegnato il numero",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "recapito_telefonico_alternativo",
+      "label" : "Recapito Telefonico alternativo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"recapito_telefonico_alternativo\">",
+      "type" : "text"
+    }, {
+      "id" : "email",
+      "label" : "Email",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"email\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "numero_da_traslocare",
+      "label" : "Numero da traslocare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"numero_da_traslocare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "posizione_di_origine",
+      "label" : "Posizione di origine",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"posizione_di_origine\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"0B\">0B</option>\n\n  <option value=\"0C\">0C</option>\n\n  <option value=\"1A\">1A</option>\n\n  <option value=\"1B\">1B</option>\n\n  <option value=\"1C\">1C</option>\n\n  <option value=\"1D\">1D</option>\n\n  <option value=\"3A\">3A</option>\n\n  <option value=\"3B\">3B</option>\n\n  <option value=\"3C\">3C</option>\n\n  <option value=\"3D\">3D</option>\n\n  <option value=\"4A\">4A</option>\n\n  <option value=\"4B\">4B</option>\n\n  <option value=\"4C\">4C</option>\n\n  <option value=\"4D\">4D</option>\n\n  <option value=\"\r\n6B\">\r\n6B</option>\n\n  <option value=\"6C\">6C</option>\n\n  <option value=\"7B\">7B</option>\n\n  <option value=\"8B\">8B</option>\n\n  <option value=\"9B\">9B</option>\n\n  <option value=\"10B\">10B</option>\n\n  <option value=\"11B\">11B</option>\n\n  <option value=\"11C\">11C</option>\n\n  <option value=\"11D\">11D</option>\n\n  <option value=\"\r\n12B\">\r\n12B</option>\n\n  <option value=\"12C\">12C</option>\n\n  <option value=\"12D\">12D</option>\n\n  <option value=\"14B\">14B</option>\n\n  <option value=\"14C\">14C</option>\n\n  <option value=\"14D\">14D</option>\n\n  <option value=\"15A\">15A</option>\n\n  <option value=\"15B\">15B</option>\n\n  <option value=\"\r\n15C\">\r\n15C</option>\n\n  <option value=\"15D\">15D</option>\n\n  <option value=\"17A\">17A</option>\n\n  <option value=\"17B\">17B</option>\n\n  <option value=\"17C\">17C</option>\n\n  <option value=\"17D\">17D</option>\n\n  <option value=\"18B\">18B</option>\n\n  <option value=\"18C\">18C</option>\n\n  <option value=\"18D\">18D</option>\n\n  <option value=\"20A\">20A</option>\n\n  <option value=\"\r\n20B\">\r\n20B</option>\n\n  <option value=\"21B\">21B</option>\n\n  <option value=\"22B\">22B</option>\n\n  <option value=\"23B\">23B</option>\n\n  <option value=\"25B\">25B</option>\n\n  <option value=\"25C\">25C</option>\n\n  <option value=\"27B\">27B</option>\n\n  <option value=\"28A\">28A</option>\n\n  <option value=\"\r\n28B\">\r\n28B</option>\n\n  <option value=\"28C\">28C</option>\n\n  <option value=\"28D\">28D</option>\n\n  <option value=\"28E\">28E</option>\n\n  <option value=\"30A\">30A</option>\n\n  <option value=\"30B\">30B</option>\n\n  <option value=\"30C\">30C</option>\n\n  <option value=\"30D\">30D</option>\n\n  <option value=\"31A\">31A</option>\n\n  <option value=\"31B\">31B</option>\n\n  <option value=\"\r\n31C\">\r\n31C</option>\n\n  <option value=\"31D\">31D</option>\n\n  <option value=\"33B\">33B</option>\n\n  <option value=\"33C\">33C</option>\n\n  <option value=\"34B\">34B</option>\n\n  <option value=\"37B\">37B</option>\n\n  <option value=\"38B\">38B</option>\n\n  <option value=\"\r\n38CDE\">\r\n38CDE</option>\n\n  <option value=\"39B\">39B</option>\n\n  <option value=\"39C\">39C</option>\n\n  <option value=\"41A\">41A</option>\n\n  <option value=\"41B\">41B</option>\n\n  <option value=\"41C\">41C</option>\n\n  <option value=\"41D\">41D</option>\n\n  <option value=\"41Z\">41Z</option>\n\n  <option value=\"42A\">42A</option>\n\n  <option value=\"42B\">42B</option>\n\n  <option value=\"\r\n42C\">\r\n42C</option>\n\n  <option value=\"42D\">42D</option>\n\n  <option value=\"44A\">44A</option>\n\n  <option value=\"44B\">44B</option>\n\n  <option value=\"44C\">44C</option>\n\n  <option value=\"44D\">44D</option>\n\n  <option value=\"\r\n44Z\">\r\n44Z</option>\n\n  <option value=\"45A\">45A</option>\n\n  <option value=\"45B\">45B</option>\n\n  <option value=\"45C\">45C</option>\n\n  <option value=\"45D\">45D</option>\n\n  <option value=\"46B\">46B</option>\n\n  <option value=\"46C\">46C</option>\n\n  <option value=\"\r\nBiblioteca BAU\">\r\nBiblioteca BAU</option>\n\n  <option value=\" Biblioteca BATS\"> Biblioteca BATS</option>\n\n  <option value=\" Biblioteca Tarantelli\"> Biblioteca Tarantelli</option>\n\n  <option value=\"\r\nLiason Office, Centro Residenziale\">\r\nLiason Office, Centro Residenziale</option>\n\n  <option value=\" Ufficio Internazionalizzazione\"> Ufficio Internazionalizzazione</option>\n\n  <option value=\"\r\nTAU\">\r\nTAU</option>\n\n  <option value=\" Aula Magna\"> Aula Magna</option>\n\n  <option value=\" Ex Segreteria Studenti\"> Ex Segreteria Studenti</option>\n\n  <option value=\" Capannone E\"> Capannone E</option>\n\n  <option value=\" Capannone I\"> Capannone I</option>\n\n  <option value=\"\r\nMedicina Traslazionale\">\r\nMedicina Traslazionale</option>\n\n  <option value=\" Polifunzionale\"> Polifunzionale</option>\n\n  <option value=\" Ampliamento Polifunzionale\"> Ampliamento Polifunzionale</option>\n\n  <option value=\"\r\nOrto Botanico\">\r\nOrto Botanico</option>\n\n  <option value=\"\"></option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "piano",
+      "label" : "Piano",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"piano\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"0\">0</option>\n\n  <option value=\"1\">1</option>\n\n  <option value=\"2\">2</option>\n\n  <option value=\"3\">3</option>\n\n  <option value=\"4\">4</option>\n\n  <option value=\"5\">5</option>\n\n  <option value=\"6\">6</option>\n\n  <option value=\"7\">7</option>\n\n  <option value=\"8\">8</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "stanza_n°",
+      "label" : "Stanza n°",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"stanza_n°\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "dipartimento___struttura_di_afferenza",
+      "label" : "Dipartimento / Struttura di Afferenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"dipartimento___struttura_di_afferenza\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Area Ricerca, Innovazione e Impatto Sociale - Settore Ricerca\">Area Ricerca, Innovazione e Impatto Sociale - Settore Ricerca</option>\n\n  <option value=\"\r\nArea Ricerca, Innovazione e Impatto Sociale - Settore Liaison office e impatto sociale\">\r\nArea Ricerca, Innovazione e Impatto Sociale - Settore Liaison office e impatto sociale</option>\n\n  <option value=\"\r\nArea Ricerca, Innovazione e Impatto Sociale - Settore Dottorati di ricerca\">\r\nArea Ricerca, Innovazione e Impatto Sociale - Settore Dottorati di ricerca</option>\n\n  <option value=\"\r\nArea Teaching and learning e Post-laurea\">\r\nArea Teaching and learning e Post-laurea</option>\n\n  <option value=\"\r\nCentro Sanitario\">\r\nCentro Sanitario</option>\n\n  <option value=\"\r\nDirezione Affari generali e Attività Negoziale - Segreteria, fisco e partecipate\">\r\nDirezione Affari generali e Attività Negoziale - Segreteria, fisco e partecipate</option>\n\n  <option value=\"\r\nDirezione Affari generali e Attività Negoziale - Servizio Anticorruzione e legalità\">\r\nDirezione Affari generali e Attività Negoziale - Servizio Anticorruzione e legalità</option>\n\n  <option value=\"\r\nDirezione Affari generali e Attività Negoziale - Area Affari generali\">\r\nDirezione Affari generali e Attività Negoziale - Area Affari generali</option>\n\n  <option value=\"\r\nDirezione Affari generali e Attività Negoziale - Settore Gestione documentale e privacy\">\r\nDirezione Affari generali e Attività Negoziale - Settore Gestione documentale e privacy</option>\n\n  <option value=\"\r\nDirezione Affari generali e Attività Negoziale - Area Gare d’appalto\">\r\nDirezione Affari generali e Attività Negoziale - Area Gare d’appalto</option>\n\n  <option value=\"\r\nDirezione Affari generali e Attività Negoziale - Area Servizi generali\">\r\nDirezione Affari generali e Attività Negoziale - Area Servizi generali</option>\n\n  <option value=\"\r\n \r\nDirezione Centro Residenziale - Area Diritto allo studio\">\r\n \r\nDirezione Centro Residenziale - Area Diritto allo studio</option>\n\n  <option value=\"\r\nDirezione Centro Residenziale - Settore Benefici e servizi\">\r\nDirezione Centro Residenziale - Settore Benefici e servizi</option>\n\n  <option value=\"\r\nDirezione Centro Residenziale - Settore Presidio residenze\">\r\nDirezione Centro Residenziale - Settore Presidio residenze</option>\n\n  <option value=\"\r\nDirezione Centro Residenziale - Area Socialità nel Campus\">\r\nDirezione Centro Residenziale - Area Socialità nel Campus</option>\n\n  <option value=\"\r\nDirezione Centro Residenziale - Settore Centro Congressi e sale convegni\">\r\nDirezione Centro Residenziale - Settore Centro Congressi e sale convegni</option>\n\n  <option value=\"\r\n\r\nDirezione Didattica e Servizi agli Studenti - Area Offerta formativa\">\r\n\r\nDirezione Didattica e Servizi agli Studenti - Area Offerta formativa</option>\n\n  <option value=\"\r\nDirezione Didattica e Servizi agli Studenti - Area Servizi didattici\">\r\nDirezione Didattica e Servizi agli Studenti - Area Servizi didattici</option>\n\n  <option value=\"\r\nDirezione Didattica e Servizi agli Studenti - Area Internazionalizzazione\">\r\nDirezione Didattica e Servizi agli Studenti - Area Internazionalizzazione</option>\n\n  <option value=\"\r\nDirezione Didattica e Servizi agli Studenti - Area Orientamento, inclusione e career service\">\r\nDirezione Didattica e Servizi agli Studenti - Area Orientamento, inclusione e career service</option>\n\n  <option value=\"\r\nDirezione Didattica e Servizi agli Studenti - Area (Macro) Settori servizi didattica e studenti dipartimentali\">\r\nDirezione Didattica e Servizi agli Studenti - Area (Macro) Settori servizi didattica e studenti dipartimentali</option>\n\n  <option value=\"\r\nDirezione Didattica e Servizi agli Studenti - (Macro) Settori servizi didattica e studenti dipartimentali\">\r\nDirezione Didattica e Servizi agli Studenti - (Macro) Settori servizi didattica e studenti dipartimentali</option>\n\n  <option value=\"\r\n \r\nDirezione Finanziaria - Segreteria\">\r\n \r\nDirezione Finanziaria - Segreteria</option>\n\n  <option value=\"\r\nDirezione Finanziaria -Area Bilancio, ciclo attivo e diritto allo studio\">\r\nDirezione Finanziaria -Area Bilancio, ciclo attivo e diritto allo studio</option>\n\n  <option value=\"\r\nDirezione Finanziaria -Settore Ciclo attivo\">\r\nDirezione Finanziaria -Settore Ciclo attivo</option>\n\n  <option value=\"\r\nDirezione Finanziaria -Settore Diritto allo studio\">\r\nDirezione Finanziaria -Settore Diritto allo studio</option>\n\n  <option value=\"\r\nDirezione Finanziaria -Area Fiscale e ciclo passivo\">\r\nDirezione Finanziaria -Area Fiscale e ciclo passivo</option>\n\n  <option value=\"\r\nDirezione Finanziaria -Settore Emolumenti e fiscale\">\r\nDirezione Finanziaria -Settore Emolumenti e fiscale</option>\n\n  <option value=\"\r\nDirezione Finanziaria -Settore Ciclo passivo\">\r\nDirezione Finanziaria -Settore Ciclo passivo</option>\n\n  <option value=\"\r\nDirezione Risorse Umane - Servizio Trattamento previdenziale\">\r\nDirezione Risorse Umane - Servizio Trattamento previdenziale</option>\n\n  <option value=\"\r\nDirezione Risorse Umane - Servizio Programmazione e monitoraggio\">\r\nDirezione Risorse Umane - Servizio Programmazione e monitoraggio</option>\n\n  <option value=\"\r\nDirezione Risorse Umane - Area Professori e ricercatori\">\r\nDirezione Risorse Umane - Area Professori e ricercatori</option>\n\n  <option value=\"\r\nDirezione Risorse Umane - Area Personale contrattualizzato e collaboratori esterni\">\r\nDirezione Risorse Umane - Area Personale contrattualizzato e collaboratori esterni</option>\n\n  <option value=\"\r\nDirezione Risorse Umane - Area Relazioni sindacali e sviluppo organizzativo\">\r\nDirezione Risorse Umane - Area Relazioni sindacali e sviluppo organizzativo</option>\n\n  <option value=\" \r\n\r\nDirezione Tecnica e Patrimonio Immobiliare - Segreteria amministrativa\"> \r\n\r\nDirezione Tecnica e Patrimonio Immobiliare - Segreteria amministrativa</option>\n\n  <option value=\"\r\nDirezione Tecnica e Patrimonio Immobiliare - Servizio Qualità e facility management\">\r\nDirezione Tecnica e Patrimonio Immobiliare - Servizio Qualità e facility management</option>\n\n  <option value=\"\r\nDirezione Tecnica e Patrimonio Immobiliare - Servizio Energy Management\">\r\nDirezione Tecnica e Patrimonio Immobiliare - Servizio Energy Management</option>\n\n  <option value=\"\r\nDirezione Tecnica e Patrimonio Immobiliare - Servizio di Prevenzione e protezione\">\r\nDirezione Tecnica e Patrimonio Immobiliare - Servizio di Prevenzione e protezione</option>\n\n  <option value=\"\r\nDirezione Tecnica e Patrimonio Immobiliare - Area Impianti\">\r\nDirezione Tecnica e Patrimonio Immobiliare - Area Impianti</option>\n\n  <option value=\"\r\nDirezione Tecnica e Patrimonio Immobiliare - Area Edilizia, viabilità ed espropri\">\r\nDirezione Tecnica e Patrimonio Immobiliare - Area Edilizia, viabilità ed espropri</option>\n\n  <option value=\"\r\nDirezione Tecnica e Patrimonio Immobiliare - Area Residenzialità\">\r\nDirezione Tecnica e Patrimonio Immobiliare - Area Residenzialità</option>\n\n  <option value=\"\r\n \r\n(Macro) Area Servizi Informatici e Tecnologici – Segreteria\">\r\n \r\n(Macro) Area Servizi Informatici e Tecnologici – Segreteria</option>\n\n  <option value=\"\r\n(Macro) Area Servizi Informatici e Tecnologici - Area Infrastrutture informatiche e di telecomunicazione\">\r\n(Macro) Area Servizi Informatici e Tecnologici - Area Infrastrutture informatiche e di telecomunicazione</option>\n\n  <option value=\"\r\n(Macro) Area Servizi Informatici e Tecnologici - Settore Reti e sicurezza\">\r\n(Macro) Area Servizi Informatici e Tecnologici - Settore Reti e sicurezza</option>\n\n  <option value=\"\r\n(Macro) Area Servizi Informatici e Tecnologici - Settore Sistemi e cloud\">\r\n(Macro) Area Servizi Informatici e Tecnologici - Settore Sistemi e cloud</option>\n\n  <option value=\"\r\n(Macro) Area Servizi Informatici e Tecnologici - Area Sistemi informativi\">\r\n(Macro) Area Servizi Informatici e Tecnologici - Area Sistemi informativi</option>\n\n  <option value=\"\r\n(Macro) Area Servizi Informatici e Tecnologici - Settore SI per ricerca e didattica\">\r\n(Macro) Area Servizi Informatici e Tecnologici - Settore SI per ricerca e didattica</option>\n\n  <option value=\"\r\n(Macro) Area Servizi Informatici e Tecnologici - Settore SI amministrativi e documentali\">\r\n(Macro) Area Servizi Informatici e Tecnologici - Settore SI amministrativi e documentali</option>\n\n  <option value=\"\r\n(Macro) Area Servizi Informatici e Tecnologici - Area Servizi di supporto e helpdesk\">\r\n(Macro) Area Servizi Informatici e Tecnologici - Area Servizi di supporto e helpdesk</option>\n\n  <option value=\"\r\n \r\nSistema Bibliotecario d’Ateneo - Servizio Automazione biblioteche\">\r\n \r\nSistema Bibliotecario d’Ateneo - Servizio Automazione biblioteche</option>\n\n  <option value=\"\r\nSistema Bibliotecario d’Ateneo - Servizio Amministrativo-Logistico\">\r\nSistema Bibliotecario d’Ateneo - Servizio Amministrativo-Logistico</option>\n\n  <option value=\"\r\nSistema Bibliotecario d’Ateneo - Polo Economico-giuridico - Settore Risorse bibliografiche\">\r\nSistema Bibliotecario d’Ateneo - Polo Economico-giuridico - Settore Risorse bibliografiche</option>\n\n  <option value=\"\r\nSistema Bibliotecario d’Ateneo - Polo Economico-giuridico - Settore Servizi al pubblico\">\r\nSistema Bibliotecario d’Ateneo - Polo Economico-giuridico - Settore Servizi al pubblico</option>\n\n  <option value=\"\r\nSistema Bibliotecario d’Ateneo - Polo Umanistico - Settore Risorse bibliografiche\">\r\nSistema Bibliotecario d’Ateneo - Polo Umanistico - Settore Risorse bibliografiche</option>\n\n  <option value=\"\r\nSistema Bibliotecario d’Ateneo - Polo Umanistico - Settore Servizi al pubblico\">\r\nSistema Bibliotecario d’Ateneo - Polo Umanistico - Settore Servizi al pubblico</option>\n\n  <option value=\"\r\nSistema Bibliotecario d’Ateneo -  Polo Scientifico  - Settore Risorse bibliografiche\">\r\nSistema Bibliotecario d’Ateneo -  Polo Scientifico  - Settore Risorse bibliografiche</option>\n\n  <option value=\"\r\nSistema Bibliotecario d’Ateneo - Polo Scientifico  - Settore Servizi al pubblico\">\r\nSistema Bibliotecario d’Ateneo - Polo Scientifico  - Settore Servizi al pubblico</option>\n\n  <option value=\"\r\n\r\nStrutture in staff alla Direzione Generale e al Rettorato - Servizio Programmazione e controllo\">\r\n\r\nStrutture in staff alla Direzione Generale e al Rettorato - Servizio Programmazione e controllo</option>\n\n  <option value=\"\r\nStrutture in staff alla Direzione Generale e al Rettorato - Settore Assicurazione della qualità e performance\">\r\nStrutture in staff alla Direzione Generale e al Rettorato - Settore Assicurazione della qualità e performance</option>\n\n  <option value=\"\r\nStrutture in staff alla Direzione Generale e al Rettorato - Settore Analisi e presentazione dati\">\r\nStrutture in staff alla Direzione Generale e al Rettorato - Settore Analisi e presentazione dati</option>\n\n  <option value=\"\r\nStrutture in staff alla Direzione Generale e al Rettorato – Avvocatura\">\r\nStrutture in staff alla Direzione Generale e al Rettorato – Avvocatura</option>\n\n  <option value=\"\r\nStrutture in staff alla Direzione Generale e al Rettorato - Servizio Comunicazione\">\r\nStrutture in staff alla Direzione Generale e al Rettorato - Servizio Comunicazione</option>\n\n  <option value=\"\r\nStrutture in staff alla Direzione Generale e al Rettorato - Segreteria della Direzione generale e Organi\">\r\nStrutture in staff alla Direzione Generale e al Rettorato - Segreteria della Direzione generale e Organi</option>\n\n  <option value=\"\r\nStrutture in staff alla Direzione Generale e al Rettorato - Segreteria del Rettore\">\r\nStrutture in staff alla Direzione Generale e al Rettorato - Segreteria del Rettore</option>\n\n  <option value=\"\r\n\r\nCLA\">\r\n\r\nCLA</option>\n\n  <option value=\"\r\nCTC\">\r\nCTC</option>\n\n  <option value=\"\r\nDEMACS\">\r\nDEMACS</option>\n\n  <option value=\"\r\nDESF\">\r\nDESF</option>\n\n  <option value=\"\r\nDFSSN\">\r\nDFSSN</option>\n\n  <option value=\"\r\nDIAM\">\r\nDIAM</option>\n\n  <option value=\"\r\nDIBEST\">\r\nDIBEST</option>\n\n  <option value=\"\r\nDICES\">\r\nDICES</option>\n\n  <option value=\"\r\nDIMEG\">\r\nDIMEG</option>\n\n  <option value=\"\r\nDIMES\">\r\nDIMES</option>\n\n  <option value=\"\r\nDINCI\">\r\nDINCI</option>\n\n  <option value=\"\r\nDISCAG\">\r\nDISCAG</option>\n\n  <option value=\"\r\nDISPES\">\r\nDISPES</option>\n\n  <option value=\"\r\nDISU\">\r\nDISU</option>\n\n  <option value=\"\r\nFISICA\">\r\nFISICA</option>\n\n  <option value=\"\r\nSSSPA\">\r\nSSSPA</option>\n\n  <option value=\"\"></option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "posizione_in_cui_traslocare_il_numero",
+      "label" : "Posizione in cui traslocare il numero",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"posizione_in_cui_traslocare_il_numero\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"0B\">0B</option>\n\n  <option value=\"0C\">0C</option>\n\n  <option value=\"1A\">1A</option>\n\n  <option value=\"1B\">1B</option>\n\n  <option value=\"1C\">1C</option>\n\n  <option value=\"1D\">1D</option>\n\n  <option value=\"3A\">3A</option>\n\n  <option value=\"3B\">3B</option>\n\n  <option value=\"3C\">3C</option>\n\n  <option value=\"3D\">3D</option>\n\n  <option value=\"4A\">4A</option>\n\n  <option value=\"4B\">4B</option>\n\n  <option value=\"4C\">4C</option>\n\n  <option value=\"4D\">4D</option>\n\n  <option value=\"\r\n6B\">\r\n6B</option>\n\n  <option value=\"6C\">6C</option>\n\n  <option value=\"7B\">7B</option>\n\n  <option value=\"8B\">8B</option>\n\n  <option value=\"9B\">9B</option>\n\n  <option value=\"10B\">10B</option>\n\n  <option value=\"11B\">11B</option>\n\n  <option value=\"11C\">11C</option>\n\n  <option value=\"11D\">11D</option>\n\n  <option value=\"\r\n12B\">\r\n12B</option>\n\n  <option value=\"12C\">12C</option>\n\n  <option value=\"12D\">12D</option>\n\n  <option value=\"14B\">14B</option>\n\n  <option value=\"14C\">14C</option>\n\n  <option value=\"14D\">14D</option>\n\n  <option value=\"15A\">15A</option>\n\n  <option value=\"15B\">15B</option>\n\n  <option value=\"\r\n15C\">\r\n15C</option>\n\n  <option value=\"15D\">15D</option>\n\n  <option value=\"17A\">17A</option>\n\n  <option value=\"17B\">17B</option>\n\n  <option value=\"17C\">17C</option>\n\n  <option value=\"17D\">17D</option>\n\n  <option value=\"18B\">18B</option>\n\n  <option value=\"18C\">18C</option>\n\n  <option value=\"18D\">18D</option>\n\n  <option value=\"20A\">20A</option>\n\n  <option value=\"\r\n20B\">\r\n20B</option>\n\n  <option value=\"21B\">21B</option>\n\n  <option value=\"22B\">22B</option>\n\n  <option value=\"23B\">23B</option>\n\n  <option value=\"25B\">25B</option>\n\n  <option value=\"25C\">25C</option>\n\n  <option value=\"27B\">27B</option>\n\n  <option value=\"28A\">28A</option>\n\n  <option value=\"\r\n28B\">\r\n28B</option>\n\n  <option value=\"28C\">28C</option>\n\n  <option value=\"28D\">28D</option>\n\n  <option value=\"28E\">28E</option>\n\n  <option value=\"30A\">30A</option>\n\n  <option value=\"30B\">30B</option>\n\n  <option value=\"30C\">30C</option>\n\n  <option value=\"30D\">30D</option>\n\n  <option value=\"31A\">31A</option>\n\n  <option value=\"31B\">31B</option>\n\n  <option value=\"\r\n31C\">\r\n31C</option>\n\n  <option value=\"31D\">31D</option>\n\n  <option value=\"33B\">33B</option>\n\n  <option value=\"33C\">33C</option>\n\n  <option value=\"34B\">34B</option>\n\n  <option value=\"37B\">37B</option>\n\n  <option value=\"38B\">38B</option>\n\n  <option value=\"\r\n38CDE\">\r\n38CDE</option>\n\n  <option value=\"39B\">39B</option>\n\n  <option value=\"39C\">39C</option>\n\n  <option value=\"41A\">41A</option>\n\n  <option value=\"41B\">41B</option>\n\n  <option value=\"41C\">41C</option>\n\n  <option value=\"41D\">41D</option>\n\n  <option value=\"41Z\">41Z</option>\n\n  <option value=\"42A\">42A</option>\n\n  <option value=\"42B\">42B</option>\n\n  <option value=\"\r\n42C\">\r\n42C</option>\n\n  <option value=\"42D\">42D</option>\n\n  <option value=\"44A\">44A</option>\n\n  <option value=\"44B\">44B</option>\n\n  <option value=\"44C\">44C</option>\n\n  <option value=\"44D\">44D</option>\n\n  <option value=\"\r\n44Z\">\r\n44Z</option>\n\n  <option value=\"45A\">45A</option>\n\n  <option value=\"45B\">45B</option>\n\n  <option value=\"45C\">45C</option>\n\n  <option value=\"45D\">45D</option>\n\n  <option value=\"46B\">46B</option>\n\n  <option value=\"46C\">46C</option>\n\n  <option value=\"\r\nBiblioteca BAU, Biblioteca BATS\">\r\nBiblioteca BAU, Biblioteca BATS</option>\n\n  <option value=\" Biblioteca Tarantelli\"> Biblioteca Tarantelli</option>\n\n  <option value=\"\r\nLiason Office, Centro Residenziale\">\r\nLiason Office, Centro Residenziale</option>\n\n  <option value=\" Ufficio Internazionalizzazione\"> Ufficio Internazionalizzazione</option>\n\n  <option value=\"\r\nTAU\">\r\nTAU</option>\n\n  <option value=\" Aula Magna\"> Aula Magna</option>\n\n  <option value=\" Ex Segreteria Studenti\"> Ex Segreteria Studenti</option>\n\n  <option value=\" Capannone E\"> Capannone E</option>\n\n  <option value=\" Capannone I\"> Capannone I</option>\n\n  <option value=\"\r\nMedicina Traslazionale\">\r\nMedicina Traslazionale</option>\n\n  <option value=\" Polifunzionale\"> Polifunzionale</option>\n\n  <option value=\" Ampliamento Polifunzionale\"> Ampliamento Polifunzionale</option>\n\n  <option value=\"\"></option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "piano_destinazione",
+      "label" : "Piano destinazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"piano_destinazione\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"0\">0</option>\n\n  <option value=\"1\">1</option>\n\n  <option value=\"2\">2</option>\n\n  <option value=\"3\">3</option>\n\n  <option value=\"4\">4</option>\n\n  <option value=\"5\">5</option>\n\n  <option value=\"6\">6</option>\n\n  <option value=\"7\">7</option>\n\n  <option value=\"8\">8</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "stanza_di_destinazione",
+      "label" : "Stanza di destinazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"stanza_di_destinazione\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "presa_esistente",
+      "label" : "Presa esistente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"presa_esistente\" value=\"Si\">\n\n            \n            <label\n            >\n                Si\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"presa_esistente\" value=\"NO\">\n\n            \n            <label\n            >\n                NO\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "numero_telefonico_esistente",
+      "label" : "Numero telefonico esistente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"numero_telefonico_esistente\" value=\"Si\">\n\n            \n            <label\n            >\n                Si\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"numero_telefonico_esistente\" value=\"N0\">\n\n            \n            <label\n            >\n                N0\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "indicare_numero_presente_se_esistente",
+      "label" : "Indicare numero presente (se esistente)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"indicare_numero_presente_se_esistente\" step=\"1\">",
+      "type" : "number"
+    } ]
+  },
+  "rawTextBody" : null
+}

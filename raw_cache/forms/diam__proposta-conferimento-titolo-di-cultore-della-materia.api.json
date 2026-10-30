@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:25.215458Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/diam/proposta-conferimento-titolo-di-cultore-della-materia/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

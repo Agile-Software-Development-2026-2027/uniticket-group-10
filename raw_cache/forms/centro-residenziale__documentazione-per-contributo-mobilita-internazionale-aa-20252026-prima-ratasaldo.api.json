@@ -1,0 +1,121 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:42.854317Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/centro-residenziale/documentazione-per-contributo-mobilita-internazionale-aa-20252026-prima-ratasaldo/ticket/new/",
+  "jsonBody" : {
+    "name" : "Documentazione per contributo mobilità internazionale a.a. 2025/2026 - prima rata/saldo",
+    "description" : "Al fine di autorizzare l’erogazione della prima rata o del saldo del contributo di mobilità internazionale per l’a.a. 2025/2026, lo studente interessato è tenuto ad allegare il biglietto di andata (ed eventualmente anche di ritorno).\r\nGli studenti che hanno già concluso il periodo di mobilità all'estero possono ricevere l'intero contributo spettante inviando, oltre ai biglietti di viaggio, la certificazione attestante il periodo all'estero rilasciata dall'ente ospitante.",
+    "protocol_required" : false,
+    "slug" : "documentazione-per-contributo-mobilita-internazionale-aa-20252026-prima-ratasaldo",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Documentazione per contributo mobilità internazionale a.a. 2025/2026 - prima rata/saldo",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Documentazione per contributo mobilità internazionale a.a. 2025/2026 - prima rata/saldo\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Al fine di autorizzare l’erogazione della prima rata o del saldo del contributo di mobilità internazionale per l’a.a. 2025/2026, lo studente interessato è tenuto ad allegare il biglietto di andata (ed eventualmente anche di ritorno).\r\nGli studenti che hanno già concluso il periodo di mobilità all'estero possono ricevere l'intero contributo spettante inviando, oltre ai biglietti di viaggio, la certificazione attestante il periodo all'estero rilasciata dall'ente ospitante.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nAl fine di autorizzare l’erogazione della prima rata o del saldo del contributo di mobilità internazionale per l’a.a. 2025/2026, lo studente interessato è tenuto ad allegare il biglietto di andata (ed eventualmente anche di ritorno).\r\nGli studenti che hanno già concluso il periodo di mobilità all&#x27;estero possono ricevere l&#x27;intero contributo spettante inviando, oltre ai biglietti di viaggio, la certificazione attestante il periodo all&#x27;estero rilasciata dall&#x27;ente ospitante.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "il_periodo_di_mobilità_all'estero_è",
+      "label" : "Il periodo di mobilità all'estero è",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"il_periodo_di_mobilità_all&#x27;estero_è\" value=\"da iniziare\">\n\n            \n            <label\n            >\n                da iniziare\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"il_periodo_di_mobilità_all&#x27;estero_è\" value=\"in corso\">\n\n            \n            <label\n            >\n                in corso\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"il_periodo_di_mobilità_all&#x27;estero_è\" value=\"concluso\">\n\n            \n            <label\n            >\n                concluso\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "biglietto_di_andata",
+      "label" : "Biglietto di andata",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"biglietto_di_andata\">",
+      "type" : "file"
+    }, {
+      "id" : "biglietto_di_ritorno",
+      "label" : "Biglietto di ritorno",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"biglietto_di_ritorno\">",
+      "type" : "file"
+    }, {
+      "id" : "certificato_attestante_periodo_di_mobilità_all'estero_rilasciato_dall'ente_ospitante",
+      "label" : "Certificato attestante periodo di mobilità all'estero rilasciato dall'ente ospitante",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"certificato_attestante_periodo_di_mobilità_all&#x27;estero_rilasciato_dall&#x27;ente_ospitante\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

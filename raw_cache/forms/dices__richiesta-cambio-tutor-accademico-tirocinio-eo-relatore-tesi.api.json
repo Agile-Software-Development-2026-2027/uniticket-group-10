@@ -1,0 +1,212 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:36.253383Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dices/richiesta-cambio-tutor-accademico-tirocinio-eo-relatore-tesi/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta cambio tutor accademico tirocinio e/o relatore tesi",
+    "description" : "Richiesta cambio tutor accademico tirocinio e/o relatore tesi",
+    "protocol_required" : true,
+    "slug" : "richiesta-cambio-tutor-accademico-tirocinio-eo-relatore-tesi",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 748,
+      "fields" : {
+        "category" : 732,
+        "title" : "**ATTENZIONE NON INVIARE IL MODULO, MA SEGUI LE INDICAZIONI**",
+        "text" : "* Il presente modulo può essere compilato solo dopo aver acquisito la disponibilità del nuovo tutor accademico/relatore tesi \r\n\r\n* Al termine della compilazione, **NON CLICCARE IL TASTO \"INVIA RICHIESTA\", MA SEGUI LE ISTRUZIONI DI SEGUITO ELENCATE**:\r\n\r\n1) Clicca sulla voce **Se la richiesta che stai compilando deve essere completata e sottoscritta da un altro utente (es. Direttore Dipartimento, responsabile ufficio, ecc.), clicca qui**;\r\n\r\n2) Spunta **Tieni traccia della mia compilazione nel ticket**\r\n\r\n3) Verifica che la casella \"**L'URL potrà essere aperto una sola volta**\" **NON** sia spuntata  \r\n\r\n4) Premi il pulsante **Genera URL per inviarlo al nuovo tutor accademico/relatore**\r\n\r\n5) Prepara una mail da inviare al nuovo tutor accademico/relatore scelto, nella quale incollare l'URL generato\r\n\r\n* Il nuovo tutor accademico/relatore provvederà ad inviare la richiesta.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta cambio tutor accademico tirocinio e/o relatore tesi",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta cambio tutor accademico tirocinio e/o relatore tesi\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta cambio tutor accademico tirocinio e/o relatore tesi",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta cambio tutor accademico tirocinio e/o relatore tesi</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"matricola\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "codice_fiscale",
+      "label" : "Codice Fiscale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_fiscale\">",
+      "type" : "text"
+    }, {
+      "id" : "corso_di_studi",
+      "label" : "Corso di Studi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"corso_di_studi\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Scienze dell&#x27;educazione\">Scienze dell&#x27;educazione</option>\n\n  <option value=\" Archeologia\"> Archeologia</option>\n\n  <option value=\" Gestione e Conservazione dei Documenti Digitali\"> Gestione e Conservazione dei Documenti Digitali</option>\n\n  <option value=\" Intelligence e Analisi del Rischio\"> Intelligence e Analisi del Rischio</option>\n\n  <option value=\" Scienze Pedagogiche\"> Scienze Pedagogiche</option>\n\n  <option value=\" Scienze Pedagogiche per l&#x27;Interculturalità e la Media Education\"> Scienze Pedagogiche per l&#x27;Interculturalità e la Media Education</option>\n\n  <option value=\" Media Education\"> Media Education</option>\n\n  <option value=\" Intelligence per la legalità e la tutela dei beni culturali e archeologici\"> Intelligence per la legalità e la tutela dei beni culturali e archeologici</option>\n\n  <option value=\" Mediazione Linguistica\"> Mediazione Linguistica</option>\n\n  <option value=\" Lingue per la comunicazione internazionale\"> Lingue per la comunicazione internazionale</option>\n\n  <option value=\"\"></option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "numero_di_telefono",
+      "label" : "Numero di telefono",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"numero_di_telefono\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "natura_richiesta_ticket",
+      "label" : "Natura richiesta ticket",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Selezionare una delle scelte precedenti. Se si sceglie \"Cambio tutor accademico di tirocinio e relatore tesi\", le due figure devono coincidere con un unico Docente.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"natura_richiesta_ticket\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Cambio tutor accademico di tirocinio\">Cambio tutor accademico di tirocinio</option>\n\n  <option value=\" Cambio relatore tesi\"> Cambio relatore tesi</option>\n\n  <option value=\" Cambio tutor accademico di tirocinio e relatore tesi\"> Cambio tutor accademico di tirocinio e relatore tesi</option>\n\n  <option value=\"\"></option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "nominativo_tutor_accademico_relatore_tesi_da_sostituire",
+      "label" : "Nominativo tutor accademico/relatore tesi da sostituire",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nominativo_tutor_accademico_relatore_tesi_da_sostituire\">",
+      "type" : "text"
+    }, {
+      "id" : "nominativo_nuovo_tutor_accademico_relatore_tesi",
+      "label" : "Nominativo nuovo tutor accademico/relatore tesi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserire il nominativo del nuovo Docente del quale lo studente deve aver già acquisito la disponibilità. Si precisa che il link del presente ticket dovrà essere inviato al Docente inserito in questo campo.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nominativo_nuovo_tutor_accademico_relatore_tesi\">",
+      "type" : "text"
+    }, {
+      "id" : "note",
+      "label" : "Note",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"note\">",
+      "type" : "text"
+    } ]
+  },
+  "rawTextBody" : null
+}

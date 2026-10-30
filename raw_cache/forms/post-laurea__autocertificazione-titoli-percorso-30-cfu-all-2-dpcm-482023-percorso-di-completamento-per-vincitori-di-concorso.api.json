@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:24.882638Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/post-laurea/autocertificazione-titoli-percorso-30-cfu-all-2-dpcm-482023-percorso-di-completamento-per-vincitori-di-concorso/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

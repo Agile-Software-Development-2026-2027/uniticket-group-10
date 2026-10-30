@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:20.497880Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dispes/premio-di-laurea-per-tesi-su-inclusivita-ed-equita-sociale/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Non è più possibile presentare la domanda, scaduta alle ore 12:00 15/04/2026",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,152 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:47.636224Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-di-informazionisupporto-per-studenti/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta di informazioni/supporto per studenti",
+    "description" : "Richiesta di informazioni/supporto per studenti",
+    "protocol_required" : false,
+    "slug" : "richiesta-di-informazionisupporto-per-studenti",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta di informazioni/supporto per studenti",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta di informazioni/supporto per studenti\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta di informazioni/supporto per studenti",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta di informazioni/supporto per studenti</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "la_richiesta_riguarda",
+      "label" : "La richiesta riguarda",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"la_richiesta_riguarda\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Libretto\">Libretto</option>\n\n  <option value=\"Piano di studi\">Piano di studi</option>\n\n  <option value=\"Tirocinio\">Tirocinio</option>\n\n  <option value=\"Seduta di laurea/conseguimento titolo\">Seduta di laurea/conseguimento titolo</option>\n\n  <option value=\"Orario lezioni/esami\">Orario lezioni/esami</option>\n\n  <option value=\"Passaggi/Trasferimenti/Abbreviazioni\">Passaggi/Trasferimenti/Abbreviazioni</option>\n\n  <option value=\"\r\nAltro\">\r\nAltro</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "corso_di_studi",
+      "label" : "Corso di studi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"corso_di_studi\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Laurea in Scienze della formazione primaria\">Laurea in Scienze della formazione primaria</option>\n\n  <option value=\"Laurea Triennale in Informatica\">Laurea Triennale in Informatica</option>\n\n  <option value=\"Laurea Magistrale in Informatica\">Laurea Magistrale in Informatica</option>\n\n  <option value=\"Laurea Triennale in Matematica\">Laurea Triennale in Matematica</option>\n\n  <option value=\"Laurea Magistrale in Matematica\">Laurea Magistrale in Matematica</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "descrizione_della_richiesta",
+      "label" : "Descrizione della richiesta",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Descrivi qui la tua richiesta",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"descrizione_della_richiesta\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "eventuale_allegato_pdf",
+      "label" : "Eventuale allegato PDF",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"eventuale_allegato_pdf\">",
+      "type" : "file"
+    }, {
+      "id" : "eventuale_allegato_immagine",
+      "label" : "Eventuale allegato immagine",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"eventuale_allegato_immagine\">",
+      "type" : "file"
+    }, {
+      "id" : "eventuale_allegato_excel",
+      "label" : "Eventuale allegato EXCEL",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"eventuale_allegato_excel\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

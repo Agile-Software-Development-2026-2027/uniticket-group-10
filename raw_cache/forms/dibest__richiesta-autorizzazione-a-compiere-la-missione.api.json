@@ -1,0 +1,413 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:32.144506Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dibest/richiesta-autorizzazione-a-compiere-la-missione/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta Autorizzazione a compiere la missione",
+    "description" : "Richiesta Autorizzazione a compiere la missione",
+    "protocol_required" : false,
+    "slug" : "richiesta-autorizzazione-a-compiere-la-missione",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 463,
+      "fields" : {
+        "category" : 334,
+        "title" : "LEGGERE PRIMA DI COMPILARE",
+        "text" : "**Per scaricare le lettere di attestazione o autorizzazione, cliccare sull'apposito link, cliccare poi su File e infine su Scarica.**\r\n\r\n**NON cliccare su Richiedi accesso in modifica.**",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 346,
+      "fields" : {
+        "category" : 334,
+        "title" : "Note Operative",
+        "text" : "Alla richiesta va allegata:\r\n\r\n* **Per i commissari esterni**: Lettera di autorizzazione a compiere la missione  **firmata digitalmente (formato Pades)** **[scaricabile qui](https://docs.google.com/document/d/15XnBibj9APcFEwNex-lG8a6pGmNEP94D/edit?usp=drive_link&ouid=115124997186190893988&rtpof=true&sd=true)**\r\n\r\n* **Per i professionisti-PR**: Lettera di autorizzazione a compiere la missione  **firmata digitalmente (formato Pades)** **[scaricabile qui](https://docs.google.com/document/d/15XnBibj9APcFEwNex-lG8a6pGmNEP94D/edit?usp=drive_link&ouid=115124997186190893988&rtpof=true&sd=true)**\r\n\r\n* **Per gli/le studenti/studentesse**: Lettera di autorizzazione a compiere la missione  **firmata digitalmente (formato Pades)** **[scaricabile qui](https://docs.google.com/document/d/1CCqEUGvmR6DRg3QTcfL5a4hVEYazpel2/edit?usp=sharing&ouid=115124997186190893988&rtpof=true&sd=true)**\r\n\r\n* **Per i Docenti dei Master Patti Territoriali**: Lettera di autorizzazione a compiere la missione  **firmata digitalmente (formato Pades)** **[scaricabile qui](https://docs.google.com/document/d/15Z0ZqtrlhnxQcsQjb_ujlyu8RKpSnira/edit?usp=drive_link&ouid=115124997186190893988&rtpof=true&sd=true)**\r\n\r\n* **Per gli/le studenti/studentesse dei Master Patti Territoriali**: Lettera di autorizzazione a compiere la missione  **firmata digitalmente (formato Pades)** **[scaricabile qui](https://docs.google.com/document/d/15Z0ZqtrlhnxQcsQjb_ujlyu8RKpSnira/edit?usp=drive_link&ouid=115124997186190893988&rtpof=true&sd=true)**",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 347,
+      "fields" : {
+        "category" : 334,
+        "title" : "Dichiarazione di responsabilità",
+        "text" : "Dichiara di essere a conoscenza delle responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art 495 c.p., art 640 c.p.e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 2,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta Autorizzazione a compiere la missione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta Autorizzazione a compiere la missione\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta Autorizzazione a compiere la missione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta Autorizzazione a compiere la missione</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "al_direttore_del_dibest",
+      "label" : "Al Direttore del DiBEST",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"al_direttore_del_dibest\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "il_la_sottoscritto_a",
+      "label" : "Il/La sottoscritto/a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare Cognome e Nome",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_la_sottoscritto_a\">",
+      "type" : "text"
+    }, {
+      "id" : "telefono",
+      "label" : "Telefono",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono\">",
+      "type" : "text"
+    }, {
+      "id" : "iscritto_a_al_corso_di_laurea_in",
+      "label" : "iscritto/a al corso di laurea in",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare il corso di laurea",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"iscritto_a_al_corso_di_laurea_in\">",
+      "type" : "text"
+    }, {
+      "id" : "con_la_qualifica_di",
+      "label" : "con la qualifica di",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"con_la_qualifica_di\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Commissario esterno\">Commissario esterno</option>\n\n  <option value=\" Professionista-PR\"> Professionista-PR</option>\n\n  <option value=\" Docente Master Patti Territoriali\"> Docente Master Patti Territoriali</option>\n\n  <option value=\" Studente/ssa/tesista\"> Studente/ssa/tesista</option>\n\n  <option value=\" Studente/ssa Master Patti Territoriali\"> Studente/ssa Master Patti Territoriali</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "chiede",
+      "label" : "chiede",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"chiede\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "di_essere_autorizzato_a_a_recarsi_in_missione",
+      "label" : "di essere autorizzato/a a recarsi in missione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare il luogo della missione",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"di_essere_autorizzato_a_a_recarsi_in_missione\">",
+      "type" : "text"
+    }, {
+      "id" : "per_partecipare_al_seguente_evento",
+      "label" : "per partecipare al seguente evento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"per_partecipare_al_seguente_evento\">",
+      "type" : "text"
+    }, {
+      "id" : "ha_le_seguenti_finalità",
+      "label" : "ha le seguenti finalità",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ha_le_seguenti_finalità\">",
+      "type" : "text"
+    }, {
+      "id" : "dichiara,_altresì,_che_la_missione_avrà_inizio_alle_ore",
+      "label" : "Dichiara, altresì, che la missione avrà inizio alle ore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"dichiara,_altresì,_che_la_missione_avrà_inizio_alle_ore\">",
+      "type" : "text"
+    }, {
+      "id" : "del_giorno",
+      "label" : "del giorno",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"del_giorno\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "per_una_durata_prevista,_compreso_il_viaggio,_di_giorni",
+      "label" : "per una durata prevista, compreso il viaggio, di giorni",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"per_una_durata_prevista,_compreso_il_viaggio,_di_giorni\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "la_missione_graverà_sui_fondi",
+      "label" : "La missione graverà sui Fondi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Se la missione non prevede un rimborso spese Scrivere nel campo \"Fondi non necessari\"",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"la_missione_graverà_sui_fondi\">",
+      "type" : "text"
+    }, {
+      "id" : "di_cui_è_responsabile_il_la_prof._prof.ssa_dott._dott.ssa",
+      "label" : "di cui è responsabile il/la Prof./Prof.ssa/Dott./Dott.ssa",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Se la missione non prevede un rimborso spese Scrivere nel campo \"Non necessario\"",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"di_cui_è_responsabile_il_la_prof._prof.ssa_dott._dott.ssa\">",
+      "type" : "text"
+    }, {
+      "id" : "e_verrà_rimborsata_sul_conto_corrente_bancario_postale_inserire_iban",
+      "label" : "e verrà rimborsata sul conto corrente bancario/postale (inserire IBAN)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"e_verrà_rimborsata_sul_conto_corrente_bancario_postale_inserire_iban\">",
+      "type" : "text"
+    }, {
+      "id" : "la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto",
+      "label" : "La missione verrà effettuata con il/i seguente/i mezzo/i di trasporto",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "E' possibile inserire più di un mezzo di trasporto cliccando su \"inserisci inserimento\"",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto-NNNNN-mezzo_di_trasporto\">Mezzo di trasporto:</label></th>\n    <td>\n      \n      <select name=\"la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto-NNNNN-mezzo_di_trasporto\" id=\"id_la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto-NNNNN-mezzo_di_trasporto\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Aereo\">Aereo</option>\n\n  <option value=\"Autobus\">Autobus</option>\n\n  <option value=\"Treno\">Treno</option>\n\n  <option value=\"Nave\">Nave</option>\n\n  <option value=\"Mezzo a noleggio\">Mezzo a noleggio</option>\n\n  <option value=\"Mezzo del dipartimento\">Mezzo del dipartimento</option>\n\n  <option value=\"Passaggio Gratuito\">Passaggio Gratuito</option>\n\n  <option value=\"Mezzo proprio\">Mezzo proprio</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto-NNNNN-in_caso_di_utilizzo_di_mezzo_a_noleggio_o_proprio_specificare_la_motivazione\">In caso di utilizzo di mezzo a noleggio o proprio specificare la motivazione:</label></th>\n    <td>\n      \n      <select name=\"la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto-NNNNN-in_caso_di_utilizzo_di_mezzo_a_noleggio_o_proprio_specificare_la_motivazione\" id=\"id_la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto-NNNNN-in_caso_di_utilizzo_di_mezzo_a_noleggio_o_proprio_specificare_la_motivazione\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Sciopero mezzi ordinari\">Sciopero mezzi ordinari</option>\n\n  <option value=\"Esiste una convenienza economica\">Esiste una convenienza economica</option>\n\n  <option value=\"Il luogo della missione non è servito da mezzi ordinari\">Il luogo della missione non è servito da mezzi ordinari</option>\n\n  <option value=\"Una particolare esigenza di servizio o motivi di salute o necessità di raggiungere rapidamente il luogo della trasferta o di rientrare rapidamente alla sede di servizio per motivi istituzionali\">Una particolare esigenza di servizio o motivi di salute o necessità di raggiungere rapidamente il luogo della trasferta o di rientrare rapidamente alla sede di servizio per motivi istituzionali</option>\n\n  <option value=\"Devono essere trasportati materiali e strumenti delicati o ingombranti indispensabili per lo svolgimento del servizio\">Devono essere trasportati materiali e strumenti delicati o ingombranti indispensabili per lo svolgimento del servizio</option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto-TOTAL_FORMS\" value=\"0\" id=\"id_la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto-TOTAL_FORMS\"><input type=\"hidden\" name=\"la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto-INITIAL_FORMS\" value=\"0\" id=\"id_la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto-INITIAL_FORMS\"><input type=\"hidden\" name=\"la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto-MIN_NUM_FORMS\" value=\"0\" id=\"id_la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto-MAX_NUM_FORMS\" value=\"1000\" id=\"id_la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-la_missione_verrà_effettuata_con_il_i_seguente_i_mezzo_i_di_trasporto\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "in_caso_di_utilizzo_di_mezzo_proprio,_si_specifica_che_il_mezzo_dell'interessato_a_è_coperto_da_polizza_assicurativa_attiva:",
+      "label" : "In caso di utilizzo di mezzo proprio, si specifica che il mezzo dell'interessato/a è coperto da polizza assicurativa attiva:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"in_caso_di_utilizzo_di_mezzo_proprio,_si_specifica_che_il_mezzo_dell&#x27;interessato_a_è_coperto_da_polizza_assicurativa_attiva:\">",
+      "type" : "text"
+    }, {
+      "id" : "scagiona_l’amministrazione_universitaria_da_ogni_responsabilità_per_danni_a_persone_cose_che_potrebbero_derivare_dall’uso_del_mezzo_utilizzato:",
+      "label" : "scagiona l’Amministrazione Universitaria da ogni responsabilità per danni a persone/cose che potrebbero derivare dall’uso del mezzo utilizzato:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"scagiona_l’amministrazione_universitaria_da_ogni_responsabilità_per_danni_a_persone_cose_che_potrebbero_derivare_dall’uso_del_mezzo_utilizzato:\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "lettera_di_autorizzazione_missione_del_della_responsabile_dei_fondi_firmata_digitalmente_pades",
+      "label" : "Lettera di autorizzazione missione del/della Responsabile dei Fondi firmata digitalmente (Pades)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"lettera_di_autorizzazione_missione_del_della_responsabile_dei_fondi_firmata_digitalmente_pades\">",
+      "type" : "file"
+    }, {
+      "id" : "allegato_generico",
+      "label" : "Allegato Generico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegato_generico\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:44.953684Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/diam/domanda-di-abbreviazione-di-carrieraiscrizione-anni-successivi-diam/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

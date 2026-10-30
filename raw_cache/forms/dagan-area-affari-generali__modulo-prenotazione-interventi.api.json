@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:16.221050Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dagan-area-affari-generali/modulo-prenotazione-interventi/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Il modulo sarà attivo dalle ore 9.00 di giorno 15 settembre 2025.",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

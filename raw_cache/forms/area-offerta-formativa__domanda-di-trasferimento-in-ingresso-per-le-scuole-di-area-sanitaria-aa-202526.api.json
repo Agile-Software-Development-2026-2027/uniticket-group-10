@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:53.393215Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/area-offerta-formativa/domanda-di-trasferimento-in-ingresso-per-le-scuole-di-area-sanitaria-aa-202526/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

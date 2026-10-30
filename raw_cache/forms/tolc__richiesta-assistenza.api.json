@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:29.975227Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/tolc/richiesta-assistenza/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Gentile utente, il modulo di richiesta di assistenza per il TOLC@CASA è stato attivo fino alla data indicata in prossimità dello svolgimento dei test e  i dati raccolti sono stati utilizzati per predisporre l'assistenza.",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

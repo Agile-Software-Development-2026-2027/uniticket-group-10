@@ -1,0 +1,282 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:23.763807Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/demacs/preventivo-di-trasferimento-da-altro-ateneo-al-corso-di-laurea-in-informatica/ticket/new/",
+  "jsonBody" : {
+    "name" : "Preventivo di trasferimento da altro Ateneo al Corso di Laurea in Informatica",
+    "description" : "Richiesta Preventivo di trasferimento da altro Ateneo al Corso di Laurea in Informatica",
+    "protocol_required" : false,
+    "slug" : "preventivo-di-trasferimento-da-altro-ateneo-al-corso-di-laurea-in-informatica",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 325,
+      "fields" : {
+        "category" : 313,
+        "title" : "Note Operative",
+        "text" : "- La commissione fornisce un parere preventivo a potenziali richieste che risultano pervenute entro le date: 10 gennaio - 10 giugno. \r\nSarà comunque necessario compilare regolare domanda di trasferimento dal 1 agosto al 10 settembre.\r\n- Prima di inviare la richiesta bisogna scaricare il [Foglio Excel](https://www.mat.unical.it/demacs/ModulisticaDid?action=AttachFile&do=get&target=template_esami_da_convalidare.xlsx), compilarlo e poi allegarlo nell'apposito campo del modulo.\r\n- Alla richiesta deve essere allegato un documento di riconoscimento in corso di validità.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 326,
+      "fields" : {
+        "category" : 313,
+        "title" : "Dichiarazione sostitutiva di certificazione/atto di notorietà",
+        "text" : "Dichiara di essere a conoscenza delle responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art. 640 c.p. e art. 76 D.P.R. n. 445/2000).",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Preventivo di trasferimento da altro Ateneo al Corso di Laurea in Informatica",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Preventivo di trasferimento da altro Ateneo al Corso di Laurea in Informatica\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta Preventivo di trasferimento da altro Ateneo al Corso di Laurea in Informatica",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta Preventivo di trasferimento da altro Ateneo al Corso di Laurea in Informatica</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cellulare\">",
+      "type" : "text"
+    }, {
+      "id" : "iscritto_al_corso_di_laurea_in",
+      "label" : "Iscritto al Corso di Laurea in",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"iscritto_al_corso_di_laurea_in\">",
+      "type" : "text"
+    }, {
+      "id" : "classe",
+      "label" : "Classe",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"classe\">",
+      "type" : "text"
+    }, {
+      "id" : "dell'università",
+      "label" : "dell'Università",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"dell&#x27;università\">",
+      "type" : "text"
+    }, {
+      "id" : "chiede",
+      "label" : "Chiede",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"chiede\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "al_corso_di_laurea_in",
+      "label" : "al Corso di Laurea in",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"al_corso_di_laurea_in\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Informatica (Triennale)\">Informatica (Triennale)</option>\n\n  <option value=\" Artificial Intelligence and Computer Science (Magistrale)\"> Artificial Intelligence and Computer Science (Magistrale)</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "del",
+      "label" : "del",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"del\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "l'università",
+      "label" : "l'Università",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"l&#x27;università\">",
+      "type" : "text"
+    }, {
+      "id" : "nell'a.a.",
+      "label" : "nell'A.A.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nell&#x27;a.a.\">",
+      "type" : "text"
+    }, {
+      "id" : "elenco_degli_esami_sostenuti",
+      "label" : "Elenco degli esami sostenuti",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"elenco_degli_esami_sostenuti\">",
+      "type" : "file"
+    }, {
+      "id" : "programma_esami_sostenuti",
+      "label" : "Programma esami sostenuti",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"programma_esami_sostenuti\">",
+      "type" : "file"
+    }, {
+      "id" : "documento_di_riconoscimento_fronte_retro",
+      "label" : "Documento di riconoscimento fronte/retro",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento_di_riconoscimento_fronte_retro\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

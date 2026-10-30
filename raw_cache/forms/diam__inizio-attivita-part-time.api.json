@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:05.148173Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/diam/inizio-attivita-part-time/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

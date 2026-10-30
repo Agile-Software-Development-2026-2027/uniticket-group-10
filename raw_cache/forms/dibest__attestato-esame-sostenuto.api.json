@@ -1,0 +1,298 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:23.583736Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dibest/attestato-esame-sostenuto/ticket/new/",
+  "jsonBody" : {
+    "name" : "Attestato Esame sostenuto",
+    "description" : "Attestato Esame sostenuto",
+    "protocol_required" : false,
+    "slug" : "attestato-esame-sostenuto",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 467,
+      "fields" : {
+        "category" : 402,
+        "title" : "Note Operative",
+        "text" : "**ATTENZIONE NON INVIARE IL MODULO, MA SEGUI LE INDICAZIONI**\r\n\r\nIl modulo va solo compilato ma non inviato.\r\n\r\nClicca sulla voce **\"Se la richiesta che stai compilando deve essere completata e sottoscritta da un altro utente (es. Direttore Dipartimento, responsabile ufficio, ecc.), clicca qui;\"**\r\n\r\nMettere segno di spunta su **\"Tieni traccia della mia compilazione nel ticket\"**\r\n\r\nPremere il pulsante **Genera URL**\r\n\r\nPreparare una mail indirizzata al **Docente titolare del corso e incollare lo URL generato e copiato**",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 468,
+      "fields" : {
+        "category" : 402,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Attestato Esame sostenuto",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Attestato Esame sostenuto\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Attestato Esame sostenuto",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nAttestato Esame sostenuto</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "stud",
+      "label" : "stud",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"stud\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "cognome_e_nome",
+      "label" : "Cognome e Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome_e_nome\">",
+      "type" : "text"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"matricola\">",
+      "type" : "text"
+    }, {
+      "id" : "corso_di_laurea",
+      "label" : "Corso di Laurea",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"corso_di_laurea\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"triennale in Scienze e Tecnologie Biologiche\">triennale in Scienze e Tecnologie Biologiche</option>\n\n  <option value=\"triennale in Scienze Naturali\">triennale in Scienze Naturali</option>\n\n  <option value=\"triennale in Scienze Naturali e Ambientali\">triennale in Scienze Naturali e Ambientali</option>\n\n  <option value=\"triennale in Scienze Geologiche\">triennale in Scienze Geologiche</option>\n\n  <option value=\"triennale in Biologia\">triennale in Biologia</option>\n\n  <option value=\"magistrale in Biologia\">magistrale in Biologia</option>\n\n  <option value=\"magistrale in Biodiversità e Conservazione dei Sistemi Naturali\">magistrale in Biodiversità e Conservazione dei Sistemi Naturali</option>\n\n  <option value=\"magistrale in Scienze Geologiche\">magistrale in Scienze Geologiche</option>\n\n  <option value=\"magistrale in Health Biotechnology\">magistrale in Health Biotechnology</option>\n\n  <option value=\"magistrale a Ciclo unico in Conservazione e Restauro dei Beni Culturali\">magistrale a Ciclo unico in Conservazione e Restauro dei Beni Culturali</option>\n\n  <option value=\"Triennale in Scienze e Tecnologie per le attività motorie e sportive\">Triennale in Scienze e Tecnologie per le attività motorie e sportive</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "specificare_il_motivo_della_richiesta",
+      "label" : "Specificare il motivo della Richiesta",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"specificare_il_motivo_della_richiesta\">",
+      "type" : "text"
+    }, {
+      "id" : "in_caso_di_giustificazione_per_datore_di_lavoro,_indicare_l’ente_azienda_che_la_richiede",
+      "label" : "In caso di giustificazione per datore di lavoro, indicare l’Ente/Azienda che la richiede",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"in_caso_di_giustificazione_per_datore_di_lavoro,_indicare_l’ente_azienda_che_la_richiede\">",
+      "type" : "text"
+    }, {
+      "id" : "pec_o_email_azienda",
+      "label" : "PEC o Email Azienda",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Preferibile inserire un indirizzo PEC dell'Azienda",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"pec_o_email_azienda\">",
+      "type" : "text"
+    }, {
+      "id" : "attestazione",
+      "label" : "attestazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"attestazione\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "il_la_sottoscritto_a",
+      "label" : "Il/La sottoscritto/a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserire cognome e nome del docente titolare del corso",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_la_sottoscritto_a\">",
+      "type" : "text"
+    }, {
+      "id" : "in_qualità_di_docente_titolare_del_corso_dell'insegnamento",
+      "label" : "in qualità di Docente titolare del corso dell'insegnamento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare l'insegnamento",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"in_qualità_di_docente_titolare_del_corso_dell&#x27;insegnamento\">",
+      "type" : "text"
+    }, {
+      "id" : "attesto_che_lo_studente_ha_sostenuto_l'esame_in_data",
+      "label" : "attesto che lo studente ha sostenuto l'esame in data",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"attesto_che_lo_studente_ha_sostenuto_l&#x27;esame_in_data\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "dalle_ore",
+      "label" : "dalle ore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"dalle_ore\">",
+      "type" : "text"
+    }, {
+      "id" : "alle_ore",
+      "label" : "alle ore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"alle_ore\">",
+      "type" : "text"
+    }, {
+      "id" : "in_aula",
+      "label" : "in aula",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"in_aula\">",
+      "type" : "text"
+    } ]
+  },
+  "rawTextBody" : null
+}

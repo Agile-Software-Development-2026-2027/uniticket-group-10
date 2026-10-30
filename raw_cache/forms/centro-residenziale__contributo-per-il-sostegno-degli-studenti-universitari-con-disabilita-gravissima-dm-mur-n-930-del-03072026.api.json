@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:39.680394Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/centro-residenziale/contributo-per-il-sostegno-degli-studenti-universitari-con-disabilita-gravissima-dm-mur-n-930-del-03072026/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

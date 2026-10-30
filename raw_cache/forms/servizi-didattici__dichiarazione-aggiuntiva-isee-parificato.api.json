@@ -1,0 +1,111 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:41.983876Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizi-didattici/dichiarazione-aggiuntiva-isee-parificato/ticket/new/",
+  "jsonBody" : {
+    "name" : "Dichiarazione aggiuntiva Isee Parificato",
+    "description" : "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "protocol_required" : false,
+    "slug" : "dichiarazione-aggiuntiva-isee-parificato",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 510,
+      "fields" : {
+        "category" : 432,
+        "title" : "La sottoscritta/il sottoscritto dichiara di:",
+        "text" : "Essere consapevole delle sanzioni penali, nel caso di dichiarazioni non veritiere e falsità negli atti, richiamate dall’articoli 75 e 76 del decreto del Presidente della Repubblica del 28 dicembre 2000, n. 445 e successive modifiche e integrazioni (1).",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Dichiarazione aggiuntiva Isee Parificato",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Dichiarazione aggiuntiva Isee Parificato\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "dichiaro_sotto_la_mia_responsabilità_di_non_produrre_isee_parificato_poiché:",
+      "label" : "Dichiaro sotto la mia responsabilità di non produrre Isee Parificato poiché:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "non sono residente all'estero",
+        "value" : "non sono residente all'estero"
+      }, {
+        "text" : "il mio nucleo familiare è residente in Italia e non produce redditi all'estero",
+        "value" : "il mio nucleo familiare è residente in Italia e non produce redditi all'estero"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"dichiaro_sotto_la_mia_responsabilità_di_non_produrre_isee_parificato_poiché:\" value=\"non sono residente all&#x27;estero\">\n non sono residente all&#x27;estero</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiaro_sotto_la_mia_responsabilità_di_non_produrre_isee_parificato_poiché:\" value=\"il mio nucleo familiare è residente in Italia e non produce redditi all&#x27;estero\">\n il mio nucleo familiare è residente in Italia e non produce redditi all&#x27;estero</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "eventuali_comunicazioni",
+      "label" : "Eventuali comunicazioni",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"eventuali_comunicazioni\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

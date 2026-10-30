@@ -1,0 +1,282 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:20.862791Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/demacs/premio-pitagora/ticket/new/",
+  "jsonBody" : {
+    "name" : "Premio Pitagora",
+    "description" : "Domanda di partecipazione bando Premio Pitagora",
+    "protocol_required" : false,
+    "slug" : "premio-pitagora",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 637,
+      "fields" : {
+        "category" : 591,
+        "title" : "Info",
+        "text" : "- Completata la compilazione, cliccare sul tasto verde in fondo al modulo \"Invia la richiesta\". Se l'invio va a buon fine appare il messaggio **\"Richiesta \"Domanda partecipazione Bando Premio Pitagora\" creata con successo\"**. \r\n- Per eventuale supporto scrivere mail a **annamaria.bria@unical.it** specificando quale oggetto della mail \"Premio Pitagora\".",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Premio Pitagora",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Premio Pitagora\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Domanda di partecipazione bando Premio Pitagora",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nDomanda di partecipazione bando Premio Pitagora</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "destinatario",
+      "label" : "destinatario",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"destinatario\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "nato_a_a",
+      "label" : "Nato/a a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nato_a_a\">",
+      "type" : "text"
+    }, {
+      "id" : "provincia_di_nascita",
+      "label" : "Provincia di nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"provincia_di_nascita\">",
+      "type" : "text"
+    }, {
+      "id" : "nato_a_il",
+      "label" : "Nato/a il",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "Sono ammessi alla selezione le nate e i nati nel 1994 o in anni successivi (per i quali cioè il trentesimo compleanno non sia caduto entro il 31 dicembre 2023).",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"nato_a_il\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "chiede",
+      "label" : "chiede",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"chiede\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cellulare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "telefono_fisso",
+      "label" : "Telefono fisso",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"telefono_fisso\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "residenza",
+      "label" : "Residenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-residenza\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_residenza-NNNNN-via\">Via:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"residenza-NNNNN-via\" id=\"id_residenza-NNNNN-via\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_residenza-NNNNN-n.\">N.</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"residenza-NNNNN-n.\" id=\"id_residenza-NNNNN-n.\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_residenza-NNNNN-città\">Città:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"residenza-NNNNN-città\" id=\"id_residenza-NNNNN-città\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_residenza-NNNNN-cap\">Cap:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"residenza-NNNNN-cap\" id=\"id_residenza-NNNNN-cap\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_residenza-NNNNN-provincia\">Provincia:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"residenza-NNNNN-provincia\" id=\"id_residenza-NNNNN-provincia\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-residenza-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"residenza-TOTAL_FORMS\" value=\"1\" id=\"id_residenza-TOTAL_FORMS\"><input type=\"hidden\" name=\"residenza-INITIAL_FORMS\" value=\"0\" id=\"id_residenza-INITIAL_FORMS\"><input type=\"hidden\" name=\"residenza-MIN_NUM_FORMS\" value=\"1\" id=\"id_residenza-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"residenza-MAX_NUM_FORMS\" value=\"1000\" id=\"id_residenza-MAX_NUM_FORMS\">\n\n<div class=\"form-container\">\n    <div class=\"row form-row spacer\">\n        <div class=\"col\">\n            <div class=\"input-group\">\n                <div class=\"table-responsive\">\n                    <table class=\"table table-bordered formset-table\">\n                        <tr>\n    <th><label for=\"id_residenza-0-via\">Via:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"residenza-0-via\" id=\"id_residenza-0-via\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_residenza-0-n.\">N.</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"residenza-0-n.\" id=\"id_residenza-0-n.\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_residenza-0-città\">Città:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"residenza-0-città\" id=\"id_residenza-0-città\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_residenza-0-cap\">Cap:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"residenza-0-cap\" id=\"id_residenza-0-cap\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_residenza-0-provincia\">Provincia:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"residenza-0-provincia\" id=\"id_residenza-0-provincia\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                    </table>\n                </div>\n            </div>\n            <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-residenza-0\">\n                <svg class=\"icon icon-xs icon-white\">\n                    <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                </svg> Rimuovi inserimento\n            </button>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-residenza\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "curriculum_vitae_con_evidenza_delle_attività_di_ricerca_in_ambito_matematico",
+      "label" : "Curriculum Vitae con evidenza delle attività di ricerca in ambito matematico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "in formato PDF",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"curriculum_vitae_con_evidenza_delle_attività_di_ricerca_in_ambito_matematico\">",
+      "type" : "file"
+    }, {
+      "id" : "documento_di_riconoscimento_in_corso_di_validità_fronte_retro",
+      "label" : "Documento di riconoscimento in corso di validità fronte/retro",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "in formato PDF",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento_di_riconoscimento_in_corso_di_validità_fronte_retro\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

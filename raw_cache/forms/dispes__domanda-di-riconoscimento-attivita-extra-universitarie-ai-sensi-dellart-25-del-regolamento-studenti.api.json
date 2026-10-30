@@ -1,0 +1,245 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:47.564988Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dispes/domanda-di-riconoscimento-attivita-extra-universitarie-ai-sensi-dellart-25-del-regolamento-studenti/ticket/new/",
+  "jsonBody" : {
+    "name" : "Domanda di riconoscimento attività extra universitarie (ai sensi dell’art. 25 del Regolamento Studenti)",
+    "description" : "Domanda di riconoscimento attività extra universitarie (ai sensi dell’art. 25 del Regolamento Studenti)",
+    "protocol_required" : true,
+    "slug" : "domanda-di-riconoscimento-attivita-extra-universitarie-ai-sensi-dellart-25-del-regolamento-studenti",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 742,
+      "fields" : {
+        "category" : 723,
+        "title" : "Informativa sul trattamento dei dati personali",
+        "text" : "I dati personali saranno trattati, anche con strumenti informatici, per fini amministrativi e didattici unicamente per la gestione della presente procedura di competenza del Settore Didattica, nel rispetto della normativa vigente in materia di protezione dei dati  (Regolamento UE 2016/679 del Parlamento Europeo e del Consiglio del 27 aprile 2016 e D. Lgs. 196/2003 per come modificato dal D.Lgs. 101/2018). Informativa completa su http://www.unical.it/portale/ateneo/privacy/)",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Domanda di riconoscimento attività extra universitarie (ai sensi dell’art. 25 del Regolamento Studenti)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Domanda di riconoscimento attività extra universitarie (ai sensi dell’art. 25 del Regolamento Studenti)\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Domanda di riconoscimento attività extra universitarie (ai sensi dell’art. 25 del Regolamento Studenti)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nDomanda di riconoscimento attività extra universitarie (ai sensi dell’art. 25 del Regolamento Studenti)</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "corso_di_studio_del_la_richiedente_codice",
+      "label" : "Corso di Studio del/la richiedente (codice)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Es. 0753",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"corso_di_studio_del_la_richiedente_codice\">",
+      "type" : "text"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"matricola\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "[descrizione]",
+      "label" : "[descrizione]",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"[descrizione]\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "attività_formativa",
+      "label" : "Attività formativa",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"attività_formativa\">",
+      "type" : "text"
+    }, {
+      "id" : "cfu",
+      "label" : "CFU",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cfu\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "per_tali_fini,_autorizza_a_essere_contattato_a_ai_seguenti_recapiti_personali:",
+      "label" : "Per tali fini, autorizza a essere contattato/a ai seguenti recapiti personali:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"per_tali_fini,_autorizza_a_essere_contattato_a_ai_seguenti_recapiti_personali:\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "telefono",
+      "label" : "Telefono",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono\">",
+      "type" : "text"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "allegato",
+      "label" : "Allegato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegato\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

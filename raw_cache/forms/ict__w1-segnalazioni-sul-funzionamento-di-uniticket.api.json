@@ -1,0 +1,80 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:38.013046Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/ict/w1-segnalazioni-sul-funzionamento-di-uniticket/ticket/new/",
+  "jsonBody" : {
+    "name" : "W1 - Segnalazioni sul funzionamento di uniTicket",
+    "description" : "Segnalazione di malfunzionamenti o di proposte di miglioramento della piattaforma uniTicket",
+    "protocol_required" : false,
+    "slug" : "w1-segnalazioni-sul-funzionamento-di-uniticket",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "W1 - Segnalazioni sul funzionamento di uniTicket",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"W1 - Segnalazioni sul funzionamento di uniTicket\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Segnalazione di malfunzionamenti o di proposte di miglioramento della piattaforma uniTicket",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nSegnalazione di malfunzionamenti o di proposte di miglioramento della piattaforma uniTicket</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "url",
+      "label" : "url",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "url della pagina di ticket.unical.it alla quale ci stiamo riferendo",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"url\">",
+      "type" : "text"
+    }, {
+      "id" : "allegato",
+      "label" : "Allegato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegato\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

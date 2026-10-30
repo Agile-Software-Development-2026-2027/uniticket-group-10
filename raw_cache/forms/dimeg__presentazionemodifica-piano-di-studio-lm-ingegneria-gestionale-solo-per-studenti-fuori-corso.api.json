@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:22.656944Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dimeg/presentazionemodifica-piano-di-studio-lm-ingegneria-gestionale-solo-per-studenti-fuori-corso/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

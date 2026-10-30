@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:24.128788Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/fisica/attivazione-bando-borse-di-studio-post-lauream-per-attivita-di-ricerca/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

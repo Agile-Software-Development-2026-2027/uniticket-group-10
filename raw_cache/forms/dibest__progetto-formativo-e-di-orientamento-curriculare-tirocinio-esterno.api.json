@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:25.027078Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dibest/progetto-formativo-e-di-orientamento-curriculare-tirocinio-esterno/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Non è possibile effettuare richiesta di tirocinio per passaggio alla nuova piattaforma TSP 2.0. che sarà attiva da lunedì 15 aprile 2024. Per ulteriori informazioni visitare la pagina https://dibest.unical.it/didattica/orientamento-mobilita/tirocinio/",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

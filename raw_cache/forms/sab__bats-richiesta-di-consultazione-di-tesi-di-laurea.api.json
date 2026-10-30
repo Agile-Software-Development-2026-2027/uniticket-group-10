@@ -1,0 +1,208 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:29.225225Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/sab/bats-richiesta-di-consultazione-di-tesi-di-laurea/ticket/new/",
+  "jsonBody" : {
+    "name" : "BATS - Richiesta di consultazione di Tesi di laurea",
+    "description" : "Questo modulo serve per prenotare la consultazione delle tesi di laurea, collocate presso la Biblioteca Area Tecnico Scientifica dell’Unical.\r\nSarete contattati via mail al fine di fissare un appuntamento il prima possibile.",
+    "protocol_required" : false,
+    "slug" : "bats-richiesta-di-consultazione-di-tesi-di-laurea",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 358,
+      "fields" : {
+        "category" : 344,
+        "title" : "CONSENSO AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "Presto il mio consenso al trattamento dei dati da me forniti per le finalità di gestione del servizio ed a fini statistici",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 359,
+      "fields" : {
+        "category" : 344,
+        "title" : "PRIVACY - INFORMATIVA RELATIVA AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "I dati richiesti verranno trattati dall’Università della Calabria, in qualità di Titolare del trattamento, nel rispetto delle disposizioni di cui al Regolamento Europeo 2016/679 (“GDPR”). Si invita a prendere visione dell’Informativa relativa al trattamento dei dati personali consultando la pagina: https://www.unical.it/portale/ateneo/privacy/",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "BATS - Richiesta di consultazione di Tesi di laurea",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"BATS - Richiesta di consultazione di Tesi di laurea\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Questo modulo serve per prenotare la consultazione delle tesi di laurea, collocate presso la Biblioteca Area Tecnico Scientifica dell’Unical.\r\nSarete contattati via mail al fine di fissare un appuntamento il prima possibile.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nQuesto modulo serve per prenotare la consultazione delle tesi di laurea, collocate presso la Biblioteca Area Tecnico Scientifica dell’Unical.\r\nSarete contattati via mail al fine di fissare un appuntamento il prima possibile.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "codice_tessera_utente",
+      "label" : "Codice Tessera Utente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserisci il numero della tua Tessera della biblioteca",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_tessera_utente\">",
+      "type" : "text"
+    }, {
+      "id" : "status_utente",
+      "label" : "Status utente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"status_utente\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Studente\">Studente</option>\n\n  <option value=\" Tesista\"> Tesista</option>\n\n  <option value=\" Dottorando\"> Dottorando</option>\n\n  <option value=\" Altro\"> Altro</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "dipartimento",
+      "label" : "Dipartimento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"dipartimento\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Biologia, Ecologia e scienze della Terra - DiBEST\">Biologia, Ecologia e scienze della Terra - DiBEST</option>\n\n  <option value=\" Chimica e Tecnologie Chimiche - CTC\"> Chimica e Tecnologie Chimiche - CTC</option>\n\n  <option value=\" Farmacia e Scienze della Salute e della Nutrizione\"> Farmacia e Scienze della Salute e della Nutrizione</option>\n\n  <option value=\" Fisica\"> Fisica</option>\n\n  <option value=\" Ingegneria Civile - DINCI\"> Ingegneria Civile - DINCI</option>\n\n  <option value=\" Ingegneria Informatica, Modellistica, Elettronica e Sistemistica - DIMES\"> Ingegneria Informatica, Modellistica, Elettronica e Sistemistica - DIMES</option>\n\n  <option value=\" Ingegneria Meccanica, Energetica e Gestionale - DIMEG\"> Ingegneria Meccanica, Energetica e Gestionale - DIMEG</option>\n\n  <option value=\" Ingegneria dell&#x27;Ambiente - DIAM\"> Ingegneria dell&#x27;Ambiente - DIAM</option>\n\n  <option value=\" Matematica e Informatica - Demacs\"> Matematica e Informatica - Demacs</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "titolo_della_tesi_da_consultare",
+      "label" : "Titolo della tesi da consultare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"titolo_della_tesi_da_consultare\">",
+      "type" : "text"
+    }, {
+      "id" : "autore",
+      "label" : "Autore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"autore\">",
+      "type" : "text"
+    }, {
+      "id" : "relatore",
+      "label" : "Relatore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"relatore\">",
+      "type" : "text"
+    }, {
+      "id" : "a_citare_la_tesi_con_i_suoi_dati_bibliografici_completi_in_ogni_caso_di_utilizzo_anche_marginale_di_informazioni_da_essa_provenienti",
+      "label" : "a citare la tesi con i suoi dati bibliografici completi in ogni caso di utilizzo anche marginale di informazioni da essa provenienti",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"a_citare_la_tesi_con_i_suoi_dati_bibliografici_completi_in_ogni_caso_di_utilizzo_anche_marginale_di_informazioni_da_essa_provenienti\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "a_non_riprodurre_la_tesi_o_parti_di_essa_in_alcun_modo",
+      "label" : "a non riprodurre la tesi o parti di essa in alcun modo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"a_non_riprodurre_la_tesi_o_parti_di_essa_in_alcun_modo\">",
+      "type" : "checkbox"
+    } ]
+  },
+  "rawTextBody" : null
+}

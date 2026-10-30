@@ -1,0 +1,336 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:39.848114Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dimes/richiesta-certificato-di-iscrizionelaureadiploma-supplement/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta certificato di iscrizione/Laurea/Diploma Supplement",
+    "description" : "Richiesta certificato di iscrizione/Laurea/Diploma Supplement",
+    "protocol_required" : false,
+    "slug" : "richiesta-certificato-di-iscrizionelaureadiploma-supplement",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 890,
+      "fields" : {
+        "category" : 853,
+        "title" : "Note Operative",
+        "text" : "* E' previsto il pagamento di n. 2 marche da bollo, che verranno caricate in esse3 (sezione segreteria > Situazione tasse).\r\n* L'operatore che prenderà in carico la sua richiesta avrà cura di informarla sul caricamento della marca da bollo.\r\n* Ai fini del rilascio del Diploma Supplement non è necessario versare alcuna quota per il pagamento dell’imposta di bollo",
+        "ordinamento" : 10,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 891,
+      "fields" : {
+        "category" : 853,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza delle responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art 495 c.p., art 640 c.p.e art 76 D.P.R. n. 445/2000",
+        "ordinamento" : 20,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta certificato di iscrizione/Laurea/Diploma Supplement",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta certificato di iscrizione/Laurea/Diploma Supplement\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta certificato di iscrizione/Laurea/Diploma Supplement",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta certificato di iscrizione/Laurea/Diploma Supplement</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "al_coordinatore_del_cds",
+      "label" : "Al Coordinatore del CDS",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"al_coordinatore_del_cds\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "il_sottoscritto_a_è_nato_a_a",
+      "label" : "Il sottoscritto/a è nato/a a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_sottoscritto_a_è_nato_a_a\">",
+      "type" : "text"
+    }, {
+      "id" : "il",
+      "label" : "Il",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"il\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cellulare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "email_personale",
+      "label" : "Email personale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"email_personale\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "matricola",
+      "label" : "matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"matricola\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "laureato_nell'a.a.",
+      "label" : "Laureato nell'A.A.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"laureato_nell&#x27;a.a.\">",
+      "type" : "text"
+    }, {
+      "id" : "in_data",
+      "label" : "in data",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"in_data\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "con_voto",
+      "label" : "con voto",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"con_voto\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"66\">66</option>\n\n  <option value=\"67\">67</option>\n\n  <option value=\"68\">68</option>\n\n  <option value=\"69\">69</option>\n\n  <option value=\"70\">70</option>\n\n  <option value=\"71\">71</option>\n\n  <option value=\"72\">72</option>\n\n  <option value=\"73\">73</option>\n\n  <option value=\"74\">74</option>\n\n  <option value=\"75\">75</option>\n\n  <option value=\"76\">76</option>\n\n  <option value=\"77\">77</option>\n\n  <option value=\"78\">78</option>\n\n  <option value=\"79\">79</option>\n\n  <option value=\"80\">80</option>\n\n  <option value=\"81\">81</option>\n\n  <option value=\"82\">82</option>\n\n  <option value=\"83\">83</option>\n\n  <option value=\"84\">84</option>\n\n  <option value=\"85\">85</option>\n\n  <option value=\"86\">86</option>\n\n  <option value=\"87\">87</option>\n\n  <option value=\"88\">88</option>\n\n  <option value=\"89\">89</option>\n\n  <option value=\"90\">90</option>\n\n  <option value=\"91\">91</option>\n\n  <option value=\"92\">92</option>\n\n  <option value=\"93\">93</option>\n\n  <option value=\"94\">94</option>\n\n  <option value=\"95\">95</option>\n\n  <option value=\"96\">96</option>\n\n  <option value=\"97\">97</option>\n\n  <option value=\"98\">98</option>\n\n  <option value=\"99\">99</option>\n\n  <option value=\"100\">100</option>\n\n  <option value=\"101\">101</option>\n\n  <option value=\"102\">102</option>\n\n  <option value=\"103\">103</option>\n\n  <option value=\"104\">104</option>\n\n  <option value=\"105\">105</option>\n\n  <option value=\"106\">106</option>\n\n  <option value=\"107\">107</option>\n\n  <option value=\"108\">108</option>\n\n  <option value=\"109\">109</option>\n\n  <option value=\"110\">110</option>\n\n  <option value=\"110 e lode\">110 e lode</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "al_corso_di_laurea_in",
+      "label" : "Al Corso di Laurea In",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"al_corso_di_laurea_in\">",
+      "type" : "text"
+    }, {
+      "id" : "chiede",
+      "label" : "CHIEDE",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"chiede\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "il_rilascio_del_i_seguente_i_certificato_i",
+      "label" : "il rilascio del/i seguente/i certificato/i",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Iscrizione",
+        "value" : "Iscrizione"
+      }, {
+        "text" : " iscrizione con esami",
+        "value" : " iscrizione con esami"
+      }, {
+        "text" : "Iscrizione con anni accademici",
+        "value" : "Iscrizione con anni accademici"
+      }, {
+        "text" : "Iscrizione con esami da superare",
+        "value" : "Iscrizione con esami da superare"
+      }, {
+        "text" : "iscrizione con anni accademici ed esami",
+        "value" : "iscrizione con anni accademici ed esami"
+      }, {
+        "text" : "Iscrizione con piano",
+        "value" : "Iscrizione con piano"
+      }, {
+        "text" : "Iscrizione con esami e date\r\n Iscrizione corsi singoli con esami e date",
+        "value" : "Iscrizione con esami e date\r\n Iscrizione corsi singoli con esami e date"
+      }, {
+        "text" : "Carriera Completa (da richiedere solo in caso di passaggi di corso di laurea con la stessa matricola)",
+        "value" : "Carriera Completa (da richiedere solo in caso di passaggi di corso di laurea con la stessa matricola)"
+      }, {
+        "text" : "Laurea",
+        "value" : "Laurea"
+      }, {
+        "text" : "Laurea con esami e date",
+        "value" : "Laurea con esami e date"
+      }, {
+        "text" : "Laurea con esami senza date",
+        "value" : "Laurea con esami senza date"
+      }, {
+        "text" : " laurea con anni accademici",
+        "value" : " laurea con anni accademici"
+      }, {
+        "text" : "laurea con anni accademici ed esami",
+        "value" : "laurea con anni accademici ed esami"
+      }, {
+        "text" : "laurea con esami, tesi e relatore",
+        "value" : "laurea con esami, tesi e relatore"
+      }, {
+        "text" : "laurea con tesi",
+        "value" : "laurea con tesi"
+      }, {
+        "text" : "Diploma Supplement",
+        "value" : "Diploma Supplement"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\"Iscrizione\">\n Iscrizione</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\" iscrizione con esami\">\n  iscrizione con esami</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\"Iscrizione con anni accademici\">\n Iscrizione con anni accademici</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\"Iscrizione con esami da superare\">\n Iscrizione con esami da superare</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\"iscrizione con anni accademici ed esami\">\n iscrizione con anni accademici ed esami</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\"Iscrizione con piano\">\n Iscrizione con piano</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\"Iscrizione con esami e date\r\n Iscrizione corsi singoli con esami e date\">\n Iscrizione con esami e date\r\n Iscrizione corsi singoli con esami e date</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\"Carriera Completa (da richiedere solo in caso di passaggi di corso di laurea con la stessa matricola)\">\n Carriera Completa (da richiedere solo in caso di passaggi di corso di laurea con la stessa matricola)</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\"Laurea\">\n Laurea</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\"Laurea con esami e date\">\n Laurea con esami e date</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\"Laurea con esami senza date\">\n Laurea con esami senza date</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\" laurea con anni accademici\">\n  laurea con anni accademici</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\"laurea con anni accademici ed esami\">\n laurea con anni accademici ed esami</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\"laurea con esami, tesi e relatore\">\n laurea con esami, tesi e relatore</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\"laurea con tesi\">\n laurea con tesi</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_rilascio_del_i_seguente_i_certificato_i\" value=\"Diploma Supplement\">\n Diploma Supplement</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "note",
+      "label" : "Note",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"note\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

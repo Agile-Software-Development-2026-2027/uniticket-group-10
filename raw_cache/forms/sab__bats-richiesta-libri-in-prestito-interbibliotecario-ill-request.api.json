@@ -1,0 +1,270 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:30.280921Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/sab/bats-richiesta-libri-in-prestito-interbibliotecario-ill-request/ticket/new/",
+  "jsonBody" : {
+    "name" : "BATS - Richiesta Libri in Prestito Interbibliotecario (ILL request)",
+    "description" : "La Biblioteca Area Tecnico-Scientifica (BATS) fornisce ai suoi utenti istituzionali, tramite il servizio di prestito interbibliotecario, la possibilità di consultare documenti non posseduti dalla biblioteca. In particolare, il servizio di prestito interbibliotecario (ILL = InterLibrary Loan) fornisce il prestito, in ambito nazionale o estero, di un documento appartenente ad altra biblioteca, dietro formale richiesta\r\nPer il servizio si pagano le spese postali e le eventuali commissioni richieste",
+    "protocol_required" : false,
+    "slug" : "bats-richiesta-libri-in-prestito-interbibliotecario-ill-request",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 297,
+      "fields" : {
+        "category" : 280,
+        "title" : "CONSENSO AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "Presto il mio consenso al trattamento dei dati da me forniti per le finalità di gestione del servizio ed a fini statistici",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 298,
+      "fields" : {
+        "category" : 280,
+        "title" : "PRIVACY - INFORMATIVA RELATIVA AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "I dati richiesti verranno trattati dall’Università della Calabria, in qualità di Titolare del trattamento, nel rispetto delle disposizioni di cui al Regolamento Europeo 2016/679 (“GDPR”). Si invita a prendere visione dell’Informativa relativa al trattamento dei dati personali consultando la pagina: https://www.unical.it/portale/ateneo/privacy/",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "BATS - Richiesta Libri in Prestito Interbibliotecario (ILL request)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"BATS - Richiesta Libri in Prestito Interbibliotecario (ILL request)\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "La Biblioteca Area Tecnico-Scientifica (BATS) fornisce ai suoi utenti istituzionali, tramite il servizio di prestito interbibliotecario, la possibilità di consultare documenti non posseduti dalla biblioteca. In particolare, il servizio di prestito interbibliotecario (ILL = InterLibrary Loan) fornisce il prestito, in ambito nazionale o estero, di un documento appartenente ad altra biblioteca, dietro formale richiesta\r\nPer il servizio si pagano le spese postali e le eventuali commissioni richieste",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nLa Biblioteca Area Tecnico-Scientifica (BATS) fornisce ai suoi utenti istituzionali, tramite il servizio di prestito interbibliotecario, la possibilità di consultare documenti non posseduti dalla biblioteca. In particolare, il servizio di prestito interbibliotecario (ILL = InterLibrary Loan) fornisce il prestito, in ambito nazionale o estero, di un documento appartenente ad altra biblioteca, dietro formale richiesta\r\nPer il servizio si pagano le spese postali e le eventuali commissioni richieste</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "autore",
+      "label" : "Autore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"autore\">",
+      "type" : "text"
+    }, {
+      "id" : "titolo",
+      "label" : "Titolo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"titolo\">",
+      "type" : "text"
+    }, {
+      "id" : "editore",
+      "label" : "Editore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"editore\">",
+      "type" : "text"
+    }, {
+      "id" : "anno_di_pubblicazione",
+      "label" : "Anno di pubblicazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"anno_di_pubblicazione\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "status_utente",
+      "label" : "Status utente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"status_utente\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Studente\">Studente</option>\n\n  <option value=\" Tesista\"> Tesista</option>\n\n  <option value=\" Dottorando\"> Dottorando</option>\n\n  <option value=\" Ricercatore\"> Ricercatore</option>\n\n  <option value=\" Docente\"> Docente</option>\n\n  <option value=\" PTA\"> PTA</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "relatore",
+      "label" : "Relatore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Campo da compilare solo nel caso in cui l'utente sia Studente o Tesista",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"relatore\">",
+      "type" : "text"
+    }, {
+      "id" : "indirizzo_di_posta_elettronica_email",
+      "label" : "Indirizzo di posta elettronica (email)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indirizzo e-mail necessario per le comunicazione all'utente",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"indirizzo_di_posta_elettronica_email\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "inserire_il_numero_della_tessera_utente",
+      "label" : "Inserire il numero della tessera utente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il numero da inserire è il barcode indicato sulla tessera utente rilasciata dalla Biblioteca",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"inserire_il_numero_della_tessera_utente\">",
+      "type" : "text"
+    }, {
+      "id" : "numero_di_telefono",
+      "label" : "Numero di telefono",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"numero_di_telefono\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "dipartimento___altre_strutture",
+      "label" : "Dipartimento / Altre Strutture",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"dipartimento___altre_strutture\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Biologia, Ecologia e scienze della Terra - DiBEST\">Biologia, Ecologia e scienze della Terra - DiBEST</option>\n\n  <option value=\" Chimica e Tecnologie Chimiche - CTC\"> Chimica e Tecnologie Chimiche - CTC</option>\n\n  <option value=\" Farmacia e Scienze della Salute e della Nutrizione\"> Farmacia e Scienze della Salute e della Nutrizione</option>\n\n  <option value=\" Fisica\"> Fisica</option>\n\n  <option value=\" Ingegneria Civile - DINCI\"> Ingegneria Civile - DINCI</option>\n\n  <option value=\" Ingegneria Informatica, Modellistica, Elettronica e Sistemistica - DIMES\"> Ingegneria Informatica, Modellistica, Elettronica e Sistemistica - DIMES</option>\n\n  <option value=\" Ingegneria Meccanica, Energetica e Gestionale - DIMEG\"> Ingegneria Meccanica, Energetica e Gestionale - DIMEG</option>\n\n  <option value=\" Ingegneria dell&#x27;Ambiente - DIAM\"> Ingegneria dell&#x27;Ambiente - DIAM</option>\n\n  <option value=\" Matematica e Informatica - Demacs\"> Matematica e Informatica - Demacs</option>\n\n  <option value=\" Museo di Storia Naturale della Calabria e Orto Botanico - MuSNOB\"> Museo di Storia Naturale della Calabria e Orto Botanico - MuSNOB</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "dichiaro_di_avere_prima_controllato_sul_catalogo_online_delle_biblioteche_che_il_materiale_non_è_posseduto_dal_sistema_bibliotecario_di_ateneo",
+      "label" : "Dichiaro di avere prima controllato sul catalogo online delle biblioteche che il materiale non è posseduto dal Sistema Bibliotecario di Ateneo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"dichiaro_di_avere_prima_controllato_sul_catalogo_online_delle_biblioteche_che_il_materiale_non_è_posseduto_dal_sistema_bibliotecario_di_ateneo\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "mi_impegno_ad_utilizzare_il_materiale_per_i_soli_fini_di_studio_nel_rispetto_della_vigente_normativa_in_materia_di_fotoriproduzione",
+      "label" : "Mi impegno ad utilizzare il materiale per i soli fini di studio nel rispetto della vigente normativa in materia di fotoriproduzione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"mi_impegno_ad_utilizzare_il_materiale_per_i_soli_fini_di_studio_nel_rispetto_della_vigente_normativa_in_materia_di_fotoriproduzione\">",
+      "type" : "checkbox"
+    } ]
+  },
+  "rawTextBody" : null
+}

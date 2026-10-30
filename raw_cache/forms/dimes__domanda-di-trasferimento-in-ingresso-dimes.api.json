@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:52.244791Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dimes/domanda-di-trasferimento-in-ingresso-dimes/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

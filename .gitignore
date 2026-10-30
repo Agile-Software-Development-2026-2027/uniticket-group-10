@@ -38,3 +38,11 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Local / temporary folders
+TODO/
+
+# Python
+__pycache__/
+*.py[cod]
+

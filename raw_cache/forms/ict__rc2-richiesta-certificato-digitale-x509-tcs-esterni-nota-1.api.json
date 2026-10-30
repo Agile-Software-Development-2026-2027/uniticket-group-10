@@ -1,0 +1,180 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:27.010240Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/ict/rc2-richiesta-certificato-digitale-x509-tcs-esterni-nota-1/ticket/new/",
+  "jsonBody" : {
+    "name" : "RC2 - RICHIESTA CERTIFICATO DIGITALE X.509 (TCS) - (Esterni) (Nota 1)",
+    "description" : "Il Consortium GARR partecipa al Trusted Certificate Service (TCS) promosso da Géant a favore delle reti della ricerca europee. Tramite questo servizio, il Consortium GARR offre gratuitamente alla propria comunità certificati digitali x.509 emessi da una delle maggiori Certification Authority commerciali: HARICA. - (Nota 2)",
+    "protocol_required" : true,
+    "slug" : "rc2-richiesta-certificato-digitale-x509-tcs-esterni-nota-1",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 642,
+      "fields" : {
+        "category" : 597,
+        "title" : "Norme da accettare e Note (in allegato)",
+        "text" : "* il servizio richiesto verrà usato esclusivamente per server all'interno della rete [GARR](https://www.garr.it/it/infrastrutture/rete-nazionale/infrastruttura-di-rete-nazionale) e fornito dal [GARR Certification service](https://www.garr.it/it/servizi-garr/certificati-digitali);\r\n* di essere a conoscenza che i certificati vengono erogati tramite [Trusted Certificate Service (TCS)](https://www.geant.org/Services/Trust_identity_and_security/Pages/TCS.aspx) cui GARR partecipa promosso da [Géant](http://www.geant.org/) a favore delle reti della ricerca europee e sono da loro regolamentati;\r\n* Tramite questo servizio, GARR offre gratuitamente alla [propria comunità](https://www.garr.it/it/infrastrutture/rete-nazionale/enti-e-sedi-collegate) certificati digitali x.509\r\n* di essere a conoscenza che il certificato viene rilasciato [Harica](https://www.harica.gr/), una delle principali autorità di certificazione;\r\n* di aver letto e accettato in toto le [Policy](https://www.harica.gr/en/About/Policy);\r\n* si impegna affinchè la struttura che rappresenta usi i certificati per le funzioni indicate nel CPS e comunque solamente per i propri scopi istituzionali, in conformità con quanto previsto delle AUP del GARR [(https://www.garr.it/it/regole-di-utilizzo-della-rete-aup)](https://www.garr.it/it/regole-di-utilizzo-della-rete-aup);\r\n* è consapevole che il Consortium GARR e GÉANT possono revocare senza preavviso i certificati emessi;\r\n* si impegna a chiedere la revoca e/o modifica dei certificati in caso di cessazione, variazione di utilizzo o compromissione sicurezza della chiave;",
+        "ordinamento" : 8,
+        "attachment" : "structures/ict/categories/rc2-richiesta-certificato-digitale-x509-tcs-esterni-nota-1/conditions/NoteEsPDFA.pdf",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "RC2 - RICHIESTA CERTIFICATO DIGITALE X.509 (TCS) - (Esterni) (Nota 1)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"RC2 - RICHIESTA CERTIFICATO DIGITALE X.509 (TCS) - (Esterni) (Nota 1)\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Il Consortium GARR partecipa al Trusted Certificate Service (TCS) promosso da Géant a favore delle reti della ricerca europee. Tramite questo servizio, il Consortium GARR offre gratuitamente alla propria comunità certificati digitali x.509 emessi da una delle maggiori Certification Authority commerciali: HARICA. - (Nota 2)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nIl Consortium GARR partecipa al Trusted Certificate Service (TCS) promosso da Géant a favore delle reti della ricerca europee. Tramite questo servizio, il Consortium GARR offre gratuitamente alla propria comunità certificati digitali x.509 emessi da una delle maggiori Certification Authority commerciali: HARICA. - (Nota 2)</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "email",
+      "label" : "Email",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"email\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "telefono",
+      "label" : "Telefono",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono\">",
+      "type" : "text"
+    }, {
+      "id" : "in_qualità_di_referente_tecnico",
+      "label" : "In qualità di Referente Tecnico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"in_qualità_di_referente_tecnico\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "tipo_di_richiesta._-_nota_3:",
+      "label" : "Tipo di Richiesta. - (Nota 3):",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"tipo_di_richiesta._-_nota_3:\" value=\"Self Enrollment sul portale HARICA tramite Account Gmail o Registrazione su HARICA  (Richiesta-Rinnovo-Revoca)\r\nIn qualità di Referente Tecnico\">\n\n            \n            <label\n            >\n                Self Enrollment sul portale HARICA tramite Account Gmail o Registrazione su HARICA  (Richiesta-Rinnovo-Revoca)\r\nIn qualità di Referente Tecnico\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "data",
+      "label" : "Data",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data/ora valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"uniticket-datetimepicker-wrapper\">\n    <input type=\"text\"\n           name=\"data\"\n           class=\"form-control uniticket-datetimepicker\"\n           \n           >\n</div>",
+      "type" : "text"
+    } ]
+  },
+  "rawTextBody" : null
+}

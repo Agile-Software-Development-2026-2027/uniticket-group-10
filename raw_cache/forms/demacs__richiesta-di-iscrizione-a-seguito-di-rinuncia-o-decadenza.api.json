@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:47.836354Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-di-iscrizione-a-seguito-di-rinuncia-o-decadenza/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Modulo aperto dal primo luglio al 31 agosto",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

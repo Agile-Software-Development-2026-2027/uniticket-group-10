@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:00.444365Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/servizio-studenti-con-disabilita-dsa-e-bes/esami-a-distanza-per-studenti-con-disabilita-in-situazione-di-particolare-fragilita-e-rischio-di-contagio-da-coronavirus/ticket/new/",
+  "jsonBody" : {
+    "detail" : "dal 08 Gennaio 2023 non è più possibile inviare richieste",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

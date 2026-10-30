@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:00.060555Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dagan-area-affari-generali/elezioni-rappresentanze-studentesche-presentazione-liste-e-responsabili-di-lista/ticket/new/",
+  "jsonBody" : {
+    "detail" : "I termini di presentazione sono scaduti",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

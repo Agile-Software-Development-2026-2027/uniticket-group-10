@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:41.352260Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/demacs/z-richiesta-di-abbreviazione-di-corso-per-scienze-della-formazione-primaria/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Modulo non più utilizzato, vedi Bando di Ammissione per le modalità di Immatricolazione da anni successivi al link https://www.unical.it/didattica/iscriversi-studiare-laurearsi/ammissione-1-anno/",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,238 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:17.857480Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizio-studenti-con-disabilita-dsa-e-bes/servizio-di-trasporto-e-accompagnamento-studenti-con-disabilita/ticket/new/",
+  "jsonBody" : {
+    "name" : "Servizio di Trasporto e accompagnamento studenti con disabilità",
+    "description" : "Richiesta per Servizio di Trasporto e accompagnamento studenti con disabilità",
+    "protocol_required" : false,
+    "slug" : "servizio-di-trasporto-e-accompagnamento-studenti-con-disabilita",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Servizio di Trasporto e accompagnamento studenti con disabilità",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Servizio di Trasporto e accompagnamento studenti con disabilità\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta per Servizio di Trasporto e accompagnamento studenti con disabilità",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta per Servizio di Trasporto e accompagnamento studenti con disabilità</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"matricola\">",
+      "type" : "text"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"e-mail\">",
+      "type" : "text"
+    }, {
+      "id" : "telefono_cellulare",
+      "label" : "Telefono/cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono_cellulare\">",
+      "type" : "text"
+    }, {
+      "id" : "corso_di_laurea_in",
+      "label" : "Corso di Laurea in",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"corso_di_laurea_in\">",
+      "type" : "text"
+    }, {
+      "id" : "periodo_data_inizio_dyn",
+      "label" : "Periodo (Data inizio)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"periodo_data_inizio_dyn\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "periodo_data_fine_dyn",
+      "label" : "Periodo (Data fine)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"periodo_data_fine_dyn\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "mezzo_attrezzato_per_carrozzina",
+      "label" : "Mezzo Attrezzato per Carrozzina",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"mezzo_attrezzato_per_carrozzina\" value=\"Si\">\n\n            \n            <label\n            >\n                Si\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"mezzo_attrezzato_per_carrozzina\" value=\"No\">\n\n            \n            <label\n            >\n                No\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "motivo_della_richiesta",
+      "label" : "Motivo della richiesta",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "lezione",
+        "value" : "lezione"
+      }, {
+        "text" : "studio",
+        "value" : "studio"
+      }, {
+        "text" : "esame",
+        "value" : "esame"
+      }, {
+        "text" : "ricevimento docente",
+        "value" : "ricevimento docente"
+      }, {
+        "text" : "disbrigo pratiche burocratiche-amministrative",
+        "value" : "disbrigo pratiche burocratiche-amministrative"
+      }, {
+        "text" : "Altro",
+        "value" : "Altro"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"motivo_della_richiesta\" value=\"lezione\">\n lezione</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"motivo_della_richiesta\" value=\"studio\">\n studio</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"motivo_della_richiesta\" value=\"esame\">\n esame</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"motivo_della_richiesta\" value=\"ricevimento docente\">\n ricevimento docente</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"motivo_della_richiesta\" value=\"disbrigo pratiche burocratiche-amministrative\">\n disbrigo pratiche burocratiche-amministrative</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"motivo_della_richiesta\" value=\"Altro\">\n Altro</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "inserisci_certificato_di_disabilità_invalidità",
+      "label" : "Inserisci certificato di disabilità/Invalidità",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"inserisci_certificato_di_disabilità_invalidità\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

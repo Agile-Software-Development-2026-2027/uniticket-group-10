@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:24.689621Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/post-laurea/autocert-titoli-concorso-di-ammissione-percorso-30-cfu-art-13-dpcm-04-08-2023/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Siamo spiacenti, il modulo non è più attivo",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

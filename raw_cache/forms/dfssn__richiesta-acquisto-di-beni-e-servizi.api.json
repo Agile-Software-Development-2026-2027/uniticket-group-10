@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:28.326790Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/dfssn/richiesta-acquisto-di-beni-e-servizi/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

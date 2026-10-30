@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:32.949635Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dfssn/tirocinio-medicina-e-chirurgia-td-0804/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

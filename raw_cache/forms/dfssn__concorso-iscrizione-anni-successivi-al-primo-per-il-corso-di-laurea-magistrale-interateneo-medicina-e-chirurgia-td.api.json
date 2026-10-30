@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:37.603864Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dfssn/concorso-iscrizione-anni-successivi-al-primo-per-il-corso-di-laurea-magistrale-interateneo-medicina-e-chirurgia-td/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Funzione non attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

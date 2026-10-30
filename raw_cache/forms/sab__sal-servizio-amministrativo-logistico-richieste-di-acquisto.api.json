@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:15.502254Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/sab/sal-servizio-amministrativo-logistico-richieste-di-acquisto/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

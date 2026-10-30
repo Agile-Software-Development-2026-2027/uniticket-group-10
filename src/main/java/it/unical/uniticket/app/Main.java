@@ -10,7 +10,9 @@ import it.unical.uniticket.rag.UniTicketRagEngine.ScoredCategory;
 import it.unical.uniticket.routing.TicketRouter;
 
 import java.io.File;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.Scanner;
 
 public class Main {
@@ -18,6 +20,7 @@ public class Main {
     private static final String OLLAMA_MODEL = "qwen2.5:3b";
     private static final String OLLAMA_BASE_URL = "http://localhost:11434";
     private static final String EMBEDDING_MODEL = "bge-m3";
+    private static final int MAX_TURNS = 3;
 
     public static void main(String[] args) throws Exception {
         File catalogFile = new File("uniticket.json");
@@ -47,22 +50,21 @@ public class Main {
         String initialUserMessage = scanner.nextLine().trim();
         if (initialUserMessage.isEmpty()) return;
 
-        System.out.println("\n⏳ Ricerca ibrida (BM25 + embeddings + RRF)...");
-        RoutingDecision decision = router.route(initialUserMessage, 5);
+        String cumulativeQuery = initialUserMessage;
+        String clarification = "";
+        List<ScoredCategory> previousCandidates = java.util.Collections.emptyList();
+        Set<String> rejectedSlugs = new HashSet<>();
+        RoutingDecision decision = null;
 
-        for (int i = 0; i < decision.ragCandidates.size(); i++) {
-            ScoredCategory sc = decision.ragCandidates.get(i);
-            System.out.printf("   %d) [RRF: %.4f | attivo: %-5s] %s (%s)%n",
-                    i + 1, sc.score, sc.schema.accessible, sc.schema.categoryTitle, sc.schema.compositeSlug);
-        }
+        for (int turn = 1; turn <= MAX_TURNS; turn++) {
+            System.out.println("\n⏳ Ricerca ibrida (BM25 + embeddings + RRF)...");
+            decision = turn == 1
+                    ? router.route(cumulativeQuery, 5)
+                    : router.route(clarification, 5, previousCandidates,
+                    rejectedSlugs, cumulativeQuery);
+            printDecision(decision);
+            if (!"CLARIFY".equalsIgnoreCase(decision.action)) break;
 
-        System.out.println("\n🎯 Decisione JEV Router:");
-        System.out.println("   ├── Azione         : " + decision.action);
-        System.out.println("   ├── Modulo scelto : " + decision.selectedCompositeSlug);
-        System.out.println("   ├── Confidenza    : " + decision.confidence);
-        System.out.println("   └── Motivazione   : " + decision.reasoning);
-
-        if ("CLARIFY".equalsIgnoreCase(decision.action)) {
             List<ScoredCategory> clarifyOptions = decision.clarifyOptions;
             int optionCount = Math.min(5, clarifyOptions.size());
             System.out.println("\n❓ Ho trovato più possibilità pertinenti:");
@@ -82,7 +84,6 @@ public class Main {
 
             // Se l'utente seleziona uno dei candidati numerati, usa direttamente
             // quella scelta invece di lasciare che il modello la interpreti.
-            String clarification;
             int selectedIndex;
             while (true) {
                 System.out.print("\n💬 Precisazione: ");
@@ -111,11 +112,19 @@ public class Main {
                         optionCount);
             }
             if (selectedIndex == -2) {
-                decision.action = "NONE";
-                decision.selectedCompositeSlug = "NONE";
-                decision.matchedSchema = null;
-                decision.confidence = 1.0;
-                decision.reasoning = "L'utente ha indicato che nessuna opzione è pertinente.";
+                for (ScoredCategory candidate : clarifyOptions) {
+                    rejectedSlugs.add(candidate.schema.compositeSlug);
+                }
+                cumulativeQuery += "\nNessuna delle opzioni precedenti è pertinente.";
+                previousCandidates = java.util.Collections.emptyList();
+                clarification = "Nessuna delle opzioni precedenti è pertinente.";
+                if (turn == MAX_TURNS) {
+                    decision.action = "NONE";
+                    decision.selectedCompositeSlug = "NONE";
+                    decision.matchedSchema = null;
+                    decision.confidence = 1.0;
+                    decision.reasoning = "L'utente ha escluso tutti i candidati mostrati.";
+                }
             } else if (selectedIndex >= 0) {
                 ScoredCategory selected = clarifyOptions.get(selectedIndex);
                 decision.selectedCompositeSlug = selected.schema.compositeSlug;
@@ -124,25 +133,12 @@ public class Main {
                 decision.reasoning = "Modulo selezionato direttamente dall'utente.";
                 decision.matchedSchema = selected.schema;
             } else {
-                decision = router.route(
-                        initialUserMessage + "\nPrecisazione: " + clarification, 5, clarifyOptions);
+                cumulativeQuery += "\nPrecisazione: " + clarification;
+                previousCandidates = decision.plausibleCandidates.isEmpty()
+                        ? clarifyOptions : decision.plausibleCandidates;
             }
-            System.out.println("\n🎯 Decisione aggiornata:");
-            System.out.println("   ├── Azione         : " + decision.action);
-            System.out.println("   ├── Modulo scelto : " + decision.selectedCompositeSlug);
-            System.out.println("   ├── Confidenza    : " + decision.confidence);
-            System.out.println("   └── Motivazione   : " + decision.reasoning);
-            if ("CLARIFY".equalsIgnoreCase(decision.action)
-                    && decision.selectedCompositeSlug.equalsIgnoreCase("NONE")) {
-                System.out.println("\n❓ Non ho identificato una scelta certa. Le opzioni restano:");
-                for (int i = 0; i < decision.clarifyOptions.size(); i++) {
-                    ScoredCategory candidate = decision.clarifyOptions.get(i);
-                    System.out.printf("   %d) [%s] %s (%s)%n", i + 1,
-                            candidate.schema.structureName, candidate.schema.categoryTitle,
-                            candidate.schema.compositeSlug);
-                }
-                System.out.println(decision.clarifyingQuestion);
-                return;
+            if (!"CLARIFY".equalsIgnoreCase(decision.action)) {
+                break;
             }
         }
 
@@ -167,6 +163,20 @@ public class Main {
         System.out.println("Struttura : " + decision.matchedSchema.structureName);
         System.out.println("Tipologia : " + decision.matchedSchema.categoryTitle);
         System.out.println("Stato     : attivo");
+    }
+
+    private static void printDecision(RoutingDecision decision) {
+        for (int i = 0; i < decision.ragCandidates.size(); i++) {
+            ScoredCategory sc = decision.ragCandidates.get(i);
+            System.out.printf("   %d) [RRF: %.4f | attivo: %-5s] %s (%s)%n",
+                    i + 1, sc.score, sc.schema.accessible,
+                    sc.schema.categoryTitle, sc.schema.compositeSlug);
+        }
+        System.out.println("\n🎯 Decisione JEV Router:");
+        System.out.println("   ├── Azione         : " + decision.action);
+        System.out.println("   ├── Modulo scelto : " + decision.selectedCompositeSlug);
+        System.out.println("   ├── Confidenza    : " + decision.confidence);
+        System.out.println("   └── Motivazione   : " + decision.reasoning);
     }
 
 }

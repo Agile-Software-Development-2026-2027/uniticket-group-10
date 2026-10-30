@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:27.198576Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/servizi-didattici/recupero-crediti-aa-20202021/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Modulo attivo dal lunedì ore 9 al venerdì ore 14, salvo festività e chiusure Ateneo.",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

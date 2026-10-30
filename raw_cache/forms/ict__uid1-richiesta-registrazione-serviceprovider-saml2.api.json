@@ -1,0 +1,203 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:34.018511Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/ict/uid1-richiesta-registrazione-serviceprovider-saml2/ticket/new/",
+  "jsonBody" : {
+    "name" : "UID1 - Richiesta Registrazione ServiceProvider SAML2",
+    "description" : "Richiesta Registrazione ServiceProvider SAML2",
+    "protocol_required" : false,
+    "slug" : "uid1-richiesta-registrazione-serviceprovider-saml2",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 83,
+      "fields" : {
+        "category" : 93,
+        "title" : "Tipologia di Servizio",
+        "text" : "Il sistema è dedicato ai fornitori di servizi che desiderano offrire  ai propri utenti la possibilità di accedere mediante le credenziali ufficiali Unical ed il Sistema Pubblico di Identità Digitale Spid, consente l&#x27;identificazione degli utenti per mezzo dei seguenti fornitori di identità digitali:\r\n\r\n - Unical ID\r\n - Spid (Sistema Pubblico di Identità Digitale, spid.gov.it)",
+        "ordinamento" : 10,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "UID1 - Richiesta Registrazione ServiceProvider SAML2",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"UID1 - Richiesta Registrazione ServiceProvider SAML2\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta Registrazione ServiceProvider SAML2",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta Registrazione ServiceProvider SAML2</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "struttura",
+      "label" : "Struttura",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "UNITA’ AMMINISTRATIVA / UFFICIO DIRIGENZIALE / DIPARTIMENTO",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"struttura\">",
+      "type" : "text"
+    }, {
+      "id" : "tipo",
+      "label" : "Tipo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Specificare se si tratta di aggiunta di un servizio mai federato, aggiornamento di un servizio già federato o cancellazione di un servizio già federato.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"tipo\" value=\"Attivazione\">\n\n            \n            <label\n            >\n                Attivazione\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"tipo\" value=\"Rimozione\">\n\n            \n            <label\n            >\n                Rimozione\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"tipo\" value=\"Modifica\">\n\n            \n            <label\n            >\n                Modifica\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "federazione",
+      "label" : "Federazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "Indicare quali possibilità di autenticazione si vogliano fornire ai propri utenti, se le sole credenziali fornite dall’Università della Calabria, se si vuole permettere anche l’autenticazione attraverso il servizio nazionale Spid di Agid.",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Unical ID",
+        "value" : "Unical ID"
+      }, {
+        "text" : "SPID",
+        "value" : "SPID"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"federazione\" value=\"Unical ID\">\n Unical ID</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"federazione\" value=\"SPID\">\n SPID</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "nome_del_servizio",
+      "label" : "Nome del Servizio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome_del_servizio\">",
+      "type" : "text"
+    }, {
+      "id" : "descrizione_del_servizio",
+      "label" : "Descrizione del Servizio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"descrizione_del_servizio\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "entity_id",
+      "label" : "Entity ID",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Identificatore univoco della risorsa, solitamente corrispondente al metadata URL.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"entity_id\">",
+      "type" : "text"
+    }, {
+      "id" : "metadata_url",
+      "label" : "Metadata URL",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indirizzo corrispondente ai Metadata SAML2 del Service Provider",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"metadata_url\">",
+      "type" : "text"
+    }, {
+      "id" : "referenti_tecnici",
+      "label" : "Referenti Tecnici",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Inserire almeno un referente tecnico",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-referenti_tecnici\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_referenti_tecnici-NNNNN-nome\">Nome:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"referenti_tecnici-NNNNN-nome\" id=\"id_referenti_tecnici-NNNNN-nome\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_referenti_tecnici-NNNNN-cognome\">Cognome:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"referenti_tecnici-NNNNN-cognome\" id=\"id_referenti_tecnici-NNNNN-cognome\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_referenti_tecnici-NNNNN-email\">Email:</label></th>\n    <td>\n      \n      <input type=\"email\" name=\"referenti_tecnici-NNNNN-email\" maxlength=\"320\" id=\"id_referenti_tecnici-NNNNN-email\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_referenti_tecnici-NNNNN-telefono\">Telefono:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"referenti_tecnici-NNNNN-telefono\" id=\"id_referenti_tecnici-NNNNN-telefono\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_referenti_tecnici-NNNNN-descrizione\">Descrizione:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"referenti_tecnici-NNNNN-descrizione\" id=\"id_referenti_tecnici-NNNNN-descrizione\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-referenti_tecnici-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"referenti_tecnici-TOTAL_FORMS\" value=\"1\" id=\"id_referenti_tecnici-TOTAL_FORMS\"><input type=\"hidden\" name=\"referenti_tecnici-INITIAL_FORMS\" value=\"0\" id=\"id_referenti_tecnici-INITIAL_FORMS\"><input type=\"hidden\" name=\"referenti_tecnici-MIN_NUM_FORMS\" value=\"1\" id=\"id_referenti_tecnici-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"referenti_tecnici-MAX_NUM_FORMS\" value=\"1000\" id=\"id_referenti_tecnici-MAX_NUM_FORMS\">\n\n<div class=\"form-container\">\n    <div class=\"row form-row spacer\">\n        <div class=\"col\">\n            <div class=\"input-group\">\n                <div class=\"table-responsive\">\n                    <table class=\"table table-bordered formset-table\">\n                        <tr>\n    <th><label for=\"id_referenti_tecnici-0-nome\">Nome:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"referenti_tecnici-0-nome\" id=\"id_referenti_tecnici-0-nome\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_referenti_tecnici-0-cognome\">Cognome:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"referenti_tecnici-0-cognome\" id=\"id_referenti_tecnici-0-cognome\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_referenti_tecnici-0-email\">Email:</label></th>\n    <td>\n      \n      <input type=\"email\" name=\"referenti_tecnici-0-email\" maxlength=\"320\" id=\"id_referenti_tecnici-0-email\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_referenti_tecnici-0-telefono\">Telefono:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"referenti_tecnici-0-telefono\" id=\"id_referenti_tecnici-0-telefono\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_referenti_tecnici-0-descrizione\">Descrizione:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"referenti_tecnici-0-descrizione\" id=\"id_referenti_tecnici-0-descrizione\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                    </table>\n                </div>\n            </div>\n            <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-referenti_tecnici-0\">\n                <svg class=\"icon icon-xs icon-white\">\n                    <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                </svg> Rimuovi inserimento\n            </button>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-referenti_tecnici\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

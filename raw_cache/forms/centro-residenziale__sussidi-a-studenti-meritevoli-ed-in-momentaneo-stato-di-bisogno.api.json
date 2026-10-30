@@ -1,0 +1,209 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:27.868109Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/centro-residenziale/sussidi-a-studenti-meritevoli-ed-in-momentaneo-stato-di-bisogno/ticket/new/",
+  "jsonBody" : {
+    "name" : "Sussidi a studenti meritevoli ed in momentaneo stato di bisogno",
+    "description" : "Lo studente che si trova in condizioni di dichiarato stato di bisogno, a causa del verificarsi di gravi eventi personali o riguardanti il proprio nucleo familiare, tali da compromettere la prosecuzione degli studi, può richiedere la concessione di un sussidio straordinario, fermo restando il possesso dei requisiti economici e di merito previsti. Per maggiori informazioni consultare il link https://www.unical.it/didattica/diritto-allo-studio/altri-benefici/sussidi/",
+    "protocol_required" : true,
+    "slug" : "sussidi-a-studenti-meritevoli-ed-in-momentaneo-stato-di-bisogno",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 612,
+      "fields" : {
+        "category" : 541,
+        "title" : "Dichiarazioni",
+        "text" : "Il sottoscritto, consapevole delle sanzioni penali previste dall’art. 76 del D.P.R. 445/2000, nel caso di mendaci dichiarazioni, di formazione o uso di atti falsi DICHIARA:\r\n\r\n-\tdi non aver usufruito dello stesso contributo negli anni precedenti; \r\n-\tdi aver preso visione dell’informativa resa ai sensi degli artt. 13 e 14 del Regolamento UE 2016/679 (GDPR) consultabile all’indirizzo unical.it/privacy e presta il proprio consenso affinché i dati personali di cui alla presente istanza e contenuti nei suoi allegati siano trattati, anche con strumenti informatici, per consentire lo svolgimento del procedimento per il quale la presente istanza viene resa",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Sussidi a studenti meritevoli ed in momentaneo stato di bisogno",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Sussidi a studenti meritevoli ed in momentaneo stato di bisogno\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Lo studente che si trova in condizioni di dichiarato stato di bisogno, a causa del verificarsi di gravi eventi personali o riguardanti il proprio nucleo familiare, tali da compromettere la prosecuzione degli studi, può richiedere la concessione di un sussidio straordinario, fermo restando il possesso dei requisiti economici e di merito previsti. Per maggiori informazioni consultare il link https://www.unical.it/didattica/diritto-allo-studio/altri-benefici/sussidi/",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nLo studente che si trova in condizioni di dichiarato stato di bisogno, a causa del verificarsi di gravi eventi personali o riguardanti il proprio nucleo familiare, tali da compromettere la prosecuzione degli studi, può richiedere la concessione di un sussidio straordinario, fermo restando il possesso dei requisiti economici e di merito previsti. Per maggiori informazioni consultare il link https://www.unical.it/didattica/diritto-allo-studio/altri-benefici/sussidi/</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "il_sottoscritto_chiede_di_poter_usufruire_dei_vantaggi_economici_e_delle_specifiche_forme_di_sussidio_previste_dall’università_della_calabria",
+      "label" : "Il sottoscritto CHIEDE di poter usufruire dei vantaggi economici e delle specifiche forme di sussidio previste dall’Università della Calabria",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "per estinguere debiti nei confronti del Centro Residenziale relativi a servizi fruiti, non pagati",
+        "value" : "per estinguere debiti nei confronti del Centro Residenziale relativi a servizi fruiti, non pagati"
+      }, {
+        "text" : "per la restituzione, a seguito di eventuale revoca, della quota in denaro della borsa di studio",
+        "value" : "per la restituzione, a seguito di eventuale revoca, della quota in denaro della borsa di studio"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"il_sottoscritto_chiede_di_poter_usufruire_dei_vantaggi_economici_e_delle_specifiche_forme_di_sussidio_previste_dall’università_della_calabria\" value=\"per estinguere debiti nei confronti del Centro Residenziale relativi a servizi fruiti, non pagati\">\n per estinguere debiti nei confronti del Centro Residenziale relativi a servizi fruiti, non pagati</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"il_sottoscritto_chiede_di_poter_usufruire_dei_vantaggi_economici_e_delle_specifiche_forme_di_sussidio_previste_dall’università_della_calabria\" value=\"per la restituzione, a seguito di eventuale revoca, della quota in denaro della borsa di studio\">\n per la restituzione, a seguito di eventuale revoca, della quota in denaro della borsa di studio</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "attraverso",
+      "label" : "attraverso",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "il conferimento di un incarico di collaborazione part-time, il cui compenso sarà utilizzato per l’estinzione, completa o parziale, del debito",
+        "value" : "il conferimento di un incarico di collaborazione part-time, il cui compenso sarà utilizzato per l’estinzione, completa o parziale, del debito"
+      }, {
+        "text" : "l’esonero dal pagamento di una parte dei debiti maturati",
+        "value" : "l’esonero dal pagamento di una parte dei debiti maturati"
+      }, {
+        "text" : "la rateizzazione di una parte dei debiti maturati",
+        "value" : "la rateizzazione di una parte dei debiti maturati"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"attraverso\" value=\"il conferimento di un incarico di collaborazione part-time, il cui compenso sarà utilizzato per l’estinzione, completa o parziale, del debito\">\n il conferimento di un incarico di collaborazione part-time, il cui compenso sarà utilizzato per l’estinzione, completa o parziale, del debito</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"attraverso\" value=\"l’esonero dal pagamento di una parte dei debiti maturati\">\n l’esonero dal pagamento di una parte dei debiti maturati</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"attraverso\" value=\"la rateizzazione di una parte dei debiti maturati\">\n la rateizzazione di una parte dei debiti maturati</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "il_sottoscritto_dichiara_di_ritrovarsi_nella_seguente_situazione_di_grave_documentato_disagio",
+      "label" : "Il sottoscritto dichiara di ritrovarsi nella seguente situazione di grave documentato disagio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"il_sottoscritto_dichiara_di_ritrovarsi_nella_seguente_situazione_di_grave_documentato_disagio\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "dichiara,_altresì,_che_la_propria_attestazione_isee-dsu_in_corso_di_validità_è_pari_ad_euro",
+      "label" : "Dichiara, altresì, che la propria attestazione ISEE-DSU in corso di validità è pari ad euro",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"dichiara,_altresì,_che_la_propria_attestazione_isee-dsu_in_corso_di_validità_è_pari_ad_euro\" step=\"0.001\">",
+      "type" : "number"
+    }, {
+      "id" : "e_di_aver_conseguito,_alla_data_odierna,_i_seguenti_crediti_formativi",
+      "label" : "e di aver conseguito, alla data odierna, i seguenti crediti formativi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"e_di_aver_conseguito,_alla_data_odierna,_i_seguenti_crediti_formativi\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "copia_del_documento_d'identità",
+      "label" : "Copia del documento d'identità",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"copia_del_documento_d&#x27;identità\">",
+      "type" : "file"
+    }, {
+      "id" : "altri_eventuali_allegati",
+      "label" : "Altri eventuali allegati",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"altri_eventuali_allegati\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

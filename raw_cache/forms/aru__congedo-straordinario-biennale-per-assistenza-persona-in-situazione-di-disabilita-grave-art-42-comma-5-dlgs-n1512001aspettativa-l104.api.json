@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:39.490967Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/aru/congedo-straordinario-biennale-per-assistenza-persona-in-situazione-di-disabilita-grave-art-42-comma-5-dlgs-n1512001aspettativa-l104/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,107 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:41.086186Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/diam/richiesta-chiusura-erasmus-studio/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta Chiusura Erasmus Studio",
+    "description" : "Riconoscimento delle attività formative svolte all'estero e dei relativi CFU acquisiti",
+    "protocol_required" : true,
+    "slug" : "richiesta-chiusura-erasmus-studio",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta Chiusura Erasmus Studio",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta Chiusura Erasmus Studio\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Riconoscimento delle attività formative svolte all'estero e dei relativi CFU acquisiti",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRiconoscimento delle attività formative svolte all&#x27;estero e dei relativi CFU acquisiti</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "tor",
+      "label" : "ToR",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un URL valido"
+      },
+      "help_text" : "N. B. Inserire il link contenente il ToR",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"url\" name=\"tor\">",
+      "type" : "url"
+    }, {
+      "id" : "learning_agreement",
+      "label" : "Learning Agreement",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un URL valido"
+      },
+      "help_text" : "N. B. Inserire il link contenente il Learning Agreement",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"url\" name=\"learning_agreement\">",
+      "type" : "url"
+    }, {
+      "id" : "note",
+      "label" : "NOTE",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"note\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "nota_bene",
+      "label" : "NOTA BENE",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"nota_bene\" value=\"\">",
+      "type" : "hidden"
+    } ]
+  },
+  "rawTextBody" : null
+}

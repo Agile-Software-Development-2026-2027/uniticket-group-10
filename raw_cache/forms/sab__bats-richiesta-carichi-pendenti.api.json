@@ -1,0 +1,196 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:28.551068Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/sab/bats-richiesta-carichi-pendenti/ticket/new/",
+  "jsonBody" : {
+    "name" : "BATS - Richiesta carichi pendenti",
+    "description" : "Questo modulo serve per la verifica della posizione utente (carichi pendenti) da effettuare obbligatoriamente a conclusione carriera: fine corso, fine periodo di studio ERASMUS, stage, ecc...\r\nPresa in carico questa richiesta la tessera della biblioteca verrà disattivata.",
+    "protocol_required" : false,
+    "slug" : "bats-richiesta-carichi-pendenti",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 550,
+      "fields" : {
+        "category" : 472,
+        "title" : "CONSENSO AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "Presto il mio consenso al trattamento dei dati da me forniti per le finalità di gestione del servizio ed a fini statistici",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 551,
+      "fields" : {
+        "category" : 472,
+        "title" : "PRIVACY - INFORMATIVA RELATIVA AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "I dati richiesti verranno trattati dall’Università della Calabria, in qualità di Titolare del trattamento, nel rispetto delle disposizioni di cui al Regolamento Europeo 2016/679 (“GDPR”). Si invita a prendere visione dell’Informativa relativa al trattamento dei dati personali consultando la pagina: https://www.unical.it/portale/ateneo/privacy/",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "BATS - Richiesta carichi pendenti",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"BATS - Richiesta carichi pendenti\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Questo modulo serve per la verifica della posizione utente (carichi pendenti) da effettuare obbligatoriamente a conclusione carriera: fine corso, fine periodo di studio ERASMUS, stage, ecc...\r\nPresa in carico questa richiesta la tessera della biblioteca verrà disattivata.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nQuesto modulo serve per la verifica della posizione utente (carichi pendenti) da effettuare obbligatoriamente a conclusione carriera: fine corso, fine periodo di studio ERASMUS, stage, ecc...\r\nPresa in carico questa richiesta la tessera della biblioteca verrà disattivata.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "si_richiede_il_controllo_della_posizione_utente_per",
+      "label" : "Si richiede il controllo della posizione utente per",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"si_richiede_il_controllo_della_posizione_utente_per\" value=\"Seduta di laurea a ciclo unico\">\n\n            \n            <label\n            >\n                Seduta di laurea a ciclo unico\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"si_richiede_il_controllo_della_posizione_utente_per\" value=\" Seduta di laurea triennale\">\n\n            \n            <label\n            >\n                 Seduta di laurea triennale\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"si_richiede_il_controllo_della_posizione_utente_per\" value=\" Seduta di laurea magistrale\">\n\n            \n            <label\n            >\n                 Seduta di laurea magistrale\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"si_richiede_il_controllo_della_posizione_utente_per\" value=\" ERASMUS\">\n\n            \n            <label\n            >\n                 ERASMUS\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"si_richiede_il_controllo_della_posizione_utente_per\" value=\" Utente Master\">\n\n            \n            <label\n            >\n                 Utente Master\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"si_richiede_il_controllo_della_posizione_utente_per\" value=\" Dottorato di ricerca\">\n\n            \n            <label\n            >\n                 Dottorato di ricerca\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"si_richiede_il_controllo_della_posizione_utente_per\" value=\" Altri corsi\">\n\n            \n            <label\n            >\n                 Altri corsi\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"si_richiede_il_controllo_della_posizione_utente_per\" value=\" Trasferimento in altro ateneo\">\n\n            \n            <label\n            >\n                 Trasferimento in altro ateneo\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"si_richiede_il_controllo_della_posizione_utente_per\" value=\" Rinuncia agli studi\">\n\n            \n            <label\n            >\n                 Rinuncia agli studi\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "numero_di_matricola",
+      "label" : "Numero di matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "Inserisci il numero di matricola del corso di laurea per cui si sta facendo richiesta",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"numero_di_matricola\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "corso_di_laurea___dottorato_di_ricerca_in",
+      "label" : "Corso di Laurea / Dottorato di ricerca in",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"corso_di_laurea___dottorato_di_ricerca_in\">",
+      "type" : "text"
+    }, {
+      "id" : "dipartimento",
+      "label" : "Dipartimento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"dipartimento\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Biologia, Ecologia e scienze della Terra - DiBEST\">Biologia, Ecologia e scienze della Terra - DiBEST</option>\n\n  <option value=\" Chimica e Tecnologie Chimiche - CTC\"> Chimica e Tecnologie Chimiche - CTC</option>\n\n  <option value=\" Farmacia e Scienze della Salute e della Nutrizione\"> Farmacia e Scienze della Salute e della Nutrizione</option>\n\n  <option value=\" Fisica\"> Fisica</option>\n\n  <option value=\" Ingegneria Civile - DINCI\"> Ingegneria Civile - DINCI</option>\n\n  <option value=\" Ingegneria Informatica, Modellistica, Elettronica e Sistemistica - DIMES\"> Ingegneria Informatica, Modellistica, Elettronica e Sistemistica - DIMES</option>\n\n  <option value=\" Ingegneria Meccanica, Energetica e Gestionale - DIMEG\"> Ingegneria Meccanica, Energetica e Gestionale - DIMEG</option>\n\n  <option value=\" Ingegneria dell&#x27;Ambiente - DIAM\"> Ingegneria dell&#x27;Ambiente - DIAM</option>\n\n  <option value=\" Matematica e Informatica - Demacs\"> Matematica e Informatica - Demacs</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "data_presunta_della_seduta_di_laurea___dottorato_di_ricerca___erasmus_data_fine_periodo_studi_unical",
+      "label" : "Data presunta della seduta di laurea / dottorato di ricerca / ERASMUS data fine periodo studi Unical",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "Non è necessario indicare il giorno esatto. Basta inserire mese ed anno della seduta.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_presunta_della_seduta_di_laurea___dottorato_di_ricerca___erasmus_data_fine_periodo_studi_unical\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "codice_tessera_utente",
+      "label" : "Codice Tessera Utente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserisci il numero della tua tessera della Biblioteca. Se non risulta mai richiesta o mai ritirata, inserisci 0000.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_tessera_utente\">",
+      "type" : "text"
+    }, {
+      "id" : "numero_di_cellulare",
+      "label" : "Numero di cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "Inserire un numero di cellulare aggiornato",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"numero_di_cellulare\" step=\"1\">",
+      "type" : "number"
+    } ]
+  },
+  "rawTextBody" : null
+}

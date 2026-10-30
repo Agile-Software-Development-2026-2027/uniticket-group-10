@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:18.825511Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/sird-esse3-autorizzazione-uso-funzioni/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

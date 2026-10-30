@@ -1,0 +1,198 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:56.151854Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/diam/richiesta-elaborato-finale-studenti-triennale/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta Elaborato Finale (Studenti Triennale)",
+    "description" : "Autorizzazione allo svolgimento dell'elaborato finale",
+    "protocol_required" : true,
+    "slug" : "richiesta-elaborato-finale-studenti-triennale",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 609,
+      "fields" : {
+        "category" : 488,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta Elaborato Finale (Studenti Triennale)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta Elaborato Finale (Studenti Triennale)\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Autorizzazione allo svolgimento dell'elaborato finale",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nAutorizzazione allo svolgimento dell&#x27;elaborato finale</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "iscritto_a_al_corso_di_laurea:",
+      "label" : "Iscritto/a al corso di laurea:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Selezionare il corso di laurea",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"iscritto_a_al_corso_di_laurea:\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Ingegneria Ambientale e Chimica - DM 270 (0790)\">Ingegneria Ambientale e Chimica - DM 270 (0790)</option>\n\n  <option value=\" Ingegneria per l&#x27;Ambiente e la Sicurezza del Territorio- DM 270 (0809)\"> Ingegneria per l&#x27;Ambiente e la Sicurezza del Territorio- DM 270 (0809)</option>\n\n  <option value=\" Ingegneria per l&#x27;Ambiente e il Territorio- DM 270 (0701)\"> Ingegneria per l&#x27;Ambiente e il Territorio- DM 270 (0701)</option>\n\n  <option value=\" Ingegneria per l&#x27;Ambiente e il Territorio- DM 509 (0240)\"> Ingegneria per l&#x27;Ambiente e il Territorio- DM 509 (0240)</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "anno:",
+      "label" : "Anno:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "Inserire l'anno",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"anno:\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "in_corso_o_fuori_corso:",
+      "label" : "in corso o fuori corso:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"in_corso_o_fuori_corso:\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"in corso\">in corso</option>\n\n  <option value=\" fuori corso\"> fuori corso</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "argomento_elaborato_finale",
+      "label" : "Argomento elaborato finale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"argomento_elaborato_finale\">",
+      "type" : "text"
+    }, {
+      "id" : "nome_relatore",
+      "label" : "Nome relatore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"nome_relatore\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"SALVATORE CRITELLI\">SALVATORE CRITELLI</option>\n\n  <option value=\" EFREM CURCIO\"> EFREM CURCIO</option>\n\n  <option value=\" GIROLAMO GIORDANO\"> GIROLAMO GIORDANO</option>\n\n  <option value=\" FRANCESCO MACCHIONE\"> FRANCESCO MACCHIONE</option>\n\n  <option value=\" GIUSEPPE MENDICINO\"> GIUSEPPE MENDICINO</option>\n\n  <option value=\" SALVATORE STRAFACE\"> SALVATORE STRAFACE</option>\n\n  <option value=\" PIETRO ARGURIO\"> PIETRO ARGURIO</option>\n\n  <option value=\" PAOLA CANNAVO&#x27;\"> PAOLA CANNAVO&#x27;</option>\n\n  <option value=\" MANUELA CARINI\"> MANUELA CARINI</option>\n\n  <option value=\" PIERFRANCO COSTABILE\"> PIERFRANCO COSTABILE</option>\n\n  <option value=\" MARILENA DE SIMONE\"> MARILENA DE SIMONE</option>\n\n  <option value=\" GIOVANNI GOLEMME\"> GIOVANNI GOLEMME</option>\n\n  <option value=\" ANASTASIA MACARIO\"> ANASTASIA MACARIO</option>\n\n  <option value=\" MARIO MAIOLO\"> MARIO MAIOLO</option>\n\n  <option value=\" ALESSANDRO MAZZITELLI\"> ALESSANDRO MAZZITELLI</option>\n\n  <option value=\" MASSIMO MIGLIORI\"> MASSIMO MIGLIORI</option>\n\n  <option value=\" LUIGI PASQUA\"> LUIGI PASQUA</option>\n\n  <option value=\" RAFFAELE PERSICO\"> RAFFAELE PERSICO</option>\n\n  <option value=\" FRANCESCA SALVO\"> FRANCESCA SALVO</option>\n\n  <option value=\" ALFONSO SENATORE\"> ALFONSO SENATORE</option>\n\n  <option value=\" ALESSIO SICILIANO\"> ALESSIO SICILIANO</option>\n\n  <option value=\" PAOLO ZIMMARO\"> PAOLO ZIMMARO</option>\n\n  <option value=\" RAFFAELE ZINNO\"> RAFFAELE ZINNO</option>\n\n  <option value=\" MASSIMO ZUPI\"> MASSIMO ZUPI</option>\n\n  <option value=\"FABIO CALDAROLA\">FABIO CALDAROLA</option>\n\n  <option value=\" MARIA GIOVANNA DURANTE\"> MARIA GIOVANNA DURANTE</option>\n\n  <option value=\" ENRICO CATIZZONE\"> ENRICO CATIZZONE</option>\n\n  <option value=\" FRANCESCO COSCARELLA\"> FRANCESCO COSCARELLA</option>\n\n  <option value=\" CARMELINA COSTANZO\"> CARMELINA COSTANZO</option>\n\n  <option value=\" ALESSIO DE RANGO\"> ALESSIO DE RANGO</option>\n\n  <option value=\" LUCA FURNARI\"> LUCA FURNARI</option>\n\n  <option value=\" EMANUELE GIGLIO\"> EMANUELE GIGLIO</option>\n\n  <option value=\" ERNESTO INFUSINO\"> ERNESTO INFUSINO</option>\n\n  <option value=\" CARLO LIMONTI\"> CARLO LIMONTI</option>\n\n  <option value=\" NICOLA PACINI\"> NICOLA PACINI</option>\n\n  <option value=\" SERGIO SANTORO\"> SERGIO SANTORO</option>\n\n  <option value=\"GIRIMONTE ROSSELLA\">GIRIMONTE ROSSELLA</option>\n\n  <option value=\"CARAVELLA ALESSIO\">CARAVELLA ALESSIO</option>\n\n  <option value=\"VIZZA PASQUALE\">VIZZA PASQUALE</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "correlatore",
+      "label" : "Correlatore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"correlatore\">",
+      "type" : "text"
+    }, {
+      "id" : "sessione_di_laurea_prevista",
+      "label" : "Sessione di laurea prevista",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"sessione_di_laurea_prevista\" value=\"Seduta di Laurea 18 Novembre 2026\">\n\n            \n            <label\n            >\n                Seduta di Laurea 18 Novembre 2026\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"sessione_di_laurea_prevista\" value=\"Seduta di Laurea 3 marzo 2027\">\n\n            \n            <label\n            >\n                Seduta di Laurea 3 marzo 2027\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"sessione_di_laurea_prevista\" value=\"Seduta di Laurea 28 aprile 2027\">\n\n            \n            <label\n            >\n                Seduta di Laurea 28 aprile 2027\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"sessione_di_laurea_prevista\" value=\" Seduta di Laurea 14 luglio 2027 \">\n\n            \n            <label\n            >\n                 Seduta di Laurea 14 luglio 2027 \n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"sessione_di_laurea_prevista\" value=\"Seduta di Laurea 22 settembre 2027\">\n\n            \n            <label\n            >\n                Seduta di Laurea 22 settembre 2027\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "nota_bene",
+      "label" : "Nota bene",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"nota_bene\" value=\"\">",
+      "type" : "hidden"
+    } ]
+  },
+  "rawTextBody" : null
+}

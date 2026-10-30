@@ -1,0 +1,231 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:40.010304Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dibest/copertura-assicurativa-escursione/ticket/new/",
+  "jsonBody" : {
+    "name" : "Copertura Assicurativa Escursione",
+    "description" : "Copertura Assicurativa Escursione Didattica",
+    "protocol_required" : true,
+    "slug" : "copertura-assicurativa-escursione",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 266,
+      "fields" : {
+        "category" : 255,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Copertura Assicurativa Escursione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Copertura Assicurativa Escursione\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Copertura Assicurativa Escursione Didattica",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nCopertura Assicurativa Escursione Didattica</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "al_coordinatore_del_cds",
+      "label" : "Al Coordinatore del CDS",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"al_coordinatore_del_cds\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "il_sottoscritto_a__la",
+      "label" : "Il sottoscritto/a /La",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_sottoscritto_a__la\">",
+      "type" : "text"
+    }, {
+      "id" : "in_qualità_di_docente_del_corso_di",
+      "label" : "In qualità di docente del corso di",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"in_qualità_di_docente_del_corso_di\">",
+      "type" : "text"
+    }, {
+      "id" : "del",
+      "label" : "del",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"del\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Corso di Laurea Triennale in Biologia\">Corso di Laurea Triennale in Biologia</option>\n\n  <option value=\"Corso di Laurea Triennale in Scienze e Tecnologie Biologiche\">Corso di Laurea Triennale in Scienze e Tecnologie Biologiche</option>\n\n  <option value=\"Corso di Laurea Triennale in Scienze Naturali e Ambientali\">Corso di Laurea Triennale in Scienze Naturali e Ambientali</option>\n\n  <option value=\"Corso di Laurea Triennale in Scienze Geologiche\">Corso di Laurea Triennale in Scienze Geologiche</option>\n\n  <option value=\"Corso di Laurea Triennale in Scienze e Tecnologie per le Attività Motorie e Sportive\">Corso di Laurea Triennale in Scienze e Tecnologie per le Attività Motorie e Sportive</option>\n\n  <option value=\"Corso di Laurea Magistrale in Biologia\">Corso di Laurea Magistrale in Biologia</option>\n\n  <option value=\"Corso di Laurea Magistrale in Health Biotecnology\">Corso di Laurea Magistrale in Health Biotecnology</option>\n\n  <option value=\"Corso di Laurea Magistrale in Biodiversità e Conservazione dei Sistemi Naturali\">Corso di Laurea Magistrale in Biodiversità e Conservazione dei Sistemi Naturali</option>\n\n  <option value=\"Corso di Laurea Magistrale in Scienze Geologiche per la gestione dei rischi ambientali e le georisorse \">Corso di Laurea Magistrale in Scienze Geologiche per la gestione dei rischi ambientali e le georisorse </option>\n\n  <option value=\"Corso di Laurea Magistrale a Ciclo Unico in Conservazione e Restauro dei Beni  Culturali\">Corso di Laurea Magistrale a Ciclo Unico in Conservazione e Restauro dei Beni  Culturali</option>\n\n  <option value=\"Masteri di II Livello in Tecnologie e metodi avanzati per l’individuazione e l’analisi di materie prime e seconde di uso industriale (La Russa-Costanzo)\">Masteri di II Livello in Tecnologie e metodi avanzati per l’individuazione e l’analisi di materie prime e seconde di uso industriale (La Russa-Costanzo)</option>\n\n  <option value=\"Master di II livello La Filiera Digitale dei Beni Culturali dalla Conoscenza alla Valorizzazione (Ricca-Bruno)\">Master di II livello La Filiera Digitale dei Beni Culturali dalla Conoscenza alla Valorizzazione (Ricca-Bruno)</option>\n\n  <option value=\"Master di II livello in Engineering Geology per la transizione energetica, le infrastrutture e la tutela del territorio e della risorsa acqua (Dominici)\">Master di II livello in Engineering Geology per la transizione energetica, le infrastrutture e la tutela del territorio e della risorsa acqua (Dominici)</option>\n\n  <option value=\"Master di II livello in Gestione e Conservazione della Biodiversità e delle risorse ambientali (Sperone)\">Master di II livello in Gestione e Conservazione della Biodiversità e delle risorse ambientali (Sperone)</option>\n\n  <option value=\"Master di II livello in Metodologie e tecniche per la Tutela dell&#x27;Ambiente e del Territorio (Apollaro-Bloise)\">Master di II livello in Metodologie e tecniche per la Tutela dell&#x27;Ambiente e del Territorio (Apollaro-Bloise)</option>\n\n  <option value=\"Master di II livello in Biologi per la nutrizione, la diagnostica e l&#x27;ambiente (Pochini)\">Master di II livello in Biologi per la nutrizione, la diagnostica e l&#x27;ambiente (Pochini)</option>\n\n  <option value=\"Master di II livello in Innovazione Tecnologica, progettazione e gestione sostenibile degli impianti di acquacoltura (Imbrogno)\">Master di II livello in Innovazione Tecnologica, progettazione e gestione sostenibile degli impianti di acquacoltura (Imbrogno)</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "svolto",
+      "label" : "svolto",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"svolto\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "presso",
+      "label" : "presso",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"presso\">",
+      "type" : "text"
+    }, {
+      "id" : "che_si_svolgerà_nel_seguente_periodo_data_inizio_dyn",
+      "label" : "Che si svolgerà nel seguente periodo (Data inizio)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"che_si_svolgerà_nel_seguente_periodo_data_inizio_dyn\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "che_si_svolgerà_nel_seguente_periodo_data_fine_dyn",
+      "label" : "Che si svolgerà nel seguente periodo (Data fine)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"che_si_svolgerà_nel_seguente_periodo_data_fine_dyn\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "di_seguito_gli_studenti_che_parteciperanno_alle_attività",
+      "label" : "Di seguito gli studenti che parteciperanno alle attività",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "nel campo \"in qualità di\" specificare se studente, dottorando, neolaureati, etc",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"di_seguito_gli_studenti_che_parteciperanno_alle_attività\">",
+      "type" : "file"
+    }, {
+      "id" : "il_sottoscritto_dichiara_di_utilizzare_il_seguente_mezzo_di_trasporto",
+      "label" : "Il sottoscritto dichiara di utilizzare il seguente mezzo di trasporto",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"il_sottoscritto_dichiara_di_utilizzare_il_seguente_mezzo_di_trasporto\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

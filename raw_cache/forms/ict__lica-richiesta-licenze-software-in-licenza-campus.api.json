@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:07.718181Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/lica-richiesta-licenze-software-in-licenza-campus/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

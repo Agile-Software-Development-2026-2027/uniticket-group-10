@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:48.597012Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dibest/richiesta-di-iscrizione-per-rinuncia-e-decadenza/ticket/new/",
+  "jsonBody" : {
+    "detail" : "E' possibile inoltrare la richiesta dal 1° luglio al 31 agosto",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,246 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:02.514279Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizio-studenti-con-disabilita-dsa-e-bes/richiesta-revisione-preventiva-del-tutor-per-approvazione-materiali-desame-da-parte-del-docente/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta revisione preventiva del tutor per approvazione materiali d’esame da parte del docente",
+    "description" : "Richiesta per sottoporre tabelle, formulari e mappe concettuali al tutor di riferimento per una revisione preventiva, prima che il materiale venga inviato al docente del Corso per l’approvazione finale. L’obiettivo è garantire che i materiali didattici proposti siano corretti, pertinenti e conformi alle linee guida",
+    "protocol_required" : false,
+    "slug" : "richiesta-revisione-preventiva-del-tutor-per-approvazione-materiali-desame-da-parte-del-docente",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta revisione preventiva del tutor per approvazione materiali d’esame da parte del docente",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta revisione preventiva del tutor per approvazione materiali d’esame da parte del docente\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta per sottoporre tabelle, formulari e mappe concettuali al tutor di riferimento per una revisione preventiva, prima che il materiale venga inviato al docente del Corso per l’approvazione finale. L’obiettivo è garantire che i materiali didattici proposti siano corretti, pertinenti e conformi alle linee guida",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta per sottoporre tabelle, formulari e mappe concettuali al tutor di riferimento per una revisione preventiva, prima che il materiale venga inviato al docente del Corso per l’approvazione finale. L’obiettivo è garantire che i materiali didattici proposti siano corretti, pertinenti e conformi alle linee guida</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"matricola\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "corso_di_studio_di_appartenenza",
+      "label" : "Corso di Studio di appartenenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"corso_di_studio_di_appartenenza\">",
+      "type" : "text"
+    }, {
+      "id" : "dipartimento_di_afferenza",
+      "label" : "Dipartimento di afferenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"dipartimento_di_afferenza\">",
+      "type" : "text"
+    }, {
+      "id" : "titolo_dell’esame",
+      "label" : "Titolo dell’esame",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"titolo_dell’esame\">",
+      "type" : "text"
+    }, {
+      "id" : "data_prevista_dell’esame",
+      "label" : "Data prevista dell’esame",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_prevista_dell’esame\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "docente_di_riferimento",
+      "label" : "Docente di riferimento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"docente_di_riferimento\">",
+      "type" : "text"
+    }, {
+      "id" : "materiale_da_approvare",
+      "label" : "Materiale da approvare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Tabella ",
+        "value" : "Tabella "
+      }, {
+        "text" : " Formulario",
+        "value" : " Formulario"
+      }, {
+        "text" : "  Mappa concettuale",
+        "value" : "  Mappa concettuale"
+      }, {
+        "text" : "  Altro (specificare)",
+        "value" : "  Altro (specificare)"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"materiale_da_approvare\" value=\"Tabella \">\n Tabella </label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"materiale_da_approvare\" value=\" Formulario\">\n  Formulario</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"materiale_da_approvare\" value=\"  Mappa concettuale\">\n   Mappa concettuale</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"materiale_da_approvare\" value=\"  Altro (specificare)\">\n   Altro (specificare)</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "altro_specificare",
+      "label" : "Altro Specificare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"altro_specificare\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "file_del_materiale_o_link_condiviso",
+      "label" : "File del materiale o link condiviso",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"file_del_materiale_o_link_condiviso\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

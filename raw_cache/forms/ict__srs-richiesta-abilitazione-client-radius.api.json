@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:25.066389Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/srs-richiesta-abilitazione-client-radius/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

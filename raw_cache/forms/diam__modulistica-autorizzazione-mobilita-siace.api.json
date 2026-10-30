@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:14.697921Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/diam/modulistica-autorizzazione-mobilita-siace/ticket/new/",
+  "jsonBody" : {
+    "detail" : "NON ATTIVA",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

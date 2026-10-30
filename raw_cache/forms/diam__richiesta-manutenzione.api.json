@@ -1,0 +1,336 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:59.730742Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/diam/richiesta-manutenzione/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta Manutenzione",
+    "description" : "Attreverso l'attivazione di questa richiesta l'utente segnala una problematica da ripristinare riguardante la struttura, il laboratorio, l'aula o quanto altro",
+    "protocol_required" : false,
+    "slug" : "richiesta-manutenzione",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta Manutenzione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta Manutenzione\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Attreverso l'attivazione di questa richiesta l'utente segnala una problematica da ripristinare riguardante la struttura, il laboratorio, l'aula o quanto altro",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nAttreverso l&#x27;attivazione di questa richiesta l&#x27;utente segnala una problematica da ripristinare riguardante la struttura, il laboratorio, l&#x27;aula o quanto altro</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "problematica",
+      "label" : "Problematica",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"problematica\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "categoria",
+      "label" : "Categoria",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Inserire la Categoria di appartenenza del Problema",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"categoria\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Antiincendio\">Antiincendio</option>\n\n  <option value=\"Controllo Accessi\">Controllo Accessi</option>\n\n  <option value=\"Disinfestazione\">Disinfestazione</option>\n\n  <option value=\"Minuto Mantenimento Edile\">Minuto Mantenimento Edile</option>\n\n  <option value=\"Impianto Elettrico\">Impianto Elettrico</option>\n\n  <option value=\"Impianti Elevatori\">Impianti Elevatori</option>\n\n  <option value=\"Facchinaggio Esterno\">Facchinaggio Esterno</option>\n\n  <option value=\"\r\nFacchinaggio Interno\">\r\nFacchinaggio Interno</option>\n\n  <option value=\"Giardinaggio\">Giardinaggio</option>\n\n  <option value=\"Idrico-Sanitario\">Idrico-Sanitario</option>\n\n  <option value=\"Pulizia\">Pulizia</option>\n\n  <option value=\"Raffrescamento\">Raffrescamento</option>\n\n  <option value=\"Sicurezza\">Sicurezza</option>\n\n  <option value=\"Linea Telefonica\">Linea Telefonica</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "cubo",
+      "label" : "Cubo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "CUBO 40C",
+        "value" : "CUBO 40C"
+      }, {
+        "text" : "CUBO 39C",
+        "value" : "CUBO 39C"
+      }, {
+        "text" : "CUBO 42B",
+        "value" : "CUBO 42B"
+      }, {
+        "text" : "CUBO 44A",
+        "value" : "CUBO 44A"
+      }, {
+        "text" : "CUBO 45A",
+        "value" : "CUBO 45A"
+      }, {
+        "text" : "CUBO 46B",
+        "value" : "CUBO 46B"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"cubo\" value=\"CUBO 40C\">\n CUBO 40C</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"cubo\" value=\"CUBO 39C\">\n CUBO 39C</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"cubo\" value=\"CUBO 42B\">\n CUBO 42B</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"cubo\" value=\"CUBO 44A\">\n CUBO 44A</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"cubo\" value=\"CUBO 45A\">\n CUBO 45A</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"cubo\" value=\"CUBO 46B\">\n CUBO 46B</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "piano",
+      "label" : "Piano",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"piano\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"I\">I</option>\n\n  <option value=\"II\">II</option>\n\n  <option value=\"III\">III</option>\n\n  <option value=\"IV\">IV</option>\n\n  <option value=\"V\">V</option>\n\n  <option value=\"VI\">VI</option>\n\n  <option value=\"VII\">VII</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "stanza",
+      "label" : "Stanza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"stanza\">",
+      "type" : "text"
+    }, {
+      "id" : "aule",
+      "label" : "Aule",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Aula DIAM A - Cubo 40C",
+        "value" : "Aula DIAM A - Cubo 40C"
+      }, {
+        "text" : "Aula DIAM B - Cubo 42B - 2 piano",
+        "value" : "Aula DIAM B - Cubo 42B - 2 piano"
+      }, {
+        "text" : "Aula DIAM C - Cubo 42B - 2 piano",
+        "value" : "Aula DIAM C - Cubo 42B - 2 piano"
+      }, {
+        "text" : "Aula DIAM D - Cubo 42B - 2 piano",
+        "value" : "Aula DIAM D - Cubo 42B - 2 piano"
+      }, {
+        "text" : "Aula DIAM E - Cubo 39C - piano terra",
+        "value" : "Aula DIAM E - Cubo 39C - piano terra"
+      }, {
+        "text" : "Aula DIAM F - Cubo 39C - 2 piano",
+        "value" : "Aula DIAM F - Cubo 39C - 2 piano"
+      }, {
+        "text" : "Aula DIAM G - Cubo 39C - 2 piano",
+        "value" : "Aula DIAM G - Cubo 39C - 2 piano"
+      }, {
+        "text" : "Aula DIAM H - Cubo 39C - 2 piano",
+        "value" : "Aula DIAM H - Cubo 39C - 2 piano"
+      }, {
+        "text" : "Aula Seminari Cubo 45A piano terra ",
+        "value" : "Aula Seminari Cubo 45A piano terra "
+      }, {
+        "text" : "Aula Giannattasio Cubo 46B ponte scoperto",
+        "value" : "Aula Giannattasio Cubo 46B ponte scoperto"
+      }, {
+        "text" : "Aula informatica - Cubo 45A - piano terra",
+        "value" : "Aula informatica - Cubo 45A - piano terra"
+      }, {
+        "text" : " Sala Consiglio - Cubo 44A",
+        "value" : " Sala Consiglio - Cubo 44A"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"aule\" value=\"Aula DIAM A - Cubo 40C\">\n Aula DIAM A - Cubo 40C</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"aule\" value=\"Aula DIAM B - Cubo 42B - 2 piano\">\n Aula DIAM B - Cubo 42B - 2 piano</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"aule\" value=\"Aula DIAM C - Cubo 42B - 2 piano\">\n Aula DIAM C - Cubo 42B - 2 piano</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"aule\" value=\"Aula DIAM D - Cubo 42B - 2 piano\">\n Aula DIAM D - Cubo 42B - 2 piano</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"aule\" value=\"Aula DIAM E - Cubo 39C - piano terra\">\n Aula DIAM E - Cubo 39C - piano terra</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"aule\" value=\"Aula DIAM F - Cubo 39C - 2 piano\">\n Aula DIAM F - Cubo 39C - 2 piano</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"aule\" value=\"Aula DIAM G - Cubo 39C - 2 piano\">\n Aula DIAM G - Cubo 39C - 2 piano</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"aule\" value=\"Aula DIAM H - Cubo 39C - 2 piano\">\n Aula DIAM H - Cubo 39C - 2 piano</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"aule\" value=\"Aula Seminari Cubo 45A piano terra \">\n Aula Seminari Cubo 45A piano terra </label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"aule\" value=\"Aula Giannattasio Cubo 46B ponte scoperto\">\n Aula Giannattasio Cubo 46B ponte scoperto</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"aule\" value=\"Aula informatica - Cubo 45A - piano terra\">\n Aula informatica - Cubo 45A - piano terra</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"aule\" value=\" Sala Consiglio - Cubo 44A\">\n  Sala Consiglio - Cubo 44A</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "laboratori",
+      "label" : "Laboratori",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Centro Studi per il Monitoraggio e la Modellazione Ambientale",
+        "value" : "Centro Studi per il Monitoraggio e la Modellazione Ambientale"
+      }, {
+        "text" : "Chemical Engineering Catalysis and Sustainable Processeses",
+        "value" : "Chemical Engineering Catalysis and Sustainable Processeses"
+      }, {
+        "text" : "Fondamenti chimici delle tecnologie a membrana e dei materiali nanostrutturati",
+        "value" : "Fondamenti chimici delle tecnologie a membrana e dei materiali nanostrutturati"
+      }, {
+        "text" : "Genesi degli inquinanti nel ciclo delle acque",
+        "value" : "Genesi degli inquinanti nel ciclo delle acque"
+      }, {
+        "text" : "GESTIONE SOSTENIBILE DELLE RISORSE IDRICHE",
+        "value" : "GESTIONE SOSTENIBILE DELLE RISORSE IDRICHE"
+      }, {
+        "text" : "Ingegneria Sanitaria e Ambientale",
+        "value" : "Ingegneria Sanitaria e Ambientale"
+      }, {
+        "text" : "Laboratorio di Modellazione, Simulazione e Visualizzazione Scientifica",
+        "value" : "Laboratorio di Modellazione, Simulazione e Visualizzazione Scientifica"
+      }, {
+        "text" : "Laboratorio di Modellistica numerica per la Protezione Idraulica del Territorio",
+        "value" : "Laboratorio di Modellistica numerica per la Protezione Idraulica del Territorio"
+      }, {
+        "text" : "Laboratorio Preparazione Materiali",
+        "value" : "Laboratorio Preparazione Materiali"
+      }, {
+        "text" : "Strategie sostenibili per il territorio",
+        "value" : "Strategie sostenibili per il territorio"
+      }, {
+        "text" : " Laboratorio didattico di Ingegneria Chimica",
+        "value" : " Laboratorio didattico di Ingegneria Chimica"
+      }, {
+        "text" : "Structural Monitoring, structural Advanced materials, structural Rehabilitation, structural Testing Laboratory",
+        "value" : "Structural Monitoring, structural Advanced materials, structural Rehabilitation, structural Testing Laboratory"
+      }, {
+        "text" : "Tecnologia dei Materiali e Catalisi Ambientale",
+        "value" : "Tecnologia dei Materiali e Catalisi Ambientale"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"laboratori\" value=\"Centro Studi per il Monitoraggio e la Modellazione Ambientale\">\n Centro Studi per il Monitoraggio e la Modellazione Ambientale</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"laboratori\" value=\"Chemical Engineering Catalysis and Sustainable Processeses\">\n Chemical Engineering Catalysis and Sustainable Processeses</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"laboratori\" value=\"Fondamenti chimici delle tecnologie a membrana e dei materiali nanostrutturati\">\n Fondamenti chimici delle tecnologie a membrana e dei materiali nanostrutturati</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"laboratori\" value=\"Genesi degli inquinanti nel ciclo delle acque\">\n Genesi degli inquinanti nel ciclo delle acque</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"laboratori\" value=\"GESTIONE SOSTENIBILE DELLE RISORSE IDRICHE\">\n GESTIONE SOSTENIBILE DELLE RISORSE IDRICHE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"laboratori\" value=\"Ingegneria Sanitaria e Ambientale\">\n Ingegneria Sanitaria e Ambientale</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"laboratori\" value=\"Laboratorio di Modellazione, Simulazione e Visualizzazione Scientifica\">\n Laboratorio di Modellazione, Simulazione e Visualizzazione Scientifica</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"laboratori\" value=\"Laboratorio di Modellistica numerica per la Protezione Idraulica del Territorio\">\n Laboratorio di Modellistica numerica per la Protezione Idraulica del Territorio</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"laboratori\" value=\"Laboratorio Preparazione Materiali\">\n Laboratorio Preparazione Materiali</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"laboratori\" value=\"Strategie sostenibili per il territorio\">\n Strategie sostenibili per il territorio</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"laboratori\" value=\" Laboratorio didattico di Ingegneria Chimica\">\n  Laboratorio didattico di Ingegneria Chimica</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"laboratori\" value=\"Structural Monitoring, structural Advanced materials, structural Rehabilitation, structural Testing Laboratory\">\n Structural Monitoring, structural Advanced materials, structural Rehabilitation, structural Testing Laboratory</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"laboratori\" value=\"Tecnologia dei Materiali e Catalisi Ambientale\">\n Tecnologia dei Materiali e Catalisi Ambientale</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "persona_di_riferimento",
+      "label" : "Persona di Riferimento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"persona_di_riferimento\">",
+      "type" : "text"
+    }, {
+      "id" : "telefono",
+      "label" : "Telefono",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono\">",
+      "type" : "text"
+    }, {
+      "id" : "eventuale_foto",
+      "label" : "Eventuale Foto",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"eventuale_foto\">",
+      "type" : "file"
+    }, {
+      "id" : "eventuale_allegato",
+      "label" : "Eventuale allegato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"eventuale_allegato\">",
+      "type" : "file"
+    }, {
+      "id" : "note",
+      "label" : "NOTE",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"note\">",
+      "type" : "text"
+    } ]
+  },
+  "rawTextBody" : null
+}

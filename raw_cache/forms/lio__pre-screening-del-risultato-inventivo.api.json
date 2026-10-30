@@ -1,0 +1,154 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:20.300672Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/lio/pre-screening-del-risultato-inventivo/ticket/new/",
+  "jsonBody" : {
+    "name" : "Pre-screening del risultato inventivo",
+    "description" : "Coloro che ritengano di aver conseguito un risultato di ricerca, suscettibile di tutela mediante il ricorso a diritti di Proprietà Intellettuale, possono sottometterlo, a nome del referente del gruppo di ricerca, a pre-screening richiedendo un appuntamento con il team di ARIIS",
+    "protocol_required" : false,
+    "slug" : "pre-screening-del-risultato-inventivo",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 643,
+      "fields" : {
+        "category" : 599,
+        "title" : "AVVISO",
+        "text" : "Il richiedente deve prendere visione del Regolamento di Ateneo in materia di Proprietà Intellettuale disponibile al seguente link: https://www.unical.it/organizzazione/chi-siamo/statuto-regolamenti/                                                                                     \r\n\r\nIl presente ticket non sostituisce l'obbligo di comunicazione del risultato inventivo",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 644,
+      "fields" : {
+        "category" : 599,
+        "title" : "Scheda di notifica",
+        "text" : "Il richiedente deve scaricare la scheda di notifica del risultato inventivo dal link in basso, compilarla e allegarla alla presente richiesta. La compilazione può essere fatta sulla base delle informazioni disponibili al gruppo di ricerca alla data di richiesta di pre-screening.",
+        "ordinamento" : 0,
+        "attachment" : "structures/lio/categories/pre-screening-del-risultato-inventivo/conditions/Scheda_di_notifica_risultato_inventivo.docx",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Pre-screening del risultato inventivo",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Pre-screening del risultato inventivo\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Coloro che ritengano di aver conseguito un risultato di ricerca, suscettibile di tutela mediante il ricorso a diritti di Proprietà Intellettuale, possono sottometterlo, a nome del referente del gruppo di ricerca, a pre-screening richiedendo un appuntamento con il team di ARIIS",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nColoro che ritengano di aver conseguito un risultato di ricerca, suscettibile di tutela mediante il ricorso a diritti di Proprietà Intellettuale, possono sottometterlo, a nome del referente del gruppo di ricerca, a pre-screening richiedendo un appuntamento con il team di ARIIS</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "opzione_1",
+      "label" : "Opzione 1",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data/ora valida."
+      },
+      "help_text" : "Indica la tua disponibilità dal lunedì al venerdì nella fascia oraria 9:30-12:30",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"uniticket-datetimepicker-wrapper\">\n    <input type=\"text\"\n           name=\"opzione_1\"\n           class=\"form-control uniticket-datetimepicker\"\n           \n           >\n</div>",
+      "type" : "text"
+    }, {
+      "id" : "opzione_2",
+      "label" : "Opzione 2",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data/ora valida."
+      },
+      "help_text" : "Indica la tua disponibilità dal lunedì al venerdì nella fascia oraria 9:30-12:30",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"uniticket-datetimepicker-wrapper\">\n    <input type=\"text\"\n           name=\"opzione_2\"\n           class=\"form-control uniticket-datetimepicker\"\n           \n           >\n</div>",
+      "type" : "text"
+    }, {
+      "id" : "opzione_3",
+      "label" : "Opzione 3",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data/ora valida."
+      },
+      "help_text" : "Indica la tua disponibilità dal lunedì al venerdì nella fascia oraria 9:30-12:30",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"uniticket-datetimepicker-wrapper\">\n    <input type=\"text\"\n           name=\"opzione_3\"\n           class=\"form-control uniticket-datetimepicker\"\n           \n           >\n</div>",
+      "type" : "text"
+    }, {
+      "id" : "documentazione",
+      "label" : "Documentazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documentazione\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

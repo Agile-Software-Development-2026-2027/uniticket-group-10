@@ -1,0 +1,225 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:34.832087Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/sab/bau-richiesta-di-consultazione-eo-prestito-di-libri-cartacei-no-self-service-collocati-nella-torre-libraria-baupolo-umanistico/ticket/new/",
+  "jsonBody" : {
+    "name" : "BAU – Richiesta di consultazione e/o prestito di libri cartacei no self-service - collocati nella torre libraria BAU/Polo Umanistico",
+    "description" : "Richiesta di consultazione e/o prestito di libri cartacei no self-service - collocati nella torre libraria BAU/Polo Umanistico",
+    "protocol_required" : false,
+    "slug" : "bau-richiesta-di-consultazione-eo-prestito-di-libri-cartacei-no-self-service-collocati-nella-torre-libraria-baupolo-umanistico",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 239,
+      "fields" : {
+        "category" : 175,
+        "title" : "Condizioni del servizio",
+        "text" : "1. I volumi a stampa collocati nella torre libraria BAU possono essere consultati e/o presi in prestito previa\r\nprenotazione mediante il presente modulo.\r\n2. Il bibliotecario invierà al richiedente messaggio di conferma della disponibilità del fascicolo presso il\r\nbanco prestito.\r\n3. Qualora il volume richiesto fosse disponibile on-line, l’utente riceverà una comunicazione in merito\r\ncontenente il link e le modalità di accesso al formato elettronico digitale.\r\n4. I volumi prenotati potranno essere ritirati presso lo sportello Prestito BAU nei seguenti orari: lunedì-\r\ngiovedì ore 9,00-20,00; venerdì ore 9,00-16,45.\r\n5. I volumi resteranno disponibili per il ritiro presso lo sportello Prestito BAU per tre giorni lavorativi; se\r\nnon ritirati saranno ricollocati (per richiederne la consultazione/il prestito occorrerà inoltrare una nuova\r\nrichiesta).\r\n6. Per particolari esigenze da comunicare ai bibliotecari, telefonare al n. 0984-496245 nei seguenti orari:\r\nlunedì-venerdì ore 9,30-12,30.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "BAU – Richiesta di consultazione e/o prestito di libri cartacei no self-service - collocati nella torre libraria BAU/Polo Umanistico",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"BAU – Richiesta di consultazione e/o prestito di libri cartacei no self-service - collocati nella torre libraria BAU/Polo Umanistico\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta di consultazione e/o prestito di libri cartacei no self-service - collocati nella torre libraria BAU/Polo Umanistico",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta di consultazione e/o prestito di libri cartacei no self-service - collocati nella torre libraria BAU/Polo Umanistico</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "email_istituzionale",
+      "label" : "Email istituzionale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserisci il tuo indirizzo email istituzionale",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"email_istituzionale\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "recapito_telefonico",
+      "label" : "Recapito telefonico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "Inserisci il tuo numero di telefono (solo numeri, senza spazi)",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"recapito_telefonico\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "codice_tessera",
+      "label" : "Codice tessera",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserisci il numero sotto il barcode della tua tessera della biblioteca",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_tessera\">",
+      "type" : "text"
+    }, {
+      "id" : "indica_il_tuo_profilo_utente",
+      "label" : "Indica il tuo profilo utente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"indica_il_tuo_profilo_utente\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Studente\">Studente</option>\n\n  <option value=\"Docente/Ricercatore\">Docente/Ricercatore</option>\n\n  <option value=\"Dottorando\">Dottorando</option>\n\n  <option value=\"Unità di personale Unical\">Unità di personale Unical</option>\n\n  <option value=\"Altro\">Altro</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "dati_bibliografici_del_volume_1",
+      "label" : "Dati bibliografici del volume 1",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"dati_bibliografici_del_volume_1\">",
+      "type" : "text"
+    }, {
+      "id" : "dati_bibliografici_del_volume_2",
+      "label" : "Dati bibliografici del volume 2",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"dati_bibliografici_del_volume_2\">",
+      "type" : "text"
+    }, {
+      "id" : "dati_bibliografici_del_volume_3",
+      "label" : "Dati bibliografici del volume 3",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"dati_bibliografici_del_volume_3\">",
+      "type" : "text"
+    }, {
+      "id" : "dati_bibliografici_del_volume_4",
+      "label" : "Dati bibliografici del volume 4",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"dati_bibliografici_del_volume_4\">",
+      "type" : "text"
+    }, {
+      "id" : "per_presa_visione",
+      "label" : "Per presa visione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"per_presa_visione\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "presto_il_mio_consenso_al_trattamento_dei_dati_da_me_forniti_per_le_finalità_di_gestione_del_servizio_e_a_fini_statistici",
+      "label" : "Presto il mio consenso al trattamento dei dati da me forniti per le finalità di gestione del servizio e a fini statistici",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"presto_il_mio_consenso_al_trattamento_dei_dati_da_me_forniti_per_le_finalità_di_gestione_del_servizio_e_a_fini_statistici\">",
+      "type" : "checkbox"
+    } ]
+  },
+  "rawTextBody" : null
+}

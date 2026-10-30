@@ -1,0 +1,260 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:06.574201Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizio-studenti-con-disabilita-dsa-e-bes/richiesta-supporti-prove-dammissione/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta supporti prove d'ammissione",
+    "description" : "Richiesta supporti prove d'ammissione",
+    "protocol_required" : false,
+    "slug" : "richiesta-supporti-prove-dammissione",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 360,
+      "fields" : {
+        "category" : 347,
+        "title" : "Informativa sull'uso dei dati personali da parte del Servizio Disabilità DSA dell’UniCal",
+        "text" : "Di seguito troverà alcune informazioni su come noi utilizziamo i Suoi dati personali nella gestione Delle prove di ammissione per i Corsi di laurea a numero programmato\r\nLa invitiamo quindi a leggere con attenzione le seguenti informazioni prima di barrare le opzioni relative al consenso riportate sotto la presente finestra.\r\n\r\n1. Finalità dei trattamenti -\r\nI trattamenti dei dati personali che richiediamo agli utenti sono effettuati ai sensi dell'art. 6 lettera e) del regolamento UE 2016/679, per le seguenti finalità:\r\na)\tutilizzo dei servizi telematici e di posta elettronica\r\nb)\taccesso ai laboratori e ad altre strutture \r\nc)\tinvio di comunicazioni inerenti allo svolgimento delle prove;\r\nd)\tarchiviazione e conservazione degli atti inerenti allo svolgimento delle prove;\r\n\r\n2. Necessità del trattamento.\r\nPer lo svolgimento delle prove è necessario e, in alcuni casi, obbligatorio per legge raccogliere ed utilizzare alcuni dati personali dell'utente senza necessità di acquisire il consenso dell'interessato. In assenza di tali dati il Servizio disabilità e DSA dell’UniCal non è in grado di fornire il servizio offerto.\r\n\r\n3. Diritti dell’interessato - \r\nGli interessati hanno il diritto di ottenere dal Titolare del trattamento, nei casi previsti, l’accesso ai dati personali e la rettifica o la cancellazione degli stessi o la limitazione del trattamento che li riguarda o di opporsi al trattamento (artt. 15 e ss. del RGPD). Tali diritti sono esercitabili scrivendo al Titolare del trattamento. Se Lei è un minorenne, prima di comunicare i suoi dati all’Ateneo, Le chiediamo di leggere attentamente l’informativa insieme ai Suoi genitori o a chi ne fa le veci. \r\n\r\nUn’informativa con ulteriori dettagli è disponibile all’indirizzo unical.it/privacy.",
+        "ordinamento" : 10,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta supporti prove d'ammissione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta supporti prove d&#x27;ammissione\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta supporti prove d'ammissione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta supporti prove d&#x27;ammissione</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "data_di_nascita",
+      "label" : "Data di nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_di_nascita\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "codice_fiscale",
+      "label" : "Codice Fiscale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_fiscale\">",
+      "type" : "text"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "corso_di_laurea",
+      "label" : "Corso di Laurea",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"corso_di_laurea\">",
+      "type" : "text"
+    }, {
+      "id" : "ausili_di_supporto_per_lo_svolgimento_del_test",
+      "label" : "Ausili di supporto per lo svolgimento del test",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Nessun supporto",
+        "value" : "Nessun supporto"
+      }, {
+        "text" : "Tempo aggiuntivo",
+        "value" : "Tempo aggiuntivo"
+      }, {
+        "text" : "Calcolatrice non scientifica (a cura del candidato) ",
+        "value" : "Calcolatrice non scientifica (a cura del candidato) "
+      }, {
+        "text" : "Tutor Lettore",
+        "value" : "Tutor Lettore"
+      }, {
+        "text" : " Interpretariato LIS",
+        "value" : " Interpretariato LIS"
+      }, {
+        "text" : "Altro ausilio",
+        "value" : "Altro ausilio"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"ausili_di_supporto_per_lo_svolgimento_del_test\" value=\"Nessun supporto\">\n Nessun supporto</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"ausili_di_supporto_per_lo_svolgimento_del_test\" value=\"Tempo aggiuntivo\">\n Tempo aggiuntivo</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"ausili_di_supporto_per_lo_svolgimento_del_test\" value=\"Calcolatrice non scientifica (a cura del candidato) \">\n Calcolatrice non scientifica (a cura del candidato) </label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"ausili_di_supporto_per_lo_svolgimento_del_test\" value=\"Tutor Lettore\">\n Tutor Lettore</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"ausili_di_supporto_per_lo_svolgimento_del_test\" value=\" Interpretariato LIS\">\n  Interpretariato LIS</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"ausili_di_supporto_per_lo_svolgimento_del_test\" value=\"Altro ausilio\">\n Altro ausilio</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "se_hai_scelto_altro_ausilio_specifica_la_richiesta",
+      "label" : "Se hai scelto altro ausilio specifica la richiesta",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"se_hai_scelto_altro_ausilio_specifica_la_richiesta\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "tipologia_disabilità_invalidità_e_o_dsa",
+      "label" : "Tipologia Disabilità/invalidità e/o DSA",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Disabilità (Legge n. 104/1992 - art. 3, comma 1 e 3)",
+        "value" : "Disabilità (Legge n. 104/1992 - art. 3, comma 1 e 3)"
+      }, {
+        "text" : "Invalidità pari o superiore al 66%",
+        "value" : "Invalidità pari o superiore al 66%"
+      }, {
+        "text" : " DSA (Legge n.170/2010 e D.M. n. 5669/2011)",
+        "value" : " DSA (Legge n.170/2010 e D.M. n. 5669/2011)"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_disabilità_invalidità_e_o_dsa\" value=\"Disabilità (Legge n. 104/1992 - art. 3, comma 1 e 3)\">\n Disabilità (Legge n. 104/1992 - art. 3, comma 1 e 3)</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_disabilità_invalidità_e_o_dsa\" value=\"Invalidità pari o superiore al 66%\">\n Invalidità pari o superiore al 66%</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_disabilità_invalidità_e_o_dsa\" value=\" DSA (Legge n.170/2010 e D.M. n. 5669/2011)\">\n  DSA (Legge n.170/2010 e D.M. n. 5669/2011)</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "allega_certificazione",
+      "label" : "Allega Certificazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allega_certificazione\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

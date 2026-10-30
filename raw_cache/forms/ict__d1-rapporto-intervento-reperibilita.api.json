@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:40.392727Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/d1-rapporto-intervento-reperibilita/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

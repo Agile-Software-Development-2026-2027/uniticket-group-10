@@ -1,0 +1,265 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:25.859502Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/ict/srs-segnalazione-problemi-della-rete-wifi-di-ateneo/ticket/new/",
+  "jsonBody" : {
+    "name" : "SRS - Segnalazione problemi della rete wifi di Ateneo",
+    "description" : "Segnalazione problemi della rete wifi negli uffici, aule, laboratori e altri spazi comuni del Campus",
+    "protocol_required" : false,
+    "slug" : "srs-segnalazione-problemi-della-rete-wifi-di-ateneo",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "SRS - Segnalazione problemi della rete wifi di Ateneo",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"SRS - Segnalazione problemi della rete wifi di Ateneo\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Segnalazione problemi della rete wifi negli uffici, aule, laboratori e altri spazi comuni del Campus",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nSegnalazione problemi della rete wifi negli uffici, aule, laboratori e altri spazi comuni del Campus</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "dispositivi_utilizzati",
+      "label" : "Dispositivi utilizzati",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "PC fisso",
+        "value" : "PC fisso"
+      }, {
+        "text" : " notebook",
+        "value" : " notebook"
+      }, {
+        "text" : " tablet",
+        "value" : " tablet"
+      }, {
+        "text" : " cellulare",
+        "value" : " cellulare"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"dispositivi_utilizzati\" value=\"PC fisso\">\n PC fisso</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dispositivi_utilizzati\" value=\" notebook\">\n  notebook</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dispositivi_utilizzati\" value=\" tablet\">\n  tablet</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dispositivi_utilizzati\" value=\" cellulare\">\n  cellulare</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "sistema_operativo",
+      "label" : "Sistema operativo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Windows",
+        "value" : "Windows"
+      }, {
+        "text" : "Linux",
+        "value" : "Linux"
+      }, {
+        "text" : "Mac OS",
+        "value" : "Mac OS"
+      }, {
+        "text" : "Android",
+        "value" : "Android"
+      }, {
+        "text" : "iOS",
+        "value" : "iOS"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"sistema_operativo\" value=\"Windows\">\n Windows</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"sistema_operativo\" value=\"Linux\">\n Linux</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"sistema_operativo\" value=\"Mac OS\">\n Mac OS</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"sistema_operativo\" value=\"Android\">\n Android</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"sistema_operativo\" value=\"iOS\">\n iOS</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "altre_informazioni_sulle_postazioni_di_lavoro",
+      "label" : "Altre informazioni sulle postazioni di lavoro",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Ad esempio, versione Sistema Operativo (Windows 10 ecc.)",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"altre_informazioni_sulle_postazioni_di_lavoro\">",
+      "type" : "text"
+    }, {
+      "id" : "struttura_di_appartenenza",
+      "label" : "Struttura di appartenenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"struttura_di_appartenenza\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"DIREZIONE AFFARI GENERALI E ATTIVITA&#x27; NEGOZIALE\">DIREZIONE AFFARI GENERALI E ATTIVITA&#x27; NEGOZIALE</option>\n\n  <option value=\" \r\nDIREZIONE CENTRO RESIDENZIALE\"> \r\nDIREZIONE CENTRO RESIDENZIALE</option>\n\n  <option value=\"\r\nDIREZIONE DIDATTICA E SERVIZI AGLI STUDENTI\">\r\nDIREZIONE DIDATTICA E SERVIZI AGLI STUDENTI</option>\n\n  <option value=\"\r\nDIREZIONE FINANZIARIA\">\r\nDIREZIONE FINANZIARIA</option>\n\n  <option value=\"\r\nDIREZIONE GENERALE\">\r\nDIREZIONE GENERALE</option>\n\n  <option value=\"\r\nDIREZIONE RISORSE UMANE\">\r\nDIREZIONE RISORSE UMANE</option>\n\n  <option value=\"\r\nDIREZIONE TECNICA E PATRIMONIO IMMOBILIARE\">\r\nDIREZIONE TECNICA E PATRIMONIO IMMOBILIARE</option>\n\n  <option value=\" \r\n(MACRO) AREA SERVIZI INFORMATICI E TECNOLOGICI\"> \r\n(MACRO) AREA SERVIZI INFORMATICI E TECNOLOGICI</option>\n\n  <option value=\"\r\nAREA RICERCA INNOVAZIONE E IMPATTO SOCIALE\">\r\nAREA RICERCA INNOVAZIONE E IMPATTO SOCIALE</option>\n\n  <option value=\"\r\nAREA TEACHING AND LEARNING E POST-LAUREA\">\r\nAREA TEACHING AND LEARNING E POST-LAUREA</option>\n\n  <option value=\"\r\nSISTEMA BIBLIOTECARIO DI ATENEO\">\r\nSISTEMA BIBLIOTECARIO DI ATENEO</option>\n\n  <option value=\"\r\nCentro Arti Musica e Spettacoli\">\r\nCentro Arti Musica e Spettacoli</option>\n\n  <option value=\"\r\nCentro Linguistico di Ateneo\">\r\nCentro Linguistico di Ateneo</option>\n\n  <option value=\"\r\nCentro sanitario\">\r\nCentro sanitario</option>\n\n  <option value=\"\r\nSistema Museale\">\r\nSistema Museale</option>\n\n  <option value=\"\r\nAvvocatura\">\r\nAvvocatura</option>\n\n  <option value=\"\r\nSegreteria del Rettore\">\r\nSegreteria del Rettore</option>\n\n  <option value=\"\r\nSegreteria della Direzione generale e Organi\">\r\nSegreteria della Direzione generale e Organi</option>\n\n  <option value=\"\r\nServizio Comunicazione\">\r\nServizio Comunicazione</option>\n\n  <option value=\"\r\nServizio Progetti infrastrutture\">\r\nServizio Progetti infrastrutture</option>\n\n  <option value=\"\r\nServizio Programmazione e Controllo\">\r\nServizio Programmazione e Controllo</option>\n\n  <option value=\"\r\nDipartimento di Biologia, Ecologia e Scienze della Terra\">\r\nDipartimento di Biologia, Ecologia e Scienze della Terra</option>\n\n  <option value=\" \r\nDipartimento di Chimica e Tecnologie Chimiche - CTC\"> \r\nDipartimento di Chimica e Tecnologie Chimiche - CTC</option>\n\n  <option value=\"\r\nDipartimento di Culture, Educazione e Società - DiCES\">\r\nDipartimento di Culture, Educazione e Società - DiCES</option>\n\n  <option value=\"\r\nDipartimento di Economia, Statistica e Finanza &quot;Giovanni Anania&quot; - DESF\">\r\nDipartimento di Economia, Statistica e Finanza &quot;Giovanni Anania&quot; - DESF</option>\n\n  <option value=\"\r\nDipartimento di Farmacia e Scienze della Salute e della Nutrizione\">\r\nDipartimento di Farmacia e Scienze della Salute e della Nutrizione</option>\n\n  <option value=\"\r\nDipartimento di Fisica\">\r\nDipartimento di Fisica</option>\n\n  <option value=\"\r\nDipartimento di Ingegneria Civile\">\r\nDipartimento di Ingegneria Civile</option>\n\n  <option value=\"\r\nDipartimento di Ingegneria Informatica, Modellistica, Elettronica e Sistemistica - DIMES\">\r\nDipartimento di Ingegneria Informatica, Modellistica, Elettronica e Sistemistica - DIMES</option>\n\n  <option value=\"\r\nDipartimento di Ingegneria Meccanica, Energetica e Gestionale - DIMEG\">\r\nDipartimento di Ingegneria Meccanica, Energetica e Gestionale - DIMEG</option>\n\n  <option value=\"\r\nDipartimento di Ingegneria dell’Ambiente - DIAm\">\r\nDipartimento di Ingegneria dell’Ambiente - DIAm</option>\n\n  <option value=\"\r\nDipartimento di Matematica e Informatica\">\r\nDipartimento di Matematica e Informatica</option>\n\n  <option value=\"\r\nDipartimento di Scienze Aziendali e Giuridiche - DiScAG\">\r\nDipartimento di Scienze Aziendali e Giuridiche - DiScAG</option>\n\n  <option value=\"\r\nDipartimento di Scienze Politiche e Sociali\">\r\nDipartimento di Scienze Politiche e Sociali</option>\n\n  <option value=\"\r\nDipartimento di Studi Umanistici\">\r\nDipartimento di Studi Umanistici</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "edificio",
+      "label" : "Edificio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"edificio\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"00B\">00B</option>\n\n  <option value=\"00C\">00C</option>\n\n  <option value=\"01A\">01A</option>\n\n  <option value=\"01B\">01B</option>\n\n  <option value=\"01C\">01C</option>\n\n  <option value=\"01D\">01D</option>\n\n  <option value=\"02B\">02B</option>\n\n  <option value=\"02C\">02C</option>\n\n  <option value=\"03A\">03A</option>\n\n  <option value=\"03B\">03B</option>\n\n  <option value=\"03C\">03C</option>\n\n  <option value=\"03D\">03D</option>\n\n  <option value=\"04A\">04A</option>\n\n  <option value=\"04B\">04B</option>\n\n  <option value=\"04C\">04C</option>\n\n  <option value=\"04D\">04D</option>\n\n  <option value=\"05B\">05B</option>\n\n  <option value=\"05C\">05C</option>\n\n  <option value=\"06B\">06B</option>\n\n  <option value=\"06C\">06C</option>\n\n  <option value=\"07B\">07B</option>\n\n  <option value=\"08B\">08B</option>\n\n  <option value=\"09B\">09B</option>\n\n  <option value=\"10B\">10B</option>\n\n  <option value=\"11B\">11B</option>\n\n  <option value=\"11C\">11C</option>\n\n  <option value=\"11D\">11D</option>\n\n  <option value=\"12B\">12B</option>\n\n  <option value=\"12C\">12C</option>\n\n  <option value=\"12D\">12D</option>\n\n  <option value=\"13C\">13C</option>\n\n  <option value=\"14B\">14B</option>\n\n  <option value=\"14C\">14C</option>\n\n  <option value=\"14D\">14D</option>\n\n  <option value=\"15A\">15A</option>\n\n  <option value=\"15B\">15B</option>\n\n  <option value=\"15C\">15C</option>\n\n  <option value=\"15D\">15D</option>\n\n  <option value=\"16C\">16C</option>\n\n  <option value=\"17A\">17A</option>\n\n  <option value=\"17B\">17B</option>\n\n  <option value=\"17C\">17C</option>\n\n  <option value=\"17D\">17D</option>\n\n  <option value=\"18B\">18B</option>\n\n  <option value=\"18C\">18C</option>\n\n  <option value=\"18D\">18D</option>\n\n  <option value=\"19B\">19B</option>\n\n  <option value=\"20A\">20A</option>\n\n  <option value=\"20B\">20B</option>\n\n  <option value=\"21B\">21B</option>\n\n  <option value=\"22B\">22B</option>\n\n  <option value=\"23B\">23B</option>\n\n  <option value=\"23C\">23C</option>\n\n  <option value=\"24B\">24B</option>\n\n  <option value=\"25B\">25B</option>\n\n  <option value=\"25C\">25C</option>\n\n  <option value=\"27B\">27B</option>\n\n  <option value=\"28A\">28A</option>\n\n  <option value=\"28B\">28B</option>\n\n  <option value=\"28C\">28C</option>\n\n  <option value=\"28D\">28D</option>\n\n  <option value=\"29B\">29B</option>\n\n  <option value=\"29C\">29C</option>\n\n  <option value=\"30A\">30A</option>\n\n  <option value=\"30B\">30B</option>\n\n  <option value=\"30C\">30C</option>\n\n  <option value=\"30D\">30D</option>\n\n  <option value=\"31A\">31A</option>\n\n  <option value=\"31B\">31B</option>\n\n  <option value=\"31C\">31C</option>\n\n  <option value=\"31D\">31D</option>\n\n  <option value=\"32B\">32B</option>\n\n  <option value=\"32C\">32C</option>\n\n  <option value=\"33B\">33B</option>\n\n  <option value=\"33C\">33C</option>\n\n  <option value=\"34B\">34B</option>\n\n  <option value=\"37B\">37B</option>\n\n  <option value=\"37C\">37C</option>\n\n  <option value=\"37D\">37D</option>\n\n  <option value=\"37E\">37E</option>\n\n  <option value=\"37F\">37F</option>\n\n  <option value=\"38B\">38B</option>\n\n  <option value=\"38CDE\">38CDE</option>\n\n  <option value=\"39B\">39B</option>\n\n  <option value=\"39C\">39C</option>\n\n  <option value=\"40B\">40B</option>\n\n  <option value=\"40C\">40C</option>\n\n  <option value=\"41Z\">41Z</option>\n\n  <option value=\"41A\">41A</option>\n\n  <option value=\"41B\">41B</option>\n\n  <option value=\"41C\">41C</option>\n\n  <option value=\"41D\">41D</option>\n\n  <option value=\"42A\">42A</option>\n\n  <option value=\"42B\">42B</option>\n\n  <option value=\"42C\">42C</option>\n\n  <option value=\"42D\">42D</option>\n\n  <option value=\"43B\">43B</option>\n\n  <option value=\"43C\">43C</option>\n\n  <option value=\"44Z\">44Z</option>\n\n  <option value=\"44A\">44A</option>\n\n  <option value=\"44B\">44B</option>\n\n  <option value=\"44C\">44C</option>\n\n  <option value=\"44D\">44D</option>\n\n  <option value=\"45A\">45A</option>\n\n  <option value=\"45B\">45B</option>\n\n  <option value=\"45C\">45C</option>\n\n  <option value=\"45D\">45D</option>\n\n  <option value=\"46B\">46B</option>\n\n  <option value=\"46C\">46C</option>\n\n  <option value=\"Biblioteche\">Biblioteche</option>\n\n  <option value=\"Sistema Museale\">Sistema Museale</option>\n\n  <option value=\"Sale Centro Congressi\">Sale Centro Congressi</option>\n\n  <option value=\" Polifunzionale\"> Polifunzionale</option>\n\n  <option value=\"Polo Innovazione e TT\">Polo Innovazione e TT</option>\n\n  <option value=\"Piccolo Teatro\">Piccolo Teatro</option>\n\n  <option value=\"TAU e Sale cinema\">TAU e Sale cinema</option>\n\n  <option value=\"TECHNEST\">TECHNEST</option>\n\n  <option value=\"Uffici centro residenziale\">Uffici centro residenziale</option>\n\n  <option value=\"\"></option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "piano",
+      "label" : "Piano",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"piano\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"-1\">-1</option>\n\n  <option value=\"PT\">PT</option>\n\n  <option value=\"1\">1</option>\n\n  <option value=\"2\">2</option>\n\n  <option value=\"3\">3</option>\n\n  <option value=\"4\">4</option>\n\n  <option value=\"5\">5</option>\n\n  <option value=\"6\">6</option>\n\n  <option value=\"7\">7</option>\n\n  <option value=\"8\">8</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "stanza___altre_info",
+      "label" : "Stanza / altre info",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"stanza___altre_info\">",
+      "type" : "text"
+    }, {
+      "id" : "descrizione_del_malfunzionamento",
+      "label" : "Descrizione del malfunzionamento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"descrizione_del_malfunzionamento\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "estensione_del_problema",
+      "label" : "Estensione del problema",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"estensione_del_problema\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"solo una postazione\">solo una postazione</option>\n\n  <option value=\"alcune postazioni di lavoro dell&#x27;ufficio\">alcune postazioni di lavoro dell&#x27;ufficio</option>\n\n  <option value=\"generalizzato su tutto il piano\">generalizzato su tutto il piano</option>\n\n  <option value=\"generalizzato su tutto l&#x27;edificio\">generalizzato su tutto l&#x27;edificio</option>\n\n  <option value=\"\"></option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "testo_del_messaggio_di_errore_che_si_ottiene",
+      "label" : "Testo del messaggio di errore che si ottiene",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"testo_del_messaggio_di_errore_che_si_ottiene\">",
+      "type" : "text"
+    }, {
+      "id" : "foto___screenshot_dell'errore_che_si_ottiene",
+      "label" : "Foto / screenshot dell'errore che si ottiene",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"foto___screenshot_dell&#x27;errore_che_si_ottiene\">",
+      "type" : "file"
+    }, {
+      "id" : "cell___tel___email",
+      "label" : "Cell / Tel / Email",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare ulteriori contatti diretti",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"cell___tel___email\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

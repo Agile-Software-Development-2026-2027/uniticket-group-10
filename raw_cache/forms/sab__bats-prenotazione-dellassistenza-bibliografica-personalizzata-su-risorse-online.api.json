@@ -1,0 +1,222 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:27.372297Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/sab/bats-prenotazione-dellassistenza-bibliografica-personalizzata-su-risorse-online/ticket/new/",
+  "jsonBody" : {
+    "name" : "BATS - Prenotazione dell'Assistenza bibliografica personalizzata su risorse online",
+    "description" : "",
+    "protocol_required" : false,
+    "slug" : "bats-prenotazione-dellassistenza-bibliografica-personalizzata-su-risorse-online",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 193,
+      "fields" : {
+        "category" : 196,
+        "title" : "INFORMATIVA RELATIVA AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "I dati richiesti verranno trattati dall’Università della Calabria, in qualità di Titolare del trattamento, nel rispetto delle disposizioni di cui al Regolamento Europeo 2016/679 (“GDPR”). Si invita a prendere visione dell’Informativa relativa al trattamento dei dati personali consultando la pagina: https://www.unical.it/portale/ateneo/privacy/",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 194,
+      "fields" : {
+        "category" : 196,
+        "title" : "CONSENSO AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "Presto il mio consenso al trattamento dei dati da me forniti per le finalità di gestione del servizio ed a fini statistici",
+        "ordinamento" : 2,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "BATS - Prenotazione dell'Assistenza bibliografica personalizzata su risorse online",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"BATS - Prenotazione dell&#x27;Assistenza bibliografica personalizzata su risorse online\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "indirizzo_email_istituzionale",
+      "label" : "Indirizzo email istituzionale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserisci il tuo indirizzo di posta elettronica istituzionale",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"indirizzo_email_istituzionale\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "recapito_telefonico",
+      "label" : "Recapito telefonico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserisci il tuo numero di telefono (solo numeri, senza spazi)",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"recapito_telefonico\">",
+      "type" : "text"
+    }, {
+      "id" : "codice_tessera_utente",
+      "label" : "Codice Tessera Utente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserisci il numero della tua Tessera della biblioteca",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_tessera_utente\">",
+      "type" : "text"
+    }, {
+      "id" : "indica_il_tuo_status_utente",
+      "label" : "Indica il tuo status utente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"indica_il_tuo_status_utente\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Studente\">Studente</option>\n\n  <option value=\"Tesista\">Tesista</option>\n\n  <option value=\"Altro\">Altro</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "argomento_della_ricerca",
+      "label" : "Argomento della ricerca",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"argomento_della_ricerca\">",
+      "type" : "text"
+    }, {
+      "id" : "eventuale_titolo_della_tesi",
+      "label" : "Eventuale titolo della Tesi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"eventuale_titolo_della_tesi\">",
+      "type" : "text"
+    }, {
+      "id" : "disciplina",
+      "label" : "Disciplina",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"disciplina\">",
+      "type" : "text"
+    }, {
+      "id" : "parole_chiave",
+      "label" : "Parole chiave",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"parole_chiave\">",
+      "type" : "text"
+    }, {
+      "id" : "indica_un__limite_temporale_entro_cui_ricevere_il_materiale",
+      "label" : "Indica un  limite temporale entro cui ricevere il materiale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"indica_un__limite_temporale_entro_cui_ricevere_il_materiale\">",
+      "type" : "text"
+    } ]
+  },
+  "rawTextBody" : null
+}

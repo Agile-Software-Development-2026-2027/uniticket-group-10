@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:21.072605Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/accordo-individuale-per-lo-svolgimento-dellattivita-lavorativa-in-modalita-di-lavoro-agile-test/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

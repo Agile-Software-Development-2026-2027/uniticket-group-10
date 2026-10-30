@@ -1,0 +1,476 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:21.431372Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/sistema-museale/prenotazione-visita/ticket/new/",
+  "jsonBody" : {
+    "name" : "Prenotazione visita",
+    "description" : "",
+    "protocol_required" : false,
+    "slug" : "prenotazione-visita",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 509,
+      "fields" : {
+        "category" : 431,
+        "title" : "AVVERTENZE",
+        "text" : "***VALIDITA' DELLA PRENOTAZIONE***\r\n\r\n- La Scheda di Prenotazione deve essere **sempre compilata ed inviata**, di norma 7 giorni prima della data di visita, come conferma scritta degli accordi presi attraverso altri canali (telefono, email).\r\n\r\n- La prenotazione viene ritenuta **valida solo al ricevimento della scheda** compilata.\r\n\r\n- La data indicata per la visita sarà confermata dopo la verifica della disponibilità delle strutture\r\n\r\n***TIPOLOGIA DI VISITA***\r\n\r\n- La Scheda permette di prenotare visite in tutte le strutture del Sistema Museale\r\n\r\n- Le singole attività di gruppo si svolgono in una singola struttura. Per visitare più strutture nello stesso giorno sono disponibili dei \"pacchetti\" di visite guidate.\r\n\r\n- Le attività sono per **max 20 persone + accompagnatori**.\r\n\r\n- Approfondimento tematico e Attività laboratoriale devono essere concordati con gli operatori museali.\r\n\r\n***RISPETTO DEGLI ORARI E ELENCO PARTECIPANTI***\r\n\r\n- Per garantire la qualità dei servizi offerti dal Museo si richiede di osservare con puntualità gli orari di prenotazione e se non si è sicuri di arrivare in tempo, si prega di darne comunicazione in segreteria.  \r\n\r\n- I **ritardi non possono essere recuperati** attraverso l'estensione dell'orario di visita.  \r\n\r\n- Al momento della visita è’ necessario consegnare l’**elenco dei nominativi degli studenti partecipanti** su carta intestata o con timbro della scuola e l’**autorizzazione per eventuali riprese filmate e foto**, che verranno fatte durante le visite e le attività a puro scopo di documentazione.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Prenotazione visita",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Prenotazione visita\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "nome_istituto",
+      "label" : "Nome Istituto",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome_istituto\">",
+      "type" : "text"
+    }, {
+      "id" : "indirizzo",
+      "label" : "Indirizzo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "(Via / Piazza, numero civico, ...)",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"indirizzo\">",
+      "type" : "text"
+    }, {
+      "id" : "città",
+      "label" : "Città",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"città\">",
+      "type" : "text"
+    }, {
+      "id" : "provincia",
+      "label" : "Provincia",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"provincia\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"CS\">CS</option>\n\n  <option value=\"CZ\">CZ</option>\n\n  <option value=\"KR\">KR</option>\n\n  <option value=\"RC\">RC</option>\n\n  <option value=\"VV\">VV</option>\n\n  <option value=\"Fuori regione\">Fuori regione</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "codice_fiscale_istituto",
+      "label" : "Codice Fiscale Istituto",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_fiscale_istituto\">",
+      "type" : "text"
+    }, {
+      "id" : "codice_ipa",
+      "label" : "Codice IPA",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_ipa\">",
+      "type" : "text"
+    }, {
+      "id" : "telefono_istituto",
+      "label" : "Telefono Istituto",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono_istituto\">",
+      "type" : "text"
+    }, {
+      "id" : "telefono_del_plesso",
+      "label" : "Telefono del Plesso",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono_del_plesso\">",
+      "type" : "text"
+    }, {
+      "id" : "nome_e_cognome_docente",
+      "label" : "Nome e cognome docente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome_e_cognome_docente\">",
+      "type" : "text"
+    }, {
+      "id" : "telefono_docente",
+      "label" : "Telefono docente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono_docente\">",
+      "type" : "text"
+    }, {
+      "id" : "e-mail_docente",
+      "label" : "E-mail docente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail_docente\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "grado_di_scuola:",
+      "label" : "Grado di scuola:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Scuola dell'infanzia",
+        "value" : "Scuola dell'infanzia"
+      }, {
+        "text" : "Scuola primaria",
+        "value" : "Scuola primaria"
+      }, {
+        "text" : "Scuola secondaria di I grado",
+        "value" : "Scuola secondaria di I grado"
+      }, {
+        "text" : "Scuola secondaria di II grado",
+        "value" : "Scuola secondaria di II grado"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"grado_di_scuola:\" value=\"Scuola dell&#x27;infanzia\">\n Scuola dell&#x27;infanzia</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"grado_di_scuola:\" value=\"Scuola primaria\">\n Scuola primaria</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"grado_di_scuola:\" value=\"Scuola secondaria di I grado\">\n Scuola secondaria di I grado</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"grado_di_scuola:\" value=\"Scuola secondaria di II grado\">\n Scuola secondaria di II grado</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "classi_partecipanti_alla_visita",
+      "label" : "Classi partecipanti alla visita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"classi_partecipanti_alla_visita\">",
+      "type" : "text"
+    }, {
+      "id" : "numero_alunni",
+      "label" : "Numero alunni",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "Indicare il numero totale di alunni partecipanti alla visita (il campo accetta solo valori numerici)",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"numero_alunni\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "numero_alunni_con_disabilità",
+      "label" : "Numero alunni con disabilità",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "Indicare il numero totale di alunni con disabilità partecipanti alla visita (il campo accetta solo valori numerici)",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"numero_alunni_con_disabilità\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "numero_accompagnatori",
+      "label" : "Numero accompagnatori",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"numero_accompagnatori\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "data_della_visita_proposta",
+      "label" : "Data della visita (proposta)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_della_visita_proposta\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "orario_di_arrivo",
+      "label" : "Orario di arrivo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"orario_di_arrivo\">",
+      "type" : "text"
+    }, {
+      "id" : "orario_di_partenza",
+      "label" : "Orario di partenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"orario_di_partenza\">",
+      "type" : "text"
+    }, {
+      "id" : "tipologia_di_attività",
+      "label" : "Tipologia di attività",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "Per visitare più strutture nello stesso giorno è necessario selezionare un pacchetto predefinito",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Visita guidata in singola struttura",
+        "value" : "Visita guidata in singola struttura"
+      }, {
+        "text" : "Approfondimento tematico in singola struttura",
+        "value" : "Approfondimento tematico in singola struttura"
+      }, {
+        "text" : "Percorso tematico in singola struttura",
+        "value" : "Percorso tematico in singola struttura"
+      }, {
+        "text" : "Attività laboratoriale in singola struttura",
+        "value" : "Attività laboratoriale in singola struttura"
+      }, {
+        "text" : "Pacchetti di visite guidate in più strutture museali",
+        "value" : "Pacchetti di visite guidate in più strutture museali"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_di_attività\" value=\"Visita guidata in singola struttura\">\n Visita guidata in singola struttura</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_di_attività\" value=\"Approfondimento tematico in singola struttura\">\n Approfondimento tematico in singola struttura</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_di_attività\" value=\"Percorso tematico in singola struttura\">\n Percorso tematico in singola struttura</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_di_attività\" value=\"Attività laboratoriale in singola struttura\">\n Attività laboratoriale in singola struttura</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_di_attività\" value=\"Pacchetti di visite guidate in più strutture museali\">\n Pacchetti di visite guidate in più strutture museali</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "selezione_attività",
+      "label" : "Selezione attività",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "Tutte le attività sono per max 20 persone + accompagnatori. Approfondimento tematico e Attività laboratoriale devono essere concordati con gli operatori museali.",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Visita guidata - 50€",
+        "value" : "Visita guidata - 50€"
+      }, {
+        "text" : "Approfondimento tematico - 30€",
+        "value" : "Approfondimento tematico - 30€"
+      }, {
+        "text" : "Percorso tematico (visita guidata + approfondimento tematico) - 70€",
+        "value" : "Percorso tematico (visita guidata + approfondimento tematico) - 70€"
+      }, {
+        "text" : " Attività laboratoriale (creativa, ludica, didattico-scientifica) - 50€",
+        "value" : " Attività laboratoriale (creativa, ludica, didattico-scientifica) - 50€"
+      }, {
+        "text" : "Visita guidata + attività laboratoriale - 80€",
+        "value" : "Visita guidata + attività laboratoriale - 80€"
+      }, {
+        "text" : "Visita guidata + approfondimento tematico + attività laboratoriale - 90€",
+        "value" : "Visita guidata + approfondimento tematico + attività laboratoriale - 90€"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"selezione_attività\" value=\"Visita guidata - 50€\">\n Visita guidata - 50€</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"selezione_attività\" value=\"Approfondimento tematico - 30€\">\n Approfondimento tematico - 30€</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"selezione_attività\" value=\"Percorso tematico (visita guidata + approfondimento tematico) - 70€\">\n Percorso tematico (visita guidata + approfondimento tematico) - 70€</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"selezione_attività\" value=\" Attività laboratoriale (creativa, ludica, didattico-scientifica) - 50€\">\n  Attività laboratoriale (creativa, ludica, didattico-scientifica) - 50€</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"selezione_attività\" value=\"Visita guidata + attività laboratoriale - 80€\">\n Visita guidata + attività laboratoriale - 80€</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"selezione_attività\" value=\"Visita guidata + approfondimento tematico + attività laboratoriale - 90€\">\n Visita guidata + approfondimento tematico + attività laboratoriale - 90€</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "selezione_pacchetto",
+      "label" : "Selezione pacchetto",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "Le Sezioni MuSNOB sono: Orto Botanico, Paleontologia, Zoologia",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Rimuseum + 1 sezione MuSNOB\t(½ giornata) - 80 €",
+        "value" : "Rimuseum + 1 sezione MuSNOB\t(½ giornata) - 80 €"
+      }, {
+        "text" : "Rimuseum + 2 sezioni MuSNOB (giornata intera) - 100 €",
+        "value" : "Rimuseum + 2 sezioni MuSNOB (giornata intera) - 100 €"
+      }, {
+        "text" : "Rimuseum + 3 sezioni MuSNOB (giornata intera) -120 €",
+        "value" : "Rimuseum + 3 sezioni MuSNOB (giornata intera) -120 €"
+      }, {
+        "text" : " MuSNOB 2 sezioni (½ giornata) - 80 €",
+        "value" : " MuSNOB 2 sezioni (½ giornata) - 80 €"
+      }, {
+        "text" : "MuSNOB 3 sezioni\t(giornata intera) - 100 €",
+        "value" : "MuSNOB 3 sezioni\t(giornata intera) - 100 €"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"selezione_pacchetto\" value=\"Rimuseum + 1 sezione MuSNOB\t(½ giornata) - 80 €\">\n Rimuseum + 1 sezione MuSNOB\t(½ giornata) - 80 €</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"selezione_pacchetto\" value=\"Rimuseum + 2 sezioni MuSNOB (giornata intera) - 100 €\">\n Rimuseum + 2 sezioni MuSNOB (giornata intera) - 100 €</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"selezione_pacchetto\" value=\"Rimuseum + 3 sezioni MuSNOB (giornata intera) -120 €\">\n Rimuseum + 3 sezioni MuSNOB (giornata intera) -120 €</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"selezione_pacchetto\" value=\" MuSNOB 2 sezioni (½ giornata) - 80 €\">\n  MuSNOB 2 sezioni (½ giornata) - 80 €</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"selezione_pacchetto\" value=\"MuSNOB 3 sezioni\t(giornata intera) - 100 €\">\n MuSNOB 3 sezioni\t(giornata intera) - 100 €</label>\n\n</div>\n</div>",
+      "type" : "select"
+    } ]
+  },
+  "rawTextBody" : null
+}

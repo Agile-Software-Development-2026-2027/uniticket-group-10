@@ -1,0 +1,80 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:36.982516Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizi-didattici/verifica-tassa-pergamena-di-laurea/ticket/new/",
+  "jsonBody" : {
+    "name" : "Verifica tassa pergamena di laurea",
+    "description" : "Modulo riservato ai laureati prima del 2010 - SOLO pergamene di laurea (no post laurea)\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "protocol_required" : false,
+    "slug" : "verifica-tassa-pergamena-di-laurea",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Verifica tassa pergamena di laurea",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Verifica tassa pergamena di laurea\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Modulo riservato ai laureati prima del 2010 - SOLO pergamene di laurea (no post laurea)\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nModulo riservato ai laureati prima del 2010 - SOLO pergamene di laurea (no post laurea)\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "richiedo_verifica_pagamento_tassa_pergamena_per_la_seguente_carriera:",
+      "label" : "Richiedo verifica pagamento tassa pergamena per la seguente carriera:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"richiedo_verifica_pagamento_tassa_pergamena_per_la_seguente_carriera:\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "se_hai_la_ricevuta_del_pagamento_allegala:",
+      "label" : "Se hai la ricevuta del pagamento allegala:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"se_hai_la_ricevuta_del_pagamento_allegala:\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

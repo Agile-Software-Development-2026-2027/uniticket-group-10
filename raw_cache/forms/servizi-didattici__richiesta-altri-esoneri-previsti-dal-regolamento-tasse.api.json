@@ -1,0 +1,81 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:28.706614Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizi-didattici/richiesta-altri-esoneri-previsti-dal-regolamento-tasse/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta altri esoneri previsti dal Regolamento Tasse",
+    "description" : "Modulo per richiedere un esonero non già presente nelle tipologie su ticket.unical.it.\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "protocol_required" : false,
+    "slug" : "richiesta-altri-esoneri-previsti-dal-regolamento-tasse",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta altri esoneri previsti dal Regolamento Tasse",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta altri esoneri previsti dal Regolamento Tasse\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Modulo per richiedere un esonero non già presente nelle tipologie su ticket.unical.it.\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nModulo per richiedere un esonero non già presente nelle tipologie su ticket.unical.it.\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "esonero",
+      "label" : "esonero",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"esonero\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Mutilato o invalido civile che appartiene a famiglie di disagiata condizione economica e che ha subito una diminuzione superiore ai due terzi della capacità lavorativa\">Mutilato o invalido civile che appartiene a famiglie di disagiata condizione economica e che ha subito una diminuzione superiore ai due terzi della capacità lavorativa</option>\n\n  <option value=\"Figlio di beneficiari della pensione di inabilità\">Figlio di beneficiari della pensione di inabilità</option>\n\n  <option value=\"Orfano di guerra, ciechi civili, mutilato ed invalido di guerra, di lavoro,\r\ndi servizio e i loro figli\">Orfano di guerra, ciechi civili, mutilato ed invalido di guerra, di lavoro,\r\ndi servizio e i loro figli</option>\n\n  <option value=\"Figlio di vittime di organizzazioni mafiose o terroristiche\">Figlio di vittime di organizzazioni mafiose o terroristiche</option>\n\n  <option value=\"Insignito del Premio “Alfieri del Lavoro”\">Insignito del Premio “Alfieri del Lavoro”</option>\n\n  <option value=\"Vincitore di medaglia d’oro ai campionati sportivi universitari\">Vincitore di medaglia d’oro ai campionati sportivi universitari</option>\n\n  <option value=\"Vincitore delle fasi regionali delle Olimpiadi promosse e finanziate ovvero organizzate dalla “Direzione generale per gli ordinamenti scolastici” del MIUR riservate agli studenti delle Scuole superiori, svolte nell&#x27;anno di immatricolazione all&#x27;Università\">Vincitore delle fasi regionali delle Olimpiadi promosse e finanziate ovvero organizzate dalla “Direzione generale per gli ordinamenti scolastici” del MIUR riservate agli studenti delle Scuole superiori, svolte nell&#x27;anno di immatricolazione all&#x27;Università</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "documentazione_che_attesta_lo_status",
+      "label" : "Documentazione che attesta lo status",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documentazione_che_attesta_lo_status\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,350 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:08.061800Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dibest/lmcu-restauro-richiesta-di-assegnazione-di-prova-finale/ticket/new/",
+  "jsonBody" : {
+    "name" : "LMCU RESTAURO - Richiesta di assegnazione di prova finale",
+    "description" : "Richiesta assegnazione prova finale corso di laurea magistrale a ciclo unico in Conservazione e Restauro dei beni Culturali",
+    "protocol_required" : true,
+    "slug" : "lmcu-restauro-richiesta-di-assegnazione-di-prova-finale",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 136,
+      "fields" : {
+        "category" : 135,
+        "title" : "Note Operative",
+        "text" : "**ATTENZIONE NON INVIARE IL MODULO, MA SEGUI LE INDICAZIONI**\r\n\r\n* Il modulo va solo compilato ma non inviato.\r\n\r\n* Clicca sulla voce **Se la richiesta che stai compilando deve essere completata e sottoscritta da un altro utente (es. Direttore Dipartimento, responsabile ufficio, ecc.), clicca qui;**\r\n\r\n* Mettere segno di spunta su **Tieni traccia della mia compilazione nel ticket**\r\n\r\n* Premere il pulsante **Genera URL per inviarlo al coordinatore del Corso di Laurea (prof.ssa Donatella Barca)**\r\n\r\n* Preparare una mail al coordinatore e incollare lo URL generato\r\n\r\n* Il Coordinatore provvederà ad inviare la richiesta.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 137,
+      "fields" : {
+        "category" : 135,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "LMCU RESTAURO - Richiesta di assegnazione di prova finale",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"LMCU RESTAURO - Richiesta di assegnazione di prova finale\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta assegnazione prova finale corso di laurea magistrale a ciclo unico in Conservazione e Restauro dei beni Culturali",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta assegnazione prova finale corso di laurea magistrale a ciclo unico in Conservazione e Restauro dei beni Culturali</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "al_coordinatore_del_cds",
+      "label" : "Al Coordinatore del CDS",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"al_coordinatore_del_cds\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "il_sottoscritto_a_è_nato_a_a",
+      "label" : "Il sottoscritto/a è nato/a a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_sottoscritto_a_è_nato_a_a\">",
+      "type" : "text"
+    }, {
+      "id" : "il",
+      "label" : "Il",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"il\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cellulare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "iscritto_per_l'a.a.",
+      "label" : "Iscritto per l'A.A.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"iscritto_per_l&#x27;a.a.\">",
+      "type" : "text"
+    }, {
+      "id" : "al",
+      "label" : "al",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"al\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"quarto anno in corso\">quarto anno in corso</option>\n\n  <option value=\"quinto anno in corso\">quinto anno in corso</option>\n\n  <option value=\"quinto anno fuori corso per la prima volta\">quinto anno fuori corso per la prima volta</option>\n\n  <option value=\"quinto anno fuori corso per la seconda volta\">quinto anno fuori corso per la seconda volta</option>\n\n  <option value=\" quinto anno fuori corso per la terza volta\"> quinto anno fuori corso per la terza volta</option>\n\n  <option value=\"quinto anno fuori corso per la quarta volta\">quinto anno fuori corso per la quarta volta</option>\n\n  <option value=\"quinto anno fuori corso per la quinta volta\">quinto anno fuori corso per la quinta volta</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "cdl",
+      "label" : "CDL",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"cdl\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "con_matricola",
+      "label" : "con matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"con_matricola\" step=\"0.001\">",
+      "type" : "number"
+    }, {
+      "id" : "chiede",
+      "label" : "CHIEDE",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"chiede\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "progetto_formativo",
+      "label" : "progetto formativo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"progetto_formativo\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "relatore_prova_pratico-laboratoriale",
+      "label" : "Relatore prova pratico-laboratoriale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"relatore_prova_pratico-laboratoriale\">",
+      "type" : "text"
+    }, {
+      "id" : "relatore_prova_teorico-metodologica_1",
+      "label" : "relatore prova teorico-metodologica (1)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"relatore_prova_teorico-metodologica_1\">",
+      "type" : "text"
+    }, {
+      "id" : "area",
+      "label" : "area",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"area\">",
+      "type" : "text"
+    }, {
+      "id" : "relatore_prova_teorico-metodologica_2",
+      "label" : "relatore prova teorico-metodologica (2)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"relatore_prova_teorico-metodologica_2\">",
+      "type" : "text"
+    }, {
+      "id" : "area_2",
+      "label" : "Area (2)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"area_2\">",
+      "type" : "text"
+    }, {
+      "id" : "correlatore",
+      "label" : "Correlatore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"correlatore\">",
+      "type" : "text"
+    }, {
+      "id" : "proposta_abstract_del_progetto_di_tirocinio_in_italiano_max._300_parole",
+      "label" : "Proposta abstract del progetto di tirocinio in italiano (max. 300 parole)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"proposta_abstract_del_progetto_di_tirocinio_in_italiano_max._300_parole\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

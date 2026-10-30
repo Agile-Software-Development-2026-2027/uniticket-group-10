@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:02.187655Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/servizi-didattici/richiesta-restituzione-documenti-depositati-in-originale/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Per accedere a questo modulo è necessario autenticarsi con SPID o CIE",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,161 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:26.486470Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/fisica/pubblicazione-notizie-sul-portale-del-dipartimento/ticket/new/",
+  "jsonBody" : {
+    "name" : "Pubblicazione Notizie sul Portale del Dipartimento",
+    "description" : "Cortesemente inserisci una breve descrizione della richiesta",
+    "protocol_required" : false,
+    "slug" : "pubblicazione-notizie-sul-portale-del-dipartimento",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Pubblicazione Notizie sul Portale del Dipartimento",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Pubblicazione Notizie sul Portale del Dipartimento\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Cortesemente inserisci una breve descrizione della richiesta",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nCortesemente inserisci una breve descrizione della richiesta</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "titolo__della_notizia:",
+      "label" : "Titolo  della notizia:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"titolo__della_notizia:\">",
+      "type" : "text"
+    }, {
+      "id" : "sottotitolo:",
+      "label" : "Sottotitolo:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "(non è obbligatorio)",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"sottotitolo:\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "testo_della_notizia:",
+      "label" : "Testo della notizia:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Puoi allegare un file, in alternativa",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"testo_della_notizia:\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "allegato:",
+      "label" : "Allegato:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegato:\">",
+      "type" : "file"
+    }, {
+      "id" : "eventuale_secondo_file_allegato:",
+      "label" : "Eventuale secondo file allegato:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"eventuale_secondo_file_allegato:\">",
+      "type" : "file"
+    }, {
+      "id" : "data_ed_ora_di_scadenza_della_notizia:",
+      "label" : "Data ed ora di scadenza della notizia:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data/ora valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"uniticket-datetimepicker-wrapper\">\n    <input type=\"text\"\n           name=\"data_ed_ora_di_scadenza_della_notizia:\"\n           class=\"form-control uniticket-datetimepicker\"\n           \n           >\n</div>",
+      "type" : "text"
+    }, {
+      "id" : "calendario_di_eventi_del_dipartimento",
+      "label" : "Calendario di Eventi del Dipartimento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Clicca sulla checkbox se vuoi che la Notizia venga pubblicata nel Calendario",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"calendario_di_eventi_del_dipartimento\">",
+      "type" : "checkbox"
+    } ]
+  },
+  "rawTextBody" : null
+}

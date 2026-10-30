@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:25.984526Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/dfssn/autorizzazione-allutilizzo-del-fondo-economale-per-spese-minute/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

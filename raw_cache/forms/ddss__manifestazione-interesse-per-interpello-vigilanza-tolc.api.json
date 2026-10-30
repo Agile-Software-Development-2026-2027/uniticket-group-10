@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:10.424858Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/ddss/manifestazione-interesse-per-interpello-vigilanza-tolc/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:39.374072Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/centro-residenziale/x-contributo-ministeriale-spese-di-locazione-abitativa-anno-2020-istanza-di-riesame/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

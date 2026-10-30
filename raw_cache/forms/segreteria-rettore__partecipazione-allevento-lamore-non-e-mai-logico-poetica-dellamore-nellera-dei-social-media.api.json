@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:18.125325Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/segreteria-rettore/partecipazione-allevento-lamore-non-e-mai-logico-poetica-dellamore-nellera-dei-social-media/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La partecipazione all'evento non è ancora attiva. Sarà attiva giovedì 29 gennaio dalle ore 09:00",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

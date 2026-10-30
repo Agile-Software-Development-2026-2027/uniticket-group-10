@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:51.289970Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/desf/domanda-di-trasferimento-in-ingresso-desf/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Moduli aperti dal 1 luglio al 31 agosto 2024",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

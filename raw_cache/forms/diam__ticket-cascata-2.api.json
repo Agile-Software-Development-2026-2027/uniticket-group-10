@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:32.564147Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/diam/ticket-cascata-2/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Attualmente il modulo di richiesta selezionato non è attivo.",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

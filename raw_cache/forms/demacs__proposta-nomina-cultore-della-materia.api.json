@@ -1,0 +1,214 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:25.769817Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/demacs/proposta-nomina-cultore-della-materia/ticket/new/",
+  "jsonBody" : {
+    "name" : "Proposta nomina Cultore della Materia",
+    "description" : "Proposta di nomina a Cultore della Materia",
+    "protocol_required" : false,
+    "slug" : "proposta-nomina-cultore-della-materia",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 865,
+      "fields" : {
+        "category" : 837,
+        "title" : "Regolamento",
+        "text" : "Ai sensi dell'art. 32 del Regolamento Didattico di Ateneo, Emanato con decreto rettorale 21 ottobre 2022, n. 1507 e ss. mm. e ii,:\r\n\r\n**a**) la proposta di conferimento della nomina di cultore della materia, ai soli fini della\r\npartecipazione alle commissioni per le prove di accertamento del profitto o della prova finale, dovrà essere **presentata dal docente della disciplina** nell’ambito della quale il cultore svolgerà la propria attività;\r\n\r\n**b**) il candidato a cultore della materia dovrà essere in possesso della laurea magistrale (o titolo equivalente);\r\n\r\n**c**) dal curriculum del candidato dovranno emergere specifiche competenze comprovate da titoli e pubblicazioni nella disciplina per cui è proposto;\r\n\r\n**d**) la nomina a cultore della materia ha validità triennale",
+        "ordinamento" : 2,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Proposta nomina Cultore della Materia",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Proposta nomina Cultore della Materia\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Proposta di nomina a Cultore della Materia",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nProposta di nomina a Cultore della Materia</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "al",
+      "label" : "Al",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"al\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "il_la_sottoscritto_a",
+      "label" : "Il/La Sottoscritto/a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_la_sottoscritto_a\">",
+      "type" : "text"
+    }, {
+      "id" : "titolare",
+      "label" : "titolare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"titolare\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "cognome_e_nome",
+      "label" : "Cognome e Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome_e_nome\">",
+      "type" : "text"
+    }, {
+      "id" : "codice_fiscale",
+      "label" : "Codice Fiscale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_fiscale\">",
+      "type" : "text"
+    }, {
+      "id" : "titolo_di_studio",
+      "label" : "Titolo di Studio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"titolo_di_studio\">",
+      "type" : "text"
+    }, {
+      "id" : "email",
+      "label" : "Email",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"email\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "per_i_seguenti_insegnamenti",
+      "label" : "Per i seguenti Insegnamenti",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-per_i_seguenti_insegnamenti\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_per_i_seguenti_insegnamenti-NNNNN-denominazione\">Denominazione:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"per_i_seguenti_insegnamenti-NNNNN-denominazione\" id=\"id_per_i_seguenti_insegnamenti-NNNNN-denominazione\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_per_i_seguenti_insegnamenti-NNNNN-ssd\">Ssd:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"per_i_seguenti_insegnamenti-NNNNN-ssd\" id=\"id_per_i_seguenti_insegnamenti-NNNNN-ssd\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_per_i_seguenti_insegnamenti-NNNNN-corso_di_laurea\">Corso di laurea:</label></th>\n    <td>\n      \n      <select name=\"per_i_seguenti_insegnamenti-NNNNN-corso_di_laurea\" id=\"id_per_i_seguenti_insegnamenti-NNNNN-corso_di_laurea\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Informatica Triennale\">Informatica Triennale</option>\n\n  <option value=\" Informatica Magistrale\"> Informatica Magistrale</option>\n\n  <option value=\"Matematica Triennale\">Matematica Triennale</option>\n\n  <option value=\"Matematica Magistrale\">Matematica Magistrale</option>\n\n  <option value=\"Scienze della Formazione Primaria\">Scienze della Formazione Primaria</option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-per_i_seguenti_insegnamenti-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"per_i_seguenti_insegnamenti-TOTAL_FORMS\" value=\"1\" id=\"id_per_i_seguenti_insegnamenti-TOTAL_FORMS\"><input type=\"hidden\" name=\"per_i_seguenti_insegnamenti-INITIAL_FORMS\" value=\"0\" id=\"id_per_i_seguenti_insegnamenti-INITIAL_FORMS\"><input type=\"hidden\" name=\"per_i_seguenti_insegnamenti-MIN_NUM_FORMS\" value=\"1\" id=\"id_per_i_seguenti_insegnamenti-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"per_i_seguenti_insegnamenti-MAX_NUM_FORMS\" value=\"1000\" id=\"id_per_i_seguenti_insegnamenti-MAX_NUM_FORMS\">\n\n<div class=\"form-container\">\n    <div class=\"row form-row spacer\">\n        <div class=\"col\">\n            <div class=\"input-group\">\n                <div class=\"table-responsive\">\n                    <table class=\"table table-bordered formset-table\">\n                        <tr>\n    <th><label for=\"id_per_i_seguenti_insegnamenti-0-denominazione\">Denominazione:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"per_i_seguenti_insegnamenti-0-denominazione\" id=\"id_per_i_seguenti_insegnamenti-0-denominazione\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_per_i_seguenti_insegnamenti-0-ssd\">Ssd:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"per_i_seguenti_insegnamenti-0-ssd\" id=\"id_per_i_seguenti_insegnamenti-0-ssd\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_per_i_seguenti_insegnamenti-0-corso_di_laurea\">Corso di laurea:</label></th>\n    <td>\n      \n      <select name=\"per_i_seguenti_insegnamenti-0-corso_di_laurea\" id=\"id_per_i_seguenti_insegnamenti-0-corso_di_laurea\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Informatica Triennale\">Informatica Triennale</option>\n\n  <option value=\" Informatica Magistrale\"> Informatica Magistrale</option>\n\n  <option value=\"Matematica Triennale\">Matematica Triennale</option>\n\n  <option value=\"Matematica Magistrale\">Matematica Magistrale</option>\n\n  <option value=\"Scienze della Formazione Primaria\">Scienze della Formazione Primaria</option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                    </table>\n                </div>\n            </div>\n            <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-per_i_seguenti_insegnamenti-0\">\n                <svg class=\"icon icon-xs icon-white\">\n                    <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                </svg> Rimuovi inserimento\n            </button>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-per_i_seguenti_insegnamenti\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "pdf_curriculum_candidato_a",
+      "label" : "PDF curriculum candidato/a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Allegare il curriculum del/della candidato/a dal quale emergono specifiche competenze comprovate da titoli e pubblicazioni nelle discipline per cui è proposto/a.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"pdf_curriculum_candidato_a\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

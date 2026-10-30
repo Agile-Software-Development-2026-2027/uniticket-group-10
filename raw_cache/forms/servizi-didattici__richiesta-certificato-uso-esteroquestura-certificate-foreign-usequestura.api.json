@@ -1,0 +1,300 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:40.553019Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizi-didattici/richiesta-certificato-uso-esteroquestura-certificate-foreign-usequestura/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta Certificato Uso Estero/Questura - Certificate Foreign Use/Questura",
+    "description" : "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "protocol_required" : false,
+    "slug" : "richiesta-certificato-uso-esteroquestura-certificate-foreign-usequestura",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 526,
+      "fields" : {
+        "category" : 186,
+        "title" : "I CERTIFICATI DELLE RICHIESTE APERTE IL 29 E 30 DICEMBRE SARANNO EMESSI A PARTIRE DAL 9 GENNAIO 2023",
+        "text" : "i certificati delle richieste aperte il 29 e 30 dicembre saranno emessi a partire dal 9 gennaio 2023.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : false
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 308,
+      "fields" : {
+        "category" : 186,
+        "title" : "Attenzione / Warning",
+        "text" : "La data effettiva di richiesta sarà quella di evasione dei bolli virtuali\r\n\r\nThe real date of request will be that of evasion of virtual stamps\r\n\r\n-------------------------\r\n\r\nControllare con frequenza le nostre comunicazioni inviate tramite canale di messaggistica\r\n\r\nCheck frequently our communications sent through the messaging channel.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 185,
+      "fields" : {
+        "category" : 186,
+        "title" : "Ai sensi dell’art. 15 della legge n. 183/2011, non possono più essere rilasciati e accettati certificati da produrre alle pubbliche amministrazioni e ai gestori di pubblici servizi. Gli interessati a questi casi dovranno produrre solo autocertificazioni.",
+        "text" : "Saranno emesse su Esse3 un numero di marche da bollo virtuali da € 16,00 in corrispondenza al numero dei certificati richiesti,\r\noltre al bollo virtuale da € 16,00 della richiesta. – A number of € 16.00 virtual duty stamps will be issued on Esse3 corresponding to the\r\nnumber of certificates requested, in addition to the € 16.00 virtual stamp of the request.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 270,
+      "fields" : {
+        "category" : 186,
+        "title" : "Saranno emesse su Esse3 un numero di marche da bollo virtuali da € 16,00 in corrispondenza al numero dei certificati richiesti, oltre al bollo virtuale da € 16,00 della richiesta.",
+        "text" : "bolli virtuali",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta Certificato Uso Estero/Questura - Certificate Foreign Use/Questura",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta Certificato Uso Estero/Questura - Certificate Foreign Use/Questura\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "motivazione_della_richiesta",
+      "label" : "MOTIVAZIONE DELLA RICHIESTA",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "PERMESSO DI SOGGIORNO (QUESTURA)",
+        "value" : "PERMESSO DI SOGGIORNO (QUESTURA)"
+      }, {
+        "text" : " ATTRIBUZIONE ASSEGNI FAMILIARI PER L'ESTERO",
+        "value" : " ATTRIBUZIONE ASSEGNI FAMILIARI PER L'ESTERO"
+      }, {
+        "text" : " GENERICO PER L'ESTERO",
+        "value" : " GENERICO PER L'ESTERO"
+      }, {
+        "text" : " WES (inserire nella \"Descrizione\" il Reference N° associato a WES)",
+        "value" : " WES (inserire nella \"Descrizione\" il Reference N° associato a WES)"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"motivazione_della_richiesta\" value=\"PERMESSO DI SOGGIORNO (QUESTURA)\">\n PERMESSO DI SOGGIORNO (QUESTURA)</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"motivazione_della_richiesta\" value=\" ATTRIBUZIONE ASSEGNI FAMILIARI PER L&#x27;ESTERO\">\n  ATTRIBUZIONE ASSEGNI FAMILIARI PER L&#x27;ESTERO</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"motivazione_della_richiesta\" value=\" GENERICO PER L&#x27;ESTERO\">\n  GENERICO PER L&#x27;ESTERO</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"motivazione_della_richiesta\" value=\" WES (inserire nella &quot;Descrizione&quot; il Reference N° associato a WES)\">\n  WES (inserire nella &quot;Descrizione&quot; il Reference N° associato a WES)</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "inserire_matricola_e_corso_di_laurea_-_non_è_possibile_inserire_matricole_differenti_corsi_di_studi_differenti_nella_stessa_istanza.",
+      "label" : "INSERIRE MATRICOLA E CORSO DI LAUREA - Non è possibile inserire matricole differenti (Corsi di studi differenti) nella stessa istanza.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"inserire_matricola_e_corso_di_laurea_-_non_è_possibile_inserire_matricole_differenti_corsi_di_studi_differenti_nella_stessa_istanza.\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "iscrizione",
+      "label" : "ISCRIZIONE",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"iscrizione\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"1 copia\">1 copia</option>\n\n  <option value=\"2 copie\">2 copie</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "iscrizione_con_anni_accademici_ed_esami",
+      "label" : "ISCRIZIONE con ANNI ACCADEMICI ED ESAMI",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"iscrizione_con_anni_accademici_ed_esami\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"1 copia\">1 copia</option>\n\n  <option value=\"2 copie\">2 copie</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "laurea",
+      "label" : "LAUREA",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"laurea\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"1 copia\">1 copia</option>\n\n  <option value=\"2 copie\">2 copie</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "laurea_con_anni_accademici_ed_esami",
+      "label" : "LAUREA con ANNI ACCADEMICI ED ESAMI",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"laurea_con_anni_accademici_ed_esami\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"1 copia\">1 copia</option>\n\n  <option value=\"2 copie\">2 copie</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "iscrizione_in_lingua_inglese",
+      "label" : "ISCRIZIONE (in lingua inglese)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"iscrizione_in_lingua_inglese\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"1 copia\">1 copia</option>\n\n  <option value=\"2 copie\">2 copie</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "iscrizione_con_anni_accademici_ed_esami_in_lingua_inglese",
+      "label" : "ISCRIZIONE con ANNI ACCADEMICI ED ESAMI (in lingua inglese)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"iscrizione_con_anni_accademici_ed_esami_in_lingua_inglese\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"1 copia\">1 copia</option>\n\n  <option value=\"2 copie\">2 copie</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "laurea_in_lingua_inglese",
+      "label" : "LAUREA (in lingua inglese)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"laurea_in_lingua_inglese\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"1 copia\">1 copia</option>\n\n  <option value=\"2 copie\">2 copie</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "laurea_con_anni_accademici_ed_esami_in_lingua_inglese",
+      "label" : "LAUREA con ANNI ACCADEMICI ED ESAMI (in lingua inglese)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"laurea_con_anni_accademici_ed_esami_in_lingua_inglese\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"1 copia\">1 copia</option>\n\n  <option value=\"2 copie\">2 copie</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "rinuncia_con_esami_uso_estero",
+      "label" : "RINUNCIA CON ESAMI (USO ESTERO)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"rinuncia_con_esami_uso_estero\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"1 copia\">1 copia</option>\n\n  <option value=\"2 copie\">2 copie</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    } ]
+  },
+  "rawTextBody" : null
+}

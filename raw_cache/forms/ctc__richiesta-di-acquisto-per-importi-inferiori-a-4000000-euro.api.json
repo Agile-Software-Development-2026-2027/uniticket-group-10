@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:42.209533Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ctc/richiesta-di-acquisto-per-importi-inferiori-a-4000000-euro/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

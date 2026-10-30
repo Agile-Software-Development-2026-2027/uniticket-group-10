@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:39.967624Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/centro-residenziale/x-domanda-borsa-di-studio-aa-20242025-trasferimento-in-entrata-da-altra-sede-presso-unical/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

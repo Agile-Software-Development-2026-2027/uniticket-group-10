@@ -1,0 +1,171 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:51.957668Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/sab/richiesta-di-supporto-tecnico-per-utenti-istituzionali-proxy-banche-dati-pubblicazioni-in-open-access/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta di supporto tecnico per utenti istituzionali (Proxy, banche dati, pubblicazioni in Open Access...)",
+    "description" : "Con il seguente modulo si richiede il supporto tecnico per problematiche relative a tutti i servizi della biblioteca digitale (es. Proxy, banche dati, pubblicazioni in Open Access)",
+    "protocol_required" : false,
+    "slug" : "richiesta-di-supporto-tecnico-per-utenti-istituzionali-proxy-banche-dati-pubblicazioni-in-open-access",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 631,
+      "fields" : {
+        "category" : 569,
+        "title" : "Privacy e dati personali",
+        "text" : "Informativa sul trattamento dei dati personali - https://www.unical.it/portale/ateneo/privacy/",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta di supporto tecnico per utenti istituzionali (Proxy, banche dati, pubblicazioni in Open Access...)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta di supporto tecnico per utenti istituzionali (Proxy, banche dati, pubblicazioni in Open Access...)\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Con il seguente modulo si richiede il supporto tecnico per problematiche relative a tutti i servizi della biblioteca digitale (es. Proxy, banche dati, pubblicazioni in Open Access)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nCon il seguente modulo si richiede il supporto tecnico per problematiche relative a tutti i servizi della biblioteca digitale (es. Proxy, banche dati, pubblicazioni in Open Access)</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "scegli_la_tipologia_di_richiesta",
+      "label" : "Scegli la tipologia di richiesta",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"scegli_la_tipologia_di_richiesta\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Richiesta generica di informazioni\">Richiesta generica di informazioni</option>\n\n  <option value=\" Richiesta di supporto sul servizio proxy\"> Richiesta di supporto sul servizio proxy</option>\n\n  <option value=\" Richiesta di supporto sulle banche dati\"> Richiesta di supporto sulle banche dati</option>\n\n  <option value=\" Richiesta di supporto su pubblicazioni in Open Access\"> Richiesta di supporto su pubblicazioni in Open Access</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "indica_il_tuo_status_utente",
+      "label" : "Indica il tuo status utente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"indica_il_tuo_status_utente\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Docente\">Docente</option>\n\n  <option value=\" Ricercatore\"> Ricercatore</option>\n\n  <option value=\" Dottorando\"> Dottorando</option>\n\n  <option value=\" Studente\"> Studente</option>\n\n  <option value=\" Studente Master\"> Studente Master</option>\n\n  <option value=\" Impiegato Unical\"> Impiegato Unical</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "descrivi_brevemente_la_tua_richiesta",
+      "label" : "Descrivi brevemente la tua richiesta",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"descrivi_brevemente_la_tua_richiesta\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "inserisci_un_indirizzo_email_istituzionale_per_essere_ricontattato",
+      "label" : "Inserisci un indirizzo email istituzionale per essere ricontattato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"inserisci_un_indirizzo_email_istituzionale_per_essere_ricontattato\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "inserisci_un_numero_di_telefono_per_essere_ricontattato",
+      "label" : "Inserisci un numero di telefono per essere ricontattato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"inserisci_un_numero_di_telefono_per_essere_ricontattato\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "inserisci,_ove_necessario,_un_allegato_per_spiegare_meglio_la_tua_richiesta_ad_es._screenshot_o_documenti_vari",
+      "label" : "Inserisci, ove necessario, un allegato per spiegare meglio la tua richiesta (ad es. screenshot o documenti vari)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"inserisci,_ove_necessario,_un_allegato_per_spiegare_meglio_la_tua_richiesta_ad_es._screenshot_o_documenti_vari\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

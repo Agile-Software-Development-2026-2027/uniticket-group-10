@@ -1,0 +1,237 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:16.201543Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/sssap/scuola-superiore-di-scienze-delle-amministrazione-pubbliche-servizio-consegna-tesi/ticket/new/",
+  "jsonBody" : {
+    "name" : "Scuola Superiore di Scienze delle Amministrazione Pubbliche - Servizio consegna tesi",
+    "description" : "Procedura telematica prenotazione e consegna elaborato finale seduta del XX XXXX 2023, per i Master di II livello della Scuola Superiore di Scienze delle Pubbliche Amministrazioni.",
+    "protocol_required" : false,
+    "slug" : "scuola-superiore-di-scienze-delle-amministrazione-pubbliche-servizio-consegna-tesi",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Scuola Superiore di Scienze delle Amministrazione Pubbliche - Servizio consegna tesi",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Scuola Superiore di Scienze delle Amministrazione Pubbliche - Servizio consegna tesi\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Procedura telematica prenotazione e consegna elaborato finale seduta del XX XXXX 2023, per i Master di II livello della Scuola Superiore di Scienze delle Pubbliche Amministrazioni.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nProcedura telematica prenotazione e consegna elaborato finale seduta del XX XXXX 2023, per i Master di II livello della Scuola Superiore di Scienze delle Pubbliche Amministrazioni.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "codice_fiscale",
+      "label" : "Codice fiscale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_fiscale\">",
+      "type" : "text"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "per_quale_master_vuole_sostenere_la_prova_finale",
+      "label" : "Per quale Master vuole sostenere la prova finale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"per_quale_master_vuole_sostenere_la_prova_finale\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Master di II livello in &quot;Management delle Amministrazioni Pubbliche&quot; \">Master di II livello in &quot;Management delle Amministrazioni Pubbliche&quot; </option>\n\n  <option value=\"Master di II livello in &quot;Diritto del lavoro welfare e servizi per l&#x27;impiego&quot; \">Master di II livello in &quot;Diritto del lavoro welfare e servizi per l&#x27;impiego&quot; </option>\n\n  <option value=\"Master di II livello in &quot;Management del Turismo e del Turismo Residenziale&quot;\">Master di II livello in &quot;Management del Turismo e del Turismo Residenziale&quot;</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "anno_accademico_del_master",
+      "label" : "Anno accademico del Master",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"anno_accademico_del_master\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"2021/2022\">2021/2022</option>\n\n  <option value=\"2020/2021\">2020/2021</option>\n\n  <option value=\"2019/2020\">2019/2020</option>\n\n  <option value=\"2018/2019\">2018/2019</option>\n\n  <option value=\"2017/2018\">2017/2018</option>\n\n  <option value=\"2016/2017\">2016/2017</option>\n\n  <option value=\"2015/2016\">2015/2016</option>\n\n  <option value=\"2014/2015\">2014/2015</option>\n\n  <option value=\"2013/2014\">2013/2014</option>\n\n  <option value=\"2012/2013\">2012/2013</option>\n\n  <option value=\"2011/2012\">2011/2012</option>\n\n  <option value=\"2010/2011\">2010/2011</option>\n\n  <option value=\"2009/2010\">2009/2010</option>\n\n  <option value=\"2008/2009\">2008/2009</option>\n\n  <option value=\"2007/2008\">2007/2008</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "relatore",
+      "label" : "Relatore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"relatore\">",
+      "type" : "text"
+    }, {
+      "id" : "titolo_elaborato",
+      "label" : "Titolo elaborato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"titolo_elaborato\">",
+      "type" : "text"
+    }, {
+      "id" : "elaborato_finale_è_permesso_caricare_un_solo_file,_contenente_frontespizio_ed_elaborato_finale,_con_annesse_firme",
+      "label" : "Elaborato finale (è permesso caricare un solo file, contenente frontespizio ed elaborato finale, con annesse firme)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"elaborato_finale_è_permesso_caricare_un_solo_file,_contenente_frontespizio_ed_elaborato_finale,_con_annesse_firme\">",
+      "type" : "file"
+    }, {
+      "id" : "slide_è_permesso_caricare_un_solo_file",
+      "label" : "Slide (è permesso caricare un solo file)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"slide_è_permesso_caricare_un_solo_file\">",
+      "type" : "file"
+    }, {
+      "id" : "recapito_telefonico",
+      "label" : "Recapito telefonico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"recapito_telefonico\">",
+      "type" : "text"
+    }, {
+      "id" : "indirizzo_email_fornire_l'indirizzo_email_con_il_quale_si_accederà_alla_piattaforma_microsoft_teams",
+      "label" : "Indirizzo email (Fornire l'indirizzo email con il quale si accederà alla piattaforma Microsoft Teams)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"indirizzo_email_fornire_l&#x27;indirizzo_email_con_il_quale_si_accederà_alla_piattaforma_microsoft_teams\">",
+      "type" : "text"
+    }, {
+      "id" : "si",
+      "label" : "Si",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"si\">",
+      "type" : "checkbox"
+    } ]
+  },
+  "rawTextBody" : null
+}

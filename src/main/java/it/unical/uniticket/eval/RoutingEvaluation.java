@@ -72,7 +72,12 @@ public final class RoutingEvaluation {
                 }
                 validCases++;
                 Set<String> resultSlugs = results.stream()
-                        .map(result -> result.schema.compositeSlug)
+                        .flatMap(result -> {
+                            List<String> slugs = new ArrayList<>();
+                            slugs.add(result.schema.compositeSlug);
+                            result.groupVariants.forEach(variant -> slugs.add(variant.compositeSlug));
+                            return slugs.stream();
+                        })
                         .collect(Collectors.toSet());
                 if (testCase.expected.stream().anyMatch(resultSlugs::contains)) {
                     hits++;
@@ -92,7 +97,12 @@ public final class RoutingEvaluation {
             }
             List<ScoredCategory> results = search(baseline, testCase.query, hybrid);
             Set<String> resultSlugs = results.stream()
-                    .map(result -> result.schema.compositeSlug)
+                    .flatMap(result -> {
+                        List<String> slugs = new ArrayList<>();
+                        slugs.add(result.schema.compositeSlug);
+                        result.groupVariants.forEach(variant -> slugs.add(variant.compositeSlug));
+                        return slugs.stream();
+                    })
                     .collect(Collectors.toSet());
             if (testCase.expected.stream().noneMatch(resultSlugs::contains)) {
                 System.out.println("- " + testCase.query);

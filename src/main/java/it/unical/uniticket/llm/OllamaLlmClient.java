@@ -19,14 +19,25 @@ public class OllamaLlmClient implements LlmClient {
 
     @Override
     public String generate(String systemPrompt, String userPrompt) {
+        return generate(systemPrompt, userPrompt, null);
+    }
+
+    @Override
+    public String generate(String systemPrompt, String userPrompt, JsonNode responseSchema) {
         try {
             ObjectNode root = mapper.createObjectNode();
             root.put("model", modelName);
             root.put("stream", false);
-            root.put("format", "json");
+            if (responseSchema == null) {
+                root.put("format", "json");
+            } else {
+                root.set("format", responseSchema);
+            }
 
             ObjectNode options = root.putObject("options");
             options.put("temperature", 0.0);
+            options.put("seed", 42);
+            options.put("top_k", 1);
             options.put("num_ctx", 4096);
             options.put("num_predict", 512);
 

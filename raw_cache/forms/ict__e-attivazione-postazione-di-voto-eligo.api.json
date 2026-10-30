@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:55.051903Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/e-attivazione-postazione-di-voto-eligo/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

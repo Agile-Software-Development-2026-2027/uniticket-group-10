@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:46.507046Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dimeg/domanda-di-iscrizione-anni-successivi-al-primo-e-riconoscimento-esamicfu-sostenuti-dimeg/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Il modulo sarà disponibile dal 1° luglio al 31 agosto 2026",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,258 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:06.216660Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizio-studenti-con-disabilita-dsa-e-bes/invio-certificazione-di-disabilitainvalidita-eo-dsa/ticket/new/",
+  "jsonBody" : {
+    "name" : "Invio Certificazione di disabilità/invalidità e/o DSA",
+    "description" : "Modulo invio di Certificazione di disabilità/invalidità  e/o DSA",
+    "protocol_required" : false,
+    "slug" : "invio-certificazione-di-disabilitainvalidita-eo-dsa",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Invio Certificazione di disabilità/invalidità e/o DSA",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Invio Certificazione di disabilità/invalidità e/o DSA\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Modulo invio di Certificazione di disabilità/invalidità  e/o DSA",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nModulo invio di Certificazione di disabilità/invalidità  e/o DSA</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"matricola\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "data_di_nascita",
+      "label" : "Data di nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_di_nascita\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "telefono_abitazione",
+      "label" : "Telefono Abitazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono_abitazione\">",
+      "type" : "text"
+    }, {
+      "id" : "telefono_cellulare",
+      "label" : "Telefono cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono_cellulare\">",
+      "type" : "text"
+    }, {
+      "id" : "denominazione_corso_di_laurea",
+      "label" : "Denominazione Corso di Laurea",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserisci il Corso di Laurea a cui sei iscritto/a",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"denominazione_corso_di_laurea\">",
+      "type" : "text"
+    }, {
+      "id" : "tipologia_disabilità_o_dsa",
+      "label" : "Tipologia disabilità o DSA",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"tipologia_disabilità_o_dsa\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Disturbi Specifici dell&#x27;Apprendimento\">Disturbi Specifici dell&#x27;Apprendimento</option>\n\n  <option value=\"Motoria\">Motoria</option>\n\n  <option value=\" Visiva\"> Visiva</option>\n\n  <option value=\" Uditiva\"> Uditiva</option>\n\n  <option value=\" Oncologica\"> Oncologica</option>\n\n  <option value=\" Neurologica\"> Neurologica</option>\n\n  <option value=\" Altra Tipologia\"> Altra Tipologia</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "percentuale_disabilità:",
+      "label" : "Percentuale Disabilità:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"percentuale_disabilità:\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "certificazione_legge_104_92_-_legge_170_2010:",
+      "label" : "Certificazione Legge 104/92 - Legge 170/2010:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"certificazione_legge_104_92_-_legge_170_2010:\" value=\"Legge 104/92 articolo 3 comma 1\">\n\n            \n            <label\n            >\n                Legge 104/92 articolo 3 comma 1\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"certificazione_legge_104_92_-_legge_170_2010:\" value=\"Legge 104/92 articolo 3 comma 3\">\n\n            \n            <label\n            >\n                Legge 104/92 articolo 3 comma 3\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"certificazione_legge_104_92_-_legge_170_2010:\" value=\"Legge 170/2010\">\n\n            \n            <label\n            >\n                Legge 170/2010\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"certificazione_legge_104_92_-_legge_170_2010:\" value=\" Certificazione di invalidità Civile (Legge 118/1971-Legge 18/1980 e Legge 508/1988, altro..)\">\n\n            \n            <label\n            >\n                 Certificazione di invalidità Civile (Legge 118/1971-Legge 18/1980 e Legge 508/1988, altro..)\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "certificazione_di_disabilità_e_o_di_dsa",
+      "label" : "Certificazione di disabilità e/o di DSA",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Allega la certificazione di disabilità o DSA in tuo possesso",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"certificazione_di_disabilità_e_o_di_dsa\">",
+      "type" : "file"
+    }, {
+      "id" : "tipologia_di_invio_documentazione",
+      "label" : "Tipologia di invio documentazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Invio nuova Certificazione",
+        "value" : "Invio nuova Certificazione"
+      }, {
+        "text" : " Aggiornamento Certificazione già consegnata",
+        "value" : " Aggiornamento Certificazione già consegnata"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_di_invio_documentazione\" value=\"Invio nuova Certificazione\">\n Invio nuova Certificazione</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_di_invio_documentazione\" value=\" Aggiornamento Certificazione già consegnata\">\n  Aggiornamento Certificazione già consegnata</label>\n\n</div>\n</div>",
+      "type" : "select"
+    } ]
+  },
+  "rawTextBody" : null
+}

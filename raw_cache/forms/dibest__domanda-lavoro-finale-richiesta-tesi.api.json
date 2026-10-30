@@ -1,0 +1,377 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:53.955872Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dibest/domanda-lavoro-finale-richiesta-tesi/ticket/new/",
+  "jsonBody" : {
+    "name" : "Domanda Lavoro Finale (Richiesta TESI)",
+    "description" : "Modulo di Richiesta Tesi",
+    "protocol_required" : true,
+    "slug" : "domanda-lavoro-finale-richiesta-tesi",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 123,
+      "fields" : {
+        "category" : 124,
+        "title" : "Note Operative",
+        "text" : "**ATTENZIONE NON INVIARE IL MODULO, MA SEGUI LE INDICAZIONI**\r\n\r\n* Il modulo va solo compilato ma non inviato.\r\n\r\n* Clicca sulla voce **Se la richiesta che stai compilando deve essere completata e sottoscritta da un altro utente (es. Direttore Dipartimento, responsabile ufficio, ecc.), clicca qui;**\r\n\r\n* Mettere segno di spunta su **Tieni traccia della mia compilazione nel ticket**\r\n\r\n* Premere il pulsante **Genera URL per inviarlo al docente relatore/trice**\r\n\r\n* Preparare e inviare una mail al relatore/trice incollando l URL generato\r\n\r\n* Il/la Relatore/trice provvederà ad inviare la richiesta.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 130,
+      "fields" : {
+        "category" : 124,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Domanda Lavoro Finale (Richiesta TESI)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Domanda Lavoro Finale (Richiesta TESI)\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Modulo di Richiesta Tesi",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nModulo di Richiesta Tesi</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "al_alla_coordinatore_trice_del_cds",
+      "label" : "Al/alla Coordinatore/trice del CDS",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"al_alla_coordinatore_trice_del_cds\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "il_la_sottoscritto_a_è_nato_a_a",
+      "label" : "Il/la sottoscritto/a è nato/a a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_la_sottoscritto_a_è_nato_a_a\">",
+      "type" : "text"
+    }, {
+      "id" : "il",
+      "label" : "Il",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"il\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cellulare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "iscritto_a_per_l'a.a.",
+      "label" : "Iscritto/a per l'A.A.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"iscritto_a_per_l&#x27;a.a.\">",
+      "type" : "text"
+    }, {
+      "id" : "con_matricola",
+      "label" : "con matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"con_matricola\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "al_corso_di_laurea_in",
+      "label" : "Al Corso di Laurea In",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"al_corso_di_laurea_in\">",
+      "type" : "text"
+    }, {
+      "id" : "e_di_aver_acquisito_n._di_crediti",
+      "label" : "e di aver acquisito n. di Crediti",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"e_di_aver_acquisito_n._di_crediti\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "chiede",
+      "label" : "CHIEDE",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"chiede\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "sulla_base_di_quanto_previsto_dal_regolamento_didattico_del_corso_di_studio,_di_svolgere_il_lavoro_finale_con_il_seguente_progetto_formativo:",
+      "label" : "sulla base di quanto previsto dal Regolamento Didattico del Corso di Studio, di svolgere il lavoro finale con il seguente progetto formativo:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"sulla_base_di_quanto_previsto_dal_regolamento_didattico_del_corso_di_studio,_di_svolgere_il_lavoro_finale_con_il_seguente_progetto_formativo:\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "sede_del_lavoro_di_tesi",
+      "label" : "Sede del Lavoro di Tesi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"sede_del_lavoro_di_tesi\" value=\"Interna\">\n\n            \n            <label\n            >\n                Interna\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"sede_del_lavoro_di_tesi\" value=\"Esterna\">\n\n            \n            <label\n            >\n                Esterna\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "laboratorio_dibest_presso_il_quale_verrà_svolto_il_lavoro_finale_se_sede_interna",
+      "label" : "Laboratorio DiBEST presso il quale verrà svolto il lavoro finale (se sede Interna)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"laboratorio_dibest_presso_il_quale_verrà_svolto_il_lavoro_finale_se_sede_interna\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Laboratorio di Biologia Vegetale\">Laboratorio di Biologia Vegetale</option>\n\n  <option value=\"Centro di Microscopia e Microanalisi e Laboratorio di Microscopia Elettronica\">Centro di Microscopia e Microanalisi e Laboratorio di Microscopia Elettronica</option>\n\n  <option value=\"Laboratorio di Diagnostica e Conservazione dei Beni Culturali\">Laboratorio di Diagnostica e Conservazione dei Beni Culturali</option>\n\n  <option value=\"Fisiologia d&#x27;organo e dei sistemi\">Fisiologia d&#x27;organo e dei sistemi</option>\n\n  <option value=\"Fisiologia Umana (Sezioni Cardio-renale e Nefrologia traslazionale)\">Fisiologia Umana (Sezioni Cardio-renale e Nefrologia traslazionale)</option>\n\n  <option value=\"Laboratorio di Genetica e Microbiologia\">Laboratorio di Genetica e Microbiologia</option>\n\n  <option value=\"Geodynamics, Geo-Paleobiology and Earth Surface Processes\">Geodynamics, Geo-Paleobiology and Earth Surface Processes</option>\n\n  <option value=\"Laboratori didattici di Biologia\">Laboratori didattici di Biologia</option>\n\n  <option value=\"Laboratorio Chimio e Chimico-Ambientale\">Laboratorio Chimio e Chimico-Ambientale</option>\n\n  <option value=\"Laboratorio di Biochimica, Biotecnologie Molecolari e Biologia Molecolare\">Laboratorio di Biochimica, Biotecnologie Molecolari e Biologia Molecolare</option>\n\n  <option value=\"Laboratorio di Ecologia ed Ecotossicologia\">Laboratorio di Ecologia ed Ecotossicologia</option>\n\n  <option value=\"Laboratorio di Fisica Applicata per le nanotecnologie, i beni culturali e la comunicazione della scienza\">Laboratorio di Fisica Applicata per le nanotecnologie, i beni culturali e la comunicazione della scienza</option>\n\n  <option value=\"Laboratorio di Fisiologia Vascolare\">Laboratorio di Fisiologia Vascolare</option>\n\n  <option value=\"Laboratorio di Neuroanatomia Comparata\">Laboratorio di Neuroanatomia Comparata</option>\n\n  <option value=\"Laboratorio di Preparazione dei Campioni Biologici\">Laboratorio di Preparazione dei Campioni Biologici</option>\n\n  <option value=\"Laboratorio Informatica\">Laboratorio Informatica</option>\n\n  <option value=\"Laboratorio Marino\">Laboratorio Marino</option>\n\n  <option value=\"Laboratorio Raggi X e Spettroscopia Raman\">Laboratorio Raggi X e Spettroscopia Raman</option>\n\n  <option value=\"Laboratorio Restauro\">Laboratorio Restauro</option>\n\n  <option value=\"Laboratorio Sezioni Sottili e preparazione campioni\">Laboratorio Sezioni Sottili e preparazione campioni</option>\n\n  <option value=\"Mineralogia Sperimentale\">Mineralogia Sperimentale</option>\n\n  <option value=\"Spettrometria di Massa al Plasma\">Spettrometria di Massa al Plasma</option>\n\n  <option value=\"Laboratorio di Zoologia\">Laboratorio di Zoologia</option>\n\n  <option value=\"Laboratorio di Ceramica Industriale\">Laboratorio di Ceramica Industriale</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "laboratorio_unical_presso_il_quale_verrà_svolto_il_lavoro_finale_se_sede_interna",
+      "label" : "Laboratorio UNICAL presso il quale verrà svolto il lavoro finale (se sede Interna)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserire nome del laboratorio e cubo",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"laboratorio_unical_presso_il_quale_verrà_svolto_il_lavoro_finale_se_sede_interna\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "azienda_ente_se_sede_esterna",
+      "label" : "Azienda/ente (se sede esterna)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"azienda_ente_se_sede_esterna\">",
+      "type" : "text"
+    }, {
+      "id" : "rifermento_convenzione_se_sede_esterna",
+      "label" : "Rifermento convenzione (se sede esterna)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"rifermento_convenzione_se_sede_esterna\">",
+      "type" : "text"
+    }, {
+      "id" : "relatore_trice",
+      "label" : "Relatore/trice",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"relatore_trice\">",
+      "type" : "text"
+    }, {
+      "id" : "correlatore_trice_interno_se_presente",
+      "label" : "Correlatore/trice interno (se presente)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"correlatore_trice_interno_se_presente\">",
+      "type" : "text"
+    }, {
+      "id" : "correlatore_trice_esterno_se_presente",
+      "label" : "Correlatore/trice esterno (se presente)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"correlatore_trice_esterno_se_presente\">",
+      "type" : "text"
+    }, {
+      "id" : "dichiaro_di_essere_a_conoscenza_che_il_lavoro_di_tesi_ha_una_durata_minima_di_8_mesi",
+      "label" : "Dichiaro di essere a conoscenza che il lavoro di tesi ha una durata minima di 8 mesi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"dichiaro_di_essere_a_conoscenza_che_il_lavoro_di_tesi_ha_una_durata_minima_di_8_mesi\">",
+      "type" : "checkbox"
+    } ]
+  },
+  "rawTextBody" : null
+}

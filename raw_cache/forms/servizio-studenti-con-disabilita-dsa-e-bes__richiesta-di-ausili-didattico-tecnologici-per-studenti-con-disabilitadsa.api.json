@@ -1,0 +1,181 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:43.876723Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizio-studenti-con-disabilita-dsa-e-bes/richiesta-di-ausili-didattico-tecnologici-per-studenti-con-disabilitadsa/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta di ausili didattico-tecnologici per studenti con disabilità/DSA",
+    "description" : "Richiesta di ausili didattico-tecnologici per studenti con disabilità/DSA",
+    "protocol_required" : false,
+    "slug" : "richiesta-di-ausili-didattico-tecnologici-per-studenti-con-disabilitadsa",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta di ausili didattico-tecnologici per studenti con disabilità/DSA",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta di ausili didattico-tecnologici per studenti con disabilità/DSA\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta di ausili didattico-tecnologici per studenti con disabilità/DSA",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta di ausili didattico-tecnologici per studenti con disabilità/DSA</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"matricola\">",
+      "type" : "text"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "corso_di_studio",
+      "label" : "Corso di studio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"corso_di_studio\">",
+      "type" : "text"
+    }, {
+      "id" : "tipologia_di_ausilio",
+      "label" : "Tipologia di ausilio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "indicare la tipologia di ausilio di cui si necessita, se non presente compilare il campo \"altro specificare\"",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "hardware per disabilità sensoriali/DSA",
+        "value" : "hardware per disabilità sensoriali/DSA"
+      }, {
+        "text" : "software didattici di supporto allo studio ",
+        "value" : "software didattici di supporto allo studio "
+      }, {
+        "text" : "Altro Specificare",
+        "value" : "Altro Specificare"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_di_ausilio\" value=\"hardware per disabilità sensoriali/DSA\">\n hardware per disabilità sensoriali/DSA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_di_ausilio\" value=\"software didattici di supporto allo studio \">\n software didattici di supporto allo studio </label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_di_ausilio\" value=\"Altro Specificare\">\n Altro Specificare</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "altro_specificare",
+      "label" : "Altro Specificare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"altro_specificare\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "certificazione_di_disabilità_dsa",
+      "label" : "Certificazione di disabilità/DSA",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"certificazione_di_disabilità_dsa\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

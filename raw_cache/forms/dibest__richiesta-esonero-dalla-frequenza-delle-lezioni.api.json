@@ -1,0 +1,244 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:56.715038Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dibest/richiesta-esonero-dalla-frequenza-delle-lezioni/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta esonero dalla frequenza delle lezioni",
+    "description" : "Richiesta esonero dalla frequenza delle lezioni",
+    "protocol_required" : true,
+    "slug" : "richiesta-esonero-dalla-frequenza-delle-lezioni",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 392,
+      "fields" : {
+        "category" : 364,
+        "title" : "Note Operative",
+        "text" : "* Alla richiesta deve essere allegato un documento che attesti la condizione dichiarata (certificato Medico, learning agreement, autocertificazione di iscrizione scaricabile da ESSE3.). Le dichiarazioni, attestazioni e documentazione inviate con questo modulo sono fornite sotto la **piena responsabilità del dichiarante** che ne risponde in caso di dichiarazione falsa o mendace, anche penalmente (come previsto dall'art. 76 del DPR 445/2000).",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 393,
+      "fields" : {
+        "category" : 364,
+        "title" : "Dichiarazione di responsabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta esonero dalla frequenza delle lezioni",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta esonero dalla frequenza delle lezioni\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta esonero dalla frequenza delle lezioni",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta esonero dalla frequenza delle lezioni</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "al_coordinatore_del_cds",
+      "label" : "Al coordinatore del CDS",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"al_coordinatore_del_cds\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "il_la_sottoscritto_a_nato_a_a",
+      "label" : "Il/La sottoscritto/a nato/a a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_la_sottoscritto_a_nato_a_a\">",
+      "type" : "text"
+    }, {
+      "id" : "il",
+      "label" : "il",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"il\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cellulare\">",
+      "type" : "text"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"matricola\">",
+      "type" : "text"
+    }, {
+      "id" : "iscritto_a_al_corso_di_laurea",
+      "label" : "Iscritto/a al corso di laurea",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"iscritto_a_al_corso_di_laurea\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"in Biologia\">in Biologia</option>\n\n  <option value=\"in Scienze Naturali e Ambientali\">in Scienze Naturali e Ambientali</option>\n\n  <option value=\"in Scienze e Tecnologie Biologiche\">in Scienze e Tecnologie Biologiche</option>\n\n  <option value=\"in Scienze Geologiche\">in Scienze Geologiche</option>\n\n  <option value=\"in Scienze e Tecnologie per le attività Motorie e Sportive\">in Scienze e Tecnologie per le attività Motorie e Sportive</option>\n\n  <option value=\"magistrale in Biologia\">magistrale in Biologia</option>\n\n  <option value=\"magistrale in Biodiversità e Sistemi Naturali\">magistrale in Biodiversità e Sistemi Naturali</option>\n\n  <option value=\"Magistrale in Scienze Geologiche\">Magistrale in Scienze Geologiche</option>\n\n  <option value=\"magistrale in Health Biotechnology\">magistrale in Health Biotechnology</option>\n\n  <option value=\"magistrale a cilo unico in Conservazione e Restauro dei Beni Culturali\">magistrale a cilo unico in Conservazione e Restauro dei Beni Culturali</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "chiede",
+      "label" : "CHIEDE",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"chiede\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "l'esonero_dalla_frequenza_delle_lezioni_per",
+      "label" : "l'esonero dalla frequenza delle lezioni per",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"l&#x27;esonero_dalla_frequenza_delle_lezioni_per\" value=\"Motivi di salute\">\n\n            \n            <label\n            >\n                Motivi di salute\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"l&#x27;esonero_dalla_frequenza_delle_lezioni_per\" value=\"Mobilità internazionale\">\n\n            \n            <label\n            >\n                Mobilità internazionale\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"l&#x27;esonero_dalla_frequenza_delle_lezioni_per\" value=\"Ammissione Ritardata\">\n\n            \n            <label\n            >\n                Ammissione Ritardata\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "si_allega_alla_presente",
+      "label" : "si allega alla presente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"si_allega_alla_presente\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "attestato",
+      "label" : "Attestato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"attestato\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

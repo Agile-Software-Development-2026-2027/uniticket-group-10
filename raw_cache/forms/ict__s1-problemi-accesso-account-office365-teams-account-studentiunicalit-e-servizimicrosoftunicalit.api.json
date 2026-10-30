@@ -1,0 +1,164 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:15.310357Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/ict/s1-problemi-accesso-account-office365-teams-account-studentiunicalit-e-servizimicrosoftunicalit/ticket/new/",
+  "jsonBody" : {
+    "name" : "S1 - Problemi accesso account Office365 (Teams) - account  @studenti.unical.it e @servizimicrosoft.unical.it",
+    "description" : "Descrivi qui il problema riscontrato ...",
+    "protocol_required" : false,
+    "slug" : "s1-problemi-accesso-account-office365-teams-account-studentiunicalit-e-servizimicrosoftunicalit",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 47,
+      "fields" : {
+        "category" : 22,
+        "title" : "ISTRUZIONI PER L'UTENTE",
+        "text" : "ATTENZIONE: si ricorda che **solo gli studenti regolarmente iscritti** ed in regola col pagamento delle tasse hanno diritto alla mail istituzionale.\r\n\r\nPuoi procedere in modo **rapido e autonomo** al **recupero della password** del tuo account  istituzionale (*@studenti.unical.it*) come indicato di seguito:\r\n\r\n1 -  Vai alla pagina *www.office.com* e clicca su accedi  \r\n2 -  Clicca su “*Problemi di accesso all’account*”  \r\n3 -  Seleziona “*Account aziendale o dell’istituto di istruzione*”  \r\n4 -  Nel campo indirizzo di posta elettronica o nome utente inserire l’indirizzo nel formato *codicefiscale@studenti.unical.it*, inserire nel campo successivo i caratteri dell’immagine quindi cliccare su avanti\r\n5 -  Scegliere il metodo di contatto da utilizzare per la verifica (messaggio di posta oppure SMS) e seguire il resto delle istruzioni a video.  \r\n\r\n**Solo se** non ha effetto questa procedura, che è sicuramente la più rapida, puoi completare la richiesta utilizzando questo modulo.",
+        "ordinamento" : 5,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "S1 - Problemi accesso account Office365 (Teams) - account  @studenti.unical.it e @servizimicrosoft.unical.it",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"S1 - Problemi accesso account Office365 (Teams) - account  @studenti.unical.it e @servizimicrosoft.unical.it\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Descrivi qui il problema riscontrato ...",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nDescrivi qui il problema riscontrato ...</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "nome_utente_office365",
+      "label" : "Nome utente Office365",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Campo non obbligatorio. Per gli studenti, ha la forma di un indirizzo mail codicefiscale@studenti.unical.it, per i dipendenti nome.cognome@servizimicrosoft.unical.it",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome_utente_office365\">",
+      "type" : "text"
+    }, {
+      "id" : "stato",
+      "label" : "Stato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"stato\" value=\"Studente\">\n\n            \n            <label\n            >\n                Studente\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"stato\" value=\"Dipendente\">\n\n            \n            <label\n            >\n                Dipendente\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "mese_anno_ultimo_pagamento_tasse",
+      "label" : "Mese/anno ultimo pagamento tasse",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Campo non obbligatorio. Ricorda che dopo la laurea e in altre situazioni, le credenziali vengono disattivate dopo un congruo numero di mesi dall'ultimo pagamento di tasse e contributi",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"mese_anno_ultimo_pagamento_tasse\">",
+      "type" : "text"
+    }, {
+      "id" : "altri_elementi_utili",
+      "label" : "Altri elementi utili",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Campo non obbligatorio. Indica altri elementi che possono aiutare a comprendere il problema",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"altri_elementi_utili\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "indirizzo_email_personale",
+      "label" : "Indirizzo Email personale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indica una email personale come ulteriore canale di contatto",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"indirizzo_email_personale\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "telefono",
+      "label" : "Telefono",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Campo non obbligatorio. Inserendo un numero di telefono potrai essere contattato più facilmente dagli operatori in caso di necessità",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono\">",
+      "type" : "text"
+    } ]
+  },
+  "rawTextBody" : null
+}

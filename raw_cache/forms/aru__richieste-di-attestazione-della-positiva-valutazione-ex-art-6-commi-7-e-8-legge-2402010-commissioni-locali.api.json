@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:10.357676Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/aru/richieste-di-attestazione-della-positiva-valutazione-ex-art-6-commi-7-e-8-legge-2402010-commissioni-locali/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

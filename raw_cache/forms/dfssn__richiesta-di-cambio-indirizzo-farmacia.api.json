@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:45.195826Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dfssn/richiesta-di-cambio-indirizzo-farmacia/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:39.294109Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/aru/congedo-parentale-ai-sensi-dellart-32-del-dlgs-n-151-del-26032001-agg-dlgs-105-del-30062022/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

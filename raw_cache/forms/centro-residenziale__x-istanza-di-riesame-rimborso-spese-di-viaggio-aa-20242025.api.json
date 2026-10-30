@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:40.576146Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/centro-residenziale/x-istanza-di-riesame-rimborso-spese-di-viaggio-aa-20242025/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

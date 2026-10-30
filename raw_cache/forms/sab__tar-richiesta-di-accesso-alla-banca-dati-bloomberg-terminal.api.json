@@ -1,0 +1,304 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:30.999894Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/sab/tar-richiesta-di-accesso-alla-banca-dati-bloomberg-terminal/ticket/new/",
+  "jsonBody" : {
+    "name" : "TAR - Richiesta di accesso alla banca dati Bloomberg Terminal",
+    "description" : "Bloomberg T. ‎‎fornisce dati in tempo reale su ogni mercato, ultime notizie, ricerche approfondite, potenti analisi, strumenti di comunicazione in un'unica soluzione completamente integrata.‎\r\nCon questo modulo si chiede l'accesso alla postazione allocata al 2° piano torre della Biblioteca \"E.Tarantelli\". \r\nE' consultabile esclusivamente da docenti, ricercatori, dottorandi e tesisti. \r\nSolo al 1° accesso l’utente deve registrarsi assistito dal personale preposto.",
+    "protocol_required" : false,
+    "slug" : "tar-richiesta-di-accesso-alla-banca-dati-bloomberg-terminal",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 683,
+      "fields" : {
+        "category" : 653,
+        "title" : "PRIVACY - INFORMATIVA RELATIVA AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "I dati richiesti verranno trattati dall’Università della Calabria, in qualità di Titolare del trattamento, nel rispetto delle disposizioni di cui al Regolamento Europeo 2016/679 (“GDPR”). Si invita a prendere visione dell’Informativa relativa al trattamento dei dati personali consultando la pagina: https://www.unical.it/portale/ateneo/privacy/",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 684,
+      "fields" : {
+        "category" : 653,
+        "title" : "CONSENSO AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "Presto il mio consenso al trattamento dei dati da me forniti per le finalità di gestione del servizio ed a fini statistici",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "TAR - Richiesta di accesso alla banca dati Bloomberg Terminal",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"TAR - Richiesta di accesso alla banca dati Bloomberg Terminal\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Bloomberg T. ‎‎fornisce dati in tempo reale su ogni mercato, ultime notizie, ricerche approfondite, potenti analisi, strumenti di comunicazione in un'unica soluzione completamente integrata.‎\r\nCon questo modulo si chiede l'accesso alla postazione allocata al 2° piano torre della Biblioteca \"E.Tarantelli\". \r\nE' consultabile esclusivamente da docenti, ricercatori, dottorandi e tesisti. \r\nSolo al 1° accesso l’utente deve registrarsi assistito dal personale preposto.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nBloomberg T. ‎‎fornisce dati in tempo reale su ogni mercato, ultime notizie, ricerche approfondite, potenti analisi, strumenti di comunicazione in un&#x27;unica soluzione completamente integrata.‎\r\nCon questo modulo si chiede l&#x27;accesso alla postazione allocata al 2° piano torre della Biblioteca &quot;E.Tarantelli&quot;. \r\nE&#x27; consultabile esclusivamente da docenti, ricercatori, dottorandi e tesisti. \r\nSolo al 1° accesso l’utente deve registrarsi assistito dal personale preposto.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "nome_e_cognome_del_richiedente",
+      "label" : "Nome e cognome del richiedente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome_e_cognome_del_richiedente\">",
+      "type" : "text"
+    }, {
+      "id" : "status_utente",
+      "label" : "Status utente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"status_utente\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Professore\">Professore</option>\n\n  <option value=\" Ricercatore/Dottorando\"> Ricercatore/Dottorando</option>\n\n  <option value=\" Tesista\"> Tesista</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "relatore_della_tesi",
+      "label" : "Relatore della tesi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Da compilare solo se è stato scelto lo status di Tesista",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"relatore_della_tesi\">",
+      "type" : "text"
+    }, {
+      "id" : "indirizzo_email_istituzionale",
+      "label" : "Indirizzo email istituzionale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"indirizzo_email_istituzionale\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "telefono_cellulare",
+      "label" : "Telefono cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"telefono_cellulare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "attenzione!_inserire_questa_spunta_solo_nel_caso_in_cui_si_tratta_del_primo_accesso",
+      "label" : "ATTENZIONE! Inserire questa spunta solo nel caso in cui si tratta del primo accesso",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"attenzione!_inserire_questa_spunta_solo_nel_caso_in_cui_si_tratta_del_primo_accesso\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "tipologia_postazione",
+      "label" : "Tipologia postazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"tipologia_postazione\" value=\"Singola\">\n\n            \n            <label\n            >\n                Singola\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"tipologia_postazione\" value=\" Multipla\">\n\n            \n            <label\n            >\n                 Multipla\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "altri_partecipanti_alla_sessione_multipla_di_studio_oggetto_della_prenotazione",
+      "label" : "Altri partecipanti alla sessione multipla di studio oggetto della prenotazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserisci i nomi degli altri utenti che utilizzeranno la banca dati (massimo 4)",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"altri_partecipanti_alla_sessione_multipla_di_studio_oggetto_della_prenotazione\">",
+      "type" : "text"
+    }, {
+      "id" : "data_data_inizio_dyn",
+      "label" : "Data (Data inizio)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_data_inizio_dyn\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "data_data_fine_dyn",
+      "label" : "Data (Data fine)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_data_fine_dyn\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "opzioni_di_prenotazione_giorni_della_settimana",
+      "label" : "Opzioni di prenotazione giorni della settimana",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Lunedì",
+        "value" : "Lunedì"
+      }, {
+        "text" : " Martedì",
+        "value" : " Martedì"
+      }, {
+        "text" : " Mercoledì",
+        "value" : " Mercoledì"
+      }, {
+        "text" : " Giovedì",
+        "value" : " Giovedì"
+      }, {
+        "text" : " Venerdì",
+        "value" : " Venerdì"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"opzioni_di_prenotazione_giorni_della_settimana\" value=\"Lunedì\">\n Lunedì</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"opzioni_di_prenotazione_giorni_della_settimana\" value=\" Martedì\">\n  Martedì</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"opzioni_di_prenotazione_giorni_della_settimana\" value=\" Mercoledì\">\n  Mercoledì</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"opzioni_di_prenotazione_giorni_della_settimana\" value=\" Giovedì\">\n  Giovedì</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"opzioni_di_prenotazione_giorni_della_settimana\" value=\" Venerdì\">\n  Venerdì</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "fascia_oraria",
+      "label" : "Fascia oraria",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"fascia_oraria\" value=\"9:00 - 12:00\">\n\n            \n            <label\n            >\n                9:00 - 12:00\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"fascia_oraria\" value=\" 12:30 - 15:30\">\n\n            \n            <label\n            >\n                 12:30 - 15:30\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"fascia_oraria\" value=\" 16:00 - 19:00\">\n\n            \n            <label\n            >\n                 16:00 - 19:00\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "note",
+      "label" : "Note",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"note\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

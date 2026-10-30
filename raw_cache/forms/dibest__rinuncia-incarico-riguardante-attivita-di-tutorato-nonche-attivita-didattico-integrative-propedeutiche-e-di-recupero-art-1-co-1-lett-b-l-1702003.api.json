@@ -1,0 +1,259 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:14.786277Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dibest/rinuncia-incarico-riguardante-attivita-di-tutorato-nonche-attivita-didattico-integrative-propedeutiche-e-di-recupero-art-1-co-1-lett-b-l-1702003/ticket/new/",
+  "jsonBody" : {
+    "name" : "Rinuncia incarico riguardante attività di tutorato, nonché attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)",
+    "description" : "",
+    "protocol_required" : true,
+    "slug" : "rinuncia-incarico-riguardante-attivita-di-tutorato-nonche-attivita-didattico-integrative-propedeutiche-e-di-recupero-art-1-co-1-lett-b-l-1702003",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 718,
+      "fields" : {
+        "category" : 652,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Rinuncia incarico riguardante attività di tutorato, nonché attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Rinuncia incarico riguardante attività di tutorato, nonché attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "al_direttore_del_dipartimento",
+      "label" : "AL Direttore del Dipartimento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"al_direttore_del_dipartimento\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "anno_accademico",
+      "label" : "Anno Accademico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"anno_accademico\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "luogo_di_nascita",
+      "label" : "Luogo di Nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Città e Provincia",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"luogo_di_nascita\">",
+      "type" : "text"
+    }, {
+      "id" : "data_di_nascita",
+      "label" : "Data di Nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_di_nascita\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "residente_in",
+      "label" : "Residente in",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare via e numero civico",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"residente_in\">",
+      "type" : "text"
+    }, {
+      "id" : "cap",
+      "label" : "CAP",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cap\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "città",
+      "label" : "Città",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare città e provincia",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"città\">",
+      "type" : "text"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cellulare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "ambito_disciplinare_chimica",
+      "label" : "AMBITO DISCIPLINARE CHIMICA",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-ambito_disciplinare_chimica\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_ambito_disciplinare_chimica-NNNNN-dichiara_di_rinunciare_ai_seguenti_incarichi_di_attività_di_tutorato_nonché_attività_didattico_integrative_propedeutiche_e_di_recupero\">Dichiara di rinunciare ai seguenti incarichi di attività di tutorato nonché attività didattico integrative propedeutiche e di recupero:</label></th>\n    <td>\n      \n      <input type=\"checkbox\" name=\"ambito_disciplinare_chimica-NNNNN-dichiara_di_rinunciare_ai_seguenti_incarichi_di_attività_di_tutorato_nonché_attività_didattico_integrative_propedeutiche_e_di_recupero\" id=\"id_ambito_disciplinare_chimica-NNNNN-dichiara_di_rinunciare_ai_seguenti_incarichi_di_attività_di_tutorato_nonché_attività_didattico_integrative_propedeutiche_e_di_recupero\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label>Insegnamento:</label></th>\n    <td>\n      \n      <div id=\"id_ambito_disciplinare_chimica-NNNNN-insegnamento\"><div>\n    <label for=\"id_ambito_disciplinare_chimica-NNNNN-insegnamento_0\"><input type=\"checkbox\" name=\"ambito_disciplinare_chimica-NNNNN-insegnamento\" value=\"Chimica Generale e Inorganica per il CdL in Scienze e Tecnologie Biologiche conferito con D.D. n. 67 del 23.02.2026 per un totale di 30 ore e un importo di 604.84 euro\" id=\"id_ambito_disciplinare_chimica-NNNNN-insegnamento_0\">\n Chimica Generale e Inorganica per il CdL in Scienze e Tecnologie Biologiche conferito con D.D. n. 67 del 23.02.2026 per un totale di 30 ore e un importo di 604.84 euro</label>\n\n</div>\n</div>\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-ambito_disciplinare_chimica-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"ambito_disciplinare_chimica-TOTAL_FORMS\" value=\"0\" id=\"id_ambito_disciplinare_chimica-TOTAL_FORMS\"><input type=\"hidden\" name=\"ambito_disciplinare_chimica-INITIAL_FORMS\" value=\"0\" id=\"id_ambito_disciplinare_chimica-INITIAL_FORMS\"><input type=\"hidden\" name=\"ambito_disciplinare_chimica-MIN_NUM_FORMS\" value=\"0\" id=\"id_ambito_disciplinare_chimica-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"ambito_disciplinare_chimica-MAX_NUM_FORMS\" value=\"1000\" id=\"id_ambito_disciplinare_chimica-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-ambito_disciplinare_chimica\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "ambito_disciplinare_restauro",
+      "label" : "AMBITO DISCIPLINARE RESTAURO",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-ambito_disciplinare_restauro\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_ambito_disciplinare_restauro-NNNNN-dichiara_di_rinunciare_ai_seguenti_incarichi_di_attività_di_tutorato_nonché_attività_didattico_integrative_propedeutiche_e_di_recupero\">Dichiara di rinunciare ai seguenti incarichi di attività di tutorato nonché attività didattico integrative propedeutiche e di recupero:</label></th>\n    <td>\n      \n      <input type=\"checkbox\" name=\"ambito_disciplinare_restauro-NNNNN-dichiara_di_rinunciare_ai_seguenti_incarichi_di_attività_di_tutorato_nonché_attività_didattico_integrative_propedeutiche_e_di_recupero\" id=\"id_ambito_disciplinare_restauro-NNNNN-dichiara_di_rinunciare_ai_seguenti_incarichi_di_attività_di_tutorato_nonché_attività_didattico_integrative_propedeutiche_e_di_recupero\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label>Insegnamento:</label></th>\n    <td>\n      \n      <div id=\"id_ambito_disciplinare_restauro-NNNNN-insegnamento\"><div>\n    <label for=\"id_ambito_disciplinare_restauro-NNNNN-insegnamento_0\"><input type=\"checkbox\" name=\"ambito_disciplinare_restauro-NNNNN-insegnamento\" value=\"Laboratorio di Restauro 1 - Materiali lapidei e derivati Superfici decorate dell architettura per il CdLMU in Conservazione e Restauro dei Beni Culturali conferito con D.D. n. 67 del 23.02.2026 per un totale di 10 ore e un importo di 201.61 euro\" id=\"id_ambito_disciplinare_restauro-NNNNN-insegnamento_0\">\n Laboratorio di Restauro 1 - Materiali lapidei e derivati Superfici decorate dell architettura per il CdLMU in Conservazione e Restauro dei Beni Culturali conferito con D.D. n. 67 del 23.02.2026 per un totale di 10 ore e un importo di 201.61 euro</label>\n\n</div><div>\n    <label for=\"id_ambito_disciplinare_restauro-NNNNN-insegnamento_1\"><input type=\"checkbox\" name=\"ambito_disciplinare_restauro-NNNNN-insegnamento\" value=\"Laboratorio di Restauro 2 - Materiali lapidei e derivati Superfici decorate dell architettura per il CdLMU in Conservazione e Restauro dei Beni Culturali conferito con D.D. n. 67 del 23.02.2026 per un totale di 10 ore e un importo di 201.61 euro\" id=\"id_ambito_disciplinare_restauro-NNNNN-insegnamento_1\">\n Laboratorio di Restauro 2 - Materiali lapidei e derivati Superfici decorate dell architettura per il CdLMU in Conservazione e Restauro dei Beni Culturali conferito con D.D. n. 67 del 23.02.2026 per un totale di 10 ore e un importo di 201.61 euro</label>\n\n</div><div>\n    <label for=\"id_ambito_disciplinare_restauro-NNNNN-insegnamento_2\"><input type=\"checkbox\" name=\"ambito_disciplinare_restauro-NNNNN-insegnamento\" value=\"Laboratorio di Restauro 3 - Materiali lapidei e derivati Superfici decorate dell architettura per il CdLMU in Conservazione e Restauro dei Beni Culturali conferito con D.D. n. 67 del 23.02.2026 per un totale di 10 ore e un importo di 201.61 euro\" id=\"id_ambito_disciplinare_restauro-NNNNN-insegnamento_2\">\n Laboratorio di Restauro 3 - Materiali lapidei e derivati Superfici decorate dell architettura per il CdLMU in Conservazione e Restauro dei Beni Culturali conferito con D.D. n. 67 del 23.02.2026 per un totale di 10 ore e un importo di 201.61 euro</label>\n\n</div>\n</div>\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-ambito_disciplinare_restauro-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"ambito_disciplinare_restauro-TOTAL_FORMS\" value=\"0\" id=\"id_ambito_disciplinare_restauro-TOTAL_FORMS\"><input type=\"hidden\" name=\"ambito_disciplinare_restauro-INITIAL_FORMS\" value=\"0\" id=\"id_ambito_disciplinare_restauro-INITIAL_FORMS\"><input type=\"hidden\" name=\"ambito_disciplinare_restauro-MIN_NUM_FORMS\" value=\"0\" id=\"id_ambito_disciplinare_restauro-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"ambito_disciplinare_restauro-MAX_NUM_FORMS\" value=\"1000\" id=\"id_ambito_disciplinare_restauro-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-ambito_disciplinare_restauro\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "ambito_disciplinare_biologia_scienze_naturali",
+      "label" : "AMBITO DISCIPLINARE BIOLOGIA/SCIENZE NATURALI",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-ambito_disciplinare_biologia_scienze_naturali\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_ambito_disciplinare_biologia_scienze_naturali-NNNNN-dichiara_di_rinunciare_ai_seguenti_incarichi_di_attività_di_tutorato_nonché_attività_didattico_integrative_propedeutiche_e_di_recupero\">Dichiara di rinunciare ai seguenti incarichi di attività di tutorato nonché attività didattico integrative propedeutiche e di recupero:</label></th>\n    <td>\n      \n      <input type=\"checkbox\" name=\"ambito_disciplinare_biologia_scienze_naturali-NNNNN-dichiara_di_rinunciare_ai_seguenti_incarichi_di_attività_di_tutorato_nonché_attività_didattico_integrative_propedeutiche_e_di_recupero\" id=\"id_ambito_disciplinare_biologia_scienze_naturali-NNNNN-dichiara_di_rinunciare_ai_seguenti_incarichi_di_attività_di_tutorato_nonché_attività_didattico_integrative_propedeutiche_e_di_recupero\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label>Insegnamento:</label></th>\n    <td>\n      \n      <div id=\"id_ambito_disciplinare_biologia_scienze_naturali-NNNNN-insegnamento\"><div>\n    <label for=\"id_ambito_disciplinare_biologia_scienze_naturali-NNNNN-insegnamento_0\"><input type=\"checkbox\" name=\"ambito_disciplinare_biologia_scienze_naturali-NNNNN-insegnamento\" value=\"Anatomia Comparata e Citologia per il CdL in Biologia conferito con D.D. n. 67 del 23.02.2026 per un totale di 10 ore e un importo di 201.61 euro\" id=\"id_ambito_disciplinare_biologia_scienze_naturali-NNNNN-insegnamento_0\">\n Anatomia Comparata e Citologia per il CdL in Biologia conferito con D.D. n. 67 del 23.02.2026 per un totale di 10 ore e un importo di 201.61 euro</label>\n\n</div>\n</div>\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-ambito_disciplinare_biologia_scienze_naturali-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"ambito_disciplinare_biologia_scienze_naturali-TOTAL_FORMS\" value=\"0\" id=\"id_ambito_disciplinare_biologia_scienze_naturali-TOTAL_FORMS\"><input type=\"hidden\" name=\"ambito_disciplinare_biologia_scienze_naturali-INITIAL_FORMS\" value=\"0\" id=\"id_ambito_disciplinare_biologia_scienze_naturali-INITIAL_FORMS\"><input type=\"hidden\" name=\"ambito_disciplinare_biologia_scienze_naturali-MIN_NUM_FORMS\" value=\"0\" id=\"id_ambito_disciplinare_biologia_scienze_naturali-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"ambito_disciplinare_biologia_scienze_naturali-MAX_NUM_FORMS\" value=\"1000\" id=\"id_ambito_disciplinare_biologia_scienze_naturali-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-ambito_disciplinare_biologia_scienze_naturali\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:44.075260Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-di-autorizzazione-per-lo-svolgimento-del-tirocinio-sfp/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Non è possibile presentare richiesta alla data odierna. Verifica sul sito di SFP le date in cui è possibile compilare questo modulo.",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

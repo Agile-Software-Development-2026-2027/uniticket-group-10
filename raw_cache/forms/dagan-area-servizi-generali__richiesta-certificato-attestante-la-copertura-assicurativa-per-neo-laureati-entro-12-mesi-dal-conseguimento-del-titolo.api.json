@@ -1,0 +1,217 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:39.139151Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dagan-area-servizi-generali/richiesta-certificato-attestante-la-copertura-assicurativa-per-neo-laureati-entro-12-mesi-dal-conseguimento-del-titolo/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta certificato attestante la copertura assicurativa per NEO-LAUREATI (entro 12 mesi dal conseguimento del titolo)",
+    "description" : "Richiesta per il rilascio di un certificato attestante la copertura assicurativa per i sinistri da infortunio e contro il rischio per la Responsabilità Civile per NEO-LAUREATI (o similari) entro i 12 mesi dal conseguimento del titolo",
+    "protocol_required" : true,
+    "slug" : "richiesta-certificato-attestante-la-copertura-assicurativa-per-neo-laureati-entro-12-mesi-dal-conseguimento-del-titolo",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta certificato attestante la copertura assicurativa per NEO-LAUREATI (entro 12 mesi dal conseguimento del titolo)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta certificato attestante la copertura assicurativa per NEO-LAUREATI (entro 12 mesi dal conseguimento del titolo)\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta per il rilascio di un certificato attestante la copertura assicurativa per i sinistri da infortunio e contro il rischio per la Responsabilità Civile per NEO-LAUREATI (o similari) entro i 12 mesi dal conseguimento del titolo",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta per il rilascio di un certificato attestante la copertura assicurativa per i sinistri da infortunio e contro il rischio per la Responsabilità Civile per NEO-LAUREATI (o similari) entro i 12 mesi dal conseguimento del titolo</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "luogo_e_provincia_di_nascita",
+      "label" : "Luogo e provincia di nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"luogo_e_provincia_di_nascita\">",
+      "type" : "text"
+    }, {
+      "id" : "data_di_nascita",
+      "label" : "Data di nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_di_nascita\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "luogo_e_provincia_di_residenza",
+      "label" : "Luogo e provincia di residenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"luogo_e_provincia_di_residenza\">",
+      "type" : "text"
+    }, {
+      "id" : "via_piazza",
+      "label" : "Via/Piazza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"via_piazza\">",
+      "type" : "text"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-Mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cellulare\">",
+      "type" : "text"
+    }, {
+      "id" : "titolo_di_studio",
+      "label" : "Titolo di studio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"titolo_di_studio\">",
+      "type" : "text"
+    }, {
+      "id" : "data",
+      "label" : "Data",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data/ora valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"uniticket-datetimepicker-wrapper\">\n    <input type=\"text\"\n           name=\"data\"\n           class=\"form-control uniticket-datetimepicker\"\n           \n           >\n</div>",
+      "type" : "text"
+    }, {
+      "id" : "motivazione_della_richiesta",
+      "label" : "Motivazione della richiesta",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"motivazione_della_richiesta\">",
+      "type" : "text"
+    }, {
+      "id" : "documento_d'identità",
+      "label" : "Documento d'identità",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento_d&#x27;identità\">",
+      "type" : "file"
+    }, {
+      "id" : "informativa_privacy",
+      "label" : "Informativa privacy",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"informativa_privacy\">",
+      "type" : "checkbox"
+    } ]
+  },
+  "rawTextBody" : null
+}

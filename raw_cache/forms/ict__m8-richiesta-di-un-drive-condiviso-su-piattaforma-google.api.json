@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:10.040978Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/m8-richiesta-di-un-drive-condiviso-su-piattaforma-google/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

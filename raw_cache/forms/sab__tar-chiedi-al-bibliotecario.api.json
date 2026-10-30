@@ -1,0 +1,133 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:29.332135Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/sab/tar-chiedi-al-bibliotecario/ticket/new/",
+  "jsonBody" : {
+    "name" : "TAR - Chiedi al Bibliotecario",
+    "description" : "Come possiamo aiutarti? Inserisci il tuo quesito in questo spazio",
+    "protocol_required" : false,
+    "slug" : "tar-chiedi-al-bibliotecario",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 201,
+      "fields" : {
+        "category" : 205,
+        "title" : "INFORMATIVA RELATIVA AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "I dati forniti saranno utilizzati esclusivamente per le finalità di gestione del servizio e a fini statistici. I dati saranno trattati dall’Università della Calabria, in qualità di Titolare del trattamento, nel rispetto delle disposizioni di cui al Regolamento Europeo 2016/679 (“GDPR”).Si invita a prendere visione dell’Informativa relativa al trattamento dei dati personali consultando la pagina: https://www.unical.it/portale/ateneo/privacy *",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 202,
+      "fields" : {
+        "category" : 205,
+        "title" : "Trattamento dei dati personali per le finalità di gestione del servizio ed a fini statistici",
+        "text" : "Consento al trattamento dei miei dati personali per le finalità di gestione del servizio ed a fini statistici",
+        "ordinamento" : 2,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "TAR - Chiedi al Bibliotecario",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"TAR - Chiedi al Bibliotecario\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Come possiamo aiutarti? Inserisci il tuo quesito in questo spazio",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nCome possiamo aiutarti? Inserisci il tuo quesito in questo spazio</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "chiedi_informazioni_limitatamente_a:",
+      "label" : "Chiedi informazioni limitatamente a:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"chiedi_informazioni_limitatamente_a:\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"orari di apertura / indicazione ubicazione e ingressi\">orari di apertura / indicazione ubicazione e ingressi</option>\n\n  <option value=\" multe, prestiti in corso e prenotazioni\"> multe, prestiti in corso e prenotazioni</option>\n\n  <option value=\" nuova procedura dei carichi pendenti\"> nuova procedura dei carichi pendenti</option>\n\n  <option value=\" consegna della tesi\"> consegna della tesi</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "recapito_telefonico_solo_numeri,_senza_spazi:",
+      "label" : "Recapito telefonico (solo numeri, senza spazi):",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"recapito_telefonico_solo_numeri,_senza_spazi:\">",
+      "type" : "text"
+    }, {
+      "id" : "scegli_il_tuo_profilo:",
+      "label" : "Scegli il tuo profilo:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"scegli_il_tuo_profilo:\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Studente\">Studente</option>\n\n  <option value=\" Docente/Ricercatore\"> Docente/Ricercatore</option>\n\n  <option value=\" Dottorando\"> Dottorando</option>\n\n  <option value=\" Unità di personale Unical\"> Unità di personale Unical</option>\n\n  <option value=\" Altro\"> Altro</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    } ]
+  },
+  "rawTextBody" : null
+}

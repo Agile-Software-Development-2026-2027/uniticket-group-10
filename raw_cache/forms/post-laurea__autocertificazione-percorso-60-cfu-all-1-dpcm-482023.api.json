@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:25.451536Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/post-laurea/autocertificazione-percorso-60-cfu-all-1-dpcm-482023/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

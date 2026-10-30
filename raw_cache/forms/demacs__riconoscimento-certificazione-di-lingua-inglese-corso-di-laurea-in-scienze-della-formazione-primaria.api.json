@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:11.083699Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/demacs/riconoscimento-certificazione-di-lingua-inglese-corso-di-laurea-in-scienze-della-formazione-primaria/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

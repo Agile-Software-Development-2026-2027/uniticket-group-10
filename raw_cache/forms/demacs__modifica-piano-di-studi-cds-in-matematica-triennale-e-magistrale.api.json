@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:13.170347Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/demacs/modifica-piano-di-studi-cds-in-matematica-triennale-e-magistrale/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Questa tipologia di richiesta è attualmente chiusa. Rivolgersi alla segreteria del dipartimento per conoscere i periodi di apertura.",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

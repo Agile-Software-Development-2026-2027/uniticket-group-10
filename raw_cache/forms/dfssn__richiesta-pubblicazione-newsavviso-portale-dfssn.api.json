@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:01.248262Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/dfssn/richiesta-pubblicazione-newsavviso-portale-dfssn/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

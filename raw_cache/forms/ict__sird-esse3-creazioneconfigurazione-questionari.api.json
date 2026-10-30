@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:19.788521Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/sird-esse3-creazioneconfigurazione-questionari/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

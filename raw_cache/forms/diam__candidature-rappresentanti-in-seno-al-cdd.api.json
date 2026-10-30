@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:35.928830Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/diam/candidature-rappresentanti-in-seno-al-cdd/ticket/new/",
+  "jsonBody" : {
+    "detail" : "NON ATTIVA",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

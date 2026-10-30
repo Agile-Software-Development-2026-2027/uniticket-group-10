@@ -1,0 +1,270 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:29.784723Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dfssn/richiesta-assegnazione-tesi-dipartimento-di-farmacia-e-scienze-della-salute-e-della-nutrizione-dfssn/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta assegnazione tesi - Dipartimento di Farmacia e Scienze della Salute e della Nutrizione DFSSN",
+    "description" : "Si ricorda che la domanda di richiesta tesi deve essere controfirmata CON FIRMA DIGITALE almeno dal/la relatore/relatrice interno/a.",
+    "protocol_required" : true,
+    "slug" : "richiesta-assegnazione-tesi-dipartimento-di-farmacia-e-scienze-della-salute-e-della-nutrizione-dfssn",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 860,
+      "fields" : {
+        "category" : 826,
+        "title" : "Dichiarazione di responsabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta assegnazione tesi - Dipartimento di Farmacia e Scienze della Salute e della Nutrizione DFSSN",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta assegnazione tesi - Dipartimento di Farmacia e Scienze della Salute e della Nutrizione DFSSN\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Si ricorda che la domanda di richiesta tesi deve essere controfirmata CON FIRMA DIGITALE almeno dal/la relatore/relatrice interno/a.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nSi ricorda che la domanda di richiesta tesi deve essere controfirmata CON FIRMA DIGITALE almeno dal/la relatore/relatrice interno/a.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"matricola\">",
+      "type" : "text"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "iscritto_a_al_corso_di_laurea",
+      "label" : "Iscritto/a al Corso di Laurea",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"iscritto_a_al_corso_di_laurea\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"FARMACIA\">FARMACIA</option>\n\n  <option value=\" CHIMICA E TECNOLOGIA FARMACEUTICHE\"> CHIMICA E TECNOLOGIA FARMACEUTICHE</option>\n\n  <option value=\" MEDICINA E CHIRURGIA - TD\"> MEDICINA E CHIRURGIA - TD</option>\n\n  <option value=\" LM SCIENZA DELLA NUTRIZIONE\"> LM SCIENZA DELLA NUTRIZIONE</option>\n\n  <option value=\" L2 SCIENZA DELLA NUTRIZIONE\"> L2 SCIENZA DELLA NUTRIZIONE</option>\n\n  <option value=\" L2 INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE\"> L2 INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE</option>\n\n  <option value=\" INFERMIERISTICA\"> INFERMIERISTICA</option>\n\n  <option value=\" FISIOTERAPIA\"> FISIOTERAPIA</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "cfu_conseguiti_escluso_il_tirocinio,_tranne_per_il_corso_di_laurea_in_infermieristica",
+      "label" : "CFU conseguiti (escluso il tirocinio, tranne per il Corso di Laurea in Infermieristica)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cfu_conseguiti_escluso_il_tirocinio,_tranne_per_il_corso_di_laurea_in_infermieristica\">",
+      "type" : "text"
+    }, {
+      "id" : "relatore_relatrice",
+      "label" : "Relatore/Relatrice",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"relatore_relatrice\">",
+      "type" : "text"
+    }, {
+      "id" : "correlatore_correlatrice",
+      "label" : "Correlatore/Correlatrice",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"correlatore_correlatrice\">",
+      "type" : "text"
+    }, {
+      "id" : "relatore_relatrice_esterno_a",
+      "label" : "Relatore/Relatrice esterno/a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"relatore_relatrice_esterno_a\">",
+      "type" : "text"
+    }, {
+      "id" : "tipologia_tesi",
+      "label" : "Tipologia tesi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"tipologia_tesi\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Compilativa\">Compilativa</option>\n\n  <option value=\" Sperimentale\"> Sperimentale</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "richiesta_assegnazione_tesi",
+      "label" : "Richiesta assegnazione tesi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"richiesta_assegnazione_tesi\">",
+      "type" : "file"
+    }, {
+      "id" : "autorizzazione_tesi_all'esterno",
+      "label" : "Autorizzazione tesi all'esterno",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"autorizzazione_tesi_all&#x27;esterno\">",
+      "type" : "file"
+    }, {
+      "id" : "protocollo_tesi_sperimentale_solo_corso_infermieristica",
+      "label" : "Protocollo tesi sperimentale (solo corso INFERMIERISTICA)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"protocollo_tesi_sperimentale_solo_corso_infermieristica\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

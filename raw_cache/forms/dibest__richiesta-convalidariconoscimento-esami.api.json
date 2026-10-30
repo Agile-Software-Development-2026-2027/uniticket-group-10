@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:42.018352Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dibest/richiesta-convalidariconoscimento-esami/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Il modulo è in aggiornamento. Si prega di riprovare più tardi",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

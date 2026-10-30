@@ -1,0 +1,253 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:47.211459Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/area-socialita-sale-convegni/domanda-di-partecipazione-al-programma-dunical-career-per-studenti-atleti-aa-20262027/ticket/new/",
+  "jsonBody" : {
+    "name" : "Domanda di partecipazione al programma DUnicAL Career per studenti-atleti aa 2026/2027",
+    "description" : "Domanda di partecipazione al programma DUnicAL Career per studenti-atleti aa 2026/2027",
+    "protocol_required" : false,
+    "slug" : "domanda-di-partecipazione-al-programma-dunical-career-per-studenti-atleti-aa-20262027",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 754,
+      "fields" : {
+        "category" : 734,
+        "title" : "Dichiarazione requisiti generali",
+        "text" : "Il sottoscritto, dichiara di possedere i seguenti requisiti generali:\r\n\r\na) non aver riportato condanne penali passate in giudicato per reati non colposi a pene detentive superiori a un anno ovvero a pene che comportino l'interdizione dai pubblici uffici superiore ad un anno;\r\n\r\nb) non aver riportato nell'ultimo decennio, salva riabilitazione, squalifiche o inibizioni sportive definitive complessivamente superiori a un anno, da parte delle Federazioni sportive nazionali, delle Discipline sportive associate e degli Enti di promozione sportiva, del CONI/CIP o di organismi sportivi internazionali riconosciuti;\r\n\r\nc) avere completamente scontato l’eventuale sanzione irrogata a seguito dell’accertamento di una violazione delle Norme Sportive Antidoping di NADO Italia o delle disposizioni del Codice Mondiale Antidoping WADA e, comunque, non aver subito una squalifica definitiva superiore a sei mesi",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Domanda di partecipazione al programma DUnicAL Career per studenti-atleti aa 2026/2027",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Domanda di partecipazione al programma DUnicAL Career per studenti-atleti aa 2026/2027\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Domanda di partecipazione al programma DUnicAL Career per studenti-atleti aa 2026/2027",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nDomanda di partecipazione al programma DUnicAL Career per studenti-atleti aa 2026/2027</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "seleziona_la_tipologia_di_percorso_universitario_a_cui_sei_iscritto_a_o_al_quale_intendi_iscriverti_presso_l'università_della_calabria.",
+      "label" : "Seleziona la tipologia di percorso universitario a cui sei iscritto/a o al quale intendi iscriverti presso l'Università della Calabria.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"seleziona_la_tipologia_di_percorso_universitario_a_cui_sei_iscritto_a_o_al_quale_intendi_iscriverti_presso_l&#x27;università_della_calabria.\" value=\"Corso di laurea\">\n\n            \n            <label\n            >\n                Corso di laurea\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"seleziona_la_tipologia_di_percorso_universitario_a_cui_sei_iscritto_a_o_al_quale_intendi_iscriverti_presso_l&#x27;università_della_calabria.\" value=\" Corso di laurea magistrale\">\n\n            \n            <label\n            >\n                 Corso di laurea magistrale\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"seleziona_la_tipologia_di_percorso_universitario_a_cui_sei_iscritto_a_o_al_quale_intendi_iscriverti_presso_l&#x27;università_della_calabria.\" value=\" Corso di laurea magistrale a ciclo unico\">\n\n            \n            <label\n            >\n                 Corso di laurea magistrale a ciclo unico\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"seleziona_la_tipologia_di_percorso_universitario_a_cui_sei_iscritto_a_o_al_quale_intendi_iscriverti_presso_l&#x27;università_della_calabria.\" value=\" Scuola di specializzazione\">\n\n            \n            <label\n            >\n                 Scuola di specializzazione\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"seleziona_la_tipologia_di_percorso_universitario_a_cui_sei_iscritto_a_o_al_quale_intendi_iscriverti_presso_l&#x27;università_della_calabria.\" value=\" Dottorato di ricerca\">\n\n            \n            <label\n            >\n                 Dottorato di ricerca\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"seleziona_la_tipologia_di_percorso_universitario_a_cui_sei_iscritto_a_o_al_quale_intendi_iscriverti_presso_l&#x27;università_della_calabria.\" value=\" Master universitario\">\n\n            \n            <label\n            >\n                 Master universitario\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"seleziona_la_tipologia_di_percorso_universitario_a_cui_sei_iscritto_a_o_al_quale_intendi_iscriverti_presso_l&#x27;università_della_calabria.\" value=\" Corso di Alta Formazione\">\n\n            \n            <label\n            >\n                 Corso di Alta Formazione\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"seleziona_la_tipologia_di_percorso_universitario_a_cui_sei_iscritto_a_o_al_quale_intendi_iscriverti_presso_l&#x27;università_della_calabria.\" value=\" Insegnamenti singoli\">\n\n            \n            <label\n            >\n                 Insegnamenti singoli\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "nome_del_percorso_universitario_a_cui_sei_iscritto_a_o_al_quale_intendi_iscriverti",
+      "label" : "Nome del percorso universitario a cui sei iscritto/a o al quale intendi iscriverti",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome_del_percorso_universitario_a_cui_sei_iscritto_a_o_al_quale_intendi_iscriverti\">",
+      "type" : "text"
+    }, {
+      "id" : "stato_dell'iscrizione",
+      "label" : "Stato dell'iscrizione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Attenzione: la presente domanda è valida esclusivamente per la partecipazione al Programma DUnicAL CAREER e non costituisce domanda di ammissione o iscrizione ai corsi di studio, per i quali restano valide le procedure e le scadenze previste nei bandi",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"stato_dell&#x27;iscrizione\" value=\"Sono già iscritto/a\">\n\n            \n            <label\n            >\n                Sono già iscritto/a\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"stato_dell&#x27;iscrizione\" value=\" Intendo iscrivermi\">\n\n            \n            <label\n            >\n                 Intendo iscrivermi\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "categoria_di_appartenenza",
+      "label" : "Categoria di appartenenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Convocato/a nella Nazionale Assoluta italiana",
+        "value" : "Convocato/a nella Nazionale Assoluta italiana"
+      }, {
+        "text" : " Convocato/a nella Nazionale Giovanile italiana o nella Nazionale Master",
+        "value" : " Convocato/a nella Nazionale Giovanile italiana o nella Nazionale Master"
+      }, {
+        "text" : " Atleta di Interesse Nazionale",
+        "value" : " Atleta di Interesse Nazionale"
+      }, {
+        "text" : " Atleta appartenente a sport di squadra (prime 3 divisioni)",
+        "value" : " Atleta appartenente a sport di squadra (prime 3 divisioni)"
+      }, {
+        "text" : " Atleta rappresentante dell'Università della Calabria in competizioni universitarie internazionali",
+        "value" : " Atleta rappresentante dell'Università della Calabria in competizioni universitarie internazionali"
+      }, {
+        "text" : " Appartenente ad un Gruppo Sportivo Militare o dei Corpi dello Stato",
+        "value" : " Appartenente ad un Gruppo Sportivo Militare o dei Corpi dello Stato"
+      }, {
+        "text" : " Altro",
+        "value" : " Altro"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"categoria_di_appartenenza\" value=\"Convocato/a nella Nazionale Assoluta italiana\">\n Convocato/a nella Nazionale Assoluta italiana</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"categoria_di_appartenenza\" value=\" Convocato/a nella Nazionale Giovanile italiana o nella Nazionale Master\">\n  Convocato/a nella Nazionale Giovanile italiana o nella Nazionale Master</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"categoria_di_appartenenza\" value=\" Atleta di Interesse Nazionale\">\n  Atleta di Interesse Nazionale</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"categoria_di_appartenenza\" value=\" Atleta appartenente a sport di squadra (prime 3 divisioni)\">\n  Atleta appartenente a sport di squadra (prime 3 divisioni)</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"categoria_di_appartenenza\" value=\" Atleta rappresentante dell&#x27;Università della Calabria in competizioni universitarie internazionali\">\n  Atleta rappresentante dell&#x27;Università della Calabria in competizioni universitarie internazionali</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"categoria_di_appartenenza\" value=\" Appartenente ad un Gruppo Sportivo Militare o dei Corpi dello Stato\">\n  Appartenente ad un Gruppo Sportivo Militare o dei Corpi dello Stato</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"categoria_di_appartenenza\" value=\" Altro\">\n  Altro</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "se_hai_selezionato_l'opzione_\"altro\",_specifica_la_categoria_di_appartenenza",
+      "label" : "Se hai selezionato l'opzione \"Altro\", specifica la categoria di appartenenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"se_hai_selezionato_l&#x27;opzione_&quot;altro&quot;,_specifica_la_categoria_di_appartenenza\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "disciplina_sportiva_praticata",
+      "label" : "Disciplina sportiva praticata",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"disciplina_sportiva_praticata\">",
+      "type" : "text"
+    }, {
+      "id" : "federazione_sportiva_di_appartenenza",
+      "label" : "Federazione sportiva di appartenenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"federazione_sportiva_di_appartenenza\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "società_sportiva_di_appartenenza",
+      "label" : "Società sportiva di appartenenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"società_sportiva_di_appartenenza\">",
+      "type" : "text"
+    }, {
+      "id" : "campionato_categoria_di_partecipazione",
+      "label" : "Campionato/Categoria di partecipazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"campionato_categoria_di_partecipazione\">",
+      "type" : "text"
+    }, {
+      "id" : "allegare_curriculum_sportivo._vedi_art._3_del_regolamento_per_la_strutturazione_del_curriculum",
+      "label" : "Allegare curriculum sportivo. Vedi art. 3 del regolamento per la strutturazione del curriculum",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegare_curriculum_sportivo._vedi_art._3_del_regolamento_per_la_strutturazione_del_curriculum\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

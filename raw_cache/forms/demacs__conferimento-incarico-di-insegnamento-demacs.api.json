@@ -1,0 +1,705 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:38.888723Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/demacs/conferimento-incarico-di-insegnamento-demacs/ticket/new/",
+  "jsonBody" : {
+    "name" : "Conferimento Incarico di Insegnamento - DeMaCS",
+    "description" : "Conferimento Incarico di Insegnamento - Bando per la copertura di insegnamenti per affidamento o, in subordine, per contratto ex art. 23 c.2 L. 240/2010",
+    "protocol_required" : true,
+    "slug" : "conferimento-incarico-di-insegnamento-demacs",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 597,
+      "fields" : {
+        "category" : 525,
+        "title" : "Note Operativa",
+        "text" : "Si ricorda che è necessario produrre il relativo documento di seguito riportato per dottorando/a di ricerca, assegnista di\r\nricerca o dipendente della Pubblica Amministrazione:\r\n\r\n*  Autorizzazione a svolgere attività didattica se dottorando/a di ricerca\r\n*  Autorizzazione a svolgere attività didattica se assegnista di ricerca\r\n* Il Personale Tecnico Amministrativo dell'Università della Calabria deve inviare comunicazione alla Direzione Risorse Umane tramite il sistema Uniticket compilando l'apposito modulo.\r\n*  Comunicazione all'ente di appartenenza per dipendenti della Pubblica Amministrazione\r\n\r\nNOTA BENE: ai sensi della normativa vigente concernente la dematerializzazione, i documenti devono essere sottoscritti apponendo firma digitale in modalità PADES, salvo il caso in cui il richiedente sia sprovvisto di firma digitale. In quest'ultimo caso il richiedente deve obbligatoriamente allegare un valido documento di riconoscimento.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 598,
+      "fields" : {
+        "category" : 525,
+        "title" : "Dichiarazione sostitutiva di certificazione/atto di notorietà",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000).",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 599,
+      "fields" : {
+        "category" : 525,
+        "title" : "Dichiarazione grado parentela e affinità",
+        "text" : "Dichiara di non avere un grado di parentela o affinità, fino al quarto grado compreso, con un professore appartenente al Dipartimento o alla struttura interessata alla selezione ovvero con il Rettore, il Direttore Generale o un componente del Consiglio di Amministrazione dell’Università della Calabria.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Conferimento Incarico di Insegnamento - DeMaCS",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Conferimento Incarico di Insegnamento - DeMaCS\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Conferimento Incarico di Insegnamento - Bando per la copertura di insegnamenti per affidamento o, in subordine, per contratto ex art. 23 c.2 L. 240/2010",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nConferimento Incarico di Insegnamento - Bando per la copertura di insegnamenti per affidamento o, in subordine, per contratto ex art. 23 c.2 L. 240/2010</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "destinatario",
+      "label" : "Destinatario",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"destinatario\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "nato_a_a",
+      "label" : "Nato/a a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nato_a_a\">",
+      "type" : "text"
+    }, {
+      "id" : "provincia",
+      "label" : "Provincia",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"provincia\">",
+      "type" : "text"
+    }, {
+      "id" : "in_data",
+      "label" : "in Data",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"in_data\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "cittadinanza",
+      "label" : "Cittadinanza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cittadinanza\">",
+      "type" : "text"
+    }, {
+      "id" : "residente_in",
+      "label" : "Residente in",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"residente_in\">",
+      "type" : "text"
+    }, {
+      "id" : "provincia_di_residenza",
+      "label" : "Provincia di residenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"provincia_di_residenza\">",
+      "type" : "text"
+    }, {
+      "id" : "cap",
+      "label" : "CAP",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cap\">",
+      "type" : "text"
+    }, {
+      "id" : "via_e_numero_civico",
+      "label" : "Via e Numero civico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"via_e_numero_civico\">",
+      "type" : "text"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cellulare\">",
+      "type" : "text"
+    }, {
+      "id" : "email",
+      "label" : "Email",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"email\">",
+      "type" : "text"
+    }, {
+      "id" : "titolo_di_studio",
+      "label" : "Titolo di studio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"titolo_di_studio\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"1- CORSO DI LAUREA DI PRIMO LIVELLO, CORSO DI LAUREA (Vecchio Ordinamento), CORSO DI LAUREA SPECIALISTICA, CORSO DI LAUREA SPECIALISTICA A CICLO UNICO\">1- CORSO DI LAUREA DI PRIMO LIVELLO, CORSO DI LAUREA (Vecchio Ordinamento), CORSO DI LAUREA SPECIALISTICA, CORSO DI LAUREA SPECIALISTICA A CICLO UNICO</option>\n\n  <option value=\" 2- CORSI DI DOTTORATO DI RICERCA\"> 2- CORSI DI DOTTORATO DI RICERCA</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "designato",
+      "label" : "Designato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"designato\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "dichiara_di_voler_prendere_servizio_dal",
+      "label" : "Dichiara di voler prendere servizio dal",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "Indicare la data di inizio attività riportata nella mail di comunicazione",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"dichiara_di_voler_prendere_servizio_dal\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "al",
+      "label" : "Al",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Indicare la data di fine attività riportata nella mail di comunicazione",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"al\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"20-09-2025\">20-09-2025</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "insegnamenti",
+      "label" : "Insegnamenti",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "27008769 - RESEARCH AND DEVELOPMENT METHODOLOGIES 27007802 - AGILE SOFTWARE DEVELOPMENT - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE",
+        "value" : "27008769 - RESEARCH AND DEVELOPMENT METHODOLOGIES 27007802 - AGILE SOFTWARE DEVELOPMENT - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE"
+      }, {
+        "text" : "27008772 - DATA WAREHOUSE AND VISUALIZATION - SSD INF/01 - 1 Anno - Secondo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE",
+        "value" : "27008772 - DATA WAREHOUSE AND VISUALIZATION - SSD INF/01 - 1 Anno - Secondo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE"
+      }, {
+        "text" : "27009511 - DEEP LEARNING - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE",
+        "value" : "27009511 - DEEP LEARNING - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE"
+      }, {
+        "text" : "27009516 - NEUROSYMBOLIC AI 27009517 - FOUNDATIONS OF NEUROSYMBOLIC AI - SSD INF/01 - 2 Anno - Primo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE",
+        "value" : "27009516 - NEUROSYMBOLIC AI 27009517 - FOUNDATIONS OF NEUROSYMBOLIC AI - SSD INF/01 - 2 Anno - Primo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE"
+      }, {
+        "text" : "27006167 - INTELLIGENT SYSTEMS 27009515 - INTELLIGENT AGENTS - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE",
+        "value" : "27006167 - INTELLIGENT SYSTEMS 27009515 - INTELLIGENT AGENTS - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE"
+      }, {
+        "text" : "27009516 - NEUROSYMBOLIC AI 27009518 - LLM LAB - SSD INF/01 - 2 Anno - Primo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE",
+        "value" : "27009516 - NEUROSYMBOLIC AI 27009518 - LLM LAB - SSD INF/01 - 2 Anno - Primo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE"
+      }, {
+        "text" : "27007399 - NETWORK SECURITY - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE",
+        "value" : "27007399 - NETWORK SECURITY - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE"
+      }, {
+        "text" : "27006163 - THEORETICAL COMPUTER SCIENCE 27006165 - THEORETICAL COMPUTER SCIENCE - COMPUTATIONAL COMPLEXITY - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE",
+        "value" : "27006163 - THEORETICAL COMPUTER SCIENCE 27006165 - THEORETICAL COMPUTER SCIENCE - COMPUTATIONAL COMPLEXITY - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE"
+      }, {
+        "text" : "27006163 - THEORETICAL COMPUTER SCIENCE 27006164 - THEORETICAL COMPUTER SCIENCE - DECIDABILITY AND LOGICS - SSD INF/01 - 1 Anno - Secondo Semestre - 1.70 CFU - LAB-Laboratorio:20 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE",
+        "value" : "27006163 - THEORETICAL COMPUTER SCIENCE 27006164 - THEORETICAL COMPUTER SCIENCE - DECIDABILITY AND LOGICS - SSD INF/01 - 1 Anno - Secondo Semestre - 1.70 CFU - LAB-Laboratorio:20 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE"
+      }, {
+        "text" : "27007798 - VIRTUAL REALITY - SSD INF/01 - 1 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE",
+        "value" : "27007798 - VIRTUAL REALITY - SSD INF/01 - 1 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE"
+      }, {
+        "text" : "27007798 - VIRTUAL REALITY - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE",
+        "value" : "27007798 - VIRTUAL REALITY - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE"
+      }, {
+        "text" : "27002142 - INTRODUZIONE ALL'INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0731 - BIOLOGIA",
+        "value" : "27002142 - INTRODUZIONE ALL'INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0731 - BIOLOGIA"
+      }, {
+        "text" : "27002142 - INTRODUZIONE ALL'INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0731 - BIOLOGIA",
+        "value" : "27002142 - INTRODUZIONE ALL'INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0731 - BIOLOGIA"
+      }, {
+        "text" : "27006081 - MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0728 - CHIMICA",
+        "value" : "27006081 - MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0728 - CHIMICA"
+      }, {
+        "text" : "27006081 - MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0728 - CHIMICA",
+        "value" : "27006081 - MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0728 - CHIMICA"
+      }, {
+        "text" : "27006279 - MODELLI INFORMATICI E STRATEGIE DI COMUNICAZIONE - SSD INF/01 - 1 Anno - Primo Semestre - 4 CFU - ESE-Esercitazione:28 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL'INFORMAZIONE",
+        "value" : "27006279 - MODELLI INFORMATICI E STRATEGIE DI COMUNICAZIONE - SSD INF/01 - 1 Anno - Primo Semestre - 4 CFU - ESE-Esercitazione:28 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL'INFORMAZIONE"
+      }, {
+        "text" : "27006550 - INFORMATICA ED ELEMENTI DI MATEMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0782 - CONSERVAZIONE E RESTAURO DEI BENI CULTURALI ABILITANTE AI SENSI DEL D.LGS N.42/2004",
+        "value" : "27006550 - INFORMATICA ED ELEMENTI DI MATEMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0782 - CONSERVAZIONE E RESTAURO DEI BENI CULTURALI ABILITANTE AI SENSI DEL D.LGS N.42/2004"
+      }, {
+        "text" : "27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0826 - FARMACIA",
+        "value" : "27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0826 - FARMACIA"
+      }, {
+        "text" : "27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0826 - FARMACIA",
+        "value" : "27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0826 - FARMACIA"
+      }, {
+        "text" : "27008342 - INFORMATICS FOR BIOTECHNOLOGIES - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0811 - HEALTH BIOTECHNOLOGY",
+        "value" : "27008342 - INFORMATICS FOR BIOTECHNOLOGIES - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0811 - HEALTH BIOTECHNOLOGY"
+      }, {
+        "text" : "27008984 - INFERMIERISTICA BASATA SULLE PROVE DI EFFICACIA 27008986 - INFORMATICA MEDICA - SSD INF/01 - 2 Anno - Primo Semestre - 2 CFU - LEZ-Lezione:30 - CdS 0821 - INFERMIERISTICA ABILITANTE ALLA PROFESSIONE SANITARIA DI INFERMIERE",
+        "value" : "27008984 - INFERMIERISTICA BASATA SULLE PROVE DI EFFICACIA 27008986 - INFORMATICA MEDICA - SSD INF/01 - 2 Anno - Primo Semestre - 2 CFU - LEZ-Lezione:30 - CdS 0821 - INFERMIERISTICA ABILITANTE ALLA PROFESSIONE SANITARIA DI INFERMIERE"
+      }, {
+        "text" : "27002222 - ALGORITMI PARALLELI E SISTEMI DISTRIBUITI - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+        "value" : "27002222 - ALGORITMI PARALLELI E SISTEMI DISTRIBUITI - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27002222 - ALGORITMI PARALLELI E SISTEMI DISTRIBUITI - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+        "value" : "27002222 - ALGORITMI PARALLELI E SISTEMI DISTRIBUITI - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27002208 - ANALISI MATEMATICA - Gruppo A - SSD MAT/05 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0733 - INFORMATICA",
+        "value" : "27002208 - ANALISI MATEMATICA - Gruppo A - SSD MAT/05 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27002208 - ANALISI MATEMATICA - Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0733 - INFORMATICA",
+        "value" : "27002208 - ANALISI MATEMATICA - Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27005226 - ASPETTI ETICI E GIURIDICI DELL'INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0733 - INFORMATICA",
+        "value" : "27005226 - ASPETTI ETICI E GIURIDICI DELL'INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27005226 - ASPETTI ETICI E GIURIDICI DELL'INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+        "value" : "27005226 - ASPETTI ETICI E GIURIDICI DELL'INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27000109 - BASI DI DATI - SSD INF/01 - 2 Anno - Annualità - 2 CFU - ESE-Esercitazione:24 - CdS 0733 - INFORMATICA",
+        "value" : "27000109 - BASI DI DATI - SSD INF/01 - 2 Anno - Annualità - 2 CFU - ESE-Esercitazione:24 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27000109 - BASI DI DATI - SSD INF/01 - 2 Anno - Annualità - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+        "value" : "27000109 - BASI DI DATI - SSD INF/01 - 2 Anno - Annualità - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27007763 - ELEMENTI DI INFORMATICA TEORICA - Gruppo B - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0733 - INFORMATICA",
+        "value" : "27007763 - ELEMENTI DI INFORMATICA TEORICA - Gruppo B - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27007789 - ENTERPRISE APPLICATIONS - SSD INF/01 - 3 Anno - Secondo Semestre - 4 CFU - LAB-Laboratorio:48 - CdS 0733 - INFORMATICA",
+        "value" : "27007789 - ENTERPRISE APPLICATIONS - SSD INF/01 - 3 Anno - Secondo Semestre - 4 CFU - LAB-Laboratorio:48 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27000002 - FONDAMENTI DI INFORMATICA - Gruppo A - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+        "value" : "27000002 - FONDAMENTI DI INFORMATICA - Gruppo A - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27000002 - FONDAMENTI DI INFORMATICA - Gruppo B - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+        "value" : "27000002 - FONDAMENTI DI INFORMATICA - Gruppo B - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27007784 - FONDAMENTI DI PROGRAMMAZIONE 2 - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA",
+        "value" : "27007784 - FONDAMENTI DI PROGRAMMAZIONE 2 - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27007784 - FONDAMENTI DI PROGRAMMAZIONE 2 - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA",
+        "value" : "27007784 - FONDAMENTI DI PROGRAMMAZIONE 2 - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27007786 - FONDAMENTI DI RETI E SICUREZZA INFORMATICA - SSD INF/01 - 3 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+        "value" : "27007786 - FONDAMENTI DI RETI E SICUREZZA INFORMATICA - SSD INF/01 - 3 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27000107 - MATEMATICA DISCRETA - Gruppo A - SSD MAT/03 - 1 Anno - Secondo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0733 - INFORMATICA",
+        "value" : "27000107 - MATEMATICA DISCRETA - Gruppo A - SSD MAT/03 - 1 Anno - Secondo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27000107 - MATEMATICA DISCRETA - Gruppo B - SSD MAT/03 - 1 Anno - Secondo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0733 - INFORMATICA",
+        "value" : "27000107 - MATEMATICA DISCRETA - Gruppo B - SSD MAT/03 - 1 Anno - Secondo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27007785 - USER INTERFACES DESIGN - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+        "value" : "27007785 - USER INTERFACES DESIGN - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27007787 - WEB APPLICATIONS - SSD INF/01 - 3 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+        "value" : "27007787 - WEB APPLICATIONS - SSD INF/01 - 3 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27002141 - MATEMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0759 - INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE",
+        "value" : "27002141 - MATEMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0759 - INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE"
+      }, {
+        "text" : "27002141 - MATEMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0759 - INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE",
+        "value" : "27002141 - MATEMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0759 - INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE"
+      }, {
+        "text" : "27000001 - ANALISI MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0818 - INGEGNERIA CHIMICA",
+        "value" : "27000001 - ANALISI MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0818 - INGEGNERIA CHIMICA"
+      }, {
+        "text" : "27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2.16 CFU - ESE-Esercitazione:27 - CdS 0703 - INGEGNERIA CIVILE",
+        "value" : "27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2.16 CFU - ESE-Esercitazione:27 - CdS 0703 - INGEGNERIA CIVILE"
+      }, {
+        "text" : "27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:33 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA",
+        "value" : "27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:33 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA"
+      }, {
+        "text" : "27000001 - ANALISI MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2.90 CFU - ESE-Esercitazione:36 - CdS 0704 - INGEGNERIA ELETTRONICA",
+        "value" : "27000001 - ANALISI MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2.90 CFU - ESE-Esercitazione:36 - CdS 0704 - INGEGNERIA ELETTRONICA"
+      }, {
+        "text" : "27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 7.20 CFU - LEZ-Lezione:60 - CdS 0705 - INGEGNERIA GESTIONALE",
+        "value" : "27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 7.20 CFU - LEZ-Lezione:60 - CdS 0705 - INGEGNERIA GESTIONALE"
+      }, {
+        "text" : "27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE",
+        "value" : "27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE"
+      }, {
+        "text" : "27002284 - ANALISI MATEMATICA 1 - SSD MAT/05 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE",
+        "value" : "27002284 - ANALISI MATEMATICA 1 - SSD MAT/05 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE"
+      }, {
+        "text" : "27000009 - ANALISI MATEMATICA II - SSD MAT/05 - 2 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE",
+        "value" : "27000009 - ANALISI MATEMATICA II - SSD MAT/05 - 2 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE"
+      }, {
+        "text" : "27006081 - MATEMATICA I - Gruppo A - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0707 - INGEGNERIA INFORMATICA",
+        "value" : "27006081 - MATEMATICA I - Gruppo A - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0707 - INGEGNERIA INFORMATICA"
+      }, {
+        "text" : "27006081 - MATEMATICA I - Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0707 - INGEGNERIA INFORMATICA",
+        "value" : "27006081 - MATEMATICA I - Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0707 - INGEGNERIA INFORMATICA"
+      }, {
+        "text" : "27008853 - MATEMATICA E ALGEBRA LINEARE 27008855 - Modulo 2: ALGEBRA LINEARE - SSD MAT/02 - 1 Anno - Secondo Semestre - 0.70 CFU - ESE-Esercitazione:9 - CdS 0707 - INGEGNERIA INFORMATICA",
+        "value" : "27008853 - MATEMATICA E ALGEBRA LINEARE 27008855 - Modulo 2: ALGEBRA LINEARE - SSD MAT/02 - 1 Anno - Secondo Semestre - 0.70 CFU - ESE-Esercitazione:9 - CdS 0707 - INGEGNERIA INFORMATICA"
+      }, {
+        "text" : "27008853 - MATEMATICA E ALGEBRA LINEARE 27008855 - Modulo 2: ALGEBRA LINEARE - SSD MAT/02 - 1 Anno - Secondo Semestre - 2.30 CFU - LEZ-Lezione:19 - CdS 0707 - INGEGNERIA INFORMATICA",
+        "value" : "27008853 - MATEMATICA E ALGEBRA LINEARE 27008855 - Modulo 2: ALGEBRA LINEARE - SSD MAT/02 - 1 Anno - Secondo Semestre - 2.30 CFU - LEZ-Lezione:19 - CdS 0707 - INGEGNERIA INFORMATICA"
+      }, {
+        "text" : "27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2.64 CFU - ESE-Esercitazione:33 - CdS 0708 - INGEGNERIA MECCANICA",
+        "value" : "27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2.64 CFU - ESE-Esercitazione:33 - CdS 0708 - INGEGNERIA MECCANICA"
+      }, {
+        "text" : "27000001 - ANALISI MATEMATICA I 27000162 - MODULO 1 - SSD MAT/05 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0708 - INGEGNERIA MECCANICA",
+        "value" : "27000001 - ANALISI MATEMATICA I 27000162 - MODULO 1 - SSD MAT/05 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0708 - INGEGNERIA MECCANICA"
+      }, {
+        "text" : "27000001 - ANALISI MATEMATICA I 27000163 - MODULO 2 - SSD MAT/05 - 1 Anno - Secondo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0708 - INGEGNERIA MECCANICA",
+        "value" : "27000001 - ANALISI MATEMATICA I 27000163 - MODULO 2 - SSD MAT/05 - 1 Anno - Secondo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0708 - INGEGNERIA MECCANICA"
+      }, {
+        "text" : "27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 1.68 CFU - ESE-Esercitazione:21 - CdS 0809 - INGEGNERIA PER L'AMBIENTE E LA SICUREZZA DEL TERRITORIO",
+        "value" : "27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 1.68 CFU - ESE-Esercitazione:21 - CdS 0809 - INGEGNERIA PER L'AMBIENTE E LA SICUREZZA DEL TERRITORIO"
+      }, {
+        "text" : "27005585 - GEOMETRIA 1 - SSD MAT/03 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA",
+        "value" : "27005585 - GEOMETRIA 1 - SSD MAT/03 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA"
+      }, {
+        "text" : "27005609 - GEOMETRIA 3 - SSD MAT/03 - 3 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA",
+        "value" : "27005609 - GEOMETRIA 3 - SSD MAT/03 - 3 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA"
+      }, {
+        "text" : "27005379 - INFORMATICA 27005584 - Informatica - Modulo 2 - SSD INF/01 - 1 Anno - Secondo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0726 - MATEMATICA",
+        "value" : "27005379 - INFORMATICA 27005584 - Informatica - Modulo 2 - SSD INF/01 - 1 Anno - Secondo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0726 - MATEMATICA"
+      }, {
+        "text" : "27005091 - MATEMATICA, FISICA ED INFORMATICA APPLICATE ALLE SCIENZE DELLA SALUTE 27009188 - MATEMATICA CON ELEMENTI DI INFORMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0760 - SCIENZA DELLA NUTRIZIONE",
+        "value" : "27005091 - MATEMATICA, FISICA ED INFORMATICA APPLICATE ALLE SCIENZE DELLA SALUTE 27009188 - MATEMATICA CON ELEMENTI DI INFORMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0760 - SCIENZA DELLA NUTRIZIONE"
+      }, {
+        "text" : "27005091 - MATEMATICA, FISICA ED INFORMATICA APPLICATE ALLE SCIENZE DELLA SALUTE 27009188 - MATEMATICA CON ELEMENTI DI INFORMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0760 - SCIENZA DELLA NUTRIZIONE",
+        "value" : "27005091 - MATEMATICA, FISICA ED INFORMATICA APPLICATE ALLE SCIENZE DELLA SALUTE 27009188 - MATEMATICA CON ELEMENTI DI INFORMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0760 - SCIENZA DELLA NUTRIZIONE"
+      }, {
+        "text" : "27006100 - EDUCAZIONE E ATTIVITA' MOTORIE PER L'ETA' EVOLUTIVA - SSD M-EDF/02 - 4 Anno - Primo Semestre - 8 CFU - LEZ-Lezione:56 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA",
+        "value" : "27006100 - EDUCAZIONE E ATTIVITA' MOTORIE PER L'ETA' EVOLUTIVA - SSD M-EDF/02 - 4 Anno - Primo Semestre - 8 CFU - LEZ-Lezione:56 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA"
+      }, {
+        "text" : "27006100 - EDUCAZIONE E ATTIVITA' MOTORIE PER L'ETA' EVOLUTIVA - SSD M-EDF/02 - 4 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA",
+        "value" : "27006100 - EDUCAZIONE E ATTIVITA' MOTORIE PER L'ETA' EVOLUTIVA - SSD M-EDF/02 - 4 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA"
+      }, {
+        "text" : "27006100 - EDUCAZIONE E ATTIVITA' MOTORIE PER L'ETA' EVOLUTIVA - SSD M-EDF/02 - 4 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA",
+        "value" : "27006100 - EDUCAZIONE E ATTIVITA' MOTORIE PER L'ETA' EVOLUTIVA - SSD M-EDF/02 - 4 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA"
+      }, {
+        "text" : "27006499 - LABORATORIO DI TECNOLOGIE DIDATTICHE I - SSD NN - 1 Anno - Secondo Semestre - 3 CFU - LAB-Laboratorio:42 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA",
+        "value" : "27006499 - LABORATORIO DI TECNOLOGIE DIDATTICHE I - SSD NN - 1 Anno - Secondo Semestre - 3 CFU - LAB-Laboratorio:42 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA"
+      }, {
+        "text" : "27005434 - Didattica e metodologia della ricerca 27005436 - Metodologia della ricerca educativa - SSD M-PED/04 - 4 Anno - Secondo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA",
+        "value" : "27005434 - Didattica e metodologia della ricerca 27005436 - Metodologia della ricerca educativa - SSD M-PED/04 - 4 Anno - Secondo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA"
+      }, {
+        "text" : "27005434 - Didattica e metodologia della ricerca 27005436 - Metodologia della ricerca educativa - SSD M-PED/04 - 4 Anno - Secondo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA",
+        "value" : "27005434 - Didattica e metodologia della ricerca 27005436 - Metodologia della ricerca educativa - SSD M-PED/04 - 4 Anno - Secondo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA"
+      }, {
+        "text" : "27000002 - FONDAMENTI DI INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE",
+        "value" : "27000002 - FONDAMENTI DI INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE"
+      }, {
+        "text" : "27000002 - FONDAMENTI DI INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE",
+        "value" : "27000002 - FONDAMENTI DI INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE"
+      }, {
+        "text" : "27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE",
+        "value" : "27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE"
+      }, {
+        "text" : "27001025 - INFORMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0810 - SCIENZE NATURALI E AMBIENTALI",
+        "value" : "27001025 - INFORMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0810 - SCIENZE NATURALI E AMBIENTALI"
+      }, {
+        "text" : "27001025 - INFORMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0810 - SCIENZE NATURALI E AMBIENTALI",
+        "value" : "27001025 - INFORMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0810 - SCIENZE NATURALI E AMBIENTALI"
+      }, {
+        "text" : "27005730 - ANALISI MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:30 - CdS 0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE",
+        "value" : "27005730 - ANALISI MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:30 - CdS 0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE"
+      }, {
+        "text" : "27006379 - LABORATORIO DI INFORMATICA - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:21 - CdS 0717 - LINGUE E LETTERATURE MODERNE",
+        "value" : "27006379 - LABORATORIO DI INFORMATICA - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:21 - CdS 0717 - LINGUE E LETTERATURE MODERNE"
+      }, {
+        "text" : "27006279 - MODELLI INFORMATICI E STRATEGIE DI COMUNICAZIONE - SSD INF/01 - 1 Anno - Primo Semestre - 5 CFU - LEZ-Lezione:35 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL'INFORMAZIONE",
+        "value" : "27006279 - MODELLI INFORMATICI E STRATEGIE DI COMUNICAZIONE - SSD INF/01 - 1 Anno - Primo Semestre - 5 CFU - LEZ-Lezione:35 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL'INFORMAZIONE"
+      }, {
+        "text" : "27000002 - FONDAMENTI DI INFORMATICA - Gruppo A - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA",
+        "value" : "27000002 - FONDAMENTI DI INFORMATICA - Gruppo A - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27000002 - FONDAMENTI DI INFORMATICA - Gruppo B - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA",
+        "value" : "27000002 - FONDAMENTI DI INFORMATICA - Gruppo B - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27007786 - FONDAMENTI DI RETI E SICUREZZA INFORMATICA - SSD INF/01 - 3 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+        "value" : "27007786 - FONDAMENTI DI RETI E SICUREZZA INFORMATICA - SSD INF/01 - 3 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27007785 - USER INTERFACES DESIGN - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA",
+        "value" : "27007785 - USER INTERFACES DESIGN - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA"
+      }, {
+        "text" : "27002153 - MATEMATICA E STATISTICA APPLICATE ALLA BIOLOGIA - SSD MAT/08 - 1 Anno - Secondo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0734 - BIOLOGIA",
+        "value" : "27002153 - MATEMATICA E STATISTICA APPLICATE ALLA BIOLOGIA - SSD MAT/08 - 1 Anno - Secondo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0734 - BIOLOGIA"
+      }, {
+        "text" : "27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 4.08 CFU - LEZ-Lezione:34 - CdS 0703 - INGEGNERIA CIVILE",
+        "value" : "27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 4.08 CFU - LEZ-Lezione:34 - CdS 0703 - INGEGNERIA CIVILE"
+      }, {
+        "text" : "27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 3.4 CFU - LEZ-Lezione:34 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA",
+        "value" : "27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 3.4 CFU - LEZ-Lezione:34 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA"
+      }, {
+        "text" : "27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 1.76 CFU - ESE-Esercitazione:29 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA",
+        "value" : "27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 1.76 CFU - ESE-Esercitazione:29 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA"
+      }, {
+        "text" : "27007287 - Didattica e Pedagogia speciale per l'inclusione 27007290 - Laboratorio di didattica speciale - SSD M-PED/03 - 1 Anno - Annualità - 1,5 CFU - LAB-Laboratorio:18 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA",
+        "value" : "27007287 - Didattica e Pedagogia speciale per l'inclusione 27007290 - Laboratorio di didattica speciale - SSD M-PED/03 - 1 Anno - Annualità - 1,5 CFU - LAB-Laboratorio:18 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA"
+      }, {
+        "text" : "27007287 - Didattica e Pedagogia speciale per l'inclusione 27007290 - Laboratorio di didattica speciale - SSD M-PED/03 - 1 Anno - Annualità - 1,5 CFU - LAB-Laboratorio:18 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA",
+        "value" : "27007287 - Didattica e Pedagogia speciale per l'inclusione 27007290 - Laboratorio di didattica speciale - SSD M-PED/03 - 1 Anno - Annualità - 1,5 CFU - LAB-Laboratorio:18 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA"
+      }, {
+        "text" : "",
+        "value" : ""
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27008769 - RESEARCH AND DEVELOPMENT METHODOLOGIES 27007802 - AGILE SOFTWARE DEVELOPMENT - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">\n 27008769 - RESEARCH AND DEVELOPMENT METHODOLOGIES 27007802 - AGILE SOFTWARE DEVELOPMENT - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27008772 - DATA WAREHOUSE AND VISUALIZATION - SSD INF/01 - 1 Anno - Secondo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">\n 27008772 - DATA WAREHOUSE AND VISUALIZATION - SSD INF/01 - 1 Anno - Secondo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27009511 - DEEP LEARNING - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">\n 27009511 - DEEP LEARNING - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27009516 - NEUROSYMBOLIC AI 27009517 - FOUNDATIONS OF NEUROSYMBOLIC AI - SSD INF/01 - 2 Anno - Primo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">\n 27009516 - NEUROSYMBOLIC AI 27009517 - FOUNDATIONS OF NEUROSYMBOLIC AI - SSD INF/01 - 2 Anno - Primo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27006167 - INTELLIGENT SYSTEMS 27009515 - INTELLIGENT AGENTS - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">\n 27006167 - INTELLIGENT SYSTEMS 27009515 - INTELLIGENT AGENTS - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27009516 - NEUROSYMBOLIC AI 27009518 - LLM LAB - SSD INF/01 - 2 Anno - Primo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">\n 27009516 - NEUROSYMBOLIC AI 27009518 - LLM LAB - SSD INF/01 - 2 Anno - Primo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27007399 - NETWORK SECURITY - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">\n 27007399 - NETWORK SECURITY - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27006163 - THEORETICAL COMPUTER SCIENCE 27006165 - THEORETICAL COMPUTER SCIENCE - COMPUTATIONAL COMPLEXITY - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">\n 27006163 - THEORETICAL COMPUTER SCIENCE 27006165 - THEORETICAL COMPUTER SCIENCE - COMPUTATIONAL COMPLEXITY - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27006163 - THEORETICAL COMPUTER SCIENCE 27006164 - THEORETICAL COMPUTER SCIENCE - DECIDABILITY AND LOGICS - SSD INF/01 - 1 Anno - Secondo Semestre - 1.70 CFU - LAB-Laboratorio:20 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">\n 27006163 - THEORETICAL COMPUTER SCIENCE 27006164 - THEORETICAL COMPUTER SCIENCE - DECIDABILITY AND LOGICS - SSD INF/01 - 1 Anno - Secondo Semestre - 1.70 CFU - LAB-Laboratorio:20 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27007798 - VIRTUAL REALITY - SSD INF/01 - 1 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">\n 27007798 - VIRTUAL REALITY - SSD INF/01 - 1 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27007798 - VIRTUAL REALITY - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">\n 27007798 - VIRTUAL REALITY - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002142 - INTRODUZIONE ALL&#x27;INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0731 - BIOLOGIA\">\n 27002142 - INTRODUZIONE ALL&#x27;INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0731 - BIOLOGIA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002142 - INTRODUZIONE ALL&#x27;INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0731 - BIOLOGIA\">\n 27002142 - INTRODUZIONE ALL&#x27;INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0731 - BIOLOGIA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27006081 - MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0728 - CHIMICA\">\n 27006081 - MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0728 - CHIMICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27006081 - MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0728 - CHIMICA\">\n 27006081 - MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0728 - CHIMICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27006279 - MODELLI INFORMATICI E STRATEGIE DI COMUNICAZIONE - SSD INF/01 - 1 Anno - Primo Semestre - 4 CFU - ESE-Esercitazione:28 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL&#x27;INFORMAZIONE\">\n 27006279 - MODELLI INFORMATICI E STRATEGIE DI COMUNICAZIONE - SSD INF/01 - 1 Anno - Primo Semestre - 4 CFU - ESE-Esercitazione:28 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL&#x27;INFORMAZIONE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27006550 - INFORMATICA ED ELEMENTI DI MATEMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0782 - CONSERVAZIONE E RESTAURO DEI BENI CULTURALI ABILITANTE AI SENSI DEL D.LGS N.42/2004\">\n 27006550 - INFORMATICA ED ELEMENTI DI MATEMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0782 - CONSERVAZIONE E RESTAURO DEI BENI CULTURALI ABILITANTE AI SENSI DEL D.LGS N.42/2004</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0826 - FARMACIA\">\n 27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0826 - FARMACIA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0826 - FARMACIA\">\n 27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0826 - FARMACIA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27008342 - INFORMATICS FOR BIOTECHNOLOGIES - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0811 - HEALTH BIOTECHNOLOGY\">\n 27008342 - INFORMATICS FOR BIOTECHNOLOGIES - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0811 - HEALTH BIOTECHNOLOGY</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27008984 - INFERMIERISTICA BASATA SULLE PROVE DI EFFICACIA 27008986 - INFORMATICA MEDICA - SSD INF/01 - 2 Anno - Primo Semestre - 2 CFU - LEZ-Lezione:30 - CdS 0821 - INFERMIERISTICA ABILITANTE ALLA PROFESSIONE SANITARIA DI INFERMIERE\">\n 27008984 - INFERMIERISTICA BASATA SULLE PROVE DI EFFICACIA 27008986 - INFORMATICA MEDICA - SSD INF/01 - 2 Anno - Primo Semestre - 2 CFU - LEZ-Lezione:30 - CdS 0821 - INFERMIERISTICA ABILITANTE ALLA PROFESSIONE SANITARIA DI INFERMIERE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002222 - ALGORITMI PARALLELI E SISTEMI DISTRIBUITI - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">\n 27002222 - ALGORITMI PARALLELI E SISTEMI DISTRIBUITI - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002222 - ALGORITMI PARALLELI E SISTEMI DISTRIBUITI - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">\n 27002222 - ALGORITMI PARALLELI E SISTEMI DISTRIBUITI - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002208 - ANALISI MATEMATICA - Gruppo A - SSD MAT/05 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0733 - INFORMATICA\">\n 27002208 - ANALISI MATEMATICA - Gruppo A - SSD MAT/05 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002208 - ANALISI MATEMATICA - Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0733 - INFORMATICA\">\n 27002208 - ANALISI MATEMATICA - Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27005226 - ASPETTI ETICI E GIURIDICI DELL&#x27;INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0733 - INFORMATICA\">\n 27005226 - ASPETTI ETICI E GIURIDICI DELL&#x27;INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27005226 - ASPETTI ETICI E GIURIDICI DELL&#x27;INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">\n 27005226 - ASPETTI ETICI E GIURIDICI DELL&#x27;INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000109 - BASI DI DATI - SSD INF/01 - 2 Anno - Annualità - 2 CFU - ESE-Esercitazione:24 - CdS 0733 - INFORMATICA\">\n 27000109 - BASI DI DATI - SSD INF/01 - 2 Anno - Annualità - 2 CFU - ESE-Esercitazione:24 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000109 - BASI DI DATI - SSD INF/01 - 2 Anno - Annualità - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">\n 27000109 - BASI DI DATI - SSD INF/01 - 2 Anno - Annualità - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27007763 - ELEMENTI DI INFORMATICA TEORICA - Gruppo B - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0733 - INFORMATICA\">\n 27007763 - ELEMENTI DI INFORMATICA TEORICA - Gruppo B - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27007789 - ENTERPRISE APPLICATIONS - SSD INF/01 - 3 Anno - Secondo Semestre - 4 CFU - LAB-Laboratorio:48 - CdS 0733 - INFORMATICA\">\n 27007789 - ENTERPRISE APPLICATIONS - SSD INF/01 - 3 Anno - Secondo Semestre - 4 CFU - LAB-Laboratorio:48 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000002 - FONDAMENTI DI INFORMATICA - Gruppo A - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">\n 27000002 - FONDAMENTI DI INFORMATICA - Gruppo A - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000002 - FONDAMENTI DI INFORMATICA - Gruppo B - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">\n 27000002 - FONDAMENTI DI INFORMATICA - Gruppo B - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27007784 - FONDAMENTI DI PROGRAMMAZIONE 2 - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA\">\n 27007784 - FONDAMENTI DI PROGRAMMAZIONE 2 - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27007784 - FONDAMENTI DI PROGRAMMAZIONE 2 - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA\">\n 27007784 - FONDAMENTI DI PROGRAMMAZIONE 2 - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27007786 - FONDAMENTI DI RETI E SICUREZZA INFORMATICA - SSD INF/01 - 3 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">\n 27007786 - FONDAMENTI DI RETI E SICUREZZA INFORMATICA - SSD INF/01 - 3 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000107 - MATEMATICA DISCRETA - Gruppo A - SSD MAT/03 - 1 Anno - Secondo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0733 - INFORMATICA\">\n 27000107 - MATEMATICA DISCRETA - Gruppo A - SSD MAT/03 - 1 Anno - Secondo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000107 - MATEMATICA DISCRETA - Gruppo B - SSD MAT/03 - 1 Anno - Secondo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0733 - INFORMATICA\">\n 27000107 - MATEMATICA DISCRETA - Gruppo B - SSD MAT/03 - 1 Anno - Secondo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27007785 - USER INTERFACES DESIGN - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">\n 27007785 - USER INTERFACES DESIGN - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27007787 - WEB APPLICATIONS - SSD INF/01 - 3 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">\n 27007787 - WEB APPLICATIONS - SSD INF/01 - 3 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002141 - MATEMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0759 - INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE\">\n 27002141 - MATEMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0759 - INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002141 - MATEMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0759 - INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE\">\n 27002141 - MATEMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0759 - INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000001 - ANALISI MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0818 - INGEGNERIA CHIMICA\">\n 27000001 - ANALISI MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0818 - INGEGNERIA CHIMICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2.16 CFU - ESE-Esercitazione:27 - CdS 0703 - INGEGNERIA CIVILE\">\n 27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2.16 CFU - ESE-Esercitazione:27 - CdS 0703 - INGEGNERIA CIVILE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:33 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA\">\n 27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:33 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000001 - ANALISI MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2.90 CFU - ESE-Esercitazione:36 - CdS 0704 - INGEGNERIA ELETTRONICA\">\n 27000001 - ANALISI MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2.90 CFU - ESE-Esercitazione:36 - CdS 0704 - INGEGNERIA ELETTRONICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 7.20 CFU - LEZ-Lezione:60 - CdS 0705 - INGEGNERIA GESTIONALE\">\n 27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 7.20 CFU - LEZ-Lezione:60 - CdS 0705 - INGEGNERIA GESTIONALE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE\">\n 27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002284 - ANALISI MATEMATICA 1 - SSD MAT/05 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE\">\n 27002284 - ANALISI MATEMATICA 1 - SSD MAT/05 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000009 - ANALISI MATEMATICA II - SSD MAT/05 - 2 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE\">\n 27000009 - ANALISI MATEMATICA II - SSD MAT/05 - 2 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27006081 - MATEMATICA I - Gruppo A - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0707 - INGEGNERIA INFORMATICA\">\n 27006081 - MATEMATICA I - Gruppo A - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0707 - INGEGNERIA INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27006081 - MATEMATICA I - Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0707 - INGEGNERIA INFORMATICA\">\n 27006081 - MATEMATICA I - Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0707 - INGEGNERIA INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27008853 - MATEMATICA E ALGEBRA LINEARE 27008855 - Modulo 2: ALGEBRA LINEARE - SSD MAT/02 - 1 Anno - Secondo Semestre - 0.70 CFU - ESE-Esercitazione:9 - CdS 0707 - INGEGNERIA INFORMATICA\">\n 27008853 - MATEMATICA E ALGEBRA LINEARE 27008855 - Modulo 2: ALGEBRA LINEARE - SSD MAT/02 - 1 Anno - Secondo Semestre - 0.70 CFU - ESE-Esercitazione:9 - CdS 0707 - INGEGNERIA INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27008853 - MATEMATICA E ALGEBRA LINEARE 27008855 - Modulo 2: ALGEBRA LINEARE - SSD MAT/02 - 1 Anno - Secondo Semestre - 2.30 CFU - LEZ-Lezione:19 - CdS 0707 - INGEGNERIA INFORMATICA\">\n 27008853 - MATEMATICA E ALGEBRA LINEARE 27008855 - Modulo 2: ALGEBRA LINEARE - SSD MAT/02 - 1 Anno - Secondo Semestre - 2.30 CFU - LEZ-Lezione:19 - CdS 0707 - INGEGNERIA INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2.64 CFU - ESE-Esercitazione:33 - CdS 0708 - INGEGNERIA MECCANICA\">\n 27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2.64 CFU - ESE-Esercitazione:33 - CdS 0708 - INGEGNERIA MECCANICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000001 - ANALISI MATEMATICA I 27000162 - MODULO 1 - SSD MAT/05 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0708 - INGEGNERIA MECCANICA\">\n 27000001 - ANALISI MATEMATICA I 27000162 - MODULO 1 - SSD MAT/05 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0708 - INGEGNERIA MECCANICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000001 - ANALISI MATEMATICA I 27000163 - MODULO 2 - SSD MAT/05 - 1 Anno - Secondo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0708 - INGEGNERIA MECCANICA\">\n 27000001 - ANALISI MATEMATICA I 27000163 - MODULO 2 - SSD MAT/05 - 1 Anno - Secondo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0708 - INGEGNERIA MECCANICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 1.68 CFU - ESE-Esercitazione:21 - CdS 0809 - INGEGNERIA PER L&#x27;AMBIENTE E LA SICUREZZA DEL TERRITORIO\">\n 27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 1.68 CFU - ESE-Esercitazione:21 - CdS 0809 - INGEGNERIA PER L&#x27;AMBIENTE E LA SICUREZZA DEL TERRITORIO</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27005585 - GEOMETRIA 1 - SSD MAT/03 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA\">\n 27005585 - GEOMETRIA 1 - SSD MAT/03 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27005609 - GEOMETRIA 3 - SSD MAT/03 - 3 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA\">\n 27005609 - GEOMETRIA 3 - SSD MAT/03 - 3 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27005379 - INFORMATICA 27005584 - Informatica - Modulo 2 - SSD INF/01 - 1 Anno - Secondo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0726 - MATEMATICA\">\n 27005379 - INFORMATICA 27005584 - Informatica - Modulo 2 - SSD INF/01 - 1 Anno - Secondo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0726 - MATEMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27005091 - MATEMATICA, FISICA ED INFORMATICA APPLICATE ALLE SCIENZE DELLA SALUTE 27009188 - MATEMATICA CON ELEMENTI DI INFORMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0760 - SCIENZA DELLA NUTRIZIONE\">\n 27005091 - MATEMATICA, FISICA ED INFORMATICA APPLICATE ALLE SCIENZE DELLA SALUTE 27009188 - MATEMATICA CON ELEMENTI DI INFORMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0760 - SCIENZA DELLA NUTRIZIONE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27005091 - MATEMATICA, FISICA ED INFORMATICA APPLICATE ALLE SCIENZE DELLA SALUTE 27009188 - MATEMATICA CON ELEMENTI DI INFORMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0760 - SCIENZA DELLA NUTRIZIONE\">\n 27005091 - MATEMATICA, FISICA ED INFORMATICA APPLICATE ALLE SCIENZE DELLA SALUTE 27009188 - MATEMATICA CON ELEMENTI DI INFORMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0760 - SCIENZA DELLA NUTRIZIONE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27006100 - EDUCAZIONE E ATTIVITA&#x27; MOTORIE PER L&#x27;ETA&#x27; EVOLUTIVA - SSD M-EDF/02 - 4 Anno - Primo Semestre - 8 CFU - LEZ-Lezione:56 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA\">\n 27006100 - EDUCAZIONE E ATTIVITA&#x27; MOTORIE PER L&#x27;ETA&#x27; EVOLUTIVA - SSD M-EDF/02 - 4 Anno - Primo Semestre - 8 CFU - LEZ-Lezione:56 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27006100 - EDUCAZIONE E ATTIVITA&#x27; MOTORIE PER L&#x27;ETA&#x27; EVOLUTIVA - SSD M-EDF/02 - 4 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA\">\n 27006100 - EDUCAZIONE E ATTIVITA&#x27; MOTORIE PER L&#x27;ETA&#x27; EVOLUTIVA - SSD M-EDF/02 - 4 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27006100 - EDUCAZIONE E ATTIVITA&#x27; MOTORIE PER L&#x27;ETA&#x27; EVOLUTIVA - SSD M-EDF/02 - 4 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA\">\n 27006100 - EDUCAZIONE E ATTIVITA&#x27; MOTORIE PER L&#x27;ETA&#x27; EVOLUTIVA - SSD M-EDF/02 - 4 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27006499 - LABORATORIO DI TECNOLOGIE DIDATTICHE I - SSD NN - 1 Anno - Secondo Semestre - 3 CFU - LAB-Laboratorio:42 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA\">\n 27006499 - LABORATORIO DI TECNOLOGIE DIDATTICHE I - SSD NN - 1 Anno - Secondo Semestre - 3 CFU - LAB-Laboratorio:42 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27005434 - Didattica e metodologia della ricerca 27005436 - Metodologia della ricerca educativa - SSD M-PED/04 - 4 Anno - Secondo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA\">\n 27005434 - Didattica e metodologia della ricerca 27005436 - Metodologia della ricerca educativa - SSD M-PED/04 - 4 Anno - Secondo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27005434 - Didattica e metodologia della ricerca 27005436 - Metodologia della ricerca educativa - SSD M-PED/04 - 4 Anno - Secondo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA\">\n 27005434 - Didattica e metodologia della ricerca 27005436 - Metodologia della ricerca educativa - SSD M-PED/04 - 4 Anno - Secondo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000002 - FONDAMENTI DI INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE\">\n 27000002 - FONDAMENTI DI INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000002 - FONDAMENTI DI INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE\">\n 27000002 - FONDAMENTI DI INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE\">\n 27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27001025 - INFORMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0810 - SCIENZE NATURALI E AMBIENTALI\">\n 27001025 - INFORMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0810 - SCIENZE NATURALI E AMBIENTALI</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27001025 - INFORMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0810 - SCIENZE NATURALI E AMBIENTALI\">\n 27001025 - INFORMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0810 - SCIENZE NATURALI E AMBIENTALI</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27005730 - ANALISI MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:30 - CdS 0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE\">\n 27005730 - ANALISI MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:30 - CdS 0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27006379 - LABORATORIO DI INFORMATICA - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:21 - CdS 0717 - LINGUE E LETTERATURE MODERNE\">\n 27006379 - LABORATORIO DI INFORMATICA - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:21 - CdS 0717 - LINGUE E LETTERATURE MODERNE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27006279 - MODELLI INFORMATICI E STRATEGIE DI COMUNICAZIONE - SSD INF/01 - 1 Anno - Primo Semestre - 5 CFU - LEZ-Lezione:35 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL&#x27;INFORMAZIONE\">\n 27006279 - MODELLI INFORMATICI E STRATEGIE DI COMUNICAZIONE - SSD INF/01 - 1 Anno - Primo Semestre - 5 CFU - LEZ-Lezione:35 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL&#x27;INFORMAZIONE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000002 - FONDAMENTI DI INFORMATICA - Gruppo A - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA\">\n 27000002 - FONDAMENTI DI INFORMATICA - Gruppo A - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000002 - FONDAMENTI DI INFORMATICA - Gruppo B - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA\">\n 27000002 - FONDAMENTI DI INFORMATICA - Gruppo B - SSD INF/01 - 1 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27007786 - FONDAMENTI DI RETI E SICUREZZA INFORMATICA - SSD INF/01 - 3 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">\n 27007786 - FONDAMENTI DI RETI E SICUREZZA INFORMATICA - SSD INF/01 - 3 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27007785 - USER INTERFACES DESIGN - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">\n 27007785 - USER INTERFACES DESIGN - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002153 - MATEMATICA E STATISTICA APPLICATE ALLA BIOLOGIA - SSD MAT/08 - 1 Anno - Secondo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0734 - BIOLOGIA\">\n 27002153 - MATEMATICA E STATISTICA APPLICATE ALLA BIOLOGIA - SSD MAT/08 - 1 Anno - Secondo Semestre - 1 CFU - ESE-Esercitazione:12 - CdS 0734 - BIOLOGIA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 4.08 CFU - LEZ-Lezione:34 - CdS 0703 - INGEGNERIA CIVILE\">\n 27000004 - ALGEBRA LINEARE E GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 4.08 CFU - LEZ-Lezione:34 - CdS 0703 - INGEGNERIA CIVILE</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 3.4 CFU - LEZ-Lezione:34 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA\">\n 27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 3.4 CFU - LEZ-Lezione:34 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 1.76 CFU - ESE-Esercitazione:29 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA\">\n 27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 1.76 CFU - ESE-Esercitazione:29 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27007287 - Didattica e Pedagogia speciale per l&#x27;inclusione 27007290 - Laboratorio di didattica speciale - SSD M-PED/03 - 1 Anno - Annualità - 1,5 CFU - LAB-Laboratorio:18 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA\">\n 27007287 - Didattica e Pedagogia speciale per l&#x27;inclusione 27007290 - Laboratorio di didattica speciale - SSD M-PED/03 - 1 Anno - Annualità - 1,5 CFU - LAB-Laboratorio:18 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"27007287 - Didattica e Pedagogia speciale per l&#x27;inclusione 27007290 - Laboratorio di didattica speciale - SSD M-PED/03 - 1 Anno - Annualità - 1,5 CFU - LAB-Laboratorio:18 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA\">\n 27007287 - Didattica e Pedagogia speciale per l&#x27;inclusione 27007290 - Laboratorio di didattica speciale - SSD M-PED/03 - 1 Anno - Annualità - 1,5 CFU - LAB-Laboratorio:18 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"\">\n </label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "dichiara",
+      "label" : "Dichiara",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"dichiara\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"- di essere iscritto alla gestione separata INPS\">- di essere iscritto alla gestione separata INPS</option>\n\n  <option value=\"- di NON essere iscritto alla gestione separata INPS e di provvedere tempestivamente all&#x27;iscrizione, essendo necessaria ai fini della stipula del contratto\">- di NON essere iscritto alla gestione separata INPS e di provvedere tempestivamente all&#x27;iscrizione, essendo necessaria ai fini della stipula del contratto</option>\n\n  <option value=\"- di NON essere iscritto alla gestione separata INPS perché lavoratore autonomo la cui attività oggetto di incarico è strettamente connessa all’attività di lavoro autonomo esercitata abitualmente (in tal caso il docente-professionista sarà obbligato, in quanto titolare di partita IVA, ad emettere regolare fattura)\">- di NON essere iscritto alla gestione separata INPS perché lavoratore autonomo la cui attività oggetto di incarico è strettamente connessa all’attività di lavoro autonomo esercitata abitualmente (in tal caso il docente-professionista sarà obbligato, in quanto titolare di partita IVA, ad emettere regolare fattura)</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "comunicazione_o_autorizzazione",
+      "label" : "Comunicazione o Autorizzazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "se non già inviato agli uffici amministrativi del DeMaCS: obbligatorio per i Dipendenti Pubblici/PTA/Assegnisti/Dottorandi allegare qui il documento di Comunicazione all’ente di appartenenza/autorizzazione a svolgere attività didattica.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"comunicazione_o_autorizzazione\">",
+      "type" : "file"
+    }, {
+      "id" : "documento_di_riconoscimento_fronte_retro",
+      "label" : "Documento di riconoscimento (Fronte/Retro)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "obbligatorio nel caso in cui il richiedente sia sprovvisto di firma digitale",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento_di_riconoscimento_fronte_retro\">",
+      "type" : "file"
+    }, {
+      "id" : "permesso_di_soggiorno",
+      "label" : "Permesso di soggiorno",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "per i cittadini extracomunitari allegare copia del permesso di soggiorno",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"permesso_di_soggiorno\">",
+      "type" : "file"
+    }, {
+      "id" : "titolo_di_studio_straniero",
+      "label" : "Titolo di studio straniero",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "se in possesso del titolo di studio non italiano, si rimanda all'art. 7 del bando per la copertura di insegnamenti  per affidamento o, in subordine, per contratto ex art. 23 c.2 L. 240/2010",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"titolo_di_studio_straniero\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,8 +1,9 @@
 package it.unical.uniticket.api.dto;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CategoryFormSchema {
     public String compositeSlug;
     public String structureSlug;
@@ -16,5 +17,7 @@ public class CategoryFormSchema {
     public String schemaHash;
     public String jevCriterionSummary;
     public String ragSearchText;
-    public List<FieldSchema> fields = new ArrayList<>();
+    public JsonNode availability;
+    public JsonNode routerCard;
+    public JsonNode fields;
 }

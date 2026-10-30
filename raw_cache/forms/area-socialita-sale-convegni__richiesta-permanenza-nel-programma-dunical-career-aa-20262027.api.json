@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:00.872878Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/area-socialita-sale-convegni/richiesta-permanenza-nel-programma-dunical-career-aa-20262027/ticket/new/",
+  "jsonBody" : {
+    "detail" : "In questo periodo non è possibile richiedere la permanenza al programma DUnicAL Career",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

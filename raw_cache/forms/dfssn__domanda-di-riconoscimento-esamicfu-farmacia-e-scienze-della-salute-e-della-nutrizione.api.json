@@ -1,0 +1,261 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:50.432078Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dfssn/domanda-di-riconoscimento-esamicfu-farmacia-e-scienze-della-salute-e-della-nutrizione/ticket/new/",
+  "jsonBody" : {
+    "name" : "Domanda di riconoscimento esami/cfu - Farmacia e Scienze della Salute e della Nutrizione",
+    "description" : "Per studenti iscritti ai Corsi di Studio (FA, CTF, SN, ISFPS ed SNM) afferenti al Dipartimento di Farmacia e Scienze della Salute e della Nutrizione e che chiedono il riconoscimento di esami sostenuti in una precedente carriera",
+    "protocol_required" : true,
+    "slug" : "domanda-di-riconoscimento-esamicfu-farmacia-e-scienze-della-salute-e-della-nutrizione",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 602,
+      "fields" : {
+        "category" : 386,
+        "title" : "NOTA",
+        "text" : "Per i Corsi di Studio in FA, CTF, SN, SNM e ISFPS le richieste possono essere presentate esclusivamente nel periodo di presentazione del piano di studi.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 435,
+      "fields" : {
+        "category" : 386,
+        "title" : "Dichiarazione di resposabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 436,
+      "fields" : {
+        "category" : 386,
+        "title" : "Info bollo virtuale",
+        "text" : "E' previsto il pagamento del bollo online su Esse3.",
+        "ordinamento" : 2,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Domanda di riconoscimento esami/cfu - Farmacia e Scienze della Salute e della Nutrizione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Domanda di riconoscimento esami/cfu - Farmacia e Scienze della Salute e della Nutrizione\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Per studenti iscritti ai Corsi di Studio (FA, CTF, SN, ISFPS ed SNM) afferenti al Dipartimento di Farmacia e Scienze della Salute e della Nutrizione e che chiedono il riconoscimento di esami sostenuti in una precedente carriera",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nPer studenti iscritti ai Corsi di Studio (FA, CTF, SN, ISFPS ed SNM) afferenti al Dipartimento di Farmacia e Scienze della Salute e della Nutrizione e che chiedono il riconoscimento di esami sostenuti in una precedente carriera</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "codice_fiscale",
+      "label" : "Codice Fiscale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_fiscale\">",
+      "type" : "text"
+    }, {
+      "id" : "indirizzo_e-mail",
+      "label" : "Indirizzo e-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"indirizzo_e-mail\">",
+      "type" : "text"
+    }, {
+      "id" : "numero_di_cellulare",
+      "label" : "Numero di cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"numero_di_cellulare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "iscritta_o_al_corso_di_studio",
+      "label" : "Iscritta/o al corso di studio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"iscritta_o_al_corso_di_studio\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"FARMACIA\">FARMACIA</option>\n\n  <option value=\" CHIMICA E TECNOLOGIA FARMACEUTICHE\"> CHIMICA E TECNOLOGIA FARMACEUTICHE</option>\n\n  <option value=\" MEDICINA E CHIRURGIA - TD\"> MEDICINA E CHIRURGIA - TD</option>\n\n  <option value=\" LM SCIENZA DELLA NUTRIZIONE (058 ITALIANO)\"> LM SCIENZA DELLA NUTRIZIONE (058 ITALIANO)</option>\n\n  <option value=\" LM SCIENZA DELLA NUTRIZIONE (059 INGLESE)\"> LM SCIENZA DELLA NUTRIZIONE (059 INGLESE)</option>\n\n  <option value=\" L2 SCIENZA DELLA NUTRIZIONE\"> L2 SCIENZA DELLA NUTRIZIONE</option>\n\n  <option value=\" L2 INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE\"> L2 INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "corso_di_studio_e_ateneo_precedente_carriera",
+      "label" : "Corso di studio e ateneo precedente carriera",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"corso_di_studio_e_ateneo_precedente_carriera\">",
+      "type" : "text"
+    }, {
+      "id" : "chiede_il_riconoscimento_dei_seguenti_esami_denominazione_insegnamento,_cfu,_ssd,_voto,_data",
+      "label" : "Chiede il riconoscimento dei seguenti esami (Denominazione insegnamento, cfu, SSD, voto, data)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"chiede_il_riconoscimento_dei_seguenti_esami_denominazione_insegnamento,_cfu,_ssd,_voto,_data\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "autocertificazione_degli_esami_sostenuti",
+      "label" : "Autocertificazione degli esami sostenuti",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"autocertificazione_degli_esami_sostenuti\">",
+      "type" : "file"
+    }, {
+      "id" : "programmi_degli_esami_obbligatorio_se_sostenuti_in_altri_atenei",
+      "label" : "Programmi degli esami (obbligatorio se sostenuti in altri atenei)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"programmi_degli_esami_obbligatorio_se_sostenuti_in_altri_atenei\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

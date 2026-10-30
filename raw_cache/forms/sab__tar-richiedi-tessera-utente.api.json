@@ -1,0 +1,241 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:30.333006Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/sab/tar-richiedi-tessera-utente/ticket/new/",
+  "jsonBody" : {
+    "name" : "TAR - Richiedi Tessera Utente",
+    "description" : "Si richiede il rilascio della tessera utente della Biblioteca di scienze economiche e sociali \"E. Tarantelli\".",
+    "protocol_required" : false,
+    "slug" : "tar-richiedi-tessera-utente",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 155,
+      "fields" : {
+        "category" : 167,
+        "title" : "PRIVACY - INFORMATIVA RELATIVA AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "Dichiaro di aver preso visione dell'informativa sul trattamento dei dati personali - https://www.unical.it/portale/ateneo/privacy/",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "TAR - Richiedi Tessera Utente",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"TAR - Richiedi Tessera Utente\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Si richiede il rilascio della tessera utente della Biblioteca di scienze economiche e sociali \"E. Tarantelli\".",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nSi richiede il rilascio della tessera utente della Biblioteca di scienze economiche e sociali &quot;E. Tarantelli&quot;.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "data_di_nascita",
+      "label" : "Data di nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_di_nascita\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "dipartimento_o_struttura_di_afferenza",
+      "label" : "Dipartimento o struttura di afferenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"dipartimento_o_struttura_di_afferenza\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Dipartimento di Economia, Statistica e Finanza &quot;Giovanni Anania&quot; - DESF\">Dipartimento di Economia, Statistica e Finanza &quot;Giovanni Anania&quot; - DESF</option>\n\n  <option value=\"Dipartimento di Scienze Aziendali e Giuridiche - DiSCAG\">Dipartimento di Scienze Aziendali e Giuridiche - DiSCAG</option>\n\n  <option value=\"Dipartimento di Scienze Politiche e Sociali - DISPES\">Dipartimento di Scienze Politiche e Sociali - DISPES</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "anno_di_immatricolazione_inserisci_1900_se_non_sei_uno_studente",
+      "label" : "Anno di immatricolazione (inserisci 1900 se non sei uno studente)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"anno_di_immatricolazione_inserisci_1900_se_non_sei_uno_studente\">",
+      "type" : "text"
+    }, {
+      "id" : "indirizzo_di_residenza",
+      "label" : "Indirizzo di residenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"indirizzo_di_residenza\">",
+      "type" : "text"
+    }, {
+      "id" : "cap",
+      "label" : "CAP",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cap\">",
+      "type" : "text"
+    }, {
+      "id" : "città",
+      "label" : "Città",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"città\">",
+      "type" : "text"
+    }, {
+      "id" : "provincia",
+      "label" : "Provincia",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"provincia\">",
+      "type" : "text"
+    }, {
+      "id" : "per_favore,_inserisci_il_tuo_indirizzo_email_istituzionale",
+      "label" : "Per favore, inserisci il tuo indirizzo email istituzionale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"per_favore,_inserisci_il_tuo_indirizzo_email_istituzionale\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "numero_di_telefono_fisso",
+      "label" : "Numero di telefono fisso",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"numero_di_telefono_fisso\">",
+      "type" : "text"
+    }, {
+      "id" : "numero_di_telefono_mobile",
+      "label" : "Numero di telefono mobile",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"numero_di_telefono_mobile\">",
+      "type" : "text"
+    }, {
+      "id" : "indica_il_tuo_status_utente",
+      "label" : "Indica il tuo status utente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"indica_il_tuo_status_utente\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Professore\">Professore</option>\n\n  <option value=\"Ricercatore/Dottorando\">Ricercatore/Dottorando</option>\n\n  <option value=\"Studente\">Studente</option>\n\n  <option value=\"Studente Master\">Studente Master</option>\n\n  <option value=\"Studente ERASMUS\">Studente ERASMUS</option>\n\n  <option value=\"Staff\">Staff</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    } ]
+  },
+  "rawTextBody" : null
+}

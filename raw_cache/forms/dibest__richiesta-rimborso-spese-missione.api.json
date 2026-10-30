@@ -1,0 +1,542 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:04.906989Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dibest/richiesta-rimborso-spese-missione/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta rimborso spese missione",
+    "description" : "Richiesta rimborso spese missione",
+    "protocol_required" : true,
+    "slug" : "richiesta-rimborso-spese-missione",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 772,
+      "fields" : {
+        "category" : 335,
+        "title" : "LEGGERE BENE PRIMA DI COMPILARE",
+        "text" : "**Per scaricare le lettere di attestazione o autorizzazione, cliccare sull'apposito link, cliccare poi su File e infine su Scarica.**\r\n\r\n**NON cliccare su Richiedi accesso in modifica.**",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : false
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 348,
+      "fields" : {
+        "category" : 335,
+        "title" : "Note Operative",
+        "text" : "Alla richiesta va allegata:\r\n\r\n* **Per i commissari esterni**: Lettera di autorizzazione al rimborso spese **firmata digitalmente (formato Pades)** **[scaricabile qui](https://docs.google.com/document/d/1IOrGEN63iDaOfLCLpyMU_cCLUlBHBdTm/edit?usp=drive_link&ouid=115124997186190893988&rtpof=true&sd=true)**\r\n\r\n* **Per i Prof./Prof.ssa emerito/a, Prof./Prof.ssa onorario/a, collaboratori/collaboratrici esterni/esterne **: Lettera di autorizzazione al rimborso spese **firmata digitalmente (formato Pades)** **[scaricabile qui](https://docs.google.com/document/d/1IOrGEN63iDaOfLCLpyMU_cCLUlBHBdTm/edit?usp=drive_link&ouid=115124997186190893988&rtpof=true&sd=true)**\r\n\r\n* **Per gli/le studenti/studentesse**: Lettera di autorizzazione al rimborso spese **firmata digitalmente (formato Pades)** **[scaricabile qui](https://docs.google.com/document/d/1RBHPiK3Z_huW1s2kIDGUi3bmkZMFbqWE/edit?usp=drive_link&ouid=115124997186190893988&rtpof=true&sd=true)**\r\n\r\n* **Per i Docenti dei Master Patti Territoriali**: Lettera di autorizzazione al rimborso spese **firmata digitalmente (formato Pades)** **[scaricabile qui](https://docs.google.com/document/d/1xZ4hmA2t4Hrtxgj7blHEeixgKSXGI48T/edit?usp=sharing&ouid=115124997186190893988&rtpof=true&sd=true)**\r\n\r\n       Per chi è titolare di Partita IVA, allegare una fattura pro-forma con l'indicazione delle spese da rimborsare.\r\n\r\n* **Per gli/le studenti/studentesse dei Master Patti Territoriali**: Lettera di autorizzazione al rimborso spese **firmata digitalmente (formato Pades)** **[scaricabile qui](https://docs.google.com/document/d/1ns6jlM7Uz2LpISreVsGVL-YdjbQUNV28/edit?usp=sharing&ouid=115124997186190893988&rtpof=true&sd=true)**\r\n\r\n* Fatture e/o scontrini pasti, taxi, carburante, alloggio e biglietti da viaggio/mezzi pubblici/pedaggi in **FORMATO PDF. \r\nTutti i pagamenti devono essere effettuati con metodi di pagamento elettronici (bonifico, carte di credito, bancomat)**\r\n\r\n* Prospetto excel riepilogativo delle spese per le missioni in Italia **[Scaricabile qui](https://docs.google.com/spreadsheets/d/1tiYwfmlIC6sUezt6aQm-hxvubukRSmte/edit?usp=drive_link&ouid=115124997186190893988&rtpof=true&sd=true)** o per le missione all'estero **[Scaricabile qui](https://docs.google.com/spreadsheets/d/1rzboJC83icd_EQ4HJqGV52SxHML2aPf2/edit?usp=drive_link&ouid=115124997186190893988&rtpof=true&sd=true)**\r\n\r\n**Per scaricare i documenti sopraindicati, cliccare sull'apposito link, cliccare poi su File, infine su Scarica e scegliere il formato.**\r\n\r\n**NON cliccare su Richiedi accesso in modifica.**",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 349,
+      "fields" : {
+        "category" : 335,
+        "title" : "Dichiarazione di responsabilità",
+        "text" : "Dichiara di essere a conoscenza delle responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art 495 c.p., art 640 c.p.e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta rimborso spese missione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta rimborso spese missione\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta rimborso spese missione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta rimborso spese missione</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "al_direttore_del_dibest",
+      "label" : "Al Direttore del DiBEST",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"al_direttore_del_dibest\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "il_la_sottoscritto_a",
+      "label" : "Il/La sottoscritto/a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare Cognome e Nome",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_la_sottoscritto_a\">",
+      "type" : "text"
+    }, {
+      "id" : "con_la_qualifica_di",
+      "label" : "con la qualifica di",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"con_la_qualifica_di\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Commissario esterno\">Commissario esterno</option>\n\n  <option value=\" Docente Master Patti Territoriali\"> Docente Master Patti Territoriali</option>\n\n  <option value=\" Studente/ssa master Patti Territoriali\"> Studente/ssa master Patti Territoriali</option>\n\n  <option value=\" Professore/ssa emerito/a\"> Professore/ssa emerito/a</option>\n\n  <option value=\" Professore/ssa onorario/a\"> Professore/ssa onorario/a</option>\n\n  <option value=\"Collaboratore/trice esterno/a\">Collaboratore/trice esterno/a</option>\n\n  <option value=\"Studente/ssa/Tesista\">Studente/ssa/Tesista</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "nato_a_a",
+      "label" : "Nato/a a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare città e provincia",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nato_a_a\">",
+      "type" : "text"
+    }, {
+      "id" : "il",
+      "label" : "Il",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"il\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "e_residente_a",
+      "label" : "e residente a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare città e provincia",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"e_residente_a\">",
+      "type" : "text"
+    }, {
+      "id" : "in_via",
+      "label" : "in via",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"in_via\">",
+      "type" : "text"
+    }, {
+      "id" : "numero_civico",
+      "label" : "Numero civico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Numero Civico",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"numero_civico\">",
+      "type" : "text"
+    }, {
+      "id" : "cap",
+      "label" : "CAP",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cap\">",
+      "type" : "text"
+    }, {
+      "id" : "codice_fiscale",
+      "label" : "Codice fiscale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_fiscale\">",
+      "type" : "text"
+    }, {
+      "id" : "telefono",
+      "label" : "Telefono",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono\">",
+      "type" : "text"
+    }, {
+      "id" : "e-mail",
+      "label" : "e-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "inserire indirizzo e-mail",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"e-mail\">",
+      "type" : "text"
+    }, {
+      "id" : "dichiara_di_aver_eseguito_la_missione_come_da_autorizzazione",
+      "label" : "DICHIARA di aver eseguito la missione come da autorizzazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"dichiara_di_aver_eseguito_la_missione_come_da_autorizzazione\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "da_-_a",
+      "label" : "Da - a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare il luogo di partenza e il luogo di arrivo",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"da_-_a\">",
+      "type" : "text"
+    }, {
+      "id" : "con_inizio_missione",
+      "label" : "con inizio missione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data/ora valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"uniticket-datetimepicker-wrapper\">\n    <input type=\"text\"\n           name=\"con_inizio_missione\"\n           class=\"form-control uniticket-datetimepicker\"\n           \n           >\n</div>",
+      "type" : "text"
+    }, {
+      "id" : "e_fine_missione",
+      "label" : "e fine missione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data/ora valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"uniticket-datetimepicker-wrapper\">\n    <input type=\"text\"\n           name=\"e_fine_missione\"\n           class=\"form-control uniticket-datetimepicker\"\n           \n           >\n</div>",
+      "type" : "text"
+    }, {
+      "id" : "avendo_seguito_il_seguente_itinerario_di_missione",
+      "label" : "Avendo seguito il seguente itinerario di missione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-avendo_seguito_il_seguente_itinerario_di_missione\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-mezzo_di_trasporto\">Mezzo di trasporto:</label></th>\n    <td>\n      \n      <select name=\"avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-mezzo_di_trasporto\" id=\"id_avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-mezzo_di_trasporto\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Aereo\">Aereo</option>\n\n  <option value=\"Treno\">Treno</option>\n\n  <option value=\"Nave\">Nave</option>\n\n  <option value=\"Autobus\">Autobus</option>\n\n  <option value=\"Mezzo proprio\">Mezzo proprio</option>\n\n  <option value=\"Mezzo a noleggio\">Mezzo a noleggio</option>\n\n  <option value=\"Mezzo del dipartimento\">Mezzo del dipartimento</option>\n\n  <option value=\"Passaggio Gratuito\">Passaggio Gratuito</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-partenza_da\">Partenza da:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-partenza_da\" id=\"id_avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-partenza_da\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-arrivo_a\">Arrivo a:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-arrivo_a\" id=\"id_avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-arrivo_a\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-data_partenza\">Data partenza:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-data_partenza\" id=\"id_avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-data_partenza\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-ora_partenza\">Ora partenza:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-ora_partenza\" id=\"id_avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-ora_partenza\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-data_arrivo\">Data arrivo:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-data_arrivo\" id=\"id_avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-data_arrivo\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-ora_arrivo\">Ora arrivo:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-ora_arrivo\" id=\"id_avendo_seguito_il_seguente_itinerario_di_missione-NNNNN-ora_arrivo\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-avendo_seguito_il_seguente_itinerario_di_missione-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"avendo_seguito_il_seguente_itinerario_di_missione-TOTAL_FORMS\" value=\"0\" id=\"id_avendo_seguito_il_seguente_itinerario_di_missione-TOTAL_FORMS\"><input type=\"hidden\" name=\"avendo_seguito_il_seguente_itinerario_di_missione-INITIAL_FORMS\" value=\"0\" id=\"id_avendo_seguito_il_seguente_itinerario_di_missione-INITIAL_FORMS\"><input type=\"hidden\" name=\"avendo_seguito_il_seguente_itinerario_di_missione-MIN_NUM_FORMS\" value=\"0\" id=\"id_avendo_seguito_il_seguente_itinerario_di_missione-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"avendo_seguito_il_seguente_itinerario_di_missione-MAX_NUM_FORMS\" value=\"1000\" id=\"id_avendo_seguito_il_seguente_itinerario_di_missione-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-avendo_seguito_il_seguente_itinerario_di_missione\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "con_arrivo_in_territorio_straniero_il",
+      "label" : "con arrivo in territorio straniero il",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data/ora valida."
+      },
+      "help_text" : "indicare data e ora",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"uniticket-datetimepicker-wrapper\">\n    <input type=\"text\"\n           name=\"con_arrivo_in_territorio_straniero_il\"\n           class=\"form-control uniticket-datetimepicker\"\n           \n           >\n</div>",
+      "type" : "text"
+    }, {
+      "id" : "e_riattraversamento_della_frontiera_il",
+      "label" : "e riattraversamento della frontiera il",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data/ora valida."
+      },
+      "help_text" : "indicare data e ora",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"uniticket-datetimepicker-wrapper\">\n    <input type=\"text\"\n           name=\"e_riattraversamento_della_frontiera_il\"\n           class=\"form-control uniticket-datetimepicker\"\n           \n           >\n</div>",
+      "type" : "text"
+    }, {
+      "id" : "chiede_il_rimborso_delle_spese_sostenute",
+      "label" : "CHIEDE IL RIMBORSO DELLE SPESE SOSTENUTE",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"chiede_il_rimborso_delle_spese_sostenute\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "mediante_bonifico_bancario_postale_-_codice_iban",
+      "label" : "Mediante Bonifico bancario/postale - Codice IBAN",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"mediante_bonifico_bancario_postale_-_codice_iban\">",
+      "type" : "text"
+    }, {
+      "id" : "si_allegano_le_i_seguenti_ricevute_fatture_biglietti",
+      "label" : "Si allegano le/i seguenti Ricevute/fatture/biglietti",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-si_allegano_le_i_seguenti_ricevute_fatture_biglietti\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_si_allegano_le_i_seguenti_ricevute_fatture_biglietti-NNNNN-tipo\">Tipo:</label></th>\n    <td>\n      \n      <select name=\"si_allegano_le_i_seguenti_ricevute_fatture_biglietti-NNNNN-tipo\" id=\"id_si_allegano_le_i_seguenti_ricevute_fatture_biglietti-NNNNN-tipo\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Aereo -inserire carte di imbarco-\">Aereo -inserire carte di imbarco-</option>\n\n  <option value=\"Treno\">Treno</option>\n\n  <option value=\"Nave\">Nave</option>\n\n  <option value=\"Alloggio\">Alloggio</option>\n\n  <option value=\"Tassa di soggiorno\">Tassa di soggiorno</option>\n\n  <option value=\"Deposito bagagli\">Deposito bagagli</option>\n\n  <option value=\"Mezzi pubblici urbani ed extraurbani\">Mezzi pubblici urbani ed extraurbani</option>\n\n  <option value=\"Iscrizione a convegni-congressi-seminari\">Iscrizione a convegni-congressi-seminari</option>\n\n  <option value=\"Diritti di agenzia di viaggi\">Diritti di agenzia di viaggi</option>\n\n  <option value=\"Extrabagaglio\">Extrabagaglio</option>\n\n  <option value=\"Rimborso Km\">Rimborso Km</option>\n\n  <option value=\"Ingressi a musei e mostre\">Ingressi a musei e mostre</option>\n\n  <option value=\"Fattura noleggio auto\">Fattura noleggio auto</option>\n\n  <option value=\"Parcheggio\">Parcheggio</option>\n\n  <option value=\"Pasto per durata missione-trasferta superiore a 12 ore\">Pasto per durata missione-trasferta superiore a 12 ore</option>\n\n  <option value=\"Pasto per durata missione-trasferta superiore a 8 ore\">Pasto per durata missione-trasferta superiore a 8 ore</option>\n\n  <option value=\"Pedaggio autostradale\">Pedaggio autostradale</option>\n\n  <option value=\"Quote associative\">Quote associative</option>\n\n  <option value=\"Servizio di car sharing-Carburante\">Servizio di car sharing-Carburante</option>\n\n  <option value=\"Taxi urbano\">Taxi urbano</option>\n\n  <option value=\"Taxi extraurbano\">Taxi extraurbano</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_si_allegano_le_i_seguenti_ricevute_fatture_biglietti-NNNNN-descrizione\">Descrizione:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"si_allegano_le_i_seguenti_ricevute_fatture_biglietti-NNNNN-descrizione\" id=\"id_si_allegano_le_i_seguenti_ricevute_fatture_biglietti-NNNNN-descrizione\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_si_allegano_le_i_seguenti_ricevute_fatture_biglietti-NNNNN-allega_file\">Allega file:</label></th>\n    <td>\n      \n      <input type=\"file\" name=\"si_allegano_le_i_seguenti_ricevute_fatture_biglietti-NNNNN-allega_file\" id=\"id_si_allegano_le_i_seguenti_ricevute_fatture_biglietti-NNNNN-allega_file\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-si_allegano_le_i_seguenti_ricevute_fatture_biglietti-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"si_allegano_le_i_seguenti_ricevute_fatture_biglietti-TOTAL_FORMS\" value=\"0\" id=\"id_si_allegano_le_i_seguenti_ricevute_fatture_biglietti-TOTAL_FORMS\"><input type=\"hidden\" name=\"si_allegano_le_i_seguenti_ricevute_fatture_biglietti-INITIAL_FORMS\" value=\"0\" id=\"id_si_allegano_le_i_seguenti_ricevute_fatture_biglietti-INITIAL_FORMS\"><input type=\"hidden\" name=\"si_allegano_le_i_seguenti_ricevute_fatture_biglietti-MIN_NUM_FORMS\" value=\"0\" id=\"id_si_allegano_le_i_seguenti_ricevute_fatture_biglietti-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"si_allegano_le_i_seguenti_ricevute_fatture_biglietti-MAX_NUM_FORMS\" value=\"1000\" id=\"id_si_allegano_le_i_seguenti_ricevute_fatture_biglietti-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-si_allegano_le_i_seguenti_ricevute_fatture_biglietti\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "fondi",
+      "label" : "Fondi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"fondi\">",
+      "type" : "text"
+    }, {
+      "id" : "lettera_di_autorizzazione_al_rimborso_spese_del_della_responsabile_dei_fondi_firmata_digitalmente_pades",
+      "label" : "Lettera di autorizzazione al rimborso spese del/della Responsabile dei Fondi firmata digitalmente (Pades)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"lettera_di_autorizzazione_al_rimborso_spese_del_della_responsabile_dei_fondi_firmata_digitalmente_pades\">",
+      "type" : "file"
+    }, {
+      "id" : "responsabile_dei_fondi",
+      "label" : "Responsabile dei Fondi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"responsabile_dei_fondi\">",
+      "type" : "text"
+    }, {
+      "id" : "prospetto_excel_riepilogativo_spese_in_italia_o_estero",
+      "label" : "Prospetto excel riepilogativo spese (in Italia o estero)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"prospetto_excel_riepilogativo_spese_in_italia_o_estero\">",
+      "type" : "file"
+    }, {
+      "id" : "allegato_generico",
+      "label" : "Allegato Generico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegato_generico\">",
+      "type" : "file"
+    }, {
+      "id" : "note",
+      "label" : "Note",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"note\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:27.756489Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/dibest/rendicontazione-della-prestazione-in-lavoro-agile/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

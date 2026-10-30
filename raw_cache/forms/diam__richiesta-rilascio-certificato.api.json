@@ -1,0 +1,226 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:03.579696Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/diam/richiesta-rilascio-certificato/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta Rilascio Certificato",
+    "description" : "Richiesta Rilascio Certificato - Bollo assolto virtualmente ai sensi dell'art. 6 D.M. 17 giugno 2014",
+    "protocol_required" : false,
+    "slug" : "richiesta-rilascio-certificato",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 566,
+      "fields" : {
+        "category" : 504,
+        "title" : "Dichiarazione di responsabilità",
+        "text" : "Dichiara di essere a conoscenza delle responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art 495 c.p., art 640 c.p.e art 76 D.P.R. n. 445/2000).\r\nAi sensi dell’art. 15 della legge n. 183/2011, non possono più essere rilasciati e accettati certificati da produrre alle pubbliche amministrazioni e ai gestori di pubblici servizi. Gli interessati a questi casi dovranno produrre solo autocertificazioni. Tutti i certificati sono rilasciati in bollo e riporteranno la dicitura “Il presente certificato non può essere prodotto agli organi della pubblica amministrazione o ai privati gestori di pubblici servizi. La disposizione di cui sopra non si applica qualora il presente certificato venga presentato a soggetti o enti pubblici esteri”.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 568,
+      "fields" : {
+        "category" : 504,
+        "title" : "Note Operative",
+        "text" : "Per il rilascio del certificato verranno generate in ESSE3 le tasse inerenti alle imposte di bollo virtuali necessarie (euro 16,00 di istanza +  euro 16,00 per ogni certificato richiesto) che verrà emesso virtualmente, tranne che per i certificati di supplemento. L'operatore che prenderà in carico la sua richiesta avrà cura di informarla sul caricamento della marca da bollo.\r\n\r\nAlla richiesta deve essere allegato un documento di riconoscimento fonte/retro, in formato PDF, in corso di validità.",
+        "ordinamento" : 3,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 567,
+      "fields" : {
+        "category" : 504,
+        "title" : "Dati prelevati in automatico dal sistema",
+        "text" : "I dati quale Nome,Cognome,Codice Fiscale, Matricola ed E-mail istituzionale sono prelevati in automatico dal sistema e quindi non sono richiesti nella compilazione della domanda.",
+        "ordinamento" : 5,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta Rilascio Certificato",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta Rilascio Certificato\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta Rilascio Certificato - Bollo assolto virtualmente ai sensi dell'art. 6 D.M. 17 giugno 2014",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta Rilascio Certificato - Bollo assolto virtualmente ai sensi dell&#x27;art. 6 D.M. 17 giugno 2014</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "luogo_di_nascita",
+      "label" : "Luogo di Nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserire il proprio luogo di nascita",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"luogo_di_nascita\">",
+      "type" : "text"
+    }, {
+      "id" : "provincia",
+      "label" : "Provincia",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserire la provincia di appartenenza",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"provincia\">",
+      "type" : "text"
+    }, {
+      "id" : "data_di_nascita",
+      "label" : "Data di Nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "Inserire la data di nascita",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_di_nascita\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "e-mail_personale",
+      "label" : "E-mail Personale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserire E-mail Personale",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail_personale\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "numero_di_telefono",
+      "label" : "Numero di Telefono",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserire Numero di Telefono",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"numero_di_telefono\">",
+      "type" : "text"
+    }, {
+      "id" : "richiesta_certificati",
+      "label" : "Richiesta Certificati",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Selezionare il certificato di interesse, nel caso bisogna richiederne più di un tipo cliccare sulla voce Aggiungi Inserimento",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-richiesta_certificati\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_richiesta_certificati-NNNNN-certificato_di\">Certificato di:</label></th>\n    <td>\n      \n      <select name=\"richiesta_certificati-NNNNN-certificato_di\" id=\"id_richiesta_certificati-NNNNN-certificato_di\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Laurea con piano\">Laurea con piano</option>\n\n  <option value=\"Decadenza\">Decadenza</option>\n\n  <option value=\"Decadenza con anni accademici\">Decadenza con anni accademici</option>\n\n  <option value=\"Decadenza con anni accademici ed esami\">Decadenza con anni accademici ed esami</option>\n\n  <option value=\"Decadenza con esami\">Decadenza con esami</option>\n\n  <option value=\"Iscrizione\">Iscrizione</option>\n\n  <option value=\"Iscrizione Corsi Singoli\">Iscrizione Corsi Singoli</option>\n\n  <option value=\"Iscrizione con anni accademici\">Iscrizione con anni accademici</option>\n\n  <option value=\"Iscrizione con anni accademici ed esami\">Iscrizione con anni accademici ed esami</option>\n\n  <option value=\"Iscrizione con esami\">Iscrizione con esami</option>\n\n  <option value=\"Iscrizione con esami Corsi Singoli\">Iscrizione con esami Corsi Singoli</option>\n\n  <option value=\"Iscrizione con esami e date\">Iscrizione con esami e date</option>\n\n  <option value=\"Iscrizione con esami e struttura Corsi Singoli\">Iscrizione con esami e struttura Corsi Singoli</option>\n\n  <option value=\"Iscrizione con piano\">Iscrizione con piano</option>\n\n  <option value=\"Laurea\">Laurea</option>\n\n  <option value=\"Laurea con anni accademici\">Laurea con anni accademici</option>\n\n  <option value=\"Laurea con anni accademici ed esami\">Laurea con anni accademici ed esami</option>\n\n  <option value=\"Laurea con esami e date\">Laurea con esami e date</option>\n\n  <option value=\"Laurea con esami senza data\">Laurea con esami senza data</option>\n\n  <option value=\"Laurea senza voto\">Laurea senza voto</option>\n\n  <option value=\"Laurea con tesi\">Laurea con tesi</option>\n\n  <option value=\"Rinuncia\">Rinuncia</option>\n\n  <option value=\"Rinuncia con esami\">Rinuncia con esami</option>\n\n  <option value=\"Supplemento al diploma\">Supplemento al diploma</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_richiesta_certificati-NNNNN-numero_richiesta\">Numero richiesta:</label></th>\n    <td>\n      \n      <input type=\"number\" name=\"richiesta_certificati-NNNNN-numero_richiesta\" step=\"1\" id=\"id_richiesta_certificati-NNNNN-numero_richiesta\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-richiesta_certificati-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"richiesta_certificati-TOTAL_FORMS\" value=\"0\" id=\"id_richiesta_certificati-TOTAL_FORMS\"><input type=\"hidden\" name=\"richiesta_certificati-INITIAL_FORMS\" value=\"0\" id=\"id_richiesta_certificati-INITIAL_FORMS\"><input type=\"hidden\" name=\"richiesta_certificati-MIN_NUM_FORMS\" value=\"0\" id=\"id_richiesta_certificati-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"richiesta_certificati-MAX_NUM_FORMS\" value=\"1000\" id=\"id_richiesta_certificati-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-richiesta_certificati\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "certificato_da_specificare",
+      "label" : "Certificato da Specificare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserisci eventuale richieste di certificato non presente nella selezione",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"certificato_da_specificare\">",
+      "type" : "text"
+    }, {
+      "id" : "documento_di_riconoscimento_fronte_retro_in_formato_pdf:_*",
+      "label" : "Documento di riconoscimento fronte/retro in formato PDF: *",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Inserire il documento di Riconoscimento, il file deve essere di tipo PDF (MAX 10MB)",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento_di_riconoscimento_fronte_retro_in_formato_pdf:_*\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,316 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:37.979102Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dibest/conferimento-incarichi-di-insegnamento/ticket/new/",
+  "jsonBody" : {
+    "name" : "Conferimento Incarichi di  Insegnamento",
+    "description" : "Conferimento Incarichi di  Insegnamento",
+    "protocol_required" : false,
+    "slug" : "conferimento-incarichi-di-insegnamento",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 282,
+      "fields" : {
+        "category" : 270,
+        "title" : "LEGGERE LE NOTE OPERATIVE PRIMA DI COMPILARE IL MODULO",
+        "text" : "* Alla presente devono essere obbligatoriamente allegati i seguenti documenti (per ulteriori chiarimenti consultare il file [Istruzioni](https://drive.google.com/file/d/108iyUaiksGNiLa8JZFQnHVv2mdHhFWj3/view?usp=sharing)):\r\n      * Dichiarazione di Assenza di conflitti di interessi [scaricabile qui](https://drive.google.com/file/d/1C1xAVvCId7XCffPRjEjcjRFNV9A3kpHv/view?usp=sharing)\r\n      * Dichiarazione Art. 15 [scaricabile qui](https://drive.google.com/file/d/1C1xDfIPfieYB_pedv9TI_UhxLyyDotXq/view?usp=sharing)\r\n      * Eventuale Autorizzazione/comunicazione a svolgere l'incarico (per Dottorandi, Assegnisti, Docenti di altro Ateneo, PTA). Il Personale Tecnico Amministrativo dell'UNICAL deve inviare comunicazione alla Direzione Risorse Umane compilando [l'apposito modulo](https://ticket.unical.it/tickets/new/aru/incarichi-dirigenti-personale-tecnico-amministrativo-e-cel/). Dopo aver compilato e inviato il modulo è necessario scaricare il PDF e allegarlo.\r\n      * Curriculum Vitae: oscurare i dati sensibili per come riportato nel file [istruzioni](https://drive.google.com/file/d/108iyUaiksGNiLa8JZFQnHVv2mdHhFWj3/view?usp=sharing)",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : false
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 283,
+      "fields" : {
+        "category" : 270,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Conferimento Incarichi di  Insegnamento",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Conferimento Incarichi di  Insegnamento\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Conferimento Incarichi di  Insegnamento",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nConferimento Incarichi di  Insegnamento</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "al_direttore_del_dipartimento",
+      "label" : "AL Direttore del Dipartimento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"al_direttore_del_dipartimento\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "anno_accademico",
+      "label" : "Anno Accademico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"anno_accademico\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "il_la_sottoscritto_a",
+      "label" : "Il/La sottoscritto/a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Cognome e Nome",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_la_sottoscritto_a\">",
+      "type" : "text"
+    }, {
+      "id" : "nato_a_a",
+      "label" : "Nato/a a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nato_a_a\">",
+      "type" : "text"
+    }, {
+      "id" : "provincia",
+      "label" : "Provincia",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"provincia\">",
+      "type" : "text"
+    }, {
+      "id" : "il",
+      "label" : "il",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"il\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "e_residente_in",
+      "label" : "e residente in",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare la città di residenza e provincia",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"e_residente_in\">",
+      "type" : "text"
+    }, {
+      "id" : "cap",
+      "label" : "CAP",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cap\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "via_e_numero_civico",
+      "label" : "via e numero civico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"via_e_numero_civico\">",
+      "type" : "text"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cellulare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "dichiara",
+      "label" : "Dichiara",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"dichiara\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "insegnamenti",
+      "label" : "Insegnamenti",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "372479 - 27007946 - LABORATORIO DI RESTAURO 1 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 225 ORE -9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6120.00",
+        "value" : "372479 - 27007946 - LABORATORIO DI RESTAURO 1 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 225 ORE -9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6120.00"
+      }, {
+        "text" : "372478 - 27007946 - LABORATORIO DI RESTAURO 1 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 225 ORE - 9 CFU conferito con D.D. n. 242 del 28/05/2026  con compenso al netto degli oneri a carico dell'amministrazione di € 6120.00",
+        "value" : "372478 - 27007946 - LABORATORIO DI RESTAURO 1 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 225 ORE - 9 CFU conferito con D.D. n. 242 del 28/05/2026  con compenso al netto degli oneri a carico dell'amministrazione di € 6120.00"
+      }, {
+        "text" : "347595 - 27007947 - LABORATORIO DI RESTAURO 2 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 250 ORE -10 CFU conferito con  D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6800.00",
+        "value" : "347595 - 27007947 - LABORATORIO DI RESTAURO 2 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 250 ORE -10 CFU conferito con  D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6800.00"
+      }, {
+        "text" : "347597 - 27007947 - LABORATORIO DI RESTAURO 2 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 225 ORE - 9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6120.00",
+        "value" : "347597 - 27007947 - LABORATORIO DI RESTAURO 2 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 225 ORE - 9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6120.00"
+      }, {
+        "text" : "347609 - 27007948 - LABORATORIO DI RESTAURO 3 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 225 ORE - 9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6120.00",
+        "value" : "347609 - 27007948 - LABORATORIO DI RESTAURO 3 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 225 ORE - 9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6120.00"
+      }, {
+        "text" : "347611 - 27007948 - LABORATORIO DI RESTAURO 3 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 250 ORE -10 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6800.00",
+        "value" : "347611 - 27007948 - LABORATORIO DI RESTAURO 3 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 250 ORE -10 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6800.00"
+      }, {
+        "text" : "347637 - 27007949 - LABORATORIO DI RESTAURO 4 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 250 ORE -10 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6800.00",
+        "value" : "347637 - 27007949 - LABORATORIO DI RESTAURO 4 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 250 ORE -10 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6800.00"
+      }, {
+        "text" : "347639 - 27007949 - LABORATORIO DI RESTAURO 4 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 225 ORE -9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6120.00",
+        "value" : "347639 - 27007949 - LABORATORIO DI RESTAURO 4 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 225 ORE -9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 6120.00"
+      }, {
+        "text" : "347655 - 27007951 - LABORATORIO DI RESTAURO 5 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 175 ORE -7 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 4760.00",
+        "value" : "347655 - 27007951 - LABORATORIO DI RESTAURO 5 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 175 ORE -7 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 4760.00"
+      }, {
+        "text" : "347657 - 27007951 - LABORATORIO DI RESTAURO 5 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 200 ORE -8 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 5440.00",
+        "value" : "347657 - 27007951 - LABORATORIO DI RESTAURO 5 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL'ARCHITETTURA) - 200 ORE -8 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell'amministrazione di € 5440.00"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"372479 - 27007946 - LABORATORIO DI RESTAURO 1 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 225 ORE -9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6120.00\">\n 372479 - 27007946 - LABORATORIO DI RESTAURO 1 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 225 ORE -9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6120.00</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"372478 - 27007946 - LABORATORIO DI RESTAURO 1 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 225 ORE - 9 CFU conferito con D.D. n. 242 del 28/05/2026  con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6120.00\">\n 372478 - 27007946 - LABORATORIO DI RESTAURO 1 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 225 ORE - 9 CFU conferito con D.D. n. 242 del 28/05/2026  con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6120.00</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"347595 - 27007947 - LABORATORIO DI RESTAURO 2 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 250 ORE -10 CFU conferito con  D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6800.00\">\n 347595 - 27007947 - LABORATORIO DI RESTAURO 2 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 250 ORE -10 CFU conferito con  D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6800.00</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"347597 - 27007947 - LABORATORIO DI RESTAURO 2 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 225 ORE - 9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6120.00\">\n 347597 - 27007947 - LABORATORIO DI RESTAURO 2 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 225 ORE - 9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6120.00</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"347609 - 27007948 - LABORATORIO DI RESTAURO 3 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 225 ORE - 9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6120.00\">\n 347609 - 27007948 - LABORATORIO DI RESTAURO 3 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 225 ORE - 9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6120.00</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"347611 - 27007948 - LABORATORIO DI RESTAURO 3 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 250 ORE -10 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6800.00\">\n 347611 - 27007948 - LABORATORIO DI RESTAURO 3 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 250 ORE -10 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6800.00</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"347637 - 27007949 - LABORATORIO DI RESTAURO 4 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 250 ORE -10 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6800.00\">\n 347637 - 27007949 - LABORATORIO DI RESTAURO 4 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 250 ORE -10 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6800.00</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"347639 - 27007949 - LABORATORIO DI RESTAURO 4 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 225 ORE -9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6120.00\">\n 347639 - 27007949 - LABORATORIO DI RESTAURO 4 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 225 ORE -9 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 6120.00</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"347655 - 27007951 - LABORATORIO DI RESTAURO 5 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 175 ORE -7 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 4760.00\">\n 347655 - 27007951 - LABORATORIO DI RESTAURO 5 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 175 ORE -7 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 4760.00</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"insegnamenti\" value=\"347657 - 27007951 - LABORATORIO DI RESTAURO 5 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 200 ORE -8 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 5440.00\">\n 347657 - 27007951 - LABORATORIO DI RESTAURO 5 (MATERIALI LAPIDEI E DERIVATI SUPERFICI DECORATE DELL&#x27;ARCHITETTURA) - 200 ORE -8 CFU conferito con D.D. n. 242 del 28/05/2026 con compenso al netto degli oneri a carico dell&#x27;amministrazione di € 5440.00</label>\n\n</div>\n</div>",
+      "type" : "select"
+    } ]
+  },
+  "rawTextBody" : null
+}

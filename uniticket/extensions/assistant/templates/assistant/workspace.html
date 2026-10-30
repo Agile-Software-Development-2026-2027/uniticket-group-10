@@ -11,7 +11,7 @@
 {% block extra_head %}
     {{ block.super }}
     <link rel="stylesheet"
-          href="{% static 'workspace.css' %}">
+          href="{% static 'assistant/css/workspace.css' %}">
 {% endblock %}
 
 
@@ -22,7 +22,7 @@
 
     <div class="chatbot-page">
         <main id="chatbot-workspace" class="chatbot-workspace">
-            {% include "chatbot.html" %}
+            {% include "assistant/partials/chatbot.html" %}
             <div id="chatbot-resizer" class="chatbot-resizer" role="separator" tabindex="0"
                  aria-label="Spazio dedicato alla chat" aria-orientation="vertical"
                  aria-controls="chatbot-conversation-panel chatbot-request-panel"
@@ -38,7 +38,7 @@
                     {% if form %}
                         {{ block.super }}
                     {% else %}
-                        {% include "request_form.html" %}
+                        {% include "assistant/partials/request_form.html" %}
                     {% endif %}
                 {% endblock %}
                 <a class="chatbot-mobile-link" href="#chatbot-query">Torna alla conversazione</a>
@@ -56,5 +56,5 @@
 
 {% block extra_scripts %}
     {{ block.super }}
-    <script src="{% static 'workspace.js' %}" defer></script>
+    <script src="{% static 'assistant/js/workspace.js' %}" defer></script>
 {% endblock %}

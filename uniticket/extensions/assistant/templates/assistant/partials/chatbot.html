@@ -15,7 +15,7 @@
                 <div class="chatbot-message chatbot-message-user"><strong>Tu</strong><p>{{ text }}</p></div>
             {% endfor %}
         </div>
-        {% include "quick_replies.html" with replies=quick_replies %}
+        {% include "assistant/partials/quick_replies.html" with replies=quick_replies %}
         <form id="chatbot-search" class="chatbot-compose" method="post">
             {% csrf_token %}
             <input type="hidden" name="_assistant_action" value="message">

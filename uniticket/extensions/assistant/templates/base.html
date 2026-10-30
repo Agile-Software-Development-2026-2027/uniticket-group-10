@@ -3,6 +3,6 @@
 {% block bottom_scripts %}
 {{ block.super }}
 {% if request.user.is_authenticated %}
-    {% include "assistant_widget.html" %}
+    {% include "assistant/widget.html" %}
 {% endif %}
 {% endblock bottom_scripts %}

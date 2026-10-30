@@ -4,26 +4,6 @@
     const workspace = document.getElementById('chatbot-workspace');
     if (!workspace) return;
     const resizer = document.getElementById('chatbot-resizer');
-    const controls = document.querySelector('.chatbot-layout-controls');
-    function setView(view) {
-        workspace.dataset.view = view;
-        controls.querySelectorAll('[data-layout]').forEach(button => {
-            button.setAttribute('aria-pressed', String(button.dataset.layout === view));
-        });
-    }
-    if (controls) {
-        controls.hidden = false;
-        controls.addEventListener('click', event => {
-            const button = event.target.closest('[data-layout]');
-            if (button) setView(button.dataset.layout);
-        });
-        workspace.querySelectorAll('[data-show-panel]').forEach(link => {
-            link.addEventListener('click', () => {
-                if (workspace.dataset.view !== 'split') setView(link.dataset.showPanel);
-            });
-        });
-    }
-    if (!resizer) return;
     let share = 57;
     function resize(value) {
         share = Math.min(70, Math.max(35, value));

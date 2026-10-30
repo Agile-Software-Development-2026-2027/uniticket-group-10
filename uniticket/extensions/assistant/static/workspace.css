@@ -119,25 +119,3 @@ button, textarea, input { font-family: inherit; }
     .chatbot-mobile-link { display: inline-block; padding: 8px 0; }
     .chatbot-topbar { flex-wrap: wrap; padding: 16px; }
 }
-
-/* Start with the chat; reveal the second panel only for a selected request. */
-.chatbot-workspace[data-view="chat"],
-.chatbot-workspace[data-view="request"] { grid-template-columns: minmax(0, 1fr); }
-.chatbot-workspace--chat-only { max-width: 1000px; margin-inline: auto; }
-.chatbot-workspace[data-view="chat"] > .chatbot-form-panel,
-.chatbot-workspace[data-view="request"] > .chatbot-conversation,
-.chatbot-workspace:not([data-view="split"]) > .chatbot-resizer { display: none; }
-.chatbot-layout-controls { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; margin-bottom: 16px; }
-.chatbot-layout-controls[hidden] { display: none; }
-.chatbot-layout-controls button { min-height: 44px; padding: 8px 14px; border: 1px solid #dededc; border-radius: 6px; background: white; color: #383838; cursor: pointer; }
-.chatbot-layout-controls button:hover { background: #fbefee; }
-.chatbot-layout-controls button[aria-pressed="true"] { background: #b71918; color: white; border-color: #b71918; }
-@media (max-width: 850px) {
-    .chatbot-layout-controls { justify-content: center; }
-    .chatbot-layout-controls button { flex: 1; }
-}
-
-/* A selection is a neutral event in the conversation, without a sender. */
-.chatbot-selection { margin: 20px auto; padding: 14px 18px; width: fit-content; max-width: 100%; border: 1px solid #d6dcd8; border-radius: 8px; background: #f5f7f6; text-align: center; overflow-wrap: anywhere; }
-.chatbot-selection > span { display: block; margin-bottom: 5px; color: #58655e; font-size: 12px; font-weight: 600; letter-spacing: .03em; text-transform: uppercase; }
-.chatbot-selection > p { margin: 0; color: #263c30; font-size: 15px; line-height: 1.5; }

@@ -1,10 +1,22 @@
 name: uniticket
 
 services:
+  # "upstream" is the original uniticket codebase
+  upstream:
+    build:
+      context: ./upstream
+      dockerfile: Dockerfile
+    
+    image: uniticket-upstream
+    profiles: ["build-only"] # never started by "up" commands, this is merely a dependency
+
+  # "uniticket" is our extensions (i know, very confusing)
   uniticket:
     build:
       context: .
       dockerfile: Dockerfile
+      additional_contexts:
+        upstream: "service:upstream" # Tell docker the extensions need upstream to work
 
     ports:
       - "127.0.0.1:8000:8000"
@@ -16,6 +28,10 @@ services:
       - uniticket-data:/data
 
     working_dir: /app/uniticket
+
+    environment:
+      PYTHONPATH: /app/uniticket
+      DJANGO_SETTINGS_MODULE: extensions.settings # Hook into django initialization
 
     command: >
       sh -c "

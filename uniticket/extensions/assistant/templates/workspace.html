@@ -11,7 +11,7 @@
 {% block extra_head %}
     {{ block.super }}
     <link rel="stylesheet"
-          href="{% static 'workspace.css' %}">
+          href="{% static 'workspace.css' %}?v=selection-1">
 {% endblock %}
 
 
@@ -21,8 +21,16 @@
     </a>
 
     <div class="chatbot-page">
-        <main id="chatbot-workspace" class="chatbot-workspace">
+        {% if form %}
+        <div class="chatbot-layout-controls" role="group" aria-label="Visualizzazione chat e modulo" hidden>
+            <button type="button" data-layout="chat" aria-controls="chatbot-workspace" aria-pressed="false">Amplia chat</button>
+            <button type="button" data-layout="split" aria-controls="chatbot-workspace" aria-pressed="true">Vista divisa</button>
+            <button type="button" data-layout="request" aria-controls="chatbot-workspace" aria-pressed="false">Amplia modulo</button>
+        </div>
+        {% endif %}
+        <main id="chatbot-workspace" class="chatbot-workspace{% if not form %} chatbot-workspace--chat-only{% endif %}" data-view="{% if form %}split{% else %}chat{% endif %}">
             {% include "chatbot.html" %}
+            {% if form %}
             <div id="chatbot-resizer" class="chatbot-resizer" role="separator" tabindex="0"
                  aria-label="Spazio dedicato alla chat" aria-orientation="vertical"
                  aria-controls="chatbot-conversation-panel chatbot-request-panel"
@@ -35,14 +43,11 @@
                 {% if form %}<h3>{{ categoria.name }}</h3>{% endif %}
                 {% block over_content %}{% if form %}{{ block.super }}{% endif %}{% endblock %}
                 {% block page_content %}
-                    {% if form %}
-                        {{ block.super }}
-                    {% else %}
-                        {% include "request_form.html" %}
-                    {% endif %}
+                    {{ block.super }}
                 {% endblock %}
-                <a class="chatbot-mobile-link" href="#chatbot-query">Torna alla conversazione</a>
+                <a class="chatbot-mobile-link" href="#chatbot-query" data-show-panel="chat">Torna alla conversazione</a>
             </aside>
+            {% endif %}
         </main>
 
         <div class="chatbot-page-footer">
@@ -56,5 +61,6 @@
 
 {% block extra_scripts %}
     {{ block.super }}
-    <script src="{% static 'workspace.js' %}" defer></script>
+    <script src="{% static 'workspace.js' %}?v=panels-2" defer></script>
+    <script src="{% static 'search.js' %}?v=history-2" defer></script>
 {% endblock %}

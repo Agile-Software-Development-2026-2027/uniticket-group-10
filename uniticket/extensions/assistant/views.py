@@ -8,28 +8,6 @@ from uni_ticket.models import TicketCategory
 from uni_ticket.utils import base_context
 from uni_ticket.views.user import TicketAddNew
 
-from .replies import Reply
-
-
-def _get_demo_replies() -> list[Reply]:
-    # Una semplice demo, ovviamente non funzionerà cosi.
-    # Ricordati, ci sarà una sorta di enpoint POST /api/message o search
-    # Riceve una query e restituisce una quick reply (per risolvere situazioni ambigue) oppure ticket.
-    return [
-        {
-            "type": "ticket",
-            "label": "Questo apre un ticket",
-            "title": "Richiesta Certificato di Iscrizione",
-            "ticket_id": 316,
-        },
-        {
-            "type": "reply_text",
-            "label": "Questa è una quick reply",
-            "message": "Informazioni sulle tasse",
-        },
-    ]
-
-
 def _get_selected_category(request):
     ticket_id = request.GET.get("ticket_id")
     if not ticket_id:
@@ -92,7 +70,6 @@ def workspace(request):
         return ticket_form
 
     context = base_context({
-        "quick_replies": _get_demo_replies(),
         "chat_messages": request.session.get("assistant_messages", []),
         "selected_ticket_id": selected_category.pk if selected_category else None,
     })

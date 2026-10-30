@@ -33,8 +33,9 @@ public class Main {
         EmbeddingClient embeddingClient = new OllamaEmbeddingClient(OLLAMA_BASE_URL, EMBEDDING_MODEL);
         System.out.println("⏳ Inizializzazione motore RAG (BM25 + embeddings)...");
         File embeddingCache = new File(".cache/uniticket-" + EMBEDDING_MODEL + "-embeddings.json");
+        File taxonomyFile = new File("taxonomy.json");
         UniTicketRagEngine ragEngine = new UniTicketRagEngine(
-                catalogFile, embeddingClient, true, true, embeddingCache);
+                catalogFile, embeddingClient, true, true, embeddingCache, taxonomyFile);
         TicketRouter router = new TicketRouter(ragEngine, ollamaClient);
 
         Scanner scanner = new Scanner(System.in);

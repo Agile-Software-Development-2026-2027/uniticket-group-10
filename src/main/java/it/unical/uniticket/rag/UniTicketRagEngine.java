@@ -25,7 +25,11 @@ public class UniTicketRagEngine {
     private final List<List<String>> docTokens;
     private final Map<String, Integer> docFreq;
     private final double avgDocLength;
+    private final List<List<String>> catalogDocTokens;
+    private final Map<String, Integer> catalogDocFreq;
+    private final double catalogAvgDocLength;
     private final Set<String> activeStructureSlugs;
+    private final Map<String, TaxonomyMetadata> taxonomyBySlug;
     private final EmbeddingClient embeddingClient;
     private final List<float[]> categoryEmbeddings;
     private final Map<String, float[]> titleEmbeddingCache = new ConcurrentHashMap<>();
@@ -38,6 +42,28 @@ public class UniTicketRagEngine {
     private static final int RRF_K = 60;
     private static final double MIN_EMB_SIMILARITY = 0.30;
     private static final String EMBEDDING_INDEX_VERSION = "v4-rag-search-text-after-core-fields";
+
+    private static class TaxonomyMetadata {
+        private final String domain;
+        private final String lifecycle;
+        private final String serviceFamily;
+        private final List<String> ruleMatches;
+        private final List<String> userAliases;
+
+        private TaxonomyMetadata(String domain, String lifecycle, String serviceFamily,
+                                 List<String> ruleMatches, List<String> userAliases) {
+            this.domain = domain;
+            this.lifecycle = lifecycle;
+            this.serviceFamily = serviceFamily;
+            this.ruleMatches = ruleMatches;
+            this.userAliases = userAliases;
+        }
+
+        private String asSearchText() {
+            return String.join(" ", domain, lifecycle, serviceFamily,
+                    String.join(" ", ruleMatches), String.join(" ", userAliases));
+        }
+    }
 
     private static final Set<String> ITALIAN_STOPWORDS = new HashSet<>(Arrays.asList(
             "il", "lo", "la", "i", "gli", "le", "un", "uno", "una", "di", "a", "da", "in", "con",
@@ -140,11 +166,19 @@ public class UniTicketRagEngine {
     public UniTicketRagEngine(File catalogJsonFile, EmbeddingClient embeddingClient,
                              boolean useStopwords, boolean useDomainSynonyms,
                              File embeddingCacheFile) throws IOException {
+        this(catalogJsonFile, embeddingClient, useStopwords, useDomainSynonyms,
+                embeddingCacheFile, null);
+    }
+
+    public UniTicketRagEngine(File catalogJsonFile, EmbeddingClient embeddingClient,
+                             boolean useStopwords, boolean useDomainSynonyms,
+                             File embeddingCacheFile, File taxonomyJsonFile) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         CatalogExport export = mapper.readValue(catalogJsonFile, CatalogExport.class);
         this.catalog = export.allTicketsFlat != null ? export.allTicketsFlat : Collections.emptyList();
         this.useStopwords = useStopwords;
         this.useDomainSynonyms = useDomainSynonyms;
+        this.taxonomyBySlug = loadTaxonomy(mapper, taxonomyJsonFile);
         this.activeStructureSlugs = new HashSet<>();
         for (it.unical.uniticket.api.dto.StructureEntry structure : export.structures) {
             if (structure.active && structure.structureSlug != null) {
@@ -153,29 +187,81 @@ public class UniTicketRagEngine {
         }
         this.docTokens = new ArrayList<>(catalog.size());
         this.docFreq = new HashMap<>();
+        this.catalogDocTokens = new ArrayList<>(catalog.size());
+        this.catalogDocFreq = new HashMap<>();
 
         long totalLen = 0;
+        long catalogTotalLen = 0;
         for (CategoryFormSchema item : catalog) {
             // Diamo peso triplo al titolo della categoria e doppio alle note per migliorare il ranking
             String weightedCorpus = (item.categoryTitle + " " + item.categoryTitle + " " + item.categoryTitle + " ")
                     + (item.structureName + " " + item.structureSlug + " ")
                     + (item.categoryNotes != null ? item.categoryNotes + " " + item.categoryNotes + " " : "")
                     + (item.ragSearchText != null ? item.ragSearchText : "")
-                    + (item.jevCriterionSummary != null ? " " + item.jevCriterionSummary : "");
+                    + (item.jevCriterionSummary != null ? " " + item.jevCriterionSummary : "")
+                    + taxonomySearchText(item);
 
             List<String> tokens = tokenize(weightedCorpus);
             docTokens.add(tokens);
             totalLen += tokens.size();
+            String catalogCorpus = (item.categoryTitle + " " + item.categoryTitle + " " + item.categoryTitle + " ")
+                    + (item.structureName + " " + item.structureSlug + " ")
+                    + (item.categoryNotes != null ? item.categoryNotes + " " + item.categoryNotes + " " : "")
+                    + (item.ragSearchText != null ? item.ragSearchText : "")
+                    + (item.jevCriterionSummary != null ? " " + item.jevCriterionSummary : "");
+            List<String> catalogTokens = tokenize(catalogCorpus);
+            catalogDocTokens.add(catalogTokens);
+            catalogTotalLen += catalogTokens.size();
 
             Set<String> uniqueTokens = new HashSet<>(tokens);
             for (String token : uniqueTokens) {
                 docFreq.put(token, docFreq.getOrDefault(token, 0) + 1);
             }
+            for (String token : new HashSet<>(catalogTokens)) {
+                catalogDocFreq.put(token, catalogDocFreq.getOrDefault(token, 0) + 1);
+            }
         }
         this.avgDocLength = catalog.isEmpty() ? 1.0 : (double) totalLen / catalog.size();
+        this.catalogAvgDocLength = catalog.isEmpty() ? 1.0 : (double) catalogTotalLen / catalog.size();
         this.embeddingClient = embeddingClient;
         this.categoryEmbeddings = embeddingClient == null || catalog.isEmpty()
                 ? Collections.emptyList() : loadOrComputeCategoryEmbeddings(catalogJsonFile, embeddingCacheFile);
+    }
+
+    private Map<String, TaxonomyMetadata> loadTaxonomy(ObjectMapper mapper, File taxonomyJsonFile) {
+        if (taxonomyJsonFile == null || !taxonomyJsonFile.isFile()) {
+            return Collections.emptyMap();
+        }
+        try {
+            JsonNode root = mapper.readTree(taxonomyJsonFile);
+            Map<String, TaxonomyMetadata> result = new HashMap<>();
+            for (JsonNode node : root.path("nodes")) {
+                if (!"service".equals(node.path("type").asText())) continue;
+                JsonNode inferred = node.path("inferred");
+                List<String> ruleMatches = new ArrayList<>();
+                inferred.path("domainRuleMatches").forEach(value -> ruleMatches.add(value.asText()));
+                inferred.path("lifecycleRuleMatches").forEach(value -> ruleMatches.add(value.asText()));
+                List<String> userAliases = new ArrayList<>();
+                inferred.path("userAliases").forEach(value -> userAliases.add(value.asText()));
+                result.put(node.path("compositeSlug").asText(),
+                        new TaxonomyMetadata(
+                                inferred.path("domain").asText(""),
+                                inferred.path("lifecycle").asText(""),
+                                inferred.path("serviceFamily").asText(""),
+                                ruleMatches, userAliases));
+            }
+            System.out.println("✅ Tassonomia caricata: " + result.size()
+                    + " servizi da " + taxonomyJsonFile.getPath());
+            return result;
+        } catch (IOException | RuntimeException e) {
+            System.err.println("Tassonomia non utilizzabile: " + e.getMessage());
+            return Collections.emptyMap();
+        }
+    }
+
+    private String taxonomySearchText(CategoryFormSchema item) {
+        TaxonomyMetadata metadata = taxonomyBySlug.get(item.compositeSlug);
+        return metadata == null ? "" : " " + metadata.asSearchText();
     }
 
     private List<float[]> loadOrComputeCategoryEmbeddings(File catalogJsonFile, File cacheFile) {
@@ -298,6 +384,12 @@ public class UniTicketRagEngine {
      *                           filtra sempre i moduli non selezionabili
      */
     public List<ScoredCategory> searchTopK(String userQuery, int topK, boolean onlyAccessible) {
+        return searchTopKInternal(userQuery, topK, onlyAccessible, true);
+    }
+
+    private List<ScoredCategory> searchTopKInternal(String userQuery, int topK,
+                                                     boolean onlyAccessible,
+                                                     boolean includeTaxonomy) {
         List<String> baseQueryTokens = tokenize(userQuery);
         List<String> normalizedQueryTokens = new ArrayList<>(baseQueryTokens);
         for (String token : baseQueryTokens) {
@@ -329,7 +421,10 @@ public class UniTicketRagEngine {
                 continue;
             }
 
-            List<String> dTokens = docTokens.get(i);
+            List<List<String>> tokenIndex = includeTaxonomy ? docTokens : catalogDocTokens;
+            Map<String, Integer> frequencyIndex = includeTaxonomy ? docFreq : catalogDocFreq;
+            double documentAverageLength = includeTaxonomy ? avgDocLength : catalogAvgDocLength;
+            List<String> dTokens = tokenIndex.get(i);
             if (dTokens.isEmpty()) continue;
 
             Map<String, Integer> termFreq = new HashMap<>();
@@ -344,10 +439,10 @@ public class UniTicketRagEngine {
                 int tf = termFreq.getOrDefault(qToken, 0);
                 if (tf == 0) continue;
 
-                int df = docFreq.getOrDefault(qToken, 0);
+                int df = frequencyIndex.getOrDefault(qToken, 0);
                 double idf = Math.log(1.0 + (N - df + 0.5) / (df + 0.5));
                 double numerator = tf * (K1 + 1.0);
-                double denominator = tf + K1 * (1.0 - B + B * (docLen / avgDocLength));
+                double denominator = tf + K1 * (1.0 - B + B * (docLen / documentAverageLength));
 
                 score += idf * (numerator / denominator);
             }
@@ -373,7 +468,7 @@ public class UniTicketRagEngine {
         }
         try {
             int poolSize = Math.max(topK * 6, 30);
-            return fuseRRF(searchTopK(userQuery, poolSize, onlyAccessible),
+            return fuseRRF(searchTopKInternal(userQuery, poolSize, onlyAccessible, false),
                     searchTopKEmbedding(userQuery, poolSize, onlyAccessible), topK);
         } catch (RuntimeException e) {
             System.err.println("Fallback a BM25 puro: " + e.getMessage());
@@ -535,6 +630,39 @@ public class UniTicketRagEngine {
         return catalog.stream()
                 .filter(c -> c.compositeSlug.equalsIgnoreCase(compositeSlug))
                 .findFirst();
+    }
+
+    public String clarificationGuidance(List<ScoredCategory> candidates) {
+        if (taxonomyBySlug.isEmpty() || candidates == null || candidates.size() < 2) {
+            return "";
+        }
+        Map<String, Set<String>> values = new LinkedHashMap<>();
+        values.put("fase", new LinkedHashSet<>());
+        values.put("dominio", new LinkedHashSet<>());
+        values.put("famiglia", new LinkedHashSet<>());
+        for (ScoredCategory candidate : candidates) {
+            TaxonomyMetadata metadata = taxonomyBySlug.get(candidate.schema.compositeSlug);
+            if (metadata == null) continue;
+            addGuidanceValue(values.get("fase"), metadata.lifecycle);
+            addGuidanceValue(values.get("dominio"), metadata.domain);
+            addGuidanceValue(values.get("famiglia"), metadata.serviceFamily);
+        }
+        StringBuilder guidance = new StringBuilder();
+        for (Map.Entry<String, Set<String>> entry : values.entrySet()) {
+            if (entry.getValue().size() > 1) {
+                if (guidance.length() > 0) guidance.append("; ");
+                guidance.append(entry.getKey()).append(": ")
+                        .append(String.join(", ", entry.getValue()));
+            }
+        }
+        return guidance.length() == 0 ? "" :
+                "Discriminanti tassonomici osservati: " + guidance + ".";
+    }
+
+    private void addGuidanceValue(Set<String> values, String value) {
+        if (values.size() < 5 && value != null && !value.trim().isEmpty()) {
+            values.add(value.replace('-', ' '));
+        }
     }
 
     private List<String> tokenize(String text) {

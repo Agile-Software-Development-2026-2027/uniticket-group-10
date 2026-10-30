@@ -179,6 +179,11 @@ public class TicketRouter {
                         .append('\n');
             }
         }
+        String taxonomyGuidance = ragEngine.clarificationGuidance(candidates);
+        if (!taxonomyGuidance.isEmpty()) {
+            options.append("\nGUIDA PER LA CHIARIFICAZIONE:\n")
+                    .append(taxonomyGuidance).append('\n');
+        }
 
         String systemPrompt = "Sei il router delle richieste uniTicket dell'Università della Calabria.\n"
                 + "Scegli una sola azione: SELECT, CLARIFY oppure NONE.\n"
@@ -190,6 +195,9 @@ public class TicketRouter {
                 + "specifico della pratica. Non usare moduli inattivi come scelta finale.\n"
                 + "Non inventare dettagli non presenti nella richiesta, come anni accademici, corsi o "
                 + "azioni già svolte dall'utente.\n"
+                + "Quando scegli CLARIFY, usa il discriminante più semplice tra quelli osservati "
+                + "e formula una domanda in italiano. La guida tassonomica è solo un supporto, "
+                + "non è una dichiarazione dell'utente.\n"
                 + "Usa gli indici interi [1..K] dell'elenco. Per NONE usa selectedCandidateId = 0. "
                 + "In plausibleCandidateIds elenca solo gli indici realmente pertinenti.\n"
                 + "Rispondi solo con JSON valido:\n"

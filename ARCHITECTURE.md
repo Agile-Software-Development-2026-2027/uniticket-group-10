@@ -45,6 +45,8 @@ Il motore carica [`uniticket.json`](file:///Users/saverio/IdeaProjects/UniTicket
 #### BM25 (lessicale pesato)
 - **Parametri Okapi**: `k1=1.5`, `b=0.75`
 - **Pesatura corpus per documento**:
+  - il testo può essere arricchito dagli attributi source-grounded di `taxonomy.json` (dominio, lifecycle, famiglia e regole che hanno prodotto l'annotazione);
+  - se la tassonomia non è disponibile, l'indice usa esclusivamente il catalogo come prima;
   - Titolo categoria: **3×**
   - Note categoria: **2×**
   - Struttura (`structureName` + `structureSlug`): **1×**
@@ -67,6 +69,9 @@ Il motore carica [`uniticket.json`](file:///Users/saverio/IdeaProjects/UniTicket
 - **Formula RRF** con parametro `k=60`
 - Pool di retrieval: `max(topK × 4, 20)` candidati per ciascuna lista (BM25 ed embeddings)
 - Score combinato: $\sum \frac{1}{k + rank_i + 1}$ sommato sulle liste in cui compare il candidato
+- In modalità ibrida, RRF usa l'indice BM25 catalog-only; l'indice BM25 arricchito
+  dalla tassonomia resta disponibile per la ricerca lessicale pura, evitando che
+  gli alias tassonomici sovrappesino il segnale semantico indipendente.
 
 ---
 
@@ -133,14 +138,14 @@ Il router implementa una solida suite di guardrail a livello di codice per garan
 
 | Classe | Descrizione |
 |--------|------------|
-| [`UniTicketRagEngine`](file:///Users/saverio/IdeaProjects/UniTicketChatbot/src/main/java/it/unical/uniticket/rag/UniTicketRagEngine.java) | **Cuore del retrieval**: indice BM25, ricerca semantica bge-m3, fusione RRF, cache su disco con invalidazione automatica, tokenizzatore e stemmer italiano, espansione sinonimi |
+| [`UniTicketRagEngine`](file:///Users/saverio/IdeaProjects/UniTicketChatbot/src/main/java/it/unical/uniticket/rag/UniTicketRagEngine.java) | **Cuore del retrieval**: indice BM25 con alias linguistici opzionali dalla tassonomia, arricchimento source-grounded, ricerca semantica bge-m3, fusione RRF, cache su disco con invalidazione automatica, tokenizzatore e stemmer italiano, espansione sinonimi |
 | [`EmbeddingUtils`](file:///Users/saverio/IdeaProjects/UniTicketChatbot/src/main/java/it/unical/uniticket/rag/EmbeddingUtils.java) | Calcolo della similarità coseno (cosine similarity) tra vettori |
 
 ### `routing/` — Decisione e Orchestrazione
 
 | Classe | Descrizione |
 |--------|------------|
-| [`TicketRouter`](file:///Users/saverio/IdeaProjects/UniTicketChatbot/src/main/java/it/unical/uniticket/routing/TicketRouter.java) | Orchestratore: riceve la query, coordina il retrieval ibrido, invoca l'LLM con schema strutturato, applica la pipeline di guardrail e gestisce lo stato di sessione multi-turno |
+| [`TicketRouter`](file:///Users/saverio/IdeaProjects/UniTicketChatbot/src/main/java/it/unical/uniticket/routing/TicketRouter.java) | Orchestratore: riceve la query, coordina il retrieval ibrido, usa discriminanti tassonomici bounded nelle chiarificazioni, invoca l'LLM con schema strutturato, applica la pipeline di guardrail e gestisce lo stato di sessione multi-turno |
 | [`RoutingDecision`](file:///Users/saverio/IdeaProjects/UniTicketChatbot/src/main/java/it/unical/uniticket/routing/RoutingDecision.java) | Esito del routing: `action` (SELECT/CLARIFY/NONE), slug selezionato, schema associato, confidenza, motivazione, candidati RRF, opzioni CLARIFY, `rejectedSlugs`, `cumulativeQuery` |
 
 ### `app/` — Interfaccia Utente
@@ -153,7 +158,7 @@ Il router implementa una solida suite di guardrail a livello di codice per garan
 
 | Classe | Descrizione |
 |--------|------------|
-| [`RoutingEvaluation`](file:///Users/saverio/IdeaProjects/UniTicketChatbot/src/main/java/it/unical/uniticket/eval/RoutingEvaluation.java) | Misura la **Recall@5 del retrieval** su 4 configurazioni (stopword on/off × sinonimi on/off), sia in BM25 puro che in modalità ibrida |
+| [`RoutingEvaluation`](file:///Users/saverio/IdeaProjects/UniTicketChatbot/src/main/java/it/unical/uniticket/eval/RoutingEvaluation.java) | Confronta catalogo-only e taxonomy-aware con Recall@1/@3/@5, MRR, delta e casi migliorati/regrediti, su 4 configurazioni (stopword on/off × sinonimi on/off), sia in BM25 puro che in modalità ibrida |
 | [`RouterEvaluation`](file:///Users/saverio/IdeaProjects/UniTicketChatbot/src/main/java/it/unical/uniticket/eval/RouterEvaluation.java) | Misura l'**accuratezza end-to-end** (retrieval + router LLM) con metriche granulari: Accuratezza globale, Strict SELECT Accuracy, Clarify Rate, Clarify Recall, Clarify Coverage Rate, True Negative NONE Accuracy |
 
 ### `scripts/` e `raw_cache/` — Rigenerazione e Dati Sorgente
@@ -161,6 +166,8 @@ Il router implementa una solida suite di guardrail a livello di codice per garan
 | File / Directory | Descrizione |
 |------------------|------------|
 | [`scripts/build_catalog.py`](file:///Users/saverio/IdeaProjects/UniTicketChatbot/scripts/build_catalog.py) | Script di compilazione del catalogo: legge i dump JSON grezzi in `raw_cache/` e genera `uniticket.json`, isolando `ragSearchText` (escludendo dati anagrafici e dichiarazioni legali) e `routerCard` |
+| [`scripts/build_taxonomy.py`](file:///Users/saverio/IdeaProjects/UniTicketChatbot/scripts/build_taxonomy.py) | Genera `taxonomy.json`, un indice semantico deterministico e source-grounded con domini, fasi del ciclo di vita, famiglie di servizi, nodi servizio e relazioni |
+| [`scripts/lint_taxonomy.py`](file:///Users/saverio/IdeaProjects/UniTicketChatbot/scripts/lint_taxonomy.py) | Verifica consistenza del grafo e provenienza dei nodi servizio rispetto a `uniticket.json` |
 | `raw_cache/` | Dump locale di categorie (`categories.json`), strutture (`structures.json`) e definizioni form per ciascuna categoria (`forms/*.json`) |
 | [`REST_ENDPOINTS_UNITICKET.md`](file:///Users/saverio/IdeaProjects/UniTicketChatbot/REST_ENDPOINTS_UNITICKET.md) | Documentazione completa delle API REST e degli endpoint JSON della piattaforma uniTicket reale |
 
@@ -175,7 +182,7 @@ Il router implementa una solida suite di guardrail a livello di codice per garan
 | Parsing JSON | **Jackson Databind** | Lettura/scrittura cataloghi, cache e schemi form dinamici |
 | LLM locale | **Ollama — `qwen2.5:3b`** | Classificazione e routing delle richieste |
 | Embeddings | **Ollama — `bge-m3`** | Retrieval semantico denso e clustering varianti |
-| Retrieval lessicale | **BM25 custom** | Ricerca Okapi BM25 ottimizzata per il dominio universitario |
+| Retrieval lessicale | **BM25 custom** | Ricerca Okapi BM25 ottimizzata per il dominio universitario, con indice catalog-only separato per la fusione hybrid |
 | Fusione ranking | **RRF custom** | Fusione delle graduatorie BM25 ed embeddings |
 | Data pipeline | **Python 3** (`scripts/build_catalog.py`) | Sanitizzazione e arricchimento del catalogo dalla cache grezza |
 

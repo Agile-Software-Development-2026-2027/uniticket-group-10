@@ -49,6 +49,46 @@ The builder preserves backend option values but generates separate views: `field
 Conditional fields identifiable from form text also include `dependsOn`, without modifying the original backend field names.
 HTTP 403/404 responses are marked with `unknown` availability observed by the scraping profile, not as proof that the service does not exist; only forms retrieved with HTTP 200 can be automatically selected by the prototype.
 
+The source-grounded semantic taxonomy is generated separately:
+
+```bash
+python3 scripts/build_taxonomy.py
+```
+
+This writes `taxonomy.json` with typed nodes for structures, domains, lifecycle
+stages, service families, and services, plus explicit relationships between
+them. Service nodes retain the catalog slug, schema hash, and availability
+observation as provenance. Domain, lifecycle, and family labels are
+deterministic heuristic annotations; they must not override the source
+catalog. The runtime loads these annotations into the taxonomy-aware BM25 document view;
+they improve lexical recall without changing accessibility filtering or the
+embedding index. For hybrid RRF retrieval, the runtime deliberately retains a
+separate catalog-only BM25 index so taxonomy aliases cannot overpower the
+independent embedding signal. If `taxonomy.json` is absent, retrieval falls
+back to the previous catalog-only behavior.
+
+The taxonomy also contains a small deterministic vocabulary of user-language
+aliases (for example, “mettere in pausa gli studi” for suspension or
+“prenotare un appello” for Esse3). These aliases are explicit heuristic
+annotations, not facts extracted from the backend, and remain subject to the
+retrieval evaluation.
+
+On the current 41 positive evaluation cases, the alias-aware taxonomy raises
+BM25 Recall@5 from 75.6% (31/41) to 78.0% (32/41), with no regressions in the
+catalog-only comparison.
+
+During router clarification, the runtime also exposes bounded differences
+between candidates (domain, lifecycle, and service family) as a prompt hint,
+so the taxonomy can influence clarification quality without overriding the
+router's final decision.
+The hint is not authoritative and is omitted when the taxonomy is unavailable.
+
+Validate taxonomy consistency and provenance with:
+
+```bash
+python3 scripts/lint_taxonomy.py
+```
+
 ### Routing — `TicketRouter`
 
 The router receives the candidate forms and prompts the LLM to output a JSON decision with one of the following actions:
@@ -129,6 +169,24 @@ BM25 retrieval recall:
 java -cp target/UniTicketChatbot-1.0-SNAPSHOT.jar \
   it.unical.uniticket.eval.RoutingEvaluation
 ```
+
+The evaluator compares `catalog-only` and `taxonomy-aware` retrieval when
+`taxonomy.json` is present. An optional fourth argument can select another
+taxonomy file:
+
+```bash
+java -cp target/UniTicketChatbot-1.0-SNAPSHOT.jar \
+  it.unical.uniticket.eval.RoutingEvaluation uniticket.json eval/routing_eval.json --hybrid taxonomy.json
+```
+
+The evaluator also reports the hit delta and the number of improved,
+regressed, and unchanged annotated cases. The current deterministic taxonomy
+raises BM25 Recall@5 from 75.6% (31/41) to 78.0% (32/41), with no regressions
+on the current annotated dataset. In the hybrid run, both catalog-only and
+taxonomy-aware now reach 87.8% (36/41). The hybrid path uses the catalog-only
+BM25 index before RRF, preventing taxonomy aliases from overpowering the
+independent embedding signal; taxonomy annotations remain available to pure
+BM25 and router clarification.
 
 Hybrid retrieval (BM25 + embeddings + RRF):
 

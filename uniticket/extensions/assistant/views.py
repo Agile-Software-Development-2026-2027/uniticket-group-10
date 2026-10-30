@@ -21,6 +21,7 @@ def _get_demo_replies() -> list[Reply]:
             "label": "Questo apre un ticket",
             "title": "Richiesta Certificato di Iscrizione",
             "ticket_id": 316,
+            "structure_name": "DiBEST",
         },
         {
             "type": "reply_text",
@@ -97,7 +98,7 @@ def workspace(request):
         "selected_ticket_id": selected_category.pk if selected_category else None,
     })
     context.update(ticket_form)
-    return render(request, "workspace.html", context)
+    return render(request, "assistant/workspace.html", context)
 
 
 @login_required

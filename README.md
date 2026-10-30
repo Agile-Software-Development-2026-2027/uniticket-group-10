@@ -6,6 +6,14 @@ ibrida BM25 + embeddings, Reciprocal Rank Fusion (RRF) e un router LLM locale.
 Non invia ticket e non compila form: l'obiettivo attuale è valutare la qualità
 della classificazione.
 
+> [!WARNING]
+> Questo progetto è stato **vibecoded** come prototipo durante uno sprint
+> esplorativo, più vicino a una spike estesa che a un'implementazione
+> definitiva. Il codice non è stato scritto manualmente in ogni sua parte e
+> non è pensato come base stabile per l'evoluzione a lungo termine. Nel
+> prossimo sprint il prototipo verrà riscritto manualmente, con una struttura
+> più consapevole, verificabile e manutenibile.
+
 ## Flusso
 
 ```mermaid
@@ -39,6 +47,26 @@ Gli embeddings delle categorie vengono salvati in:
 
 La cache contiene l'impronta SHA-256 del catalogo e viene ignorata
 automaticamente quando `uniticket.json` cambia.
+
+## Rigenerazione del catalogo
+
+`uniticket.json` è un indice derivato. La fonte locale è
+`raw_cache/categories.json` insieme ai file `raw_cache/forms/*.json`.
+Per rigenerarlo dopo un nuovo scraping:
+
+```bash
+python3 scripts/build_catalog.py
+```
+
+Il generatore mantiene i valori backend delle opzioni, ma costruisce viste
+separate: `fields` per lo schema del form, `routerCard` e
+`jevCriterionSummary` per il routing, e `ragSearchText` per la ricerca.
+Quest'ultimo esclude campi anagrafici, dichiarazioni legali, placeholder e URL.
+I campi condizionali riconoscibili dai testi del form includono anche
+`dependsOn`, senza alterare il nome originale usato dal backend.
+Le risposte HTTP 403/404 sono marcate come disponibilità `unknown` osservata
+dal profilo di scraping, non come prova che il servizio non esista; solo i form
+acquisiti con HTTP 200 sono selezionabili automaticamente dal prototipo.
 
 ### Routing — `TicketRouter`
 
@@ -74,8 +102,6 @@ UniTicketChatbot/
     ├── eval/
     │   ├── RoutingEvaluation.java  # recall del retrieval
     │   └── RouterEvaluation.java   # accuratezza end-to-end del router
-    ├── forms/
-    │   └── FormFillingSession.java # codice isolato, fuori dallo scope attivo
     ├── llm/
     │   ├── LlmClient.java
     │   ├── EmbeddingClient.java
@@ -83,7 +109,6 @@ UniTicketChatbot/
     │   └── OllamaEmbeddingClient.java
     ├── rag/
     │   ├── UniTicketRagEngine.java
-    │   ├── OptionEmbeddingIndex.java
     │   └── EmbeddingUtils.java
     └── routing/
         ├── RoutingDecision.java

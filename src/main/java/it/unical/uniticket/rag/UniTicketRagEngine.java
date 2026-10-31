@@ -81,6 +81,8 @@ public class UniTicketRagEngine {
         DOMAIN_SYNONYMS.put("cancellazione", Arrays.asList("rinuncia", "chiusura", "cessazione"));
         DOMAIN_SYNONYMS.put("extracurriculari", Arrays.asList("extra", "para", "universitarie", "extrauniversitarie"));
         DOMAIN_SYNONYMS.put("extracurricolari", Arrays.asList("extra", "para", "universitarie", "extrauniversitarie"));
+        DOMAIN_SYNONYMS.put("email", Arrays.asList("posta", "office365", "studentiunicalit", "webmail"));
+        DOMAIN_SYNONYMS.put("posta", Arrays.asList("email", "office365", "studentiunicalit", "webmail"));
 
         // Correzioni conservative per refusi frequenti nelle richieste in linguaggio naturale.
         QUERY_TOKEN_ALIASES.put("difficiolt", Arrays.asList("difficolt"));

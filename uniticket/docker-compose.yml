@@ -1,0 +1,29 @@
+name: uniticket
+
+services:
+  uniticket:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    ports:
+      - "127.0.0.1:8000:8000"
+
+    volumes:
+      - ./extensions:/extensions:ro
+      - ./config/settings.py:/app/uni_ticket_project/settings.py:ro
+      - ./dumps:/dumps:ro
+      - uniticket-data:/data
+
+    working_dir: /app/uniticket
+
+    command: >
+      sh -c "
+      python manage.py migrate --noinput &&
+      python manage.py loaddata /dumps/local_conf.json &&
+      python manage.py collectstatic --noinput &&
+      python manage.py runserver 0.0.0.0:8000
+      "
+
+volumes:
+  uniticket-data:

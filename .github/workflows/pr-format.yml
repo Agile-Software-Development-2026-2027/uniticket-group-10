@@ -1,4 +1,4 @@
-# Checks the title and the body of every pull request.
+# Checks the title and the body of every pull request, and warns about its commit messages.
 # The job "format" is a required check on main: do not rename it.
 name: PR format
 
@@ -18,9 +18,17 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # the whole history, to read the commits of the pull request
       - name: Check title and body
         # Passed as environment variables, never inlined in the script.
         env:
           PR_TITLE: ${{ github.event.pull_request.title }}
           PR_BODY: ${{ github.event.pull_request.body }}
         run: python3 .github/scripts/check_pr.py
+      - name: Check commit messages (warnings only)
+        if: ${{ !cancelled() }} # runs even when the title or the body are wrong
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: python3 .github/scripts/check_commits.py "$BASE_SHA" "$HEAD_SHA"

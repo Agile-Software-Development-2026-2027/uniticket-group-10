@@ -1,12 +1,14 @@
+# Git hooks of the project. Install them once per clone with: pre-commit install
+minimum_pre_commit_version: "3.2.0"
+default_install_hook_types: [pre-commit, commit-msg]
+# Hooks without "stages" run only before the commit, not on its message.
+default_stages: [pre-commit]
+
 repos:
   - repo: local
     hooks:
-      - id: make-test
-        name: Esecuzione test
-        entry: make test-django-docker
-        language: system
-        #stages: [manual] 
-        #decommentarlo se si vuole disattivare l'esecuzione automatica dei test pre-commit
-        pass_filenames: false
-        always_run: true
-# Esegue i test Django dell'app assistant nel container Docker Compose.
+      - id: commit-message
+        name: Commit message format
+        entry: python .github/scripts/check_commits.py --message-file
+        language: python
+        stages: [commit-msg]

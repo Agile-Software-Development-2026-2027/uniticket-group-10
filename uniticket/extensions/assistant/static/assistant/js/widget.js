@@ -6,6 +6,14 @@
 
     // Legge gli attributi data-* scritti da django (indirizzi, token CSRF, ecc.) e li mette in un oggetto.
     const config = {...element.dataset};
+
+    //configurazione tasto indietro. quando torni indietro
+    //la pagina si carica normalmente e il widget riprende la conversazione da sessionStorage
+    if(window.htmx){
+        htmx.config.historyCacheSize=0; // dice a htmx di non tenere "fotografie" delle pagine visitate
+        htmx.config.refreshOnHistoryMiss=true; // così con "indietro" la pagina si ricarica normalmente e il widget riparte da sessionStorage
+    }
+
     const welcome = () => ({
         author: 'bot',
         text: 'Ciao! Descrivi cosa ti serve e ti suggerisco la richiesta giusta. Ad esempio: “Mi serve un certificato di iscrizione”.',
@@ -22,6 +30,7 @@
                 query: '',
                 messages: [],
                 openUrl: config.openUrl,
+                loadedTicketId: config.loadedTicketId || null,
             };
         },
 
@@ -69,12 +78,16 @@
             },
 
             isOpened(ticket) {
-                return config.loadedTicketId === String(ticket.ticket_id);
+                return this.loadedTicketId === String(ticket.ticket_id);
             },
 
             scrollToBottom() {
                 const box = this.$refs.messages;
                 box.scrollTop = box.scrollHeight;
+            },
+
+            processLinks(){
+                if(window.htmx) htmx.process(this.$refs.messages);
             },
 
             resizeInput() {
@@ -140,12 +153,22 @@
             },
         },
         
+
+        updated(){
+            this.processLinks(); // se i messaggi cambiano, rielabora i link con htmx
+        },
+
+
         mounted() {
             // Ripristina la conversazione salvata nella scheda, oppure parte dal benvenuto.
             const saved = this.load();
             this.messages = Array.isArray(saved.messages) && saved.messages.length ? saved.messages : [welcome()];
             this.open = Boolean(saved.open);
-            this.$nextTick(this.scrollToBottom);
+            this.$nextTick(() =>{
+                this.scrollToBottom();
+                this.processLinks();
+            }
+            ); // se la chat era aperta, scrolla in basso e rielabora i link con htmx
 
             // Il bottone "Assistente" della navbar apre il widget invece di cambiare pagina.
             document.addEventListener('click', event => {

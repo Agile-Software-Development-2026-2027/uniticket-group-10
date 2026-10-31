@@ -1,8 +1,16 @@
 {% extends "base.html" %}
-
+{% load static %}
+<!---Integriamo 3 cose in un unico contenitore, così non li dobbiamo caricare più volte--->
+<!--Ovvero l'htmx stesso, il widget, e l'id così htmx sa riconoscere l'elemento da preservare proprio dall'id-->
 {% block bottom_scripts %}
 {{ block.super }}
 {% if request.user.is_authenticated %}
+<!-- con hx preserve, quando htmx sostituisce la pagina, questo contenitore resta quello di prima, con il widget già montato da vue  -->
+ <!-- Quello della pagina nuova viene scartato, quindi htmx e widget.js non vengono caricati due volte -->
+<div id="assistant-root" hx-preserve>
+    <!-- carica htmx, che uniticket ha già nei suoi file statici ma non include in tutte le pagine-->
+    <script src="{% static 'js/htmx-1.9.10.min.js' %}"></script>
     {% include "assistant/widget.html" %}
+</div>
 {% endif %}
 {% endblock bottom_scripts %}

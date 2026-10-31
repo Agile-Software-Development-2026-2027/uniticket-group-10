@@ -32,14 +32,17 @@
                 <span class="assistant-author">[[ msg.author === 'user' ? 'Tu' : 'Assistente' ]]</span>
                 <!-- msg.text è il testo del messaggio --> 
                 <p :class="{ 'assistant-error': msg.error }">[[ msg.text ]]</p>
-                
-                <ul v-if="msg.tickets && msg.tickets.length" class="assistant-results" aria-label="Richieste suggerite">
+                <!-- con hx-boost="true" i link vengono gestiti da htmx -->
+                 <!-- al click htmx chiede la pagina al server /assistant/open?ticket_id=... -> redirect al modulo -->
+                  <!-- sostituisce il body tranne il widget preservato e aggiorna l'indirizzo nella barra. gli altri link di uniticket restano normali--->
+                <ul v-if="msg.tickets && msg.tickets.length" class="assistant-results" aria-label="Richieste suggerite" hx-boost="true">
                     <!-- Mostra solo le prime visible schede (all'inizio 3). Il bottone Mostra Altre fa msg.visible+=3 e mostra altre 3 -->
                     <li v-for="ticket in msg.tickets.slice(0, msg.visible)" :key="ticket.ticket_id">
                         <!-- Link normale, senza javascript -->
                          <!-- il browser va a /assistant/open?ticket_id=318, open_category in views trova la categoria e reindirizza al modulo -->
-                          <!--  -->
+                          <!-- con @click aggiorna subito il dato di Vue -->
                         <a :href="openUrl + '?ticket_id=' + ticket.ticket_id"
+                            @click="loadedTicketId=String(ticket.ticket_id)"
                            :class="['assistant-card', { 'assistant-card--opened': isOpened(ticket) }]"
                            :aria-current="isOpened(ticket) ? 'page' : null">
                             <span>

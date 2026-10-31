@@ -11,16 +11,20 @@ Installazione e attivazione
 ---------------------------
 Aprire un terminale nella cartella principale del progetto ed eseguire:
 
+    docker compose -f uniticket/docker-compose.yml build uniticket
     python -m pip install pre-commit
     pre-commit install
 
-Il secondo comando registra l'hook Git nel repository locale. Da quel momento,
-prima di ogni commit, l'hook costruisce (o aggiorna) l'immagine Docker ed esegue
-solo `chatbot_tests.test_smoke.DjangoSetupSmokeTest.test_django_apps_are_ready`
-nel servizio `uniticket` definito in `uniticket/docker-compose.yml`. Il test è
-in `uniticket/extensions/chatbot_tests`, montato dal Compose in `/extensions`
-e incluso nel `PYTHONPATH`, così non si sovrappone ai test già presenti
-nell'immagine uniTicket. Il container viene eliminato al termine.
+Il primo comando costruisce l'immagine una volta; il terzo registra l'hook Git
+nel repository locale. Prima di ogni commit, l'hook avvia un container
+temporaneo usando l'immagine esistente ed esegue solo
+`chatbot_tests.test_smoke.DjangoSetupSmokeTest.test_django_apps_are_ready`.
+Il test è in `uniticket/extensions/chatbot_tests`, montato dal Compose in
+`/extensions` e incluso nel `PYTHONPATH`, quindi le sue modifiche sono visibili
+senza ricostruire l'immagine. Il container viene eliminato al termine.
+
+Ricostruire l'immagine con il comando `build` quando cambiano il Dockerfile o
+le dipendenze installate nell'immagine.
 
 Esecuzione manuale
 ------------------

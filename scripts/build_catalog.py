@@ -253,9 +253,12 @@ def build_category(category: dict, raw_form: dict | None) -> dict:
     status_name, status_reason = availability(category, form, status)
     accessible = status == 200 and bool(form.get("form"))
 
-    # Only domain-bearing field labels/options enter retrieval.  Generic
-    # identity fields and legal declarations are form data, not service intent.
-    search_parts = [clean(category.get("organizational_structure")), title, description]
+    # Only domain-bearing field labels enter retrieval.  Generic identity fields
+    # and legal declarations are form data, not service intent.  Dropdown options
+    # stay in ``fields`` for form filling but are left out here: they list every
+    # office or course, which describes the user rather than the service.  Title
+    # and description are indexed separately by the search engine.
+    search_parts = []
     for field in form_fields:
         if is_generic_field(field):
             continue
@@ -263,10 +266,6 @@ def build_category(category: dict, raw_form: dict | None) -> dict:
             continue
         if not is_noise(field["label"]):
             search_parts.append(field["label"])
-        search_parts.extend(
-            option["label"] for option in field.get("options", [])
-            if not is_noise(option["label"])
-        )
     search_parts = list(dict.fromkeys(part for part in search_parts if not is_noise(part)))
     rag_text = ". ".join(search_parts)
 

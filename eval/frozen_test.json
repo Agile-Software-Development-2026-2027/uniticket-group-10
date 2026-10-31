@@ -1,0 +1,998 @@
+[
+  {
+    "id": "open-01",
+    "type": "open",
+    "query": "Sono all'estero con il programma di scambio e devo mandare i documenti per ricevere i soldi del contributo",
+    "expected": [
+      "centro-residenziale__documentazione-per-contributo-mobilita-internazionale-aa-20252026-prima-ratasaldo"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dimes"
+    }
+  },
+  {
+    "id": "open-02",
+    "type": "open",
+    "query": "Mi serve un volume che sta nella torre della biblioteca umanistica, non posso prenderlo da solo dallo scaffale",
+    "expected": [
+      "sab__bau-richiesta-di-consultazione-eo-prestito-di-libri-cartacei-no-self-service-collocati-nella-torre-libraria-baupolo-umanistico"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "disu"
+    }
+  },
+  {
+    "id": "open-03",
+    "type": "open",
+    "query": "Sto facendo il tirocinio all'estero con l'Erasmus e devo cambiare qualcosa nel progetto, sono di ingegneria per l'ambiente",
+    "expected": [
+      "diam__richiesta-variazione-erasmus-traineeship"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "diam"
+    }
+  },
+  {
+    "id": "open-04",
+    "type": "open",
+    "query": "Il professore deve approvarmi il formulario che porto all'esame, prima lo deve vedere il mio tutor del servizio disabilità",
+    "expected": [
+      "servizio-studenti-con-disabilita-dsa-e-bes__richiesta-revisione-preventiva-del-tutor-per-approvazione-materiali-desame-da-parte-del-docente"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dimeg"
+    }
+  },
+  {
+    "id": "open-05",
+    "type": "open",
+    "query": "Ho cambiato indirizzo e vorrei correggere i miei dati sulla tessera della biblioteca",
+    "expected": [
+      "sab__aggiornamento-profilo-tessera-utente"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dices"
+    }
+  },
+  {
+    "id": "open-06",
+    "type": "open",
+    "query": "Devo andare a un congresso a Milano per il dipartimento, mi serve l'ok per la trasferta",
+    "expected": [
+      "dibest__richiesta-autorizzazione-a-compiere-la-missione"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": "dibest"
+    }
+  },
+  {
+    "id": "open-07",
+    "type": "open",
+    "query": "Vorrei entrare nella sala dei fondi speciali della biblioteca umanistica per studiare dei testi antichi",
+    "expected": [
+      "sab__bau-richiesta-di-accesso-a-sale-studio-fondi-speciali-bau"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "disu"
+    }
+  },
+  {
+    "id": "open-08",
+    "type": "open",
+    "query": "Studio farmacia e nel semestre aperto mi hanno messo nel gruppo sbagliato, voglio passare all'altro",
+    "expected": [
+      "dfssn__cambio-gruppoclasse-semestre-aperto-aa-202627"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dfssn"
+    }
+  },
+  {
+    "id": "open-09",
+    "type": "open",
+    "query": "Credo di aver diritto a non pagare parte delle tasse ma il mio caso non è tra quelli elencati",
+    "expected": [
+      "servizi-didattici__richiesta-altri-esoneri-previsti-dal-regolamento-tasse"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "desf"
+    }
+  },
+  {
+    "id": "open-10",
+    "type": "open",
+    "query": "Vorrei leggere una vecchia tesi conservata nella biblioteca di area tecnico-scientifica",
+    "expected": [
+      "sab__bats-richiesta-di-consultazione-di-tesi-di-laurea"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dimes"
+    }
+  },
+  {
+    "id": "open-11",
+    "type": "open",
+    "query": "Mi sono laureato al DiBEST e mi serve un documento che lo attesti per un concorso",
+    "expected": [
+      "dibest__richiesta-certificato-di-laurea"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dibest"
+    }
+  },
+  {
+    "id": "open-12",
+    "type": "open",
+    "query": "Avevo già chiesto la tesi al DiBEST ma ora devo cambiare argomento",
+    "expected": [
+      "dibest__variazione-richiesta-tesi"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dibest"
+    }
+  },
+  {
+    "id": "open-13",
+    "type": "open",
+    "query": "Cambio ufficio e il mio numero interno deve essere spostato nella nuova stanza",
+    "expected": [
+      "ict__srs-telefonia-richiesta-trasloco"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": "ict"
+    }
+  },
+  {
+    "id": "open-14",
+    "type": "open",
+    "query": "Devo iniziare lo stage, faccio ingegneria per l'ambiente e il territorio",
+    "expected": [
+      "diam__richiesta-di-avvio-tirocinio-ing-per-lambiente-e-il-territorio"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "diam"
+    }
+  },
+  {
+    "id": "open-15",
+    "type": "open",
+    "query": "Ho anticipato io i soldi per del materiale d'ufficio al DIAm e vorrei riaverli",
+    "expected": [
+      "diam__rimborso-spese-fondo-economale"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": "diam"
+    }
+  },
+  {
+    "id": "open-16",
+    "type": "open",
+    "query": "Mi serve solo un capitolo di un volume che nelle biblioteche dell'ateneo non c'è, studio lettere",
+    "expected": [
+      "sab__bau-dd-richiesta-di-fornitura-di-parti-di-libro"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "disu"
+    }
+  },
+  {
+    "id": "open-17",
+    "type": "open",
+    "query": "Sono del DiBEST e Teams non mi fa entrare nel corso",
+    "expected": [
+      "dibest__assistenza-tirocinio-e-sistemi-informatici-per-i-corsi-di-studio-del-dibest-esse3-microsoft-teams-email-istituzionale-piani-di-studio-esami-ecc"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dibest"
+    }
+  },
+  {
+    "id": "open-18",
+    "type": "open",
+    "query": "Mi sono laureato da poco e per il volontariato mi chiedono la prova che sono coperto in caso di incidente",
+    "expected": [
+      "dagan-area-servizi-generali__richiesta-certificato-attestante-la-copertura-assicurativa-per-neo-laureati-entro-12-mesi-dal-conseguimento-del-titolo"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dimeg"
+    }
+  },
+  {
+    "id": "open-19",
+    "type": "open",
+    "query": "Ho una domanda per chi lavora alla biblioteca di area umanistica su come trovare degli articoli",
+    "expected": [
+      "sab__bau-chiedi-al-bibliotecario"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "disu"
+    }
+  },
+  {
+    "id": "open-20",
+    "type": "open",
+    "query": "Non capisco come riempire i moduli prima del contratto su Unicontr",
+    "expected": [
+      "aru__unicontr-supporto-nella-compilazione"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": null
+    }
+  },
+  {
+    "id": "open-21",
+    "type": "open",
+    "query": "Sono iscritto a informatica al DeMaCS e vorrei delle informazioni dalla didattica del dipartimento",
+    "expected": [
+      "demacs__richiesta-di-informazionisupporto-per-studenti"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "demacs"
+    }
+  },
+  {
+    "id": "open-22",
+    "type": "open",
+    "query": "A marzo arriva una professoressa dalla Spagna ospite del nostro dipartimento e devo registrarla",
+    "expected": [
+      "dibest__visiting-professor-in-entrata"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": "dibest"
+    }
+  },
+  {
+    "id": "open-23",
+    "type": "open",
+    "query": "Vorrei che qualcuno della biblioteca di economia mi spiegasse come usare le banche dati online",
+    "expected": [
+      "sab__tar-prenotazione-dellassistenza-bibliografica-personalizzata-per-le-risorse-online"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "desf"
+    }
+  },
+  {
+    "id": "open-24",
+    "type": "open",
+    "query": "Alla biblioteca Tarantelli manca un testo, vorrei suggerire di comprarlo",
+    "expected": [
+      "sab__tar-proposta-di-acquisto-libri"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "desf"
+    }
+  },
+  {
+    "id": "open-25",
+    "type": "open",
+    "query": "Devo guardare dei vecchi microfilm alla biblioteca Tarantelli",
+    "expected": [
+      "sab__tar-richiesta-di-consultazione-di-cd-rom-banche-dati-in-locale-dvd-microfilm"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "desf"
+    }
+  },
+  {
+    "id": "open-26",
+    "type": "open",
+    "query": "Insegno in un master al dipartimento di matematica e devo consegnare il riepilogo delle ore fatte",
+    "expected": [
+      "demacs__master-consegna-registro-attivita-didattiche"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": "demacs"
+    }
+  },
+  {
+    "id": "open-27",
+    "type": "open",
+    "query": "Vogliamo attivare un contratto di ricerca 22-ter a fisica",
+    "expected": [
+      "fisica__attivazione-di-un-incarico-di-ricerca-art-22-ter-legge-2402010"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": "fisica"
+    }
+  },
+  {
+    "id": "open-28",
+    "type": "open",
+    "query": "Mi hanno assegnato un corso a contratto al DIMEG per il 2026/27, devo comunicare che lo accetto",
+    "expected": [
+      "dimeg__accettazione-incarichi-di-docenza-dd-4382026",
+      "dimeg__accettazione-incarichi-di-docenza-dd-375-2026"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": "dimeg"
+    }
+  },
+  {
+    "id": "open-29",
+    "type": "open",
+    "query": "Faccio servizio sociale e devo cambiare il tutor del mio tirocinio",
+    "expected": [
+      "dispes__richiesta-di-variazione-del-progetto-formativo-del-tirocinio-dei-corsi-di-studi-in-servizio-sociale-e-in-scienze-delle-politiche-e-dei-servizi-sociali"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dispes"
+    }
+  },
+  {
+    "id": "open-30",
+    "type": "open",
+    "query": "Sono del personale e il programma per gestire i tirocini mi dà errore",
+    "expected": [
+      "ict__tsp-richiesta-assistenza-software-per-la-gestione-tirocini-personale-unical"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": null
+    }
+  },
+  {
+    "id": "open-31",
+    "type": "open",
+    "query": "Ho vinto il bando da mentor per i corsi del DiBEST, come comunico che inizio?",
+    "expected": [
+      "dibest__presa-di-servizio-mentor-per-le-esigenze-dei-corsi-di-laurea-del-dibest"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dibest"
+    }
+  },
+  {
+    "id": "open-32",
+    "type": "open",
+    "query": "Sono a formazione primaria col vecchio ordinamento e mi serve una sessione d'esame in più",
+    "expected": [
+      "demacs__richiesta-apertura-appello-sfp-vecchio-ordinamento"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "demacs"
+    }
+  },
+  {
+    "id": "closed-01",
+    "type": "closed",
+    "query": "Ho già una laurea e vorrei iscrivermi a informatica saltando il primo anno",
+    "expected": [
+      "demacs__richiesta-di-iscrizione-per-abbreviazione"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "demacs"
+    }
+  },
+  {
+    "id": "closed-02",
+    "type": "closed",
+    "query": "Sono fuori corso a ingegneria meccanica triennale e devo cambiare gli esami del mio piano",
+    "expected": [
+      "dimeg__presentazionemodifica-piano-di-studio-lt-ingegneria-meccanica"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dimeg"
+    }
+  },
+  {
+    "id": "closed-03",
+    "type": "closed",
+    "query": "Sono alla magistrale di energetica e devo modificare il piano, su Esse3 non ci riesco",
+    "expected": [
+      "dimeg__presentazionemodifica-piano-di-studio-lm-ingegneria-energetica"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dimeg"
+    }
+  },
+  {
+    "id": "closed-04",
+    "type": "closed",
+    "query": "Al DiBEST vorrei fare lo stage in un'azienda fuori dall'università",
+    "expected": [
+      "dibest__progetto-formativo-e-di-orientamento-curriculare-tirocinio-esterno"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dibest"
+    }
+  },
+  {
+    "id": "closed-05",
+    "type": "closed",
+    "query": "Vengo da un'altra laurea e vorrei entrare direttamente al secondo anno al DiScAG",
+    "expected": [
+      "discag__domanda-di-abbreviazione-di-carrieraiscrizione-anni-successivi-discag"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "discag"
+    }
+  },
+  {
+    "id": "closed-06",
+    "type": "closed",
+    "query": "Faccio formazione primaria, ho il B2 di inglese e vorrei che me lo convalidassero",
+    "expected": [
+      "demacs__riconoscimento-certificazione-di-lingua-inglese-corso-di-laurea-in-scienze-della-formazione-primaria"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "demacs"
+    }
+  },
+  {
+    "id": "closed-07",
+    "type": "closed",
+    "query": "Studio a Salerno e vorrei spostarmi al dipartimento di studi umanistici qui a Unical",
+    "expected": [
+      "disu__domanda-di-trasferimento-in-ingresso-disu"
+    ],
+    "profile": {
+      "role": "student",
+      "department": null
+    }
+  },
+  {
+    "id": "closed-08",
+    "type": "closed",
+    "query": "Faccio CTF e vorrei cambiare curriculum",
+    "expected": [
+      "dfssn__richiesta-di-cambio-indirizzo-ctf"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dfssn"
+    }
+  },
+  {
+    "id": "closed-09",
+    "type": "closed",
+    "query": "Ho 17 anni, studio al conservatorio di Cosenza e vorrei chiedere la borsa",
+    "expected": [
+      "centro-residenziale__domanda-borsa-di-studio-aa-20252026-conservatorio-di-musica-stanislao-giacomantonio-di-cosenza-domanda-riservata-agli-studenti-minorenni"
+    ],
+    "profile": {
+      "role": "student",
+      "department": null
+    }
+  },
+  {
+    "id": "closed-10",
+    "type": "closed",
+    "query": "Avevo abbandonato gli studi anni fa e vorrei riprendere a farmacia dal secondo anno",
+    "expected": [
+      "dfssn__iscrizione-ad-anni-successivi-al-primo-per-abbreviazionerinunciadecadenza-dip-farmacia-e-scienze-della-salute-e-della-nutrizione"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dfssn"
+    }
+  },
+  {
+    "id": "closed-11",
+    "type": "closed",
+    "query": "La nostra associazione studentesca vorrebbe una sala per un evento",
+    "expected": [
+      "area-socialita-sale-convegni__richiesta-spazi-e-risorse-per-le-associazioni-studentesche"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dimes"
+    }
+  },
+  {
+    "id": "closed-12",
+    "type": "closed",
+    "query": "Vogliamo presentare una lista alle elezioni degli studenti per il dipartimento di meccanica",
+    "expected": [
+      "dagan-area-affari-generali__elezioni-rappresentanze-studentesche-presentazione-liste-di-candidati-per-dipartimento-di-ingegneria-meccanica-energetica-e-gestionale"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dimeg"
+    }
+  },
+  {
+    "id": "closed-13",
+    "type": "closed",
+    "query": "Devo aggiungere dei documenti alla domanda del bando ISP",
+    "expected": [
+      "centro-residenziale__x-integrazione-documentale-bando-isp"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dices"
+    }
+  },
+  {
+    "id": "closed-14",
+    "type": "closed",
+    "query": "Sono al DIAm e mi serve l'autorizzazione SIACE per un periodo all'estero",
+    "expected": [
+      "diam__modulistica-autorizzazione-mobilita-siace"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": "diam"
+    }
+  },
+  {
+    "id": "staff-01",
+    "type": "staff",
+    "query": "Abbiamo un docente a contratto nuovo che ha bisogno della casella email dell'università",
+    "expected": [
+      "ict__m7-attivazione-posta-istituzionale-docenti-a-contratto"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": null
+    }
+  },
+  {
+    "id": "staff-02",
+    "type": "staff",
+    "query": "Non ricordo la password per vedere il cartellino delle presenze",
+    "expected": [
+      "ict__i-infoweb-cambio-password-cartellino-presenze"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": null
+    }
+  },
+  {
+    "id": "staff-03",
+    "type": "staff",
+    "query": "Ho già la chiavetta per firmare e vorrei poter firmare anche da remoto",
+    "expected": [
+      "ict__f4-rilascio-firma-digitale-remota-per-utenti-gia-in-possesso-di-firma-digitale-su-token-usb-firma-remota-ts-cns-cie"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": null
+    }
+  },
+  {
+    "id": "staff-04",
+    "type": "staff",
+    "query": "Devo aggiornare la mia pagina da professore sul sito del DIAm",
+    "expected": [
+      "diam__modifica-profili-professori-ricercatori"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": null
+    }
+  },
+  {
+    "id": "staff-05",
+    "type": "staff",
+    "query": "Sono dipendente e mi sono fatto male in ufficio, devo segnalarlo",
+    "expected": [
+      "dagan-area-servizi-generali__denuncia-infortunio-per-dipendente-unical"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": null
+    }
+  },
+  {
+    "id": "staff-06",
+    "type": "staff",
+    "query": "La mia casella @unical.it è piena, mi serve più spazio",
+    "expected": [
+      "ict__m12-estensione-spazio-disponibile-su-google"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": null
+    }
+  },
+  {
+    "id": "staff-07",
+    "type": "staff",
+    "query": "Vorrei attivare un servizio aggiuntivo sul mio telefono interno",
+    "expected": [
+      "ict__srs-telefonia-richieste-servizi"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": null
+    }
+  },
+  {
+    "id": "staff-08",
+    "type": "staff",
+    "query": "Per un progetto di ricerca mi servirebbe spazio sul cloud Amazon",
+    "expected": [
+      "ict__richiesta-servizi-aws"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": null
+    }
+  },
+  {
+    "id": "staff-09",
+    "type": "staff",
+    "query": "Vorrei un account per creare questionari da mandare ai colleghi",
+    "expected": [
+      "ict__s-sondaggi-creazione-account-piattaforma-sondaggi-dateneo"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": null
+    }
+  },
+  {
+    "id": "staff-10",
+    "type": "staff",
+    "query": "Ho un documento al DiCES che deve ricevere un numero di protocollo",
+    "expected": [
+      "dices__protocollazione"
+    ],
+    "profile": {
+      "role": "staff",
+      "department": null
+    }
+  },
+  {
+    "id": "own_department-01",
+    "type": "own_department",
+    "query": "Vorrei far riconoscere gli esami fatti in un'altra università",
+    "expected": [
+      "discag__domanda-di-riconoscimento-esamicfu-discag"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "discag"
+    }
+  },
+  {
+    "id": "own_department-02",
+    "type": "own_department",
+    "query": "Vorrei far riconoscere gli esami fatti in un'altra università",
+    "expected": [
+      "disu__domanda-di-riconoscimento-esamicfu-disu"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "disu"
+    }
+  },
+  {
+    "id": "own_department-03",
+    "type": "own_department",
+    "query": "Vorrei far riconoscere gli esami fatti in un'altra università",
+    "expected": [
+      "dimes__domanda-di-riconoscimento-esamicfu-dimes"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dimes"
+    }
+  },
+  {
+    "id": "own_department-04",
+    "type": "own_department",
+    "query": "Devo chiedere l'assegnazione della tesi",
+    "expected": [
+      "dices__richiesta-di-assegnazione-tesi"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dices"
+    }
+  },
+  {
+    "id": "own_department-05",
+    "type": "own_department",
+    "query": "Devo chiedere l'assegnazione della tesi",
+    "expected": [
+      "disu__richiesta-di-assegnazione-tesi"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "disu"
+    }
+  },
+  {
+    "id": "own_department-06",
+    "type": "own_department",
+    "query": "Mi serve un certificato di iscrizione",
+    "expected": [
+      "ctc__richiesta-certificati-di-iscrizione-laurea-e-diploma-supplement"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "ctc"
+    }
+  },
+  {
+    "id": "own_department-07",
+    "type": "own_department",
+    "query": "Mi serve un certificato di iscrizione",
+    "expected": [
+      "dinci__richiesta-certificati-di-iscrizione-laurea-e-diploma-supplement",
+      "dinci__richiesta-certificati-di-iscrizione-laurea-e-diploma-supplement-i"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dinci"
+    }
+  },
+  {
+    "id": "own_department-08",
+    "type": "own_department",
+    "query": "Vorrei fare un periodo di studio all'estero",
+    "expected": [
+      "demacs__svolgimento-attivita-di-studio-allestero"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "demacs"
+    }
+  },
+  {
+    "id": "own_department-09",
+    "type": "own_department",
+    "query": "Vorrei fare un periodo di studio all'estero",
+    "expected": [
+      "dibest__svolgimento-attivita-di-studio-allestero"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dibest"
+    }
+  },
+  {
+    "id": "closed_own_department-01",
+    "type": "closed_own_department",
+    "query": "Vorrei far riconoscere gli esami fatti in un'altra università",
+    "expected": [
+      "desf__domanda-di-riconoscimento-esamicfu-desf"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "desf"
+    }
+  },
+  {
+    "id": "closed_own_department-02",
+    "type": "closed_own_department",
+    "query": "Vorrei far riconoscere gli esami fatti in un'altra università",
+    "expected": [
+      "dices__domanda-di-riconoscimento-esamicfu-dices"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dices"
+    }
+  },
+  {
+    "id": "cross_department-01",
+    "type": "cross_department",
+    "query": "Mi sono trasferito al DIMES e vorrei far riconoscere gli esami che ho già dato",
+    "expected": [
+      "dimes__domanda-di-riconoscimento-esamicfu-dimes"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "disu"
+    }
+  },
+  {
+    "id": "cross_department-02",
+    "type": "cross_department",
+    "query": "Sto per passare al DiSU, come faccio a farmi riconoscere i vecchi esami?",
+    "expected": [
+      "disu__domanda-di-riconoscimento-esamicfu-disu"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "discag"
+    }
+  },
+  {
+    "id": "cross_department-03",
+    "type": "cross_department",
+    "query": "Vorrei la tesi con un docente del DiSU",
+    "expected": [
+      "disu__richiesta-di-assegnazione-tesi"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dices"
+    }
+  },
+  {
+    "id": "cross_department-04",
+    "type": "cross_department",
+    "query": "Vorrei fare la tesi al DiCES",
+    "expected": [
+      "dices__richiesta-di-assegnazione-tesi"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "disu"
+    }
+  },
+  {
+    "id": "cross_department-05",
+    "type": "cross_department",
+    "query": "Mi serve il certificato di laurea del CTC, mi sono laureato lì",
+    "expected": [
+      "ctc__richiesta-certificati-di-iscrizione-laurea-e-diploma-supplement"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dinci"
+    }
+  },
+  {
+    "id": "cross_department-06",
+    "type": "cross_department",
+    "query": "Vorrei fare un periodo di studio all'estero con il DeMaCS",
+    "expected": [
+      "demacs__svolgimento-attivita-di-studio-allestero"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dibest"
+    }
+  },
+  {
+    "id": "cross_department-07",
+    "type": "cross_department",
+    "query": "Devo chiedere al DiBEST di fare un periodo di studio all'estero",
+    "expected": [
+      "dibest__svolgimento-attivita-di-studio-allestero"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "demacs"
+    }
+  },
+  {
+    "id": "department_unknown-01",
+    "type": "department_unknown",
+    "query": "Devo chiedere l'assegnazione della tesi",
+    "expected": [
+      "dices__richiesta-di-assegnazione-tesi",
+      "disu__richiesta-di-assegnazione-tesi"
+    ],
+    "profile": {
+      "role": "student",
+      "department": "dimeg"
+    }
+  },
+  {
+    "id": "department_unknown-02",
+    "type": "department_unknown",
+    "query": "Vorrei fare un periodo di studio all'estero",
+    "expected": [
+      "demacs__svolgimento-attivita-di-studio-allestero",
+      "dibest__svolgimento-attivita-di-studio-allestero"
+    ],
+    "profile": {
+      "role": "student",
+      "department": null
+    }
+  },
+  {
+    "id": "off_topic-01",
+    "type": "off_topic",
+    "query": "Qual è la ricetta della carbonara?",
+    "expected": [],
+    "profile": {
+      "role": "student",
+      "department": "dimes"
+    }
+  },
+  {
+    "id": "off_topic-02",
+    "type": "off_topic",
+    "query": "Chi ha vinto lo scudetto l'anno scorso?",
+    "expected": [],
+    "profile": {
+      "role": "student",
+      "department": "dimes"
+    }
+  },
+  {
+    "id": "off_topic-03",
+    "type": "off_topic",
+    "query": "Mi serve un idraulico per casa mia a Cosenza",
+    "expected": [],
+    "profile": {
+      "role": "student",
+      "department": "dimes"
+    }
+  },
+  {
+    "id": "off_topic-04",
+    "type": "off_topic",
+    "query": "Come si cambia una gomma bucata?",
+    "expected": [],
+    "profile": {
+      "role": "student",
+      "department": "dimes"
+    }
+  },
+  {
+    "id": "off_topic-05",
+    "type": "off_topic",
+    "query": "Scrivimi una poesia sul mare",
+    "expected": [],
+    "profile": {
+      "role": "student",
+      "department": "dimes"
+    }
+  },
+  {
+    "id": "off_topic-06",
+    "type": "off_topic",
+    "query": "Quanto fa 17 per 23?",
+    "expected": [],
+    "profile": {
+      "role": "student",
+      "department": "dimes"
+    }
+  },
+  {
+    "id": "off_topic-07",
+    "type": "off_topic",
+    "query": "Consigliami un hotel a Napoli",
+    "expected": [],
+    "profile": {
+      "role": "student",
+      "department": "dimes"
+    }
+  },
+  {
+    "id": "off_topic-08",
+    "type": "off_topic",
+    "query": "Come si rinnova il passaporto?",
+    "expected": [],
+    "profile": {
+      "role": "student",
+      "department": "dimes"
+    }
+  }
+]

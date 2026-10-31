@@ -1,0 +1,269 @@
+[
+ {
+  "query": "Mi sono iscritto alla magistrale con riserva ma non mi laureo in tempo, come torno indietro?",
+  "expected": [
+   "servizi-didattici__annullamento-iscrizione-lm-in-ipotesi"
+  ]
+ },
+ {
+  "query": "Dopo un anno di stop voglio ricominciare a frequentare l'università",
+  "expected": [
+   "servizi-didattici__rientro-da-sospensione"
+  ]
+ },
+ {
+  "query": "Non posso andare di persona a ritirare i documenti, ci manda mia sorella",
+  "expected": [
+   "servizi-didattici__modulo-di-delega"
+  ]
+ },
+ {
+  "query": "Ho smesso di studiare anni fa e vorrei riprendere la mia vecchia carriera",
+  "expected": [
+   "servizi-didattici__modulo-di-richiesta-ricongiunzione"
+  ]
+ },
+ {
+  "query": "Vivo da solo e mi mantengo, i redditi dei miei genitori non dovrebbero contare per le tasse",
+  "expected": [
+   "servizi-didattici__studente-indipendente"
+  ]
+ },
+ {
+  "query": "Sono straniero e la mia famiglia ha i redditi all'estero, come mi calcolano le tasse?",
+  "expected": [
+   "servizi-didattici__isee-parificato",
+   "servizi-didattici__dichiarazione-aggiuntiva-isee-parificato"
+  ]
+ },
+ {
+  "query": "Siamo due fratelli iscritti all'Unical, c'è uno sconto sull'ultima rata?",
+  "expected": [
+   "servizi-didattici__richiesta-esonero-iv-rata-per-nucleo-familiare"
+  ]
+ },
+ {
+  "query": "Sono ipovedente e mi servirebbe un computer con lettore di schermo",
+  "expected": [
+   "servizio-studenti-con-disabilita-dsa-e-bes__richiesta-di-ausili-didattico-tecnologici-per-studenti-con-disabilitadsa"
+  ]
+ },
+ {
+  "query": "Ho una certificazione di invalidità, a chi devo mandarla?",
+  "expected": [
+   "servizio-studenti-con-disabilita-dsa-e-bes__invio-certificazione-di-disabilitainvalidita-eo-dsa"
+  ]
+ },
+ {
+  "query": "Uso la sedia a rotelle e ho bisogno di qualcuno che mi accompagni a lezione",
+  "expected": [
+   "servizio-studenti-con-disabilita-dsa-e-bes__servizio-di-trasporto-e-accompagnamento-studenti-con-disabilita"
+  ]
+ },
+ {
+  "query": "Devo fare il test di ammissione ma ho la dislessia e mi serve più tempo",
+  "expected": [
+   "servizio-studenti-con-disabilita-dsa-e-bes__richiesta-supporti-prove-dammissione"
+  ]
+ },
+ {
+  "query": "Mio figlio disabile vorrebbe parlare con qualcuno dell'inclusione prima di immatricolarsi",
+  "expected": [
+   "servizio-studenti-con-disabilita-dsa-e-bes__future-matricole-prenotazione-appuntamento-servizio-inclusione"
+  ]
+ },
+ {
+  "query": "Vorrei suggerire alla biblioteca umanistica di comprare un libro",
+  "expected": [
+   "sab__bau-desiderata"
+  ]
+ },
+ {
+  "query": "Mi serve un articolo scientifico che la biblioteca di area tecnico-scientifica non ha",
+  "expected": [
+   "sab__bats-richiesta-di-document-delivery-articoli-di-riviste"
+  ]
+ },
+ {
+  "query": "Vorrei usare il terminale Bloomberg per la mia tesi",
+  "expected": [
+   "sab__tar-richiesta-di-accesso-alla-banca-dati-bloomberg-terminal"
+  ]
+ },
+ {
+  "query": "Da casa non riesco a leggere le riviste online della biblioteca, il proxy non va",
+  "expected": [
+   "sab__richiesta-di-supporto-tecnico-per-utenti-istituzionali-proxy-banche-dati-pubblicazioni-in-open-access"
+  ]
+ },
+ {
+  "query": "Il mio relatore non risponde più e vorrei cambiarlo, sono del DICES",
+  "expected": [
+   "dices__richiesta-cambio-tutor-accademico-tirocinio-eo-relatore-tesi"
+  ]
+ },
+ {
+  "query": "Faccio la tesi al dipartimento di fisica e mi serve la tessera per entrare in laboratorio",
+  "expected": [
+   "fisica__rilascio-badge-magnetico-studenti-in-tesi-o-tirocinio"
+  ]
+ },
+ {
+  "query": "Sono del DiBEST e mi sono iscritto al corso sbagliato per errore",
+  "expected": [
+   "dibest__richiesta-cancellazione-errata-iscrizione"
+  ]
+ },
+ {
+  "query": "Studio al DiBEST e mi servirebbe un semestre in più per finire",
+  "expected": [
+   "dibest__richiesta-semestre-aggiuntivo"
+  ]
+ },
+ {
+  "query": "Sono al DiBEST, lavoro e non posso seguire le lezioni in presenza",
+  "expected": [
+   "dibest__richiesta-esonero-dalla-frequenza-delle-lezioni"
+  ]
+ },
+ {
+  "query": "Sono del DISPES e vorrei togliere un esame a scelta dal mio piano",
+  "expected": [
+   "dispes__modifica-piano-di-studio"
+  ]
+ },
+ {
+  "query": "Faccio ingegneria biomedica e vorrei passare all'altro gruppo di lezione",
+  "expected": [
+   "dimes__richiesta-cambio-classe-cdl-ingegneria-biomedica"
+  ]
+ },
+ {
+  "query": "Studio ingegneria per l'ambiente e vorrei laurearmi anche con un'università straniera",
+  "expected": [
+   "diam__richiesta-avvio-doppio-titolo-dual-degree"
+  ]
+ },
+ {
+  "query": "Sono al DIAM, sono in Erasmus e devo cambiare gli esami del learning agreement",
+  "expected": [
+   "diam__richiesta-variazione-erasmus-studio"
+  ]
+ },
+ {
+  "query": "Sono un atleta agonista, c'è qualche agevolazione per conciliare sport e studio?",
+  "expected": [
+   "area-socialita-sale-convegni__domanda-di-partecipazione-al-programma-dunical-career-per-studenti-atleti-aa-20262027"
+  ]
+ },
+ {
+  "query": "Insegno alle superiori e vorrei portare i ragazzi a conoscere l'università",
+  "expected": [
+   "ufficio-orientamento__richiesta-attivita-di-orientamento-presso-luniversita-della-calabria",
+   "ufficio-orientamento__i-martedi-in-unical",
+   "ufficio-orientamento__primavera-in-unical"
+  ]
+ },
+ {
+  "query": "Una porta antincendio del cubo 12 è bloccata, mi sembra pericoloso",
+  "expected": [
+   "rls__segnalazione-criticita-salute-e-sicurezza"
+  ]
+ },
+ {
+  "query": "Durante il dottorato ho avuto un'idea che si potrebbe brevettare",
+  "expected": [
+   "lio__pre-screening-del-risultato-inventivo"
+  ]
+ },
+ {
+  "query": "Devo far volare un drone nel campus per un progetto",
+  "expected": [
+   "dinci__utilizzo-droni"
+  ]
+ },
+ {
+  "query": "Viene un collega da fuori per una conferenza e gli serve un account temporaneo",
+  "expected": [
+   "ict__v3-richiesta-credenziali-per-utenti-ospiti-guestunicalit"
+  ]
+ },
+ {
+  "query": "La SIM dell'Unical non funziona più",
+  "expected": [
+   "unical-vs-covid19__segnalazione-unical-sim"
+  ]
+ },
+ {
+  "query": "Il sito del centro residenziale non si apre",
+  "expected": [
+   "centro-residenziale__sistemi-informativi-segnalazione-problema-informatico-sito-o-app"
+  ]
+ },
+ {
+  "query": "Quando invio la domanda di borsa di studio online esce un errore",
+  "expected": [
+   "centro-residenziale__sistemi-informativi-segnalazione-problema-informatico-borsa-di-studio-e-alloggi"
+  ]
+ },
+ {
+  "query": "Ho rotto un dente scivolando sulle scale del cubo, sono uno studente",
+  "expected": [
+   "dagan-area-servizi-generali__denuncia-infortunio-per-studente-unical"
+  ]
+ },
+ {
+  "query": "Vorrei fare un reclamo sul corso di laurea di economia",
+  "expected": [
+   "desf__segnalazioni-e-reclami-complaints-cds-desf"
+  ]
+ },
+ {
+  "query": "Devo fare un'uscita didattica con il DiBEST e serve l'assicurazione",
+  "expected": [
+   "dibest__copertura-assicurativa-escursione"
+  ]
+ },
+ {
+  "query": "Mi serve sapere chi è in regola con la tassa per la pergamena di laurea",
+  "expected": [
+   "servizi-didattici__verifica-tassa-pergamena-di-laurea"
+  ]
+ },
+ {
+  "query": "Scrivimi una poesia sull'autunno",
+  "expected": [
+   "NONE"
+  ]
+ },
+ {
+  "query": "Come si cucina la carbonara?",
+  "expected": [
+   "NONE"
+  ]
+ },
+ {
+  "query": "Qual è la capitale dell'Australia?",
+  "expected": [
+   "NONE"
+  ]
+ },
+ {
+  "query": "Chi ha vinto ieri la partita del Cosenza?",
+  "expected": [
+   "NONE"
+  ]
+ },
+ {
+  "query": "Quanto costa un biglietto del treno per Roma?",
+  "expected": [
+   "NONE"
+  ]
+ },
+ {
+  "query": "Mi consigli un buon film per stasera?",
+  "expected": [
+   "NONE"
+  ]
+ }
+]

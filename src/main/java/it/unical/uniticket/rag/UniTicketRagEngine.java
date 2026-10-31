@@ -1,69 +1,43 @@
 package it.unical.uniticket.rag;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import it.unical.uniticket.access.FormAccess;
+import it.unical.uniticket.access.UserProfile;
 import it.unical.uniticket.api.dto.CatalogExport;
 import it.unical.uniticket.api.dto.CategoryFormSchema;
 import it.unical.uniticket.llm.EmbeddingClient;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.security.MessageDigest;
 import java.text.Normalizer;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Predicate;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+/**
+ * Ricerca ibrida sul catalogo uniTicket: BM25 ed embeddings fusi con RRF, con i moduli
+ * della stessa pratica raggruppati fra strutture diverse.
+ */
 public class UniTicketRagEngine {
-
-    private final List<CategoryFormSchema> catalog;
-    private final List<List<String>> docTokens;
-    private final Map<String, Integer> docFreq;
-    private final double avgDocLength;
-    private final List<List<String>> catalogDocTokens;
-    private final Map<String, Integer> catalogDocFreq;
-    private final double catalogAvgDocLength;
-    private final Set<String> activeStructureSlugs;
-    private final Map<String, TaxonomyMetadata> taxonomyBySlug;
-    private final EmbeddingClient embeddingClient;
-    private final List<float[]> categoryEmbeddings;
-    private final Map<String, float[]> titleEmbeddingCache = new ConcurrentHashMap<>();
-    private final boolean useStopwords;
-    private final boolean useDomainSynonyms;
 
     // Parametri standard Okapi BM25
     private static final double K1 = 1.5;
     private static final double B = 0.75;
     private static final int RRF_K = 60;
     private static final double MIN_EMB_SIMILARITY = 0.30;
-    private static final String EMBEDDING_INDEX_VERSION = "v4-rag-search-text-after-core-fields";
-
-    private static class TaxonomyMetadata {
-        private final String domain;
-        private final String lifecycle;
-        private final String serviceFamily;
-        private final List<String> ruleMatches;
-        private final List<String> userAliases;
-
-        private TaxonomyMetadata(String domain, String lifecycle, String serviceFamily,
-                                 List<String> ruleMatches, List<String> userAliases) {
-            this.domain = domain;
-            this.lifecycle = lifecycle;
-            this.serviceFamily = serviceFamily;
-            this.ruleMatches = ruleMatches;
-            this.userAliases = userAliases;
-        }
-
-        private String asSearchText() {
-            return String.join(" ", domain, lifecycle, serviceFamily,
-                    String.join(" ", ruleMatches), String.join(" ", userAliases));
-        }
-    }
+    /** Ampiezza fissa, così il ranking non dipende dal K richiesto dal chiamante. */
+    private static final int FUSION_POOL_SIZE = 100;
+    // Con bge-m3 i titoli normalizzati della stessa pratica superano 0.86, quelli
+    // di pratiche diverse restano sotto 0.78.
+    private static final double SAME_PRACTICE_SIMILARITY = 0.85;
+    private static final String EMBEDDING_INDEX_VERSION = "v6-field-labels-only";
 
     private static final Set<String> ITALIAN_STOPWORDS = new HashSet<>(Arrays.asList(
             "il", "lo", "la", "i", "gli", "le", "un", "uno", "una", "di", "a", "da", "in", "con",
@@ -115,192 +89,145 @@ public class UniTicketRagEngine {
     public static class ScoredCategory {
         public final CategoryFormSchema schema;
         public final double score;
-        public final double rrfScore;
         public final double bm25Score;
         public final double embeddingScore;
+        /** Tutte le varianti visibili della pratica, compreso {@link #schema}. */
         public final List<CategoryFormSchema> groupVariants;
 
         public ScoredCategory(CategoryFormSchema schema, double score) {
-            this(schema, score, 0.0, 0.0, 0.0, Collections.emptyList());
+            this(schema, score, 0.0, 0.0, Collections.singletonList(schema));
         }
 
-        private ScoredCategory(CategoryFormSchema schema, double score,
-                               double rrfScore, double bm25Score, double embeddingScore,
-                               List<CategoryFormSchema> groupVariants) {
+        public ScoredCategory(CategoryFormSchema schema, double score,
+                              double bm25Score, double embeddingScore,
+                              List<CategoryFormSchema> groupVariants) {
             this.schema = schema;
             this.score = score;
-            this.rrfScore = rrfScore;
             this.bm25Score = bm25Score;
             this.embeddingScore = embeddingScore;
             this.groupVariants = Collections.unmodifiableList(new ArrayList<>(groupVariants));
         }
 
         private ScoredCategory withGroupVariants(List<CategoryFormSchema> variants) {
-            return new ScoredCategory(schema, score, rrfScore, bm25Score, embeddingScore, variants);
+            return new ScoredCategory(schema, score, bm25Score, embeddingScore, variants);
         }
     }
 
-    public UniTicketRagEngine(File catalogJsonFile) throws IOException {
-        this(catalogJsonFile, null, true, true);
-    }
-
-    public UniTicketRagEngine(File catalogJsonFile, EmbeddingClient embeddingClient) throws IOException {
-        this(catalogJsonFile, embeddingClient, true, true);
-    }
+    private final List<CategoryFormSchema> catalog;
+    private final Map<String, List<String>> phrasesBySlug;
+    private final List<List<String>> docTokens;
+    private final Map<String, Integer> docFreq;
+    private final double avgDocLength;
+    private final Set<String> activeStructureSlugs;
+    private final EmbeddingClient embeddingClient;
+    private final List<float[]> categoryEmbeddings;
+    private final Map<String, List<CategoryFormSchema>> practiceVariants;
 
     /**
-     * Crea il motore RAG permettendo di valutare separatamente l'effetto delle
-     * normalizzazioni lessicali sul ranking BM25.
-     *
-     * <p>Gli embeddings non vengono modificati da questi flag: ricevono sempre
-     * il testo originale delle categorie e della query.</p>
-     *
-     * @param useStopwords      se false, conserva tutte le parole nella tokenizzazione BM25
-     * @param useDomainSynonyms se false, disabilita l'espansione dei sinonimi di dominio
+     * @param embeddingClient    se null la ricerca usa solo BM25
+     * @param embeddingCacheFile cache degli embeddings, oppure null per non usarla
+     * @param phrasesFile        frasi colloquiali per modulo (form_phrases.json), oppure null
      */
     public UniTicketRagEngine(File catalogJsonFile, EmbeddingClient embeddingClient,
-                             boolean useStopwords, boolean useDomainSynonyms) throws IOException {
-        this(catalogJsonFile, embeddingClient, useStopwords, useDomainSynonyms, null);
-    }
-
-    public UniTicketRagEngine(File catalogJsonFile, EmbeddingClient embeddingClient,
-                             boolean useStopwords, boolean useDomainSynonyms,
-                             File embeddingCacheFile) throws IOException {
-        this(catalogJsonFile, embeddingClient, useStopwords, useDomainSynonyms,
-                embeddingCacheFile, null);
-    }
-
-    public UniTicketRagEngine(File catalogJsonFile, EmbeddingClient embeddingClient,
-                             boolean useStopwords, boolean useDomainSynonyms,
-                             File embeddingCacheFile, File taxonomyJsonFile) throws IOException {
+                              File embeddingCacheFile, File phrasesFile) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         CatalogExport export = mapper.readValue(catalogJsonFile, CatalogExport.class);
         this.catalog = export.allTicketsFlat != null ? export.allTicketsFlat : Collections.emptyList();
-        this.useStopwords = useStopwords;
-        this.useDomainSynonyms = useDomainSynonyms;
-        this.taxonomyBySlug = loadTaxonomy(mapper, taxonomyJsonFile);
+        this.phrasesBySlug = phrasesFile != null && phrasesFile.isFile()
+                ? mapper.readValue(phrasesFile, new TypeReference<Map<String, List<String>>>() { })
+                : Collections.emptyMap();
         this.activeStructureSlugs = new HashSet<>();
         for (it.unical.uniticket.api.dto.StructureEntry structure : export.structures) {
             if (structure.active && structure.structureSlug != null) {
-                activeStructureSlugs.add(structure.structureSlug.toLowerCase(Locale.ROOT));
+                activeStructureSlugs.add(normalizeKey(structure.structureSlug));
             }
         }
         this.docTokens = new ArrayList<>(catalog.size());
         this.docFreq = new HashMap<>();
-        this.catalogDocTokens = new ArrayList<>(catalog.size());
-        this.catalogDocFreq = new HashMap<>();
 
         long totalLen = 0;
-        long catalogTotalLen = 0;
         for (CategoryFormSchema item : catalog) {
-            // Diamo peso triplo al titolo della categoria e doppio alle note per migliorare il ranking
-            String weightedCorpus = (item.categoryTitle + " " + item.categoryTitle + " " + item.categoryTitle + " ")
-                    + (item.structureName + " " + item.structureSlug + " ")
-                    + (item.categoryNotes != null ? item.categoryNotes + " " + item.categoryNotes + " " : "")
-                    + (item.ragSearchText != null ? item.ragSearchText : "")
-                    + (item.jevCriterionSummary != null ? " " + item.jevCriterionSummary : "")
-                    + taxonomySearchText(item);
-
-            List<String> tokens = tokenize(weightedCorpus);
+            List<String> tokens = tokenize(lexicalDocument(item));
             docTokens.add(tokens);
             totalLen += tokens.size();
-            String catalogCorpus = (item.categoryTitle + " " + item.categoryTitle + " " + item.categoryTitle + " ")
-                    + (item.structureName + " " + item.structureSlug + " ")
-                    + (item.categoryNotes != null ? item.categoryNotes + " " + item.categoryNotes + " " : "")
-                    + (item.ragSearchText != null ? item.ragSearchText : "")
-                    + (item.jevCriterionSummary != null ? " " + item.jevCriterionSummary : "");
-            List<String> catalogTokens = tokenize(catalogCorpus);
-            catalogDocTokens.add(catalogTokens);
-            catalogTotalLen += catalogTokens.size();
-
-            Set<String> uniqueTokens = new HashSet<>(tokens);
-            for (String token : uniqueTokens) {
-                docFreq.put(token, docFreq.getOrDefault(token, 0) + 1);
-            }
-            for (String token : new HashSet<>(catalogTokens)) {
-                catalogDocFreq.put(token, catalogDocFreq.getOrDefault(token, 0) + 1);
+            for (String token : new HashSet<>(tokens)) {
+                docFreq.merge(token, 1, Integer::sum);
             }
         }
         this.avgDocLength = catalog.isEmpty() ? 1.0 : (double) totalLen / catalog.size();
-        this.catalogAvgDocLength = catalog.isEmpty() ? 1.0 : (double) catalogTotalLen / catalog.size();
         this.embeddingClient = embeddingClient;
-        this.categoryEmbeddings = embeddingClient == null || catalog.isEmpty()
-                ? Collections.emptyList() : loadOrComputeCategoryEmbeddings(catalogJsonFile, embeddingCacheFile);
+
+        EmbeddingIndex index = embeddingClient == null || catalog.isEmpty()
+                ? EmbeddingIndex.EMPTY
+                : loadOrComputeEmbeddings(fingerprint(catalogJsonFile, phrasesFile), embeddingCacheFile);
+        this.categoryEmbeddings = index.documents;
+        this.practiceVariants = buildPracticeVariants(index.titles);
     }
 
-    private Map<String, TaxonomyMetadata> loadTaxonomy(ObjectMapper mapper, File taxonomyJsonFile) {
-        if (taxonomyJsonFile == null || !taxonomyJsonFile.isFile()) {
-            return Collections.emptyMap();
+    private String lexicalDocument(CategoryFormSchema item) {
+        // Peso triplo al titolo e doppio alle note per migliorare il ranking.
+        return item.categoryTitle + " " + item.categoryTitle + " " + item.categoryTitle + " "
+                + item.structureName + " " + item.structureSlug + " "
+                + (item.categoryNotes != null ? item.categoryNotes + " " + item.categoryNotes + " " : "")
+                + (item.ragSearchText != null ? item.ragSearchText : "")
+                + " " + String.join(" ", phrasesOf(item));
+    }
+
+    private List<String> phrasesOf(CategoryFormSchema item) {
+        return phrasesBySlug.getOrDefault(item.compositeSlug, Collections.emptyList());
+    }
+
+    private static final class EmbeddingIndex {
+        private static final EmbeddingIndex EMPTY =
+                new EmbeddingIndex(Collections.emptyList(), Collections.emptyList());
+
+        private final List<float[]> documents;
+        private final List<float[]> titles;
+
+        private EmbeddingIndex(List<float[]> documents, List<float[]> titles) {
+            this.documents = documents;
+            this.titles = titles;
         }
-        try {
-            JsonNode root = mapper.readTree(taxonomyJsonFile);
-            Map<String, TaxonomyMetadata> result = new HashMap<>();
-            for (JsonNode node : root.path("nodes")) {
-                if (!"service".equals(node.path("type").asText())) continue;
-                JsonNode inferred = node.path("inferred");
-                List<String> ruleMatches = new ArrayList<>();
-                inferred.path("domainRuleMatches").forEach(value -> ruleMatches.add(value.asText()));
-                inferred.path("lifecycleRuleMatches").forEach(value -> ruleMatches.add(value.asText()));
-                List<String> userAliases = new ArrayList<>();
-                inferred.path("userAliases").forEach(value -> userAliases.add(value.asText()));
-                result.put(node.path("compositeSlug").asText(),
-                        new TaxonomyMetadata(
-                                inferred.path("domain").asText(""),
-                                inferred.path("lifecycle").asText(""),
-                                inferred.path("serviceFamily").asText(""),
-                                ruleMatches, userAliases));
-            }
-            System.out.println("✅ Tassonomia caricata: " + result.size()
-                    + " servizi da " + taxonomyJsonFile.getPath());
-            return result;
-        } catch (IOException | RuntimeException e) {
-            System.err.println("Tassonomia non utilizzabile: " + e.getMessage());
-            return Collections.emptyMap();
-        }
     }
 
-    private String taxonomySearchText(CategoryFormSchema item) {
-        TaxonomyMetadata metadata = taxonomyBySlug.get(item.compositeSlug);
-        return metadata == null ? "" : " " + metadata.asSearchText();
-    }
-
-    private List<float[]> loadOrComputeCategoryEmbeddings(File catalogJsonFile, File cacheFile) {
-        String fingerprint = catalogFingerprint(catalogJsonFile) + ":" + EMBEDDING_INDEX_VERSION;
+    private EmbeddingIndex loadOrComputeEmbeddings(String fingerprint, File cacheFile) {
         if (cacheFile != null) {
-            List<float[]> cached = loadEmbeddingCache(cacheFile, fingerprint);
+            EmbeddingIndex cached = loadEmbeddingCache(cacheFile, fingerprint);
             if (cached != null) {
-                System.out.println("✅ Embeddings categorie caricati dalla cache: "
-                        + cacheFile.getPath());
+                System.out.println("✅ Embeddings categorie caricati dalla cache: " + cacheFile.getPath());
                 return cached;
             }
         }
-        List<float[]> computed = precomputeCategoryEmbeddings();
-        if (!computed.isEmpty() && cacheFile != null) {
-            saveEmbeddingCache(cacheFile, fingerprint, computed);
-        }
-        return computed;
-    }
-
-    private List<float[]> precomputeCategoryEmbeddings() {
-        List<String> texts = new ArrayList<>(catalog.size());
-        for (CategoryFormSchema category : catalog) {
-            StringBuilder text = new StringBuilder();
-            appendEmbeddingPart(text, category.categoryTitle);
-            appendEmbeddingPart(text, category.categoryNotes);
-            appendEmbeddingPart(text, category.structureName);
-            appendEmbeddingPart(text, category.ragSearchText);
-            texts.add(text.toString());
-        }
         try {
-            List<float[]> vectors = embeddingClient.embedBatch(texts);
-            if (vectors.size() != catalog.size()) {
+            List<String> documents = new ArrayList<>(catalog.size());
+            List<String> titles = new ArrayList<>(catalog.size());
+            for (CategoryFormSchema category : catalog) {
+                documents.add(embeddingDocument(category));
+                titles.add(normalizeTitle(category));
+            }
+            EmbeddingIndex computed = new EmbeddingIndex(
+                    embeddingClient.embedBatch(documents), embeddingClient.embedBatch(titles));
+            if (computed.documents.size() != catalog.size() || computed.titles.size() != catalog.size()) {
                 throw new IllegalStateException("Numero di embeddings diverso dal catalogo.");
             }
-            return vectors;
+            if (cacheFile != null) saveEmbeddingCache(cacheFile, fingerprint, computed);
+            return computed;
         } catch (RuntimeException e) {
             System.err.println("Impossibile calcolare gli embeddings delle categorie: " + e.getMessage());
-            return Collections.emptyList();
+            return EmbeddingIndex.EMPTY;
         }
+    }
+
+    private String embeddingDocument(CategoryFormSchema category) {
+        StringBuilder text = new StringBuilder();
+        appendEmbeddingPart(text, category.categoryTitle);
+        appendEmbeddingPart(text, category.categoryNotes);
+        appendEmbeddingPart(text, category.structureName);
+        // Le frasi precedono il testo del modulo: sono brevi e rappresentano il bisogno
+        // dell'utente, mentre il testo del modulo può essere molto lungo.
+        appendEmbeddingPart(text, String.join(" . ", phrasesOf(category)));
+        appendEmbeddingPart(text, category.ragSearchText);
+        return text.toString();
     }
 
     private void appendEmbeddingPart(StringBuilder target, String value) {
@@ -309,32 +236,35 @@ public class UniTicketRagEngine {
         target.append(value.trim());
     }
 
-    private List<float[]> loadEmbeddingCache(File cacheFile, String fingerprint) {
+    private EmbeddingIndex loadEmbeddingCache(File cacheFile, String fingerprint) {
         try {
             if (!cacheFile.isFile()) return null;
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode root = mapper.readTree(cacheFile);
-            if (!fingerprint.equals(root.path("catalogFingerprint").asText())
-                    || root.path("embeddings").size() != catalog.size()) {
-                return null;
-            }
-            List<float[]> result = new ArrayList<>();
-            for (JsonNode embedding : root.path("embeddings")) {
-                if (!embedding.isArray() || embedding.isEmpty()) return null;
-                float[] vector = new float[embedding.size()];
-                for (int i = 0; i < embedding.size(); i++) {
-                    vector[i] = (float) embedding.get(i).asDouble();
-                }
-                result.add(vector);
-            }
-            return result;
+            JsonNode root = new ObjectMapper().readTree(cacheFile);
+            if (!fingerprint.equals(root.path("catalogFingerprint").asText())) return null;
+            List<float[]> documents = readVectors(root.path("embeddings"));
+            List<float[]> titles = readVectors(root.path("titleEmbeddings"));
+            return documents == null || titles == null ? null : new EmbeddingIndex(documents, titles);
         } catch (Exception e) {
             System.err.println("Cache embeddings non utilizzabile: " + e.getMessage());
             return null;
         }
     }
 
-    private void saveEmbeddingCache(File cacheFile, String fingerprint, List<float[]> embeddings) {
+    private List<float[]> readVectors(JsonNode vectors) {
+        if (vectors.size() != catalog.size()) return null;
+        List<float[]> result = new ArrayList<>(vectors.size());
+        for (JsonNode embedding : vectors) {
+            if (!embedding.isArray() || embedding.isEmpty()) return null;
+            float[] vector = new float[embedding.size()];
+            for (int i = 0; i < embedding.size(); i++) {
+                vector[i] = (float) embedding.get(i).asDouble();
+            }
+            result.add(vector);
+        }
+        return result;
+    }
+
+    private void saveEmbeddingCache(File cacheFile, String fingerprint, EmbeddingIndex index) {
         try {
             File parent = cacheFile.getParentFile();
             if (parent != null && !parent.exists() && !parent.mkdirs()) {
@@ -343,11 +273,8 @@ public class UniTicketRagEngine {
             ObjectMapper mapper = new ObjectMapper();
             ObjectNode root = mapper.createObjectNode();
             root.put("catalogFingerprint", fingerprint);
-            ArrayNode values = root.putArray("embeddings");
-            for (float[] embedding : embeddings) {
-                ArrayNode vector = values.addArray();
-                for (float value : embedding) vector.add(value);
-            }
+            writeVectors(root.putArray("embeddings"), index.documents);
+            writeVectors(root.putArray("titleEmbeddings"), index.titles);
             File temporary = new File(cacheFile.getPath() + ".tmp");
             mapper.writeValue(temporary, root);
             try {
@@ -363,205 +290,209 @@ public class UniTicketRagEngine {
         }
     }
 
-    private String catalogFingerprint(File catalogJsonFile) {
+    private void writeVectors(ArrayNode target, List<float[]> vectors) {
+        for (float[] embedding : vectors) {
+            ArrayNode vector = target.addArray();
+            for (float value : embedding) vector.add(value);
+        }
+    }
+
+    private String fingerprint(File catalogJsonFile, File phrasesFile) {
         try {
-            byte[] digest = MessageDigest.getInstance("SHA-256")
-                    .digest(Files.readAllBytes(catalogJsonFile.toPath()));
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            digest.update(Files.readAllBytes(catalogJsonFile.toPath()));
+            if (phrasesFile != null && phrasesFile.isFile()) {
+                digest.update(Files.readAllBytes(phrasesFile.toPath()));
+            }
             StringBuilder result = new StringBuilder();
-            for (byte value : digest) result.append(String.format("%02x", value));
-            return result.toString();
+            for (byte value : digest.digest()) result.append(String.format("%02x", value));
+            return result + ":" + EMBEDDING_INDEX_VERSION;
         } catch (Exception e) {
             throw new IllegalStateException("Impossibile calcolare l'impronta del catalogo.", e);
         }
     }
 
     /**
-     * Restituisce i Top-K moduli più rilevanti per la query dell'utente.
-     *
-     * @param userQuery          Domanda in linguaggio naturale dell'utente
-     * @param topK               Numero massimo di candidati da passare a JEV (consigliato: 5 - 8)
-     * @param onlyAccessible     Parametro mantenuto per compatibilità; la ricerca principale
-     *                           filtra sempre i moduli non selezionabili
+     * Calcola per ogni modulo le varianti della stessa pratica in altre strutture.
+     * Avviene una sola volta qui, così a runtime non servono chiamate di rete e la
+     * variante del dipartimento dell'utente è nota anche se il ranking non l'ha trovata.
      */
-    public List<ScoredCategory> searchTopK(String userQuery, int topK, boolean onlyAccessible) {
-        return searchTopKInternal(userQuery, topK, onlyAccessible, true);
+    private Map<String, List<CategoryFormSchema>> buildPracticeVariants(List<float[]> titleEmbeddings) {
+        Map<String, List<CategoryFormSchema>> result = new HashMap<>();
+        List<String> titles = catalog.stream().map(this::normalizeTitle).collect(Collectors.toList());
+        for (int i = 0; i < catalog.size(); i++) {
+            List<CategoryFormSchema> variants = new ArrayList<>();
+            variants.add(catalog.get(i));
+            for (int j = 0; j < catalog.size(); j++) {
+                if (i == j || !differentStructure(catalog.get(i), catalog.get(j))) continue;
+                boolean sameTitle = titles.get(i).equalsIgnoreCase(titles.get(j));
+                boolean similarTitle = !titleEmbeddings.isEmpty()
+                        && EmbeddingUtils.cosine(titleEmbeddings.get(i), titleEmbeddings.get(j))
+                        >= SAME_PRACTICE_SIMILARITY;
+                if (sameTitle || similarTitle) variants.add(catalog.get(j));
+            }
+            result.put(catalog.get(i).compositeSlug, variants);
+        }
+        return result;
     }
 
-    private List<ScoredCategory> searchTopKInternal(String userQuery, int topK,
-                                                     boolean onlyAccessible,
-                                                     boolean includeTaxonomy) {
-        List<String> baseQueryTokens = tokenize(userQuery);
-        List<String> normalizedQueryTokens = new ArrayList<>(baseQueryTokens);
-        for (String token : baseQueryTokens) {
-            normalizedQueryTokens.addAll(QUERY_TOKEN_ALIASES.getOrDefault(token, Collections.emptyList()));
-        }
-        Set<String> expandedQueryTokenSet = new LinkedHashSet<>(normalizedQueryTokens);
+    /**
+     * Cerca tra tutti i moduli visibili all'utente, compresi quelli chiusi.
+     *
+     * @param topK     numero massimo di pratiche restituite
+     * @param profile  decide quali moduli sono visibili; il dipartimento non influenza il ranking
+     * @param excluded slug già rifiutati dall'utente
+     */
+    public List<ScoredCategory> search(String query, int topK, UserProfile profile, Set<String> excluded) {
+        return rank(query, topK, profile, excluded, form -> true);
+    }
 
-        if (useDomainSynonyms) {
-            // Stemma sia le chiavi sia i valori del dizionario: la query e i documenti
-            // sono stemmati, quindi confrontare termini non normalizzati fa perdere
-            // espansioni come "supporto" -> "sussidio".
-            for (Map.Entry<String, List<String>> synonym : DOMAIN_SYNONYMS.entrySet()) {
-                List<String> synonymKeys = tokenize(synonym.getKey());
-                if (normalizedQueryTokens.stream().anyMatch(synonymKeys::contains)) {
-                    synonym.getValue().stream()
-                            .flatMap(value -> tokenize(value).stream())
-                            .forEach(expandedQueryTokenSet::add);
-                }
+    /**
+     * Classifica solo i moduli aperti, così un modulo chiuso e simile non può superare quello
+     * giusto. Le varianti di ogni pratica comprendono comunque quelle chiuse: se quella del
+     * dipartimento dell'utente è chiusa, non deve sembrare inesistente.
+     */
+    public List<ScoredCategory> searchOpen(String query, int topK, UserProfile profile, Set<String> excluded) {
+        return rank(query, topK, profile, excluded, form -> FormAccess.of(form, profile) == FormAccess.OPEN);
+    }
+
+    private List<ScoredCategory> rank(String query, int topK, UserProfile profile, Set<String> excluded,
+                                      Predicate<CategoryFormSchema> rankable) {
+        Predicate<CategoryFormSchema> visible = form -> isVisible(form, profile)
+                && !excluded.contains(form.compositeSlug);
+        Predicate<CategoryFormSchema> ranked = visible.and(rankable);
+        List<ScoredCategory> lexical = rankLexical(query, ranked);
+        List<ScoredCategory> results = lexical;
+        if (embeddingClient != null && !categoryEmbeddings.isEmpty()) {
+            try {
+                results = fuseRankings(lexical, rankSemantic(query, ranked));
+            } catch (RuntimeException e) {
+                System.err.println("Fallback a BM25 puro: " + e.getMessage());
             }
         }
-        List<String> expandedQueryTokens = new ArrayList<>(expandedQueryTokenSet);
+        return clusterPractices(results, topK, visible);
+    }
 
+    private boolean isVisible(CategoryFormSchema form, UserProfile profile) {
+        boolean activeStructure = activeStructureSlugs.isEmpty()
+                || activeStructureSlugs.contains(normalizeKey(form.structureSlug));
+        FormAccess access = FormAccess.of(form, profile);
+        return activeStructure && (access == FormAccess.OPEN || access == FormAccess.CLOSED);
+    }
+
+    private List<ScoredCategory> rankLexical(String userQuery, Predicate<CategoryFormSchema> visible) {
+        List<String> expandedQueryTokens = expandQuery(userQuery);
         List<ScoredCategory> results = new ArrayList<>();
         int N = catalog.size();
 
         for (int i = 0; i < N; i++) {
             CategoryFormSchema schema = catalog.get(i);
-            if (!isSelectable(schema)) {
-                continue;
-            }
-
-            List<List<String>> tokenIndex = includeTaxonomy ? docTokens : catalogDocTokens;
-            Map<String, Integer> frequencyIndex = includeTaxonomy ? docFreq : catalogDocFreq;
-            double documentAverageLength = includeTaxonomy ? avgDocLength : catalogAvgDocLength;
-            List<String> dTokens = tokenIndex.get(i);
+            if (!visible.test(schema)) continue;
+            List<String> dTokens = docTokens.get(i);
             if (dTokens.isEmpty()) continue;
 
             Map<String, Integer> termFreq = new HashMap<>();
-            for (String t : dTokens) {
-                termFreq.put(t, termFreq.getOrDefault(t, 0) + 1);
-            }
+            for (String t : dTokens) termFreq.merge(t, 1, Integer::sum);
 
             double score = 0.0;
             int docLen = dTokens.size();
-
             for (String qToken : expandedQueryTokens) {
                 int tf = termFreq.getOrDefault(qToken, 0);
                 if (tf == 0) continue;
-
-                int df = frequencyIndex.getOrDefault(qToken, 0);
+                int df = docFreq.getOrDefault(qToken, 0);
                 double idf = Math.log(1.0 + (N - df + 0.5) / (df + 0.5));
                 double numerator = tf * (K1 + 1.0);
-                double denominator = tf + K1 * (1.0 - B + B * (docLen / documentAverageLength));
-
+                double denominator = tf + K1 * (1.0 - B + B * (docLen / avgDocLength));
                 score += idf * (numerator / denominator);
             }
-
             if (score > 0) {
-                results.add(new ScoredCategory(schema, score, 0.0, score, 0.0,
-                        Collections.emptyList()));
+                results.add(new ScoredCategory(schema, score, score, 0.0,
+                        Collections.singletonList(schema)));
             }
         }
-
         results.sort((a, b) -> Double.compare(b.score, a.score));
-        double maximum = results.isEmpty() ? 1.0 : results.get(0).score;
-        return results.stream()
-                .map(result -> new ScoredCategory(result.schema, result.score, 0.0,
-                        result.score / maximum, 0.0, Collections.emptyList()))
-                .limit(topK)
-                .collect(Collectors.toList());
+        return results.stream().limit(FUSION_POOL_SIZE).collect(Collectors.toList());
     }
 
-    public List<ScoredCategory> searchTopKHybrid(String userQuery, int topK, boolean onlyAccessible) {
-        if (embeddingClient == null || categoryEmbeddings.isEmpty()) {
-            return searchTopK(userQuery, topK, onlyAccessible);
+    private List<String> expandQuery(String userQuery) {
+        List<String> baseTokens = tokenize(userQuery);
+        List<String> normalizedTokens = new ArrayList<>(baseTokens);
+        for (String token : baseTokens) {
+            normalizedTokens.addAll(QUERY_TOKEN_ALIASES.getOrDefault(token, Collections.emptyList()));
         }
-        try {
-            int poolSize = Math.max(topK * 6, 30);
-            return fuseRRF(searchTopKInternal(userQuery, poolSize, onlyAccessible, false),
-                    searchTopKEmbedding(userQuery, poolSize, onlyAccessible), topK);
-        } catch (RuntimeException e) {
-            System.err.println("Fallback a BM25 puro: " + e.getMessage());
-            return searchTopK(userQuery, topK, onlyAccessible);
+        Set<String> expanded = new LinkedHashSet<>(normalizedTokens);
+        // Stemma sia le chiavi sia i valori del dizionario: la query e i documenti
+        // sono stemmati, quindi confrontare termini non normalizzati fa perdere
+        // espansioni come "supporto" -> "sussidio".
+        for (Map.Entry<String, List<String>> synonym : DOMAIN_SYNONYMS.entrySet()) {
+            List<String> synonymKeys = tokenize(synonym.getKey());
+            if (normalizedTokens.stream().anyMatch(synonymKeys::contains)) {
+                synonym.getValue().stream()
+                        .flatMap(value -> tokenize(value).stream())
+                        .forEach(expanded::add);
+            }
         }
+        return new ArrayList<>(expanded);
     }
 
-    private List<ScoredCategory> searchTopKEmbedding(String userQuery, int topK, boolean onlyAccessible) {
+    private List<ScoredCategory> rankSemantic(String userQuery, Predicate<CategoryFormSchema> visible) {
         float[] queryVector = embeddingClient.embed(userQuery);
         List<ScoredCategory> results = new ArrayList<>();
         for (int i = 0; i < catalog.size(); i++) {
             CategoryFormSchema schema = catalog.get(i);
-            if (!isSelectable(schema)) continue;
+            if (!visible.test(schema)) continue;
             double score = EmbeddingUtils.cosine(queryVector, categoryEmbeddings.get(i));
             if (score >= MIN_EMB_SIMILARITY) {
-                results.add(new ScoredCategory(schema, score, 0.0, 0.0, score,
-                        Collections.emptyList()));
+                results.add(new ScoredCategory(schema, score, 0.0, score,
+                        Collections.singletonList(schema)));
             }
         }
         results.sort((a, b) -> Double.compare(b.score, a.score));
-        return results.stream().limit(topK).collect(Collectors.toList());
+        return results.stream().limit(FUSION_POOL_SIZE).collect(Collectors.toList());
     }
 
-    private List<ScoredCategory> fuseRRF(List<ScoredCategory> first, List<ScoredCategory> second, int topK) {
+    private List<ScoredCategory> fuseRankings(List<ScoredCategory> first, List<ScoredCategory> second) {
         Map<String, ScoredCategory> candidates = new HashMap<>();
-        for (int rank = 0; rank < first.size(); rank++) {
-            ScoredCategory candidate = first.get(rank);
-            String slug = candidate.schema.compositeSlug;
-            double rrf = 1.0 / (RRF_K + rank + 1);
-            candidates.merge(slug, new ScoredCategory(candidate.schema, rrf, rrf,
-                    candidate.bm25Score, candidate.embeddingScore, Collections.emptyList()),
-                    (oldValue, newValue) -> mergeScores(oldValue, newValue));
-        }
-        for (int rank = 0; rank < second.size(); rank++) {
-            ScoredCategory candidate = second.get(rank);
-            String slug = candidate.schema.compositeSlug;
-            double rrf = 1.0 / (RRF_K + rank + 1);
-            candidates.merge(slug, new ScoredCategory(candidate.schema, rrf, rrf,
-                    candidate.bm25Score, candidate.embeddingScore, Collections.emptyList()),
-                    (oldValue, newValue) -> mergeScores(oldValue, newValue));
-        }
-        List<ScoredCategory> ranked = candidates.values().stream()
+        addRanking(candidates, first);
+        addRanking(candidates, second);
+        return candidates.values().stream()
                 .sorted((a, b) -> Double.compare(b.score, a.score))
                 .collect(Collectors.toList());
-        return clusterBeforeTopK(ranked, topK);
     }
 
-    private ScoredCategory mergeScores(ScoredCategory first, ScoredCategory second) {
-        return new ScoredCategory(first.schema, first.score + second.score,
-                first.rrfScore + second.rrfScore,
-                Math.max(first.bm25Score, second.bm25Score),
-                Math.max(first.embeddingScore, second.embeddingScore),
-                Collections.emptyList());
+    private void addRanking(Map<String, ScoredCategory> candidates, List<ScoredCategory> ranking) {
+        for (int rank = 0; rank < ranking.size(); rank++) {
+            ScoredCategory candidate = ranking.get(rank);
+            double rrf = 1.0 / (RRF_K + rank + 1);
+            candidates.merge(candidate.schema.compositeSlug,
+                    new ScoredCategory(candidate.schema, rrf, candidate.bm25Score,
+                            candidate.embeddingScore, candidate.groupVariants),
+                    (a, b) -> new ScoredCategory(a.schema, a.score + b.score,
+                            Math.max(a.bm25Score, b.bm25Score),
+                            Math.max(a.embeddingScore, b.embeddingScore),
+                            a.groupVariants));
+        }
     }
 
-    private List<ScoredCategory> clusterBeforeTopK(List<ScoredCategory> ranked, int topK) {
-        List<ScoredCategory> representatives = new ArrayList<>();
+    /** Ogni pratica occupa un solo posto nel top-K, rappresentata dal modulo meglio classificato. */
+    private List<ScoredCategory> clusterPractices(List<ScoredCategory> ranked, int topK,
+                                                  Predicate<CategoryFormSchema> visible) {
+        Set<String> covered = new HashSet<>();
+        List<ScoredCategory> practices = new ArrayList<>();
         for (ScoredCategory candidate : ranked) {
-            ScoredCategory matching = null;
-            for (ScoredCategory representative : representatives) {
-                if (!differentStructure(candidate.schema, representative.schema)) continue;
-                if (samePractice(candidate.schema, representative.schema)) {
-                    matching = representative;
-                    break;
-                }
-            }
-            if (matching == null) {
-                representatives.add(candidate);
-            } else if (candidate.score > matching.score) {
-                int index = representatives.indexOf(matching);
-                representatives.set(index, candidate);
-            }
+            if (practices.size() == topK) break;
+            if (covered.contains(candidate.schema.compositeSlug)) continue;
+            List<CategoryFormSchema> variants = variantsOf(candidate.schema).stream()
+                    .filter(visible)
+                    .collect(Collectors.toList());
+            variants.forEach(variant -> covered.add(variant.compositeSlug));
+            practices.add(candidate.withGroupVariants(variants));
         }
-
-        List<ScoredCategory> clustered = new ArrayList<>();
-        for (ScoredCategory representative : representatives) {
-            List<CategoryFormSchema> variants = new ArrayList<>();
-            for (ScoredCategory candidate : ranked) {
-                if (samePractice(candidate.schema, representative.schema)) {
-                    variants.add(candidate.schema);
-                }
-            }
-            clustered.add(representative.withGroupVariants(variants));
-        }
-        clustered.sort((a, b) -> Double.compare(b.score, a.score));
-        return clustered.stream().limit(topK).collect(Collectors.toList());
+        return practices;
     }
 
-    private boolean samePractice(CategoryFormSchema first, CategoryFormSchema second) {
-        String firstTitle = normalizeTitle(first);
-        String secondTitle = normalizeTitle(second);
-        if (firstTitle.equalsIgnoreCase(secondTitle)) return true;
-        return titleSimilarity(first, second) >= 0.85;
+    private List<CategoryFormSchema> variantsOf(CategoryFormSchema form) {
+        return practiceVariants.getOrDefault(form.compositeSlug, Collections.singletonList(form));
     }
 
     private boolean differentStructure(CategoryFormSchema first, CategoryFormSchema second) {
@@ -572,52 +503,10 @@ public class UniTicketRagEngine {
         return value == null ? "" : value.trim().toLowerCase(Locale.ROOT);
     }
 
-    private boolean isSelectable(CategoryFormSchema schema) {
-        return schema.accessible
-                && (activeStructureSlugs.isEmpty()
-                || activeStructureSlugs.contains(normalizeKey(schema.structureSlug)));
-    }
-
     /**
-     * Fallback esplicito per diagnostica e messaggi informativi: non fa parte
-     * del pool principale passato al router.
+     * Toglie dal titolo le parti tra parentesi e il nome della struttura, che di solito
+     * contengono solo corso o dipartimento.
      */
-    public List<ScoredCategory> searchTopKIncludingInaccessible(String userQuery, int topK) {
-        List<ScoredCategory> results = new ArrayList<>();
-        for (int i = 0; i < catalog.size(); i++) {
-            CategoryFormSchema schema = catalog.get(i);
-            List<String> tokens = docTokens.get(i);
-            if (tokens.isEmpty()) continue;
-            Set<String> queryTokens = new HashSet<>(tokenize(userQuery));
-            long matches = tokens.stream().filter(queryTokens::contains).count();
-            if (matches > 0) {
-                results.add(new ScoredCategory(schema, matches, 0.0, matches, 0.0,
-                        Collections.emptyList()));
-            }
-        }
-        results.sort((a, b) -> Double.compare(b.score, a.score));
-        return results.stream().limit(topK).collect(Collectors.toList());
-    }
-
-    /**
-     * Similarità semantica tra i titoli di due moduli, ignorando le parti tra parentesi
-     * e il nome della struttura, che di solito contengono solo corso o dipartimento.
-     * Restituisce -1 se gli embeddings non sono disponibili.
-     */
-    public double titleSimilarity(CategoryFormSchema a, CategoryFormSchema b) {
-        if (embeddingClient == null || categoryEmbeddings.isEmpty()) return -1.0;
-        try {
-            float[] first = titleEmbeddingCache.computeIfAbsent(a.compositeSlug,
-                    slug -> embeddingClient.embed(normalizeTitle(a)));
-            float[] second = titleEmbeddingCache.computeIfAbsent(b.compositeSlug,
-                    slug -> embeddingClient.embed(normalizeTitle(b)));
-            return EmbeddingUtils.cosine(first, second);
-        } catch (RuntimeException e) {
-            System.err.println("Impossibile confrontare i titoli dei moduli: " + e.getMessage());
-            return -1.0;
-        }
-    }
-
     private String normalizeTitle(CategoryFormSchema schema) {
         String title = schema.categoryTitle == null ? "" : schema.categoryTitle.replaceAll("\\([^)]*\\)", " ");
         if (schema.structureName != null && !schema.structureName.trim().isEmpty()) {
@@ -630,39 +519,6 @@ public class UniTicketRagEngine {
         return catalog.stream()
                 .filter(c -> c.compositeSlug.equalsIgnoreCase(compositeSlug))
                 .findFirst();
-    }
-
-    public String clarificationGuidance(List<ScoredCategory> candidates) {
-        if (taxonomyBySlug.isEmpty() || candidates == null || candidates.size() < 2) {
-            return "";
-        }
-        Map<String, Set<String>> values = new LinkedHashMap<>();
-        values.put("fase", new LinkedHashSet<>());
-        values.put("dominio", new LinkedHashSet<>());
-        values.put("famiglia", new LinkedHashSet<>());
-        for (ScoredCategory candidate : candidates) {
-            TaxonomyMetadata metadata = taxonomyBySlug.get(candidate.schema.compositeSlug);
-            if (metadata == null) continue;
-            addGuidanceValue(values.get("fase"), metadata.lifecycle);
-            addGuidanceValue(values.get("dominio"), metadata.domain);
-            addGuidanceValue(values.get("famiglia"), metadata.serviceFamily);
-        }
-        StringBuilder guidance = new StringBuilder();
-        for (Map.Entry<String, Set<String>> entry : values.entrySet()) {
-            if (entry.getValue().size() > 1) {
-                if (guidance.length() > 0) guidance.append("; ");
-                guidance.append(entry.getKey()).append(": ")
-                        .append(String.join(", ", entry.getValue()));
-            }
-        }
-        return guidance.length() == 0 ? "" :
-                "Discriminanti tassonomici osservati: " + guidance + ".";
-    }
-
-    private void addGuidanceValue(Set<String> values, String value) {
-        if (values.size() < 5 && value != null && !value.trim().isEmpty()) {
-            values.add(value.replace('-', ' '));
-        }
     }
 
     private List<String> tokenize(String text) {
@@ -678,7 +534,7 @@ public class UniTicketRagEngine {
 
         for (String token : rawTokens) {
             if (token.length() < 2) continue;
-            if (useStopwords && ITALIAN_STOPWORDS.contains(token)) continue;
+            if (ITALIAN_STOPWORDS.contains(token)) continue;
             cleanTokens.add(stemItalianLight(token));
         }
         return cleanTokens;
@@ -701,9 +557,9 @@ public class UniTicketRagEngine {
         if (word.endsWith("menti") || word.endsWith("mento")) {
             return word.substring(0, word.length() - 5) + "ment";
         }
-        if (word.length() > 5 && (word.endsWith("ia") || word.endsWith("ie")
-                || word.endsWith("io") || word.endsWith("ii"))) {
-            return word.substring(0, word.length() - 1);
+        // "studio" e "studi" devono avere la stessa radice.
+        if (word.length() > 5 && (word.endsWith("io") || word.endsWith("ii"))) {
+            return word.substring(0, word.length() - 2);
         }
         char last = word.charAt(word.length() - 1);
         if (last == 'a' || last == 'e' || last == 'i' || last == 'o') {

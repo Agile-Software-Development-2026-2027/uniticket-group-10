@@ -12,11 +12,11 @@ MAX_TITLE_LENGTH = 72
 SECTIONS = ["What changed", "How to check"]
 
 
-def title_errors(title):
+def title_errors(title, kind="Title"):
     if TITLE.fullmatch(title) and len(title) <= MAX_TITLE_LENGTH:
         return []
     return [
-        f'Title "{title}" is not valid. Expected "SCRUM-12 Add the login form": '
+        f'{kind} "{title}" is not valid. Expected "SCRUM-12 Add the login form": '
         f"Jira key, one space, a capitalized description, no final period, "
         f"at most {MAX_TITLE_LENGTH} characters."
     ]

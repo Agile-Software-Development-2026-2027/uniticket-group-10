@@ -1,4 +1,4 @@
-.PHONY: install test-local test-acceptance test-all clean
+.PHONY: install test-local test-acceptance test-all test-django-docker clean
 
 default: test-local
 
@@ -21,6 +21,10 @@ test-acceptance:
 test-all:
 	@echo "Esecuzione di tutti i test..."
 	python -m pytest ticket-retrival/tests/ -v
+
+test-django-docker:
+	@echo "Esecuzione del solo smoke test Django nel container uniticket..."
+	docker compose -f uniticket/docker-compose.yml run --build --rm uniticket python manage.py test tests.test_smoke.DjangoSetupSmokeTest.test_django_apps_are_ready
 
 clean:
 	@echo "Pulizia dei file temporanei..."

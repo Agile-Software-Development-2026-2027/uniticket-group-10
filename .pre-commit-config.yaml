@@ -3,11 +3,10 @@ repos:
     hooks:
       - id: make-test
         name: Esecuzione test
-        entry: make test-local
+        entry: make test-django-docker
         language: system
         #stages: [manual] 
         #decommentarlo se si vuole disattivare l'esecuzione automatica dei test pre-commit
         pass_filenames: false
         always_run: true
-# Da inserire nella cartella del progetto allo stesso livello di tests/
-# Consente di eseguire i test Unit e Integration manualmente.
+# Esegue i test Django dell'app assistant nel container Docker Compose.

@@ -3,30 +3,35 @@ COME ABILITARE PRE-COMMIT
 
 Prerequisiti
 ------------
-- Python installato e disponibile dal terminale come `python`.
-- Git (non GitHub desktop) installato e repository aperto nella cartella principale del progetto.
-- GNU Make installato eseguendo da terminale "winget install GnuWin32.make" e inserendo nelle variabili d'ambiente di Windows, nel PATH, 
+- Docker Desktop installato e avviato, con Docker Compose disponibile.
+- GNU Make installato e disponibile nel PATH.
+- Git e Python installati; aprire il terminale nella root del repository.
 
 Installazione e attivazione
 ---------------------------
 Aprire un terminale nella cartella principale del progetto ed eseguire:
 
-    python -m pip install -r test_requirements.txt
+    python -m pip install pre-commit
     pre-commit install
 
-Il primo comando installa anche pre-commit e pytest. Il secondo registra
-l'hook Git nel repository locale. Da quel momento, prima di ogni commit,
-verranno eseguiti i test presenti in `tests/unit_integration/`.
+Il secondo comando registra l'hook Git nel repository locale. Da quel momento,
+prima di ogni commit, l'hook costruisce (o aggiorna) l'immagine Docker ed esegue
+solo `tests.test_smoke.DjangoSetupSmokeTest.test_django_apps_are_ready` nel
+servizio `uniticket` definito in `uniticket/docker-compose.yml`. Gli altri test
+presenti nell'immagine non vengono eseguiti. Il container viene eliminato al
+termine.
 
 Esecuzione manuale
 ------------------
-Per eseguire l'hook manualmente su tutti i file:
+Per eseguire manualmente i test nel container:
+
+    make test-django-docker
+
+Per eseguire manualmente l'hook su tutti i file:
 
     pre-commit run --all-files
 
-Per lanciare direttamente i test Unit/Integration:
-
-    python -m pytest tests/ -v
-
 Se l'hook viene rimosso o non è attivo, eseguire di nuovo `pre-commit install`
-dalla cartella principale del repository.
+dalla root del repository. Docker Desktop deve restare avviato anche durante
+il commit. La cartella `uniticket/extensions` viene montata nel container in
+sola lettura, come configurato in Compose.

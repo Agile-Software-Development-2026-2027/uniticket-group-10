@@ -16,10 +16,11 @@ Aprire un terminale nella cartella principale del progetto ed eseguire:
 
 Il secondo comando registra l'hook Git nel repository locale. Da quel momento,
 prima di ogni commit, l'hook costruisce (o aggiorna) l'immagine Docker ed esegue
-solo `tests.test_smoke.DjangoSetupSmokeTest.test_django_apps_are_ready` nel
-servizio `uniticket` definito in `uniticket/docker-compose.yml`. Gli altri test
-presenti nell'immagine non vengono eseguiti. Il container viene eliminato al
-termine.
+solo `chatbot_tests.test_smoke.DjangoSetupSmokeTest.test_django_apps_are_ready`
+nel servizio `uniticket` definito in `uniticket/docker-compose.yml`. Il test è
+in `uniticket/extensions/chatbot_tests`, montato dal Compose in `/extensions`
+e incluso nel `PYTHONPATH`, così non si sovrappone ai test già presenti
+nell'immagine uniTicket. Il container viene eliminato al termine.
 
 Esecuzione manuale
 ------------------

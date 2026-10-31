@@ -10,7 +10,6 @@ RUN python3 -m ensurepip --upgrade \
 WORKDIR /app/uniticket
 
 COPY config/settings.py /app/uniticket/uni_ticket_project/settings.py
-COPY tests /app/uniticket/tests
 #COPY extensions /extensions
 
 ENV PYTHONPATH=/extensions:/app/uniticket \

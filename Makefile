@@ -24,7 +24,7 @@ test-all:
 
 test-django-docker:
 	@echo "Esecuzione del solo smoke test Django nel container uniticket..."
-	docker compose -f uniticket/docker-compose.yml run --build --rm uniticket python manage.py test tests.test_smoke.DjangoSetupSmokeTest.test_django_apps_are_ready
+	docker compose -f uniticket/docker-compose.yml run --build --rm uniticket python manage.py test chatbot_tests.test_smoke.DjangoSetupSmokeTest.test_django_apps_are_ready
 
 clean:
 	@echo "Pulizia dei file temporanei..."

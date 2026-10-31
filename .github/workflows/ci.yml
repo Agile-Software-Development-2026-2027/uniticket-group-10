@@ -1,43 +1,24 @@
-#Se invece vogliamo utilizzare Zulip e fare i test su server Github, 
-#questo esegue i tests a ogni push che viene fatto
-#da posizionare in .github/workflows/
-
-name: Acceptance Tests
+# CI: runs on every pull request and on every push to main.
+# The job "test" is a required check on main: a pull request cannot be merged until it is green.
+# Do not rename the job.
+name: CI
 
 on:
-  push:
-    branches: [ "main", "SCRUM-32" ]
   pull_request:
-    branches: [ "main" ]
+  push:
+    branches: [main]
+  workflow_dispatch: # lets you run CI by hand from the Actions tab
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build-and-test:
-    runs-on: ${{ matrix.os }}
-    
-    
-    strategy:
-      fail-fast: false 
-      matrix:
-        os: [ubuntu-latest] 
-        python-version: ["3.12"]
-
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-          cache: 'pip' 
-
-      - name: Install dependencies
-        run: make install
-
-      - name: Run Unit & Integration Tests
-        run: make test-local
-
-      - name: Run Acceptance Tests
-        run: make test-acceptance
-
-        # Eventualmente implementare sistema di notifica Zulip
+      - uses: actions/checkout@v4
+      - name: Build Docker image
+        working-directory: uniticket
+        run: docker compose build

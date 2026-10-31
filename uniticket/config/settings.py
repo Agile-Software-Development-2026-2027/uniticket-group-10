@@ -96,7 +96,7 @@ INSTALLED_APPS = [
     'accounts',
     'navbar',
     'assistant',
-
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -182,6 +182,7 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    "assistant.middleware.HtmxRedirectMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
@@ -217,6 +218,7 @@ else:
 LOGOUT_REDIRECT_URL='/'
 
 # custom forms (django-form-builder)
+ATTACHMENTS_DICT_PREFIX = "allegati"
 CUSTOM_WIDGETS_IN_FORMSETS = False
 CUSTOM_WIDGETS = {
     'BaseDateField': 'bootstrap_italia_template.widgets.BootstrapItaliaDateWidget',

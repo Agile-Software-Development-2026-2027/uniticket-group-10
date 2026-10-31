@@ -1,0 +1,26 @@
+# Checks the title and the body of every pull request.
+# The job "format" is a required check on main: do not rename it.
+name: PR format
+
+on:
+  pull_request:
+    # "edited" runs it again when the title or the body change,
+    # "synchronize" when new commits are pushed.
+    types: [opened, edited, reopened, synchronize]
+
+concurrency:
+  group: pr-format-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check title and body
+        # Passed as environment variables, never inlined in the script.
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: python3 .github/scripts/check_pr.py

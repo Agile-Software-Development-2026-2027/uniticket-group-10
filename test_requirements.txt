@@ -1,0 +1,7 @@
+pytest==8.0.0
+pre-commit==3.6.0
+scikit-learn==1.4.0; python_version < "3.13"
+scikit-learn==1.8.0; python_version >= "3.13"
+lark==1.1.9
+pydantic==2.14.1
+tzdata

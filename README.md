@@ -15,5 +15,6 @@ One paragraph: what the project is.
 
 ## CI
 
-`.github/workflows/ci.yml` runs on every pull request. It starts empty and always passes: add
-the steps that build and test the project as soon as there is something to test.
+- `.github/workflows/ci.yml` runs on every pull request and builds the Docker image of uniTicket.
+- `.github/workflows/pr-format.yml` checks that the title of every pull request follows the
+  format above and that the body fills in the pull request template.

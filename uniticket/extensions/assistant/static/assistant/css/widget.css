@@ -1,3 +1,5 @@
+[v-cloak] { display: none; }
+
 /* Widget UniTicket: il colore istituzionale evidenzia azioni e messaggi dell'utente. */
 .assistant-widget {
     --assistant-color: #a51e22;

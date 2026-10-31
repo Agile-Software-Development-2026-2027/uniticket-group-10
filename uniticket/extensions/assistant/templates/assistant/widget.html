@@ -1,51 +1,100 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'assistant/css/widget.css' %}">
 
-<div id="assistant-widget" class="assistant-widget"
+<div id="assistant-widget" class="assistant-widget" v-cloak
      data-search-url="{% url 'assistant_search' %}"
      data-open-url="{% url 'assistant_open' %}"
+     data-csrf-token="{{ csrf_token }}"
      {% if request.resolver_match.view_name == 'uni_ticket:add_new_ticket' and categoria and form and user_can_open_tickets %}
      data-loaded-ticket-id="{{ categoria.pk }}"
      {% endif %}
      data-storage-key="assistant-chat-{{ request.user.pk }}">
-
-    <section id="assistant-panel" class="assistant-panel" aria-labelledby="assistant-title" hidden>
+    <!-- con :hidden="!open" la finestra è nascosta quando open è false. usa questo e non v-if in quanto il css si basa su hidden -->
+    <section id="assistant-panel" class="assistant-panel" aria-labelledby="assistant-title" :hidden="!open">
         <header class="assistant-header">
             <div>
                 <h2 id="assistant-title">Assistente UniTicket</h2>
                 <p>Trova la richiesta giusta</p>
             </div>
-            <button type="button" class="assistant-close" aria-label="Chiudi l'assistente">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
+            <button type="button" class="assistant-close" aria-label="Chiudi l'assistente" @click="close">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"></path></svg>
             </button>
         </header>
+
         <div class="assistant-toolbar">
             <span>La tua conversazione</span>
-            <button type="button" class="assistant-reset">Nuova conversazione</button>
+            <button type="button" class="assistant-reset" :disabled="loading" @click="reset">Nuova conversazione</button>
         </div>
-        <div class="assistant-messages" role="log" aria-label="Conversazione con l'assistente" aria-live="polite" aria-relevant="additions"></div>
-        <p class="assistant-status" role="status"></p>
-        <form class="assistant-form">
-            {% csrf_token %}
+
+        <div class="assistant-messages" ref="messages" role="log" aria-label="Conversazione con l'assistente" aria-live="polite">
+            <!-- un "fumetto" per ogni messaggio. msg è il messaggio corrente (sostituisce tutto render di JS)-->
+            <div v-for="(msg, index) in messages" :key="index" :class="['assistant-msg', 'assistant-msg--' + msg.author]">
+                <span class="assistant-author">[[ msg.author === 'user' ? 'Tu' : 'Assistente' ]]</span>
+                <!-- msg.text è il testo del messaggio --> 
+                <p :class="{ 'assistant-error': msg.error }">[[ msg.text ]]</p>
+                
+                <ul v-if="msg.tickets && msg.tickets.length" class="assistant-results" aria-label="Richieste suggerite">
+                    <!-- Mostra solo le prime visible schede (all'inizio 3). Il bottone Mostra Altre fa msg.visible+=3 e mostra altre 3 -->
+                    <li v-for="ticket in msg.tickets.slice(0, msg.visible)" :key="ticket.ticket_id">
+                        <!-- Link normale, senza javascript -->
+                         <!-- il browser va a /assistant/open?ticket_id=318, open_category in views trova la categoria e reindirizza al modulo -->
+                          <!--  -->
+                        <a :href="openUrl + '?ticket_id=' + ticket.ticket_id"
+                           :class="['assistant-card', { 'assistant-card--opened': isOpened(ticket) }]"
+                           :aria-current="isOpened(ticket) ? 'page' : null">
+                            <span>
+                                [[ ticket.title ]]
+                                <small v-if="ticket.structure_name" class="assistant-card-structure">[[ ticket.structure_name ]]</small>
+                                <small v-if="isOpened(ticket)" class="assistant-opened-label">Modulo aperto</small>
+                            </span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Aumenta di 3 le schede visibili di quel messaggio -->
+                <button v-if="msg.tickets && msg.tickets.length > msg.visible" type="button" class="assistant-more" @click="msg.visible += 3">
+                    <span>Mostra altre richieste</span>
+                    <!-- Si aggiorna il numero sul bottone -->
+                    <span class="assistant-more-count" aria-hidden="true">[[ msg.tickets.length - msg.visible ]]</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+                </button>
+
+                <button v-if="msg.retryQuery" type="button" class="assistant-retry" :disabled="loading" @click="search(msg.retryQuery)">
+                    Riprova la ricerca
+                </button>
+            </div>
+        </div>
+
+        <p class="assistant-status" role="status">[[ loading ? 'Sto cercando le richieste più pertinenti…' : '' ]]</p>
+
+        <form class="assistant-form" @submit.prevent="send">
             <div class="assistant-compose">
-                <textarea id="assistant-query" name="query" rows="1" maxlength="500" required
-                          aria-label="Messaggio per l'assistente"
-                          aria-describedby="assistant-input-help"
-                          placeholder="Scrivi la tua richiesta…"></textarea>
-                <button type="submit" class="assistant-send">
+                <!-- Quello che si scrive nella casella finisce in query. -->
+                 <!-- con resizeInput la casella si ridimensiona in base al contenuto -->
+                <textarea id="assistant-query" ref="input" v-model="query" rows="1" maxlength="500" required
+                          aria-label="Messaggio per l'assistente" aria-describedby="assistant-input-help"
+                          placeholder="Scrivi la tua richiesta…" :readonly="loading"
+                          @input="resizeInput" @keydown.enter.exact.prevent="send"></textarea>
+                <button type="submit" class="assistant-send" :disabled="loading">
                     <span>Invia</span>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19 0-14m-6 6 6-6 6 6"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 19 0-14m-6 6 6-6 6 6"></path></svg>
                 </button>
             </div>
             <p id="assistant-input-help">Invio per inviare · Maiusc+Invio per andare a capo</p>
         </form>
     </section>
-
+    
+    <!-- Questo sarebbe il bottone in basso a destra (la bolla) -->
+     <!-- se la chat è chiusa -> show(), this.open=true, vue toglie l'attributo hidden -->
+      <!-- vue imposta aria-expanded a true, quindi la bolla si trasforma in una X -->
+       <!-- Se invece la chat è chiusa imposta this.open=false e rimette hidden, facendo tornare la bolla normale -->
     <button type="button" class="assistant-launcher" aria-controls="assistant-panel"
-            aria-expanded="false" aria-label="Apri l'assistente UniTicket">
+            :aria-expanded="String(open)" :aria-label="open ? 'Chiudi l\'assistente UniTicket' : 'Apri l\'assistente UniTicket'"
+            @click="open ? close() : show()">
         <span class="assistant-launcher-icon" aria-hidden="true">
-            <svg class="assistant-launcher-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/><path d="M8 10h8M8 14h5"/></svg>
-            <svg class="assistant-launcher-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></svg>
+            <svg class="assistant-launcher-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"></path><path d="M8 10h8M8 14h5"></path></svg>
+            <svg class="assistant-launcher-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"></path></svg>
         </span>
         <span>Assistente</span>
     </button>

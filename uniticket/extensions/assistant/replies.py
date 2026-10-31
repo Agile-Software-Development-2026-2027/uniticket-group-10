@@ -1,6 +1,6 @@
 """Tipi delle risposte dell'assistente, senza validazione a runtime."""
 
-from typing import Literal, TypedDict
+from typing import Literal, NotRequired, TypedDict
 
 
 class TextReply(TypedDict):
@@ -19,6 +19,7 @@ class TicketReply(TypedDict):
     title: str
     ticket_id: int
     structure_name: str
+    url: NotRequired[str]
 
 
 Reply = TextReply | TicketReply

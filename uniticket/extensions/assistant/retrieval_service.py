@@ -1,5 +1,9 @@
 """Demo retrieval; replace with the real search service when ready."""
 
+from django.urls import reverse
+
+from uni_ticket.models import TicketCategory
+
 from .replies import TicketReply
 
 
@@ -20,4 +24,13 @@ demo_ticket_categories : list[TicketReply]=[
 def search(query: str) -> list[TicketReply]:
     if query.casefold() == "nessun risultato":
         return []
-    return demo_ticket_categories
+    categories = TicketCategory.objects.select_related("organizational_structure").in_bulk(
+        [ticket["ticket_id"] for ticket in demo_ticket_categories]
+    )
+    return [
+        {**ticket, "url": reverse("uni_ticket:add_new_ticket", kwargs={
+            "structure_slug": categories[ticket["ticket_id"]].organizational_structure.slug,
+            "category_slug": categories[ticket["ticket_id"]].slug,
+        })}
+        for ticket in demo_ticket_categories if ticket["ticket_id"] in categories
+    ]

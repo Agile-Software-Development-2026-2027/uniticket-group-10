@@ -1,0 +1,47 @@
+<section id="chatbot-conversation-panel" class="chatbot-conversation" aria-labelledby="chatbot-title">
+    <header class="chatbot-conversation-heading">
+        <h1 id="chatbot-title">Troviamo la richiesta giusta.</h1>
+        <button class="chatbot-text-button" type="button" @click="resetChat">Nuova conversazione</button>
+    </header>
+    <div id="chatbot-thread" ref="messages" class="chatbot-thread" @scroll.passive="saveChat">
+        <div id="chatbot-messages" class="chatbot-messages" role="log" aria-label="Conversazione con l’assistente" aria-live="polite" aria-relevant="additions">
+            <div class="chatbot-message">
+                <strong>Assistente</strong>
+                <p>Ciao! Come posso aiutarti? Scrivi una richiesta oppure prova gli esempi qui sotto.</p>
+            </div>
+            <div v-for="(entry, index) in history" :key="index" :data-entry="index" class="chatbot-message" :class="{'chatbot-message-user': entry.author === 'user'}">
+                <strong>[[ entry.author === 'user' ? 'Tu' : 'Assistente' ]]</strong>
+                <p>[[ entry.text ]]</p>
+                <button v-if="entry.retryQuery" type="button" class="chatbot-quick-reply" :disabled="busy" @click="search(entry.retryQuery)">Riprova la ricerca</button>
+            </div>
+        </div>
+        <section v-if="results.length" id="chatbot-results-section" class="chatbot-results-section" aria-labelledby="chatbot-results-title">
+            <h2 id="chatbot-results-title">Richieste disponibili</h2>
+            <div id="chatbot-results">
+                <a v-for="ticket in results" :key="ticket.ticket_id" class="chatbot-result" :href="ticketUrl(ticket)"
+                   :aria-current="String(ticket.ticket_id) === selectedTicketId ? 'true' : null"
+                   :aria-busy="String(ticket.ticket_id) === loadingTicketId" @click="selectTicket($event, ticket)">
+                    <span class="chatbot-result-details">
+                        <span class="chatbot-result-title">[[ ticket.title ]]</span>
+                        <span v-if="!ticket.url" class="chatbot-result-structure">Risultato precedente: ripeti la ricerca o apri la selezione delle tipologie.</span>
+                        <span v-if="ticket.structure_name" class="chatbot-result-structure">[[ ticket.structure_name ]]</span>
+                        <span v-if="String(ticket.ticket_id) === loadingTicketId" class="chatbot-result-selected" role="status">Caricamento modulo…</span>
+                        <span v-else-if="String(ticket.ticket_id) === selectedTicketId" class="chatbot-result-selected">Modulo aperto</span>
+                    </span>
+                    <span class="chatbot-result-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
+                </a>
+            </div>
+        </section>
+    </div>
+    <div v-if="!history.length" class="chatbot-quick-replies" role="group" aria-label="Risposte rapide">
+        <button type="button" class="chatbot-quick-reply" :disabled="busy" @click="search('Cerca ticket')">Cerca ticket</button>
+        <button type="button" class="chatbot-quick-reply" :disabled="busy" @click="search('nessun risultato')">Prova nessun risultato</button>
+    </div>
+    <p class="chatbot-status" role="status">[[ status ]]</p>
+    <form id="chatbot-search" class="chatbot-compose" @submit.prevent="search()">
+        {% csrf_token %}
+        <label class="visually-hidden" for="chatbot-query">Scrivi la tua richiesta</label>
+        <textarea id="chatbot-query" ref="input" v-model="query" name="message" rows="2" maxlength="500" :readonly="busy" placeholder="Per esempio: vorrei un certificato di laurea…" required></textarea>
+        <button type="submit" class="chatbot-send" :disabled="busy" aria-label="Invia messaggio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m5 12 7-7 7 7M12 5v15"/></svg></button>
+    </form>
+</section>

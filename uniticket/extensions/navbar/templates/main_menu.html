@@ -3,7 +3,7 @@
     {{ block.super }}
     {% if request.user.is_authenticated %}
     <li class="nav-item">
-        <a class="nav-link" href="/assistant" data-assistant-open>
+        <a class="nav-link" href="{% url 'assistant_workspace' %}">
             <span>Assistente</span>
         </a>
     </li>

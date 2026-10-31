@@ -1,8 +1,43 @@
 {% extends "base.html" %}
+{# Questo template estende il base.html originale di UniTicket per aggiungere l’assistente al layout comune. #}
+{# Django salta il template corrente quando risolve extends con lo stesso nome, evitando una ricorsione. #}
+{% load static %}
 
+{# Aggiunge le risorse necessarie al caricamento parziale dei moduli, conservando l’head originale. #}
+{% block extra_head %}
+{# block.super mantiene il contenuto dello stesso blocco definito dal template originale. #}
+{{ block.super }}
+<script src="{% static 'js/htmx-1.9.10.min.js' %}" defer></script>
+{% if request.user.is_authenticated %}
+{# Precarica i due script supportati anche se il modulo verrà aperto successivamente via HTMX. #}
+{# Se sono già dichiarati nelle risorse del form corrente, evita di includerli una seconda volta qui. #}
+{% with media=form.media|stringformat:"s" %}
+{% if 'js/formset_js.js' not in media %}<script src="{% static 'js/formset_js.js' %}" defer></script>{% endif %}
+{% if 'js/textarea-autosize.js' not in media %}<script src="{% static 'js/textarea-autosize.js' %}" defer></script>{% endif %}
+{% endwith %}
+{% endif %}
+{% endblock %}
+
+{# Racchiude il contenuto originale della pagina nell’area che il widget può aggiornare via HTMX. #}
+{% block container %}
+{# AssistantModules usa questo ID sia come destinazione sia per selezionare il contenuto della risposta HTML. #}
+{# hx-request limita a 15 secondi l’attesa delle richieste HTMX avviate da questo elemento. #}
+<div id="assistant-page-content" hx-request='{"timeout":15000}'>
+    {# Metadati letti dal JavaScript dopo il caricamento: categoria, presenza del modulo e URL da mostrare nel browser. #}
+    {# Il percorso corrente è già l’URL originale del form UniTicket e verrà usato anche per la POST. #}
+    <span hidden data-assistant-module data-category-id="{% if categoria and form and user_can_open_tickets %}{{ categoria.pk }}{% endif %}"
+          data-has-module="{% if categoria and form %}true{% else %}false{% endif %}"
+          data-url="{{ request.path }}"></span>
+    {# Qui rimane il contenuto della pagina UniTicket: il form continua a essere generato da Django. #}
+    {{ block.super }}
+</div>
+{% endblock %}
+
+{# Il widget viene inserito fuori da assistant-page-content: il cambio modulo non sostituisce la sua istanza Vue. #}
 {% block bottom_scripts %}
 {{ block.super }}
-{% if request.user.is_authenticated %}
-    {% include "assistant/widget.html" %}
+{# Mostra il widget solo agli utenti autenticati e lo esclude dalla demo pagina, che ha già la propria chat. #}
+{% if request.user.is_authenticated and request.resolver_match.url_name != 'assistant_workspace' and request.resolver_match.url_name != 'assistant_workspace_category' %}
+    {% include "demo_widget/widget.html" %}
 {% endif %}
 {% endblock bottom_scripts %}

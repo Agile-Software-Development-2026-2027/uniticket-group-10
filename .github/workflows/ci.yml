@@ -2,7 +2,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [main, SCRUM-32]
+    branches: [main]
 
 jobs:
   test:
@@ -15,6 +15,4 @@ jobs:
         run: docker compose -f uniticket/docker-compose.yml build uniticket
 
       - name: Run uniTicket tests
-        run: >-
-          docker compose -f uniticket/docker-compose.yml run --rm -T uniticket
-          python manage.py test chatbot_tests
+        run: make test-local

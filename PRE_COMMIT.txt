@@ -30,7 +30,7 @@ Esecuzione manuale
 ------------------
 Per eseguire manualmente i test nel container:
 
-    make test-django-docker
+    make test-local
 
 Per eseguire manualmente l'hook su tutti i file:
 

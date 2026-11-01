@@ -9,20 +9,25 @@ A Java prototype for classifying student requests at the University of Calabria 
 
 ```mermaid
 flowchart TD
-    U["Request + login profile"] --> R["Hybrid search\nBM25 + embeddings + RRF"]
-    R --> D["FormDecider\nwhich form matches?"]
-    D --> P["RoutingPolicy\ndeterministic rules"]
-    P --> S["SELECT\nform, or closed form with its reason"]
-    P --> Q["CLARIFY\nup to 4 options"]
-    P --> N["NONE\nno compatible form"]
+    U["Request + login profile"] --> O["Hybrid search on open forms\nBM25 + embeddings + RRF"]
+    O -->|"top 8 practices"| D["Judgment and rules\nFormDecider + RoutingPolicy"]
+    D -->|"practice identified"| R["Check against the top result\nof the whole catalog"]
+    D -->|"no reliable pick"| W["Search, judgment and rules\non the whole catalog"]
+    R --> E["Turn outcome"]
+    W --> E
+    E --> S["SELECT\nform, or closed form with its reason"]
+    E --> Q["CLARIFY\nup to 4 options"]
+    E --> N["NONE\nno compatible form"]
+    Q -->|"free-text reply"| O
 ```
 
-The decider only judges relevance. Availability and department are plain Java rules, so they can be tested without a model, and changing the model means writing one new `FormDecider`. See [ARCHITECTURE.md](ARCHITECTURE.md) for the rules.
+The decider only judges relevance. Availability and department are plain Java rules, so they can be tested without a model, and changing the model does not touch search or rules. See [ARCHITECTURE.md](ARCHITECTURE.md) for the full request flow, rules, parameters and failure handling.
 
-- **Open forms come first:** the 241 forms we hold completely are searched first. Closed forms are only considered if no open form is a reliable match, or if one clearly outranks the open pick, in which case the user sees both. A closed form is shown with the reason stored in the catalog.
+- **Open forms come first:** the 241 forms we hold completely are searched first. Closed forms are only considered if no open form is a reliable match, or if the top result of the whole catalog is closed and at least as similar as the open pick, in which case the user sees both. Clarification options can therefore include closed forms. A closed form is shown with the reason stored in the catalog.
 - **Clearly dead forms are never shown:** 25 archived, expired or finished-event forms are retired. Seasonal and ambiguous forms stay closed rather than retired.
 - **Login role decides what exists:** forms denied to the student scrape are hidden from students and available to staff. Their fields are unverified until a staff account is scraped.
 - **Login department is only a hint:** a department named in the text wins, then the login department. If neither settles it, the bot asks.
+- **Conversations are short:** after at most two clarifications, a request that is still unresolved is sent to the URP office.
 
 ## Data
 
@@ -42,6 +47,17 @@ Embeddings are cached in `.cache/` and rebuilt automatically when the catalog or
 
 Models and URL can be changed with `UNITICKET_LLM_MODEL`, `UNITICKET_EMBEDDING_MODEL` and `UNITICKET_OLLAMA_URL`.
 
+### Using Gemini as the decider
+
+The decider can run on Gemini instead of Ollama. Search stays on Ollama, so `bge-m3` is still required, and ranking and thresholds do not change.
+
+```bash
+export UNITICKET_LLM_PROVIDER=gemini    # default: ollama
+export GEMINI_API_KEY=<your key>
+```
+
+`UNITICKET_LLM_MODEL` then defaults to `gemini-3.5-flash`. With Gemini, requests leave the machine: for real users in the European Economic Area, Google's terms only allow the paid plan.
+
 ## Running
 
 ```bash
@@ -58,7 +74,7 @@ java -cp "target/classes:<dependencies>" it.unical.uniticket.app.Main --role stu
 java -cp "target/classes:<dependencies>" it.unical.uniticket.eval.Benchmark eval/dev_heldout.json
 ```
 
-Options: `--top-k N`, `--no-phrases`, `--retrieval-only`, `--out results.json`. The benchmark builds the router exactly as the application does, and simulates a user who picks the right option when it is shown.
+Options: `--top-k N`, `--no-phrases`, `--retrieval-only`, `--out results.json`. The benchmark builds the router exactly as the application does, and simulates a user who picks the right option when it is shown. It does not simulate free-text replies or rejected options.
 
 | File | Purpose |
 |---|---|
@@ -135,6 +151,7 @@ Three other changes were tested on the same requests and rejected:
 
 - It is a dry run: it does not submit tickets or fill forms;
 - No real user requests have been measured yet;
+- Gemini can be selected, but no results have been measured with it yet;
 - Staff and closed forms are matched by title and description only, because the scrape has no fields for them. The official export should replace this, and thresholds must be retuned afterwards;
 - Availability comes from one scrape (2026-10-29) and must be refreshed;
 - Selection thresholds are tuned for `bge-m3` and the current phrases;

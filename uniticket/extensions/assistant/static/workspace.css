@@ -53,7 +53,7 @@ button, textarea, input { font-family: inherit; }
     .chatbot-mobile-link { display: inline-block; margin-top: 16px; }
 }
 
-/* Restored conversational panels and the reference's bordeaux palette. */
+/* Aspetto dei pannelli e palette dell’interfaccia dell’assistente. */
 .chatbot-page, .chatbot-topbar { color: #383838; }
 .chatbot-topbar { background: white; border-bottom: 3px solid #b71918; }
 .chatbot-brand { color: #383838; }
@@ -62,6 +62,7 @@ button, textarea, input { font-family: inherit; }
 .chatbot-brand > span > span { font-size: 14px; }
 .chatbot-topbar a, .chatbot-page a { color: #b71918; }
 .chatbot-page { max-width: 1450px; background: #f4f5f5; padding: 28px 24px; }
+/* Le variabili di larghezza vengono aggiornate dal separatore in workspace.js. */
 .chatbot-workspace { grid-template-columns: minmax(0, var(--chat-share, 57fr)) 26px minmax(0, var(--draft-share, 43fr)); border: 0; align-items: start; }
 .chatbot-conversation, .chatbot-form-panel { background: white; border: 1px solid #dededc; border-radius: 12px; }
 .chatbot-conversation { display: flex; flex-direction: column; min-height: 640px; box-sizing: border-box; }
@@ -120,7 +121,7 @@ button, textarea, input { font-family: inherit; }
     .chatbot-topbar { flex-wrap: wrap; padding: 16px; }
 }
 
-/* Start with the chat; reveal the second panel only for a selected request. */
+/* data-view seleziona chat, modulo o vista divisa; senza tipologia viene mostrata solo la chat. */
 .chatbot-workspace[data-view="chat"],
 .chatbot-workspace[data-view="request"] { grid-template-columns: minmax(0, 1fr); }
 .chatbot-workspace--chat-only { max-width: 1000px; margin-inline: auto; }
@@ -137,7 +138,37 @@ button, textarea, input { font-family: inherit; }
     .chatbot-layout-controls button { flex: 1; }
 }
 
-/* A selection is a neutral event in the conversation, without a sender. */
+/* La selezione è un evento neutrale della cronologia, senza attribuzione a utente o assistente. */
 .chatbot-selection { margin: 20px auto; padding: 14px 18px; width: fit-content; max-width: 100%; border: 1px solid #d6dcd8; border-radius: 8px; background: #f5f7f6; text-align: center; overflow-wrap: anywhere; }
 .chatbot-selection > span { display: block; margin-bottom: 5px; color: #58655e; font-size: 12px; font-weight: 600; letter-spacing: .03em; text-transform: uppercase; }
 .chatbot-selection > p { margin: 0; color: #263c30; font-size: 15px; line-height: 1.5; }
+
+/* Lo slot HTMX resta stabile; display: contents fa partecipare il pannello interno alla griglia. */
+#chatbot-form-slot { display: contents; }
+.chatbot-workspace[data-view="chat"] > #chatbot-form-slot { display: none; }
+.chatbot-mobile-link[hidden] { display: none; }
+
+/* Il dialogo di sostituzione oscura lo sfondo senza modificare i dati del modulo. */
+.chatbot-confirmation { max-width: 440px; width: calc(100% - 32px); padding: 24px; border: 1px solid #dededc; border-radius: 12px; color: #383838; }
+.chatbot-confirmation::backdrop { background: rgb(0 0 0 / 45%); }
+.chatbot-confirmation h2 { font-size: 22px; }
+.chatbot-confirmation form { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 12px; }
+.chatbot-confirmation button { padding: 10px 14px; border: 1px solid #dededc; border-radius: 6px; background: white; cursor: pointer; }
+.chatbot-confirmation button[value="replace"] { background: #b71918; color: white; }
+
+/* Vista divisa: stessa altezza per i due pannelli e scorrimento verticale indipendente. */
+.chatbot-workspace[data-view="split"] { height: var(--split-height, clamp(640px, 85dvh, 900px)); }
+.chatbot-workspace[data-view="split"] > .chatbot-conversation,
+.chatbot-workspace[data-view="split"] .chatbot-form-panel {
+    height: 100%; min-height: 0; overflow-y: auto; overscroll-behavior-y: contain;
+}
+.chatbot-workspace[data-view="split"] > .chatbot-resizer { height: 100%; }
+/* Messaggi e risultati restano scorrevoli senza spingere il campo di scrittura fuori dal pannello. */
+.chatbot-workspace[data-view="split"] .chatbot-messages { min-height: 80px; max-height: none; }
+.chatbot-workspace[data-view="split"] #chatbot-suggestions { min-height: 0; max-height: 32%; overflow-y: auto; }
+.chatbot-workspace[data-view="split"] .chatbot-conversation-heading,
+.chatbot-workspace[data-view="split"] #chatbot-search { flex-shrink: 0; }
+@media (max-width: 850px) {
+    /* La vista divisa mantiene due colonne; i pulsanti consentono di ampliare una singola scheda. */
+    .chatbot-workspace[data-view="split"] { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+}

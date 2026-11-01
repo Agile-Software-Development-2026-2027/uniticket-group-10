@@ -1,5 +1,6 @@
 {% extends "user/ticket_add_new.html" %}
 {% load static %}
+{# Layout generale dell’assistente: mantiene separate la regione Vue e la destinazione HTMX. #}
 
 {% block menu_links %}
     {% include "user/main_menu.html" %}
@@ -11,7 +12,7 @@
 {% block extra_head %}
     {{ block.super }}
     <link rel="stylesheet"
-          href="{% static 'workspace.css' %}?v=selection-1">
+          href="{% static 'workspace.css' %}?v=split-scroll-2">
 {% endblock %}
 
 
@@ -21,33 +22,29 @@
     </a>
 
     <div class="chatbot-page">
-        {% if form %}
+        {# Stato delle operazioni sul modulo, distinto dallo stato della ricerca nella chat. #}
+        <p id="chatbot-form-status" class="chatbot-status" role="status"></p>
+        {# workspace.js mostra questi controlli dopo l’apertura del modulo e aggiorna aria-pressed. #}
         <div class="chatbot-layout-controls" role="group" aria-label="Visualizzazione chat e modulo" hidden>
             <button type="button" data-layout="chat" aria-controls="chatbot-workspace" aria-pressed="false">Amplia chat</button>
             <button type="button" data-layout="split" aria-controls="chatbot-workspace" aria-pressed="true">Vista divisa</button>
             <button type="button" data-layout="request" aria-controls="chatbot-workspace" aria-pressed="false">Amplia modulo</button>
         </div>
-        {% endif %}
         <main id="chatbot-workspace" class="chatbot-workspace{% if not form %} chatbot-workspace--chat-only{% endif %}" data-view="{% if form %}split{% else %}chat{% endif %}">
             {% include "chatbot.html" %}
-            {% if form %}
+            {# Separatore accessibile per modificare la larghezza dei pannelli nella vista divisa. #}
             <div id="chatbot-resizer" class="chatbot-resizer" role="separator" tabindex="0"
                  aria-label="Spazio dedicato alla chat" aria-orientation="vertical"
                  aria-controls="chatbot-conversation-panel chatbot-request-panel"
                  aria-valuemin="35" aria-valuemax="70" aria-valuenow="57"
                  title="Trascina per ridimensionare. Usa le frecce sinistra e destra; doppio clic per ripristinare."></div>
-            <aside id="chatbot-request-panel" class="chatbot-form-panel" aria-labelledby="chatbot-form-title">
-                <header class="chatbot-panel-heading">
-                    <h2 id="chatbot-form-title">La tua richiesta</h2>
-                </header>
-                {% if form %}<h3>{{ categoria.name }}</h3>{% endif %}
-                {% block over_content %}{% if form %}{{ block.super }}{% endif %}{% endblock %}
-                {% block page_content %}
-                    {{ block.super }}
-                {% endblock %}
-                <a class="chatbot-mobile-link" href="#chatbot-query" data-show-panel="chat">Torna alla conversazione</a>
-            </aside>
-            {% endif %}
+            {# Target stabile di HTMX: cambia soltanto il contenuto interno, senza rimontare la chat. #}
+            <div id="chatbot-form-slot">
+                {% if form %}
+                    {# L’accesso diretto con ticket_id riusa lo stesso frammento del caricamento dinamico. #}
+                    {% include "ticket_panel.html" with base_template="ticket_fragment_base.html" %}
+                {% endif %}
+            </div>
         </main>
 
         <div class="chatbot-page-footer">
@@ -57,10 +54,21 @@
         </div>
 
     </div>
+    {# Dialogo fuori dalle regioni aggiornate: resta disponibile quando il modulo viene sostituito. #}
+    <dialog id="chatbot-replace-confirmation" class="chatbot-confirmation" aria-labelledby="chatbot-confirm-title">
+        <h2 id="chatbot-confirm-title">Modifiche non salvate</h2>
+        <p>Hai modifiche non salvate. Vuoi sostituire il modulo?</p>
+        {# method=dialog chiude la finestra e restituisce il valore scelto senza inviare richieste HTTP. #}
+        <form method="dialog">
+            <button type="submit" value="cancel" autofocus>Annulla</button>
+            <button type="submit" value="replace">Sostituisci modulo</button>
+        </form>
+    </dialog>
 {% endblock %}
 
+{# Le librerie sono locali; i parametri di versione distinguono gli aggiornamenti degli script. #}
 {% block extra_scripts %}
-    {{ block.super }}
-    <script src="{% static 'workspace.js' %}?v=panels-2" defer></script>
-    <script src="{% static 'search.js' %}?v=history-2" defer></script>
+    <script src="{% static 'vendor/htmx-2.0.11.min.js' %}" defer></script>
+    <script src="{% static 'workspace.js' %}?v=split-scroll-2" defer></script>
+    <script type="module" src="{% static 'search.js' %}?v=assistant-submit-2"></script>
 {% endblock %}

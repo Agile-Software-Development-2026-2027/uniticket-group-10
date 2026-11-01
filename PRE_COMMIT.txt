@@ -1,42 +1,43 @@
-COME ABILITARE PRE-COMMIT
-=========================
+ENABLING PRE-COMMIT
+===================
 
-Prerequisiti
-------------
-- Docker Desktop installato e avviato, con Docker Compose disponibile.
-- GNU Make installato e disponibile nel PATH.
-- Git e Python installati; aprire il terminale nella root del repository.
+Prerequisites
+-------------
+- Docker Desktop installed and running, with Docker Compose available.
+- GNU Make installed and available on your PATH.
+- Git and Python installed; open a terminal at the repository root.
 
-Installazione e attivazione
----------------------------
-Aprire un terminale nella cartella principale del progetto ed eseguire:
+Installation and setup
+----------------------
+Open a terminal in the project root and run:
 
     docker compose -f uniticket/docker-compose.yml build uniticket
     python -m pip install pre-commit
     pre-commit install
 
-Il primo comando costruisce l'immagine una volta; il terzo registra l'hook Git
-nel repository locale. Prima di ogni commit, anche se modifica solo il README,
-l'hook avvia un container temporaneo usando l'immagine esistente ed esegue i
-test nel package `chatbot_tests`. I test sono in
-`uniticket/extensions/chatbot_tests`, montati dal Compose in `/extensions` e
-inclusi nel `PYTHONPATH`, quindi le loro modifiche sono visibili senza
-ricostruire l'immagine. Il container viene eliminato al termine.
+The first command builds the image. The third installs the Git hooks for this
+local repository. On every commit, the pre-commit hook runs the tests in the
+`chatbot_tests` package, even if the commit only changes the README. It starts
+a temporary container using the existing image. The tests are in
+`uniticket/extensions/chatbot_tests`; Compose mounts this directory at
+`/extensions`, which is included in `PYTHONPATH`, so test changes are visible
+without rebuilding the image. The container is removed when the tests finish.
 
-Ricostruire l'immagine con il comando `build` quando cambiano il Dockerfile o
-le dipendenze installate nell'immagine.
+The commit-msg hook also checks that the commit message follows the required
+format. Rebuild the image with the `build` command if the Dockerfile or
+dependencies installed in the image change.
 
-Esecuzione manuale
-------------------
-Per eseguire manualmente i test nel container:
+Running the checks manually
+---------------------------
+To run the tests in the container:
 
     make test-local
 
-Per eseguire manualmente l'hook su tutti i file:
+To run the pre-commit hook on all files:
 
     pre-commit run --all-files
 
-Se l'hook viene rimosso o non è attivo, eseguire di nuovo `pre-commit install`
-dalla root del repository. Docker Desktop deve restare avviato anche durante
-il commit. La cartella `uniticket/extensions` viene montata nel container in
-sola lettura, come configurato in Compose.
+If a hook is removed or is not active, run `pre-commit install` again from the
+repository root. Docker Desktop must remain running during commits. The
+`uniticket/extensions` directory is mounted in the container as read-only, as
+configured in Compose.

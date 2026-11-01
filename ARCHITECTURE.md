@@ -70,7 +70,7 @@ chiuso e simile almeno quanto la scelta: in quel caso l'utente vede entrambi.
 | Classe | Compito |
 |---|---|
 | `FormDecider` | Interfaccia: dato l'elenco dei candidati restituisce un `DeciderVerdict` |
-| `OllamaFormDecider` | Implementazione con un modello generico; il prompt non cita lo stato dei moduli |
+| `LlmFormDecider` | Implementazione con un modello generico; il prompt non cita lo stato dei moduli |
 | `RoutingPolicy` | Trasforma il giudizio in SELECT, CLARIFY o NONE |
 | `DepartmentMatcher` | Riconosce per parola intera le strutture nominate nel testo |
 | `FormRouter` | Coordina ricerca, decisore e regole sui turni della conversazione |

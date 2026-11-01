@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
  * <p>Il prompt non menziona lo stato dei moduli: il modello giudica solo la pertinenza.
  * La confidenza autodichiarata viene ignorata perché non è calibrata.</p>
  */
-public class OllamaFormDecider implements FormDecider {
+public class LlmFormDecider implements FormDecider {
     private static final int MAX_FIELD_LENGTH = 200;
 
     private static final String SYSTEM_PROMPT =
@@ -48,7 +48,7 @@ public class OllamaFormDecider implements FormDecider {
     private final LlmClient llmClient;
     private final ObjectMapper mapper = new ObjectMapper();
 
-    public OllamaFormDecider(LlmClient llmClient) {
+    public LlmFormDecider(LlmClient llmClient) {
         this.llmClient = llmClient;
     }
 

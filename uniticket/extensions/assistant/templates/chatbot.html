@@ -1,27 +1,84 @@
+{# Regione della chat gestita da Vue; il pannello HTMX del modulo rimane separato. #}
     <section id="chatbot-conversation-panel" class="chatbot-conversation" aria-labelledby="chatbot-title">
         <header class="chatbot-conversation-heading">
-            <div><h1 id="chatbot-title">Troviamo la richiesta giusta.</h1><p>Raccontaci cosa ti serve. La bozza resta a portata di mano.</p></div>
-            <form method="post" action="{% url 'assistant_workspace' %}">
+            <div><h1 id="chatbot-title">Troviamo la richiesta giusta.</h1><p>Demo API: risultati statici, senza classificatore.</p></div>
+            <form method="post" action="{% url 'assistant_workspace' %}" data-reset-chat>
                 {% csrf_token %}
                 <button class="chatbot-text-button" type="submit" name="_assistant_action" value="reset">Nuova conversazione</button>
             </form>
         </header>
+        {# Dati iniziali Django: JSON separato dai template compilati da Vue. #}
+        {{ chat_messages|json_script:"assistant-initial-messages" }}
         <div id="chatbot-messages" class="chatbot-messages" role="log" aria-label="Conversazione con l’assistente" aria-live="polite" aria-relevant="additions">
             <div class="chatbot-message">
                 <strong>Assistente</strong>
-                <p>Ciao! Come posso aiutarti? Descrivi cosa ti serve oppure scegli uno degli esempi qui sotto.</p>
+                <p>Ciao! Come posso aiutarti? Scrivi una richiesta oppure prova gli esempi qui sotto.</p>
             </div>
-            {% for text in chat_messages %}
-                <div class="chatbot-message chatbot-message-user"><strong>Tu</strong><p>{{ text }}</p></div>
-            {% endfor %}
         </div>
-        {% include "quick_replies.html" with replies=quick_replies %}
-        <form id="chatbot-search" class="chatbot-compose" method="post">
+        {# URL e selezione iniziale usati da search.js per collegare ricerca e caricamento del modulo. #}
+        <div id="chatbot-suggestions" data-workspace-url="{% url 'assistant_workspace' %}"
+             data-form-url="{% url 'assistant_ticket_form' %}"
+             data-selected-id="{{ selected_ticket_id|default_if_none:'' }}"
+             data-selected-title="{{ categoria.name|default:'' }}"></div>
+        <p id="chatbot-search-status" class="chatbot-status" role="status"></p>
+        <noscript>Attiva JavaScript per provare l’API di ricerca.</noscript>
+        {# search.js intercetta l’invio; data-chat-key separa la cronologia locale per utente. #}
+        <form id="chatbot-search" method="post" data-search-url="{% url 'assistant_search' %}" data-chat-key="uniticket-assistant-{{ request.user.pk }}">
             {% csrf_token %}
             <input type="hidden" name="_assistant_action" value="message">
-            <label class="visually-hidden" for="chatbot-query">Scrivi la tua richiesta</label>
-            <textarea id="chatbot-query" name="message" rows="2" maxlength="500" placeholder="Per esempio: vorrei un certificato di laurea…" required></textarea>
-            <button type="submit" class="chatbot-send" aria-label="Invia messaggio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m5 12 7-7 7 7M12 5v15"/></svg></button>
+            <div id="chatbot-composer" class="chatbot-compose"></div>
         </form>
-        <a class="chatbot-mobile-link" href="#chatbot-request-panel">Vai alla tua richiesta</a>
+        <a class="chatbot-mobile-link" data-form-link {% if not form %}hidden{% endif %} href="#chatbot-request-panel" data-show-panel="request">Vai alla tua richiesta</a>
     </section>
+
+{# Template Vue statici: v-text visualizza i contenuti ricevuti come testo, senza interpretarli come HTML. #}
+<template id="chatbot-messages-template">
+    <div class="chatbot-message">
+        <strong>Assistente</strong>
+        <p>Ciao! Come posso aiutarti? Scrivi una richiesta oppure prova gli esempi qui sotto.</p>
+    </div>
+    {# La selezione è un evento neutrale, distinto dai messaggi dell’utente e dell’assistente. #}
+    <div v-for="(message, index) in state.messages" :key="index"
+         :class="message.author === 'selection' ? 'chatbot-selection' :
+            ['chatbot-message', {'chatbot-message-user': message.author === 'Tu'}]">
+        <span v-if="message.author === 'selection'">Tipologia selezionata</span>
+        <strong v-else v-text="message.author"></strong>
+        <p v-text="message.text"></p>
+    </div>
+</template>
+
+{# v-model collega il testo allo stato Vue; busy impedisce invii durante la ricerca. #}
+<template id="chatbot-composer-template">
+    <label class="visually-hidden" for="chatbot-query">Scrivi la tua richiesta</label>
+    <textarea id="chatbot-query" name="message" rows="2" maxlength="500"
+              v-model="state.query" :readonly="state.busy"
+              placeholder="Per esempio: vorrei un certificato di laurea…" required></textarea>
+    <button type="submit" class="chatbot-send" aria-label="Invia messaggio" :disabled="state.busy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="m5 12 7-7 7 7M12 5v15"/>
+        </svg>
+    </button>
+</template>
+
+{# Risultati e quick replies provengono dalla risposta API; le azioni passano alle callback del coordinatore. #}
+<template id="chatbot-suggestions-template">
+    <div id="chatbot-results" :aria-busy="state.busy">
+        <a v-for="ticket in state.tickets" :key="ticket.id" class="chatbot-result"
+           :href="ticketUrl(ticket)" :data-ticket-id="ticket.id"
+           @click="selectTicket(ticket, $event)" v-text="ticket.title"></a>
+    </div>
+    <div id="chatbot-quick-replies" class="chatbot-quick-replies" role="group" aria-label="Risposte rapide">
+        {# Gli esempi compaiono solo prima della prima risposta, anche quando la ricerca successiva è vuota. #}
+        <template v-if="!state.hasResponse">
+            <button type="button" class="chatbot-quick-reply" :disabled="state.busy"
+                    @click="requestSearch('Cerca ticket')">Cerca ticket</button>
+            <button type="button" class="chatbot-quick-reply" :disabled="state.busy"
+                    @click="requestSearch('dipartimento')">Prova chiarimento</button>
+            <button type="button" class="chatbot-quick-reply" :disabled="state.busy"
+                    @click="requestSearch('nessun risultato')">Prova nessun risultato</button>
+        </template>
+        <button v-for="(reply, index) in state.quickReplies" :key="index" type="button"
+                class="chatbot-quick-reply" :disabled="state.busy"
+                @click="requestSearch(reply)" v-text="reply"></button>
+    </div>
+</template>

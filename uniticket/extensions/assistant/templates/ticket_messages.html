@@ -1,0 +1,5 @@
+{# Frammento condiviso: mostra i messaggi Django nel modulo con errori o nel pannello di conferma. #}
+{# Il markup del link precompilato proviene dalla view UniTicket; gli altri messaggi sono visualizzati come testo. #}
+{% for message in messages %}
+<p class="alert alert-{% if message.level_tag == 'error' %}danger{% else %}{{ message.level_tag }}{% endif %}" role="alert">{% if url_to_import and message.level_tag == 'success' %}{{ message|safe }}{% else %}{{ message|striptags }}{% endif %}</p>
+{% endfor %}

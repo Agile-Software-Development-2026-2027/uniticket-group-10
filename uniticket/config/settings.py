@@ -7,6 +7,11 @@ from django.utils.translation import gettext_lazy as _
 
 ROOT_URLCONF = "assistant.urls"
 
+# Output npm/Vite separato dai sorgenti montati in Docker.
+STATICFILES_DIRS = [
+    ("assistant_dist", os.environ.get("ASSISTANT_FRONTEND_DIST", "/frontend-dist")),
+]
+
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",

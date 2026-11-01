@@ -1,0 +1,13 @@
+{# Sostituisce il modulo dopo la creazione riuscita; data-completed segnala l’esito a form-panel.js. #}
+<aside id="chatbot-request-panel" class="chatbot-form-panel"
+       aria-labelledby="chatbot-form-title" data-completed="true"
+       data-workspace-url="{% url 'assistant_workspace' %}">
+    <header class="chatbot-panel-heading">
+        <h2 id="chatbot-form-title" tabindex="-1">Richiesta inviata</h2>
+    </header>
+    {# La view passa il ticket creato e il relativo URL; il pannello mostra l’esito senza ricaricare la chat. #}
+    {% include "ticket_messages.html" %}
+    <p role="status">La richiesta <strong>{{ created_ticket.subject }}</strong> è stata creata.</p>
+    <a href="{{ ticket_detail_url }}">Apri il dettaglio della richiesta</a>
+    <p>Puoi continuare la conversazione e scegliere una nuova tipologia.</p>
+</aside>

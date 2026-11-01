@@ -1,0 +1,42 @@
+{% extends "user/ticket_add_new.html" %}
+{% load uni_ticket_bootstrap_italia_tags %}
+{# Riutilizza il form originale UniTicket; base_template permette di renderizzare soltanto il pannello. #}
+
+{% block container %}
+{% settings_value "JS_DEFAULT_DATETIME_FORMAT" as datetime_format %}
+{% settings_value "LANGUAGE_CODE" as language_code %}
+{# Gli attributi data-* configurano invio e widget; data-bound mantiene la protezione dopo errori di validazione. #}
+<aside id="chatbot-request-panel" class="chatbot-form-panel"
+       aria-labelledby="chatbot-form-title" data-ticket-id="{{ categoria.pk }}" data-bound="{{ form.is_bound|yesno:'true,false' }}"
+       data-datetime-format="{{ datetime_format }}" data-language="{{ language_code }}"
+       data-submit-url="{% url 'assistant_workspace' %}?ticket_id={{ categoria.pk }}">
+    <header class="chatbot-panel-heading">
+        <h2 id="chatbot-form-title" tabindex="-1">La tua richiesta</h2>
+    </header>
+    <h3>{{ categoria.name }}</h3>
+    {# Nelle risposte HTMX i messaggi devono comparire nel pannello; nella pagina completa li gestisce il layout. #}
+    {% if fragment_response %}{% include "ticket_messages.html" %}{% endif %}
+    {{ form.non_field_errors }}
+    {# block.super conserva condizioni, campi e pulsanti definiti nei template originali. #}
+    {% block over_content %}{{ block.super }}{% endblock %}
+    {% block page_content %}{{ block.super }}{% endblock %}
+    <a class="chatbot-mobile-link" href="#chatbot-query" data-show-panel="chat">Torna alla conversazione</a>
+</aside>
+{% endblock %}
+
+{# form.media carica gli asset dei widget; form-panel.js inizializza i componenti del pannello aggiornato. #}
+{% block extra_scripts %}
+{{ form.media }}
+{% if url_to_import %}
+<script>
+// Supporto al pulsante di copia del link precompilato generato dalla view UniTicket.
+function copyToClipboard() {
+    const field = document.getElementById('encrypted_ticket_url');
+    field.select();
+    field.setSelectionRange(0, 99999);
+    document.execCommand('copy');
+    document.getElementById('clipboard_message').textContent = 'Copiato con successo!';
+}
+</script>
+{% endif %}
+{% endblock %}

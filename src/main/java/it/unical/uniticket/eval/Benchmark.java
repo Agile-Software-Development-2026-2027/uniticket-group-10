@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import it.unical.uniticket.access.FormAccess;
 import it.unical.uniticket.access.UserProfile;
 import it.unical.uniticket.api.dto.CategoryFormSchema;
 import it.unical.uniticket.app.RouterFactory;
@@ -67,8 +68,10 @@ public final class Benchmark {
         for (BenchmarkCase testCase : cases) {
             ObjectNode row = rows.addObject();
             row.put("id", testCase.id).put("type", testCase.type).put("query", testCase.query);
-            List<ScoredCategory> retrieved = engine.search(
-                    testCase.query, topK, testCase.profile, Collections.emptySet());
+            // Stessa ricerca da cui parte il router, così le metriche descrivono ciò che riceve il decisore.
+            List<ScoredCategory> retrieved = testCase.hasOpenTarget(engine)
+                    ? engine.searchOpen(testCase.query, topK, testCase.profile, Collections.emptySet())
+                    : engine.search(testCase.query, topK, testCase.profile, Collections.emptySet());
             row.set("retrieved", toSlugs(mapper, retrieved));
             int rank = testCase.rankIn(retrieved);
             row.put("rank", rank);
@@ -162,6 +165,12 @@ public final class Benchmark {
 
         boolean isOffTopic() {
             return expected.isEmpty();
+        }
+
+        boolean hasOpenTarget(UniTicketRagEngine engine) {
+            return expected.stream()
+                    .map(engine::findByCompositeSlug)
+                    .anyMatch(form -> form.isPresent() && FormAccess.of(form.get(), profile) == FormAccess.OPEN);
         }
 
         boolean isScored() {

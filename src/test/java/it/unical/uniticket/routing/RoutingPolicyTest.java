@@ -83,6 +83,29 @@ public class RoutingPolicyTest extends TestCase {
         assertEquals("ict__a", decision.clarifyOptions.get(1).schema.compositeSlug);
     }
 
+    public void testClearLeadOverOtherCandidatesIsSelected() {
+        List<ScoredCategory> candidates = Arrays.asList(
+                scored(0.70, open("ict", "A")), scored(0.60, open("ict", "B")));
+        RoutingDecision decision = policy.apply("x", candidates, pick(0), student(null));
+        assertEquals(RoutingDecision.SELECT, decision.action);
+    }
+
+    public void testNarrowLeadAsksInsteadOfSelecting() {
+        List<ScoredCategory> candidates = Arrays.asList(
+                scored(0.70, open("ict", "A")), scored(0.69, open("ict", "B")));
+        RoutingDecision decision = policy.apply("x", candidates, pick(0), student(null));
+        assertEquals(RoutingDecision.CLARIFY, decision.action);
+        assertEquals(2, decision.clarifyOptions.size());
+    }
+
+    public void testPickBehindAnotherCandidateAsksInsteadOfSelecting() {
+        List<ScoredCategory> candidates = Arrays.asList(
+                scored(0.70, open("ict", "A")), scored(0.60, open("ict", "B")));
+        RoutingDecision decision = policy.apply("x", candidates, pick(1), student(null));
+        assertEquals(RoutingDecision.CLARIFY, decision.action);
+        assertEquals("ict__b", decision.clarifyOptions.get(0).schema.compositeSlug);
+    }
+
     public void testCalibratedConfidenceReplacesTheSimilarityCheck() {
         List<ScoredCategory> candidates = Arrays.asList(
                 scored(0.1, open("ict", "A")), scored(0.1, open("ict", "B")));

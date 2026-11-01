@@ -79,8 +79,8 @@ chiuso e simile almeno quanto la scelta: in quel caso l'utente vede entrambi.
 Regole di `RoutingPolicy`:
 
 1. Il modello non è calibrato, quindi la selezione diretta richiede che la ricerca concordi:
-   nessuna alternativa, candidato tra i primi 3 e similarità ≥ 0.55. Altrimenti si mostrano
-   fino a 4 opzioni. Se un decisore fornisce una probabilità calibrata in
+   nessuna alternativa, candidato tra i primi 3, similarità ≥ 0.55 e distacco ≥ 0.02 dal miglior
+   altro candidato. Altrimenti si mostrano fino a 4 opzioni. Se un decisore fornisce una probabilità calibrata in
    `DeciderVerdict.confidence`, questa sostituisce il controllo; la soglia `SELECT_MIN_CONFIDENCE`
    è provvisoria e va tarata.
 2. "Nessun modulo" è rispettato, salvo quando il primo risultato ha similarità ≥ 0.60: in quel

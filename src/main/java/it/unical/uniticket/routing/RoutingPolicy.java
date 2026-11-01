@@ -27,6 +27,12 @@ public class RoutingPolicy {
     /** Oltre questa posizione la scelta del modello smentisce la ricerca. */
     static final int SELECT_MAX_RANK = 3;
     /**
+     * Distacco minimo di similarità dal miglior altro candidato: quando due pratiche sono quasi
+     * pari, il modello tende a sbagliare e la scelta spetta all'utente. Dipende dal modello di
+     * embedding, come {@link #SELECT_MIN_SIMILARITY}.
+     */
+    static final double SELECT_MIN_MARGIN = 0.02;
+    /**
      * Sopra questa soglia un "nessun modulo" del modello diventa una richiesta di conferma:
      * sui set di sviluppo le richieste davvero fuori tema restano tutte al di sotto.
      */
@@ -64,7 +70,17 @@ public class RoutingPolicy {
         if (!verdict.alternatives.isEmpty()) return false;
         if (verdict.confidence != null) return verdict.confidence >= SELECT_MIN_CONFIDENCE;
         return verdict.bestIndex < SELECT_MAX_RANK
-                && candidates.get(verdict.bestIndex).embeddingScore >= SELECT_MIN_SIMILARITY;
+                && candidates.get(verdict.bestIndex).embeddingScore >= SELECT_MIN_SIMILARITY
+                && marginOverOthers(candidates, verdict.bestIndex) >= SELECT_MIN_MARGIN;
+    }
+
+    /** Le varianti di una pratica occupano un solo candidato, quindi non competono tra loro. */
+    private double marginOverOthers(List<ScoredCategory> candidates, int picked) {
+        double bestOther = 0.0;
+        for (int i = 0; i < candidates.size(); i++) {
+            if (i != picked) bestOther = Math.max(bestOther, candidates.get(i).embeddingScore);
+        }
+        return candidates.get(picked).embeddingScore - bestOther;
     }
 
     /**

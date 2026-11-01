@@ -21,25 +21,34 @@ public class FormRouterTest extends TestCase {
     private static final String QUERY = "richiesta tesi";
 
     /**
-     * Query e documenti coincidono, quindi la similarità di ricerca è piena; i titoli sono
-     * ortogonali, tranne quelli uguali, così i raggruppamenti restano quelli attesi.
+     * La query coincide col documento del modulo favorito e ha similarità 0.9 con gli altri,
+     * così il favorito stacca nettamente gli altri candidati; i titoli sono ortogonali, tranne
+     * quelli uguali, così i raggruppamenti restano quelli attesi.
      */
-    private static final EmbeddingClient EMBEDDINGS = new EmbeddingClient() {
-        private static final int DIMENSIONS = 32;
+    private static EmbeddingClient embeddingsFavouring(String favouredTitle) {
+        return new EmbeddingClient() {
+            private static final int DIMENSIONS = 32;
 
-        @Override
-        public float[] embed(String text) {
-            boolean searchText = text.contains("|") || text.equals(QUERY);
-            float[] vector = new float[DIMENSIONS];
-            vector[searchText ? 0 : 1 + Math.floorMod(text.hashCode(), DIMENSIONS - 1)] = 1f;
-            return vector;
-        }
+            @Override
+            public float[] embed(String text) {
+                float[] vector = new float[DIMENSIONS];
+                if (text.equals(QUERY) || text.contains(favouredTitle + " |")) {
+                    vector[0] = 1f;
+                } else if (text.contains("|")) {
+                    vector[0] = 0.9f;
+                    vector[1] = 0.436f;
+                } else {
+                    vector[1 + Math.floorMod(text.hashCode(), DIMENSIONS - 1)] = 1f;
+                }
+                return vector;
+            }
 
-        @Override
-        public List<float[]> embedBatch(List<String> texts) {
-            return texts.stream().map(this::embed).collect(Collectors.toList());
-        }
-    };
+            @Override
+            public List<float[]> embedBatch(List<String> texts) {
+                return texts.stream().map(this::embed).collect(Collectors.toList());
+            }
+        };
+    }
 
     /** Sceglie il candidato con lo slug indicato e registra ciò che ha visto. */
     private static final class ScriptedDecider implements FormDecider {
@@ -91,14 +100,14 @@ public class FormRouterTest extends TestCase {
         mapper.writeValue(catalog, root);
     }
 
-    private RoutingDecision route(FormDecider decider, UserProfile profile) throws Exception {
-        UniTicketRagEngine engine = new UniTicketRagEngine(catalog, EMBEDDINGS, null, null);
-        return new FormRouter(engine, decider, 8).route(new ConversationState(profile, QUERY));
+    private RoutingDecision route(FormDecider decider, String favouredTitle) throws Exception {
+        UniTicketRagEngine engine = new UniTicketRagEngine(catalog, embeddingsFavouring(favouredTitle), null, null);
+        return new FormRouter(engine, decider, 8).route(new ConversationState(STUDENT, QUERY));
     }
 
     public void testReliableOpenFormNeverReachesClosedForms() throws Exception {
         ScriptedDecider decider = new ScriptedDecider("ict__aperto");
-        RoutingDecision decision = route(decider, STUDENT);
+        RoutingDecision decision = route(decider, "Tesi tesi tesi");
         assertEquals("ict__aperto", decision.selectedCompositeSlug);
         assertFalse(decision.searchedClosedForms);
         assertEquals(1, decider.seen.size());
@@ -107,7 +116,7 @@ public class FormRouterTest extends TestCase {
 
     public void testClosedFormIsFoundWhenNoOpenFormMatches() throws Exception {
         ScriptedDecider decider = new ScriptedDecider("ict__chiuso");
-        RoutingDecision decision = route(decider, STUDENT);
+        RoutingDecision decision = route(decider, "Cambio gruppo filtro");
         assertEquals("ict__chiuso", decision.selectedCompositeSlug);
         assertTrue(decision.isClosedForm());
         assertTrue(decision.searchedClosedForms);
@@ -116,7 +125,7 @@ public class FormRouterTest extends TestCase {
 
     public void testRetiredFormIsNeverAConsideredCandidate() throws Exception {
         ScriptedDecider decider = new ScriptedDecider("ict__archiviato");
-        RoutingDecision decision = route(decider, STUDENT);
+        RoutingDecision decision = route(decider, "X - Cambio gruppo vecchio");
         decider.seen.forEach(slugs -> assertFalse(slugs.contains("ict__archiviato")));
         assertTrue(decision.clarifyOptions.stream()
                 .noneMatch(option -> option.schema.compositeSlug.equals("ict__archiviato")));
@@ -124,7 +133,7 @@ public class FormRouterTest extends TestCase {
 
     public void testOwnClosedVariantWinsEvenWhenSearchingOpenForms() throws Exception {
         ScriptedDecider decider = new ScriptedDecider("dibest__tesi");
-        RoutingDecision decision = route(decider, STUDENT);
+        RoutingDecision decision = route(decider, "Assegnazione tesi");
         assertEquals("desf__tesi", decision.selectedCompositeSlug);
         assertTrue(decision.isClosedForm());
         assertFalse(decision.searchedClosedForms);

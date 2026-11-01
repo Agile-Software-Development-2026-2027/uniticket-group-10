@@ -111,6 +111,26 @@ Raising the selection threshold from 0.55 to 0.60 was tested and rejected: it lo
 
 The focus for now is the 241 open forms, because they are the only ones held completely. Closed-form requests are not being tuned further: on the first test, 8 of 14 are reached after clarifying.
 
+### After the margin rule
+
+A direct selection now also requires the chosen form's similarity to beat the best other candidate by at least 0.02. The figures below cover all four sets: 166 requests with at least one acceptable open form, including staff forms, so they are not comparable with the 131 above.
+
+| | Before | After |
+|---|---|---|
+| Right form on the first turn | 109 | 88 |
+| Right form after one clarification | 143 | **149** |
+| Wrong form picked, no warning | 13 | **3** |
+| Dead ends | 7 | 11 |
+| Clarifying questions | 41 | 72 |
+
+The rule trades first-turn answers for fewer silent mistakes. Most of the gain is on the frozen sets, where wrong picks went from 10 to 1, against 3 to 2 on development data. All four sets had already been used and 0.02 depends on `bge-m3`, so these figures are indicative and the threshold must be retuned with the official export.
+
+Three other changes were tested on the same requests and rejected:
+
+- Giving BM25 less weight in the fusion raised the right form in the top 8 from 157 to 162, but final results did not improve.
+- Showing field labels to the decider cut its right picks from 132 to 124.
+- Removing the repeated description and the rarely used `alternative` and `domanda` fields from the prompt cut them from 132 to 110. These two removals were tested together, so it is not known which one did the damage.
+
 ## Current Limitations
 
 - It is a dry run: it does not submit tickets or fill forms;

@@ -1,7 +1,7 @@
-import {createFormPanel} from './form-panel.js?v=assistant-submit-2';
-import {mountChatUI} from './chat/chat-ui.js?v=assistant-submit-2';
-import {searchTickets} from './chat/chat-api.js?v=assistant-submit-2';
-import {createChatHistory} from './chat/chat-history.js?v=assistant-submit-2';
+import {createFormPanel} from './form-panel.js';
+import {mountChatUI} from './chat/chat-ui.js';
+import {searchTickets} from './chat/chat-api.js';
+import {createChatHistory} from './chat/chat-history.js';
 
 // Coordinatore della chat: collega moduli indipendenti senza costruire il loro HTML.
 const form = document.getElementById('chatbot-search');
@@ -21,7 +21,6 @@ if (form) {
     });
     const formPanel = createFormPanel({
         fragmentUrl: suggestions.dataset.formUrl,
-        workspaceUrl: suggestions.dataset.workspaceUrl,
         // La selezione viene registrata soltanto dopo il caricamento riuscito del modulo.
         onSelected: ticket => {
             history.select(ticket.id, ticket.title);

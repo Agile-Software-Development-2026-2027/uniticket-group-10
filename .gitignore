@@ -1,0 +1,4 @@
+
+# Dipendenze npm e output frontend riproducibile.
+/uniticket/node_modules/
+/uniticket/frontend-dist/

@@ -43,3 +43,30 @@ Il mock richiede sessione e CSRF. I link usano ID della fixture locale;
 l’accesso ai moduli resta controllato da UniTicket. La conversazione e le selezioni sono conservate nella scheda del browser
 (sessionStorage), anche dopo refresh e apertura del modulo. “Nuova conversazione”
 le cancella; la chiusura della scheda termina la conservazione.
+
+## Dipendenze frontend: npm e Vite
+
+Vue e HTMX sono dichiarati in `package.json`; `package-lock.json` blocca le versioni.
+Non vengono conservate copie manuali in `static/vendor/`.
+
+L’avvio rimane `docker compose up --build`: uno stage Node esegue `npm ci` e
+`npm run build`, poi copia gli asset nel runtime Django. Node non serve sul computer
+per questo avvio e non viene eseguito nel container Django finale.
+
+Per verificare o sviluppare la build anche sul computer, dalla cartella `uniticket`,
+con Node.js >= 22.12:
+
+```bash
+npm ci
+npm test
+npm run build
+```
+
+Vite genera `frontend-dist/assistant.js` e `assistant.css`. Django li espone come
+`/static/assistant_dist/…`; i template Vue restano nell’HTML e la build include il compilatore.
+`node_modules/` e `frontend-dist/` sono esclusi da Git.
+
+Con la configurazione Docker attuale, dopo modifiche a JavaScript, CSS o dipendenze,
+eseguire nuovamente `docker compose up --build` e ricaricare il browser. Il solo
+`npm run build` sul computer non aggiorna gli asset già inclusi nell’immagine Docker.
+Python e template mantengono il mount di sviluppo esistente.

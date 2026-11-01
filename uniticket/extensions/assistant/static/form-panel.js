@@ -1,8 +1,9 @@
-import {confirmFormReplacement} from './form-confirmation.js?v=assistant-submit-2';
-import {createFormChanges} from './form-changes.js?v=assistant-submit-2';
+import htmx from 'htmx.org';
+import {confirmFormReplacement} from './form-confirmation.js';
+import {createFormChanges} from './form-changes.js';
 
 /** Incapsula caricamento e invio del pannello. Vue comunica tramite load() e onSelected. */
-export function createFormPanel({fragmentUrl, workspaceUrl, onSelected}) {
+export function createFormPanel({fragmentUrl, onSelected}) {
     const slot = document.getElementById('chatbot-form-slot');
     const status = document.getElementById('chatbot-form-status');
     // Stato privato: una selezione o un invio alla volta, con controllo delle modifiche correnti.
@@ -41,7 +42,7 @@ export function createFormPanel({fragmentUrl, workspaceUrl, onSelected}) {
             form.setAttribute('hx-sync', 'this:drop');
             form.setAttribute('hx-request', '{"timeout":15000}');
             // HTMX deve elaborare gli attributi aggiunti dopo l’inserimento del form.
-            window.htmx?.process(form);
+            htmx.process(form);
             // Conserva il comportamento UniTicket: Invio negli input non invia accidentalmente il form.
             for (const type of ['keyup', 'keypress']) form.addEventListener(type, event => {
                 if (event.target.matches('input') && event.key === 'Enter') event.preventDefault();
@@ -124,16 +125,15 @@ export function createFormPanel({fragmentUrl, workspaceUrl, onSelected}) {
                 status.textContent = 'Cambio modulo annullato.';
                 return;
             }
-            // Se HTMX non è disponibile, usa la pagina completa dopo la stessa conferma.
-            const url = new URL(window.htmx ? fragmentUrl : workspaceUrl, location.origin);
+            // La dipendenza npm è inclusa nel bundle; il normale form.action resta il fallback HTML.
+            const url = new URL(fragmentUrl, location.origin);
             url.searchParams.set('ticket_id', ticket.id);
-            if (!window.htmx) { location.assign(url.href); return; }
             status.textContent = 'Caricamento del modulo…';
             slot.setAttribute('aria-busy', 'true');
             slot.setAttribute('hx-request', '{"timeout":15000}');
             // Evita nuove modifiche fra la conferma e l’arrivo del modulo sostitutivo.
             slot.inert = true;
-            await window.htmx.ajax('GET', url.href, {source: slot, target: slot, swap: 'innerHTML'});
+            await htmx.ajax('GET', url.href, {source: slot, target: slot, swap: 'innerHTML'});
         } catch (_) {
             status.textContent = 'Caricamento non riuscito. Riprova.';
         } finally {
@@ -155,7 +155,7 @@ export function createFormPanel({fragmentUrl, workspaceUrl, onSelected}) {
         },
         // Interrompe una GET in corso quando viene azzerata la conversazione.
         cancel() {
-            if (pending) window.htmx?.trigger(slot, 'htmx:abort');
+            if (pending) htmx.trigger(slot, 'htmx:abort');
         }
     };
 }

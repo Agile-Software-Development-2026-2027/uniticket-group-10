@@ -12,7 +12,7 @@
 {% block extra_head %}
     {{ block.super }}
     <link rel="stylesheet"
-          href="{% static 'workspace.css' %}?v=split-scroll-2">
+          href="{% static 'assistant_dist/assistant.css' %}?v=npm-1">
 {% endblock %}
 
 
@@ -66,9 +66,7 @@
     </dialog>
 {% endblock %}
 
-{# Le librerie sono locali; i parametri di versione distinguono gli aggiornamenti degli script. #}
+{# Asset generati da Vite con le dipendenze npm; Django serve un solo bundle dell’assistente. #}
 {% block extra_scripts %}
-    <script src="{% static 'vendor/htmx-2.0.11.min.js' %}" defer></script>
-    <script src="{% static 'workspace.js' %}?v=split-scroll-2" defer></script>
-    <script type="module" src="{% static 'search.js' %}?v=assistant-submit-2"></script>
+    <script src="{% static 'assistant_dist/assistant.js' %}?v=npm-1" defer></script>
 {% endblock %}

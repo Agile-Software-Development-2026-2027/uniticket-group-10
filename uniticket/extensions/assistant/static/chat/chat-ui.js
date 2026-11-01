@@ -1,4 +1,4 @@
-import {createApp, nextTick, reactive} from '../vendor/vue-3.5.44.esm-browser.prod.js';
+import {createApp, nextTick, reactive} from 'vue';
 
 /** Gestisce lo stato e la vista della chat; il modulo Django resta fuori dalle regioni Vue. */
 export function mountChatUI({workspaceUrl, onQuickReply, onTicketSelect}) {

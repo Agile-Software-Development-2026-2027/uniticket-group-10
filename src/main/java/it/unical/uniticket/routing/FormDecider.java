@@ -11,4 +11,9 @@ import java.util.List;
  */
 public interface FormDecider {
     DeciderVerdict decide(String request, List<ScoredCategory> candidates, UserProfile profile);
+
+    /** Nome da mostrare a chi legge la traccia, con il modello se è noto. */
+    default String name() {
+        return getClass().getSimpleName();
+    }
 }

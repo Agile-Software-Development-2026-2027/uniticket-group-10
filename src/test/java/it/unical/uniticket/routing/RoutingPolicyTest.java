@@ -51,6 +51,77 @@ public class RoutingPolicyTest extends TestCase {
         assertFalse(decision.isClosedForm());
     }
 
+    public void testConfirmedSelectionBelongsToDecider() {
+        List<ScoredCategory> candidates = Collections.singletonList(practice(open("ict", "Wifi")));
+        RoutingDecision decision = policy.apply("il wifi", candidates, pick(0), student("dimes"));
+        assertEquals(RoutingDecision.DecidedBy.DECIDER, decision.decidedBy);
+        assertTrue(decision.rule, decision.rule.contains("confermata"));
+    }
+
+    public void testRulesOverruleDeciderOnEachSelectionCheck() {
+        List<ScoredCategory> weak = Collections.singletonList(scored(0.40, open("ict", "Wifi")));
+        assertOverruled(policy.apply("q", weak, pick(0), student("dimes")), "similarità 0.400");
+
+        List<ScoredCategory> tied = Arrays.asList(scored(0.80, open("ict", "Wifi")),
+                scored(0.79, open("ict", "Posta")));
+        assertOverruled(policy.apply("q", tied, pick(0), student("dimes")), "distacco 0.010");
+
+        List<ScoredCategory> deep = Arrays.asList(scored(0.5, open("ict", "A")), scored(0.5, open("ict", "B")),
+                scored(0.5, open("ict", "C")), scored(0.9, open("ict", "D")));
+        assertOverruled(policy.apply("q", deep, pick(3), student("dimes")), "posizione 4");
+
+        DeciderVerdict unsure = DeciderVerdict.match(0, Collections.emptyList(), 0.5, "", "");
+        assertOverruled(policy.apply("q", tied, unsure, student("dimes")), "confidenza 0.50");
+    }
+
+    private void assertOverruled(RoutingDecision decision, String reason) {
+        assertEquals(RoutingDecision.CLARIFY, decision.action);
+        assertEquals(RoutingDecision.DecidedBy.RULES, decision.decidedBy);
+        assertTrue(decision.rule, decision.rule.contains(reason));
+    }
+
+    public void testAlternativesLeaveTheQuestionToDecider() {
+        List<ScoredCategory> candidates = Arrays.asList(practice(open("ict", "Wifi")),
+                practice(open("ict", "Posta")));
+        RoutingDecision decision = policy.apply("q", candidates, pick(0, 1), student("dimes"));
+        assertEquals(RoutingDecision.CLARIFY, decision.action);
+        assertEquals(RoutingDecision.DecidedBy.DECIDER, decision.decidedBy);
+    }
+
+    public void testNoMatchAuthorDependsOnSimilarity() {
+        DeciderVerdict none = DeciderVerdict.noMatch("fuori tema");
+        RoutingDecision weak = policy.apply("q", Collections.singletonList(scored(0.5, open("ict", "Wifi"))),
+                none, student("dimes"));
+        assertEquals(RoutingDecision.DecidedBy.DECIDER, weak.decidedBy);
+        RoutingDecision strong = policy.apply("q", Collections.singletonList(scored(0.7, open("ict", "Wifi"))),
+                none, student("dimes"));
+        assertEquals(RoutingDecision.DecidedBy.RULES, strong.decidedBy);
+    }
+
+    public void testFailedDeciderLeavesTheDecisionToRules() {
+        RoutingDecision decision = policy.apply("q", Collections.singletonList(practice(open("ict", "Wifi"))),
+                DeciderVerdict.failed("timeout"), student("dimes"));
+        assertEquals(RoutingDecision.CLARIFY, decision.action);
+        assertEquals(RoutingDecision.DecidedBy.RULES, decision.decidedBy);
+    }
+
+    public void testUnresolvedStructureBelongsToRules() {
+        ScoredCategory practice = practice(open("dimes", "Tesi"), open("dibest", "Tesi"));
+        RoutingDecision decision = policy.apply("la tesi", Collections.singletonList(practice), pick(0),
+                UserProfile.unknown());
+        assertEquals(RoutingDecision.CLARIFY, decision.action);
+        assertEquals(RoutingDecision.DecidedBy.RULES, decision.decidedBy);
+        assertTrue(decision.rule, decision.rule.contains("più strutture"));
+    }
+
+    public void testStructureFromProfileIsExplained() {
+        ScoredCategory practice = practice(open("dimes", "Tesi"), open("dibest", "Tesi"));
+        RoutingDecision decision = policy.apply("la tesi", Collections.singletonList(practice), pick(0),
+                student("dimes"));
+        assertEquals(RoutingDecision.DecidedBy.DECIDER, decision.decidedBy);
+        assertTrue(decision.rule, decision.rule.contains("profilo"));
+    }
+
     public void testNoMatchIsRespectedWhenSearchIsWeak() {
         List<ScoredCategory> candidates = Collections.singletonList(scored(0.5, open("ict", "Wifi")));
         RoutingDecision decision = policy.apply("che tempo fa", candidates,

@@ -1,12 +1,15 @@
 package it.unical.uniticket.app;
 
 import it.unical.uniticket.llm.GeminiLlmClient;
-import it.unical.uniticket.llm.LlmClient;
+import it.unical.uniticket.llm.JevClient;
 import it.unical.uniticket.llm.OllamaEmbeddingClient;
 import it.unical.uniticket.llm.OllamaLlmClient;
 import it.unical.uniticket.rag.UniTicketRagEngine;
+import it.unical.uniticket.routing.FormDecider;
 import it.unical.uniticket.routing.FormRouter;
+import it.unical.uniticket.routing.JevFormDecider;
 import it.unical.uniticket.routing.LlmFormDecider;
+import it.unical.uniticket.routing.RoutingTrace;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,28 +37,33 @@ public final class RouterFactory {
     }
 
     public static FormRouter createRouter(UniTicketRagEngine engine, int topK) {
-        return new FormRouter(engine, new LlmFormDecider(createLlmClient()), topK);
+        return createRouter(engine, topK, RoutingTrace.SILENT);
     }
 
-    /** Il provider cambia solo il decisore: la ricerca resta su Ollama, così soglie e ranking non si muovono. */
-    private static LlmClient createLlmClient() {
+    public static FormRouter createRouter(UniTicketRagEngine engine, int topK, RoutingTrace trace) {
+        FormDecider decider = createDecider();
+        System.out.println("🧠 Modello decisore: " + decider.name());
+        return new FormRouter(engine, decider, topK, trace);
+    }
+
+    /** Il provider cambia solo il decisore: la ricerca resta su Ollama, così il ranking non si muove. */
+    private static FormDecider createDecider() {
+        if ("jev".equalsIgnoreCase(LLM_PROVIDER)) {
+            // Versione fissa: la soglia di confidenza vale per un modello, un alias può cambiarlo.
+            String model = setting("UNITICKET_LLM_MODEL", "jev-1.14.0");
+            return new JevFormDecider(new JevClient(System.getenv("TYPESAFE_API_KEY"), model));
+        }
         if ("gemini".equalsIgnoreCase(LLM_PROVIDER)) {
             String model = setting("UNITICKET_LLM_MODEL", "gemini-3.5-flash");
-            LlmClient client = new GeminiLlmClient(System.getenv("GEMINI_API_KEY"), model);
-            logDecider("Gemini", model);
-            return client;
+            return new LlmFormDecider(new GeminiLlmClient(System.getenv("GEMINI_API_KEY"), model),
+                    "Gemini (" + model + ")");
         }
         if ("ollama".equalsIgnoreCase(LLM_PROVIDER)) {
             String model = setting("UNITICKET_LLM_MODEL", "qwen2.5:3b");
-            LlmClient client = new OllamaLlmClient(OLLAMA_BASE_URL + "/api/chat", model);
-            logDecider("Ollama", model);
-            return client;
+            return new LlmFormDecider(new OllamaLlmClient(OLLAMA_BASE_URL + "/api/chat", model),
+                    "Ollama (" + model + ")");
         }
         throw new IllegalArgumentException("UNITICKET_LLM_PROVIDER sconosciuto: " + LLM_PROVIDER);
-    }
-
-    private static void logDecider(String provider, String model) {
-        System.out.println("🧠 Modello decisore: " + provider + " (" + model + ")");
     }
 
     private static String setting(String name, String fallback) {

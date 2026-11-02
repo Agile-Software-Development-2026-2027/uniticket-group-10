@@ -31,7 +31,8 @@ public class Main {
 
         System.out.println("⏳ Inizializzazione motore RAG (BM25 + embeddings)...");
         UniTicketRagEngine engine = RouterFactory.createEngine(catalogFile, new File("form_phrases.json"));
-        FormRouter router = RouterFactory.createRouter(engine, RouterFactory.DEFAULT_TOP_K);
+        FormRouter router = RouterFactory.createRouter(engine, RouterFactory.DEFAULT_TOP_K,
+                new ConsoleRoutingTrace(System.out, profile));
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("==================================================================");

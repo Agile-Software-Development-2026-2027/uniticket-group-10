@@ -61,6 +61,11 @@ unitari senza alcun modello. Sostituire il modello non tocca ricerca e regole: v
    - **Nessuna scelta affidabile:** decisore e regole lavorano di nuovo sui risultati del punto 3.
      Il nuovo esito sostituisce il primo, salvo quando è NONE.
 
+Ogni `RoutingDecision` registra in `decidedBy` chi ha determinato l'esito (decisore, regole o
+utente) e in `rule` il motivo. La scelta del decisore non basta a selezionare: se `RoutingPolicy`
+la ferma, l'esito è attribuito alle regole. `RoutingTrace` riceve ricerche, giudizi ed esito man
+mano che avvengono: la CLI li stampa con `ConsoleRoutingTrace`, il benchmark non li riceve.
+
 Ogni turno esegue quindi due ricerche e fino a due chiamate al decisore. La priorità ai moduli
 aperti vale per la selezione diretta: un CLARIFY del primo passaggio viene sostituito dal secondo,
 quindi le opzioni mostrate possono comprendere moduli chiusi.
@@ -139,9 +144,11 @@ chiuso e simile almeno quanto la scelta: in quel caso l'utente vede entrambi.
 |---|---|
 | `FormDecider` | Interfaccia: dato l'elenco dei candidati restituisce un `DeciderVerdict` |
 | `LlmFormDecider` | Implementazione con un modello generico; il prompt non cita lo stato dei moduli |
+| `JevFormDecider` | Implementazione con Jev, che restituisce probabilità invece di testo |
 | `RoutingPolicy` | Trasforma il giudizio in SELECT, CLARIFY o NONE |
 | `DepartmentMatcher` | Riconosce per parola intera le strutture nominate nel testo |
 | `FormRouter` | Coordina ricerca, decisore e regole sui turni della conversazione |
+| `RoutingTrace` | Osserva i passi di un turno; la CLI li stampa con `ConsoleRoutingTrace` |
 | `ConversationState` | Testo cumulativo, ultime opzioni, slug rifiutati |
 
 ### Decisore (`LlmFormDecider`)
@@ -161,6 +168,51 @@ scelta e `domanda` è il chiarimento proposto dal modello. Il prompt non chiede 
 quindi `DeciderVerdict.confidence` resta null.
 
 Il modello gira a temperatura 0 con seed fisso.
+
+### Decisore Jev (`JevFormDecider`)
+
+Jev non genera testo: risponde a domande tipizzate su uno stato. Per questo non passa da `LlmClient`,
+e `JevClient` si occupa solo del trasporto. Lo stato contiene richiesta e profilo. Ogni candidato ha
+lo stesso testo di `LlmFormDecider`, quindi tra i due decisori cambia solo il modello.
+
+Ogni chiamata contiene due tipi di domanda, valutati in parallelo:
+
+- una `choice` tra i candidati, che li confronta tra loro;
+- una `noul` per candidato, che giudica quel modulo da solo e ne dà la pertinenza.
+
+| Giudizio | Valore |
+|---|---|
+| `bestIndex` | L'opzione scelta dalla `choice` |
+| `confidence` | Il minimo tra la probabilità dell'opzione e la sua pertinenza |
+| `alternatives` | I candidati con almeno metà della probabilità della scelta, dal più probabile |
+| Nessun modulo | Nessun candidato arriva a pertinenza 0.30 |
+
+Servono entrambe le domande perché le probabilità di una `choice` sommano a 1 tra le opzioni offerte:
+dicono quale candidato è il migliore, non se ne va bene almeno uno. Con un solo candidato la `choice`
+vale sempre 1.
+
+Il campo `confidence` di Jev non viene letto. Vale `(pmax - 1/n) / (1 - 1/n)`: misura quanto la
+distribuzione è concentrata, non la probabilità che la scelta sia giusta, e cambia con il numero di
+candidati.
+
+`jevCriterionSummary` non viene usato: contiene la disponibilità del modulo, che il decisore non deve
+vedere, e una sola struttura anche quando la pratica ne ha diverse.
+
+Jev non produce spiegazioni né domande: `reasoning` riporta i numeri e il chiarimento usa la domanda
+predefinita. Poiché `confidence` è presente, `RoutingPolicy` non controlla posizione, similarità e
+distacco, quindi può selezionare anche un modulo trovato solo da BM25.
+
+Le domande sono in inglese, mentre richiesta e moduli restano in italiano. Punti da verificare, perché
+nessuno è stato misurato su questo catalogo:
+
+- **Lingua.** TypeSafe dichiara che l'inglese è la lingua più accurata e non pubblica dati sulle altre.
+  Non dice nemmeno se convenga scrivere le domande in inglese quando il contenuto non lo è.
+- **Soglie.** `SELECT_MIN_CONFIDENCE`, la pertinenza minima e il rapporto per le alternative sono punti
+  di partenza. `Benchmark --out` registra `confidence` per riga: le soglie vanno scelte confrontandola
+  con gli esiti. La calibrazione promessa da TypeSafe riguarda gruppi di previsioni e non è verificata
+  su questi dati.
+- **Ordine delle opzioni.** Per `jev-1.13` TypeSafe segnala una preferenza per la prima opzione, e qui i
+  candidati arrivano in ordine di ricerca. Per `jev-1.14.0` non ci sono indicazioni.
 
 ### Regole (`RoutingPolicy`)
 
@@ -195,6 +247,8 @@ indicizzate: vanno riviste se questi cambiano.
 | Distacco minimo per la selezione | 0.02 | `RoutingPolicy` |
 | Conferma di un "nessun modulo" | 0.60 | `RoutingPolicy` |
 | Confidenza minima, provvisoria | 0.70 | `RoutingPolicy` |
+| Pertinenza minima con Jev, provvisoria | 0.30 | `JevFormDecider` |
+| Rapporto per le alternative con Jev, provvisorio | 0.5 | `JevFormDecider` |
 | Opzioni mostrate, normali e di ripiego | 4 e 3 | `RoutingPolicy` |
 | Turni della conversazione | 3 | `Main` |
 
@@ -206,6 +260,8 @@ indicizzate: vanno riviste se questi cambiano.
 | Risposta del modello assente o non valida | Il giudizio risulta fallito e si propongono i primi 3 risultati. Il turno passa dal secondo passaggio, quindi le opzioni possono comprendere moduli chiusi |
 | `match` fuori dall'elenco | Vale come "nessun modulo" |
 | Alternative non valide | Vengono ignorate |
+| Con Jev, risposta incompleta, opzione non offerta o probabilità non valida | Il giudizio risulta fallito, non "nessun modulo" |
+| Con Jev, chiave errata | L'avvio riesce, ma ogni turno propone i risultati della ricerca. Il motivo è in `reasoning` |
 
 ## Dati
 
@@ -236,25 +292,34 @@ senza avviso, vicolo cieco, fuori tema respinti.
 ## Integrare un altro modello
 
 Il modello che fa da decisore si sceglie con le variabili d'ambiente. La ricerca resta su Ollama,
-così ranking e soglie non cambiano.
+così il ranking non cambia. Con Gemini restano uguali anche le soglie; con Jev la selezione dipende
+da `SELECT_MIN_CONFIDENCE`.
 
 | Variabile | Valore predefinito |
 |---|---|
-| `UNITICKET_LLM_PROVIDER` | `ollama`; l'alternativa è `gemini` |
-| `UNITICKET_LLM_MODEL` | `qwen2.5:3b`; con Gemini `gemini-3.5-flash` |
+| `UNITICKET_LLM_PROVIDER` | `ollama`; le alternative sono `gemini` e `jev` |
+| `UNITICKET_LLM_MODEL` | `qwen2.5:3b`; con Gemini `gemini-3.5-flash`, con Jev `jev-1.14.0` |
 | `UNITICKET_EMBEDDING_MODEL` | `bge-m3` |
 | `UNITICKET_OLLAMA_URL` | `http://localhost:11434` |
 | `GEMINI_API_KEY` | Nessuno, obbligatoria con Gemini |
+| `TYPESAFE_API_KEY` | Nessuno, obbligatoria con Jev |
 
 Con Gemini le richieste escono dalla macchina: con utenti reali nello Spazio economico europeo i
 termini di Google ammettono solo il piano a pagamento. Il README non riporta ancora risultati
 misurati con questo provider.
 
+Anche con Jev le richieste escono dalla macchina. TypeSafe ospita il servizio negli Stati Uniti e
+dichiara di non addestrare i modelli sugli input. Il suo DPA adotta le clausole contrattuali standard
+dell'UE, ma non fissa un periodo di conservazione; la conservazione zero è riservata ai clienti
+enterprise. `JevClient` è stato provato solo contro un server simulato: del servizio vero sono
+verificate la connessione e le risposte di errore, non ancora una risposta riuscita. Il modello ha
+una versione fissa perché un alias come `jev-latest` può cambiare e invalidare le soglie.
+
 Un altro modello testuale che risponde in JSON richiede una classe che implementi `LlmClient` e un
 collegamento in `RouterFactory`: prompt e interpretazione della risposta restano in
 `LlmFormDecider`.
 
-Per JEV o un altro servizio con un'interfaccia diversa serve invece una classe che implementi
+Un servizio con un'interfaccia diversa, come Jev, richiede invece una classe che implementi
 `FormDecider` e un collegamento in `RouterFactory`. Un servizio che restituisce una probabilità per
 candidato va tradotto così: `bestIndex` il candidato più probabile, `confidence` la sua
 probabilità, `alternatives` i candidati non distinguibili.

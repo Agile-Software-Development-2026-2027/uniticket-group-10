@@ -46,10 +46,17 @@ public class LlmFormDecider implements FormDecider {
             + "\"alternative\":[],\"domanda\":\"\"}";
 
     private final LlmClient llmClient;
+    private final String name;
     private final ObjectMapper mapper = new ObjectMapper();
 
-    public LlmFormDecider(LlmClient llmClient) {
+    public LlmFormDecider(LlmClient llmClient, String name) {
         this.llmClient = llmClient;
+        this.name = name;
+    }
+
+    @Override
+    public String name() {
+        return name;
     }
 
     @Override
@@ -95,14 +102,14 @@ public class LlmFormDecider implements FormDecider {
         return prompt.toString();
     }
 
-    private String describeProfile(UserProfile profile) {
+    static String describeProfile(UserProfile profile) {
         String role = profile.role == UserProfile.Role.STAFF ? "personale universitario"
                 : profile.role == UserProfile.Role.STUDENT ? "studente" : "";
         if (!profile.hasDepartment()) return role;
         return (role.isEmpty() ? "" : role + ", ") + "struttura " + profile.departmentSlug;
     }
 
-    private String describe(ScoredCategory candidate) {
+    static String describe(ScoredCategory candidate) {
         CategoryFormSchema schema = candidate.schema;
         StringBuilder text = new StringBuilder(schema.categoryTitle);
         if (candidate.groupVariants.size() > 1) {
@@ -121,7 +128,7 @@ public class LlmFormDecider implements FormDecider {
         return text.toString();
     }
 
-    private void appendField(StringBuilder text, String label, String value) {
+    private static void appendField(StringBuilder text, String label, String value) {
         if (value == null || value.trim().isEmpty()) return;
         String trimmed = value.trim();
         if (trimmed.length() > MAX_FIELD_LENGTH) {

@@ -14,7 +14,13 @@ public class RoutingDecision {
     public static final String CLARIFY = "CLARIFY";
     public static final String NONE = "NONE";
 
+    /** Chi ha determinato l'esito. */
+    public enum DecidedBy { DECIDER, RULES, USER }
+
     public String action;
+    public DecidedBy decidedBy = DecidedBy.RULES;
+    /** Spiegazione dell'esito, in italiano. A differenza di reasoning non viene dal modello. */
+    public String rule = "";
     public String selectedCompositeSlug = NONE;
     /** Probabilità calibrata del decisore; null se non disponibile. */
     public Double confidence;

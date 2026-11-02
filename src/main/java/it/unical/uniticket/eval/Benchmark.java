@@ -89,6 +89,7 @@ public final class Benchmark {
                 row.put("closed", first.isClosedForm());
                 row.put("searchedClosedForms", first.searchedClosedForms);
                 row.put("reasoning", first.reasoning);
+                row.put("confidence", first.confidence);
                 row.set("options", toSlugs(mapper, first.clarifyOptions));
                 outcome = BenchmarkOutcome.of(testCase, first, rank, router, state);
                 row.put("outcome", outcome.label);

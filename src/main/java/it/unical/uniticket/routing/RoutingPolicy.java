@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 /**
@@ -46,32 +47,83 @@ public class RoutingPolicy {
         RoutingDecision decision;
         if (candidates.isEmpty()) {
             decision = none("Nessun modulo compatibile nel catalogo.");
+            decision.rule = "La ricerca non ha trovato candidati: il decisore non è stato interpellato.";
         } else if (verdict.failed) {
             decision = clarify(candidates.subList(0, Math.min(FALLBACK_OPTIONS, candidates.size())),
                     DEFAULT_QUESTION, verdict.reasoning);
+            decision.rule = "Il decisore non ha dato una risposta utilizzabile: si propongono i primi "
+                    + "risultati della ricerca.";
         } else if (verdict.bestIndex == DeciderVerdict.NO_MATCH) {
-            decision = candidates.get(0).embeddingScore >= NONE_REVIEW_SIMILARITY
-                    ? clarify(candidates.subList(0, Math.min(FALLBACK_OPTIONS, candidates.size())),
-                            DEFAULT_QUESTION, verdict.reasoning)
-                    : none(verdict.reasoning);
-        } else if (canSelect(candidates, verdict)) {
-            decision = resolvePractice(query, candidates.get(verdict.bestIndex), profile);
-            decision.reasoning = verdict.reasoning;
-            decision.settled = true;
+            decision = applyNoMatch(candidates, verdict);
         } else {
-            decision = clarifyBetweenPractices(candidates, verdict);
+            String obstacle = selectionObstacle(candidates, verdict);
+            if (obstacle.isEmpty()) {
+                decision = resolvePractice(query, candidates.get(verdict.bestIndex), profile);
+                decision.reasoning = verdict.reasoning;
+                decision.settled = true;
+                if (RoutingDecision.SELECT.equals(decision.action)) {
+                    decision.decidedBy = RoutingDecision.DecidedBy.DECIDER;
+                }
+                decision.rule = ("Scelta del decisore confermata dalle regole. " + decision.rule).trim();
+            } else {
+                decision = clarifyBetweenPractices(candidates, verdict);
+                decision.rule = obstacle;
+                if (!verdict.alternatives.isEmpty()) {
+                    decision.decidedBy = RoutingDecision.DecidedBy.DECIDER;
+                }
+            }
         }
         decision.confidence = verdict.confidence;
         decision.ragCandidates = new ArrayList<>(candidates);
         return decision;
     }
 
-    private boolean canSelect(List<ScoredCategory> candidates, DeciderVerdict verdict) {
-        if (!verdict.alternatives.isEmpty()) return false;
-        if (verdict.confidence != null) return verdict.confidence >= SELECT_MIN_CONFIDENCE;
-        return verdict.bestIndex < SELECT_MAX_RANK
-                && candidates.get(verdict.bestIndex).embeddingScore >= SELECT_MIN_SIMILARITY
-                && marginOverOthers(candidates, verdict.bestIndex) >= SELECT_MIN_MARGIN;
+    private RoutingDecision applyNoMatch(List<ScoredCategory> candidates, DeciderVerdict verdict) {
+        double similarity = candidates.get(0).embeddingScore;
+        if (similarity >= NONE_REVIEW_SIMILARITY) {
+            RoutingDecision decision = clarify(
+                    candidates.subList(0, Math.min(FALLBACK_OPTIONS, candidates.size())),
+                    DEFAULT_QUESTION, verdict.reasoning);
+            decision.rule = format("Il decisore non trova moduli pertinenti, ma la similarità %.3f "
+                    + "raggiunge la soglia %.2f: si chiede conferma.", similarity, NONE_REVIEW_SIMILARITY);
+            return decision;
+        }
+        RoutingDecision decision = none(verdict.reasoning);
+        decision.decidedBy = RoutingDecision.DecidedBy.DECIDER;
+        decision.rule = format("Nessun modulo pertinente secondo il decisore; la similarità %.3f "
+                + "resta sotto la soglia %.2f.", similarity, NONE_REVIEW_SIMILARITY);
+        return decision;
+    }
+
+    /** Spiega perché la scelta del decisore non basta a selezionare; vuoto se basta. */
+    private String selectionObstacle(List<ScoredCategory> candidates, DeciderVerdict verdict) {
+        if (!verdict.alternatives.isEmpty()) {
+            return "Il decisore non distingue il modulo scelto dalle alternative.";
+        }
+        if (verdict.confidence != null) {
+            return verdict.confidence >= SELECT_MIN_CONFIDENCE ? ""
+                    : format("La confidenza %.2f resta sotto la soglia %.2f.",
+                            verdict.confidence, SELECT_MIN_CONFIDENCE);
+        }
+        if (verdict.bestIndex >= SELECT_MAX_RANK) {
+            return format("Il modulo scelto è alla posizione %d, oltre la %d: smentisce la ricerca.",
+                    verdict.bestIndex + 1, SELECT_MAX_RANK);
+        }
+        double similarity = candidates.get(verdict.bestIndex).embeddingScore;
+        if (similarity < SELECT_MIN_SIMILARITY) {
+            return format("La similarità %.3f del modulo scelto resta sotto la soglia %.2f.",
+                    similarity, SELECT_MIN_SIMILARITY);
+        }
+        double margin = marginOverOthers(candidates, verdict.bestIndex);
+        if (margin < SELECT_MIN_MARGIN) {
+            return format("Il distacco %.3f dal miglior altro candidato resta sotto la soglia %.2f.",
+                    margin, SELECT_MIN_MARGIN);
+        }
+        return "";
+    }
+
+    private static String format(String template, Object... values) {
+        return String.format(Locale.ROOT, template, values);
     }
 
     /** Le varianti di una pratica occupano un solo candidato, quindi non competono tra loro. */
@@ -105,6 +157,8 @@ public class RoutingPolicy {
                 && top.embeddingScore >= pick.embeddingScore;
         if (!challenged) return decision;
         RoutingDecision review = clarify(Arrays.asList(pick, top), DEFAULT_QUESTION, decision.reasoning);
+        review.rule = format("La scelta del decisore è stata fermata: il modulo chiuso \"%s\" ha similarità "
+                + "%.3f, almeno pari a %.3f.", top.schema.categoryTitle, top.embeddingScore, pick.embeddingScore);
         review.confidence = decision.confidence;
         review.ragCandidates = decision.ragCandidates;
         return review;
@@ -120,7 +174,11 @@ public class RoutingPolicy {
         if (variants.size() == 1) return select(variants.get(0), practice, profile);
 
         List<CategoryFormSchema> named = DepartmentMatcher.named(query, variants);
-        if (named.size() == 1) return select(named.get(0), practice, profile);
+        if (named.size() == 1) {
+            RoutingDecision decision = select(named.get(0), practice, profile);
+            decision.rule = "Struttura nominata nella richiesta.";
+            return decision;
+        }
 
         List<CategoryFormSchema> own = variants.stream()
                 .filter(variant -> profile.belongsTo(variant.structureSlug))
@@ -129,6 +187,7 @@ public class RoutingPolicy {
             CategoryFormSchema chosen = preferOpen(own, profile);
             RoutingDecision decision = select(chosen, practice, profile);
             decision.departmentFromProfile = true;
+            decision.rule = "Struttura presa dal profilo dell'utente.";
             decision.otherDepartmentVariants = variants.stream()
                     .filter(variant -> !own.contains(variant))
                     .filter(variant -> FormAccess.of(variant, profile) == FormAccess.OPEN)
@@ -136,9 +195,11 @@ public class RoutingPolicy {
             return decision;
         }
         List<CategoryFormSchema> choices = named.isEmpty() ? variants : named;
-        return clarify(asOptions(choices, practice, profile),
+        RoutingDecision decision = clarify(asOptions(choices, practice, profile),
                 "A quale dipartimento o struttura si riferisce la tua richiesta?",
                 "La pratica esiste in più strutture e il testo non indica quale.");
+        decision.rule = "La pratica esiste in più strutture e il testo non indica quale.";
+        return decision;
     }
 
     private RoutingDecision clarifyBetweenPractices(List<ScoredCategory> candidates,

@@ -11,6 +11,7 @@ import junit.framework.TestCase;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -121,6 +122,62 @@ public class FormRouterTest extends TestCase {
         assertTrue(decision.isClosedForm());
         assertTrue(decision.searchedClosedForms);
         assertEquals(2, decider.seen.size());
+    }
+
+    /** Registra i passi in ordine, con i candidati che accompagnano ciascuno. */
+    private static final class RecordingTrace implements RoutingTrace {
+        private final List<String> steps = new ArrayList<>();
+        private List<ScoredCategory> judgedCandidates = new ArrayList<>();
+        private List<ScoredCategory> lastSearch = new ArrayList<>();
+
+        @Override
+        public void searched(List<ScoredCategory> candidates, boolean closedFormsIncluded) {
+            steps.add(closedFormsIncluded ? "ricerca-completa" : "ricerca-aperti");
+            lastSearch = candidates;
+        }
+
+        @Override
+        public void judged(String deciderName, List<ScoredCategory> candidates, DeciderVerdict verdict) {
+            steps.add("giudizio:" + deciderName);
+            judgedCandidates = candidates;
+        }
+
+        @Override
+        public void decided(RoutingDecision decision, String deciderName) {
+            steps.add("decisione:" + decision.decidedBy);
+        }
+    }
+
+    private FormRouter tracedRouter(FormDecider decider, String favouredTitle, RoutingTrace trace) throws Exception {
+        return new FormRouter(new UniTicketRagEngine(catalog, embeddingsFavouring(favouredTitle), null, null),
+                decider, 8, trace);
+    }
+
+    public void testTraceShowsSearchBeforeJudgement() throws Exception {
+        RecordingTrace trace = new RecordingTrace();
+        tracedRouter(new ScriptedDecider("ict__aperto"), "Tesi tesi tesi", trace)
+                .route(new ConversationState(STUDENT, QUERY));
+        assertEquals(Arrays.asList("ricerca-aperti", "giudizio:ScriptedDecider", "ricerca-completa",
+                "decisione:DECIDER"), trace.steps);
+    }
+
+    public void testTraceRepeatsStepsWhenSearchIsWidened() throws Exception {
+        RecordingTrace trace = new RecordingTrace();
+        tracedRouter(new ScriptedDecider("ict__chiuso"), "Cambio gruppo filtro", trace)
+                .route(new ConversationState(STUDENT, QUERY));
+        assertEquals(Arrays.asList("ricerca-aperti", "giudizio:ScriptedDecider", "ricerca-completa",
+                "giudizio:ScriptedDecider", "decisione:DECIDER"), trace.steps);
+        assertSame(trace.lastSearch, trace.judgedCandidates);
+    }
+
+    public void testUserPickIsAttributedToUser() throws Exception {
+        RecordingTrace trace = new RecordingTrace();
+        ConversationState state = new ConversationState(STUDENT, QUERY);
+        FormRouter router = tracedRouter(new ScriptedDecider("ict__aperto"), "Tesi tesi tesi", trace);
+        ScoredCategory option = router.route(state).ragCandidates.get(0);
+        RoutingDecision decision = router.pick(option, state);
+        assertEquals(RoutingDecision.DecidedBy.USER, decision.decidedBy);
+        assertEquals("decisione:USER", trace.steps.get(trace.steps.size() - 1));
     }
 
     public void testRetiredFormIsNeverAConsideredCandidate() throws Exception {

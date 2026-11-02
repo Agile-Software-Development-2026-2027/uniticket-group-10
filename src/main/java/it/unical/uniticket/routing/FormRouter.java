@@ -22,11 +22,17 @@ public class FormRouter {
     private final FormDecider decider;
     private final RoutingPolicy policy = new RoutingPolicy();
     private final int topK;
+    private final RoutingTrace trace;
 
     public FormRouter(UniTicketRagEngine ragEngine, FormDecider decider, int topK) {
+        this(ragEngine, decider, topK, RoutingTrace.SILENT);
+    }
+
+    public FormRouter(UniTicketRagEngine ragEngine, FormDecider decider, int topK, RoutingTrace trace) {
         this.ragEngine = ragEngine;
         this.decider = decider;
         this.topK = topK;
+        this.trace = trace;
     }
 
     /** Primo turno della conversazione. */
@@ -51,15 +57,22 @@ public class FormRouter {
     public RoutingDecision pick(ScoredCategory option, ConversationState state) {
         RoutingDecision decision = policy.resolvePractice(
                 state.cumulativeQuery(), option, state.profile);
+        if (RoutingDecision.SELECT.equals(decision.action)) {
+            decision.decidedBy = RoutingDecision.DecidedBy.USER;
+            decision.rule = ("Indicato dall'utente tra le opzioni proposte. " + decision.rule).trim();
+        }
         state.remember(decision);
+        trace.decided(decision, decider.name());
         return decision;
     }
 
     private RoutingDecision decide(String query, ConversationState state) {
         Set<String> rejected = Collections.unmodifiableSet(state.rejectedSlugs);
-        RoutingDecision decision = decideAmong(query,
-                ragEngine.searchOpen(query, topK, state.profile, rejected), state.profile);
+        List<ScoredCategory> openForms = ragEngine.searchOpen(query, topK, state.profile, rejected);
+        trace.searched(openForms, false);
+        RoutingDecision decision = decideAmong(query, openForms, state.profile);
         List<ScoredCategory> allForms = ragEngine.search(query, topK, state.profile, rejected);
+        trace.searched(allForms, true);
         if (decision.settled) {
             decision = policy.reviewAgainstClosedForms(decision, allForms, state.profile);
         } else {
@@ -68,13 +81,17 @@ public class FormRouter {
             decision.searchedClosedForms = true;
         }
         state.remember(decision);
+        trace.decided(decision, decider.name());
         return decision;
     }
 
     private RoutingDecision decideAmong(String query, List<ScoredCategory> candidates, UserProfile profile) {
-        DeciderVerdict verdict = candidates.isEmpty()
-                ? DeciderVerdict.noMatch("Nessun modulo compatibile nel catalogo.")
-                : decider.decide(query, candidates, profile);
+        if (candidates.isEmpty()) {
+            return policy.apply(query, candidates,
+                    DeciderVerdict.noMatch("Nessun modulo compatibile nel catalogo."), profile);
+        }
+        DeciderVerdict verdict = decider.decide(query, candidates, profile);
+        trace.judged(decider.name(), candidates, verdict);
         return policy.apply(query, candidates, verdict, profile);
     }
 }

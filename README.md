@@ -58,6 +58,19 @@ export GEMINI_API_KEY=<your key>
 
 `UNITICKET_LLM_MODEL` then defaults to `gemini-3.5-flash`. With Gemini, requests leave the machine: for real users in the European Economic Area, Google's terms only allow the paid plan.
 
+### Using Jev as the decider
+
+[Jev](https://docs.typesafe.ai) is TypeSafe's hosted decision model: it returns probabilities instead of generated text. Search stays on Ollama, so `bge-m3` is still required and ranking does not change.
+
+```bash
+export UNITICKET_LLM_PROVIDER=jev
+export TYPESAFE_API_KEY=<your key>
+```
+
+`UNITICKET_LLM_MODEL` then defaults to `jev-1.14.0`. Selection depends on the provisional `SELECT_MIN_CONFIDENCE` threshold instead of the similarity checks. Requests leave the machine and are processed in the United States. TypeSafe documents lower accuracy outside English, so results on Italian requests must be measured before relying on it. With a wrong key the app still starts, but every turn falls back to the search results; the reason is in `reasoning`, which `Benchmark --out` writes for each case.
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) for how its answers are turned into a decision.
+
 ## Running
 
 ```bash
@@ -67,6 +80,8 @@ java -cp "target/classes:<dependencies>" it.unical.uniticket.app.Main --role stu
 ```
 
 `--role` is `student` or `staff`, and `--department` is a structure slug. Both simulate the login.
+
+Each turn prints the top-k of every search, the decider's verdict, and the final decision with who made it: the decider, the deterministic rules, or the user.
 
 ## Evaluation
 
@@ -152,6 +167,7 @@ Three other changes were tested on the same requests and rejected:
 - It is a dry run: it does not submit tickets or fill forms;
 - No real user requests have been measured yet;
 - Gemini can be selected, but no results have been measured with it yet;
+- Jev can be selected, but it has only run against a simulated service: no successful call to the real one has been made, and its thresholds are untuned;
 - Staff and closed forms are matched by title and description only, because the scrape has no fields for them. The official export should replace this, and thresholds must be retuned afterwards;
 - Availability comes from one scrape (2026-10-29) and must be refreshed;
 - Selection thresholds are tuned for `bge-m3` and the current phrases;

@@ -30,8 +30,8 @@ services:
     working_dir: /app/uniticket
 
     environment:
-      PYTHONPATH: /app/uniticket
-      DJANGO_SETTINGS_MODULE: extensions.settings # Hook into django initialization
+      PYTHONPATH: /app/uniticket:/extensions
+      DJANGO_SETTINGS_MODULE: settings # Hook into django initialization
 
     command: >
       sh -c "

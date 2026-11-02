@@ -17,12 +17,11 @@ Open a terminal in the project root and run:
 
 The first command builds the image. The third installs the Git hooks for this
 local repository. On every commit, the pre-commit hook runs the three tests in
-the `chatbot_tests` package, even if the commit only changes the README. It
-starts a temporary container using the existing image. The tests are in
-`uniticket/extensions/chatbot_tests`; Compose mounts this directory at
-`/extensions`, which is included in `PYTHONPATH`, so test changes are visible
-without rebuilding the image. Django runs only this package, so upstream tests
-are not included. The container is removed when the tests finish.
+`uniticket/extensions/tests`, even if the commit only changes the README. It
+starts a temporary container using the existing image. Compose mounts this
+directory over the upstream `tests` directory, so Django discovers only these
+tests even though the package name overlaps. The container is removed when the
+tests finish.
 
 The commit-msg hook also checks that the commit message follows the required
 format. Rebuild the image with the `build` command if the Dockerfile or

@@ -23,6 +23,7 @@ services:
 
     volumes:
       - ./extensions:/extensions:ro
+      - ./extensions/tests:/app/uniticket/tests:ro
       - ./config/settings.py:/app/uni_ticket_project/settings.py:ro
       - ./dumps:/dumps:ro
       - uniticket-data:/data

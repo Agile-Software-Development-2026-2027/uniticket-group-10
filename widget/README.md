@@ -15,7 +15,7 @@ Probabilmente sarà necessario riscrivere da zero la gestione degli eventi, in m
   <img src="../_images/widget/segnaletica.png" alt="Segnaletica" width="800">
   <img src="../_images/widget/schema-cromatismi.png" alt="Segnaletica" width="800">
 </p>
-<div style="display: flex; justify-content: center; align-items: flex-start; gap: 12px;">
+<div style="display: flex; align: center; justify-content: center; align-items: flex-start; gap: 12px;">
   <img src="../_images/widget/1.png" alt="Chatbot UI 1" width="220">
   <img src="../_images/widget/2.png" alt="Chatbot UI 2" width="220">
   <img src="../_images/widget/3.png" alt="Chatbot UI 3" width="220">

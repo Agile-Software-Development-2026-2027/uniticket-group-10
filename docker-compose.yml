@@ -19,10 +19,11 @@ services:
     environment:
       PYTHONPATH: /:/app/uniticket:/extensions # Add root aswell for settings file lookup
       DJANGO_SETTINGS_MODULE: extensions.settings # Hook into django initialization
-      ASSISTANT_AGENT_URL: http://agent:8001/conversation
+      # Il classificatore risponde al widget. Per tornare all'agente Python: http://agent:8001/conversation
+      ASSISTANT_AGENT_URL: http://classifier:8001/conversation
 
     depends_on:
-      agent:
+      classifier:
         condition: service_healthy
 
     ports:
@@ -56,6 +57,25 @@ services:
       timeout: 3s
       retries: 10
       start_period: 10s
+
+  classifier:
+    build:
+      context: classifier
+    expose:
+      - "8001"
+    environment:
+      # Dal file .env nella root (non tracciato). Senza chiave risponde con i soli risultati della ricerca.
+      TYPESAFE_API_KEY: ${TYPESAFE_API_KEY:-}
+      # Ollama gira sull'host, con bge-m3. Se non risponde, il classificatore usa solo BM25.
+      OLLAMA_URL: ${OLLAMA_URL:-http://host.docker.internal:11434}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/8001 && printf 'GET /health HTTP/1.0\\r\\n\\r\\n' >&3 && grep -q ok <&3"]
+      interval: 5s
+      timeout: 3s
+      retries: 24
+      start_period: 20s
 
 volumes:
   uniticket-data:

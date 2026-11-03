@@ -19,7 +19,8 @@ L'assistente virtuale di UniTicket che ti aiuta a trovare il ticket giusto senza
 
 ## Struttura e avvio locale
 
-- `agent/`: microservizio dell'agente (da integrare il retrival).
+- `classifier/`: il classificatore delle richieste (Java). In docker-compose è il servizio che risponde al widget.
+- `agent/`: microservizio dell'agente in Python e LangGraph, oggi non collegato: per usarlo si cambia `ASSISTANT_AGENT_URL` in `docker-compose.yml`.
 - `widget/`: sorgenti del widget, compilati negli static di UniTicket.
 - `uniticket/`: applicazione UniTicket, configurazione ed estensioni Django.
 
@@ -35,7 +36,9 @@ Se hai già clonato la repo, inizializza i submodule prima di avviare Docker:
 git submodule update --init --recursive
 ```
 
-Il `docker-compose.yml` nella root compila il widget e avvia UniTicket e "agente":
+Il classificatore usa Jev: metti la chiave in un file `.env` nella root (non tracciato), con `TYPESAFE_API_KEY=...`. Senza chiave l'assistente risponde con i soli risultati della ricerca. Per la ricerca semantica serve [Ollama](https://ollama.com) sull'host con `ollama pull bge-m3`; senza, usa solo la ricerca per parole chiave.
+
+Il `docker-compose.yml` nella root compila il widget e avvia UniTicket e il classificatore:
 
 ```bash
 docker compose up --build

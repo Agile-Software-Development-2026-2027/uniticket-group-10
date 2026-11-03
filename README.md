@@ -29,6 +29,12 @@ Clona la repo con tutti i suoi submodule:
 git clone --recurse-submodules https://github.com/Agile-Software-Development-2026-2027/uniticket-group-10
 ```
 
+Se hai già clonato la repo, inizializza i submodule prima di avviare Docker:
+
+```bash
+git submodule update --init --recursive
+```
+
 Il `docker-compose.yml` nella root compila il widget e avvia UniTicket e "agente":
 
 ```bash

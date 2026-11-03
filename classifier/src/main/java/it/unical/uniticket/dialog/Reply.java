@@ -6,12 +6,17 @@ import java.util.List;
 /**
  * La risposta del bot a un messaggio.
  *
- * @param kind    l'esito del turno
- * @param text    il testo per l'utente
- * @param options i moduli proposti: uno se è sicuro, più d'uno se c'è incertezza
- * @param trace   come si è arrivati alla risposta (ricerca, modello, regola); stampata con --debug
+ * @param kind     l'esito del turno
+ * @param text     il testo per l'utente, con le opzioni numerate (per la riga di comando)
+ * @param question la sola domanda, se il bot ne fa una; altrimenti null
+ * @param options  i moduli proposti: uno se è sicuro, più d'uno se c'è incertezza
+ * @param trace    come si è arrivati alla risposta (ricerca, modello, regola); stampata con --debug
  */
-public record Reply(Kind kind, String text, List<Category> options, List<String> trace) {
+public record Reply(Kind kind, String text, String question, List<Category> options, List<String> trace) {
+
+    public Reply(Kind kind, String text, List<Category> options, List<String> trace) {
+        this(kind, text, null, options, trace);
+    }
 
     public enum Kind {
         /** Modulo individuato con sicurezza. */

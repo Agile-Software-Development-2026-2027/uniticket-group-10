@@ -20,9 +20,27 @@ java -jar target/uniticket-chatbot.jar                    # chat
 java -jar target/uniticket-chatbot.jar --debug            # mostra ricerca, stima e decisione di ogni turno
 java -jar target/uniticket-chatbot.jar eval --split dev   # valutazione
 java -jar target/uniticket-chatbot.jar build-catalog      # rigenera data/catalog.json da raw_cache
+java -jar target/uniticket-chatbot.jar serve              # servizio per il widget sulla porta 8001
 ```
 
 Senza Ollama il bot usa solo la ricerca per parole chiave (`--lexical-only` lo forza). In chat, `/nuova` ricomincia e `/esci` chiude.
+
+## Servizio per il widget
+
+`serve` espone lo stesso contratto di `agent/`, quindi Django lo chiama senza modifiche (`ASSISTANT_AGENT_URL`):
+
+- `GET /health` risponde `{"status": "ok"}`;
+- `POST /conversation` riceve da Django l'input del widget, il catalogo che l'utente può aprire e la lingua, e risponde `{"messages": [...]}`.
+
+| Input | Risposta |
+|---|---|
+| `message` | Il classificatore: un turno di dialogo, con le opzioni come card del widget |
+| `form_selected` | L'utente ha aperto un modulo: vale come scelta e propone l'aiuto alla compilazione |
+| `request_form_help` | Come in `agent/` (l'aiuto vero e proprio non esiste ancora) |
+
+Le card usano id e URL del catalogo di Django; i moduli si riconoscono dalla fine dell'URL (`/tickets/new/<struttura>/<slug>/`) e il classificatore propone solo quelli che l'utente può aprire. Il widget manda il `thread_id` della chat: così le risposte a una domanda ("sono di Fisica", "sì") continuano la stessa conversazione. Le sessioni restano in memoria per 30 minuti. Le frasi sono in italiano o in inglese, secondo la lingua dell'utente.
+
+In docker-compose il servizio si chiama `classifier`. La chiave di Jev viene da `.env`, Ollama dall'host (`OLLAMA_URL`). Senza chiave il servizio parte lo stesso e risponde con i soli risultati della ricerca.
 
 ## Come funziona
 
@@ -57,7 +75,7 @@ modulo i           = (1 - vago) × adatto × P(i)
 
 ## Il codice
 
-`src/main/java/it/unical/uniticket/`, 21 file:
+`src/main/java/it/unical/uniticket/`, 25 file:
 
 | Pacchetto | Cosa fa |
 |---|---|
@@ -65,6 +83,7 @@ modulo i           = (1 - vago) × adatto × P(i)
 | `search` | Ricerca BM25 (Lucene) ed embedding `bge-m3`, fusi con RRF |
 | `estimate` | Le domande a Jev e la lettura delle risposte, dietro l'interfaccia `Estimator` |
 | `dialog` | `ChatBot.reply` (i passi di un turno, numerati), `ChatSession` (lo stato), `DecisionPolicy`, `UserChoice` |
+| `web` | Il servizio per il widget: `WidgetApi` (il contratto), `Sessions`, `WebServer` |
 
 `ChatBot` non ha stato: riceve a ogni messaggio la `ChatSession` dell'utente, quindi un solo bot serve tutti gli utenti.
 
@@ -95,17 +114,17 @@ I casi sono scritti da un LLM che conosceva il catalogo, quindi i numeri sono ot
 ./mvnw test
 ```
 
-87 test, nessuno chiama un modello:
+107 test, nessuno chiama un modello:
 
 - `ChatBotTest`: il dialogo con un modello finto;
 - `DecisionPolicyTest`: la regola dell'80% e i dipartimenti;
 - `UserChoiceTest`: le risposte chiuse;
 - `CatalogTest`: il riconoscimento delle strutture;
-- `JevEstimatorTest`: la lettura delle risposte di Jev.
+- `JevEstimatorTest`: la lettura delle risposte di Jev;
+- `WidgetApiTest` e `WebServerTest`: il contratto con il widget, con gli stessi controlli che il widget fa sulle risposte.
 
 ## Prossimi passi
 
 1. Raccogliere richieste reali e misurarle.
-2. Collegarlo alla UI dell'assistente come servizio HTTP.
-3. Valutare la sola ricerca semantica, senza BM25: stessa copertura a 50 candidati, ma va rimisurata.
-4. Compilazione assistita dei ticket.
+2. Valutare la sola ricerca semantica, senza BM25: stessa copertura a 50 candidati, ma va rimisurata.
+3. Compilazione assistita dei ticket: oggi `request_form_help` risponde come `agent/`, senza aiuto vero.

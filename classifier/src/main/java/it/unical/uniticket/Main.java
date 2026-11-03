@@ -2,16 +2,22 @@ package it.unical.uniticket;
 
 import it.unical.uniticket.catalog.Catalog;
 import it.unical.uniticket.catalog.CatalogBuilder;
+import it.unical.uniticket.catalog.Category;
 import it.unical.uniticket.dialog.ChatBot;
 import it.unical.uniticket.dialog.ChatSession;
 import it.unical.uniticket.dialog.DecisionPolicy;
 import it.unical.uniticket.dialog.Reply;
+import it.unical.uniticket.estimate.Estimate;
 import it.unical.uniticket.estimate.Estimator;
 import it.unical.uniticket.estimate.JevEstimator;
+import it.unical.uniticket.estimate.Turn;
 import it.unical.uniticket.search.HybridSearch;
 import it.unical.uniticket.search.LexicalSearch;
 import it.unical.uniticket.search.Search;
 import it.unical.uniticket.search.SemanticSearch;
+import it.unical.uniticket.web.Sessions;
+import it.unical.uniticket.web.WebServer;
+import it.unical.uniticket.web.WidgetApi;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -19,8 +25,10 @@ import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.time.Clock;
+import java.time.Duration;
 import java.time.ZoneOffset;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,13 +39,15 @@ import java.util.logging.Logger;
  * chat            la chat (default); --debug mostra ricerca, stima e decisione di ogni turno
  * eval            misura il bot su eval/cases.json; --split dev|test|all, --out file.json
  * build-catalog   rigenera data/catalog.json da raw_cache
+ * serve           il servizio HTTP per il widget di uniTicket; --port (default 8001)
  * </pre>
- * Il modello è Jev e serve {@code TYPESAFE_API_KEY}. Con {@code --lexical-only} si fa a meno di Ollama.
+ * Il modello è Jev e serve {@code TYPESAFE_API_KEY}. Ollama si trova in {@code OLLAMA_URL} (default
+ * localhost); con {@code --lexical-only} se ne fa a meno.
  */
 public final class Main {
 
     private static final Path CATALOG = Path.of("data/catalog.json");
-    private static final String OLLAMA_URL = "http://localhost:11434";
+    private static final String OLLAMA_URL = System.getenv().getOrDefault("OLLAMA_URL", "http://localhost:11434");
     private static final String JEV_MODEL = "jev-1.14.0";
 
     private Main() {
@@ -55,8 +65,9 @@ public final class Main {
                     CatalogBuilder.run(Path.of("raw_cache"), Path.of("data/structures-extra.json"), CATALOG));
             case "chat" -> chat(options);
             case "eval" -> eval(options);
+            case "serve" -> serve(options);
             default -> {
-                System.err.println("Comando sconosciuto: " + command + ". Comandi: chat, eval, build-catalog");
+                System.err.println("Comando sconosciuto: " + command + ". Comandi: chat, eval, build-catalog, serve");
                 System.exit(2);
             }
         }
@@ -110,6 +121,37 @@ public final class Main {
                         options.getOrDefault("split", "dev"), Integer.parseInt(options.getOrDefault("limit", "0"))),
                 new ChatBot(catalog, search, estimator, policy, clock),
                 estimator.name(), out == null ? null : Path.of(out));
+    }
+
+    /**
+     * Il servizio per il widget. Senza chiave di Jev parte lo stesso: ogni messaggio riceve i
+     * risultati della sola ricerca, così il resto di docker-compose non dipende dalla chiave.
+     */
+    private static void serve(Map<String, String> options) throws IOException {
+        Catalog catalog = Catalog.load(CATALOG);
+        String key = System.getenv("TYPESAFE_API_KEY");
+        Estimator estimator = key == null || key.isBlank() ? withoutModel() : new JevEstimator(catalog, key, JEV_MODEL);
+        ChatBot bot = new ChatBot(catalog, search(options, catalog), estimator,
+                new DecisionPolicy(DecisionPolicy.Params.DEFAULT), Clock.systemUTC());
+        Sessions sessions = new Sessions(Duration.ofMinutes(30), 10_000, Clock.systemUTC());
+        int port = Integer.parseInt(options.getOrDefault("port", "8001"));
+        new WebServer(new WidgetApi(catalog, bot, sessions), "0.0.0.0", port).start();
+        System.out.println("Servizio per il widget su :" + port + " (modello: " + estimator.name() + ")");
+    }
+
+    private static Estimator withoutModel() {
+        System.err.println("TYPESAFE_API_KEY non impostata: rispondo con i soli risultati della ricerca.");
+        return new Estimator() {
+            @Override
+            public Estimate estimate(List<Turn> conversation, List<Category> candidates) {
+                throw new Http.ServiceException("TYPESAFE_API_KEY non impostata");
+            }
+
+            @Override
+            public String name() {
+                return "nessun modello";
+            }
+        };
     }
 
     /**

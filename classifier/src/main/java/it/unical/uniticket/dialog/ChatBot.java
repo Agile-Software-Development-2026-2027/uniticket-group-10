@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.OptionalInt;
 import java.util.Set;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
@@ -60,6 +61,14 @@ public final class ChatBot {
 
     /** Risponde a un messaggio dell'utente e aggiorna la sua sessione. */
     public Reply reply(ChatSession session, String message) {
+        return reply(session, message, category -> true);
+    }
+
+    /**
+     * Come {@link #reply(ChatSession, String)}, con i soli moduli che {@code allowed} accetta tra i
+     * candidati: nel portale, quelli che l'utente collegato può aprire.
+     */
+    public Reply reply(ChatSession session, String message, Predicate<Category> allowed) {
         if (session.isClosed()) {
             session.reset();
         }
@@ -86,7 +95,7 @@ public final class ChatBot {
         List<Turn> conversation = session.conversation();
         String query = conversation.stream().filter(Turn::fromUser).map(Turn::text).collect(Collectors.joining(". "));
         List<String> trace = new ArrayList<>();
-        List<Category> candidates = candidates(session, query, trace);
+        List<Category> candidates = candidates(session, query, allowed, trace);
 
         // 3. Stima del modello.
         Estimate estimate;
@@ -117,14 +126,17 @@ public final class ChatBot {
      * breve come "sono di Fisica" non deve farli sparire), poi i migliori della ricerca, saltando
      * quelli rifiutati dall'utente e quelli chiusi in questo momento.
      */
-    private List<Category> candidates(ChatSession session, String query, List<String> trace) {
+    private List<Category> candidates(ChatSession session, String query, Predicate<Category> allowed,
+                                      List<String> trace) {
         Instant now = clock.instant();
         Set<String> rejected = session.rejected();
         Map<String, Category> selected = new LinkedHashMap<>();
-        session.proposed().stream().filter(c -> !rejected.contains(c.id())).forEach(c -> selected.put(c.id(), c));
+        session.proposed().stream().filter(c -> !rejected.contains(c.id()) && allowed.test(c))
+                .forEach(c -> selected.put(c.id(), c));
         for (Search.Hit hit : search.search(query, SHORTLIST + rejected.size() + 20)) {
             Category category = hit.category();
-            if (selected.size() < SHORTLIST && !rejected.contains(category.id()) && category.isOpenAt(now)) {
+            if (selected.size() < SHORTLIST && !rejected.contains(category.id()) && category.isOpenAt(now)
+                    && allowed.test(category)) {
                 selected.putIfAbsent(category.id(), category);
             }
         }
@@ -168,7 +180,8 @@ public final class ChatBot {
             case Clarify c -> {
                 session.countQuestion();
                 propose(session, c.options(), c.question() + optionNames(c.options()));
-                yield new Reply(Kind.CLARIFY, c.question() + numbered(c.options()), session.proposed(), trace);
+                yield new Reply(Kind.CLARIFY, c.question() + numbered(c.options()), c.question(), session.proposed(),
+                        trace);
             }
             case Shortlist s -> {
                 propose(session, s.options(), "Ho proposto questi moduli." + optionNames(s.options()));
@@ -200,6 +213,18 @@ public final class ChatBot {
         session.close();
         return new Reply(Kind.CONFIRMED, "Perfetto, ecco il modulo:\n" + describe(category), session.proposed(),
                 List.of("[UserChoice] \"" + text + "\" sceglie " + category.id() + ": nessuna ricerca, nessun modello"));
+    }
+
+    /**
+     * L'utente ha aperto un modulo senza scriverlo, per esempio con un clic su una proposta: vale
+     * come una scelta, e il messaggio successivo è una richiesta nuova.
+     */
+    public void opened(ChatSession session, Category category) {
+        if (session.isClosed()) {
+            session.reset();
+        }
+        propose(session, List.of(category), "L'utente ha aperto il modulo: " + category.name());
+        session.close();
     }
 
     /** Ricorda cosa ha proposto il bot, anche nella conversazione: così il modello capisce "la seconda". */

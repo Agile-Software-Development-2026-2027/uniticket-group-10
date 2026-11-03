@@ -1,0 +1,40 @@
+name: uniticket-receiver-demo
+services:
+  lab:
+    image: uniticket-receiver-demo:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - python3 manage.py migrate --noinput && python3 manage.py runserver 0.0.0.0:8000 --noreload
+    working_dir: /app/uniticket
+    environment:
+      PYTHONPATH: /extensions:/app/uniticket
+      PYTHONDONTWRITEBYTECODE: "1"
+      DJANGO_SETTINGS_MODULE: ticket_events.demo_settings
+    volumes:
+      - ./extensions:/extensions:ro
+      - ./config/settings.py:/app/uniticket/uni_ticket_project/settings.py:ro
+      - demo-data:/sandbox
+    read_only: true
+    tmpfs: [/tmp, /app/uniticket/data]
+    networks: [demo]
+  gateway:
+    image: uniticket-receiver-demo:local
+    entrypoint: ["python3", "/extensions/ticket_events/demo_proxy.py"]
+    depends_on: [lab]
+    ports:
+      - "127.0.0.1:8010:8000"
+    volumes:
+      - ./extensions:/extensions:ro
+    read_only: true
+    environment:
+      PYTHONDONTWRITEBYTECODE: "1"
+    networks: [demo, frontend]
+networks:
+  frontend: {}
+  demo:
+    internal: true
+volumes:
+  demo-data:

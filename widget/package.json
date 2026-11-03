@@ -1,0 +1,23 @@
+{
+  "name": "uniticket-widget",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:chat-client": "node build.mjs",
+    "test": "node --test tests/*.test.cjs"
+  },
+  "dependencies": {
+    "@assistant-ui/core": "0.3.32",
+    "@assistant-ui/store": "0.3.22",
+    "@assistant-ui/tap": "0.9.24",
+    "@assistant-ui/vue": "0.0.7",
+    "vue": "3.5.44",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "esbuild": "0.28.2",
+    "htmx.org": "1.9.10",
+    "jsdom": "29.1.1"
+  }
+}

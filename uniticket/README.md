@@ -1,15 +1,10 @@
-## Avvio locale
 
-Richiede Docker con Docker Compose.
+## Partial page update
+Bo HTMX che era già presente
 
-Dalla root del repository:
-
-```bash
-cd uniticket
-docker compose up --build
-```
-
-Apri http://localhost:8000.
+<p align="center">
+  <img src="_images/partial-page-update.png" alt="Overview" width="800">
+</p>
 
 ## Accesso
 
@@ -20,9 +15,3 @@ Credenziali di prova per l’ambiente locale:
 | Manager | `user1` | `secret1!` |
 | Operatore | `user2` | `secret2!` |
 | Utente normale | `utente` | `secret1!` |
-
-## Arresto
-
-```bash
-docker compose down
-```

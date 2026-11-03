@@ -1,0 +1,48 @@
+name: uniticket
+
+services:
+  uniticket:
+    build:
+      context: .
+      dockerfile: uniticket/Dockerfile
+
+    environment:
+      ASSISTANT_AGENT_URL: http://agent:8001/conversation
+
+    depends_on:
+      agent:
+        condition: service_healthy
+
+    ports:
+      - "127.0.0.1:8000:8000"
+
+    volumes:
+      - ./uniticket/config/settings.py:/app/uniticket/uni_ticket_project/settings.py:ro
+      - ./uniticket/dumps:/dumps:ro
+      - uniticket-data:/data
+
+    working_dir: /app/uniticket
+
+    command: >
+      sh -c "
+      python manage.py migrate --noinput &&
+      python manage.py loaddata /dumps/local_conf.json &&
+      python manage.py collectstatic --noinput &&
+      python manage.py runserver 0.0.0.0:8000
+      "
+
+  agent:
+    build:
+      context: .
+      dockerfile: agent/Dockerfile
+    expose:
+      - "8001"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/health', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  uniticket-data:

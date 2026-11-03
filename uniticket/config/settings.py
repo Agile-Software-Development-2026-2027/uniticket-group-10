@@ -2,10 +2,10 @@ import os
 import pathlib
 
 from django import forms
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as translate
 
 ATTACHMENTS_DICT_PREFIX = "allegati"
-ROOT_URLCONF = "uni_ticket_project.urls"
+ROOT_URLCONF = "assistant.urls"
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -94,7 +94,8 @@ DATABASES = {
 # Application definition
 INSTALLED_APPS = [
     'accounts',
-
+    'assistant',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -215,6 +216,7 @@ else:
 LOGOUT_REDIRECT_URL='/'
 
 # custom forms (django-form-builder)
+ATTACHMENTS_DICT_PREFIX = "allegati"
 CUSTOM_WIDGETS_IN_FORMSETS = False
 CUSTOM_WIDGETS = {
     'BaseDateField': 'bootstrap_italia_template.widgets.BootstrapItaliaDateWidget',
@@ -389,8 +391,8 @@ USE_TZ = True
 
 # localization
 LANGUAGES = (
-  ('it', _('Italiano')),
-  ('en', _('Inglese')),
+  ('it', translate('Italiano')),
+  ('en', translate('Inglese')),
 )
 
 LANGUAGE_CODE = 'it'
@@ -541,3 +543,6 @@ STATS_MAX_DAYS = 30
 # Default Bootstrap Italia template: 'bootstrap-italia-base.html'
 # Example: Unical template: 'base-setup.html'
 DEFAULT_BASE_TEMPLATE = 'base-setup.html'
+
+
+ASSISTANT_AGENT_URL = os.environ.get("ASSISTANT_AGENT_URL", "http://agent:8001/conversation")

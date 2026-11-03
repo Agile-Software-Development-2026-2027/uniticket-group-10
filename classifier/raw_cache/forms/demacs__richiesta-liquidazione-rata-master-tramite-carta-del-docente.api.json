@@ -1,0 +1,277 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:59.348574Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-liquidazione-rata-master-tramite-carta-del-docente/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta liquidazione rata Master tramite Carta del Docente",
+    "description" : "Con la presente è possibile richiedere la liquidazione delle rate di un Master attraverso la Carta del docente",
+    "protocol_required" : true,
+    "slug" : "richiesta-liquidazione-rata-master-tramite-carta-del-docente",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 686,
+      "fields" : {
+        "category" : 658,
+        "title" : "Dichiarazione sostitutiva di certificazione/atto di notorietà",
+        "text" : "Dichiara di essere a conoscenza delle responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art 495 c.p., art 640 c.p.e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 687,
+      "fields" : {
+        "category" : 658,
+        "title" : "Indicazioni operative",
+        "text" : "Il buono ricevuto sarà validato entro 30 giorni dalla ricezione della presente richiesta.  Se la validazione ha esito positivo il pagamento sarà visibile dal sistema esse3.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 685,
+      "fields" : {
+        "category" : 658,
+        "title" : "Note operative",
+        "text" : "- Alla richiesta deve essere allegato un documento di riconoscimento in corso di validità in formato PDF\r\n- Si precisa che il pagamento potrà essere accettato **solo se la Carta Docente della presente è intestata al richiedente**\r\n- Ricordarsi di inserire la spunta di fianco la dicitura riportata di seguito **Dichiara di aver letto e compreso quanto scritto sopra e di assumersi ogni responsabilità su quanto di seguito dichiarato**  altrimenti la richiesta non sarà inviata\r\n- Se la richiesta va a buon fine comparirà il  numero di protocollo e sarà possibile scaricare la stessa in formato PDF",
+        "ordinamento" : 5,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta liquidazione rata Master tramite Carta del Docente",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta liquidazione rata Master tramite Carta del Docente\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Con la presente è possibile richiedere la liquidazione delle rate di un Master attraverso la Carta del docente",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nCon la presente è possibile richiedere la liquidazione delle rate di un Master attraverso la Carta del docente</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "destinatario",
+      "label" : "destinatario",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"destinatario\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "codice_fiscale",
+      "label" : "Codice Fiscale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_fiscale\">",
+      "type" : "text"
+    }, {
+      "id" : "per_l'iscrizione_al_master",
+      "label" : "Per l'iscrizione al Master",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare la denominazione del Master per il quale si chiede l'iscrizione",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"per_l&#x27;iscrizione_al_master\">",
+      "type" : "text"
+    }, {
+      "id" : "chiede_che_il_pagamento_della_rata_di_importo_pari_a_€",
+      "label" : "Chiede che il pagamento della rata di importo pari a €",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"chiede_che_il_pagamento_della_rata_di_importo_pari_a_€\" step=\"0.001\">",
+      "type" : "number"
+    }, {
+      "id" : "codice_del_buono",
+      "label" : "Codice del buono",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_del_buono\">",
+      "type" : "text"
+    }, {
+      "id" : "importo_codice_buono",
+      "label" : "Importo Codice Buono",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"importo_codice_buono\" step=\"0.001\">",
+      "type" : "number"
+    }, {
+      "id" : "carta_del_docente_in_pdf",
+      "label" : "Carta del docente in pdf",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Si ricorda che la carta docente qui allegata deve essere intestata al/alla richiedente",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"carta_del_docente_in_pdf\">",
+      "type" : "file"
+    }, {
+      "id" : "recapiti",
+      "label" : "Recapiti",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-recapiti\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_recapiti-NNNNN-telefono\">Telefono:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"recapiti-NNNNN-telefono\" id=\"id_recapiti-NNNNN-telefono\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_recapiti-NNNNN-email\">Email:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"recapiti-NNNNN-email\" id=\"id_recapiti-NNNNN-email\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-recapiti-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"recapiti-TOTAL_FORMS\" value=\"1\" id=\"id_recapiti-TOTAL_FORMS\"><input type=\"hidden\" name=\"recapiti-INITIAL_FORMS\" value=\"0\" id=\"id_recapiti-INITIAL_FORMS\"><input type=\"hidden\" name=\"recapiti-MIN_NUM_FORMS\" value=\"1\" id=\"id_recapiti-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"recapiti-MAX_NUM_FORMS\" value=\"1000\" id=\"id_recapiti-MAX_NUM_FORMS\">\n\n<div class=\"form-container\">\n    <div class=\"row form-row spacer\">\n        <div class=\"col\">\n            <div class=\"input-group\">\n                <div class=\"table-responsive\">\n                    <table class=\"table table-bordered formset-table\">\n                        <tr>\n    <th><label for=\"id_recapiti-0-telefono\">Telefono:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"recapiti-0-telefono\" id=\"id_recapiti-0-telefono\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_recapiti-0-email\">Email:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"recapiti-0-email\" id=\"id_recapiti-0-email\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                    </table>\n                </div>\n            </div>\n            <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-recapiti-0\">\n                <svg class=\"icon icon-xs icon-white\">\n                    <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                </svg> Rimuovi inserimento\n            </button>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-recapiti\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "documento_di_riconoscimento_in_corso_di_validità",
+      "label" : "Documento di riconoscimento in corso di validità",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento_di_riconoscimento_in_corso_di_validità\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

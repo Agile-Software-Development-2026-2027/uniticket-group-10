@@ -1,0 +1,148 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:48.912755Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizi-didattici/richiesta-di-modifica-dati-anagrafici-su-esse3/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta di modifica dati anagrafici su ESSE3",
+    "description" : "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "protocol_required" : true,
+    "slug" : "richiesta-di-modifica-dati-anagrafici-su-esse3",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 250,
+      "fields" : {
+        "category" : 235,
+        "title" : "Consapevole delle sanzioni penali nel caso di dichiarazioni non veritiere ai sensi dell'art. 76 del D.P.R. n. 445 del 28 dicembre 2000",
+        "text" : "Alla presa in carico sarà emesso dall'operatore il bollo su istanza di € 16.\r\nLo troverai nella \"situazione tasse\" di Esse3.\r\nLa richiesta sarà lavorata al rientro del pagamento.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta di modifica dati anagrafici su ESSE3",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta di modifica dati anagrafici su ESSE3\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "indicare_con_precisione_i_dati_da_modificare",
+      "label" : "Indicare con precisione i dati da modificare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"indicare_con_precisione_i_dati_da_modificare\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "documento_di_riconoscimento",
+      "label" : "Documento di riconoscimento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento_di_riconoscimento\">",
+      "type" : "file"
+    }, {
+      "id" : "tessera_sanitaria",
+      "label" : "Tessera Sanitaria",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"tessera_sanitaria\">",
+      "type" : "file"
+    }, {
+      "id" : "eventuale_altra_documentazione",
+      "label" : "eventuale altra documentazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"eventuale_altra_documentazione\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

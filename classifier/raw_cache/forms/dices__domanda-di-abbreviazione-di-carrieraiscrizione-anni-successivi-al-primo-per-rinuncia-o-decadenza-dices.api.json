@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:46.310243Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dices/domanda-di-abbreviazione-di-carrieraiscrizione-anni-successivi-al-primo-per-rinuncia-o-decadenza-dices/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Il modulo sarà disponibile dal  1 luglio al 31 agosto",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

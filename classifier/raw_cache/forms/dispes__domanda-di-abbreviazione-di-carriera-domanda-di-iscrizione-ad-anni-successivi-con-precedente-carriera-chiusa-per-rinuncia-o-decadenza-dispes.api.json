@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:44.566732Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dispes/domanda-di-abbreviazione-di-carriera-domanda-di-iscrizione-ad-anni-successivi-con-precedente-carriera-chiusa-per-rinuncia-o-decadenza-dispes/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

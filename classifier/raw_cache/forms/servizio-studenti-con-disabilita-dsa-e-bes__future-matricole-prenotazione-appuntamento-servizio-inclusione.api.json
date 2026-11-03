@@ -1,0 +1,231 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:01.783371Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizio-studenti-con-disabilita-dsa-e-bes/future-matricole-prenotazione-appuntamento-servizio-inclusione/ticket/new/",
+  "jsonBody" : {
+    "name" : "Future matricole: prenotazione appuntamento Servizio Inclusione",
+    "description" : "Sportello dedicato alle future matricole per ricevere informazioni generali sui servizi, orientamento e per la definizione dei supporti personalizzati per lo svolgimento delle prove di ingresso",
+    "protocol_required" : false,
+    "slug" : "future-matricole-prenotazione-appuntamento-servizio-inclusione",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 812,
+      "fields" : {
+        "category" : 796,
+        "title" : "Informativa sull'uso dei dati personali da parte del Servizio Disabilità DSA dell’UniCal",
+        "text" : "Di seguito troverà alcune informazioni su come noi utilizziamo i Suoi dati personali nella gestione Delle prove di ammissione per i Corsi di laurea a numero programmato La invitiamo quindi a leggere con attenzione le seguenti informazioni prima di barrare le opzioni relative al consenso riportate sotto la presente finestra.\r\n\r\nFinalità dei trattamenti - I trattamenti dei dati personali che richiediamo agli utenti sono effettuati ai sensi dell'art. 6 lettera e) del regolamento UE 2016/679, per le seguenti finalità: a) utilizzo dei servizi telematici e di posta elettronica b) accesso ai laboratori e ad altre strutture c) invio di comunicazioni inerenti allo svolgimento delle prove; d) archiviazione e conservazione degli atti inerenti allo svolgimento delle prove;\r\n\r\nNecessità del trattamento. Per lo svolgimento delle prove è necessario e, in alcuni casi, obbligatorio per legge raccogliere ed utilizzare alcuni dati personali dell'utente senza necessità di acquisire il consenso dell'interessato. In assenza di tali dati il Servizio disabilità e DSA dell’UniCal non è in grado di fornire il servizio offerto.\r\n\r\nDiritti dell’interessato - Gli interessati hanno il diritto di ottenere dal Titolare del trattamento, nei casi previsti, l’accesso ai dati personali e la rettifica o la cancellazione degli stessi o la limitazione del trattamento che li riguarda o di opporsi al trattamento (artt. 15 e ss. del RGPD). Tali diritti sono esercitabili scrivendo al Titolare del trattamento. Se Lei è un minorenne, prima di comunicare i suoi dati all’Ateneo, Le chiediamo di leggere attentamente l’informativa insieme ai Suoi genitori o a chi ne fa le veci.\r\n\r\nUn’informativa con ulteriori dettagli è disponibile all’indirizzo unical.it/privacy.",
+        "ordinamento" : 10,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Future matricole: prenotazione appuntamento Servizio Inclusione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Future matricole: prenotazione appuntamento Servizio Inclusione\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Sportello dedicato alle future matricole per ricevere informazioni generali sui servizi, orientamento e per la definizione dei supporti personalizzati per lo svolgimento delle prove di ingresso",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nSportello dedicato alle future matricole per ricevere informazioni generali sui servizi, orientamento e per la definizione dei supporti personalizzati per lo svolgimento delle prove di ingresso</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "telefono_cellulare",
+      "label" : "telefono/cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono_cellulare\">",
+      "type" : "text"
+    }, {
+      "id" : "codice_fiscale",
+      "label" : "Codice Fiscale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_fiscale\">",
+      "type" : "text"
+    }, {
+      "id" : "servizio_richiesto",
+      "label" : "Servizio Richiesto",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"servizio_richiesto\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Future matricole – supporti personalizzati per lo svolgimento delle prove di ingresso\">Future matricole – supporti personalizzati per lo svolgimento delle prove di ingresso</option>\n\n  <option value=\"  Future matricole - orientamento e informazione sui  servizi \">  Future matricole - orientamento e informazione sui  servizi </option>\n\n  <option value=\" Altro\"> Altro</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "descrizione_del_motivo_del_colloquio",
+      "label" : "Descrizione del motivo del colloquio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"descrizione_del_motivo_del_colloquio\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "modalità_del_colloquio",
+      "label" : "Modalità del colloquio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"modalità_del_colloquio\" value=\"Online\">\n\n            \n            <label\n            >\n                Online\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"modalità_del_colloquio\" value=\" In presenza\">\n\n            \n            <label\n            >\n                 In presenza\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.",
+      "label" : "Inserisci la data (gg/mm/aaaa) e clicca su una fascia oraria per procedere con la prenotazione.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-NNNNN-data_appuntamento\">Data appuntamento:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-NNNNN-data_appuntamento\" id=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-NNNNN-data_appuntamento\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-NNNNN-martedi\">Martedi:</label></th>\n    <td>\n      \n      <select name=\"inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-NNNNN-martedi\" id=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-NNNNN-martedi\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"NON SELEZIONATO\">NON SELEZIONATO</option>\n\n  <option value=\"9:30-10:30\">9:30-10:30</option>\n\n  <option value=\"10:30-11:30\">10:30-11:30</option>\n\n  <option value=\"11:30-12:30\">11:30-12:30</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-NNNNN-mercoledi_mattina\">Mercoledi mattina:</label></th>\n    <td>\n      \n      <select name=\"inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-NNNNN-mercoledi_mattina\" id=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-NNNNN-mercoledi_mattina\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"NON SELEZIONATO\">NON SELEZIONATO</option>\n\n  <option value=\"10:30-11:30\">10:30-11:30</option>\n\n  <option value=\"11:30-12:30\">11:30-12:30</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-NNNNN-mercoledi_pomeriggio\">Mercoledi pomeriggio:</label></th>\n    <td>\n      \n      <select name=\"inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-NNNNN-mercoledi_pomeriggio\" id=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-NNNNN-mercoledi_pomeriggio\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"NON SELEZIONATO\">NON SELEZIONATO</option>\n\n  <option value=\"14:30-15:30\">14:30-15:30</option>\n\n  <option value=\"15:30-16:30\">15:30-16:30</option>\n\n  <option value=\"16:30-17:30\">16:30-17:30</option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-TOTAL_FORMS\" value=\"1\" id=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-TOTAL_FORMS\"><input type=\"hidden\" name=\"inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-INITIAL_FORMS\" value=\"0\" id=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-INITIAL_FORMS\"><input type=\"hidden\" name=\"inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-MIN_NUM_FORMS\" value=\"1\" id=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-MAX_NUM_FORMS\" value=\"1000\" id=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-MAX_NUM_FORMS\">\n\n<div class=\"form-container\">\n    <div class=\"row form-row spacer\">\n        <div class=\"col\">\n            <div class=\"input-group\">\n                <div class=\"table-responsive\">\n                    <table class=\"table table-bordered formset-table\">\n                        <tr>\n    <th><label for=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-0-data_appuntamento\">Data appuntamento:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-0-data_appuntamento\" id=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-0-data_appuntamento\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-0-martedi\">Martedi:</label></th>\n    <td>\n      \n      <select name=\"inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-0-martedi\" id=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-0-martedi\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"NON SELEZIONATO\">NON SELEZIONATO</option>\n\n  <option value=\"9:30-10:30\">9:30-10:30</option>\n\n  <option value=\"10:30-11:30\">10:30-11:30</option>\n\n  <option value=\"11:30-12:30\">11:30-12:30</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-0-mercoledi_mattina\">Mercoledi mattina:</label></th>\n    <td>\n      \n      <select name=\"inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-0-mercoledi_mattina\" id=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-0-mercoledi_mattina\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"NON SELEZIONATO\">NON SELEZIONATO</option>\n\n  <option value=\"10:30-11:30\">10:30-11:30</option>\n\n  <option value=\"11:30-12:30\">11:30-12:30</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-0-mercoledi_pomeriggio\">Mercoledi pomeriggio:</label></th>\n    <td>\n      \n      <select name=\"inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-0-mercoledi_pomeriggio\" id=\"id_inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-0-mercoledi_pomeriggio\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"NON SELEZIONATO\">NON SELEZIONATO</option>\n\n  <option value=\"14:30-15:30\">14:30-15:30</option>\n\n  <option value=\"15:30-16:30\">15:30-16:30</option>\n\n  <option value=\"16:30-17:30\">16:30-17:30</option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                    </table>\n                </div>\n            </div>\n            <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.-0\">\n                <svg class=\"icon icon-xs icon-white\">\n                    <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                </svg> Rimuovi inserimento\n            </button>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-inserisci_la_data_gg_mm_aaaa_e_clicca_su_una_fascia_oraria_per_procedere_con_la_prenotazione.\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "allega_certificazione_di_disabilità_e_o_di_dsa",
+      "label" : "Allega Certificazione di disabilità e/o di DSA",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allega_certificazione_di_disabilità_e_o_di_dsa\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

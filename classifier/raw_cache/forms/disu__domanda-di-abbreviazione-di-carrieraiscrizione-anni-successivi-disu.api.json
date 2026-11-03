@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:45.933734Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/disu/domanda-di-abbreviazione-di-carrieraiscrizione-anni-successivi-disu/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Moduli disponibili dal I luglio al 31 agosto",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

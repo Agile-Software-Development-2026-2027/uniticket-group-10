@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:21.267868Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/dimeg/afferenza-consiglio-di-corso-di-studio/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,318 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:07.856518Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-tesi-di-laurea-sfp/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta Tesi di Laurea SFP",
+    "description" : "Richiesta della Tesi di Laurea per gli studenti del Corso di Laurea Magistrale a ciclo unico in Scienze della Formazione Primaria",
+    "protocol_required" : false,
+    "slug" : "richiesta-tesi-di-laurea-sfp",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 871,
+      "fields" : {
+        "category" : 182,
+        "title" : "Note Operative",
+        "text" : "**ATTENZIONE NON INVIARE IL MODULO, MA SEGUI LE INDICAZIONI**\r\n\r\n**Il modulo va solo compilato ma non inviato.**\r\n\r\n**1**. Clicca sulla voce ***Se la richiesta che stai compilando deve essere completata e sottoscritta da un altro utente (es. Direttore Dipartimento, responsabile ufficio, ecc.), clicca qui***;\r\n\r\n**2**. Mettere segno di spunta su ***Tieni traccia della mia compilazione nel ticket***\r\n\r\n**3**. Premere il pulsante ***Genera URL per inviarlo al/alla docente relatore/relatrice***\r\n\r\n**4**. Prepara una mail, incollando l'URL generato, ed inviala al/alla relatore/relatrice\r\n\r\n**Il/la Relatore/Relatrice provvederà ad inviare la richiesta.**\r\n\r\n---\r\n**Le richieste saranno prese in carico e valutate nel primo consiglio di corso di studi utile. Sarà cura della segreteria, appena possibile, informare il/la richiedente riguardo l'esito**.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : false
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 175,
+      "fields" : {
+        "category" : 182,
+        "title" : "Note Operative",
+        "text" : "- Alla presente richiesta deve essere obbligatoriamente allegato in formato pdf il documento riportato al \r\n  [link](https://www.unical.it/media/medias/2026/Allegato_modulo_richiesta_tesi_SFP.docx)\r\n firmato sia dal richiedente che dal relatore\r\n- Le richieste __saranno prese in carico e valutate nel primo Consiglio di Corso di Studi utile__. Sarà cura della segreteria, appena possibile, informare il/la richiedente riguardo l'esito.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 176,
+      "fields" : {
+        "category" : 182,
+        "title" : "Dichiarazione sostitutiva di certificazione/atto di notorietà",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta Tesi di Laurea SFP",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta Tesi di Laurea SFP\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta della Tesi di Laurea per gli studenti del Corso di Laurea Magistrale a ciclo unico in Scienze della Formazione Primaria",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta della Tesi di Laurea per gli studenti del Corso di Laurea Magistrale a ciclo unico in Scienze della Formazione Primaria</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "destinatario",
+      "label" : "destinatario",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"destinatario\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "cellulare",
+      "label" : "cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cellulare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "iscritto_a_per_l'a.a.",
+      "label" : "iscritto/a per l'A.A.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"iscritto_a_per_l&#x27;a.a.\">",
+      "type" : "text"
+    }, {
+      "id" : "anno",
+      "label" : "anno",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"anno\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Primo\">Primo</option>\n\n  <option value=\" Secondo\"> Secondo</option>\n\n  <option value=\" Terzo\"> Terzo</option>\n\n  <option value=\" Quarto\"> Quarto</option>\n\n  <option value=\" Quinto\"> Quinto</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "in_corso_o_fuori_corso",
+      "label" : "in corso o fuori corso",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"in_corso_o_fuori_corso\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"in corso\">in corso</option>\n\n  <option value=\"fuori corso\">fuori corso</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "chiede",
+      "label" : "chiede",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"chiede\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "titolo_provvisorio_tesi_di_laurea",
+      "label" : "Titolo provvisorio tesi di Laurea",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"titolo_provvisorio_tesi_di_laurea\">",
+      "type" : "text"
+    }, {
+      "id" : "nell'ambito_dell'insegnamento_di",
+      "label" : "Nell'ambito dell'insegnamento di",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nell&#x27;ambito_dell&#x27;insegnamento_di\">",
+      "type" : "text"
+    }, {
+      "id" : "relatore",
+      "label" : "Relatore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Selezionare \"-Non in elenco-\" se il Relatore non si trova nell'elenco. In questo caso va scritto il Cognome e Nome nella casella \"Relatore (se non presente il elenco)\"",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"relatore\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"-Non in elenco-\">-Non in elenco-</option>\n\n  <option value=\"Antichi Samuel\">Antichi Samuel</option>\n\n  <option value=\"Aquino Caterina\">Aquino Caterina</option>\n\n  <option value=\"Argentino Antonio\">Argentino Antonio</option>\n\n  <option value=\"Argondizzo Carmen\">Argondizzo Carmen</option>\n\n  <option value=\"Bernardo Liliana\">Bernardo Liliana</option>\n\n  <option value=\"Bilotta Eleonora\">Bilotta Eleonora</option>\n\n  <option value=\"Bossio Francesco\">Bossio Francesco</option>\n\n  <option value=\"Bova Vincenzo Antonino\">Bova Vincenzo Antonino</option>\n\n  <option value=\"Bozzo Giacomo\">Bozzo Giacomo</option>\n\n  <option value=\"Brunelli Elvira\">Brunelli Elvira</option>\n\n  <option value=\"Costabile Angela\">Costabile Angela</option>\n\n  <option value=\"Craig Francesco\">Craig Francesco</option>\n\n  <option value=\"De Pietro Orlando\">De Pietro Orlando</option>\n\n  <option value=\"Dell&#x27;Aglio Luca\">Dell&#x27;Aglio Luca</option>\n\n  <option value=\"Ferragina Andrea\">Ferragina Andrea</option>\n\n  <option value=\"Florio Emilia\">Florio Emilia</option>\n\n  <option value=\"Frontera Giovanni\">Frontera Giovanni</option>\n\n  <option value=\"Intrieri Maria\">Intrieri Maria</option>\n\n  <option value=\"Lanzillotta Monica\">Lanzillotta Monica</option>\n\n  <option value=\"Librandi Fulvio\">Librandi Fulvio</option>\n\n  <option value=\"Lo Castro Giuseppe\">Lo Castro Giuseppe</option>\n\n  <option value=\"Maiello Angela\">Maiello Angela</option>\n\n  <option value=\"Mallamaci Stefania\">Mallamaci Stefania</option>\n\n  <option value=\"Monardo Anna Chiara\">Monardo Anna Chiara</option>\n\n  <option value=\"Montesano Lorena\">Montesano Lorena</option>\n\n  <option value=\"Palumbo Mariagrazia\">Palumbo Mariagrazia</option>\n\n  <option value=\"Perri Francesco\">Perri Francesco</option>\n\n  <option value=\"Ranieri Maria Carmela\">Ranieri Maria Carmela</option>\n\n  <option value=\"Ronconi Maria Luisa\">Ronconi Maria Luisa</option>\n\n  <option value=\"Sapia Peppino\">Sapia Peppino</option>\n\n  <option value=\"Serpe Annarosa\">Serpe Annarosa</option>\n\n  <option value=\"Serpe Brunella\">Serpe Brunella</option>\n\n  <option value=\"Straniero Alessandra\">Straniero Alessandra</option>\n\n  <option value=\"Talarico Federica\">Talarico Federica</option>\n\n  <option value=\"Tenuta Flaviana\">Tenuta Flaviana</option>\n\n  <option value=\"Vaccaro Attilio\">Vaccaro Attilio</option>\n\n  <option value=\"Valenti Antonella\">Valenti Antonella</option>\n\n  <option value=\"Vingelli Giovanna\">Vingelli Giovanna</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "relatore_se_non_presente_in_elenco",
+      "label" : "Relatore (se non presente in elenco)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Lasciare vuoto se il Relatore è già stato selezionato nell'elenco sopra",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"relatore_se_non_presente_in_elenco\">",
+      "type" : "text"
+    }, {
+      "id" : "correlatore_cognome_nome",
+      "label" : "Correlatore (Cognome Nome)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"correlatore_cognome_nome\">",
+      "type" : "text"
+    }, {
+      "id" : "tutor_coordinatore_del_tirocinio_cognome_nome",
+      "label" : "Tutor coordinatore del tirocinio (Cognome Nome)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"tutor_coordinatore_del_tirocinio_cognome_nome\">",
+      "type" : "text"
+    }, {
+      "id" : "sintetica_presentazione_del_progetto_di_tesi",
+      "label" : "Sintetica presentazione del progetto di tesi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"sintetica_presentazione_del_progetto_di_tesi\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "allegato_richiesta_tesi_firmata_dallo_studente_e_dal_relatore",
+      "label" : "Allegato richiesta tesi firmata dallo studente e dal relatore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegato_richiesta_tesi_firmata_dallo_studente_e_dal_relatore\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

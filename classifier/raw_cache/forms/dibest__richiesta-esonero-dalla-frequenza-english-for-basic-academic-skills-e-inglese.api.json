@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:56.913492Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dibest/richiesta-esonero-dalla-frequenza-english-for-basic-academic-skills-e-inglese/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Modulo in aggiornamento. Si prega di riprovare più tardi",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

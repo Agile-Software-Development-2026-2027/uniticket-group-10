@@ -1,0 +1,143 @@
+{
+  "area-offerta-formativa": {
+    "fullName": "Area Offerta Formativa",
+    "aliases": ["master", "corsi di alta formazione", "CAF"]
+  },
+  "area-socialita-sale-convegni": {
+    "fullName": "Area Socialità nel Campus",
+    "aliases": ["studenti-atleti", "DUnicAL Career"]
+  },
+  "aru": {
+    "fullName": "Direzione Risorse Umane",
+    "aliases": ["ARU", "ufficio personale", "Unicontr"]
+  },
+  "centro-residenziale": {
+    "fullName": "Centro Residenziale",
+    "aliases": ["alloggi", "residenze universitarie", "borse di studio", "mensa", "foresteria"]
+  },
+  "cla": {
+    "fullName": "Centro Linguistico di Ateneo",
+    "aliases": ["CLA"]
+  },
+  "ctc": {
+    "fullName": "Dipartimento di Chimica e Tecnologie Chimiche",
+    "aliases": ["CTC", "DiCTC", "dipartimento di chimica"],
+    "courses": ["Chimica"]
+  },
+  "dagan-area-servizi-generali": {
+    "fullName": "Direzione Affari Generali e Attività Negoziali - Area Servizi Generali",
+    "aliases": ["ufficio assicurazioni", "gestione assicurazioni"]
+  },
+  "demacs": {
+    "fullName": "Dipartimento di Matematica e Informatica",
+    "aliases": ["DeMaCS", "dipartimento di matematica", "dipartimento di informatica"],
+    "courses": ["Informatica", "Matematica", "Artificial Intelligence and Computer Science", "Scienze della Formazione Primaria (SFP)"]
+  },
+  "desf": {
+    "fullName": "Dipartimento di Economia, Statistica e Finanza \"Giovanni Anania\"",
+    "aliases": ["DESF"],
+    "courses": ["Economia", "Economia e Commercio", "Finance and Insurance", "Statistica per Data Science", "Statistica per l'Azienda", "Data Science per le Strategie Aziendali", "Statistica e Informatica per le Decisioni e le Analisi di Mercato"]
+  },
+  "dfssn": {
+    "fullName": "Dipartimento di Farmacia e Scienze della Salute e della Nutrizione",
+    "aliases": ["DFSSN", "dipartimento di farmacia"],
+    "courses": ["Farmacia", "Chimica e Tecnologia Farmaceutiche (CTF)", "Medicina e Chirurgia TD", "Scienza della Nutrizione", "Informazione Scientifica sul Farmaco e sui Prodotti per la Salute", "Infermieristica", "Fisioterapia"]
+  },
+  "diam": {
+    "fullName": "Dipartimento di Ingegneria dell'Ambiente",
+    "aliases": ["DIAm", "ingegneria ambientale"],
+    "courses": ["Ingegneria per l'Ambiente e la Sicurezza del Territorio", "Ingegneria per l'Ambiente e il Territorio", "Ingegneria Ambientale e Chimica", "Tecnologie del Mare e della Navigazione"]
+  },
+  "dibest": {
+    "fullName": "Dipartimento di Biologia, Ecologia e Scienze della Terra",
+    "aliases": ["DiBEST", "dipartimento di biologia"],
+    "courses": ["Biologia", "Scienze e Tecnologie Biologiche", "Scienze Geologiche", "Scienze Naturali e Ambientali", "Biotecnologie per la Salute", "Health Biotechnology", "Biodiversità e Sistemi Naturali", "Conservazione e Restauro dei Beni Culturali", "Scienze e Tecnologie per le Attività Motorie e Sportive"]
+  },
+  "dices": {
+    "fullName": "Dipartimento di Culture, Educazione e Società",
+    "aliases": ["DiCES"],
+    "courses": ["Scienze dell'Educazione", "Scienze Pedagogiche", "Media Education", "Archeologia", "Gestione e Conservazione dei Documenti Digitali", "Intelligence e Analisi del Rischio", "Mediazione Linguistica", "Lingue per la Comunicazione Internazionale"]
+  },
+  "dimeg": {
+    "fullName": "Dipartimento di Ingegneria Meccanica, Energetica e Gestionale",
+    "aliases": ["DIMEG"],
+    "courses": ["Ingegneria Meccanica", "Ingegneria Gestionale", "Ingegneria Energetica"]
+  },
+  "dimes": {
+    "fullName": "Dipartimento di Ingegneria Informatica, Modellistica, Elettronica e Sistemistica",
+    "aliases": ["DIMES"],
+    "courses": ["Ingegneria Informatica", "Ingegneria Elettronica", "Ingegneria Chimica", "Ingegneria Biomedica", "Robotics and Automation Engineering", "Telecommunication Engineering"]
+  },
+  "dinci": {
+    "fullName": "Dipartimento di Ingegneria Civile",
+    "aliases": ["DInCi"],
+    "courses": ["Ingegneria Civile", "Ingegneria Edile-Architettura"]
+  },
+  "discag": {
+    "fullName": "Dipartimento di Scienze Aziendali e Giuridiche",
+    "aliases": ["DiScAG"],
+    "courses": ["Economia Aziendale", "Economia Aziendale e Management", "Scienze Turistiche", "Valorizzazione dei Sistemi Turistico Culturali", "Giurisprudenza", "Servizi Giuridici per l'Innovazione Digitale"]
+  },
+  "dispes": {
+    "fullName": "Dipartimento di Scienze Politiche e Sociali",
+    "aliases": ["DiSPeS"],
+    "courses": ["Scienze Politiche", "Scienze dell'Amministrazione", "Scienze delle Pubbliche Amministrazioni", "Scienze della Politica e Istituzioni Internazionali", "Servizio Sociale", "Scienze delle Politiche e dei Servizi Sociali", "Media e Società Digitale", "Scritture, Immagini, Media Digitali", "Cooperazione, Sviluppo, Ecologia"]
+  },
+  "disu": {
+    "fullName": "Dipartimento di Studi Umanistici",
+    "aliases": ["DiSU"],
+    "courses": ["Lettere e Beni Culturali", "Lettere", "Filosofia e Storia", "Lingue e Culture Moderne", "Comunicazione e DAMS", "Filologia Moderna", "Lingue e Letterature Moderne", "Scienze dell'Antichità", "Scienze Filosofiche", "Scienze Storiche", "Comunicazione e Tecnologie dell'Informazione"]
+  },
+  "fisica": {
+    "fullName": "Dipartimento di Fisica",
+    "courses": ["Fisica"]
+  },
+  "ict": {
+    "fullName": "Area Servizi Informatici e Tecnologici",
+    "aliases": ["ICT", "servizi informatici", "centro ICT", "Esse3", "e-learning", "Wi-Fi", "UniCal ID", "SPID e CIE per accedere"]
+  },
+  "lio": {
+    "fullName": "Area Ricerca, Innovazione e Impatto Sociale",
+    "aliases": ["Liaison Office", "brevetti", "trasferimento tecnologico"]
+  },
+  "post-laurea": {
+    "fullName": "Area post laurea - Settore Formazione insegnanti ed esami di stato",
+    "aliases": ["TFA", "percorsi 30/36/60 CFU", "sostegno", "24 CFU", "SSIS"]
+  },
+  "rls": {
+    "fullName": "Rappresentanti dei Lavoratori per la Sicurezza",
+    "aliases": ["RLS"]
+  },
+  "sab": {
+    "fullName": "Sistema Bibliotecario di Ateneo",
+    "aliases": ["biblioteca", "BATS = Biblioteca di Area Tecnico-Scientifica", "BAU = Biblioteca di Area Umanistica F. E. Fagiani", "TAR = Biblioteca di Scienze Economiche e Sociali E. Tarantelli"]
+  },
+  "servizi-didattici": {
+    "fullName": "Servizi Didattici di Ateneo",
+    "aliases": ["segreteria studenti", "tasse universitarie"]
+  },
+  "servizio-studenti-con-disabilita-dsa-e-bes": {
+    "fullName": "Servizio studenti con disabilità, DSA e BES",
+    "aliases": ["Servizio Inclusione"]
+  },
+  "sistema-museale": {
+    "fullName": "Sistema Museale di Ateneo",
+    "aliases": ["museo"]
+  },
+  "sssap": {
+    "fullName": "Scuola Superiore di Scienze delle Amministrazioni Pubbliche",
+    "aliases": ["SSSAP"]
+  },
+  "ufficio-orientamento": {
+    "fullName": "Ufficio Orientamento",
+    "aliases": ["orientamento per le scuole superiori"]
+  },
+  "unical-vs-covid19": {
+    "fullName": "Unical vs Covid19",
+    "aliases": ["iniziative Covid", "Unical SIM"]
+  },
+  "urp": {
+    "fullName": "Ufficio Relazioni con il Pubblico",
+    "aliases": ["URP"]
+  }
+}

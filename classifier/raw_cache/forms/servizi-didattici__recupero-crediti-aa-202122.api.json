@@ -1,0 +1,95 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:27.556Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizi-didattici/recupero-crediti-aa-202122/ticket/new/",
+  "jsonBody" : {
+    "name" : "Recupero crediti a.a. 2021/22",
+    "description" : "Ticket riservato agli studenti in debito di tasse e contributi che hanno ricevuto formale diffida da parte dell'università",
+    "protocol_required" : true,
+    "slug" : "recupero-crediti-aa-202122",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Recupero crediti a.a. 2021/22",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Recupero crediti a.a. 2021/22\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Ticket riservato agli studenti in debito di tasse e contributi che hanno ricevuto formale diffida da parte dell'università",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nTicket riservato agli studenti in debito di tasse e contributi che hanno ricevuto formale diffida da parte dell&#x27;università</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "inserisci_il_tuo_indirizzo_di_posta_elettronica_personale",
+      "label" : "Inserisci il tuo indirizzo di posta elettronica personale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"inserisci_il_tuo_indirizzo_di_posta_elettronica_personale\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "inserisci_eventuali_comunicazioni_e_controlla_la_risposta_dell'operatore_nella_sezione_\"messaggi\"",
+      "label" : "Inserisci eventuali comunicazioni e controlla la risposta dell'operatore nella sezione \"messaggi\"",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"inserisci_eventuali_comunicazioni_e_controlla_la_risposta_dell&#x27;operatore_nella_sezione_&quot;messaggi&quot;\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "allega_l'isee_2026_valido_per_il_diritto_allo_studio_universitario_se_la_tua_condizione_economica_è_cambiata_rispetto_all'a.a._2021_22",
+      "label" : "Allega l'Isee 2026 valido per il diritto allo studio universitario se la tua condizione economica è cambiata rispetto all'a.a. 2021/22",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allega_l&#x27;isee_2026_valido_per_il_diritto_allo_studio_universitario_se_la_tua_condizione_economica_è_cambiata_rispetto_all&#x27;a.a._2021_22\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

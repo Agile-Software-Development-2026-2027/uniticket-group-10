@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:00.826169Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/f3-rinnovo-firma-digitale-per-appuntamento/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:08.049134Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dibest/richiesta-trasferimento-in-entrata/ticket/new/",
+  "jsonBody" : {
+    "detail" : "E' possibile inoltrare la richiesta di trasferimento in ingresso dal 1° luglio al 31 agosto",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

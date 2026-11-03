@@ -1,0 +1,160 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:15.361301Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizi-didattici/modulo-di-delega/ticket/new/",
+  "jsonBody" : {
+    "name" : "Modulo di delega",
+    "description" : "Modulo da compilare per delegare una persona di fiducia presso lo sportello dei Servizi Didattici",
+    "protocol_required" : false,
+    "slug" : "modulo-di-delega",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Modulo di delega",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Modulo di delega\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Modulo da compilare per delegare una persona di fiducia presso lo sportello dei Servizi Didattici",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nModulo da compilare per delegare una persona di fiducia presso lo sportello dei Servizi Didattici</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "nome_e_cognome_della_persona_delegata",
+      "label" : "Nome e cognome della persona delegata",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome_e_cognome_della_persona_delegata\">",
+      "type" : "text"
+    }, {
+      "id" : "carta_d'identità_fronte_della_persona_delegata",
+      "label" : "Carta d'identità (fronte) della persona delegata",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"carta_d&#x27;identità_fronte_della_persona_delegata\">",
+      "type" : "file"
+    }, {
+      "id" : "carta_d'identità_retro_della_persona_delegata",
+      "label" : "Carta d'identità (retro) della persona delegata",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"carta_d&#x27;identità_retro_della_persona_delegata\">",
+      "type" : "file"
+    }, {
+      "id" : "ad_esercitare_la_seguente_azione_per_proprio_conto",
+      "label" : "ad esercitare la seguente azione per proprio conto",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Ritiro pergamena di laurea",
+        "value" : "Ritiro pergamena di laurea"
+      }, {
+        "text" : " Ritiro certificato",
+        "value" : " Ritiro certificato"
+      }, {
+        "text" : " Informazioni su situazione tasse",
+        "value" : " Informazioni su situazione tasse"
+      }, {
+        "text" : " Informazioni generali",
+        "value" : " Informazioni generali"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"ad_esercitare_la_seguente_azione_per_proprio_conto\" value=\"Ritiro pergamena di laurea\">\n Ritiro pergamena di laurea</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"ad_esercitare_la_seguente_azione_per_proprio_conto\" value=\" Ritiro certificato\">\n  Ritiro certificato</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"ad_esercitare_la_seguente_azione_per_proprio_conto\" value=\" Informazioni su situazione tasse\">\n  Informazioni su situazione tasse</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"ad_esercitare_la_seguente_azione_per_proprio_conto\" value=\" Informazioni generali\">\n  Informazioni generali</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "altro_se_non_compreso_nell'elenco",
+      "label" : "Altro (se non compreso nell'elenco)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"altro_se_non_compreso_nell&#x27;elenco\">",
+      "type" : "text"
+    }, {
+      "id" : "matricola_per_la_quale_si_autorizza_a_dare_informazioni",
+      "label" : "Matricola per la quale si autorizza a dare informazioni",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"matricola_per_la_quale_si_autorizza_a_dare_informazioni\" step=\"1\">",
+      "type" : "number"
+    } ]
+  },
+  "rawTextBody" : null
+}

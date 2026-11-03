@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:01.060573Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/diam/richiesta-presentazionemodifica-piano-di-studi-laurea-magistrale/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Attualmente il modulo di richiesta selezionato non è attivo.",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

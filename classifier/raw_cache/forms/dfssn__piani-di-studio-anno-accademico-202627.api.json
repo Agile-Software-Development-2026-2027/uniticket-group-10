@@ -1,0 +1,122 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:19.571084Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dfssn/piani-di-studio-anno-accademico-202627/ticket/new/",
+  "jsonBody" : {
+    "name" : "Piani di Studio Anno Accademico 2026/27",
+    "description" : "Presentazione dei piani di studio per i Corsi di Studio afferenti al Dipartimento di Farmacia",
+    "protocol_required" : true,
+    "slug" : "piani-di-studio-anno-accademico-202627",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 517,
+      "fields" : {
+        "category" : 434,
+        "title" : "Modulo presentazione piano",
+        "text" : "Modulo presentazione piano",
+        "ordinamento" : 0,
+        "attachment" : "structures/dfssn/categories/piani-di-studio-anno-accademico-202627/conditions/Modulo_presentazione_piano.pdf",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 518,
+      "fields" : {
+        "category" : 434,
+        "title" : "Note",
+        "text" : "Note per la presentazione",
+        "ordinamento" : 0,
+        "attachment" : "structures/dfssn/categories/piani-di-studio-anno-accademico-202324/conditions/Note_presentazione_Piani_NEW.pdf",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Piani di Studio Anno Accademico 2026/27",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Piani di Studio Anno Accademico 2026/27\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Presentazione dei piani di studio per i Corsi di Studio afferenti al Dipartimento di Farmacia",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nPresentazione dei piani di studio per i Corsi di Studio afferenti al Dipartimento di Farmacia</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "elenco_corsi_di_studio",
+      "label" : "Elenco Corsi di Studio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"elenco_corsi_di_studio\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Farmacia (LM5)\">Farmacia (LM5)</option>\n\n  <option value=\" Chimica e Tecnologia Farmaceutiche (LM5)\"> Chimica e Tecnologia Farmaceutiche (LM5)</option>\n\n  <option value=\" Informazione Scientifica sul Farmaco e sui Prodotti per la Salute (L)\"> Informazione Scientifica sul Farmaco e sui Prodotti per la Salute (L)</option>\n\n  <option value=\" Scienza della Nutrizione (L)\"> Scienza della Nutrizione (L)</option>\n\n  <option value=\" Scienza della Nutrizione (LM)\"> Scienza della Nutrizione (LM)</option>\n\n  <option value=\" Infermieristica (L)\"> Infermieristica (L)</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "carica_quì_il_piano_di_studio",
+      "label" : "Carica quì il piano di studio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"carica_quì_il_piano_di_studio\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

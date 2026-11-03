@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:56.361998Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dfssn/richiesta-esami-aggiuntivi-doppio-titolo-27-cfu/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Servizio non attivo",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,292 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:38.128495Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dinci/richiesta-certificati-di-iscrizione-laurea-e-diploma-supplement-i/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta certificati di iscrizione, laurea e diploma supplement (i)",
+    "description" : "SOLO PER UTENTI INTERNI (con carriere presenti in esse3)",
+    "protocol_required" : false,
+    "slug" : "richiesta-certificati-di-iscrizione-laurea-e-diploma-supplement-i",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta certificati di iscrizione, laurea e diploma supplement (i)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta certificati di iscrizione, laurea e diploma supplement (i)\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "SOLO PER UTENTI INTERNI (con carriere presenti in esse3)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nSOLO PER UTENTI INTERNI (con carriere presenti in esse3)</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "matricola_della_carriera_per_la_quale_si_chiede_il_certificato",
+      "label" : "Matricola della carriera per la quale si chiede il certificato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"matricola_della_carriera_per_la_quale_si_chiede_il_certificato\">",
+      "type" : "text"
+    }, {
+      "id" : "indirizzo_e-mail_personale_attualmente_in_uso",
+      "label" : "Indirizzo e-mail personale attualmente in uso",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"indirizzo_e-mail_personale_attualmente_in_uso\">",
+      "type" : "text"
+    }, {
+      "id" : "chiede_il_rilascio_del_i_seguente_i_certificato_i",
+      "label" : "CHIEDE il rilascio del/i seguente/i certificato/i",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Iscrizione",
+        "value" : "Iscrizione"
+      }, {
+        "text" : "\r\nIscrizione con esami",
+        "value" : "\r\nIscrizione con esami"
+      }, {
+        "text" : "\r\n Iscrizione con anni accademici",
+        "value" : "\r\n Iscrizione con anni accademici"
+      }, {
+        "text" : "\r\n Iscrizione con esami da superare",
+        "value" : "\r\n Iscrizione con esami da superare"
+      }, {
+        "text" : "\r\nIscrizione con anni accademici ed esami",
+        "value" : "\r\nIscrizione con anni accademici ed esami"
+      }, {
+        "text" : "\r\n Iscrizione con piano",
+        "value" : "\r\n Iscrizione con piano"
+      }, {
+        "text" : "\r\n Iscrizione con esami e date",
+        "value" : "\r\n Iscrizione con esami e date"
+      }, {
+        "text" : "\r\n Iscrizione corsi singoli con esami e date",
+        "value" : "\r\n Iscrizione corsi singoli con esami e date"
+      }, {
+        "text" : "\r\n Carriera Completa",
+        "value" : "\r\n Carriera Completa"
+      }, {
+        "text" : "\r\n\r\nLaurea",
+        "value" : "\r\n\r\nLaurea"
+      }, {
+        "text" : "\r\nLaurea con piano",
+        "value" : "\r\nLaurea con piano"
+      }, {
+        "text" : "\r\nLaurea con anni accademici",
+        "value" : "\r\nLaurea con anni accademici"
+      }, {
+        "text" : "\r\nLaurea con anni accademici ed esami",
+        "value" : "\r\nLaurea con anni accademici ed esami"
+      }, {
+        "text" : "\r\nLaurea con esami e date",
+        "value" : "\r\nLaurea con esami e date"
+      }, {
+        "text" : "\r\nLaurea con esami senza data",
+        "value" : "\r\nLaurea con esami senza data"
+      }, {
+        "text" : "\r\nLaurea con esami, tesi e relatore",
+        "value" : "\r\nLaurea con esami, tesi e relatore"
+      }, {
+        "text" : "\r\nLaurea con tesi",
+        "value" : "\r\nLaurea con tesi"
+      }, {
+        "text" : "\r\nLaurea senza voto",
+        "value" : "\r\nLaurea senza voto"
+      }, {
+        "text" : "\r\n\r\nRinuncia agli studi",
+        "value" : "\r\n\r\nRinuncia agli studi"
+      }, {
+        "text" : "\r\nRinuncia agli studi con esami",
+        "value" : "\r\nRinuncia agli studi con esami"
+      }, {
+        "text" : "\r\nRinuncia agli studi con anni accademici",
+        "value" : "\r\nRinuncia agli studi con anni accademici"
+      }, {
+        "text" : "\r\nRinuncia agli studi con anni accademici ed esami",
+        "value" : "\r\nRinuncia agli studi con anni accademici ed esami"
+      }, {
+        "text" : "\r\nRinuncia agli studi con piano",
+        "value" : "\r\nRinuncia agli studi con piano"
+      }, {
+        "text" : "\r\n\r\nDecadenza",
+        "value" : "\r\n\r\nDecadenza"
+      }, {
+        "text" : "\r\nDecadenza con esami",
+        "value" : "\r\nDecadenza con esami"
+      }, {
+        "text" : "\r\nDecadenza con anni accademici",
+        "value" : "\r\nDecadenza con anni accademici"
+      }, {
+        "text" : "\r\nDecadenza con anni accademici ed esami",
+        "value" : "\r\nDecadenza con anni accademici ed esami"
+      }, {
+        "text" : "\r\nDecadenza con piano",
+        "value" : "\r\nDecadenza con piano"
+      }, {
+        "text" : "\r\n\r\nDiploma supplement",
+        "value" : "\r\n\r\nDiploma supplement"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"Iscrizione\">\n Iscrizione</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nIscrizione con esami\">\n \r\nIscrizione con esami</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\n Iscrizione con anni accademici\">\n \r\n Iscrizione con anni accademici</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\n Iscrizione con esami da superare\">\n \r\n Iscrizione con esami da superare</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nIscrizione con anni accademici ed esami\">\n \r\nIscrizione con anni accademici ed esami</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\n Iscrizione con piano\">\n \r\n Iscrizione con piano</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\n Iscrizione con esami e date\">\n \r\n Iscrizione con esami e date</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\n Iscrizione corsi singoli con esami e date\">\n \r\n Iscrizione corsi singoli con esami e date</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\n Carriera Completa\">\n \r\n Carriera Completa</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\n\r\nLaurea\">\n \r\n\r\nLaurea</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nLaurea con piano\">\n \r\nLaurea con piano</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nLaurea con anni accademici\">\n \r\nLaurea con anni accademici</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nLaurea con anni accademici ed esami\">\n \r\nLaurea con anni accademici ed esami</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nLaurea con esami e date\">\n \r\nLaurea con esami e date</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nLaurea con esami senza data\">\n \r\nLaurea con esami senza data</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nLaurea con esami, tesi e relatore\">\n \r\nLaurea con esami, tesi e relatore</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nLaurea con tesi\">\n \r\nLaurea con tesi</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nLaurea senza voto\">\n \r\nLaurea senza voto</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\n\r\nRinuncia agli studi\">\n \r\n\r\nRinuncia agli studi</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nRinuncia agli studi con esami\">\n \r\nRinuncia agli studi con esami</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nRinuncia agli studi con anni accademici\">\n \r\nRinuncia agli studi con anni accademici</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nRinuncia agli studi con anni accademici ed esami\">\n \r\nRinuncia agli studi con anni accademici ed esami</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nRinuncia agli studi con piano\">\n \r\nRinuncia agli studi con piano</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\n\r\nDecadenza\">\n \r\n\r\nDecadenza</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nDecadenza con esami\">\n \r\nDecadenza con esami</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nDecadenza con anni accademici\">\n \r\nDecadenza con anni accademici</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nDecadenza con anni accademici ed esami\">\n \r\nDecadenza con anni accademici ed esami</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\nDecadenza con piano\">\n \r\nDecadenza con piano</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"chiede_il_rilascio_del_i_seguente_i_certificato_i\" value=\"\r\n\r\nDiploma supplement\">\n \r\n\r\nDiploma supplement</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "si_chiede_il_rilascio_del_certificato",
+      "label" : "Si chiede il rilascio del certificato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "In copia cartacea",
+        "value" : "In copia cartacea"
+      }, {
+        "text" : "\r\nIn copia digitale all'indirizzo mail indicato in questo ticket",
+        "value" : "\r\nIn copia digitale all'indirizzo mail indicato in questo ticket"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"si_chiede_il_rilascio_del_certificato\" value=\"In copia cartacea\">\n In copia cartacea</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"si_chiede_il_rilascio_del_certificato\" value=\"\r\nIn copia digitale all&#x27;indirizzo mail indicato in questo ticket\">\n \r\nIn copia digitale all&#x27;indirizzo mail indicato in questo ticket</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "allegare_un_documento_d'identità_in_corso_di_validità",
+      "label" : "Allegare un documento d'identità in corso di validità",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegare_un_documento_d&#x27;identità_in_corso_di_validità\">",
+      "type" : "file"
+    }, {
+      "id" : "nota_del_richiedente_campo_facoltativo",
+      "label" : "Nota del richiedente (campo facoltativo)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nota_del_richiedente_campo_facoltativo\">",
+      "type" : "text"
+    }, {
+      "id" : "avvertenza",
+      "label" : "Avvertenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"avvertenza\">",
+      "type" : "text"
+    }, {
+      "id" : "ricevuta_di_pagamento_istanza",
+      "label" : "Ricevuta di pagamento istanza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"ricevuta_di_pagamento_istanza\">",
+      "type" : "file"
+    }, {
+      "id" : "ricevuta_di_pagamento_imposta_di_bollo",
+      "label" : "Ricevuta di pagamento imposta di bollo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"ricevuta_di_pagamento_imposta_di_bollo\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

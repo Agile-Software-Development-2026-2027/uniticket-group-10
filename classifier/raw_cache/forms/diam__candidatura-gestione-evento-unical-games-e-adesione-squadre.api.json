@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:35.743271Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/diam/candidatura-gestione-evento-unical-games-e-adesione-squadre/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

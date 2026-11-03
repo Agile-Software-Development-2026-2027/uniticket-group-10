@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:55.254343Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/centro-residenziale/richiesta-documentazione-per-contributo-mobilita-internazionale-aa-20242025/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

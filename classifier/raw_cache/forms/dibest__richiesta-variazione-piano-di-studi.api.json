@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:09.975547Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dibest/richiesta-variazione-piano-di-studi/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La richiesta è scaduta il 15/02/2023",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

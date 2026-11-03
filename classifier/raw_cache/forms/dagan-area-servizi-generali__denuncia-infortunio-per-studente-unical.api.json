@@ -1,0 +1,319 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:41.648096Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dagan-area-servizi-generali/denuncia-infortunio-per-studente-unical/ticket/new/",
+  "jsonBody" : {
+    "name" : "Denuncia infortunio per STUDENTE UNICAL",
+    "description" : "Modulo da utilizzare per gli STUDENTI UNICAL in caso di infortunio per avviare la pratica presso gli uffici competenti",
+    "protocol_required" : true,
+    "slug" : "denuncia-infortunio-per-studente-unical",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Denuncia infortunio per STUDENTE UNICAL",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Denuncia infortunio per STUDENTE UNICAL\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Modulo da utilizzare per gli STUDENTI UNICAL in caso di infortunio per avviare la pratica presso gli uffici competenti",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nModulo da utilizzare per gli STUDENTI UNICAL in caso di infortunio per avviare la pratica presso gli uffici competenti</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "luogo_e_provincia_di_nascita",
+      "label" : "Luogo e provincia di nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"luogo_e_provincia_di_nascita\">",
+      "type" : "text"
+    }, {
+      "id" : "data_di_nascita",
+      "label" : "Data di nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_di_nascita\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "luogo_e_provincia_di_residenza",
+      "label" : "Luogo e provincia di residenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"luogo_e_provincia_di_residenza\">",
+      "type" : "text"
+    }, {
+      "id" : "via_piazza",
+      "label" : "Via/Piazza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"via_piazza\">",
+      "type" : "text"
+    }, {
+      "id" : "anno_iscrizione",
+      "label" : "Anno iscrizione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"anno_iscrizione\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"1 anno\">1 anno</option>\n\n  <option value=\"2 anno\">2 anno</option>\n\n  <option value=\"3 anno\">3 anno</option>\n\n  <option value=\"4 anno\">4 anno</option>\n\n  <option value=\"5 anno\">5 anno</option>\n\n  <option value=\"FUORI CORSO\">FUORI CORSO</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "tipo_corso",
+      "label" : "Tipo Corso",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"tipo_corso\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Corso di laurea triennale\">Corso di laurea triennale</option>\n\n  <option value=\"Corso di laurea magistrale\">Corso di laurea magistrale</option>\n\n  <option value=\"Corso di laurea a ciclo unico\">Corso di laurea a ciclo unico</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "corso_di_studio",
+      "label" : "Corso di Studio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"corso_di_studio\">",
+      "type" : "text"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-Mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cellulare\">",
+      "type" : "text"
+    }, {
+      "id" : "data_e_ora_infortunio",
+      "label" : "Data e ora infortunio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data/ora valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"uniticket-datetimepicker-wrapper\">\n    <input type=\"text\"\n           name=\"data_e_ora_infortunio\"\n           class=\"form-control uniticket-datetimepicker\"\n           \n           >\n</div>",
+      "type" : "text"
+    }, {
+      "id" : "luogo_e_provincia_infortunio",
+      "label" : "Luogo e provincia infortunio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"luogo_e_provincia_infortunio\">",
+      "type" : "text"
+    }, {
+      "id" : "via_piazza_infortunio",
+      "label" : "Via/Piazza infortunio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"via_piazza_infortunio\">",
+      "type" : "text"
+    }, {
+      "id" : "descrizione_della_dinamica_dell'infortunio",
+      "label" : "Descrizione della dinamica dell'infortunio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Descrivere dettagliatamente la dinamica dell'evento che ha portato all'infortunio",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"descrizione_della_dinamica_dell&#x27;infortunio\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "documento_d'identità",
+      "label" : "Documento d'identità",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento_d&#x27;identità\">",
+      "type" : "file"
+    }, {
+      "id" : "referto_medico",
+      "label" : "Referto medico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"referto_medico\">",
+      "type" : "file"
+    }, {
+      "id" : "altra_documentazione_utile",
+      "label" : "Altra documentazione utile",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"altra_documentazione_utile\">",
+      "type" : "file"
+    }, {
+      "id" : "informativa_privacy",
+      "label" : "Informativa privacy",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"informativa_privacy\">",
+      "type" : "checkbox"
+    } ]
+  },
+  "rawTextBody" : null
+}

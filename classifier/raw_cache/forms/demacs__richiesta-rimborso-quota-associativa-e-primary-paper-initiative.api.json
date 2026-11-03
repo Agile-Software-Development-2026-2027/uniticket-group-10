@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:04.483130Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-rimborso-quota-associativa-e-primary-paper-initiative/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

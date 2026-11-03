@@ -1,0 +1,154 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:43.343686Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/disu/richiesta-di-assegnazione-tesi/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta di assegnazione tesi",
+    "description" : "Allegare la richiesta di assegnazione tesi firmata dal relatore. Il modulo è disponibile al seguente link: https://disu.unical.it/didattica/iscriversi-studiare-laurearsi/modulistica-studenti/",
+    "protocol_required" : true,
+    "slug" : "richiesta-di-assegnazione-tesi",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 924,
+      "fields" : {
+        "category" : 885,
+        "title" : "Dichiarazione di responsabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta di assegnazione tesi",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta di assegnazione tesi\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Allegare la richiesta di assegnazione tesi firmata dal relatore. Il modulo è disponibile al seguente link: https://disu.unical.it/didattica/iscriversi-studiare-laurearsi/modulistica-studenti/",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nAllegare la richiesta di assegnazione tesi firmata dal relatore. Il modulo è disponibile al seguente link: https://disu.unical.it/didattica/iscriversi-studiare-laurearsi/modulistica-studenti/</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "iscritto_a_al_corso_di_studio",
+      "label" : "Iscritto/a al Corso di Studio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"iscritto_a_al_corso_di_studio\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"L2 LINGUE E CULTURE MODERNE\">L2 LINGUE E CULTURE MODERNE</option>\n\n  <option value=\"L2 COMUNICAZIONE E DAMS\">L2 COMUNICAZIONE E DAMS</option>\n\n  <option value=\"L2 FILOSOFIA E STORIA\">L2 FILOSOFIA E STORIA</option>\n\n  <option value=\"L2 LETTERE E BENI CULTURALI\">L2 LETTERE E BENI CULTURALI</option>\n\n  <option value=\"L2 LETTERE\">L2 LETTERE</option>\n\n  <option value=\"LM FILOLOGIA MODERNA\">LM FILOLOGIA MODERNA</option>\n\n  <option value=\"LM LINGUE E LETTERATURE MODERNE\">LM LINGUE E LETTERATURE MODERNE</option>\n\n  <option value=\"LM SCIENZE DELL&#x27;ANTICHITÀ\">LM SCIENZE DELL&#x27;ANTICHITÀ</option>\n\n  <option value=\"LM SCIENZE FILOSOFICHE\">LM SCIENZE FILOSOFICHE</option>\n\n  <option value=\"LM SCIENZE STORICHE\">LM SCIENZE STORICHE</option>\n\n  <option value=\"LM COMUNICAZIONE E TECNOLOGIE DELL&#x27;INFORMAZIONE\">LM COMUNICAZIONE E TECNOLOGIE DELL&#x27;INFORMAZIONE</option>\n\n  <option value=\"LM DAMS E STORIA DELL&#x27;ARTE. ORGANIZZAZIONE E TEORIA DELLE ARTI, DELLA MUSICA E DEL TEATRO\">LM DAMS E STORIA DELL&#x27;ARTE. ORGANIZZAZIONE E TEORIA DELLE ARTI, DELLA MUSICA E DEL TEATRO</option>\n\n  <option value=\"LM LINGUAGGI DELLLA COMUNICAZIONE E DELLO SPETTACOLO\">LM LINGUAGGI DELLLA COMUNICAZIONE E DELLO SPETTACOLO</option>\n\n  <option value=\"LM SCIENZE STORICHE E DEL PATRIMONIO CULTURALE\">LM SCIENZE STORICHE E DEL PATRIMONIO CULTURALE</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "nome,_cognome_e_matricola",
+      "label" : "Nome, cognome e matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome,_cognome_e_matricola\">",
+      "type" : "text"
+    }, {
+      "id" : "titolo_tesi",
+      "label" : "Titolo tesi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"titolo_tesi\">",
+      "type" : "text"
+    }, {
+      "id" : "nome_e_cognome_relatore_correlatore",
+      "label" : "Nome e cognome relatore/correlatore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome_e_cognome_relatore_correlatore\">",
+      "type" : "text"
+    }, {
+      "id" : "richiesta_assegnazione_tesi",
+      "label" : "Richiesta assegnazione tesi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"richiesta_assegnazione_tesi\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

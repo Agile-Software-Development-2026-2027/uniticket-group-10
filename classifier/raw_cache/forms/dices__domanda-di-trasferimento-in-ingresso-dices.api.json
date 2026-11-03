@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:51.676235Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dices/domanda-di-trasferimento-in-ingresso-dices/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Il modulo sarà disponibile dal  1 luglio al 31 agosto",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

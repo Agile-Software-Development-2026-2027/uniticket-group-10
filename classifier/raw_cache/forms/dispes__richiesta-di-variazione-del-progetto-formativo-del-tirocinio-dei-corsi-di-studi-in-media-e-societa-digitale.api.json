@@ -1,0 +1,201 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:53.116791Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dispes/richiesta-di-variazione-del-progetto-formativo-del-tirocinio-dei-corsi-di-studi-in-media-e-societa-digitale/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta di variazione del Progetto formativo del Tirocinio dei Corsi di Studi in Media e Società Digitale",
+    "description" : "Richiesta di variazione del Progetto formativo del Tirocinio per...  (indicare se: modifica Tutor; trasferta; Proroga; Sospensione; interruzione)",
+    "protocol_required" : true,
+    "slug" : "richiesta-di-variazione-del-progetto-formativo-del-tirocinio-dei-corsi-di-studi-in-media-e-societa-digitale",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta di variazione del Progetto formativo del Tirocinio dei Corsi di Studi in Media e Società Digitale",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta di variazione del Progetto formativo del Tirocinio dei Corsi di Studi in Media e Società Digitale\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta di variazione del Progetto formativo del Tirocinio per...  (indicare se: modifica Tutor; trasferta; Proroga; Sospensione; interruzione)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta di variazione del Progetto formativo del Tirocinio per...  (indicare se: modifica Tutor; trasferta; Proroga; Sospensione; interruzione)</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "soggetto_ospitante",
+      "label" : "Soggetto ospitante",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"soggetto_ospitante\">",
+      "type" : "text"
+    }, {
+      "id" : "tutor_aziendale",
+      "label" : "Tutor aziendale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"tutor_aziendale\">",
+      "type" : "text"
+    }, {
+      "id" : "cognome_e_nome_del_tirocinante",
+      "label" : "Cognome e nome del tirocinante",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome_e_nome_del_tirocinante\">",
+      "type" : "text"
+    }, {
+      "id" : "matricola_del_tirocinante",
+      "label" : "Matricola del tirocinante",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"matricola_del_tirocinante\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "presa_visione",
+      "label" : "Presa visione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Selezionare di seguito la tipologia di richiesta e inserire i dati.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"presa_visione\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "modifica_tutor",
+      "label" : "Modifica tutor",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-modifica_tutor\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_modifica_tutor-NNNNN-a_far_data_dal\">A far data dal:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"modifica_tutor-NNNNN-a_far_data_dal\" id=\"id_modifica_tutor-NNNNN-a_far_data_dal\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_modifica_tutor-NNNNN-cognome_e_nome_nuovo_tutor\">Cognome e nome nuovo tutor:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"modifica_tutor-NNNNN-cognome_e_nome_nuovo_tutor\" id=\"id_modifica_tutor-NNNNN-cognome_e_nome_nuovo_tutor\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_modifica_tutor-NNNNN-codice_fiscale\">Codice fiscale:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"modifica_tutor-NNNNN-codice_fiscale\" id=\"id_modifica_tutor-NNNNN-codice_fiscale\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_modifica_tutor-NNNNN-nato_a\">Nato a:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"modifica_tutor-NNNNN-nato_a\" id=\"id_modifica_tutor-NNNNN-nato_a\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_modifica_tutor-NNNNN-il\">Il:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"modifica_tutor-NNNNN-il\" id=\"id_modifica_tutor-NNNNN-il\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_modifica_tutor-NNNNN-recapito_telefonico\">Recapito telefonico:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"modifica_tutor-NNNNN-recapito_telefonico\" id=\"id_modifica_tutor-NNNNN-recapito_telefonico\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_modifica_tutor-NNNNN-mail\">Mail:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"modifica_tutor-NNNNN-mail\" id=\"id_modifica_tutor-NNNNN-mail\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-modifica_tutor-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"modifica_tutor-TOTAL_FORMS\" value=\"0\" id=\"id_modifica_tutor-TOTAL_FORMS\"><input type=\"hidden\" name=\"modifica_tutor-INITIAL_FORMS\" value=\"0\" id=\"id_modifica_tutor-INITIAL_FORMS\"><input type=\"hidden\" name=\"modifica_tutor-MIN_NUM_FORMS\" value=\"0\" id=\"id_modifica_tutor-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"modifica_tutor-MAX_NUM_FORMS\" value=\"1000\" id=\"id_modifica_tutor-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-modifica_tutor\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "trasferta",
+      "label" : "Trasferta",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-trasferta\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_trasferta-NNNNN-in_data\">In data:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"trasferta-NNNNN-in_data\" id=\"id_trasferta-NNNNN-in_data\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_trasferta-NNNNN-luogo\">Luogo:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"trasferta-NNNNN-luogo\" id=\"id_trasferta-NNNNN-luogo\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-trasferta-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"trasferta-TOTAL_FORMS\" value=\"0\" id=\"id_trasferta-TOTAL_FORMS\"><input type=\"hidden\" name=\"trasferta-INITIAL_FORMS\" value=\"0\" id=\"id_trasferta-INITIAL_FORMS\"><input type=\"hidden\" name=\"trasferta-MIN_NUM_FORMS\" value=\"0\" id=\"id_trasferta-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"trasferta-MAX_NUM_FORMS\" value=\"1000\" id=\"id_trasferta-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-trasferta\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu",
+      "label" : "Proroga del tirocinio (al fine del raggiungimento delle ore di attività previste per il conseguimento dei cfu)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu-NNNNN-fino_al\">Fino al:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu-NNNNN-fino_al\" id=\"id_proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu-NNNNN-fino_al\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu-NNNNN-motivazione_della_proroga\">Motivazione della proroga:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu-NNNNN-motivazione_della_proroga\" id=\"id_proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu-NNNNN-motivazione_della_proroga\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu-TOTAL_FORMS\" value=\"0\" id=\"id_proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu-TOTAL_FORMS\"><input type=\"hidden\" name=\"proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu-INITIAL_FORMS\" value=\"0\" id=\"id_proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu-INITIAL_FORMS\"><input type=\"hidden\" name=\"proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu-MIN_NUM_FORMS\" value=\"0\" id=\"id_proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu-MAX_NUM_FORMS\" value=\"1000\" id=\"id_proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-proroga_del_tirocinio_al_fine_del_raggiungimento_delle_ore_di_attività_previste_per_il_conseguimento_dei_cfu\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "sospensione_del_tirocinio",
+      "label" : "Sospensione del tirocinio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-sospensione_del_tirocinio\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_sospensione_del_tirocinio-NNNNN-dal\">Dal:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"sospensione_del_tirocinio-NNNNN-dal\" id=\"id_sospensione_del_tirocinio-NNNNN-dal\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_sospensione_del_tirocinio-NNNNN-al\">Al:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"sospensione_del_tirocinio-NNNNN-al\" id=\"id_sospensione_del_tirocinio-NNNNN-al\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_sospensione_del_tirocinio-NNNNN-motivazione_della_sospensione\">Motivazione della sospensione:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"sospensione_del_tirocinio-NNNNN-motivazione_della_sospensione\" id=\"id_sospensione_del_tirocinio-NNNNN-motivazione_della_sospensione\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-sospensione_del_tirocinio-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"sospensione_del_tirocinio-TOTAL_FORMS\" value=\"0\" id=\"id_sospensione_del_tirocinio-TOTAL_FORMS\"><input type=\"hidden\" name=\"sospensione_del_tirocinio-INITIAL_FORMS\" value=\"0\" id=\"id_sospensione_del_tirocinio-INITIAL_FORMS\"><input type=\"hidden\" name=\"sospensione_del_tirocinio-MIN_NUM_FORMS\" value=\"0\" id=\"id_sospensione_del_tirocinio-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"sospensione_del_tirocinio-MAX_NUM_FORMS\" value=\"1000\" id=\"id_sospensione_del_tirocinio-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-sospensione_del_tirocinio\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "interruzione_del_tirocinio",
+      "label" : "Interruzione del tirocinio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-interruzione_del_tirocinio\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_interruzione_del_tirocinio-NNNNN-a_far_data_dal\">A far data dal:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"interruzione_del_tirocinio-NNNNN-a_far_data_dal\" id=\"id_interruzione_del_tirocinio-NNNNN-a_far_data_dal\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_interruzione_del_tirocinio-NNNNN-motivazione_dell&#x27;interruzione\">Motivazione dell&#x27;interruzione:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"interruzione_del_tirocinio-NNNNN-motivazione_dell&#x27;interruzione\" id=\"id_interruzione_del_tirocinio-NNNNN-motivazione_dell&#x27;interruzione\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-interruzione_del_tirocinio-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"interruzione_del_tirocinio-TOTAL_FORMS\" value=\"0\" id=\"id_interruzione_del_tirocinio-TOTAL_FORMS\"><input type=\"hidden\" name=\"interruzione_del_tirocinio-INITIAL_FORMS\" value=\"0\" id=\"id_interruzione_del_tirocinio-INITIAL_FORMS\"><input type=\"hidden\" name=\"interruzione_del_tirocinio-MIN_NUM_FORMS\" value=\"0\" id=\"id_interruzione_del_tirocinio-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"interruzione_del_tirocinio-MAX_NUM_FORMS\" value=\"1000\" id=\"id_interruzione_del_tirocinio-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-interruzione_del_tirocinio\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

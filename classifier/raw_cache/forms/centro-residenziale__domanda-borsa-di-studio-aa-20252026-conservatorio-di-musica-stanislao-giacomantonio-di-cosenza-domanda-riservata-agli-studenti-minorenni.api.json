@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:43.800726Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/centro-residenziale/domanda-borsa-di-studio-aa-20252026-conservatorio-di-musica-stanislao-giacomantonio-di-cosenza-domanda-riservata-agli-studenti-minorenni/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

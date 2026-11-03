@@ -1,0 +1,262 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:29.463282Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-apertura-appello-sfp-vecchio-ordinamento/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta apertura appello SFP vecchio ordinamento",
+    "description" : "Richiesta apertura appello SFP vecchio ordinamento",
+    "protocol_required" : false,
+    "slug" : "richiesta-apertura-appello-sfp-vecchio-ordinamento",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 263,
+      "fields" : {
+        "category" : 234,
+        "title" : "Dischiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza delle responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art 495 c.p., art 640 c.p.e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta apertura appello SFP vecchio ordinamento",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta apertura appello SFP vecchio ordinamento\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta apertura appello SFP vecchio ordinamento",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta apertura appello SFP vecchio ordinamento</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "io",
+      "label" : "io",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"io\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"matricola\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cellulare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "email",
+      "label" : "Email",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"email\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "chiede",
+      "label" : "chiede",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"chiede\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "biennio_comune_primo_anno",
+      "label" : "BIENNIO COMUNE PRIMO ANNO",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-biennio_comune_primo_anno\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_biennio_comune_primo_anno-NNNNN-insegnamento\">Insegnamento:</label></th>\n    <td>\n      \n      <select name=\"biennio_comune_primo_anno-NNNNN-insegnamento\" id=\"id_biennio_comune_primo_anno-NNNNN-insegnamento\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"03EBG - AREA PSICOLOGICA - PSICOLOGIA DELL&#x27;EDUCAZIONE - 4 CFU\">03EBG - AREA PSICOLOGICA - PSICOLOGIA DELL&#x27;EDUCAZIONE - 4 CFU</option>\n\n  <option value=\"03EBG - AREA PSICOLOGICA - PSICOLOGIA DELLO SVILUPPO - 5 CFU\">03EBG - AREA PSICOLOGICA - PSICOLOGIA DELLO SVILUPPO - 5 CFU</option>\n\n  <option value=\"03EBH - AREA PEDAGOGICA - FILOSOFIA DELL&#x27;EDUCAZIONE - 2 CFU\">03EBH - AREA PEDAGOGICA - FILOSOFIA DELL&#x27;EDUCAZIONE - 2 CFU</option>\n\n  <option value=\"03EBH - AREA PEDAGOGICA - PEDAGOGIA GENERALE - 3 CFU\">03EBH - AREA PEDAGOGICA - PEDAGOGIA GENERALE - 3 CFU</option>\n\n  <option value=\"03EBH - AREA PEDAGOGICA - STORIA DELLA PEDAGOGIA - 2 CFU\">03EBH - AREA PEDAGOGICA - STORIA DELLA PEDAGOGIA - 2 CFU</option>\n\n  <option value=\"03EBH - AREA PEDAGOGICA - STORIA DELLA SCUOLA E DELLE ISTITUZIONI EDUCATIVE - 2 CFU\">03EBH - AREA PEDAGOGICA - STORIA DELLA SCUOLA E DELLE ISTITUZIONI EDUCATIVE - 2 CFU</option>\n\n  <option value=\"03EBN - AREA LINGUE MODERNE - LINGUA FRANCESE - 5 CFU\">03EBN - AREA LINGUE MODERNE - LINGUA FRANCESE - 5 CFU</option>\n\n  <option value=\"03EBN - AREA LINGUE MODERNE - LINGUA INGLESE - 5 CFU\">03EBN - AREA LINGUE MODERNE - LINGUA INGLESE - 5 CFU</option>\n\n  <option value=\"03EC0 - AREA SOCIO-ANTROPOLOGICA - ANTROPOLOGIA CULTURALE - 5 CFU\">03EC0 - AREA SOCIO-ANTROPOLOGICA - ANTROPOLOGIA CULTURALE - 5 CFU</option>\n\n  <option value=\"03EC0 - AREA SOCIO-ANTROPOLOGICA - SOCIOLOGIA DELLE COMUNICAZIONI DI MASSA - 4 CFU\">03EC0 - AREA SOCIO-ANTROPOLOGICA - SOCIOLOGIA DELLE COMUNICAZIONI DI MASSA - 4 CFU</option>\n\n  <option value=\"03EBL - AREA MATEMATICA - ESERCITAZIONI DI DIDATTICA DELLA FISICA - 2 CFU\">03EBL - AREA MATEMATICA - ESERCITAZIONI DI DIDATTICA DELLA FISICA - 2 CFU</option>\n\n  <option value=\"03EBL - AREA MATEMATICA - FONDAMENTI DELLA FISICA - 3 CFU\">03EBL - AREA MATEMATICA - FONDAMENTI DELLA FISICA - 3 CFU</option>\n\n  <option value=\"03EBL - AREA MATEMATICA - MATEMATICA - 5 CFU\">03EBL - AREA MATEMATICA - MATEMATICA - 5 CFU</option>\n\n  <option value=\"03EBM - AREA FISICA, NATURALE, AMBIENTALE - DIDATTICA DELL&#x27;ASTRONOMIA - 5 CFU\">03EBM - AREA FISICA, NATURALE, AMBIENTALE - DIDATTICA DELL&#x27;ASTRONOMIA - 5 CFU</option>\n\n  <option value=\"03EBM - AREA FISICA, NATURALE, AMBIENTALE - DIDATTICA DELLE SCIENZE NATURALI - 3 CFU\">03EBM - AREA FISICA, NATURALE, AMBIENTALE - DIDATTICA DELLE SCIENZE NATURALI - 3 CFU</option>\n\n  <option value=\"03EBM - AREA FISICA, NATURALE, AMBIENTALE - ESERCITAZIONI DI DIDATTICA DELLE SCIENZE NATURALI - 2 CFU\">03EBM - AREA FISICA, NATURALE, AMBIENTALE - ESERCITAZIONI DI DIDATTICA DELLE SCIENZE NATURALI - 2 CFU</option>\n\n  <option value=\"03Z19 - LABORATORIO AREA 1 1 ANNO - 2 CFU\">03Z19 - LABORATORIO AREA 1 1 ANNO - 2 CFU</option>\n\n  <option value=\"03Z20 - LABORATORIO AREA 2 1 ANNO - 3 CFU\">03Z20 - LABORATORIO AREA 2 1 ANNO - 3 CFU</option>\n\n  <option value=\"03Z21 - TIROCINIO 1 ANNO - 8 CFU\">03Z21 - TIROCINIO 1 ANNO - 8 CFU</option>\n\n  <option value=\"\"></option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-biennio_comune_primo_anno-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"biennio_comune_primo_anno-TOTAL_FORMS\" value=\"0\" id=\"id_biennio_comune_primo_anno-TOTAL_FORMS\"><input type=\"hidden\" name=\"biennio_comune_primo_anno-INITIAL_FORMS\" value=\"0\" id=\"id_biennio_comune_primo_anno-INITIAL_FORMS\"><input type=\"hidden\" name=\"biennio_comune_primo_anno-MIN_NUM_FORMS\" value=\"0\" id=\"id_biennio_comune_primo_anno-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"biennio_comune_primo_anno-MAX_NUM_FORMS\" value=\"1000\" id=\"id_biennio_comune_primo_anno-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-biennio_comune_primo_anno\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "biennio_comune_secondo_anno",
+      "label" : "BIENNIO COMUNE SECONDO ANNO",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-biennio_comune_secondo_anno\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_biennio_comune_secondo_anno-NNNNN-insegnamento\">Insegnamento:</label></th>\n    <td>\n      \n      <select name=\"biennio_comune_secondo_anno-NNNNN-insegnamento\" id=\"id_biennio_comune_secondo_anno-NNNNN-insegnamento\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"03EC1 - AREA METODOLOGICO-DIDATTICA - DIDATTICA GENERALE - 5 CFU\">03EC1 - AREA METODOLOGICO-DIDATTICA - DIDATTICA GENERALE - 5 CFU</option>\n\n  <option value=\"03EC1 - AREA METODOLOGICO-DIDATTICA - DOCIMOLOGIA - 5 CFU\">03EC1 - AREA METODOLOGICO-DIDATTICA - DOCIMOLOGIA - 5 CFU</option>\n\n  <option value=\"03EC5 - AREA STORICA, GEOGRAFICA, SOCIALE - DIDATTICA DELLA STORIA - 5 CFU\">03EC5 - AREA STORICA, GEOGRAFICA, SOCIALE - DIDATTICA DELLA STORIA - 5 CFU</option>\n\n  <option value=\"03EC5 - AREA STORICA, GEOGRAFICA, SOCIALE - GEOGRAFIA - 5 CFU\">03EC5 - AREA STORICA, GEOGRAFICA, SOCIALE - GEOGRAFIA - 5 CFU</option>\n\n  <option value=\"03EC6 - AREA LINGUISTICO-LETTERARIA - DIDATTICA DELLA LINGUA ITALIANA - 5 CFU\">03EC6 - AREA LINGUISTICO-LETTERARIA - DIDATTICA DELLA LINGUA ITALIANA - 5 CFU</option>\n\n  <option value=\"03EC6 - AREA LINGUISTICO-LETTERARIA - LINGUA ITALIANA - 5 CFU\">03EC6 - AREA LINGUISTICO-LETTERARIA - LINGUA ITALIANA - 5 CFU</option>\n\n  <option value=\"03EC4 - AREA INTEGRAZIONE SCOLASTICA - DIDATTICA SPECIALE - 3 CFU\">03EC4 - AREA INTEGRAZIONE SCOLASTICA - DIDATTICA SPECIALE - 3 CFU</option>\n\n  <option value=\"03EC4 - AREA INTEGRAZIONE SCOLASTICA - PEDAGOGIA SPECIALE - 3 CFU\">03EC4 - AREA INTEGRAZIONE SCOLASTICA - PEDAGOGIA SPECIALE - 3 CFU</option>\n\n  <option value=\"03EC2 - AREA IGIENICO-MEDICA - BIOLOGIA GENERALE - 3 CFU\">03EC2 - AREA IGIENICO-MEDICA - BIOLOGIA GENERALE - 3 CFU</option>\n\n  <option value=\"03EC2 - AREA IGIENICO-MEDICA - ECOLOGIA ANIMALE - 3 CFU\">03EC2 - AREA IGIENICO-MEDICA - ECOLOGIA ANIMALE - 3 CFU</option>\n\n  <option value=\"03EC2 - AREA IGIENICO-MEDICA - DIDATTICA DELLA CHIMICA - 2 CFU\">03EC2 - AREA IGIENICO-MEDICA - DIDATTICA DELLA CHIMICA - 2 CFU</option>\n\n  <option value=\"03EC3 - AREA MOTORIO-ESTETICO-ESPRESSIVA - DISEGNO - 4 CFU\">03EC3 - AREA MOTORIO-ESTETICO-ESPRESSIVA - DISEGNO - 4 CFU</option>\n\n  <option value=\"03EC3 - AREA MOTORIO-ESTETICO-ESPRESSIVA - ESTETICA - 3 CFU\">03EC3 - AREA MOTORIO-ESTETICO-ESPRESSIVA - ESTETICA - 3 CFU</option>\n\n  <option value=\"03EC3 - AREA MOTORIO-ESTETICO-ESPRESSIVA - TEORIA E METODOLOGIA DEL MOVIMENTO UMANO - 3 CFU\">03EC3 - AREA MOTORIO-ESTETICO-ESPRESSIVA - TEORIA E METODOLOGIA DEL MOVIMENTO UMANO - 3 CFU</option>\n\n  <option value=\"03LA1 - LABORATORIO AREA 1 2 ANNO - 2 CFU\">03LA1 - LABORATORIO AREA 1 2 ANNO - 2 CFU</option>\n\n  <option value=\"03LA2 - LABORATORIO AREA 2 2 ANNO - 3 CFU\">03LA2 - LABORATORIO AREA 2 2 ANNO - 3 CFU</option>\n\n  <option value=\"03TIR - TIROCINIO 2 ANNO - 11 CFU\">03TIR - TIROCINIO 2 ANNO - 11 CFU</option>\n\n  <option value=\"\"></option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-biennio_comune_secondo_anno-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"biennio_comune_secondo_anno-TOTAL_FORMS\" value=\"0\" id=\"id_biennio_comune_secondo_anno-TOTAL_FORMS\"><input type=\"hidden\" name=\"biennio_comune_secondo_anno-INITIAL_FORMS\" value=\"0\" id=\"id_biennio_comune_secondo_anno-INITIAL_FORMS\"><input type=\"hidden\" name=\"biennio_comune_secondo_anno-MIN_NUM_FORMS\" value=\"0\" id=\"id_biennio_comune_secondo_anno-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"biennio_comune_secondo_anno-MAX_NUM_FORMS\" value=\"1000\" id=\"id_biennio_comune_secondo_anno-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-biennio_comune_secondo_anno\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "indirizzo_infanzia_terzo_anno",
+      "label" : "INDIRIZZO INFANZIA TERZO ANNO",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-indirizzo_infanzia_terzo_anno\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_indirizzo_infanzia_terzo_anno-NNNNN-insegnamento\">Insegnamento:</label></th>\n    <td>\n      \n      <select name=\"indirizzo_infanzia_terzo_anno-NNNNN-insegnamento\" id=\"id_indirizzo_infanzia_terzo_anno-NNNNN-insegnamento\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"03Z43 - AREA PSICOPEDAGOGICO-DIDATTICA - PEDAGOGIA INTERCULTURALE - 4 CFU\">03Z43 - AREA PSICOPEDAGOGICO-DIDATTICA - PEDAGOGIA INTERCULTURALE - 4 CFU</option>\n\n  <option value=\"03Z43 - AREA PSICOPEDAGOGICO-DIDATTICA - PSICOLOGIA SOCIALE DEI GRUPPI - 4 CFU\">03Z43 - AREA PSICOPEDAGOGICO-DIDATTICA - PSICOLOGIA SOCIALE DEI GRUPPI - 4 CFU</option>\n\n  <option value=\"03Z40 - AREA SOCIO-CULTURALE - ETICA DELLA COMUNICAZIONE I - 4 CFU\">03Z40 - AREA SOCIO-CULTURALE - ETICA DELLA COMUNICAZIONE I - 4 CFU</option>\n\n  <option value=\"03Z40 - AREA SOCIO-CULTURALE - STORIA DELLE IDEE - 4 CFU\">03Z40 - AREA SOCIO-CULTURALE - STORIA DELLE IDEE - 4 CFU</option>\n\n  <option value=\"03Z12 - AREA FISICO-MATEMATICA - DIDATTICA DELLA FISICA - 6 CFU\">03Z12 - AREA FISICO-MATEMATICA - DIDATTICA DELLA FISICA - 6 CFU</option>\n\n  <option value=\"03Z12 - AREA FISICO-MATEMATICA - DIDATTICA DELLA MATEMATICA - 2 CFU\">03Z12 - AREA FISICO-MATEMATICA - DIDATTICA DELLA MATEMATICA - 2 CFU</option>\n\n  <option value=\"03Z15 - AREA LINGUISTICA SCUOLA MATERNA - DIDATTICA DELLA LINGUA ITALIANA II - 4 CFU\">03Z15 - AREA LINGUISTICA SCUOLA MATERNA - DIDATTICA DELLA LINGUA ITALIANA II - 4 CFU</option>\n\n  <option value=\"03Z15 - AREA LINGUISTICA SCUOLA MATERNA - LINGUA ITALIANA 2 - 4 CFU\">03Z15 - AREA LINGUISTICA SCUOLA MATERNA - LINGUA ITALIANA 2 - 4 CFU</option>\n\n  <option value=\"03ZZ7 - AREA MOTORIO-ESTETICO ESPRESSIVA SCUOLA MATERNA - DISEGNO II - 3 CFU\">03ZZ7 - AREA MOTORIO-ESTETICO ESPRESSIVA SCUOLA MATERNA - DISEGNO II - 3 CFU</option>\n\n  <option value=\"03ZZ7 - AREA MOTORIO-ESTETICO ESPRESSIVA SCUOLA MATERNA - FONDAMENTI DELLA COMUNICAZIONE MUSICALE - 2 CFU\">03ZZ7 - AREA MOTORIO-ESTETICO ESPRESSIVA SCUOLA MATERNA - FONDAMENTI DELLA COMUNICAZIONE MUSICALE - 2 CFU</option>\n\n  <option value=\"03ZZ7 - AREA MOTORIO-ESTETICO ESPRESSIVA SCUOLA MATERNA - TEORIA E METODOLOGIA DEL MOVIMENTO UMANO 2 - 3 CFU\">03ZZ7 - AREA MOTORIO-ESTETICO ESPRESSIVA SCUOLA MATERNA - TEORIA E METODOLOGIA DEL MOVIMENTO UMANO 2 - 3 CFU</option>\n\n  <option value=\"03Z25 - LABORATORIO AREA 1 3 ANNO - SC. MATERNA - 2 CFU\">03Z25 - LABORATORIO AREA 1 3 ANNO - SC. MATERNA - 2 CFU</option>\n\n  <option value=\"03Z26 - LABORATORIO AREA 2 3 ANNO - SC. MATERNA - 2 CFU\">03Z26 - LABORATORIO AREA 2 3 ANNO - SC. MATERNA - 2 CFU</option>\n\n  <option value=\"03Z27 - TIROCINIO 3 ANNO - SC. MATERNA - 6 CFU\">03Z27 - TIROCINIO 3 ANNO - SC. MATERNA - 6 CFU</option>\n\n  <option value=\"\"></option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-indirizzo_infanzia_terzo_anno-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"indirizzo_infanzia_terzo_anno-TOTAL_FORMS\" value=\"0\" id=\"id_indirizzo_infanzia_terzo_anno-TOTAL_FORMS\"><input type=\"hidden\" name=\"indirizzo_infanzia_terzo_anno-INITIAL_FORMS\" value=\"0\" id=\"id_indirizzo_infanzia_terzo_anno-INITIAL_FORMS\"><input type=\"hidden\" name=\"indirizzo_infanzia_terzo_anno-MIN_NUM_FORMS\" value=\"0\" id=\"id_indirizzo_infanzia_terzo_anno-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"indirizzo_infanzia_terzo_anno-MAX_NUM_FORMS\" value=\"1000\" id=\"id_indirizzo_infanzia_terzo_anno-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-indirizzo_infanzia_terzo_anno\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "indirizzo_infanzia_quarto_anno",
+      "label" : "INDIRIZZO INFANZIA QUARTO ANNO",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-indirizzo_infanzia_quarto_anno\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_indirizzo_infanzia_quarto_anno-NNNNN-insegnamento\">Insegnamento:</label></th>\n    <td>\n      \n      <select name=\"indirizzo_infanzia_quarto_anno-NNNNN-insegnamento\" id=\"id_indirizzo_infanzia_quarto_anno-NNNNN-insegnamento\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"03ZZ4 - AREA PSICOPEDAGOGICA - PEDAGOGIA SOCIALE - 4 CFU\">03ZZ4 - AREA PSICOPEDAGOGICA - PEDAGOGIA SOCIALE - 4 CFU</option>\n\n  <option value=\"03ZZ4 - AREA PSICOPEDAGOGICA - ELEMENTI DI PSICOMETRIA APPLICATI ALLA DIDATTICA TECNICHE DI OSSERVAZIONE DEL COMPORTAMENTO INFANTILE - 4 CFU\">03ZZ4 - AREA PSICOPEDAGOGICA - ELEMENTI DI PSICOMETRIA APPLICATI ALLA DIDATTICA TECNICHE DI OSSERVAZIONE DEL COMPORTAMENTO INFANTILE - 4 CFU</option>\n\n  <option value=\"03ZZ5 - AREA INTEGRAZIONE SCOLASTICA SCUOLA MATERNA - DIDATTICA SPECIALE 2 - 4 CFU\">03ZZ5 - AREA INTEGRAZIONE SCOLASTICA SCUOLA MATERNA - DIDATTICA SPECIALE 2 - 4 CFU</option>\n\n  <option value=\"03ZZ5 - AREA INTEGRAZIONE SCOLASTICA SCUOLA MATERNA - PEDAGOGIA SPECIALE 2 - 4 CFU\">03ZZ5 - AREA INTEGRAZIONE SCOLASTICA SCUOLA MATERNA - PEDAGOGIA SPECIALE 2 - 4 CFU</option>\n\n  <option value=\"03ZZ6 - AREA SNIA III SCIENZE NATURALI IGIENICHE E AMBIENTALI - SCUOLA MATERNA - DIDATTICA DELLE SCIENZE DELLA TERRA - 3 CFU\">03ZZ6 - AREA SNIA III SCIENZE NATURALI IGIENICHE E AMBIENTALI - SCUOLA MATERNA - DIDATTICA DELLE SCIENZE DELLA TERRA - 3 CFU</option>\n\n  <option value=\"03ZZ6 - AREA SNIA III SCIENZE NATURALI IGIENICHE E AMBIENTALI - SCUOLA MATERNA - DIDATTICA DELLE SCIENZE NATURALI 2 - 3 CFU\">03ZZ6 - AREA SNIA III SCIENZE NATURALI IGIENICHE E AMBIENTALI - SCUOLA MATERNA - DIDATTICA DELLE SCIENZE NATURALI 2 - 3 CFU</option>\n\n  <option value=\"03ZZ6 - AREA SNIA III SCIENZE NATURALI IGIENICHE E AMBIENTALI - SCUOLA MATERNA - IGIENE - 2 CFU\">03ZZ6 - AREA SNIA III SCIENZE NATURALI IGIENICHE E AMBIENTALI - SCUOLA MATERNA - IGIENE - 2 CFU</option>\n\n  <option value=\"03Z10 - AREA MOTORIO-ESTETICO-ESPRESSIVA 4 ANNO - SCUOLA MATERNA - DISEGNO 3 - 3 CFU\">03Z10 - AREA MOTORIO-ESTETICO-ESPRESSIVA 4 ANNO - SCUOLA MATERNA - DISEGNO 3 - 3 CFU</option>\n\n  <option value=\"03Z10 - AREA MOTORIO-ESTETICO-ESPRESSIVA 4 ANNO - SCUOLA MATERNA - FONDAMENTI DELLA COMUNICAZIONE MUSICALE 2 - 2 CFU\">03Z10 - AREA MOTORIO-ESTETICO-ESPRESSIVA 4 ANNO - SCUOLA MATERNA - FONDAMENTI DELLA COMUNICAZIONE MUSICALE 2 - 2 CFU</option>\n\n  <option value=\"03Z10 - AREA MOTORIO-ESTETICO-ESPRESSIVA 4 ANNO - SCUOLA MATERNA - TEORIA E METODOLOGIA DEL MOVIMENTO UMANO 3 - 3 CFU\">03Z10 - AREA MOTORIO-ESTETICO-ESPRESSIVA 4 ANNO - SCUOLA MATERNA - TEORIA E METODOLOGIA DEL MOVIMENTO UMANO 3 - 3 CFU</option>\n\n  <option value=\"03Z28 - LABORATORIO AREA 1 4 ANNO - SC. MATERNA - 3 CFU\">03Z28 - LABORATORIO AREA 1 4 ANNO - SC. MATERNA - 3 CFU</option>\n\n  <option value=\"03Z29 - LABORATORIO AREA 2 4 ANNO - SCUOLA  MATERNA - 3 CFU\">03Z29 - LABORATORIO AREA 2 4 ANNO - SCUOLA  MATERNA - 3 CFU</option>\n\n  <option value=\"03Z30 - TIROCINIO 4 ANNO - SCUOLA  MATERNA - 12 CFU\">03Z30 - TIROCINIO 4 ANNO - SCUOLA  MATERNA - 12 CFU</option>\n\n  <option value=\"\"></option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-indirizzo_infanzia_quarto_anno-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"indirizzo_infanzia_quarto_anno-TOTAL_FORMS\" value=\"0\" id=\"id_indirizzo_infanzia_quarto_anno-TOTAL_FORMS\"><input type=\"hidden\" name=\"indirizzo_infanzia_quarto_anno-INITIAL_FORMS\" value=\"0\" id=\"id_indirizzo_infanzia_quarto_anno-INITIAL_FORMS\"><input type=\"hidden\" name=\"indirizzo_infanzia_quarto_anno-MIN_NUM_FORMS\" value=\"0\" id=\"id_indirizzo_infanzia_quarto_anno-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"indirizzo_infanzia_quarto_anno-MAX_NUM_FORMS\" value=\"1000\" id=\"id_indirizzo_infanzia_quarto_anno-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-indirizzo_infanzia_quarto_anno\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "indirizzo_primaria_terzo_anno",
+      "label" : "INDIRIZZO PRIMARIA TERZO ANNO",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-indirizzo_primaria_terzo_anno\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_indirizzo_primaria_terzo_anno-NNNNN-insegnamento\">Insegnamento:</label></th>\n    <td>\n      \n      <select name=\"indirizzo_primaria_terzo_anno-NNNNN-insegnamento\" id=\"id_indirizzo_primaria_terzo_anno-NNNNN-insegnamento\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"03Z16 - AREA LINGUISTICA SCUOLA ELEMENTARE - DIDATTICA DELLA LINGUA ITALIANA 2 - 4 CFU\">03Z16 - AREA LINGUISTICA SCUOLA ELEMENTARE - DIDATTICA DELLA LINGUA ITALIANA 2 - 4 CFU</option>\n\n  <option value=\"03Z16 - AREA LINGUISTICA SCUOLA ELEMENTARE - LINGUA ITALIANA 2 - 4 CFU\">03Z16 - AREA LINGUISTICA SCUOLA ELEMENTARE - LINGUA ITALIANA 2 - 4 CFU</option>\n\n  <option value=\"03Z17 - AREA LINGUE MODERNE SCUOLA ELEMENTARE - LINGUA FRANCESE 2 - 4 CFU\">03Z17 - AREA LINGUE MODERNE SCUOLA ELEMENTARE - LINGUA FRANCESE 2 - 4 CFU</option>\n\n  <option value=\"03Z17 - AREA LINGUE MODERNE SCUOLA ELEMENTARE - LINGUA INGLESE 2 - 4 CFU\">03Z17 - AREA LINGUE MODERNE SCUOLA ELEMENTARE - LINGUA INGLESE 2 - 4 CFU</option>\n\n  <option value=\"03AA5 - AREA INTEGRAZIONE SCOLASTICA SC. ELEMENTARE - DIDATTICA SPECIALE 2 - 4 CFU\">03AA5 - AREA INTEGRAZIONE SCOLASTICA SC. ELEMENTARE - DIDATTICA SPECIALE 2 - 4 CFU</option>\n\n  <option value=\"03AA5 - AREA INTEGRAZIONE SCOLASTICA SC. ELEMENTARE - PEDAGOGIA SPECIALE 2 - 4 CFU\">03AA5 - AREA INTEGRAZIONE SCOLASTICA SC. ELEMENTARE - PEDAGOGIA SPECIALE 2 - 4 CFU</option>\n\n  <option value=\"03Z13 - AREA FISICO-MATEMATICA - DIDATTICA DELLA FISICA - 2 CFU\">03Z13 - AREA FISICO-MATEMATICA - DIDATTICA DELLA FISICA - 2 CFU</option>\n\n  <option value=\"03Z13 - AREA FISICO-MATEMATICA - DIDATTICA DELLA MATEMATICA - 6 CFU\">03Z13 - AREA FISICO-MATEMATICA - DIDATTICA DELLA MATEMATICA - 6 CFU</option>\n\n  <option value=\"03Z09 - AREA PEDAGOGICO-DIDATTICA SCUOLA ELEMENTARE - PEDAGOGIA INTERCULTURALE - 4 CFU\">03Z09 - AREA PEDAGOGICO-DIDATTICA SCUOLA ELEMENTARE - PEDAGOGIA INTERCULTURALE - 4 CFU</option>\n\n  <option value=\"03Z09 - AREA PEDAGOGICO-DIDATTICA SCUOLA ELEMENTARE - TEORIE E METODOL. DI PROGRAM. E VALUT. SCOLASTICA - 4 CFU\">03Z09 - AREA PEDAGOGICO-DIDATTICA SCUOLA ELEMENTARE - TEORIE E METODOL. DI PROGRAM. E VALUT. SCOLASTICA - 4 CFU</option>\n\n  <option value=\"03Z31 - LABORATORIO AREA 1 3 ANNO - SC. ELEMENTARE - 2 CFU\">03Z31 - LABORATORIO AREA 1 3 ANNO - SC. ELEMENTARE - 2 CFU</option>\n\n  <option value=\"03Z32 - LABORATORIO AREA 2 3 ANNO - SC. ELEMENTARE - 2 CFU\">03Z32 - LABORATORIO AREA 2 3 ANNO - SC. ELEMENTARE - 2 CFU</option>\n\n  <option value=\"03Z33 - TIROCINIO 3 ANNO - SC. ELEMENTARE - 6 CFU\">03Z33 - TIROCINIO 3 ANNO - SC. ELEMENTARE - 6 CFU</option>\n\n  <option value=\"\"></option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-indirizzo_primaria_terzo_anno-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"indirizzo_primaria_terzo_anno-TOTAL_FORMS\" value=\"0\" id=\"id_indirizzo_primaria_terzo_anno-TOTAL_FORMS\"><input type=\"hidden\" name=\"indirizzo_primaria_terzo_anno-INITIAL_FORMS\" value=\"0\" id=\"id_indirizzo_primaria_terzo_anno-INITIAL_FORMS\"><input type=\"hidden\" name=\"indirizzo_primaria_terzo_anno-MIN_NUM_FORMS\" value=\"0\" id=\"id_indirizzo_primaria_terzo_anno-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"indirizzo_primaria_terzo_anno-MAX_NUM_FORMS\" value=\"1000\" id=\"id_indirizzo_primaria_terzo_anno-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-indirizzo_primaria_terzo_anno\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "indirizzo_primaria_quarto_anno",
+      "label" : "INDIRIZZO PRIMARIA QUARTO ANNO",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-indirizzo_primaria_quarto_anno\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_indirizzo_primaria_quarto_anno-NNNNN-insegnamento\">Insegnamento:</label></th>\n    <td>\n      \n      <select name=\"indirizzo_primaria_quarto_anno-NNNNN-insegnamento\" id=\"id_indirizzo_primaria_quarto_anno-NNNNN-insegnamento\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"03Z41 - AREA STORICO-GEOGRAFICA 4 ELEMENTARE - DIDATTICA DELLA GEOGRAFIA - 4 CFU\">03Z41 - AREA STORICO-GEOGRAFICA 4 ELEMENTARE - DIDATTICA DELLA GEOGRAFIA - 4 CFU</option>\n\n  <option value=\"03Z41 - AREA STORICO-GEOGRAFICA 4 ELEMENTARE - DIDATTICA DELLA STORIA 2 - 4 CFU\">03Z41 - AREA STORICO-GEOGRAFICA 4 ELEMENTARE - DIDATTICA DELLA STORIA 2 - 4 CFU</option>\n\n  <option value=\"03ZZ1 - AREA MOTORIO-ESTETICO-ESPRESSIVA SCUOLA ELEMENTARE - DISEGNO II - 3 CFU\">03ZZ1 - AREA MOTORIO-ESTETICO-ESPRESSIVA SCUOLA ELEMENTARE - DISEGNO II - 3 CFU</option>\n\n  <option value=\"03ZZ1 - AREA MOTORIO-ESTETICO-ESPRESSIVA SCUOLA ELEMENTARE - FONDAMENTI DELLA COMUNICAZIONE MUSICALE 2 - 3 CFU\">03ZZ1 - AREA MOTORIO-ESTETICO-ESPRESSIVA SCUOLA ELEMENTARE - FONDAMENTI DELLA COMUNICAZIONE MUSICALE 2 - 3 CFU</option>\n\n  <option value=\"03ZZ1 - AREA MOTORIO-ESTETICO-ESPRESSIVA SCUOLA ELEMENTARE - TEORIA E METODOLOGIA DEL MOVIMENTO UMANO 2 - 2 CFU\">03ZZ1 - AREA MOTORIO-ESTETICO-ESPRESSIVA SCUOLA ELEMENTARE - TEORIA E METODOLOGIA DEL MOVIMENTO UMANO 2 - 2 CFU</option>\n\n  <option value=\"03Z42 - AREA SOCIO-PEDAGOGICA - EDUCAZIONE DEGLI ADULTI - 4 CFU\">03Z42 - AREA SOCIO-PEDAGOGICA - EDUCAZIONE DEGLI ADULTI - 4 CFU</option>\n\n  <option value=\"03Z42 - AREA SOCIO-PEDAGOGICA - FONDAMENTI ANTROPOLOGICI DEI DIRITTI UMANI - 4 CFU\">03Z42 - AREA SOCIO-PEDAGOGICA - FONDAMENTI ANTROPOLOGICI DEI DIRITTI UMANI - 4 CFU</option>\n\n  <option value=\"03ZZ3 - AREA SNIA III SCIENZE NATURALI IGIENICHE E AMBIENTALI - SCUOLA ELEMENTARE - DIDATTICA DELLE SCIENZE DELLA TERRA - 3 CFU\">03ZZ3 - AREA SNIA III SCIENZE NATURALI IGIENICHE E AMBIENTALI - SCUOLA ELEMENTARE - DIDATTICA DELLE SCIENZE DELLA TERRA - 3 CFU</option>\n\n  <option value=\"03ZZ3 - AREA SNIA III SCIENZE NATURALI IGIENICHE E AMBIENTALI - SCUOLA ELEMENTARE - DIDATTICA DELLE SCIENZE NATURALI 2 - 3 CFU\">03ZZ3 - AREA SNIA III SCIENZE NATURALI IGIENICHE E AMBIENTALI - SCUOLA ELEMENTARE - DIDATTICA DELLE SCIENZE NATURALI 2 - 3 CFU</option>\n\n  <option value=\"03ZZ3 - AREA SNIA III SCIENZE NATURALI IGIENICHE E AMBIENTALI - SCUOLA ELEMENTARE - IGIENE - 2 CFU\">03ZZ3 - AREA SNIA III SCIENZE NATURALI IGIENICHE E AMBIENTALI - SCUOLA ELEMENTARE - IGIENE - 2 CFU</option>\n\n  <option value=\"03Z34 - LABORATORIO AREA 1 4 ANNO - SC. ELEMENTARE - 3 CFU\">03Z34 - LABORATORIO AREA 1 4 ANNO - SC. ELEMENTARE - 3 CFU</option>\n\n  <option value=\"03Z35 - LABORATORIO AREA 2 4 ANNO - SC. ELEMENTARE - 3 CFU\">03Z35 - LABORATORIO AREA 2 4 ANNO - SC. ELEMENTARE - 3 CFU</option>\n\n  <option value=\"03Z36 - TIROCINIO 4 ANNO - SC. ELEMENTARE - 12 CFU\">03Z36 - TIROCINIO 4 ANNO - SC. ELEMENTARE - 12 CFU</option>\n\n  <option value=\"\"></option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-indirizzo_primaria_quarto_anno-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"indirizzo_primaria_quarto_anno-TOTAL_FORMS\" value=\"0\" id=\"id_indirizzo_primaria_quarto_anno-TOTAL_FORMS\"><input type=\"hidden\" name=\"indirizzo_primaria_quarto_anno-INITIAL_FORMS\" value=\"0\" id=\"id_indirizzo_primaria_quarto_anno-INITIAL_FORMS\"><input type=\"hidden\" name=\"indirizzo_primaria_quarto_anno-MIN_NUM_FORMS\" value=\"0\" id=\"id_indirizzo_primaria_quarto_anno-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"indirizzo_primaria_quarto_anno-MAX_NUM_FORMS\" value=\"1000\" id=\"id_indirizzo_primaria_quarto_anno-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-indirizzo_primaria_quarto_anno\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "laboratorio_e_tirocinio_prima_del_2010",
+      "label" : "LABORATORIO E TIROCINIO PRIMA DEL 2010",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-laboratorio_e_tirocinio_prima_del_2010\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_laboratorio_e_tirocinio_prima_del_2010-NNNNN-insegnamento\">Insegnamento:</label></th>\n    <td>\n      \n      <select name=\"laboratorio_e_tirocinio_prima_del_2010-NNNNN-insegnamento\" id=\"id_laboratorio_e_tirocinio_prima_del_2010-NNNNN-insegnamento\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"03018 - LABORATORIO E TIROCINIO 1 ANNO - 13 CFU\">03018 - LABORATORIO E TIROCINIO 1 ANNO - 13 CFU</option>\n\n  <option value=\"03019 - LABORATORIO E TIROCINIO 2 ANNO - 16 CFU\">03019 - LABORATORIO E TIROCINIO 2 ANNO - 16 CFU</option>\n\n  <option value=\"03020 - LABORATORIO E TIROCINIO 3 ANNO - 10 CFU\">03020 - LABORATORIO E TIROCINIO 3 ANNO - 10 CFU</option>\n\n  <option value=\"03021 - LABORATORIO E TIROCINIO 4 ANNO - 18 CFU\">03021 - LABORATORIO E TIROCINIO 4 ANNO - 18 CFU</option>\n\n  <option value=\"\"></option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-laboratorio_e_tirocinio_prima_del_2010-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"laboratorio_e_tirocinio_prima_del_2010-TOTAL_FORMS\" value=\"0\" id=\"id_laboratorio_e_tirocinio_prima_del_2010-TOTAL_FORMS\"><input type=\"hidden\" name=\"laboratorio_e_tirocinio_prima_del_2010-INITIAL_FORMS\" value=\"0\" id=\"id_laboratorio_e_tirocinio_prima_del_2010-INITIAL_FORMS\"><input type=\"hidden\" name=\"laboratorio_e_tirocinio_prima_del_2010-MIN_NUM_FORMS\" value=\"0\" id=\"id_laboratorio_e_tirocinio_prima_del_2010-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"laboratorio_e_tirocinio_prima_del_2010-MAX_NUM_FORMS\" value=\"1000\" id=\"id_laboratorio_e_tirocinio_prima_del_2010-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-laboratorio_e_tirocinio_prima_del_2010\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

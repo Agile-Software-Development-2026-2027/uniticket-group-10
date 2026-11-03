@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:27.946411Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/area-socialita-sale-convegni/rendicontazione-finanziaria-anno-precedente-associazioni-studentesche/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Modulo disattivato: l'invio della rendicontazione è fuori dai termini previsti",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

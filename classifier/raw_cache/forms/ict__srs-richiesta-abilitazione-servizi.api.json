@@ -1,0 +1,219 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:23.792328Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/ict/srs-richiesta-abilitazione-servizi/ticket/new/",
+  "jsonBody" : {
+    "name" : "SRS -  Richiesta Abilitazione Servizi",
+    "description" : "Questo modulo permette di richiedere l'accesso dall'esterno ai servizi informatici erogati dall'università della Calabria",
+    "protocol_required" : true,
+    "slug" : "srs-richiesta-abilitazione-servizi",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 901,
+      "fields" : {
+        "category" : 101,
+        "title" : "ISTRUZIONI E DEFINIZIONE DEI RUOLI",
+        "text" : "Ai fini del presente procedimento di abilitazione servizi e in conformità con le policy di sicurezza informatica di Ateneo, si precisa che:\r\n\r\n- **Soggetto richiedente (riportato in alto dal sistema)**: Identifica il **Responsabile della struttura (Sottoscrittore/Validatore)**, ovverosia l'organo di vertice (Direttore/Dirigente) che valida formalmente l'esigenza istituzionale e autorizza l'apertura delle porte sui sistemi firewall di Ateneo.\r\n- **Soggetto Utilizzatore/Amministratore di sistema (da indicare nel corpo del modulo)**: È il beneficiario finale del servizio di rete (es. docente, ricercatore, personale, ditta esterna) o l'Amministratore di Sistema / Referente Tecnico che accede al portale, inserisce i parametri di rete e assume la responsabilità della conformità tecnica della richiesta.\r\n\r\nLe richieste devono essere **compilate dal Referente Tecnico (Soggetto Utilizzatore/Amministratore di sistema)**, responsabile della gestione e/o dell’utilizzo del servizio richiesto, e **sottoscritte dal Responsabile della Struttura** (direttore, dirigente, responsabile di area) utilizzando un modulo on-line con i seguenti passaggi:\r\n\r\n1. Il **Referente Tecnico (Soggetto Utilizzatore/Amministratore di sistema)**\r\n\t- accede al modulo con le credenziali di ateneo\r\n\t- compila il modulo on-line accettandone le clausole (nota: si suggerisce di modificare la descrizione predefinita per richiamare lo specifico servizio richiesto)\r\n\t- clicca sul link in fondo alla pagina (sotto il pulsante INVIA) per generare un link al modulo compilato\r\n\t- invia il link generato (per email o altro canale) al responsabile della struttura\r\n2. Il **Responsabile della Struttura** (direttore, dirigente, responsabile di area)\r\n\t- clicca sul link ricevuto, accede con le proprie credenziali istituzionali e verifica ed, eventualmente, modifica il contenuto tecnico;\r\n\t- cliccando su **INVIA, rilascia formale autorizzazione amministrativa** all'attivazione del servizio per conto del  **Referente Tecnico (Soggetto Utilizzatore/Amministratore di sistema)** indicato , assumendone la validità istituzionale.\r\n\r\nIl modulo viene inviato e protocollato automaticamente mentre il sistema manda una email di conferma dell’invio al responsabile della struttura.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 496,
+      "fields" : {
+        "category" : 101,
+        "title" : "ISTRUZIONI PER LA COMPILAZIONE",
+        "text" : "Le richieste devono essere **compilate dal referente tecnico**, responsabile della gestione e/o dell’utilizzo del servizio richiesto, e **sottoscritte dal responsabile della struttura** (direttore, dirigente,  responsabile di area) utilizzando un modulo on-line con i seguenti passaggi:  \r\n\r\n1. Il ***referente***\r\n    - accede al modulo con le credenziali di ateneo  \r\n    - compila il modulo on-line accettandone le clausole (nota: si suggerisce di modificare la descrizione predefinita per richiamare lo specifico servizio richiesto)  \r\n    - clicca sul link in fondo alla pagina (sotto il pulsante INVIA) per generare un link al modulo compilato  \r\n    - invia il link generato (per email o altro canale) al responsabile della struttura  \r\n  \r\n2. Il ***responsabile della struttura*** (direttore, dirigente, responsabile di area)  \r\n    - clicca sul link ricevuto  \r\n    - accede al modulo con le credenziali di ateneo  \r\n    - verifica e eventualmente modifica il contenuto e clicca su INVIA   \r\n\r\nIl modulo viene inviato e protocollato automaticamente mentre il sistema manda una email di conferma dell’invio al responsabile della struttura.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : false
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 900,
+      "fields" : {
+        "category" : 101,
+        "title" : "Dichiarazione del Referente Tecnico (Utilizzatore/Amministratore di Sistema)",
+        "text" : "Il sottoscritto (**Amministratore di Sistema / Utilizzatore del Servizio identificato come Referente Tecnico**), dichiara:\r\n\r\n- di assumere la responsabilità tecnica derivante dall'istruttoria, dalla configurazione dei parametri di rete inseriti e dalla gestione dei sistemi interessati;\r\n- di attestare che l'apertura dei servizi è finalizzata esclusivamente a consentire le attività istituzionali del **Soggetto Utilizzatore ovvero Amministratore di Sistema / Referente Tecnico** indicato nel presente modulo di richiesta;\r\n- di impegnarsi a comunicare tempestivamente al Responsabile dell'Area Servizi Informatici e Tecnologici (ASIT) la variazione dei dati dichiarati o la dismissione del servizio;\r\n- di essere a conoscenza e di accettare le norme di buon uso delle risorse di rete espresse nel documento “Netiquette\" e le “Acceptable Use Policy – AUP” del GARR pubblicate sul sito web del GARR (www.garr.it)[https://www.garr.it] e di impegnarsi a rispettarle;\r\n- di accettare che, in caso di erronea o falsa dichiarazione, il Responsabile dell'ASIT potrà provvedere alla immediata revoca delle attivazioni richieste salvo ogni più ampia azione legale;\r\n- di essere a conoscenza e rispettare le vigenti norme sulla privacy e di autorizzare il trattamento dei dati riportati nel presente documento ai sensi del **Regolamento (UE) 2016/679 (GDPR)**, coordinato con il **D.Lgs. 196/2003 (Codice della Privacy)**, come modificato dal **D.Lgs. 101/2018**",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 636,
+      "fields" : {
+        "category" : 101,
+        "title" : "Dichiarazioni del referente",
+        "text" : "Il sottoscritto, dichiara:\r\n\r\ndi assumere la responsabilità che deriva dall’utilizzo e dalla gestione degli stessi;\r\n\r\ndi impegnarsi a comunicare tempestivamente al Responsabile dell'Area Servizi Informatici e Tecnologici (ASIT) la variazione dei dati dichiarati o la dismissione del servizio;\r\n\r\ndi essere a conoscenza e di accettare le norme di buon uso delle risorse di rete espresse nel documento “Netiquette\" e le “Acceptable Use Policy – AUP” del GARR pubblicate sul sito web del GARR (www.garr.it)[https://www.garr.it] e di impegnarsi a rispettarle;\r\n\r\ndi accettare che, in caso di erronea o falsa dichiarazione, il Responsabile dell'ASIT potrà provvedere alla immediata revoca delle attivazioni richieste salvo ogni più ampia azione legale;\r\n\r\ndi essere a conoscenza e rispettare le vigenti norme sulla privacy;\r\n\r\nautorizzare il trattamento dei dati riportati nel presente documento ai sensi del Dlgs. 196/2003 e s.m.",
+        "ordinamento" : 20,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : true,
+        "is_active" : false
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "SRS -  Richiesta Abilitazione Servizi",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"SRS -  Richiesta Abilitazione Servizi\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Questo modulo permette di richiedere l'accesso dall'esterno ai servizi informatici erogati dall'università della Calabria",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nQuesto modulo permette di richiedere l&#x27;accesso dall&#x27;esterno ai servizi informatici erogati dall&#x27;università della Calabria</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "tipo_soggetto_utilizzatore___destinatario_del_servizio_referente_tecnico",
+      "label" : "Tipo Soggetto Utilizzatore / Destinatario del Servizio (Referente Tecnico)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Nel caso di Soggetto Utilizzatore / Destinatario del servizio, indicare il ruolo ricoperto. Se il sistema oggetto della richiesta è un server che eroga servizi, occorre che il referente sia Amministratore di Sistema",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"tipo_soggetto_utilizzatore___destinatario_del_servizio_referente_tecnico\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Docente\">Docente</option>\n\n  <option value=\"Assegnista o Dottorando\">Assegnista o Dottorando</option>\n\n  <option value=\"PTA\">PTA</option>\n\n  <option value=\"Utente esterno o Fornitore\">Utente esterno o Fornitore</option>\n\n  <option value=\"Amministratore di Sistema\">Amministratore di Sistema</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "nome_referente",
+      "label" : "Nome referente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome_referente\">",
+      "type" : "text"
+    }, {
+      "id" : "cognome_referente",
+      "label" : "Cognome referente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome_referente\">",
+      "type" : "text"
+    }, {
+      "id" : "recapito_telefonico",
+      "label" : "Recapito Telefonico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"recapito_telefonico\">",
+      "type" : "text"
+    }, {
+      "id" : "email",
+      "label" : "Email",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"email\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "elenco_servizi_da_attivare",
+      "label" : "Elenco servizi da attivare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Indirizzo IP sorgente e destinazione possono essere definiti sia singolarmente che specificando la maschera di rete (a es. 192.168.1.1/25)",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-elenco_servizi_da_attivare\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_elenco_servizi_da_attivare-NNNNN-tipologia_sistema\">Tipologia sistema:</label></th>\n    <td>\n      \n      <select name=\"elenco_servizi_da_attivare-NNNNN-tipologia_sistema\" id=\"id_elenco_servizi_da_attivare-NNNNN-tipologia_sistema\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Server\">Server</option>\n\n  <option value=\"Client\">Client</option>\n\n  <option value=\"NAS\">NAS</option>\n\n  <option value=\"Stampante di Rete\">Stampante di Rete</option>\n\n  <option value=\"Altro - usa campo Descrizione sistema se non in elenco\">Altro - usa campo Descrizione sistema se non in elenco</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_servizi_da_attivare-NNNNN-descrizione_sistema_-_da_usare_se_il_sistema_non_è_in_elenco\">Descrizione sistema - da usare se il sistema non è in elenco:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_servizi_da_attivare-NNNNN-descrizione_sistema_-_da_usare_se_il_sistema_non_è_in_elenco\" id=\"id_elenco_servizi_da_attivare-NNNNN-descrizione_sistema_-_da_usare_se_il_sistema_non_è_in_elenco\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_servizi_da_attivare-NNNNN-indirizzo_ip_sorgente\">Indirizzo ip sorgente:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_servizi_da_attivare-NNNNN-indirizzo_ip_sorgente\" id=\"id_elenco_servizi_da_attivare-NNNNN-indirizzo_ip_sorgente\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_servizi_da_attivare-NNNNN-indirizzo_ip_destinazione\">Indirizzo ip destinazione:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_servizi_da_attivare-NNNNN-indirizzo_ip_destinazione\" id=\"id_elenco_servizi_da_attivare-NNNNN-indirizzo_ip_destinazione\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label>Protocollo:</label></th>\n    <td>\n      \n      <div id=\"id_elenco_servizi_da_attivare-NNNNN-protocollo\"><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-protocollo_0\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-protocollo\" value=\"UDP\" id=\"id_elenco_servizi_da_attivare-NNNNN-protocollo_0\">\n UDP</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-protocollo_1\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-protocollo\" value=\"TCP\" id=\"id_elenco_servizi_da_attivare-NNNNN-protocollo_1\">\n TCP</label>\n\n</div>\n</div>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label>Porta destinazione:</label></th>\n    <td>\n      \n      <div id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione\"><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_0\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"80 HTTP\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_0\">\n 80 HTTP</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_1\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"443 HTTPS\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_1\">\n 443 HTTPS</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_2\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"8080 HTTP Alternate\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_2\">\n 8080 HTTP Alternate</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_3\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"22 SSH\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_3\">\n 22 SSH</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_4\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"23 Telnet\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_4\">\n 23 Telnet</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_5\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"25 SMTP\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_5\">\n 25 SMTP</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_6\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"465 SMTP su SSL\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_6\">\n 465 SMTP su SSL</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_7\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"587 SMTP su SSL\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_7\">\n 587 SMTP su SSL</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_8\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"389 LDAP\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_8\">\n 389 LDAP</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_9\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"636 LDAP su SSL\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_9\">\n 636 LDAP su SSL</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_10\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"993 IMAP4 su SSL\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_10\">\n 993 IMAP4 su SSL</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_11\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"110 POP3\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_11\">\n 110 POP3</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_12\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"995 POP3 su SSL\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_12\">\n 995 POP3 su SSL</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_13\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"3306 MySQL Database system\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_13\">\n 3306 MySQL Database system</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_14\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"3389 Desktop Remoto di Windows\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_14\">\n 3389 Desktop Remoto di Windows</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_15\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-NNNNN-porta_destinazione\" value=\"ALTRO - usa campo Porta Personalizzata\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_destinazione_15\">\n ALTRO - usa campo Porta Personalizzata</label>\n\n</div>\n</div>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_servizi_da_attivare-NNNNN-porta_personalizzata_-_da_usare_se_porta_desiderata_non_in_elenco_altrimenti_xxx\">Porta personalizzata - da usare se porta desiderata non in elenco altrimenti xxx:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_servizi_da_attivare-NNNNN-porta_personalizzata_-_da_usare_se_porta_desiderata_non_in_elenco_altrimenti_xxx\" id=\"id_elenco_servizi_da_attivare-NNNNN-porta_personalizzata_-_da_usare_se_porta_desiderata_non_in_elenco_altrimenti_xxx\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-elenco_servizi_da_attivare-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"elenco_servizi_da_attivare-TOTAL_FORMS\" value=\"1\" id=\"id_elenco_servizi_da_attivare-TOTAL_FORMS\"><input type=\"hidden\" name=\"elenco_servizi_da_attivare-INITIAL_FORMS\" value=\"0\" id=\"id_elenco_servizi_da_attivare-INITIAL_FORMS\"><input type=\"hidden\" name=\"elenco_servizi_da_attivare-MIN_NUM_FORMS\" value=\"1\" id=\"id_elenco_servizi_da_attivare-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"elenco_servizi_da_attivare-MAX_NUM_FORMS\" value=\"1000\" id=\"id_elenco_servizi_da_attivare-MAX_NUM_FORMS\">\n\n<div class=\"form-container\">\n    <div class=\"row form-row spacer\">\n        <div class=\"col\">\n            <div class=\"input-group\">\n                <div class=\"table-responsive\">\n                    <table class=\"table table-bordered formset-table\">\n                        <tr>\n    <th><label for=\"id_elenco_servizi_da_attivare-0-tipologia_sistema\">Tipologia sistema:</label></th>\n    <td>\n      \n      <select name=\"elenco_servizi_da_attivare-0-tipologia_sistema\" id=\"id_elenco_servizi_da_attivare-0-tipologia_sistema\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Server\">Server</option>\n\n  <option value=\"Client\">Client</option>\n\n  <option value=\"NAS\">NAS</option>\n\n  <option value=\"Stampante di Rete\">Stampante di Rete</option>\n\n  <option value=\"Altro - usa campo Descrizione sistema se non in elenco\">Altro - usa campo Descrizione sistema se non in elenco</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_servizi_da_attivare-0-descrizione_sistema_-_da_usare_se_il_sistema_non_è_in_elenco\">Descrizione sistema - da usare se il sistema non è in elenco:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_servizi_da_attivare-0-descrizione_sistema_-_da_usare_se_il_sistema_non_è_in_elenco\" id=\"id_elenco_servizi_da_attivare-0-descrizione_sistema_-_da_usare_se_il_sistema_non_è_in_elenco\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_servizi_da_attivare-0-indirizzo_ip_sorgente\">Indirizzo ip sorgente:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_servizi_da_attivare-0-indirizzo_ip_sorgente\" id=\"id_elenco_servizi_da_attivare-0-indirizzo_ip_sorgente\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_servizi_da_attivare-0-indirizzo_ip_destinazione\">Indirizzo ip destinazione:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_servizi_da_attivare-0-indirizzo_ip_destinazione\" id=\"id_elenco_servizi_da_attivare-0-indirizzo_ip_destinazione\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label>Protocollo:</label></th>\n    <td>\n      \n      <div id=\"id_elenco_servizi_da_attivare-0-protocollo\"><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-protocollo_0\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-protocollo\" value=\"UDP\" id=\"id_elenco_servizi_da_attivare-0-protocollo_0\">\n UDP</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-protocollo_1\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-protocollo\" value=\"TCP\" id=\"id_elenco_servizi_da_attivare-0-protocollo_1\">\n TCP</label>\n\n</div>\n</div>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label>Porta destinazione:</label></th>\n    <td>\n      \n      <div id=\"id_elenco_servizi_da_attivare-0-porta_destinazione\"><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_0\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"80 HTTP\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_0\">\n 80 HTTP</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_1\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"443 HTTPS\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_1\">\n 443 HTTPS</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_2\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"8080 HTTP Alternate\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_2\">\n 8080 HTTP Alternate</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_3\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"22 SSH\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_3\">\n 22 SSH</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_4\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"23 Telnet\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_4\">\n 23 Telnet</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_5\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"25 SMTP\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_5\">\n 25 SMTP</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_6\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"465 SMTP su SSL\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_6\">\n 465 SMTP su SSL</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_7\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"587 SMTP su SSL\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_7\">\n 587 SMTP su SSL</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_8\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"389 LDAP\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_8\">\n 389 LDAP</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_9\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"636 LDAP su SSL\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_9\">\n 636 LDAP su SSL</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_10\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"993 IMAP4 su SSL\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_10\">\n 993 IMAP4 su SSL</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_11\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"110 POP3\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_11\">\n 110 POP3</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_12\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"995 POP3 su SSL\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_12\">\n 995 POP3 su SSL</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_13\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"3306 MySQL Database system\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_13\">\n 3306 MySQL Database system</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_14\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"3389 Desktop Remoto di Windows\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_14\">\n 3389 Desktop Remoto di Windows</label>\n\n</div><div>\n    <label for=\"id_elenco_servizi_da_attivare-0-porta_destinazione_15\"><input type=\"checkbox\" name=\"elenco_servizi_da_attivare-0-porta_destinazione\" value=\"ALTRO - usa campo Porta Personalizzata\" id=\"id_elenco_servizi_da_attivare-0-porta_destinazione_15\">\n ALTRO - usa campo Porta Personalizzata</label>\n\n</div>\n</div>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_servizi_da_attivare-0-porta_personalizzata_-_da_usare_se_porta_desiderata_non_in_elenco_altrimenti_xxx\">Porta personalizzata - da usare se porta desiderata non in elenco altrimenti xxx:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_servizi_da_attivare-0-porta_personalizzata_-_da_usare_se_porta_desiderata_non_in_elenco_altrimenti_xxx\" id=\"id_elenco_servizi_da_attivare-0-porta_personalizzata_-_da_usare_se_porta_desiderata_non_in_elenco_altrimenti_xxx\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                    </table>\n                </div>\n            </div>\n            <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-elenco_servizi_da_attivare-0\">\n                <svg class=\"icon icon-xs icon-white\">\n                    <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                </svg> Rimuovi inserimento\n            </button>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-elenco_servizi_da_attivare\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "note",
+      "label" : "Note",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"note\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

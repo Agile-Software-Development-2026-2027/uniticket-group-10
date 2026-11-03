@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:06.611663Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dfssn/iscrizione-ad-anni-successivi-al-primo-per-abbreviazionerinunciadecadenza-dip-farmacia-e-scienze-della-salute-e-della-nutrizione/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Le richieste possono essere presentate dal 1 luglio al 31 agosto",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

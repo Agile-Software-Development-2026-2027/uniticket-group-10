@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:10.231899Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/demacs/manifestazione-di-interesse-empowertech/ticket/new/",
+  "jsonBody" : {
+    "detail" : "E' possibile presentare domanda dal 15/12/2025 19:00",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:38.795131Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/centro-residenziale/x-autocertificazione-per-contributo-forfettario-per-spese-di-viaggio-aa-20232024-studenti-idonei-di-borsa-risultati-assegnatari-di-posto-alloggio-dopo-il-01-novembre-2023/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Messaggio predefinito: La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

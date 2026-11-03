@@ -1,0 +1,96 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:23.215434Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizi-didattici/sospensione-temporanea-degli-studi/ticket/new/",
+  "jsonBody" : {
+    "name" : "Sospensione temporanea degli studi",
+    "description" : "Può essere richiesta per effettuare l’iscrizione a percorsi incompatibili con la carriera universitaria:\r\n- Scuola di specializzazione\r\n- Scuola militare (durata 3 anni) \r\n- Accademia militare (durata 5 anni)\r\n- Dottorato di ricerca\r\n- Master\r\nOppure per:\r\n- Nascita o adozione figli\r\n- Infermità grave e prolungata\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "protocol_required" : true,
+    "slug" : "sospensione-temporanea-degli-studi",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Sospensione temporanea degli studi",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Sospensione temporanea degli studi\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Può essere richiesta per effettuare l’iscrizione a percorsi incompatibili con la carriera universitaria:\r\n- Scuola di specializzazione\r\n- Scuola militare (durata 3 anni) \r\n- Accademia militare (durata 5 anni)\r\n- Dottorato di ricerca\r\n- Master\r\nOppure per:\r\n- Nascita o adozione figli\r\n- Infermità grave e prolungata\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nPuò essere richiesta per effettuare l’iscrizione a percorsi incompatibili con la carriera universitaria:\r\n- Scuola di specializzazione\r\n- Scuola militare (durata 3 anni) \r\n- Accademia militare (durata 5 anni)\r\n- Dottorato di ricerca\r\n- Master\r\nOppure per:\r\n- Nascita o adozione figli\r\n- Infermità grave e prolungata\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "richiedo_la_sospensione_per_l'a.a.",
+      "label" : "Richiedo la sospensione per l'a.a.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"richiedo_la_sospensione_per_l&#x27;a.a.\">",
+      "type" : "text"
+    }, {
+      "id" : "sospendo_la_carriera_per_la_seguente_motivazione:",
+      "label" : "Sospendo la carriera per la seguente motivazione:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"sospendo_la_carriera_per_la_seguente_motivazione:\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Iscrizione a Scuola di specializzazione medica\">Iscrizione a Scuola di specializzazione medica</option>\n\n  <option value=\"Iscrizione a Scuola o Accedemica Militare\">Iscrizione a Scuola o Accedemica Militare</option>\n\n  <option value=\"Iscrizione a Dottorato di ricerca\">Iscrizione a Dottorato di ricerca</option>\n\n  <option value=\"Iscrizione a Master\">Iscrizione a Master</option>\n\n  <option value=\" Iscrizione a Scuola di specializzazione\"> Iscrizione a Scuola di specializzazione</option>\n\n  <option value=\"Nascita o adozione figli\">Nascita o adozione figli</option>\n\n  <option value=\"Infermità grave e prolungata\">Infermità grave e prolungata</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "allega_idonea_documentazione",
+      "label" : "Allega idonea documentazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allega_idonea_documentazione\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

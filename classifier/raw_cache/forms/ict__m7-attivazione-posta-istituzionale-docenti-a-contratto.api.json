@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:09.841431Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/m7-attivazione-posta-istituzionale-docenti-a-contratto/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

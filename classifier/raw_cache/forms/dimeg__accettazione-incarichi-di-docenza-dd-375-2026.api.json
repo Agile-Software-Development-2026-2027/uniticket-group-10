@@ -1,0 +1,486 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:19.652383Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dimeg/accettazione-incarichi-di-docenza-dd-375-2026/ticket/new/",
+  "jsonBody" : {
+    "name" : "Accettazione incarichi di docenza - DD 375 2026",
+    "description" : "Accettazione incarichi di docenza per attività formative a.a. 2026/27 – Bando DD 375 del 26 maggio 2026",
+    "protocol_required" : true,
+    "slug" : "accettazione-incarichi-di-docenza-dd-375-2026",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 791,
+      "fields" : {
+        "category" : 758,
+        "title" : "Nota operativa",
+        "text" : "Si ricorda che è necessario produrre il relativo documento di seguito riportato per dottorando/a di ricerca, assegnista di ricerca o dipendente della Pubblica Amministrazione:\r\n\r\nAutorizzazione a svolgere attività didattica se dottorando/a di ricerca\r\nAutorizzazione a svolgere attività didattica se assegnista di ricerca\r\nIl Personale Tecnico Amministrativo dell'Università della Calabria deve inviare comunicazione alla Direzione Risorse Umane tramite il sistema Uniticket compilando l'apposito modulo.\r\nComunicazione all'ente di appartenenza per dipendenti della Pubblica Amministrazione\r\nNOTA BENE: ai sensi della normativa vigente concernente la dematerializzazione, i documenti devono essere sottoscritti apponendo firma digitale in modalità PADES, salvo il caso in cui il richiedente sia sprovvisto di firma digitale. In quest'ultimo caso il richiedente deve obbligatoriamente allegare un valido documento di riconoscimento.\r\n\r\n\r\nDichiarazione sostitutiva di certificazione/atto di notorietà\r\nDichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000).\r\n\r\nDichiarazione grado parentela e affinità\r\nDichiara di non avere un grado di parentela o affinità, fino al quarto grado compreso, con un professore appartenente al Dipartimento o alla struttura interessata alla selezione ovvero con il Rettore, il Direttore Generale o un componente del Consiglio di Amministrazione dell’Università della Calabria.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : false
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 792,
+      "fields" : {
+        "category" : 758,
+        "title" : "Nota operativa",
+        "text" : "#####Nota Operativa\r\nSi ricorda che è necessario produrre il relativo documento di seguito riportato per dottorando/a di ricerca, assegnista di\r\nricerca o dipendente della Pubblica Amministrazione:\r\n\r\n* Autorizzazione a svolgere attività didattica se dottorando/a di ricerca\r\n* Autorizzazione a svolgere attività didattica se assegnista di ricerca\r\n* Il Personale Tecnico Amministrativo dell'Università della Calabria deve inviare comunicazione alla Direzione Risorse Umane tramite il sistema Uniticket compilando l'apposito modulo\r\n* Comunicazione all'ente di appartenenza per dipendenti della Pubblica Amministrazione\r\n\r\n######NOTA BENE: \r\nai sensi della normativa vigente concernente la dematerializzazione, i documenti devono essere sottoscritti apponendo firma digitale in modalità PADES, salvo il caso in cui il richiedente sia sprovvisto di firma digitale. In quest'ultimo caso il richiedente deve obbligatoriamente allegare un valido documento di riconoscimento.\r\n######Dichiarazione sostitutiva di certificazione/atto di notorietà\r\nDichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000).\r\n######Dichiarazione grado parentela e affinità\r\nDichiara di non avere un grado di parentela o affinità, fino al quarto grado compreso, con un professore appartenente al Dipartimento o alla struttura interessata alla selezione ovvero con il Rettore, il Direttore Generale o un componente del Consiglio di Amministrazione dell’Università della Calabria.",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Accettazione incarichi di docenza - DD 375 2026",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Accettazione incarichi di docenza - DD 375 2026\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Accettazione incarichi di docenza per attività formative a.a. 2026/27 – Bando DD 375 del 26 maggio 2026",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nAccettazione incarichi di docenza per attività formative a.a. 2026/27 – Bando DD 375 del 26 maggio 2026</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "il_la_sottoscritto_a",
+      "label" : "Il/la sottoscritto/a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "nome e cognome",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_la_sottoscritto_a\">",
+      "type" : "text"
+    }, {
+      "id" : "luogo_di_nascita:",
+      "label" : "Luogo di nascita:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Città e provincia",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"luogo_di_nascita:\">",
+      "type" : "text"
+    }, {
+      "id" : "data_di_nascita",
+      "label" : "Data di nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_di_nascita\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "residente_in:",
+      "label" : "Residente in:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "indicare via e numero civico",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"residente_in:\">",
+      "type" : "text"
+    }, {
+      "id" : "cap",
+      "label" : "CAP",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cap\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "città",
+      "label" : "Città",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "indicare città e provincia",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"città\">",
+      "type" : "text"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "numero_di_telefono_cellulare",
+      "label" : "Numero di telefono cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"numero_di_telefono_cellulare\">",
+      "type" : "text"
+    }, {
+      "id" : "dichiara_di_accettare_l'incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026",
+      "label" : "Dichiara di accettare l'incarico per il/i seguente/i insegnamento/i conferiti con Delibera del CdD del 24/06/2026",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "0704 - INGEGNERIA ELETTRONICA 27000158 - IMPIANTI ELETTRICI (ESE) ore:30 Primo Semestre\t",
+        "value" : "0704 - INGEGNERIA ELETTRONICA 27000158 - IMPIANTI ELETTRICI (ESE) ore:30 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0705 - INGEGNERIA GESTIONALE 27000094 - TECNOLOGIE INDUSTRIALI (ESE) ore:18 Secondo Semestre\t",
+        "value" : "\r\n0705 - INGEGNERIA GESTIONALE 27000094 - TECNOLOGIE INDUSTRIALI (ESE) ore:18 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0705 - INGEGNERIA GESTIONALE 27006431 - PRINCIPI DI SISTEMI ELETTRICI (ESE) ore:15 Secondo Semestre\t",
+        "value" : "\r\n0705 - INGEGNERIA GESTIONALE 27006431 - PRINCIPI DI SISTEMI ELETTRICI (ESE) ore:15 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0705 - INGEGNERIA GESTIONALE 27009148 - SISTEMI ORGANIZZATIVI (ESE) ore:15 Secondo Semestre\t",
+        "value" : "\r\n0705 - INGEGNERIA GESTIONALE 27009148 - SISTEMI ORGANIZZATIVI (ESE) ore:15 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0708 - INGEGNERIA MECCANICA 27000077 - ELEMENTI COSTRUTTIVI DELLE MACCHINE (ESE) ore:22 Secondo Semestre\t",
+        "value" : "\r\n0708 - INGEGNERIA MECCANICA 27000077 - ELEMENTI COSTRUTTIVI DELLE MACCHINE (ESE) ore:22 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0708 - INGEGNERIA MECCANICA 27000078 - LABORATORIO CAM (LAB) ore: 9 Secondo Semestre\t",
+        "value" : "\r\n0708 - INGEGNERIA MECCANICA 27000078 - LABORATORIO CAM (LAB) ore: 9 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0708 - INGEGNERIA MECCANICA 27000078 - LABORATORIO CAM (ESE) ore: 3 Secondo Semestre\t",
+        "value" : "\r\n0708 - INGEGNERIA MECCANICA 27000078 - LABORATORIO CAM (ESE) ore: 3 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0708 - INGEGNERIA MECCANICA 27005414 - TECNOLOGIA MECCANICA E DEI MATERIALI (ESE) ore:16 Primo Semestre\t",
+        "value" : "\r\n0708 - INGEGNERIA MECCANICA 27005414 - TECNOLOGIA MECCANICA E DEI MATERIALI (ESE) ore:16 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0708 - INGEGNERIA MECCANICA 27005513 - TECNICHE E STRUMENTI PER LA SPERIMENTAZION E (ESE) ore:19 Secondo Semestre\t",
+        "value" : "\r\n0708 - INGEGNERIA MECCANICA 27005513 - TECNICHE E STRUMENTI PER LA SPERIMENTAZION E (ESE) ore:19 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0770 - INGEGNERIA GESTIONALE 27000164 - GESTIONE DEI PROCESSI AZIENDALI (ESE) ore:15 Secondo Semestre\t",
+        "value" : "\r\n0770 - INGEGNERIA GESTIONALE 27000164 - GESTIONE DEI PROCESSI AZIENDALI (ESE) ore:15 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0770 - INGEGNERIA GESTIONALE 27000275 - BUSINESS GAME (LAB) ore:12 Secondo Semestre\t",
+        "value" : "\r\n0770 - INGEGNERIA GESTIONALE 27000275 - BUSINESS GAME (LAB) ore:12 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0770 - INGEGNERIA GESTIONALE 27009150 - OPEN INNOVATION NELL'INDUSTRIA (ESE) ore:10 Secondo Semestre\t",
+        "value" : "\r\n0770 - INGEGNERIA GESTIONALE 27009150 - OPEN INNOVATION NELL'INDUSTRIA (ESE) ore:10 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0770 - INGEGNERIA GESTIONALE 27009151 - INNOVATION MANAGEMENT AND ENTREPRENEURS HIP (ESE) ore:15 Primo Semestre\t",
+        "value" : "\r\n0770 - INGEGNERIA GESTIONALE 27009151 - INNOVATION MANAGEMENT AND ENTREPRENEURS HIP (ESE) ore:15 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0770 - INGEGNERIA GESTIONALE 27009154 - ADVANCED ENTERPRISE PLATFORMS (LEZ) ore:20 Secondo Semestre\t",
+        "value" : "\r\n0770 - INGEGNERIA GESTIONALE 27009154 - ADVANCED ENTERPRISE PLATFORMS (LEZ) ore:20 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0770 - INGEGNERIA GESTIONALE 27009154 - ADVANCED ENTERPRISE PLATFORMS (ESE) ore:15 Secondo Semestre\t",
+        "value" : "\r\n0770 - INGEGNERIA GESTIONALE 27009154 - ADVANCED ENTERPRISE PLATFORMS (ESE) ore:15 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0770 - INGEGNERIA GESTIONALE 27009160 - TRASFORMAZIONE DIGITALE NELLA SANITÀ (ESE) ore:15 Secondo Semestre\t",
+        "value" : "\r\n0770 - INGEGNERIA GESTIONALE 27009160 - TRASFORMAZIONE DIGITALE NELLA SANITÀ (ESE) ore:15 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0770 - INGEGNERIA GESTIONALE 27009162 - MANAGEMENT DEI SISTEMI SANITARI (ESE) ore:15 Primo Semestre\t",
+        "value" : "\r\n0770 - INGEGNERIA GESTIONALE 27009162 - MANAGEMENT DEI SISTEMI SANITARI (ESE) ore:15 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0770 - INGEGNERIA GESTIONALE 27009183 - MOBILITÀ SOSTENIBILE DELLE MERCI (LAB) ore:20 Secondo Semestre\t",
+        "value" : "\r\n0770 - INGEGNERIA GESTIONALE 27009183 - MOBILITÀ SOSTENIBILE DELLE MERCI (LAB) ore:20 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0770 - INGEGNERIA GESTIONALE 27009184 - PUBLIC SPEAKING & BUSINESS CASE (LEZ) ore:22 Secondo Semestre\t",
+        "value" : "\r\n0770 - INGEGNERIA GESTIONALE 27009184 - PUBLIC SPEAKING & BUSINESS CASE (LEZ) ore:22 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0770 - INGEGNERIA GESTIONALE 27010394 - FINANZA E PERFORMANCE AZIENDALI (ESE) ore:10 Primo Semestre\t",
+        "value" : "\r\n0770 - INGEGNERIA GESTIONALE 27010394 - FINANZA E PERFORMANCE AZIENDALI (ESE) ore:10 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0771 - INGEGNERIA INFORMATICA 27009221 - ELEMENTI DI ROBOTICA (ESE) ore:16 Primo Semestre\t",
+        "value" : "\r\n0771 - INGEGNERIA INFORMATICA 27009221 - ELEMENTI DI ROBOTICA (ESE) ore:16 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0772 - INGEGNERIA MECCANICA 27000308 - STRUMENTI E METODI PER IL DESIGN (ESE) ore:25 Secondo Semestre\t",
+        "value" : "\r\n0772 - INGEGNERIA MECCANICA 27000308 - STRUMENTI E METODI PER IL DESIGN (ESE) ore:25 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0772 - INGEGNERIA MECCANICA 27005523 - PROGETTAZIONE E SVILUPPO PRODOTTO (ESE) ore:16 Secondo Semestre\t",
+        "value" : "\r\n0772 - INGEGNERIA MECCANICA 27005523 - PROGETTAZIONE E SVILUPPO PRODOTTO (ESE) ore:16 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0772 - INGEGNERIA MECCANICA 27006443 - METODO DEGLI ELEMENTI FINITI PER L'ANALISI DI SOLIDI E STRUTTURE (ESE) ore:25 Primo Semestre\t",
+        "value" : "\r\n0772 - INGEGNERIA MECCANICA 27006443 - METODO DEGLI ELEMENTI FINITI PER L'ANALISI DI SOLIDI E STRUTTURE (ESE) ore:25 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0772 - INGEGNERIA MECCANICA 27006445 - SISTEMI DI PRODUZIONE INDUSTRIALE (ESE) ore:20 Secondo Semestre\t",
+        "value" : "\r\n0772 - INGEGNERIA MECCANICA 27006445 - SISTEMI DI PRODUZIONE INDUSTRIALE (ESE) ore:20 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0772 - INGEGNERIA MECCANICA 27006447 - MECCATRONICA (ESE) ore: 6 Primo Semestre\t",
+        "value" : "\r\n0772 - INGEGNERIA MECCANICA 27006447 - MECCATRONICA (ESE) ore: 6 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0772 - INGEGNERIA MECCANICA 27006447 - MECCATRONICA (LAB) ore:15 Primo Semestre\t",
+        "value" : "\r\n0772 - INGEGNERIA MECCANICA 27006447 - MECCATRONICA (LAB) ore:15 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0772 - INGEGNERIA MECCANICA 27006448 - PROTOTIPAZIONE RAPIDA (LAB) ore:24 Secondo Semestre\t",
+        "value" : "\r\n0772 - INGEGNERIA MECCANICA 27006448 - PROTOTIPAZIONE RAPIDA (LAB) ore:24 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0772 - INGEGNERIA MECCANICA 27006448 - PROTOTIPAZIONE RAPIDA (ESE) ore: 6 Secondo Semestre\t",
+        "value" : "\r\n0772 - INGEGNERIA MECCANICA 27006448 - PROTOTIPAZIONE RAPIDA (ESE) ore: 6 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0772 - INGEGNERIA MECCANICA 27007533 - MECCANICA DELLE VIBRAZIONI (ESE) ore:16 Secondo Semestre\t",
+        "value" : "\r\n0772 - INGEGNERIA MECCANICA 27007533 - MECCANICA DELLE VIBRAZIONI (ESE) ore:16 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0772 - INGEGNERIA MECCANICA 27007549 - METODI E TECNOLOGIE PER LA FABBRICA INTELLIGENTE (ESE) ore:15 Primo Semestre\t",
+        "value" : "\r\n0772 - INGEGNERIA MECCANICA 27007549 - METODI E TECNOLOGIE PER LA FABBRICA INTELLIGENTE (ESE) ore:15 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0772 - INGEGNERIA MECCANICA 27009137 - MECCANICA DEL CORPO UMANO (ESE) ore:16 Primo Semestre\t",
+        "value" : "\r\n0772 - INGEGNERIA MECCANICA 27009137 - MECCANICA DEL CORPO UMANO (ESE) ore:16 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0772 - INGEGNERIA MECCANICA 27009138 - PROGETTAZIONE MECCANICA DI DISPOSITIVI BIOMEDICALI (ESE) ore:10 Primo Semestre\t",
+        "value" : "\r\n0772 - INGEGNERIA MECCANICA 27009138 - PROGETTAZIONE MECCANICA DI DISPOSITIVI BIOMEDICALI (ESE) ore:10 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0772 - INGEGNERIA MECCANICA 27009136 - BIOMATERIALI E TECNOLOGIE DI LAVORAZIONE DEI BIOMATERIALI 27009214 - TECNOLOGIE DI LAVORAZIONE DEI BIOMATERIALI (ESE) ore: 9 Primo Semestre\t",
+        "value" : "\r\n0772 - INGEGNERIA MECCANICA 27009136 - BIOMATERIALI E TECNOLOGIE DI LAVORAZIONE DEI BIOMATERIALI 27009214 - TECNOLOGIE DI LAVORAZIONE DEI BIOMATERIALI (ESE) ore: 9 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0772 - INGEGNERIA MECCANICA 27010392 - TECNOLOGIE SOSTENIBILI PER LA LAVORAZIONE DI MATERIALI POLIMERICI E COMPOSITI (ESE) ore:15 Primo Semestre\t",
+        "value" : "\r\n0772 - INGEGNERIA MECCANICA 27010392 - TECNOLOGIE SOSTENIBILI PER LA LAVORAZIONE DI MATERIALI POLIMERICI E COMPOSITI (ESE) ore:15 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0772 - INGEGNERIA MECCANICA 27010392 - TECNOLOGIE SOSTENIBILI PER LA LAVORAZIONE DI MATERIALI POLIMERICI E COMPOSITI (LAB) ore:15 Primo Semestre\t",
+        "value" : "\r\n0772 - INGEGNERIA MECCANICA 27010392 - TECNOLOGIE SOSTENIBILI PER LA LAVORAZIONE DI MATERIALI POLIMERICI E COMPOSITI (LAB) ore:15 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0774 - INGEGNERIA EDILE-ARCHITETTURA 27005500 - TECNOLOGIE EDILIZIE 27005501 - LABORATORIO DI TECNOLOGIE EDILIZIE (ESE) ore:25 Secondo Semestre\t",
+        "value" : "\r\n0774 - INGEGNERIA EDILE-ARCHITETTURA 27005500 - TECNOLOGIE EDILIZIE 27005501 - LABORATORIO DI TECNOLOGIE EDILIZIE (ESE) ore:25 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0774 - INGEGNERIA EDILE-ARCHITETTURA 27005500 - TECNOLOGIE EDILIZIE 27005501 - LABORATORIO DI TECNOLOGIE EDILIZIE (LAB) ore:15 Secondo Semestre\t",
+        "value" : "\r\n0774 - INGEGNERIA EDILE-ARCHITETTURA 27005500 - TECNOLOGIE EDILIZIE 27005501 - LABORATORIO DI TECNOLOGIE EDILIZIE (LAB) ore:15 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0774 - INGEGNERIA EDILE-ARCHITETTURA 27007899 - TECNOLOGIE SOSTENIBILI PER LA RIQUALIFICAZIONE EDILIZIA 27007902 - RIQUALIFICAZIONE ENERGETICA DEGLI EDIFICI (ESE) ore:28 Secondo Semestre\t",
+        "value" : "\r\n0774 - INGEGNERIA EDILE-ARCHITETTURA 27007899 - TECNOLOGIE SOSTENIBILI PER LA RIQUALIFICAZIONE EDILIZIA 27007902 - RIQUALIFICAZIONE ENERGETICA DEGLI EDIFICI (ESE) ore:28 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n\"0782 - CONSERVAZIONE E RESTAURO DEI BENI CULTURALI (ABILITANTE AI SENSI DEL D.LGS N.42/2004) 27008305 - RILIEVO\r\n3D E DOCUMENTAZIONE GRAFICA PER IL RESTAURO (ESE) ore:36 Primo Semestre\"\t",
+        "value" : "\r\n\"0782 - CONSERVAZIONE E RESTAURO DEI BENI CULTURALI (ABILITANTE AI SENSI DEL D.LGS N.42/2004) 27008305 - RILIEVO\r\n3D E DOCUMENTAZIONE GRAFICA PER IL RESTAURO (ESE) ore:36 Primo Semestre\"\t"
+      }, {
+        "text" : "\r\n0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE 27000275 - BUSINESS GAME (ESE) ore:16 Secondo Semestre\t",
+        "value" : "\r\n0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE 27000275 - BUSINESS GAME (ESE) ore:16 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE 27010467 - AUGMENTED REALITY AND METAVERSE (LAB) ore:24 Secondo Semestre\t",
+        "value" : "\r\n0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE 27010467 - AUGMENTED REALITY AND METAVERSE (LAB) ore:24 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE 27010467 - AUGMENTED REALITY AND METAVERSE (LEZ) ore:14 Secondo Semestre\t",
+        "value" : "\r\n0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE 27010467 - AUGMENTED REALITY AND METAVERSE (LEZ) ore:14 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0816 - ROBOTICS AND AUTOMATION ENGINEERING 27008770 - VEHICLE DYNAMICS (ESE) ore:16 Primo Semestre\t",
+        "value" : "\r\n0816 - ROBOTICS AND AUTOMATION ENGINEERING 27008770 - VEHICLE DYNAMICS (ESE) ore:16 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009041 - Gestione sostenibile delle infrastrutture e dei terminals portuali (ESE) ore:21 Primo Semestre\t",
+        "value" : "\r\n0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009041 - Gestione sostenibile delle infrastrutture e dei terminals portuali (ESE) ore:21 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009041 - Gestione sostenibile delle infrastrutture e dei terminals portuali (LEZ) ore:36 Primo Semestre\t",
+        "value" : "\r\n0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009041 - Gestione sostenibile delle infrastrutture e dei terminals portuali (LEZ) ore:36 Primo Semestre\t"
+      }, {
+        "text" : "\r\n\"0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009055 -\r\nFondamenti e applicazioni di sistemi di propulsione navale (ESE) ore:21 Secondo Semestre\"\t",
+        "value" : "\r\n\"0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009055 -\r\nFondamenti e applicazioni di sistemi di propulsione navale (ESE) ore:21 Secondo Semestre\"\t"
+      }, {
+        "text" : "\r\n0829 - INGEGNERIA BIOMEDICA 27000065 - FONDAMENTI DI MECCANICA (ESE) ore: 4 Primo Semestre\t",
+        "value" : "\r\n0829 - INGEGNERIA BIOMEDICA 27000065 - FONDAMENTI DI MECCANICA (ESE) ore: 4 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0829 - INGEGNERIA BIOMEDICA 27000430 - MECCANICA DEI MATERIALI (ESE) ore:14 Secondo Semestre\t",
+        "value" : "\r\n0829 - INGEGNERIA BIOMEDICA 27000430 - MECCANICA DEI MATERIALI (ESE) ore:14 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0870 - INGEGNERIA GESTIONALE 27000035 - ECONOMIA ED ORGANIZZAZIONE AZIENDALE (LEZ) ore:30 Secondo Semestre\t",
+        "value" : "\r\n0870 - INGEGNERIA GESTIONALE 27000035 - ECONOMIA ED ORGANIZZAZIONE AZIENDALE (LEZ) ore:30 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0870 - INGEGNERIA GESTIONALE 27000047 - FISICA TECNICA (ESE) ore:15 Secondo Semestre\t",
+        "value" : "\r\n0870 - INGEGNERIA GESTIONALE 27000047 - FISICA TECNICA (ESE) ore:15 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0870 - INGEGNERIA GESTIONALE 27000089 - MODELLI PROBABILISTICI PER L'INGEGNERIA (ESE) ore:23 Primo Semestre\t",
+        "value" : "\r\n0870 - INGEGNERIA GESTIONALE 27000089 - MODELLI PROBABILISTICI PER L'INGEGNERIA (ESE) ore:23 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0870 - INGEGNERIA GESTIONALE 27000430 - MECCANICA DEI MATERIALI (ESE) ore:15 Primo Semestre\t",
+        "value" : "\r\n0870 - INGEGNERIA GESTIONALE 27000430 - MECCANICA DEI MATERIALI (ESE) ore:15 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0870 - INGEGNERIA GESTIONALE 27007545 - METODI E TOOL PER L'INGEGNERIA (ESE) ore:24 Secondo Semestre\t",
+        "value" : "\r\n0870 - INGEGNERIA GESTIONALE 27007545 - METODI E TOOL PER L'INGEGNERIA (ESE) ore:24 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0870 - INGEGNERIA GESTIONALE 27009115 - STRATEGIA E CONTROLLO DI GESTIONE (ESE) ore:23 Secondo Semestre\t",
+        "value" : "\r\n0870 - INGEGNERIA GESTIONALE 27009115 - STRATEGIA E CONTROLLO DI GESTIONE (ESE) ore:23 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0870 - INGEGNERIA GESTIONALE 27009147 - SOFT SKILL (LEZ) ore:25 Secondo Semestre\t",
+        "value" : "\r\n0870 - INGEGNERIA GESTIONALE 27009147 - SOFT SKILL (LEZ) ore:25 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0871 - INGEGNERIA MECCANICA 27000065 - FONDAMENTI DI MECCANICA (ESE) ore:21 Primo Semestre\t",
+        "value" : "\r\n0871 - INGEGNERIA MECCANICA 27000065 - FONDAMENTI DI MECCANICA (ESE) ore:21 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0871 - INGEGNERIA MECCANICA 27000069 - FONDAMENTI DI FLUIDODINAMICA (ESE) ore:21 Secondo Semestre\t",
+        "value" : "\r\n0871 - INGEGNERIA MECCANICA 27000069 - FONDAMENTI DI FLUIDODINAMICA (ESE) ore:21 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0871 - INGEGNERIA MECCANICA 27000070 - COMPORTAMENTO MECCANICO DEI MATERIALI (ESE) ore:30 Primo Semestre\t",
+        "value" : "\r\n0871 - INGEGNERIA MECCANICA 27000070 - COMPORTAMENTO MECCANICO DEI MATERIALI (ESE) ore:30 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0871 - INGEGNERIA MECCANICA 27000071 - MECCANICA APPLICATA ALLE MACCHINE (ESE) ore:13 Secondo Semestre\t",
+        "value" : "\r\n0871 - INGEGNERIA MECCANICA 27000071 - MECCANICA APPLICATA ALLE MACCHINE (ESE) ore:13 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0871 - INGEGNERIA MECCANICA 27000133 - FONDAMENTI DI ECONOMIA ED ORGANIZZAZIONE AZIENDALE (ESE) ore:15 Primo Semestre\t",
+        "value" : "\r\n0871 - INGEGNERIA MECCANICA 27000133 - FONDAMENTI DI ECONOMIA ED ORGANIZZAZIONE AZIENDALE (ESE) ore:15 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0871 - INGEGNERIA MECCANICA 27006436 - DISEGNO DI MACCHINE 27006439 - DISEGNO DI MACCHINE/CAD PRIMA PARTE (ESE) ore:21 Primo Semestre\t",
+        "value" : "\r\n0871 - INGEGNERIA MECCANICA 27006436 - DISEGNO DI MACCHINE 27006439 - DISEGNO DI MACCHINE/CAD PRIMA PARTE (ESE) ore:21 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0871 - INGEGNERIA MECCANICA 27006436 - DISEGNO DI MACCHINE 27006439 - DISEGNO DI MACCHINE/CAD PRIMA PARTE (LAB) ore:14 Primo Semestre\t",
+        "value" : "\r\n0871 - INGEGNERIA MECCANICA 27006436 - DISEGNO DI MACCHINE 27006439 - DISEGNO DI MACCHINE/CAD PRIMA PARTE (LAB) ore:14 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0871 - INGEGNERIA MECCANICA 27006436 - DISEGNO DI MACCHINE 27006440 - DISEGNO DI MACCHINE/CAD SECONDA PARTE (ESE) ore:31 Secondo Semestre\t",
+        "value" : "\r\n0871 - INGEGNERIA MECCANICA 27006436 - DISEGNO DI MACCHINE 27006440 - DISEGNO DI MACCHINE/CAD SECONDA PARTE (ESE) ore:31 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0872 - INGEGNERIA ENERGETICA 27005392 - SERVIZI ENERGETICI AZIENDALI (ESE) ore:25 Secondo Semestre\t",
+        "value" : "\r\n0872 - INGEGNERIA ENERGETICA 27005392 - SERVIZI ENERGETICI AZIENDALI (ESE) ore:25 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0872 - INGEGNERIA ENERGETICA 27008550 - IMPIANTI DI POTENZA A RIDOTTE EMISSIONI DI CARBONIO (LAB) ore:20 Secondo Semestre\t",
+        "value" : "\r\n0872 - INGEGNERIA ENERGETICA 27008550 - IMPIANTI DI POTENZA A RIDOTTE EMISSIONI DI CARBONIO (LAB) ore:20 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0872 - INGEGNERIA ENERGETICA 27008550 - IMPIANTI DI POTENZA A RIDOTTE EMISSIONI DI CARBONIO (ESE) ore:15 Secondo Semestre\t",
+        "value" : "\r\n0872 - INGEGNERIA ENERGETICA 27008550 - IMPIANTI DI POTENZA A RIDOTTE EMISSIONI DI CARBONIO (ESE) ore:15 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (ESE) ore:18 Primo Semestre\t",
+        "value" : "\r\n0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (ESE) ore:18 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (LEZ) ore:32 Primo Semestre\t",
+        "value" : "\r\n0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (LEZ) ore:32 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (LAB) ore: 2 Primo Semestre\t",
+        "value" : "\r\n0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (LAB) ore: 2 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0872 - INGEGNERIA ENERGETICA 27009507 - FLUID MACHINERY MODELLING AND EXPERIMENTS (ESE) ore:16 Primo Semestre\t",
+        "value" : "\r\n0872 - INGEGNERIA ENERGETICA 27009507 - FLUID MACHINERY MODELLING AND EXPERIMENTS (ESE) ore:16 Primo Semestre\t"
+      }, {
+        "text" : "\r\n0876 - INGEGNERIA CHIMICA 27008574 - DISEGNO INDUSTRIALE (ESE) ore:18 Secondo Semestre\t",
+        "value" : "\r\n0876 - INGEGNERIA CHIMICA 27008574 - DISEGNO INDUSTRIALE (ESE) ore:18 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0876 - INGEGNERIA CHIMICA 27009472 - TECNOLOGIE MANUFATTURIERE PER L'INDUSTRIA ALIMENTARE E I BIOPROCESSI (ESE) ore: 8 Secondo Semestre\t",
+        "value" : "\r\n0876 - INGEGNERIA CHIMICA 27009472 - TECNOLOGIE MANUFATTURIERE PER L'INDUSTRIA ALIMENTARE E I BIOPROCESSI (ESE) ore: 8 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0876 - INGEGNERIA CHIMICA 27009472 - TECNOLOGIE MANUFATTURIERE PER L'INDUSTRIA ALIMENTARE E I BIOPROCESSI (LAB) ore:10 Secondo Semestre\t",
+        "value" : "\r\n0876 - INGEGNERIA CHIMICA 27009472 - TECNOLOGIE MANUFATTURIERE PER L'INDUSTRIA ALIMENTARE E I BIOPROCESSI (LAB) ore:10 Secondo Semestre\t"
+      }, {
+        "text" : "\r\n0879 - INGEGNERIA EDILE-ARCHITETTURA 27000047 - FISICA TECNICA (ESE) ore:32 Secondo Semestre",
+        "value" : "\r\n0879 - INGEGNERIA EDILE-ARCHITETTURA 27000047 - FISICA TECNICA (ESE) ore:32 Secondo Semestre"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"0704 - INGEGNERIA ELETTRONICA 27000158 - IMPIANTI ELETTRICI (ESE) ore:30 Primo Semestre\t\">\n 0704 - INGEGNERIA ELETTRONICA 27000158 - IMPIANTI ELETTRICI (ESE) ore:30 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0705 - INGEGNERIA GESTIONALE 27000094 - TECNOLOGIE INDUSTRIALI (ESE) ore:18 Secondo Semestre\t\">\n \r\n0705 - INGEGNERIA GESTIONALE 27000094 - TECNOLOGIE INDUSTRIALI (ESE) ore:18 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0705 - INGEGNERIA GESTIONALE 27006431 - PRINCIPI DI SISTEMI ELETTRICI (ESE) ore:15 Secondo Semestre\t\">\n \r\n0705 - INGEGNERIA GESTIONALE 27006431 - PRINCIPI DI SISTEMI ELETTRICI (ESE) ore:15 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0705 - INGEGNERIA GESTIONALE 27009148 - SISTEMI ORGANIZZATIVI (ESE) ore:15 Secondo Semestre\t\">\n \r\n0705 - INGEGNERIA GESTIONALE 27009148 - SISTEMI ORGANIZZATIVI (ESE) ore:15 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0708 - INGEGNERIA MECCANICA 27000077 - ELEMENTI COSTRUTTIVI DELLE MACCHINE (ESE) ore:22 Secondo Semestre\t\">\n \r\n0708 - INGEGNERIA MECCANICA 27000077 - ELEMENTI COSTRUTTIVI DELLE MACCHINE (ESE) ore:22 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0708 - INGEGNERIA MECCANICA 27000078 - LABORATORIO CAM (LAB) ore: 9 Secondo Semestre\t\">\n \r\n0708 - INGEGNERIA MECCANICA 27000078 - LABORATORIO CAM (LAB) ore: 9 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0708 - INGEGNERIA MECCANICA 27000078 - LABORATORIO CAM (ESE) ore: 3 Secondo Semestre\t\">\n \r\n0708 - INGEGNERIA MECCANICA 27000078 - LABORATORIO CAM (ESE) ore: 3 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0708 - INGEGNERIA MECCANICA 27005414 - TECNOLOGIA MECCANICA E DEI MATERIALI (ESE) ore:16 Primo Semestre\t\">\n \r\n0708 - INGEGNERIA MECCANICA 27005414 - TECNOLOGIA MECCANICA E DEI MATERIALI (ESE) ore:16 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0708 - INGEGNERIA MECCANICA 27005513 - TECNICHE E STRUMENTI PER LA SPERIMENTAZION E (ESE) ore:19 Secondo Semestre\t\">\n \r\n0708 - INGEGNERIA MECCANICA 27005513 - TECNICHE E STRUMENTI PER LA SPERIMENTAZION E (ESE) ore:19 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0770 - INGEGNERIA GESTIONALE 27000164 - GESTIONE DEI PROCESSI AZIENDALI (ESE) ore:15 Secondo Semestre\t\">\n \r\n0770 - INGEGNERIA GESTIONALE 27000164 - GESTIONE DEI PROCESSI AZIENDALI (ESE) ore:15 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0770 - INGEGNERIA GESTIONALE 27000275 - BUSINESS GAME (LAB) ore:12 Secondo Semestre\t\">\n \r\n0770 - INGEGNERIA GESTIONALE 27000275 - BUSINESS GAME (LAB) ore:12 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0770 - INGEGNERIA GESTIONALE 27009150 - OPEN INNOVATION NELL&#x27;INDUSTRIA (ESE) ore:10 Secondo Semestre\t\">\n \r\n0770 - INGEGNERIA GESTIONALE 27009150 - OPEN INNOVATION NELL&#x27;INDUSTRIA (ESE) ore:10 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0770 - INGEGNERIA GESTIONALE 27009151 - INNOVATION MANAGEMENT AND ENTREPRENEURS HIP (ESE) ore:15 Primo Semestre\t\">\n \r\n0770 - INGEGNERIA GESTIONALE 27009151 - INNOVATION MANAGEMENT AND ENTREPRENEURS HIP (ESE) ore:15 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0770 - INGEGNERIA GESTIONALE 27009154 - ADVANCED ENTERPRISE PLATFORMS (LEZ) ore:20 Secondo Semestre\t\">\n \r\n0770 - INGEGNERIA GESTIONALE 27009154 - ADVANCED ENTERPRISE PLATFORMS (LEZ) ore:20 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0770 - INGEGNERIA GESTIONALE 27009154 - ADVANCED ENTERPRISE PLATFORMS (ESE) ore:15 Secondo Semestre\t\">\n \r\n0770 - INGEGNERIA GESTIONALE 27009154 - ADVANCED ENTERPRISE PLATFORMS (ESE) ore:15 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0770 - INGEGNERIA GESTIONALE 27009160 - TRASFORMAZIONE DIGITALE NELLA SANITÀ (ESE) ore:15 Secondo Semestre\t\">\n \r\n0770 - INGEGNERIA GESTIONALE 27009160 - TRASFORMAZIONE DIGITALE NELLA SANITÀ (ESE) ore:15 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0770 - INGEGNERIA GESTIONALE 27009162 - MANAGEMENT DEI SISTEMI SANITARI (ESE) ore:15 Primo Semestre\t\">\n \r\n0770 - INGEGNERIA GESTIONALE 27009162 - MANAGEMENT DEI SISTEMI SANITARI (ESE) ore:15 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0770 - INGEGNERIA GESTIONALE 27009183 - MOBILITÀ SOSTENIBILE DELLE MERCI (LAB) ore:20 Secondo Semestre\t\">\n \r\n0770 - INGEGNERIA GESTIONALE 27009183 - MOBILITÀ SOSTENIBILE DELLE MERCI (LAB) ore:20 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0770 - INGEGNERIA GESTIONALE 27009184 - PUBLIC SPEAKING &amp; BUSINESS CASE (LEZ) ore:22 Secondo Semestre\t\">\n \r\n0770 - INGEGNERIA GESTIONALE 27009184 - PUBLIC SPEAKING &amp; BUSINESS CASE (LEZ) ore:22 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0770 - INGEGNERIA GESTIONALE 27010394 - FINANZA E PERFORMANCE AZIENDALI (ESE) ore:10 Primo Semestre\t\">\n \r\n0770 - INGEGNERIA GESTIONALE 27010394 - FINANZA E PERFORMANCE AZIENDALI (ESE) ore:10 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0771 - INGEGNERIA INFORMATICA 27009221 - ELEMENTI DI ROBOTICA (ESE) ore:16 Primo Semestre\t\">\n \r\n0771 - INGEGNERIA INFORMATICA 27009221 - ELEMENTI DI ROBOTICA (ESE) ore:16 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0772 - INGEGNERIA MECCANICA 27000308 - STRUMENTI E METODI PER IL DESIGN (ESE) ore:25 Secondo Semestre\t\">\n \r\n0772 - INGEGNERIA MECCANICA 27000308 - STRUMENTI E METODI PER IL DESIGN (ESE) ore:25 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0772 - INGEGNERIA MECCANICA 27005523 - PROGETTAZIONE E SVILUPPO PRODOTTO (ESE) ore:16 Secondo Semestre\t\">\n \r\n0772 - INGEGNERIA MECCANICA 27005523 - PROGETTAZIONE E SVILUPPO PRODOTTO (ESE) ore:16 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0772 - INGEGNERIA MECCANICA 27006443 - METODO DEGLI ELEMENTI FINITI PER L&#x27;ANALISI DI SOLIDI E STRUTTURE (ESE) ore:25 Primo Semestre\t\">\n \r\n0772 - INGEGNERIA MECCANICA 27006443 - METODO DEGLI ELEMENTI FINITI PER L&#x27;ANALISI DI SOLIDI E STRUTTURE (ESE) ore:25 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0772 - INGEGNERIA MECCANICA 27006445 - SISTEMI DI PRODUZIONE INDUSTRIALE (ESE) ore:20 Secondo Semestre\t\">\n \r\n0772 - INGEGNERIA MECCANICA 27006445 - SISTEMI DI PRODUZIONE INDUSTRIALE (ESE) ore:20 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0772 - INGEGNERIA MECCANICA 27006447 - MECCATRONICA (ESE) ore: 6 Primo Semestre\t\">\n \r\n0772 - INGEGNERIA MECCANICA 27006447 - MECCATRONICA (ESE) ore: 6 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0772 - INGEGNERIA MECCANICA 27006447 - MECCATRONICA (LAB) ore:15 Primo Semestre\t\">\n \r\n0772 - INGEGNERIA MECCANICA 27006447 - MECCATRONICA (LAB) ore:15 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0772 - INGEGNERIA MECCANICA 27006448 - PROTOTIPAZIONE RAPIDA (LAB) ore:24 Secondo Semestre\t\">\n \r\n0772 - INGEGNERIA MECCANICA 27006448 - PROTOTIPAZIONE RAPIDA (LAB) ore:24 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0772 - INGEGNERIA MECCANICA 27006448 - PROTOTIPAZIONE RAPIDA (ESE) ore: 6 Secondo Semestre\t\">\n \r\n0772 - INGEGNERIA MECCANICA 27006448 - PROTOTIPAZIONE RAPIDA (ESE) ore: 6 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0772 - INGEGNERIA MECCANICA 27007533 - MECCANICA DELLE VIBRAZIONI (ESE) ore:16 Secondo Semestre\t\">\n \r\n0772 - INGEGNERIA MECCANICA 27007533 - MECCANICA DELLE VIBRAZIONI (ESE) ore:16 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0772 - INGEGNERIA MECCANICA 27007549 - METODI E TECNOLOGIE PER LA FABBRICA INTELLIGENTE (ESE) ore:15 Primo Semestre\t\">\n \r\n0772 - INGEGNERIA MECCANICA 27007549 - METODI E TECNOLOGIE PER LA FABBRICA INTELLIGENTE (ESE) ore:15 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0772 - INGEGNERIA MECCANICA 27009137 - MECCANICA DEL CORPO UMANO (ESE) ore:16 Primo Semestre\t\">\n \r\n0772 - INGEGNERIA MECCANICA 27009137 - MECCANICA DEL CORPO UMANO (ESE) ore:16 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0772 - INGEGNERIA MECCANICA 27009138 - PROGETTAZIONE MECCANICA DI DISPOSITIVI BIOMEDICALI (ESE) ore:10 Primo Semestre\t\">\n \r\n0772 - INGEGNERIA MECCANICA 27009138 - PROGETTAZIONE MECCANICA DI DISPOSITIVI BIOMEDICALI (ESE) ore:10 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0772 - INGEGNERIA MECCANICA 27009136 - BIOMATERIALI E TECNOLOGIE DI LAVORAZIONE DEI BIOMATERIALI 27009214 - TECNOLOGIE DI LAVORAZIONE DEI BIOMATERIALI (ESE) ore: 9 Primo Semestre\t\">\n \r\n0772 - INGEGNERIA MECCANICA 27009136 - BIOMATERIALI E TECNOLOGIE DI LAVORAZIONE DEI BIOMATERIALI 27009214 - TECNOLOGIE DI LAVORAZIONE DEI BIOMATERIALI (ESE) ore: 9 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0772 - INGEGNERIA MECCANICA 27010392 - TECNOLOGIE SOSTENIBILI PER LA LAVORAZIONE DI MATERIALI POLIMERICI E COMPOSITI (ESE) ore:15 Primo Semestre\t\">\n \r\n0772 - INGEGNERIA MECCANICA 27010392 - TECNOLOGIE SOSTENIBILI PER LA LAVORAZIONE DI MATERIALI POLIMERICI E COMPOSITI (ESE) ore:15 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0772 - INGEGNERIA MECCANICA 27010392 - TECNOLOGIE SOSTENIBILI PER LA LAVORAZIONE DI MATERIALI POLIMERICI E COMPOSITI (LAB) ore:15 Primo Semestre\t\">\n \r\n0772 - INGEGNERIA MECCANICA 27010392 - TECNOLOGIE SOSTENIBILI PER LA LAVORAZIONE DI MATERIALI POLIMERICI E COMPOSITI (LAB) ore:15 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0774 - INGEGNERIA EDILE-ARCHITETTURA 27005500 - TECNOLOGIE EDILIZIE 27005501 - LABORATORIO DI TECNOLOGIE EDILIZIE (ESE) ore:25 Secondo Semestre\t\">\n \r\n0774 - INGEGNERIA EDILE-ARCHITETTURA 27005500 - TECNOLOGIE EDILIZIE 27005501 - LABORATORIO DI TECNOLOGIE EDILIZIE (ESE) ore:25 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0774 - INGEGNERIA EDILE-ARCHITETTURA 27005500 - TECNOLOGIE EDILIZIE 27005501 - LABORATORIO DI TECNOLOGIE EDILIZIE (LAB) ore:15 Secondo Semestre\t\">\n \r\n0774 - INGEGNERIA EDILE-ARCHITETTURA 27005500 - TECNOLOGIE EDILIZIE 27005501 - LABORATORIO DI TECNOLOGIE EDILIZIE (LAB) ore:15 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0774 - INGEGNERIA EDILE-ARCHITETTURA 27007899 - TECNOLOGIE SOSTENIBILI PER LA RIQUALIFICAZIONE EDILIZIA 27007902 - RIQUALIFICAZIONE ENERGETICA DEGLI EDIFICI (ESE) ore:28 Secondo Semestre\t\">\n \r\n0774 - INGEGNERIA EDILE-ARCHITETTURA 27007899 - TECNOLOGIE SOSTENIBILI PER LA RIQUALIFICAZIONE EDILIZIA 27007902 - RIQUALIFICAZIONE ENERGETICA DEGLI EDIFICI (ESE) ore:28 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n&quot;0782 - CONSERVAZIONE E RESTAURO DEI BENI CULTURALI (ABILITANTE AI SENSI DEL D.LGS N.42/2004) 27008305 - RILIEVO\r\n3D E DOCUMENTAZIONE GRAFICA PER IL RESTAURO (ESE) ore:36 Primo Semestre&quot;\t\">\n \r\n&quot;0782 - CONSERVAZIONE E RESTAURO DEI BENI CULTURALI (ABILITANTE AI SENSI DEL D.LGS N.42/2004) 27008305 - RILIEVO\r\n3D E DOCUMENTAZIONE GRAFICA PER IL RESTAURO (ESE) ore:36 Primo Semestre&quot;\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE 27000275 - BUSINESS GAME (ESE) ore:16 Secondo Semestre\t\">\n \r\n0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE 27000275 - BUSINESS GAME (ESE) ore:16 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE 27010467 - AUGMENTED REALITY AND METAVERSE (LAB) ore:24 Secondo Semestre\t\">\n \r\n0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE 27010467 - AUGMENTED REALITY AND METAVERSE (LAB) ore:24 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE 27010467 - AUGMENTED REALITY AND METAVERSE (LEZ) ore:14 Secondo Semestre\t\">\n \r\n0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE 27010467 - AUGMENTED REALITY AND METAVERSE (LEZ) ore:14 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0816 - ROBOTICS AND AUTOMATION ENGINEERING 27008770 - VEHICLE DYNAMICS (ESE) ore:16 Primo Semestre\t\">\n \r\n0816 - ROBOTICS AND AUTOMATION ENGINEERING 27008770 - VEHICLE DYNAMICS (ESE) ore:16 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009041 - Gestione sostenibile delle infrastrutture e dei terminals portuali (ESE) ore:21 Primo Semestre\t\">\n \r\n0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009041 - Gestione sostenibile delle infrastrutture e dei terminals portuali (ESE) ore:21 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009041 - Gestione sostenibile delle infrastrutture e dei terminals portuali (LEZ) ore:36 Primo Semestre\t\">\n \r\n0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009041 - Gestione sostenibile delle infrastrutture e dei terminals portuali (LEZ) ore:36 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n&quot;0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009055 -\r\nFondamenti e applicazioni di sistemi di propulsione navale (ESE) ore:21 Secondo Semestre&quot;\t\">\n \r\n&quot;0823 - TECNOLOGIE DEL MARE E DELLA NAVIGAZIONE 27009055 -\r\nFondamenti e applicazioni di sistemi di propulsione navale (ESE) ore:21 Secondo Semestre&quot;\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0829 - INGEGNERIA BIOMEDICA 27000065 - FONDAMENTI DI MECCANICA (ESE) ore: 4 Primo Semestre\t\">\n \r\n0829 - INGEGNERIA BIOMEDICA 27000065 - FONDAMENTI DI MECCANICA (ESE) ore: 4 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0829 - INGEGNERIA BIOMEDICA 27000430 - MECCANICA DEI MATERIALI (ESE) ore:14 Secondo Semestre\t\">\n \r\n0829 - INGEGNERIA BIOMEDICA 27000430 - MECCANICA DEI MATERIALI (ESE) ore:14 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0870 - INGEGNERIA GESTIONALE 27000035 - ECONOMIA ED ORGANIZZAZIONE AZIENDALE (LEZ) ore:30 Secondo Semestre\t\">\n \r\n0870 - INGEGNERIA GESTIONALE 27000035 - ECONOMIA ED ORGANIZZAZIONE AZIENDALE (LEZ) ore:30 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0870 - INGEGNERIA GESTIONALE 27000047 - FISICA TECNICA (ESE) ore:15 Secondo Semestre\t\">\n \r\n0870 - INGEGNERIA GESTIONALE 27000047 - FISICA TECNICA (ESE) ore:15 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0870 - INGEGNERIA GESTIONALE 27000089 - MODELLI PROBABILISTICI PER L&#x27;INGEGNERIA (ESE) ore:23 Primo Semestre\t\">\n \r\n0870 - INGEGNERIA GESTIONALE 27000089 - MODELLI PROBABILISTICI PER L&#x27;INGEGNERIA (ESE) ore:23 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0870 - INGEGNERIA GESTIONALE 27000430 - MECCANICA DEI MATERIALI (ESE) ore:15 Primo Semestre\t\">\n \r\n0870 - INGEGNERIA GESTIONALE 27000430 - MECCANICA DEI MATERIALI (ESE) ore:15 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0870 - INGEGNERIA GESTIONALE 27007545 - METODI E TOOL PER L&#x27;INGEGNERIA (ESE) ore:24 Secondo Semestre\t\">\n \r\n0870 - INGEGNERIA GESTIONALE 27007545 - METODI E TOOL PER L&#x27;INGEGNERIA (ESE) ore:24 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0870 - INGEGNERIA GESTIONALE 27009115 - STRATEGIA E CONTROLLO DI GESTIONE (ESE) ore:23 Secondo Semestre\t\">\n \r\n0870 - INGEGNERIA GESTIONALE 27009115 - STRATEGIA E CONTROLLO DI GESTIONE (ESE) ore:23 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0870 - INGEGNERIA GESTIONALE 27009147 - SOFT SKILL (LEZ) ore:25 Secondo Semestre\t\">\n \r\n0870 - INGEGNERIA GESTIONALE 27009147 - SOFT SKILL (LEZ) ore:25 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0871 - INGEGNERIA MECCANICA 27000065 - FONDAMENTI DI MECCANICA (ESE) ore:21 Primo Semestre\t\">\n \r\n0871 - INGEGNERIA MECCANICA 27000065 - FONDAMENTI DI MECCANICA (ESE) ore:21 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0871 - INGEGNERIA MECCANICA 27000069 - FONDAMENTI DI FLUIDODINAMICA (ESE) ore:21 Secondo Semestre\t\">\n \r\n0871 - INGEGNERIA MECCANICA 27000069 - FONDAMENTI DI FLUIDODINAMICA (ESE) ore:21 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0871 - INGEGNERIA MECCANICA 27000070 - COMPORTAMENTO MECCANICO DEI MATERIALI (ESE) ore:30 Primo Semestre\t\">\n \r\n0871 - INGEGNERIA MECCANICA 27000070 - COMPORTAMENTO MECCANICO DEI MATERIALI (ESE) ore:30 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0871 - INGEGNERIA MECCANICA 27000071 - MECCANICA APPLICATA ALLE MACCHINE (ESE) ore:13 Secondo Semestre\t\">\n \r\n0871 - INGEGNERIA MECCANICA 27000071 - MECCANICA APPLICATA ALLE MACCHINE (ESE) ore:13 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0871 - INGEGNERIA MECCANICA 27000133 - FONDAMENTI DI ECONOMIA ED ORGANIZZAZIONE AZIENDALE (ESE) ore:15 Primo Semestre\t\">\n \r\n0871 - INGEGNERIA MECCANICA 27000133 - FONDAMENTI DI ECONOMIA ED ORGANIZZAZIONE AZIENDALE (ESE) ore:15 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0871 - INGEGNERIA MECCANICA 27006436 - DISEGNO DI MACCHINE 27006439 - DISEGNO DI MACCHINE/CAD PRIMA PARTE (ESE) ore:21 Primo Semestre\t\">\n \r\n0871 - INGEGNERIA MECCANICA 27006436 - DISEGNO DI MACCHINE 27006439 - DISEGNO DI MACCHINE/CAD PRIMA PARTE (ESE) ore:21 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0871 - INGEGNERIA MECCANICA 27006436 - DISEGNO DI MACCHINE 27006439 - DISEGNO DI MACCHINE/CAD PRIMA PARTE (LAB) ore:14 Primo Semestre\t\">\n \r\n0871 - INGEGNERIA MECCANICA 27006436 - DISEGNO DI MACCHINE 27006439 - DISEGNO DI MACCHINE/CAD PRIMA PARTE (LAB) ore:14 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0871 - INGEGNERIA MECCANICA 27006436 - DISEGNO DI MACCHINE 27006440 - DISEGNO DI MACCHINE/CAD SECONDA PARTE (ESE) ore:31 Secondo Semestre\t\">\n \r\n0871 - INGEGNERIA MECCANICA 27006436 - DISEGNO DI MACCHINE 27006440 - DISEGNO DI MACCHINE/CAD SECONDA PARTE (ESE) ore:31 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0872 - INGEGNERIA ENERGETICA 27005392 - SERVIZI ENERGETICI AZIENDALI (ESE) ore:25 Secondo Semestre\t\">\n \r\n0872 - INGEGNERIA ENERGETICA 27005392 - SERVIZI ENERGETICI AZIENDALI (ESE) ore:25 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0872 - INGEGNERIA ENERGETICA 27008550 - IMPIANTI DI POTENZA A RIDOTTE EMISSIONI DI CARBONIO (LAB) ore:20 Secondo Semestre\t\">\n \r\n0872 - INGEGNERIA ENERGETICA 27008550 - IMPIANTI DI POTENZA A RIDOTTE EMISSIONI DI CARBONIO (LAB) ore:20 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0872 - INGEGNERIA ENERGETICA 27008550 - IMPIANTI DI POTENZA A RIDOTTE EMISSIONI DI CARBONIO (ESE) ore:15 Secondo Semestre\t\">\n \r\n0872 - INGEGNERIA ENERGETICA 27008550 - IMPIANTI DI POTENZA A RIDOTTE EMISSIONI DI CARBONIO (ESE) ore:15 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (ESE) ore:18 Primo Semestre\t\">\n \r\n0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (ESE) ore:18 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (LEZ) ore:32 Primo Semestre\t\">\n \r\n0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (LEZ) ore:32 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (LAB) ore: 2 Primo Semestre\t\">\n \r\n0872 - INGEGNERIA ENERGETICA 27009500 - PROGETTAZIONE DI SISTEMI TERMICI (LAB) ore: 2 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0872 - INGEGNERIA ENERGETICA 27009507 - FLUID MACHINERY MODELLING AND EXPERIMENTS (ESE) ore:16 Primo Semestre\t\">\n \r\n0872 - INGEGNERIA ENERGETICA 27009507 - FLUID MACHINERY MODELLING AND EXPERIMENTS (ESE) ore:16 Primo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0876 - INGEGNERIA CHIMICA 27008574 - DISEGNO INDUSTRIALE (ESE) ore:18 Secondo Semestre\t\">\n \r\n0876 - INGEGNERIA CHIMICA 27008574 - DISEGNO INDUSTRIALE (ESE) ore:18 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0876 - INGEGNERIA CHIMICA 27009472 - TECNOLOGIE MANUFATTURIERE PER L&#x27;INDUSTRIA ALIMENTARE E I BIOPROCESSI (ESE) ore: 8 Secondo Semestre\t\">\n \r\n0876 - INGEGNERIA CHIMICA 27009472 - TECNOLOGIE MANUFATTURIERE PER L&#x27;INDUSTRIA ALIMENTARE E I BIOPROCESSI (ESE) ore: 8 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0876 - INGEGNERIA CHIMICA 27009472 - TECNOLOGIE MANUFATTURIERE PER L&#x27;INDUSTRIA ALIMENTARE E I BIOPROCESSI (LAB) ore:10 Secondo Semestre\t\">\n \r\n0876 - INGEGNERIA CHIMICA 27009472 - TECNOLOGIE MANUFATTURIERE PER L&#x27;INDUSTRIA ALIMENTARE E I BIOPROCESSI (LAB) ore:10 Secondo Semestre\t</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"dichiara_di_accettare_l&#x27;incarico_per_il_i_seguente_i_insegnamento_i_conferiti_con_delibera_del_cdd_del_24_06_2026\" value=\"\r\n0879 - INGEGNERIA EDILE-ARCHITETTURA 27000047 - FISICA TECNICA (ESE) ore:32 Secondo Semestre\">\n \r\n0879 - INGEGNERIA EDILE-ARCHITETTURA 27000047 - FISICA TECNICA (ESE) ore:32 Secondo Semestre</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "dichiara",
+      "label" : "Dichiara",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"dichiara\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"di essere iscritto alla gestione separata INPS\">di essere iscritto alla gestione separata INPS</option>\n\n  <option value=\"di NON essere iscritto alla gestione separata INPS e di provvedere tempestivamente all&#x27;iscrizione, essendo necessaria ai fini della stipula del contratto\">di NON essere iscritto alla gestione separata INPS e di provvedere tempestivamente all&#x27;iscrizione, essendo necessaria ai fini della stipula del contratto</option>\n\n  <option value=\"di NON essere iscritto alla gestione separata INPS perché lavoratore autonomo la cui attività oggetto di incarico è strettamente connessa all’attività di lavoro autonomo esercitata abitualmente (in tal caso il docente-professionista sarà obbligato, in quanto titolare di partita IVA, ad emettere regolare fattura)\">di NON essere iscritto alla gestione separata INPS perché lavoratore autonomo la cui attività oggetto di incarico è strettamente connessa all’attività di lavoro autonomo esercitata abitualmente (in tal caso il docente-professionista sarà obbligato, in quanto titolare di partita IVA, ad emettere regolare fattura)</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "eventuale_autorizzazione_a_svolgere_l'incarico_dottorandi,_assegnisti,_borsisti_o_comunicazione_pta,_dip._pubblica_amm.",
+      "label" : "Eventuale Autorizzazione a svolgere l'incarico (Dottorandi, Assegnisti, Borsisti) o Comunicazione (PTA, Dip. Pubblica Amm.)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"eventuale_autorizzazione_a_svolgere_l&#x27;incarico_dottorandi,_assegnisti,_borsisti_o_comunicazione_pta,_dip._pubblica_amm.\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

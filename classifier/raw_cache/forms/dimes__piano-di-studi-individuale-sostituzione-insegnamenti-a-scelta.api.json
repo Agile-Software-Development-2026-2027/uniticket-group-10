@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:19.953593Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dimes/piano-di-studi-individuale-sostituzione-insegnamenti-a-scelta/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Richiesta momentaneamente non attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

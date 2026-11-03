@@ -1,0 +1,146 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:32.469459Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-autorizzazione-a-compiere-missionetrasferta-su-progetti-finanziati-e-orsi/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta autorizzazione a compiere missione/trasferta su progetti finanziati e O.r.s.i.",
+    "description" : "Utilizzare il presente modulo esclusivamente per missioni/trasferta che siano soggetti a carta intestata specifica (come O.r.s.i. e progetti finanziati). Non saranno prese in carico richieste  diverse che invece dovranno essere presentata tramite piattaforma mysol.",
+    "protocol_required" : true,
+    "slug" : "richiesta-autorizzazione-a-compiere-missionetrasferta-su-progetti-finanziati-e-orsi",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 277,
+      "fields" : {
+        "category" : 262,
+        "title" : "Note operative",
+        "text" : "E' possibile utilizzare il presente modulo **esclusivamente** per le richieste su progetti finanziati che necessitano una specifica carta intestata e per i progetti O.r.s.i., per tutte le altre richieste di missione/trasferta  dovranno essere presentate tramite  mysol.unical.it **pena la mancata presa in carico**.\r\n\r\n*  [Modello Richiesta Autorizzazione a compiere missione/trasferta in presenza](https://www.mat.unical.it/demacs/Modulistica?action=AttachFile&do=get&target=Autorizzione_missione-trasferta.docx), per missioni/trasferte in presenza\r\n*  [Modello Richiesta Autorizzazione a compiere missione/trasferta telematica](https://www.mat.unical.it/demacs/Modulistica?action=AttachFile&do=get&target=Autorizzione_missione-trasferta_telematica.docx), per missioni/trasferte svolte in modalità telematica\r\n\r\ncompleto delle seguenti firme:\r\n\r\n* Richiedente\r\n* Responsabile dei fondi (se non coincide con il richiedente)\r\n* Coordinatore del Dottorato /Responsabile dell’attività di Ricerca (ove previsto)\r\n\r\nE' possibile presentare contestualmente anche il  [Modello Richiesta Autorizzazione utilizzo mezzo straordinario](https://www.mat.unical.it/demacs/Modulistica?action=AttachFile&do=get&target=Autorizzione_utilizzo_mezzo_straordinario.docx) allegandolo alla presente in formato pdf firmato.\r\n\r\nNOTA BENE: ai sensi della normativa vigente concernente la dematerializzazione, tutti i documenti DEVONO essere sottoscritti apponendo [firma digitale in modalità PADES](https://guide.pec.it/soluzioni-firma-digitale/firma-digitale/aruba-key/aruba-key-windows/firmare-un-file-pdf-aruba-key-modalita-avanzata.aspx), salvo il caso in cui il richiedente sia personale esterno sprovvisto di firma digitale. In quest'ultimo caso il richiedente deve obbligatoriamente allegare alla presente anche un valido documento di riconoscimento.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 278,
+      "fields" : {
+        "category" : 262,
+        "title" : "Dichiarazione sostitutiva di certificazione/atto di notorietà",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000).",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta autorizzazione a compiere missione/trasferta su progetti finanziati e O.r.s.i.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta autorizzazione a compiere missione/trasferta su progetti finanziati e O.r.s.i.\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Utilizzare il presente modulo esclusivamente per missioni/trasferta che siano soggetti a carta intestata specifica (come O.r.s.i. e progetti finanziati). Non saranno prese in carico richieste  diverse che invece dovranno essere presentata tramite piattaforma mysol.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nUtilizzare il presente modulo esclusivamente per missioni/trasferta che siano soggetti a carta intestata specifica (come O.r.s.i. e progetti finanziati). Non saranno prese in carico richieste  diverse che invece dovranno essere presentata tramite piattaforma mysol.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "richiesta_autorizzazione_a_compiere_missione_trasferta",
+      "label" : "Richiesta autorizzazione a compiere missione/trasferta",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Allegare la richiesta come da modello scaricabile nelle note operative sopra riportate.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"richiesta_autorizzazione_a_compiere_missione_trasferta\">",
+      "type" : "file"
+    }, {
+      "id" : "richiesta_utilizzo_mezzo_straordinario",
+      "label" : "Richiesta utilizzo mezzo straordinario",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Allegare la richiesta come da modello scaricabile nelle note operative sopra riportate.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"richiesta_utilizzo_mezzo_straordinario\">",
+      "type" : "file"
+    }, {
+      "id" : "documento_di_riconoscimento",
+      "label" : "Documento di riconoscimento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Allegare scansione di un valido documento di riconoscimento se personale esterno sprovvisto di firma digitale per come indicato nelle note operative.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento_di_riconoscimento\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

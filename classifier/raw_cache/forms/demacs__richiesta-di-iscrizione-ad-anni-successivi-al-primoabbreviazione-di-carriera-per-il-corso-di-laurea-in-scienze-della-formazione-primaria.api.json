@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:48.026093Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-di-iscrizione-ad-anni-successivi-al-primoabbreviazione-di-carriera-per-il-corso-di-laurea-in-scienze-della-formazione-primaria/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Richiesta di iscrizione ad anni successivi al primo/abbreviazione di carriera per il Corso di Laurea in Scienze della Formazione Primaria. Il modulo sarà attivo dopo la pubblicazione del bando di ammissione 2026/2027",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:48.981970Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dinci/domanda-di-riconoscimento-esamicfu-dinci/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

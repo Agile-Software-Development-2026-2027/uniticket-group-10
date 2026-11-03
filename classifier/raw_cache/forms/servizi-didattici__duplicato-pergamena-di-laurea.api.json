@@ -1,0 +1,88 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:54.854662Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizi-didattici/duplicato-pergamena-di-laurea/ticket/new/",
+  "jsonBody" : {
+    "name" : "Duplicato pergamena di laurea",
+    "description" : "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.\r\nModulo per richiedere il duplicato per furto/smarrimento",
+    "protocol_required" : false,
+    "slug" : "duplicato-pergamena-di-laurea",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Duplicato pergamena di laurea",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Duplicato pergamena di laurea\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.\r\nModulo per richiedere il duplicato per furto/smarrimento",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.\r\nModulo per richiedere il duplicato per furto/smarrimento</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "motivazione_della_richiesta",
+      "label" : "Motivazione della richiesta",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Furto Pergamena",
+        "value" : "Furto Pergamena"
+      }, {
+        "text" : "Smarrimento Pergamena",
+        "value" : "Smarrimento Pergamena"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"motivazione_della_richiesta\" value=\"Furto Pergamena\">\n Furto Pergamena</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"motivazione_della_richiesta\" value=\"Smarrimento Pergamena\">\n Smarrimento Pergamena</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "allega_copia_denuncia_furto_smarrimento_presentata_ai_carabinieri",
+      "label" : "Allega copia denuncia furto/smarrimento presentata ai Carabinieri",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allega_copia_denuncia_furto_smarrimento_presentata_ai_carabinieri\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

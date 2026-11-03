@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:11.513426Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/post-laurea/riconoscimento-e-certificazione-crediti-per-soli-esami-gia-sostenuti-presso-lunical-per-i-24cfu-dicembre-2023/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

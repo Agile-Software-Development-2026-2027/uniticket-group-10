@@ -1,0 +1,60 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:12.051458Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizi-didattici/rientro-da-sospensione/ticket/new/",
+  "jsonBody" : {
+    "name" : "Rientro da sospensione",
+    "description" : "Richiesta ripresa studi.\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+    "protocol_required" : true,
+    "slug" : "rientro-da-sospensione",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Rientro da sospensione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Rientro da sospensione\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta ripresa studi.\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta ripresa studi.\r\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "chiedo_il_rientro_da_sopensione_interruzione_programmata_per_poter_proseguire_gli_studi_nell'a.a.",
+      "label" : "Chiedo il rientro da sopensione/interruzione programmata per poter proseguire gli studi nell'a.a.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"chiedo_il_rientro_da_sopensione_interruzione_programmata_per_poter_proseguire_gli_studi_nell&#x27;a.a.\">",
+      "type" : "text"
+    } ]
+  },
+  "rawTextBody" : null
+}

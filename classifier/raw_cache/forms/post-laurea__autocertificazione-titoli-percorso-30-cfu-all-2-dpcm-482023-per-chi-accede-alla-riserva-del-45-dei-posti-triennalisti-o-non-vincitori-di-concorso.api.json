@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:25.072079Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/post-laurea/autocertificazione-titoli-percorso-30-cfu-all-2-dpcm-482023-per-chi-accede-alla-riserva-del-45-dei-posti-triennalisti-o-non-vincitori-di-concorso/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

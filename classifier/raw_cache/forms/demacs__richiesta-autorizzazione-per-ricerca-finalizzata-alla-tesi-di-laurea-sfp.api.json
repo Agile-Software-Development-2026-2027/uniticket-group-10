@@ -1,0 +1,136 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:33.216455Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-autorizzazione-per-ricerca-finalizzata-alla-tesi-di-laurea-sfp/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta autorizzazione per ricerca finalizzata alla tesi di laurea SFP",
+    "description" : "Richiesta di autorizzazione ad attività di ricerca finalizzata all'elaborazione della Tesi di Laurea per gli studenti del Corso di Laurea Magistrale a ciclo unico in Scienze della Formazione Primaria",
+    "protocol_required" : false,
+    "slug" : "richiesta-autorizzazione-per-ricerca-finalizzata-alla-tesi-di-laurea-sfp",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 227,
+      "fields" : {
+        "category" : 218,
+        "title" : "Note Operative",
+        "text" : "- Alla presente richiesta deve essere obbligatoriamente allegato, in formato PDF, il [Documento](https://www.mat.unical.it/demacs/ModulisticaDid?action=AttachFile&do=get&target=Modulo+autorizzazione+alla+ricerca+SFP.docx) firmato sia dal Docente che dallo/a Studente/essa.\r\n- Le richieste saranno valutate nel primo consiglio di corso di studi utile.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 228,
+      "fields" : {
+        "category" : 218,
+        "title" : "Dichiarazione sostitutiva di certificazione/atto di notorietà",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta autorizzazione per ricerca finalizzata alla tesi di laurea SFP",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta autorizzazione per ricerca finalizzata alla tesi di laurea SFP\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta di autorizzazione ad attività di ricerca finalizzata all'elaborazione della Tesi di Laurea per gli studenti del Corso di Laurea Magistrale a ciclo unico in Scienze della Formazione Primaria",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta di autorizzazione ad attività di ricerca finalizzata all&#x27;elaborazione della Tesi di Laurea per gli studenti del Corso di Laurea Magistrale a ciclo unico in Scienze della Formazione Primaria</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "docente",
+      "label" : "Docente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Cognome e Nome del Docente Unical",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"docente\">",
+      "type" : "text"
+    }, {
+      "id" : "scuola",
+      "label" : "Scuola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Denominazione della Scuola",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"scuola\">",
+      "type" : "text"
+    }, {
+      "id" : "allegato_richiesta_firmata_dal_docente_e_dallo_a_studente_essa",
+      "label" : "Allegato richiesta firmata dal Docente e dallo/a Studente/essa",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegato_richiesta_firmata_dal_docente_e_dallo_a_studente_essa\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

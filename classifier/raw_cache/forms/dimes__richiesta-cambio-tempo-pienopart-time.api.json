@@ -1,0 +1,306 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:35.917235Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dimes/richiesta-cambio-tempo-pienopart-time/ticket/new/",
+  "jsonBody" : {
+    "name" : "RICHIESTA CAMBIO TEMPO PIENO/PART-TIME",
+    "description" : "Richiesta cambio tempo pieno/part-time",
+    "protocol_required" : true,
+    "slug" : "richiesta-cambio-tempo-pienopart-time",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 657,
+      "fields" : {
+        "category" : 619,
+        "title" : "Note operative",
+        "text" : "- Alla richiesta deve essere allegato un documento di riconoscimento in corso di Validità. Utilizzare un nome del file corto (ad esempio doc.pdf).\r\n\r\n- L'operatore che prenderà in carico la sua richiesta avrà cura di informarla sull'accettazione della richiesta.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 658,
+      "fields" : {
+        "category" : 619,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza delle responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art 495 c.p., art 640 c.p.e art 76 D.P.R. n. 445/2000.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "RICHIESTA CAMBIO TEMPO PIENO/PART-TIME",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"RICHIESTA CAMBIO TEMPO PIENO/PART-TIME\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta cambio tempo pieno/part-time",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta cambio tempo pieno/part-time</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "al_coordinatore_del_cds",
+      "label" : "Al Coordinatore del CDS",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"al_coordinatore_del_cds\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "il_sottoscritto_a_è_nato_a_a",
+      "label" : "Il sottoscritto/a è nato/a a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_sottoscritto_a_è_nato_a_a\">",
+      "type" : "text"
+    }, {
+      "id" : "il",
+      "label" : "Il",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"il\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cellulare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "iscritto_per_l'a.a.",
+      "label" : "Iscritto per l'A.A.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"iscritto_per_l&#x27;a.a.\">",
+      "type" : "text"
+    }, {
+      "id" : "con_matricola",
+      "label" : "con matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"con_matricola\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "al_corso_di_laurea_in",
+      "label" : "Al Corso di Laurea In",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"al_corso_di_laurea_in\">",
+      "type" : "text"
+    }, {
+      "id" : "chiede",
+      "label" : "CHIEDE",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"chiede\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "che_per_l'anno_accademico",
+      "label" : "che per l'Anno Accademico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"che_per_l&#x27;anno_accademico\">",
+      "type" : "text"
+    }, {
+      "id" : "venga_accettata_la_seguente_variazione_dell'impegno",
+      "label" : "venga accettata la seguente variazione dell'impegno",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"venga_accettata_la_seguente_variazione_dell&#x27;impegno\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "impegno_attuale",
+      "label" : "Impegno Attuale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"impegno_attuale\" value=\"tempo Pieno\">\n\n            \n            <label\n            >\n                tempo Pieno\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"impegno_attuale\" value=\"Part-Time\">\n\n            \n            <label\n            >\n                Part-Time\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "impegno_scelto",
+      "label" : "Impegno scelto",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"impegno_scelto\" value=\"Tempo Pieno\">\n\n            \n            <label\n            >\n                Tempo Pieno\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"impegno_scelto\" value=\"Part-Time\">\n\n            \n            <label\n            >\n                Part-Time\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "allega_alla_presente",
+      "label" : "Allega alla presente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"allega_alla_presente\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "documento_di_riconoscimento_fronte_retro",
+      "label" : "Documento di riconoscimento fronte/retro",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento_di_riconoscimento_fronte_retro\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

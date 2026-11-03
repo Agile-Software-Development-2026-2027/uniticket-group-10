@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:47.110066Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/aru/richiesta-di-fruizione-dei-benefici-legge-10492-agg-dlgs-105-del-30062022-in-alternanza/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

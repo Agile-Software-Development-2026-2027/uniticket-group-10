@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:26.706937Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dibest/bando-di-concorso-per-lattribuzione-di-n-1-premio-di-laurea-intitolato-alla-memoria-del-prof-leonard-j-v-compagno-i-edizione/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Il modulo è in aggiornamento. Si prega di riprovare più tardi",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,194 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:17.932013Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/cla/parere-certificazioni-internazionali-in-lingua-inglese/ticket/new/",
+  "jsonBody" : {
+    "name" : "Parere Certificazioni Internazionali in Lingua Inglese",
+    "description" : "Richiesta riconoscimento certificazione internazionale di lingua inglese",
+    "protocol_required" : false,
+    "slug" : "parere-certificazioni-internazionali-in-lingua-inglese",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Parere Certificazioni Internazionali in Lingua Inglese",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Parere Certificazioni Internazionali in Lingua Inglese\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta riconoscimento certificazione internazionale di lingua inglese",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta riconoscimento certificazione internazionale di lingua inglese</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"matricola\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "tipo_di_certificazione_e_livello_conseguito",
+      "label" : "Tipo di certificazione e livello conseguito",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"tipo_di_certificazione_e_livello_conseguito\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"CAMBRIDGE B1 (PET)\">CAMBRIDGE B1 (PET)</option>\n\n  <option value=\"\r\nCAMBRIDGE B1/B2/C1 (BEC)\">\r\nCAMBRIDGE B1/B2/C1 (BEC)</option>\n\n  <option value=\"\r\nCAMBRIDGE B2 (FCE)\">\r\nCAMBRIDGE B2 (FCE)</option>\n\n  <option value=\"\r\nCAMBRIDGE C1 (CAE)\">\r\nCAMBRIDGE C1 (CAE)</option>\n\n  <option value=\"\r\nCAMBRIDGE C2 (CPE)\">\r\nCAMBRIDGE C2 (CPE)</option>\n\n  <option value=\"\r\nIELTS B1 (4.0-5.5)\">\r\nIELTS B1 (4.0-5.5)</option>\n\n  <option value=\"\r\nIELTS B2 (5.5-7.0)\">\r\nIELTS B2 (5.5-7.0)</option>\n\n  <option value=\"\r\nIELTS C1 (7.0-8.0)\">\r\nIELTS C1 (7.0-8.0)</option>\n\n  <option value=\"\r\nIELTS C2 (8.0-9.0\">\r\nIELTS C2 (8.0-9.0</option>\n\n  <option value=\"\r\nTrinity College London ISE 1(B1)\">\r\nTrinity College London ISE 1(B1)</option>\n\n  <option value=\"\r\nTrinity College London ISE 2 (B2)\">\r\nTrinity College London ISE 2 (B2)</option>\n\n  <option value=\"\r\nTrinity College London ISE 3 (C1)\">\r\nTrinity College London ISE 3 (C1)</option>\n\n  <option value=\"\r\nTOEFL Internet-based (iBT) B1 (57-86)\">\r\nTOEFL Internet-based (iBT) B1 (57-86)</option>\n\n  <option value=\"\r\nTOEFL Internet-based (iBT) B2 (87-109)\">\r\nTOEFL Internet-based (iBT) B2 (87-109)</option>\n\n  <option value=\"\r\nTOEFL Internet-based (iBT) C1 (110-120)\">\r\nTOEFL Internet-based (iBT) C1 (110-120)</option>\n\n  <option value=\"\r\nTOEFL PBT Paper-Based Test (PBT) A partire dal punteggio 513\">\r\nTOEFL PBT Paper-Based Test (PBT) A partire dal punteggio 513</option>\n\n  <option value=\"\r\nPTE Pearson Test of English Academic\">\r\nPTE Pearson Test of English Academic</option>\n\n  <option value=\"\r\nPearson Edexcel Test of English Academic (PTE Academic) A partire dal punteggio GSE 50\">\r\nPearson Edexcel Test of English Academic (PTE Academic) A partire dal punteggio GSE 50</option>\n\n  <option value=\"\r\nPearson General English B1\">\r\nPearson General English B1</option>\n\n  <option value=\"\r\nPearson General English B2\">\r\nPearson General English B2</option>\n\n  <option value=\"\r\nPearson General English C1\">\r\nPearson General English C1</option>\n\n  <option value=\"\r\nPearson General English C2\">\r\nPearson General English C2</option>\n\n  <option value=\"\r\nOxford Test of English B1\">\r\nOxford Test of English B1</option>\n\n  <option value=\"\r\nOxford Test of English B2\">\r\nOxford Test of English B2</option>\n\n  <option value=\"\r\nOxford Test of English Advanced C1\">\r\nOxford Test of English Advanced C1</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "dipartimento_di_appartenenza",
+      "label" : "Dipartimento di appartenenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"dipartimento_di_appartenenza\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Dipartimento di Economia, Statistica e Finanza &quot;Giovanni Anania&quot;- DESF\">Dipartimento di Economia, Statistica e Finanza &quot;Giovanni Anania&quot;- DESF</option>\n\n  <option value=\" Dipartimento di Farmacia e Scienze della Salute e della Nutrizione\"> Dipartimento di Farmacia e Scienze della Salute e della Nutrizione</option>\n\n  <option value=\" Dipartimento di Fisica\"> Dipartimento di Fisica</option>\n\n  <option value=\" Dipartimento di Ingegneria Civile\"> Dipartimento di Ingegneria Civile</option>\n\n  <option value=\" Dipartimento di Ingegneria dell’Ambiente - (DIAm)\"> Dipartimento di Ingegneria dell’Ambiente - (DIAm)</option>\n\n  <option value=\" Dipartimento di Ingegneria Informatica, Modellistica, Elettronica e Sistemistica\"> Dipartimento di Ingegneria Informatica, Modellistica, Elettronica e Sistemistica</option>\n\n  <option value=\" Dipartimento di Ingegneria Meccanica, Energetica e Gestionale\"> Dipartimento di Ingegneria Meccanica, Energetica e Gestionale</option>\n\n  <option value=\" Dipartimento di Scienze Aziendali e Giuridiche\"> Dipartimento di Scienze Aziendali e Giuridiche</option>\n\n  <option value=\" Dipartimento di Scienze Politiche e Sociali\"> Dipartimento di Scienze Politiche e Sociali</option>\n\n  <option value=\" Dipartimento di Studi Umanistici\"> Dipartimento di Studi Umanistici</option>\n\n  <option value=\" Dipartimento Cultura e Società\"> Dipartimento Cultura e Società</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "corso_di_laurea_in...",
+      "label" : "Corso di Laurea in...",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"corso_di_laurea_in...\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Comunicazione e DAMS\">Comunicazione e DAMS</option>\n\n  <option value=\" Conservazione e restauro dei beni culturali\"> Conservazione e restauro dei beni culturali</option>\n\n  <option value=\" Economia\"> Economia</option>\n\n  <option value=\" Economia aziendale\"> Economia aziendale</option>\n\n  <option value=\" Farmacia\"> Farmacia</option>\n\n  <option value=\" Filosofia e Storia\"> Filosofia e Storia</option>\n\n  <option value=\" Fisica\"> Fisica</option>\n\n  <option value=\"Informazione Scientifica del Farmaco e dei Prodotti per la Salute\">Informazione Scientifica del Farmaco e dei Prodotti per la Salute</option>\n\n  <option value=\" Ingegneria Biomedica\"> Ingegneria Biomedica</option>\n\n  <option value=\" Ingegneria chimica\"> Ingegneria chimica</option>\n\n  <option value=\" Ingegneria civile\"> Ingegneria civile</option>\n\n  <option value=\" Ingegneria edile-architettura\"> Ingegneria edile-architettura</option>\n\n  <option value=\" Ingegneria elettronica\"> Ingegneria elettronica</option>\n\n  <option value=\" Ingegneria gestionale\"> Ingegneria gestionale</option>\n\n  <option value=\" Ingegneria informatica\"> Ingegneria informatica</option>\n\n  <option value=\" Ingegneria meccanica\"> Ingegneria meccanica</option>\n\n  <option value=\" Ingegneria per l&#x27;ambiente e la sicurezza del territorio\"> Ingegneria per l&#x27;ambiente e la sicurezza del territorio</option>\n\n  <option value=\"  Lettere e Beni culturali\">  Lettere e Beni culturali</option>\n\n  <option value=\" Lettere indirizzo classico\"> Lettere indirizzo classico</option>\n\n  <option value=\" Media e società digitale\"> Media e società digitale</option>\n\n  <option value=\" Mediazione linguistica\"> Mediazione linguistica</option>\n\n  <option value=\" Scienza della Nutrizione\"> Scienza della Nutrizione</option>\n\n  <option value=\"Scienze dell&#x27;amministrazione\">Scienze dell&#x27;amministrazione</option>\n\n  <option value=\" Scienze dell&#x27;educazione\"> Scienze dell&#x27;educazione</option>\n\n  <option value=\" Scienze della formazione primaria\"> Scienze della formazione primaria</option>\n\n  <option value=\" Scienze politiche\"> Scienze politiche</option>\n\n  <option value=\" Scienze turistiche\"> Scienze turistiche</option>\n\n  <option value=\" Servizi giuridici per l&#x27;innovazione digitale\"> Servizi giuridici per l&#x27;innovazione digitale</option>\n\n  <option value=\" Servizio sociale\"> Servizio sociale</option>\n\n  <option value=\" Statistica per data science\"> Statistica per data science</option>\n\n  <option value=\" Tecnologie del mare e della navigazione\"> Tecnologie del mare e della navigazione</option>\n\n  <option value=\" Laurea Magistrale Ingegneria Informatica\"> Laurea Magistrale Ingegneria Informatica</option>\n\n  <option value=\" Laurea Magistrale Ingegneria dell&#x27;automazione\"> Laurea Magistrale Ingegneria dell&#x27;automazione</option>\n\n  <option value=\" Laurea Magistrale Ingegneria Meccanica\"> Laurea Magistrale Ingegneria Meccanica</option>\n\n  <option value=\" Laurea Magistrale Ingegneria Energetica\"> Laurea Magistrale Ingegneria Energetica</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "copia_certificazione",
+      "label" : "Copia Certificazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Allega la tua certificazione in formato pdf",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"copia_certificazione\">",
+      "type" : "file"
+    }, {
+      "id" : "documento_di_identità",
+      "label" : "Documento di identità",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Allega il tuo documento di identità in formato pdf",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento_di_identità\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

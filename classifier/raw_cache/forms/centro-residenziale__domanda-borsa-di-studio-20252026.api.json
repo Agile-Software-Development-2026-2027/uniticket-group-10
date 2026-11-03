@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:43.613952Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/centro-residenziale/domanda-borsa-di-studio-20252026/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

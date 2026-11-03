@@ -1,0 +1,117 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:21.940068Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/sab/aggiornamento-profilo-tessera-utente/ticket/new/",
+  "jsonBody" : {
+    "name" : "Aggiornamento profilo tessera utente",
+    "description" : "Modulo per richiedere l'aggiornamento del profilo di utente del Catalogo Online",
+    "protocol_required" : false,
+    "slug" : "aggiornamento-profilo-tessera-utente",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 344,
+      "fields" : {
+        "category" : 332,
+        "title" : "PRIVACY - INFORMATIVA RELATIVA AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "Dichiaro di aver preso visione dell'informativa sul trattamento dei dati personali - https://www.unical.it/portale/ateneo/privacy/",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 345,
+      "fields" : {
+        "category" : 332,
+        "title" : "Trattamento dei dati personali per le finalità di gestione del servizio ed a fini statistici",
+        "text" : "Consento al trattamento dei miei dati personali per le finalità di gestione del servizio ed a fini statistici",
+        "ordinamento" : 2,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Aggiornamento profilo tessera utente",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Aggiornamento profilo tessera utente\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Modulo per richiedere l'aggiornamento del profilo di utente del Catalogo Online",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nModulo per richiedere l&#x27;aggiornamento del profilo di utente del Catalogo Online</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "numero_della_tua_tessera_utente",
+      "label" : "Numero della tua tessera utente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"numero_della_tua_tessera_utente\">",
+      "type" : "text"
+    }, {
+      "id" : "scegli_la_tua_biblioteca_di_pertinenza",
+      "label" : "Scegli la tua biblioteca di pertinenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"scegli_la_tua_biblioteca_di_pertinenza\" value=\"Biblioteca Area Umanistica &quot;F. E. Fagiani&quot;\">\n\n            \n            <label\n            >\n                Biblioteca Area Umanistica &quot;F. E. Fagiani&quot;\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"scegli_la_tua_biblioteca_di_pertinenza\" value=\"Biblioteca Area Tecnico-Scientifica\">\n\n            \n            <label\n            >\n                Biblioteca Area Tecnico-Scientifica\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"scegli_la_tua_biblioteca_di_pertinenza\" value=\"Biblioteca di scienze economiche e sociali &quot;E. Tarantelli&quot;\">\n\n            \n            <label\n            >\n                Biblioteca di scienze economiche e sociali &quot;E. Tarantelli&quot;\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,150 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:23.207598Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dibest/assistenza-tirocinio-e-sistemi-informatici-per-i-corsi-di-studio-del-dibest-esse3-microsoft-teams-email-istituzionale-piani-di-studio-esami-ecc/ticket/new/",
+  "jsonBody" : {
+    "name" : "Assistenza TIROCINIO  e  Sistemi Informatici per i Corsi di Studio del DiBEST (ESSE3, microsoft TEAMS, email istituzionale, piani di studio, esami, Ecc.)",
+    "description" : "Assistenza TIROCINIO  e Sistemi Informatici Assistenza Sistemi Informatici per i Corsi di Studio del DiBEST (ESSE3, microsoft TEAMS, email istituzionale, piani di studio, esami, Ecc.)",
+    "protocol_required" : false,
+    "slug" : "assistenza-tirocinio-e-sistemi-informatici-per-i-corsi-di-studio-del-dibest-esse3-microsoft-teams-email-istituzionale-piani-di-studio-esami-ecc",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 512,
+      "fields" : {
+        "category" : 435,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Assistenza TIROCINIO  e  Sistemi Informatici per i Corsi di Studio del DiBEST (ESSE3, microsoft TEAMS, email istituzionale, piani di studio, esami, Ecc.)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Assistenza TIROCINIO  e  Sistemi Informatici per i Corsi di Studio del DiBEST (ESSE3, microsoft TEAMS, email istituzionale, piani di studio, esami, Ecc.)\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Assistenza TIROCINIO  e Sistemi Informatici Assistenza Sistemi Informatici per i Corsi di Studio del DiBEST (ESSE3, microsoft TEAMS, email istituzionale, piani di studio, esami, Ecc.)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nAssistenza TIROCINIO  e Sistemi Informatici Assistenza Sistemi Informatici per i Corsi di Studio del DiBEST (ESSE3, microsoft TEAMS, email istituzionale, piani di studio, esami, Ecc.)</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"matricola\">",
+      "type" : "text"
+    }, {
+      "id" : "tipologia_del_problema",
+      "label" : "Tipologia del Problema",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"tipologia_del_problema\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"TIROCINIO\">TIROCINIO</option>\n\n  <option value=\"Esame non caricato\">Esame non caricato</option>\n\n  <option value=\"Piano di studi\">Piano di studi</option>\n\n  <option value=\"Posta istituzionale\">Posta istituzionale</option>\n\n  <option value=\"Microsoft teams\">Microsoft teams</option>\n\n  <option value=\"Sito web\">Sito web</option>\n\n  <option value=\"Tirocinio\">Tirocinio</option>\n\n  <option value=\"Domanda di fine corso\">Domanda di fine corso</option>\n\n  <option value=\"Semestre Aggiuntivo\">Semestre Aggiuntivo</option>\n\n  <option value=\"Passaggi-Trasferimenti-Abbreviazioni\">Passaggi-Trasferimenti-Abbreviazioni</option>\n\n  <option value=\"Immatricolazione\">Immatricolazione</option>\n\n  <option value=\"Altro\">Altro</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "descrivere_il_problema",
+      "label" : "Descrivere il problema",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"descrivere_il_problema\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "richiesta_appuntamentofacoltativo",
+      "label" : "Richiesta appuntamento(Facoltativo)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"richiesta_appuntamentofacoltativo\" value=\"su Microsoft Teams\">\n\n            \n            <label\n            >\n                su Microsoft Teams\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"richiesta_appuntamentofacoltativo\" value=\"Di persona\">\n\n            \n            <label\n            >\n                Di persona\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "note",
+      "label" : "Note",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"note\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

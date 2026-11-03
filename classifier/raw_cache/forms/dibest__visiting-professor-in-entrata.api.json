@@ -1,0 +1,189 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:37.339037Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dibest/visiting-professor-in-entrata/ticket/new/",
+  "jsonBody" : {
+    "name" : "Visiting Professor in Entrata",
+    "description" : "Visiting Professor in entrata",
+    "protocol_required" : false,
+    "slug" : "visiting-professor-in-entrata",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Visiting Professor in Entrata",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Visiting Professor in Entrata\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Visiting Professor in entrata",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nVisiting Professor in entrata</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "visiting",
+      "label" : "Visiting",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-visiting\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_visiting-NNNNN-cognome\">Cognome:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"visiting-NNNNN-cognome\" id=\"id_visiting-NNNNN-cognome\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_visiting-NNNNN-nome\">Nome:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"visiting-NNNNN-nome\" id=\"id_visiting-NNNNN-nome\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_visiting-NNNNN-genere\">Genere:</label></th>\n    <td>\n      \n      <select name=\"visiting-NNNNN-genere\" id=\"id_visiting-NNNNN-genere\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Maschio\">Maschio</option>\n\n  <option value=\"Femmina\">Femmina</option>\n\n  <option value=\"Non definito\">Non definito</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_visiting-NNNNN-email\">Email:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"visiting-NNNNN-email\" id=\"id_visiting-NNNNN-email\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_visiting-NNNNN-denominazione_azienda-ente\">Denominazione azienda-ente:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"visiting-NNNNN-denominazione_azienda-ente\" id=\"id_visiting-NNNNN-denominazione_azienda-ente\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_visiting-NNNNN-città_azienda-ente\">Città azienda-ente:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"visiting-NNNNN-città_azienda-ente\" id=\"id_visiting-NNNNN-città_azienda-ente\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_visiting-NNNNN-nazione_azienda-ente\">Nazione azienda-ente:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"visiting-NNNNN-nazione_azienda-ente\" id=\"id_visiting-NNNNN-nazione_azienda-ente\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_visiting-NNNNN-ruolo\">Ruolo:</label></th>\n    <td>\n      \n      <select name=\"visiting-NNNNN-ruolo\" id=\"id_visiting-NNNNN-ruolo\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Professore Ordinario\">Professore Ordinario</option>\n\n  <option value=\"Professore Associato\">Professore Associato</option>\n\n  <option value=\"Ricercatore a tempo indeterminato\">Ricercatore a tempo indeterminato</option>\n\n  <option value=\"Ricercatore a tempo determinato\">Ricercatore a tempo determinato</option>\n\n  <option value=\"Dottorando\">Dottorando</option>\n\n  <option value=\"Dottore di Ricerca\">Dottore di Ricerca</option>\n\n  <option value=\"Studente\">Studente</option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-visiting-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"visiting-TOTAL_FORMS\" value=\"1\" id=\"id_visiting-TOTAL_FORMS\"><input type=\"hidden\" name=\"visiting-INITIAL_FORMS\" value=\"0\" id=\"id_visiting-INITIAL_FORMS\"><input type=\"hidden\" name=\"visiting-MIN_NUM_FORMS\" value=\"1\" id=\"id_visiting-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"visiting-MAX_NUM_FORMS\" value=\"1000\" id=\"id_visiting-MAX_NUM_FORMS\">\n\n<div class=\"form-container\">\n    <div class=\"row form-row spacer\">\n        <div class=\"col\">\n            <div class=\"input-group\">\n                <div class=\"table-responsive\">\n                    <table class=\"table table-bordered formset-table\">\n                        <tr>\n    <th><label for=\"id_visiting-0-cognome\">Cognome:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"visiting-0-cognome\" id=\"id_visiting-0-cognome\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_visiting-0-nome\">Nome:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"visiting-0-nome\" id=\"id_visiting-0-nome\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_visiting-0-genere\">Genere:</label></th>\n    <td>\n      \n      <select name=\"visiting-0-genere\" id=\"id_visiting-0-genere\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Maschio\">Maschio</option>\n\n  <option value=\"Femmina\">Femmina</option>\n\n  <option value=\"Non definito\">Non definito</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_visiting-0-email\">Email:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"visiting-0-email\" id=\"id_visiting-0-email\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_visiting-0-denominazione_azienda-ente\">Denominazione azienda-ente:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"visiting-0-denominazione_azienda-ente\" id=\"id_visiting-0-denominazione_azienda-ente\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_visiting-0-città_azienda-ente\">Città azienda-ente:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"visiting-0-città_azienda-ente\" id=\"id_visiting-0-città_azienda-ente\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_visiting-0-nazione_azienda-ente\">Nazione azienda-ente:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"visiting-0-nazione_azienda-ente\" id=\"id_visiting-0-nazione_azienda-ente\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_visiting-0-ruolo\">Ruolo:</label></th>\n    <td>\n      \n      <select name=\"visiting-0-ruolo\" id=\"id_visiting-0-ruolo\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Professore Ordinario\">Professore Ordinario</option>\n\n  <option value=\"Professore Associato\">Professore Associato</option>\n\n  <option value=\"Ricercatore a tempo indeterminato\">Ricercatore a tempo indeterminato</option>\n\n  <option value=\"Ricercatore a tempo determinato\">Ricercatore a tempo determinato</option>\n\n  <option value=\"Dottorando\">Dottorando</option>\n\n  <option value=\"Dottore di Ricerca\">Dottore di Ricerca</option>\n\n  <option value=\"Studente\">Studente</option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                    </table>\n                </div>\n            </div>\n            <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-visiting-0\">\n                <svg class=\"icon icon-xs icon-white\">\n                    <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                </svg> Rimuovi inserimento\n            </button>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-visiting\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "collaborazione",
+      "label" : "Collaborazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Lezione",
+        "value" : "Lezione"
+      }, {
+        "text" : "Seminario",
+        "value" : "Seminario"
+      }, {
+        "text" : "Collaborazione scientifica/didattica",
+        "value" : "Collaborazione scientifica/didattica"
+      }, {
+        "text" : "Ricerca nei laboratori di Ateneo",
+        "value" : "Ricerca nei laboratori di Ateneo"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"collaborazione\" value=\"Lezione\">\n Lezione</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"collaborazione\" value=\"Seminario\">\n Seminario</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"collaborazione\" value=\"Collaborazione scientifica/didattica\">\n Collaborazione scientifica/didattica</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"collaborazione\" value=\"Ricerca nei laboratori di Ateneo\">\n Ricerca nei laboratori di Ateneo</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "inizio_e_fine_data_inizio_dyn",
+      "label" : "Inizio e Fine (Data inizio)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"inizio_e_fine_data_inizio_dyn\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "inizio_e_fine_data_fine_dyn",
+      "label" : "Inizio e Fine (Data fine)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"inizio_e_fine_data_fine_dyn\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "ore_di_didattica",
+      "label" : "Ore di Didattica",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"ore_di_didattica\" step=\"0.001\">",
+      "type" : "number"
+    }, {
+      "id" : "giorni_effettivi",
+      "label" : "Giorni effettivi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"giorni_effettivi\" step=\"0.001\">",
+      "type" : "number"
+    }, {
+      "id" : "documento",
+      "label" : "Documento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento\">",
+      "type" : "file"
+    }, {
+      "id" : "note",
+      "label" : "Note",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"note\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

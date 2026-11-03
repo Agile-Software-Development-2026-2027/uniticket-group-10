@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:48.213802Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-di-iscrizione-al-terzo-anno-per-i-laureati-in-scienze-delleducazione-e-della-formazione-l-19-al-corso-di-laurea-in-scienze-della-formazione-primaria/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Richiesta di iscrizione al terzo anno per i laureati in Scienze dell'Educazione e della Formazione (L-19) al Corso di Laurea in Scienze della Formazione Primaria. Il modulo sarà attivo dopo la pubblicazione del bando di ammissione 2026/2027.",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

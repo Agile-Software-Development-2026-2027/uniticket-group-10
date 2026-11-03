@@ -1,0 +1,164 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:27.693998Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/sab/bats-prenotazione-sala-studiomultimediale-per-attivita-collaborative-o-individuali/ticket/new/",
+  "jsonBody" : {
+    "name" : "BATS - Prenotazione sala studio/multimediale per attività collaborative o individuali",
+    "description" : "Modulo di richiesta di prenotazione della sala studio/multimediale per studiare anche in gruppo, a voce moderata, utilizzando 15 postazioni singole di cui 10 dotate di PC , 2 postazioni multiple da 4, 6 o 8 posti. L'utilizzo è consentito prenotando gli intervalli di tempo \r\n9:00-13:00 / 13:00-17:00 / 17:00-20:00.\r\nI PC introdotti dovranno essere collegati in rete esclusivamente tramite la rete Wi-fi.\r\nPrima di accedere alla sala è obbligatorio presentarsi allo sportello.",
+    "protocol_required" : false,
+    "slug" : "bats-prenotazione-sala-studiomultimediale-per-attivita-collaborative-o-individuali",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 632,
+      "fields" : {
+        "category" : 570,
+        "title" : "PRIVACY - INFORMATIVA RELATIVA AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "I dati richiesti verranno trattati dall’Università della Calabria, in qualità di Titolare del trattamento, nel rispetto delle disposizioni di cui al Regolamento Europeo 2016/679 (“GDPR”). Si invita a prendere visione dell’Informativa relativa al trattamento dei dati personali consultando la pagina: https://www.unical.it/portale/ateneo/privacy/",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 633,
+      "fields" : {
+        "category" : 570,
+        "title" : "CONSENSO AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "Presto il mio consenso al trattamento dei dati da me forniti per le finalità di gestione del servizio ed a fini statistici",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "BATS - Prenotazione sala studio/multimediale per attività collaborative o individuali",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"BATS - Prenotazione sala studio/multimediale per attività collaborative o individuali\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Modulo di richiesta di prenotazione della sala studio/multimediale per studiare anche in gruppo, a voce moderata, utilizzando 15 postazioni singole di cui 10 dotate di PC , 2 postazioni multiple da 4, 6 o 8 posti. L'utilizzo è consentito prenotando gli intervalli di tempo \r\n9:00-13:00 / 13:00-17:00 / 17:00-20:00.\r\nI PC introdotti dovranno essere collegati in rete esclusivamente tramite la rete Wi-fi.\r\nPrima di accedere alla sala è obbligatorio presentarsi allo sportello.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nModulo di richiesta di prenotazione della sala studio/multimediale per studiare anche in gruppo, a voce moderata, utilizzando 15 postazioni singole di cui 10 dotate di PC , 2 postazioni multiple da 4, 6 o 8 posti. L&#x27;utilizzo è consentito prenotando gli intervalli di tempo \r\n9:00-13:00 / 13:00-17:00 / 17:00-20:00.\r\nI PC introdotti dovranno essere collegati in rete esclusivamente tramite la rete Wi-fi.\r\nPrima di accedere alla sala è obbligatorio presentarsi allo sportello.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "cognome_e_nome",
+      "label" : "Cognome e Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome_e_nome\">",
+      "type" : "text"
+    }, {
+      "id" : "tipologia_postazione",
+      "label" : "Tipologia postazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"tipologia_postazione\" value=\"Singola\">\n\n            \n            <label\n            >\n                Singola\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"tipologia_postazione\" value=\" Multipla\">\n\n            \n            <label\n            >\n                 Multipla\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "altri_partecipanti_alla_sessione_di_studio_oggetto_della_prenotazione",
+      "label" : "Altri partecipanti alla sessione di studio oggetto della prenotazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserisci i nomi delle altre persone che stanno prenotando insieme a te la sala studio",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"altri_partecipanti_alla_sessione_di_studio_oggetto_della_prenotazione\">",
+      "type" : "text"
+    }, {
+      "id" : "giorno_di_prenotazione",
+      "label" : "Giorno di prenotazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"giorno_di_prenotazione\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "fascia_oraria",
+      "label" : "Fascia oraria",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"fascia_oraria\" value=\"9:00 - 13:00\">\n\n            \n            <label\n            >\n                9:00 - 13:00\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"fascia_oraria\" value=\" 13:00 - 17:00\">\n\n            \n            <label\n            >\n                 13:00 - 17:00\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"fascia_oraria\" value=\" 17:00 - 20:00\">\n\n            \n            <label\n            >\n                 17:00 - 20:00\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    } ]
+  },
+  "rawTextBody" : null
+}

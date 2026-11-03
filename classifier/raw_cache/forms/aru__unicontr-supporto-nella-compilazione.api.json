@@ -1,0 +1,209 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:34.683069Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/aru/unicontr-supporto-nella-compilazione/ticket/new/",
+  "jsonBody" : {
+    "name" : "Unicontr - Supporto nella compilazione",
+    "description" : "Richiesta di chiarimenti nella compilazione della modulistica pre-contrattuale",
+    "protocol_required" : false,
+    "slug" : "unicontr-supporto-nella-compilazione",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 524,
+      "fields" : {
+        "category" : 443,
+        "title" : "ISTRUZIONI E FAQ",
+        "text" : "Per velocizzare la risoluzione dei problemi, vi invitiamo a consultare:\r\n\r\n- la documentazione disponibile nel cruscotto di Unicontr (sezione documentazione nella colonna sinistra) \r\n\r\n- le risposte ai problemi più frequenti ** [FAQ Unicontr](https://docs.google.com/document/d/1UioNHVdc1lIAP1okcrhjR6CXKtzHuhVBIhg26Js6yqg/edit?usp=sharing) **",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Unicontr - Supporto nella compilazione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Unicontr - Supporto nella compilazione\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta di chiarimenti nella compilazione della modulistica pre-contrattuale",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta di chiarimenti nella compilazione della modulistica pre-contrattuale</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "e-mail_alternativa",
+      "label" : "E-mail alternativa",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "(campo opzionale) indicare eventuale email di contatto diversa da quella associata alle credenziali di ateneo",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail_alternativa\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "telefono",
+      "label" : "Telefono",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "(campo opzionale) utile per eventuali comunicazioni immediate",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"telefono\">",
+      "type" : "text"
+    }, {
+      "id" : "problematica_riscontrata",
+      "label" : "Problematica riscontrata",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "Specificare max 3 schede oggetto della richiesta di chiarimenti / supporto",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Parte 1: Dati relativi all'insegnamento (precompilato)",
+        "value" : "Parte 1: Dati relativi all'insegnamento (precompilato)"
+      }, {
+        "text" : "Parte 2: Posizione del collaboratore e natura del rapporto",
+        "value" : "Parte 2: Posizione del collaboratore e natura del rapporto"
+      }, {
+        "text" : "A.1 - Dati anagrafici del collaboratore",
+        "value" : "A.1 - Dati anagrafici del collaboratore"
+      }, {
+        "text" : "A.2 - Modalità di pagamento e dati relativi al Conto Corrente",
+        "value" : "A.2 - Modalità di pagamento e dati relativi al Conto Corrente"
+      }, {
+        "text" : "B.1 - Dichiarazione sul conflitto di interessi",
+        "value" : "B.1 - Dichiarazione sul conflitto di interessi"
+      }, {
+        "text" : "B.2 - Dichiarazione sulla incompatibilità",
+        "value" : "B.2 - Dichiarazione sulla incompatibilità"
+      }, {
+        "text" : "B.3 - Dichiarazione in merito al rapporto di studio o lavoro con la Università",
+        "value" : "B.3 - Dichiarazione in merito al rapporto di studio o lavoro con la Università"
+      }, {
+        "text" : "B.4 - Dichiarazione in merito al rapporto di lavoro con la Pubblica Amministrazione",
+        "value" : "B.4 - Dichiarazione in merito al rapporto di lavoro con la Pubblica Amministrazione"
+      }, {
+        "text" : "B.5 - Dichiarazione in merito allo stato di pensionamento",
+        "value" : "B.5 - Dichiarazione in merito allo stato di pensionamento"
+      }, {
+        "text" : "B.6 - Trattamento dati e Informativa sulla privacy",
+        "value" : "B.6 - Trattamento dati e Informativa sulla privacy"
+      }, {
+        "text" : "C – Prestazione professionale (Partita IVA)",
+        "value" : "C – Prestazione professionale (Partita IVA)"
+      }, {
+        "text" : "D – Prestazione di Collaborazione di natura autonoma",
+        "value" : "D – Prestazione di Collaborazione di natura autonoma"
+      }, {
+        "text" : "D.1 - Dichiarazione ai fini previdenziali",
+        "value" : "D.1 - Dichiarazione ai fini previdenziali"
+      }, {
+        "text" : "D.2 - Dichiarazione ai fini assicurativi INAIL",
+        "value" : "D.2 - Dichiarazione ai fini assicurativi INAIL"
+      }, {
+        "text" : "D.3 - Dichiarazione ai fini tributari",
+        "value" : "D.3 - Dichiarazione ai fini tributari"
+      }, {
+        "text" : "D.4 - Dichiarazione ai fini fiscali",
+        "value" : "D.4 - Dichiarazione ai fini fiscali"
+      }, {
+        "text" : "D.5 - Dichiarazione ai fini fiscali per i residenti all'estero",
+        "value" : "D.5 - Dichiarazione ai fini fiscali per i residenti all'estero"
+      }, {
+        "text" : "D.6 - Richiesta detrazioni fiscali per familiari a carico",
+        "value" : "D.6 - Richiesta detrazioni fiscali per familiari a carico"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"Parte 1: Dati relativi all&#x27;insegnamento (precompilato)\">\n Parte 1: Dati relativi all&#x27;insegnamento (precompilato)</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"Parte 2: Posizione del collaboratore e natura del rapporto\">\n Parte 2: Posizione del collaboratore e natura del rapporto</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"A.1 - Dati anagrafici del collaboratore\">\n A.1 - Dati anagrafici del collaboratore</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"A.2 - Modalità di pagamento e dati relativi al Conto Corrente\">\n A.2 - Modalità di pagamento e dati relativi al Conto Corrente</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"B.1 - Dichiarazione sul conflitto di interessi\">\n B.1 - Dichiarazione sul conflitto di interessi</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"B.2 - Dichiarazione sulla incompatibilità\">\n B.2 - Dichiarazione sulla incompatibilità</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"B.3 - Dichiarazione in merito al rapporto di studio o lavoro con la Università\">\n B.3 - Dichiarazione in merito al rapporto di studio o lavoro con la Università</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"B.4 - Dichiarazione in merito al rapporto di lavoro con la Pubblica Amministrazione\">\n B.4 - Dichiarazione in merito al rapporto di lavoro con la Pubblica Amministrazione</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"B.5 - Dichiarazione in merito allo stato di pensionamento\">\n B.5 - Dichiarazione in merito allo stato di pensionamento</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"B.6 - Trattamento dati e Informativa sulla privacy\">\n B.6 - Trattamento dati e Informativa sulla privacy</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"C – Prestazione professionale (Partita IVA)\">\n C – Prestazione professionale (Partita IVA)</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"D – Prestazione di Collaborazione di natura autonoma\">\n D – Prestazione di Collaborazione di natura autonoma</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"D.1 - Dichiarazione ai fini previdenziali\">\n D.1 - Dichiarazione ai fini previdenziali</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"D.2 - Dichiarazione ai fini assicurativi INAIL\">\n D.2 - Dichiarazione ai fini assicurativi INAIL</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"D.3 - Dichiarazione ai fini tributari\">\n D.3 - Dichiarazione ai fini tributari</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"D.4 - Dichiarazione ai fini fiscali\">\n D.4 - Dichiarazione ai fini fiscali</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"D.5 - Dichiarazione ai fini fiscali per i residenti all&#x27;estero\">\n D.5 - Dichiarazione ai fini fiscali per i residenti all&#x27;estero</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"problematica_riscontrata\" value=\"D.6 - Richiesta detrazioni fiscali per familiari a carico\">\n D.6 - Richiesta detrazioni fiscali per familiari a carico</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "descrizione_dettagliata_delle_richieste",
+      "label" : "Descrizione dettagliata delle richieste",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Formulare le richieste di chiarimenti riportando gli elementi utili a comprendere il caso specifico",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"descrizione_dettagliata_delle_richieste\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "allegato",
+      "label" : "Allegato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Caricare schermate di errore o altri documenti utili a documentare il problema",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegato\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

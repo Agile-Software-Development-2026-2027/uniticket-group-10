@@ -1,0 +1,105 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:33.485995Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/ict/tsp-richiesta-assistenza-software-per-la-gestione-tirocini-personale-unical/ticket/new/",
+  "jsonBody" : {
+    "name" : "TSP - Richiesta assistenza software per la gestione tirocini (personale Unical)",
+    "description" : "Inserisci la descrizione della richiesta di supporto.............",
+    "protocol_required" : false,
+    "slug" : "tsp-richiesta-assistenza-software-per-la-gestione-tirocini-personale-unical",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "TSP - Richiesta assistenza software per la gestione tirocini (personale Unical)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"TSP - Richiesta assistenza software per la gestione tirocini (personale Unical)\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Inserisci la descrizione della richiesta di supporto.............",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nInserisci la descrizione della richiesta di supporto.............</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "allegato_screenshot_1",
+      "label" : "Allegato Screenshot 1",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "allega eventuale screenshot",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegato_screenshot_1\">",
+      "type" : "file"
+    }, {
+      "id" : "allegato_screenshot_2",
+      "label" : "Allegato Screenshot 2",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Allega eventuale screenshot 2",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegato_screenshot_2\">",
+      "type" : "file"
+    }, {
+      "id" : "allegato_generico_documento_pdf_o_word",
+      "label" : "Allegato generico (documento PDF o Word)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Allega eventuale documento",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegato_generico_documento_pdf_o_word\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

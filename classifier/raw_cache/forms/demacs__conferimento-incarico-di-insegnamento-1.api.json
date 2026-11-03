@@ -1,0 +1,445 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:38.408767Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/demacs/conferimento-incarico-di-insegnamento-1/ticket/new/",
+  "jsonBody" : {
+    "name" : "Conferimento Incarico di insegnamento - 1",
+    "description" : "Con il presente modulo vengono compilati i documenti necessari per la stipula del contratto per lo svolgimento di incarichi di insegnamento",
+    "protocol_required" : true,
+    "slug" : "conferimento-incarico-di-insegnamento-1",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 488,
+      "fields" : {
+        "category" : 412,
+        "title" : "Note operative",
+        "text" : "Alla presente devono essere **obbligatoriamente** allegati i seguenti documenti (per ulteriori chiarimenti consultare il file [Istruzioni](https://drive.google.com/file/d/1B5qSjWvrYYgeGIlBioQ8T3y1NV7SUul_/view?usp=sharing)):\r\n\r\n1.  [Dichiarazione di assenza di conflitti di interessi](https://drive.google.com/uc?export=download&id=1LkTJjG4oehEWs944I46x78cvymsn4SwF)\r\n2.  [Dichiarazione di svolgimento altri Incarichi](https://drive.google.com/uc?export=download&id=1Df7w0XmWgnL0IDtgmX0WaNfwSuhm73k3)\r\n3.  Curriculum vitae in cui siano stati oscurati o omessi i dati personali, ivi compresa la firma, elencati nel file [Istruzioni](https://drive.google.com/file/d/1B5qSjWvrYYgeGIlBioQ8T3y1NV7SUul_/view?usp=sharing) \r\n4.  Documento di riconoscimento (Fronte/Retro), da allegare solo nel caso in cui il richiedente sia sprovvisto di firma digitale\r\n\r\nE’ **obbligatorio** il relativo documento di seguito riportato per dottorando/a di ricerca, assegnista di\r\nricerca o dipendente della Pubblica Amministrazione:\r\n\r\n*  [Autorizzazione a svolgere attività didattica se dottorando/a di ricerca](https://drive.google.com/uc?export=download&id=1zCkgWT52jG6mcZeBpfq6QBm0WT-bQypc)\r\n*  [Autorizzazione a svolgere attività didattica se assegnista di ricerca](https://drive.google.com/uc?export=download&id=1syVOXUnWvW9cO-49frMYXyL5mMd7mGT5)\r\n*  [Comunicazione all'ente di appartenenza per il personale tecnico-amministrativo dell’Università della Calabria](https://drive.google.com/uc?export=download&id=1zNoz4BJGagMfzElKMBargV53WZ4Q42eL)\r\n*  [Comunicazione all'ente di appartenenza per dipendenti della Pubblica Amministrazione](https://drive.google.com/uc?export=download&id=18bmnNAXEPQWpwqpPDaZybzncV4zsy9B5)\r\n\r\nNOTA BENE: ai sensi della normativa vigente concernente la dematerializzazione, i documenti DEVONO essere sottoscritti apponendo firma digitale in modalità PADES, salvo il caso in cui il richiedente sia sprovvisto di firma digitale. In quest'ultimo caso il richiedente deve obbligatoriamente allegare alla presente anche un valido documento di riconoscimento.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 489,
+      "fields" : {
+        "category" : 412,
+        "title" : "Dichiarazione sostitutiva di certificazione/atto di notorietà",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000).",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 490,
+      "fields" : {
+        "category" : 412,
+        "title" : "Dichiarazione grado parentela e affinità",
+        "text" : "Dichiara di non avere un grado di parentela o affinità, fino al quarto grado compreso, con un professore appartenente al Dipartimento o alla struttura interessata alla selezione ovvero con il Rettore, il Direttore Generale o un componente del Consiglio di Amministrazione dell’Università della Calabria.",
+        "ordinamento" : 2,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Conferimento Incarico di insegnamento - 1",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Conferimento Incarico di insegnamento - 1\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Con il presente modulo vengono compilati i documenti necessari per la stipula del contratto per lo svolgimento di incarichi di insegnamento",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nCon il presente modulo vengono compilati i documenti necessari per la stipula del contratto per lo svolgimento di incarichi di insegnamento</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "destinatario",
+      "label" : "Destinatario",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"destinatario\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "nato_a_a",
+      "label" : "Nato/a a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nato_a_a\">",
+      "type" : "text"
+    }, {
+      "id" : "provincia",
+      "label" : "Provincia",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"provincia\">",
+      "type" : "text"
+    }, {
+      "id" : "in_data",
+      "label" : "in Data",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"in_data\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "cittadinanza",
+      "label" : "Cittadinanza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cittadinanza\">",
+      "type" : "text"
+    }, {
+      "id" : "residente_in",
+      "label" : "Residente in",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"residente_in\">",
+      "type" : "text"
+    }, {
+      "id" : "provincia_di_residenza",
+      "label" : "Provincia di residenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"provincia_di_residenza\">",
+      "type" : "text"
+    }, {
+      "id" : "cap",
+      "label" : "CAP",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cap\">",
+      "type" : "text"
+    }, {
+      "id" : "via_e_numero_civico",
+      "label" : "Via e Numero civico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"via_e_numero_civico\">",
+      "type" : "text"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cellulare\">",
+      "type" : "text"
+    }, {
+      "id" : "email",
+      "label" : "Email",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"email\">",
+      "type" : "text"
+    }, {
+      "id" : "titolo_di_studio",
+      "label" : "Titolo di studio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"titolo_di_studio\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"1- CORSO DI LAUREA DI PRIMO LIVELLO, CORSO DI LAUREA (Vecchio Ordinamento), CORSO DI LAUREA SPECIALISTICA, CORSO DI LAUREA SPECIALISTICA A CICLO UNICO\">1- CORSO DI LAUREA DI PRIMO LIVELLO, CORSO DI LAUREA (Vecchio Ordinamento), CORSO DI LAUREA SPECIALISTICA, CORSO DI LAUREA SPECIALISTICA A CICLO UNICO</option>\n\n  <option value=\" 2- CORSI DI DOTTORATO DI RICERCA\"> 2- CORSI DI DOTTORATO DI RICERCA</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "designato_con",
+      "label" : "Designato con",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"designato_con\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Delibera del Consiglio di Dipartimento di Matematica e Informatica del 29-07-2022\">Delibera del Consiglio di Dipartimento di Matematica e Informatica del 29-07-2022</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "dichiara_di_voler_prendere_servizio_dal",
+      "label" : "Dichiara di voler prendere servizio dal",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "Indicare la data di inizio attività riportata nella mail di comunicazione",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"dichiara_di_voler_prendere_servizio_dal\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "al",
+      "label" : "Al",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Indicare la data di fine attività riportata nella mail di comunicazione",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"al\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"23-09-2023\">23-09-2023</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "insegnamento",
+      "label" : "Insegnamento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"insegnamento\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"27008769 - RESEARCH AND DEVELOPMENT METHODOLOGIES 27007802 - AGILE SOFTWARE DEVELOPMENT - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">27008769 - RESEARCH AND DEVELOPMENT METHODOLOGIES 27007802 - AGILE SOFTWARE DEVELOPMENT - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</option>\n\n  <option value=\"27006939 - BIG DATA ANALYTICS AND REASONING - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">27006939 - BIG DATA ANALYTICS AND REASONING - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</option>\n\n  <option value=\"27008772 - DATA WAREHOUSE AND VISUALIZATION - SSD INF/01 - 1 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">27008772 - DATA WAREHOUSE AND VISUALIZATION - SSD INF/01 - 1 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</option>\n\n  <option value=\"27007800 - DEEP LEARNING - SSD INF/01 - 2 Anno - Primo Semestre - 1.33 CFU - LAB-Laboratorio:16 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">27007800 - DEEP LEARNING - SSD INF/01 - 2 Anno - Primo Semestre - 1.33 CFU - LAB-Laboratorio:16 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</option>\n\n  <option value=\"27007800 - DEEP LEARNING - SSD INF/01 - 2 Anno - Primo Semestre - 0.67 CFU - LAB-Laboratorio:8 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">27007800 - DEEP LEARNING - SSD INF/01 - 2 Anno - Primo Semestre - 0.67 CFU - LAB-Laboratorio:8 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</option>\n\n  <option value=\"27006167 - INTELLIGENT SYSTEMS - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">27006167 - INTELLIGENT SYSTEMS - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</option>\n\n  <option value=\"27006941 - MACHINE LEARNING - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">27006941 - MACHINE LEARNING - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</option>\n\n  <option value=\"27007799 - OPTIMIZATION FOR MACHINE LEARNING - SSD MAT/09 - 2 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">27007799 - OPTIMIZATION FOR MACHINE LEARNING - SSD MAT/09 - 2 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</option>\n\n  <option value=\"27008769 - RESEARCH AND DEVELOPMENT METHODOLOGIES 27008771 - RESEARCH SEMINARS IN AI&amp;CS - SSD INF/01 - 1 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">27008769 - RESEARCH AND DEVELOPMENT METHODOLOGIES 27008771 - RESEARCH SEMINARS IN AI&amp;CS - SSD INF/01 - 1 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</option>\n\n  <option value=\"27006163 - THEORETICAL COMPUTER SCIENCE 27006165 - THEORETICAL COMPUTER SCIENCE - COMPUTATIONAL COMPLEXITY - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">27006163 - THEORETICAL COMPUTER SCIENCE 27006165 - THEORETICAL COMPUTER SCIENCE - COMPUTATIONAL COMPLEXITY - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</option>\n\n  <option value=\"27006163 - THEORETICAL COMPUTER SCIENCE 27006164 - THEORETICAL COMPUTER SCIENCE - DECIDABILITY AND LOGICS - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE\">27006163 - THEORETICAL COMPUTER SCIENCE 27006164 - THEORETICAL COMPUTER SCIENCE - DECIDABILITY AND LOGICS - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0814 - ARTIFICIAL INTELLIGENCE AND COMPUTER SCIENCE</option>\n\n  <option value=\"27006494 - ARCHITETTURE E TECNOLOGIE WEB - SSD INF/01 - 3 Anno - Secondo Semestre - 3 CFU - LAB-Laboratorio:21 - CdS 0711 - COMUNICAZIONE E DAMS\">27006494 - ARCHITETTURE E TECNOLOGIE WEB - SSD INF/01 - 3 Anno - Secondo Semestre - 3 CFU - LAB-Laboratorio:21 - CdS 0711 - COMUNICAZIONE E DAMS</option>\n\n  <option value=\"27006494 - ARCHITETTURE E TECNOLOGIE WEB - SSD INF/01 - 3 Anno - Secondo Semestre - 3 CFU - LEZ-Lezione:21 - CdS 0711 - COMUNICAZIONE E DAMS\">27006494 - ARCHITETTURE E TECNOLOGIE WEB - SSD INF/01 - 3 Anno - Secondo Semestre - 3 CFU - LEZ-Lezione:21 - CdS 0711 - COMUNICAZIONE E DAMS</option>\n\n  <option value=\"27006282 - RETI SOCIALI E NEW MEDIA - SSD INF/01 - 1 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:28 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL&#x27;INFORMAZIONE\">27006282 - RETI SOCIALI E NEW MEDIA - SSD INF/01 - 1 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:28 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL&#x27;INFORMAZIONE</option>\n\n  <option value=\"27006282 - RETI SOCIALI E NEW MEDIA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:14 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL&#x27;INFORMAZIONE\">27006282 - RETI SOCIALI E NEW MEDIA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:14 - CdS 0780 - COMUNICAZIONE E TECNOLOGIE DELL&#x27;INFORMAZIONE</option>\n\n  <option value=\"27006550 - INFORMATICA ED ELEMENTI DI MATEMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0782 - CONSERVAZIONE E RESTAURO DEI BENI CULTURALI ABILITANTE AI SENSI DEL D.LGS N.42/2004\">27006550 - INFORMATICA ED ELEMENTI DI MATEMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0782 - CONSERVAZIONE E RESTAURO DEI BENI CULTURALI ABILITANTE AI SENSI DEL D.LGS N.42/2004</option>\n\n  <option value=\"27008262 - MACHINE E DEEP LEARNING AVANZATO - SSD INF/01 - 2 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:28 - CdS 0820 - DATA SCIENCE PER LE STRATEGIE AZIENDALI\">27008262 - MACHINE E DEEP LEARNING AVANZATO - SSD INF/01 - 2 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:28 - CdS 0820 - DATA SCIENCE PER LE STRATEGIE AZIENDALI</option>\n\n  <option value=\"27008262 - MACHINE E DEEP LEARNING AVANZATO - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:14 - CdS 0820 - DATA SCIENCE PER LE STRATEGIE AZIENDALI\">27008262 - MACHINE E DEEP LEARNING AVANZATO - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:14 - CdS 0820 - DATA SCIENCE PER LE STRATEGIE AZIENDALI</option>\n\n  <option value=\"27002141 - MATEMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 6 CFU - LEZ-Lezione:48 - CdS 0762 - FARMACIA\">27002141 - MATEMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 6 CFU - LEZ-Lezione:48 - CdS 0762 - FARMACIA</option>\n\n  <option value=\"27000009 - ANALISI MATEMATICA II - SSD MAT/05 - 2 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0727 - FISICA\">27000009 - ANALISI MATEMATICA II - SSD MAT/05 - 2 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0727 - FISICA</option>\n\n  <option value=\"27008342 - INFORMATICS FOR BIOTECHNOLOGIES - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0811 - HEALTH BIOTECHNOLOGY\">27008342 - INFORMATICS FOR BIOTECHNOLOGIES - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0811 - HEALTH BIOTECHNOLOGY</option>\n\n  <option value=\"27002222 - ALGORITMI PARALLELI E SISTEMI DISTRIBUITI - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">27002222 - ALGORITMI PARALLELI E SISTEMI DISTRIBUITI - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</option>\n\n  <option value=\"27002208 - ANALISI MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 4 CFU - ESE-Esercitazione:48 - CdS 0733 - INFORMATICA\">27002208 - ANALISI MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 4 CFU - ESE-Esercitazione:48 - CdS 0733 - INFORMATICA</option>\n\n  <option value=\"27005226 - ASPETTI ETICI E GIURIDICI DELL&#x27;INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0733 - INFORMATICA\">27005226 - ASPETTI ETICI E GIURIDICI DELL&#x27;INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0733 - INFORMATICA</option>\n\n  <option value=\"27005226 - ASPETTI ETICI E GIURIDICI DELL&#x27;INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">27005226 - ASPETTI ETICI E GIURIDICI DELL&#x27;INFORMATICA - SSD IUS/01 - 3 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</option>\n\n  <option value=\"27000109 - BASI DI DATI - SSD INF/01 - 2 Anno - Annualità - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">27000109 - BASI DI DATI - SSD INF/01 - 2 Anno - Annualità - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</option>\n\n  <option value=\"27008860 - DIDATTICA DELL&#x27;INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 6 CFU - LAB-Laboratorio:24, LEZ-Lezione:32 - CdS 0733 - INFORMATICA\">27008860 - DIDATTICA DELL&#x27;INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 6 CFU - LAB-Laboratorio:24, LEZ-Lezione:32 - CdS 0733 - INFORMATICA</option>\n\n  <option value=\"27007789 - ENTERPRISE APPLICATIONS - SSD INF/01 - 3 Anno - Secondo Semestre - 4 CFU - LAB-Laboratorio:48 - CdS 0733 - INFORMATICA\">27007789 - ENTERPRISE APPLICATIONS - SSD INF/01 - 3 Anno - Secondo Semestre - 4 CFU - LAB-Laboratorio:48 - CdS 0733 - INFORMATICA</option>\n\n  <option value=\"27007784 - FONDAMENTI DI PROGRAMMAZIONE 2 - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA\">27007784 - FONDAMENTI DI PROGRAMMAZIONE 2 - SSD INF/01 - 2 Anno - Primo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0733 - INFORMATICA</option>\n\n  <option value=\"27000110 - INGEGNERIA DEL SOFTWARE - SSD INF/01 - 3 Anno - Primo Semestre - 4 CFU - LAB-Laboratorio:48 - CdS 0733 - INFORMATICA\">27000110 - INGEGNERIA DEL SOFTWARE - SSD INF/01 - 3 Anno - Primo Semestre - 4 CFU - LAB-Laboratorio:48 - CdS 0733 - INFORMATICA</option>\n\n  <option value=\"27000023 - RICERCA OPERATIVA - SSD MAT/09 - 2 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">27000023 - RICERCA OPERATIVA - SSD MAT/09 - 2 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</option>\n\n  <option value=\"27000023 - RICERCA OPERATIVA - SSD MAT/09 - 2 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0733 - INFORMATICA\">27000023 - RICERCA OPERATIVA - SSD MAT/09 - 2 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0733 - INFORMATICA</option>\n\n  <option value=\"27000111 - SISTEMI OPERATIVI - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">27000111 - SISTEMI OPERATIVI - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</option>\n\n  <option value=\"27007785 - USER INTERFACES DESIGN - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">27007785 - USER INTERFACES DESIGN - SSD INF/01 - 2 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</option>\n\n  <option value=\"27007787 - WEB APPLICATIONS - SSD INF/01 - 3 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA\">27007787 - WEB APPLICATIONS - SSD INF/01 - 3 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0733 - INFORMATICA</option>\n\n  <option value=\"27007787 - WEB APPLICATIONS - SSD INF/01 - 3 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0733 - INFORMATICA\">27007787 - WEB APPLICATIONS - SSD INF/01 - 3 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0733 - INFORMATICA</option>\n\n  <option value=\"27002141 - MATEMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 6 CFU - LEZ-Lezione:48 - CdS 0759 - INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE\">27002141 - MATEMATICA - SSD MAT/06 - 1 Anno - Primo Semestre - 6 CFU - LEZ-Lezione:48 - CdS 0759 - INFORMAZIONE SCIENTIFICA DEL FARMACO E DEI PRODOTTI PER LA SALUTE</option>\n\n  <option value=\"27008536 - ANALISI MATEMATICA 1 A - SSD MAT/05 - 1 Anno - Primo Semestre - 1.44 CFU - ESE-Esercitazione:18 - CdS 0703 - INGEGNERIA CIVILE\">27008536 - ANALISI MATEMATICA 1 A - SSD MAT/05 - 1 Anno - Primo Semestre - 1.44 CFU - ESE-Esercitazione:18 - CdS 0703 - INGEGNERIA CIVILE</option>\n\n  <option value=\"27008543 - ANALISI MATEMATICA 1 B - SSD MAT/05 - 1 Anno - Secondo Semestre - 1.44 CFU - ESE-Esercitazione:18 - CdS 0703 - INGEGNERIA CIVILE\">27008543 - ANALISI MATEMATICA 1 B - SSD MAT/05 - 1 Anno - Secondo Semestre - 1.44 CFU - ESE-Esercitazione:18 - CdS 0703 - INGEGNERIA CIVILE</option>\n\n  <option value=\"27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2.16 CFU - ESE-Esercitazione:27 - CdS 0703 - INGEGNERIA CIVILE\">27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2.16 CFU - ESE-Esercitazione:27 - CdS 0703 - INGEGNERIA CIVILE</option>\n\n  <option value=\"27002284 - ANALISI MATEMATICA 1 - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:33 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA\">27002284 - ANALISI MATEMATICA 1 - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:33 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA</option>\n\n  <option value=\"27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:33 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA\">27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:33 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA</option>\n\n  <option value=\"27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:33 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA\">27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:33 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA</option>\n\n  <option value=\"27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:40 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA\">27002057 - GEOMETRIA - SSD MAT/03 - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:40 - CdS 0774 - INGEGNERIA EDILE-ARCHITETTURA</option>\n\n  <option value=\"27000001 - ANALISI MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 9.10 CFU - LEZ-Lezione:76 - CdS 0704 - INGEGNERIA ELETTRONICA\">27000001 - ANALISI MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 9.10 CFU - LEZ-Lezione:76 - CdS 0704 - INGEGNERIA ELETTRONICA</option>\n\n  <option value=\"27000001 - ANALISI MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2.90 CFU - ESE-Esercitazione:36 - CdS 0704 - INGEGNERIA ELETTRONICA\">27000001 - ANALISI MATEMATICA I - SSD MAT/05 - 1 Anno - Primo Semestre - 2.90 CFU - ESE-Esercitazione:36 - CdS 0704 - INGEGNERIA ELETTRONICA</option>\n\n  <option value=\"27002284 - ANALISI MATEMATICA 1 - SSD MAT/05 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE\">27002284 - ANALISI MATEMATICA 1 - SSD MAT/05 - 1 Anno - Primo Semestre - 1.84 CFU - ESE-Esercitazione:23 - CdS 0705 - INGEGNERIA GESTIONALE</option>\n\n  <option value=\"27006081 - MATEMATICA I Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 6.80 CFU - LEZ-Lezione:57 - CdS 0707 - INGEGNERIA INFORMATICA\">27006081 - MATEMATICA I Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 6.80 CFU - LEZ-Lezione:57 - CdS 0707 - INGEGNERIA INFORMATICA</option>\n\n  <option value=\"27006081 - MATEMATICA I Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0707 - INGEGNERIA INFORMATICA\">27006081 - MATEMATICA I Gruppo B - SSD MAT/05 - 1 Anno - Primo Semestre - 2.20 CFU - ESE-Esercitazione:27 - CdS 0707 - INGEGNERIA INFORMATICA</option>\n\n  <option value=\"27005730 - ANALISI MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2.40 CFU - ESE-Esercitazione:30 - CdS 0809 - INGEGNERIA PER L&#x27;AMBIENTE E LA SICUREZZA DEL TERRITORIO\">27005730 - ANALISI MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2.40 CFU - ESE-Esercitazione:30 - CdS 0809 - INGEGNERIA PER L&#x27;AMBIENTE E LA SICUREZZA DEL TERRITORIO</option>\n\n  <option value=\"27000009 - ANALISI MATEMATICA II - SSD MAT/05 - 2 Anno - Primo Semestre - 2.40 CFU - ESE-Esercitazione:30 - CdS 0809 - INGEGNERIA PER L&#x27;AMBIENTE E LA SICUREZZA DEL TERRITORIO\">27000009 - ANALISI MATEMATICA II - SSD MAT/05 - 2 Anno - Primo Semestre - 2.40 CFU - ESE-Esercitazione:30 - CdS 0809 - INGEGNERIA PER L&#x27;AMBIENTE E LA SICUREZZA DEL TERRITORIO</option>\n\n  <option value=\"27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA\">27002285 - ANALISI MATEMATICA 2 - SSD MAT/05 - 2 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA</option>\n\n  <option value=\"27002041 - CALCOLO DELLE PROBABILITA&#x27; E STATISTICA - SSD MAT/06 - 3 Anno - Primo Semestre - 9 CFU - ESE-Esercitazione:36, LEZ-Lezione:48 - CdS 0726 - MATEMATICA\">27002041 - CALCOLO DELLE PROBABILITA&#x27; E STATISTICA - SSD MAT/06 - 3 Anno - Primo Semestre - 9 CFU - ESE-Esercitazione:36, LEZ-Lezione:48 - CdS 0726 - MATEMATICA</option>\n\n  <option value=\"27005585 - GEOMETRIA 1 - SSD MAT/03 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA\">27005585 - GEOMETRIA 1 - SSD MAT/03 - 1 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA</option>\n\n  <option value=\"27005606 - GEOMETRIA 2 - SSD MAT/03 - 2 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA\">27005606 - GEOMETRIA 2 - SSD MAT/03 - 2 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA</option>\n\n  <option value=\"27005609 - GEOMETRIA 3 - SSD MAT/03 - 3 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA\">27005609 - GEOMETRIA 3 - SSD MAT/03 - 3 Anno - Primo Semestre - 3 CFU - ESE-Esercitazione:36 - CdS 0726 - MATEMATICA</option>\n\n  <option value=\"27005379 - INFORMATICA 27005584 - Informatica - Modulo 2 - SSD INF/01 - 1 Anno - Secondo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0726 - MATEMATICA\">27005379 - INFORMATICA 27005584 - Informatica - Modulo 2 - SSD INF/01 - 1 Anno - Secondo Semestre - 3 CFU - LAB-Laboratorio:36 - CdS 0726 - MATEMATICA</option>\n\n  <option value=\"27008012 - MATEMATICA E STATISTICA PER LA MEDICINA - SSD MAT/05 - 1 Anno - Primo Semestre - 3 CFU - LEZ-Lezione:39 - CdS 0804 - MEDICINA E CHIRURGIA - TD\">27008012 - MATEMATICA E STATISTICA PER LA MEDICINA - SSD MAT/05 - 1 Anno - Primo Semestre - 3 CFU - LEZ-Lezione:39 - CdS 0804 - MEDICINA E CHIRURGIA - TD</option>\n\n  <option value=\"27005452 - DIDATTICA DELLA MATEMATICA 27005429 - Didattica della matematica I - SSD MAT/04 - 3 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA\">27005452 - DIDATTICA DELLA MATEMATICA 27005429 - Didattica della matematica I - SSD MAT/04 - 3 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA</option>\n\n  <option value=\"27006499 - LABORATORIO DI TECNOLOGIE DIDATTICHE I - SSD NN - 1 Anno - Secondo Semestre - 3 CFU - LAB-Laboratorio:42 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA\">27006499 - LABORATORIO DI TECNOLOGIE DIDATTICHE I - SSD NN - 1 Anno - Secondo Semestre - 3 CFU - LAB-Laboratorio:42 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA</option>\n\n  <option value=\"27005444 - LETTERATURA PER L&#x27;INFANZIA - SSD M-PED/02 - 4 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA\">27005444 - LETTERATURA PER L&#x27;INFANZIA - SSD M-PED/02 - 4 Anno - Primo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA</option>\n\n  <option value=\"27007287 - Didattica e Pedagogia speciale per l&#x27;inclusione 27007290 - Laboratorio di didattica speciale - SSD M-PED/03 - 1 Anno - Annualità - 4 CFU - LAB-Laboratorio:48 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA\">27007287 - Didattica e Pedagogia speciale per l&#x27;inclusione 27007290 - Laboratorio di didattica speciale - SSD M-PED/03 - 1 Anno - Annualità - 4 CFU - LAB-Laboratorio:48 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA</option>\n\n  <option value=\"27007287 - Didattica e Pedagogia speciale per l&#x27;inclusione 27007290 - Laboratorio di didattica speciale - SSD M-PED/03 - 1 Anno - Annualità - 4 CFU - LAB-Laboratorio:48 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA\">27007287 - Didattica e Pedagogia speciale per l&#x27;inclusione 27007290 - Laboratorio di didattica speciale - SSD M-PED/03 - 1 Anno - Annualità - 4 CFU - LAB-Laboratorio:48 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA</option>\n\n  <option value=\"27005434 - Didattica e metodologia della ricerca 27005436 - Metodologia della ricerca educativa - SSD M-PED/04 - 4 Anno - Secondo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA\">27005434 - Didattica e metodologia della ricerca 27005436 - Metodologia della ricerca educativa - SSD M-PED/04 - 4 Anno - Secondo Semestre - 1 CFU - LAB-Laboratorio:12 - CdS 0775 - SCIENZE DELLA FORMAZIONE PRIMARIA</option>\n\n  <option value=\"27000002 - FONDAMENTI DI INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE\">27000002 - FONDAMENTI DI INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE</option>\n\n  <option value=\"27000002 - FONDAMENTI DI INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE\">27000002 - FONDAMENTI DI INFORMATICA - SSD INF/01 - 1 Anno - Secondo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE</option>\n\n  <option value=\"27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE\">27002141 - MATEMATICA - SSD MAT/05 - 1 Anno - Primo Semestre - 2 CFU - ESE-Esercitazione:24 - CdS 0724 - SCIENZE E TECNOLOGIE BIOLOGICHE</option>\n\n  <option value=\"27008284 - INFORMATICA E GIS PER LA GESTIONE DEI DATI TERRITORIALI - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0730 - SCIENZE GEOLOGICHE\">27008284 - INFORMATICA E GIS PER LA GESTIONE DEI DATI TERRITORIALI - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0730 - SCIENZE GEOLOGICHE</option>\n\n  <option value=\"27008284 - INFORMATICA E GIS PER LA GESTIONE DEI DATI TERRITORIALI - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0730 - SCIENZE GEOLOGICHE\">27008284 - INFORMATICA E GIS PER LA GESTIONE DEI DATI TERRITORIALI - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0730 - SCIENZE GEOLOGICHE</option>\n\n  <option value=\"27001025 - INFORMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0810 - SCIENZE NATURALI E AMBIENTALI\">27001025 - INFORMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0810 - SCIENZE NATURALI E AMBIENTALI</option>\n\n  <option value=\"27001025 - INFORMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0810 - SCIENZE NATURALI E AMBIENTALI\">27001025 - INFORMATICA - SSD INF/01 - 1 Anno - Primo Semestre - 2 CFU - LAB-Laboratorio:24 - CdS 0810 - SCIENZE NATURALI E AMBIENTALI</option>\n\n  <option value=\"27005609 - GEOMETRIA 3  - SSD MAT/03  - 3 Anno - Primo Semestre - 6 CFU - LEZ-Lezione:48 - CdS 0726 - MATEMATICA \">27005609 - GEOMETRIA 3  - SSD MAT/03  - 3 Anno - Primo Semestre - 6 CFU - LEZ-Lezione:48 - CdS 0726 - MATEMATICA </option>\n\n  <option value=\"27008463 - ADVANCED COMPUTER SCIENCE FOR PHYSICS  - SSD INF/01  - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0812 - PHYSICS\">27008463 - ADVANCED COMPUTER SCIENCE FOR PHYSICS  - SSD INF/01  - 1 Anno - Primo Semestre - 4 CFU - LEZ-Lezione:32 - CdS 0812 - PHYSICS</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "dichiarazione_insussistenza_conflitti_di_interessi",
+      "label" : "Dichiarazione insussistenza conflitti di interessi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"dichiarazione_insussistenza_conflitti_di_interessi\">",
+      "type" : "file"
+    }, {
+      "id" : "dichiarazione_svolgimento_altri_incarichi",
+      "label" : "Dichiarazione Svolgimento Altri Incarichi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"dichiarazione_svolgimento_altri_incarichi\">",
+      "type" : "file"
+    }, {
+      "id" : "curriculum_vitae",
+      "label" : "Curriculum vitae",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"curriculum_vitae\">",
+      "type" : "file"
+    }, {
+      "id" : "documento_di_riconoscimento_fronte_retro",
+      "label" : "Documento di riconoscimento (Fronte/Retro)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Obbligatorio nel caso in cui il richiedente sia sprovvisto di firma digitale",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento_di_riconoscimento_fronte_retro\">",
+      "type" : "file"
+    }, {
+      "id" : "comunicazione_o_autorizzazione",
+      "label" : "Comunicazione o Autorizzazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Obbligatorio per i Dipendenti Pubblici/PTA allegare qui il documento di Comunicazione all’ente di appartenenza. Obbligatorio per assegnisti e dottorandi allegare qui il documento di autorizzazione a svolgere attività didattica.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"comunicazione_o_autorizzazione\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

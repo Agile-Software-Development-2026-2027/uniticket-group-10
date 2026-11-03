@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:01.025070Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/f4-rilascio-firma-digitale-remota-per-utenti-gia-in-possesso-di-firma-digitale-su-token-usb-firma-remota-ts-cns-cie/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

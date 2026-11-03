@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:18.318156Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/segreteria-rettore/partecipazione-alla-cerimonia-passaggio-di-consegne-al-nuovo-rettore/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Il form di partecipazione è chiuso.",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

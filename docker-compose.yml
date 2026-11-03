@@ -1,12 +1,25 @@
 name: uniticket
 
 services:
+  # "upstream" is the original uniticket codebase
+  upstream:
+    build:
+      context: uniticket/upstream
+      dockerfile: Dockerfile
+    
+    image: uniticket-upstream
+    profiles: ["build-only"] # never started by "up" commands, this is merely a dependency
+
   uniticket:
     build:
       context: .
       dockerfile: uniticket/Dockerfile
+      additional_contexts:
+        upstream: "service:upstream" # Tell docker the extensions need upstream to work
 
     environment:
+      PYTHONPATH: /:/app/uniticket:/extensions # Add root aswell for settings file lookup
+      DJANGO_SETTINGS_MODULE: extensions.settings # Hook into django initialization
       ASSISTANT_AGENT_URL: http://agent:8001/conversation
 
     depends_on:
@@ -17,7 +30,8 @@ services:
       - "127.0.0.1:8000:8000"
 
     volumes:
-      - ./uniticket/config/settings.py:/app/uniticket/uni_ticket_project/settings.py:ro
+      - ./uniticket/config/settings.py:/extensions/settings.py:ro
+      - ./uniticket/config/settingslocal.py:/app/uniticket/uni_ticket_project/settingslocal.py:ro
       - ./uniticket/dumps:/dumps:ro
       - uniticket-data:/data
 

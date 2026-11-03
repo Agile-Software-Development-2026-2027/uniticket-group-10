@@ -1,0 +1,28 @@
+{
+  "Risposta interrotta. Puoi riprovare.": "Risposta interrotta. Puoi riprovare.",
+  "Non è stato possibile inviare la risposta. Riprova.": "Non è stato possibile inviare la risposta. Riprova.",
+  "La ricerca non è riuscita. Riprova tra poco.": "La ricerca non è riuscita. Riprova tra poco.",
+  "Il caricamento del modulo non è riuscito. Riprova.": "Il caricamento del modulo non è riuscito. Riprova.",
+  "Mostra un’altra richiesta": [
+    "Mostra un’altra richiesta",
+    "Mostra altre %(count)s richieste"
+  ],
+  "Aiuto alla compilazione": "Aiuto alla compilazione",
+  "Assistente": "Assistente",
+  "Assistente UniTicket": "Assistente UniTicket",
+  "Caricamento modulo…": "Caricamento modulo…",
+  "Chiudi l'assistente": "Chiudi l'assistente",
+  "Ciao! Descrivi ciò di cui hai bisogno e ti suggerirò la richiesta più adatta. Ad esempio: \"Ho bisogno di un certificato di iscrizione\"": "Ciao! Descrivi ciò di cui hai bisogno e ti suggerirò la richiesta più adatta. Ad esempio: \"Ho bisogno di un certificato di iscrizione\"",
+  "Interrompi": "Interrompi",
+  "Invia": "Invia",
+  "Modulo aperto": "Modulo aperto",
+  "Richieste suggerite": "Richieste suggerite",
+  "Ridimensiona la chat": "Ridimensiona la chat",
+  "Riprova": "Riprova",
+  "Riprova la ricerca": "Riprova la ricerca",
+  "Scrivi la tua richiesta…": "Scrivi la tua richiesta…",
+  "Trascina o usa i tasti freccia per ridimensionare": "Trascina o usa i tasti freccia per ridimensionare",
+  "Tu": "Tu",
+  "Vai agli ultimi messaggi": "Vai agli ultimi messaggi",
+  "Nuova chat": "Nuova chat"
+}

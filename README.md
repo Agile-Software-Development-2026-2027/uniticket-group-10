@@ -14,7 +14,6 @@ L'assistente virtuale di UniTicket che ti aiuta a trovare il ticket giusto senza
   <img src="_images/eventi-ag-ui.png" alt="Overview" width="800">
 </p>
 
-[Obiettivo per i prossimi sprint](https://www.assistant-ui.com/examples/form-demo)
 
 ##
 ## Struttura e avvio locale

@@ -19,7 +19,7 @@ services:
     environment:
       PYTHONPATH: /:/app/uniticket:/extensions # Add root aswell for settings file lookup
       DJANGO_SETTINGS_MODULE: extensions.settings # Hook into django initialization
-      # Il classificatore risponde al widget. Per tornare all'agente Python: http://agent:8001/conversation
+      # Il classificatore risponde al widget.
       ASSISTANT_AGENT_URL: http://classifier:8001/conversation
 
     depends_on:
@@ -44,19 +44,6 @@ services:
       python manage.py collectstatic --noinput &&
       python manage.py runserver 0.0.0.0:8000
       "
-
-  agent:
-    build:
-      context: .
-      dockerfile: agent/Dockerfile
-    expose:
-      - "8001"
-    healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/health', timeout=2)"]
-      interval: 5s
-      timeout: 3s
-      retries: 10
-      start_period: 10s
 
   classifier:
     build:

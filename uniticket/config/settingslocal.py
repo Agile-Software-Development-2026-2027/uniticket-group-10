@@ -518,4 +518,4 @@ STATS_MAX_DAYS = 30
 DEFAULT_BASE_TEMPLATE = 'base-setup.html'
 
 
-ASSISTANT_AGENT_URL = os.environ.get("ASSISTANT_AGENT_URL", "http://agent:8001/conversation")
+ASSISTANT_AGENT_URL = os.environ.get("ASSISTANT_AGENT_URL", "http://classifier:8001/conversation")

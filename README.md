@@ -20,7 +20,7 @@ L'assistente virtuale di UniTicket che ti aiuta a trovare il ticket giusto senza
 ## Struttura e avvio locale
 
 - `classifier/`: il classificatore delle richieste (Java). In docker-compose è il servizio che risponde al widget.
-- `agent/`: microservizio dell'agente in Python e LangGraph, oggi non collegato: per usarlo si cambia `ASSISTANT_AGENT_URL` in `docker-compose.yml`.
+- `agent/`: microservizio dell'agente in Python e LangGraph, non più avviato da docker-compose. Resta come riferimento del contratto `POST /conversation`.
 - `widget/`: sorgenti del widget, compilati negli static di UniTicket.
 - `uniticket/`: applicazione UniTicket, configurazione ed estensioni Django.
 

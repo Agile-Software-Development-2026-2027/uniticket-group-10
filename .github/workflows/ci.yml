@@ -20,5 +20,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build Docker image
-        working-directory: uniticket
         run: docker compose build

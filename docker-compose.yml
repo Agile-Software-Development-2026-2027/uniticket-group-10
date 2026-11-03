@@ -8,7 +8,6 @@ services:
       dockerfile: Dockerfile
     
     image: uniticket-upstream
-    profiles: ["build-only"] # never started by "up" commands, this is merely a dependency
 
   uniticket:
     build:

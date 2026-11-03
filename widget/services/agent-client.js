@@ -1,14 +1,15 @@
-export function createAgentClient(url, csrfToken) {
+// threadId() identifica la conversazione: l'agente la usa per ricordare i turni precedenti.
+export function createAgentClient(url, csrfToken, threadId) {
     return {
         sendMessage: (text, categoryId, signal) => sendToAgent(url, csrfToken, {
-            type: 'message', message: text,
+            type: 'message', message: text, thread_id: threadId(),
             ...(categoryId ? {category_id: categoryId} : {}),
         }, signal),
         selectForm: (categoryId, signal) => sendToAgent(url, csrfToken, {
-            type: 'form_selected', category_id: categoryId,
+            type: 'form_selected', category_id: categoryId, thread_id: threadId(),
         }, signal),
         requestFormHelp: (categoryId, signal) => sendToAgent(url, csrfToken, {
-            type: 'request_form_help', category_id: categoryId,
+            type: 'request_form_help', category_id: categoryId, thread_id: threadId(),
         }, signal),
     };
 }

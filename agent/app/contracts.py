@@ -4,6 +4,7 @@ Django inoltra l’input del frontend e aggiunge il catalogo delle categorie
 autorizzate per l’utente e la lingua attiva. AgentRequest valida questi dati:
 il campo `type` distingue messaggi, selezioni di moduli e richieste di aiuto.
 Le suggestions vengono inviate come normali messaggi con il modulo come contesto.
+`thread_id`, facoltativo, identifica la conversazione del widget ("Nuova chat" ne crea un altro).
 
 L’agente costruisce AssistantMessage con testo, eventuali suggerimenti di ticket
 e suggerimenti testuali o un’azione facoltativa. L’endpoint restituisce questi messaggi
@@ -56,6 +57,7 @@ class MessageInput(Contract):
     type: Literal["message"]
     message: Annotated[str, StringConstraints(strict=True, strip_whitespace=True, min_length=1, max_length=500)]
     category_id: int | None = Field(default=None, gt=0, strict=True)
+    thread_id: UUID | None = None
 
 
 class FormSelectedInput(Contract):
@@ -63,6 +65,7 @@ class FormSelectedInput(Contract):
 
     type: Literal["form_selected"]
     category_id: int = Field(gt=0, strict=True)
+    thread_id: UUID | None = None
 
 
 class RequestFormHelpInput(Contract):
@@ -70,6 +73,7 @@ class RequestFormHelpInput(Contract):
 
     type: Literal["request_form_help"]
     category_id: int = Field(gt=0, strict=True)
+    thread_id: UUID | None = None
 
 
 class FormHelpAction(RequestFormHelpInput):

@@ -1,0 +1,142 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:16.875947Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/rls/segnalazione-criticita-salute-e-sicurezza/ticket/new/",
+  "jsonBody" : {
+    "name" : "Segnalazione criticità salute e sicurezza",
+    "description" : "Modulo da sottoporre all'attenzione degli RLS per segnalare situazioni di pericolo, suggerimenti di prevenzione o carenze nei dispositivi di protezione.",
+    "protocol_required" : false,
+    "slug" : "segnalazione-criticita-salute-e-sicurezza",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Segnalazione criticità salute e sicurezza",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Segnalazione criticità salute e sicurezza\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Modulo da sottoporre all'attenzione degli RLS per segnalare situazioni di pericolo, suggerimenti di prevenzione o carenze nei dispositivi di protezione.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nModulo da sottoporre all&#x27;attenzione degli RLS per segnalare situazioni di pericolo, suggerimenti di prevenzione o carenze nei dispositivi di protezione.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "tipologia_di_rischio:",
+      "label" : "Tipologia di rischio:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Infortunistico (macchinari, cadute, urti)",
+        "value" : "Infortunistico (macchinari, cadute, urti)"
+      }, {
+        "text" : "Igienico-Ambientale (rumore, polveri, temperatura)",
+        "value" : "Igienico-Ambientale (rumore, polveri, temperatura)"
+      }, {
+        "text" : "Ergonomico (postazioni, sollevamento carichi)",
+        "value" : "Ergonomico (postazioni, sollevamento carichi)"
+      }, {
+        "text" : "Organizzativo/Stress (turni, procedure mancanti)",
+        "value" : "Organizzativo/Stress (turni, procedure mancanti)"
+      }, {
+        "text" : "Altro (specificare di seguito)",
+        "value" : "Altro (specificare di seguito)"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_di_rischio:\" value=\"Infortunistico (macchinari, cadute, urti)\">\n Infortunistico (macchinari, cadute, urti)</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_di_rischio:\" value=\"Igienico-Ambientale (rumore, polveri, temperatura)\">\n Igienico-Ambientale (rumore, polveri, temperatura)</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_di_rischio:\" value=\"Ergonomico (postazioni, sollevamento carichi)\">\n Ergonomico (postazioni, sollevamento carichi)</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_di_rischio:\" value=\"Organizzativo/Stress (turni, procedure mancanti)\">\n Organizzativo/Stress (turni, procedure mancanti)</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"tipologia_di_rischio:\" value=\"Altro (specificare di seguito)\">\n Altro (specificare di seguito)</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "luogo_esatto:_reparto,_ufficio,_piano_o_area_specifica",
+      "label" : "Luogo esatto: (Reparto, ufficio, piano o area specifica)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"luogo_esatto:_reparto,_ufficio,_piano_o_area_specifica\">",
+      "type" : "text"
+    }, {
+      "id" : "descrizione_della_criticità:_spiegazione_dettagliata_della_situazione_riscontrata_e_dei_potenziali_pericoli_per_i_lavoratori.",
+      "label" : "Descrizione della criticità: Spiegazione dettagliata della situazione riscontrata e dei potenziali pericoli per i lavoratori.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"descrizione_della_criticità:_spiegazione_dettagliata_della_situazione_riscontrata_e_dei_potenziali_pericoli_per_i_lavoratori.\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "azioni_immediate_intraprese:_se_il_lavoratore_ha_già_avvisato_il_preposto_o_messo_in_sicurezza_l'area.",
+      "label" : "Azioni immediate intraprese: (Se il lavoratore ha già avvisato il preposto o messo in sicurezza l'area).",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"azioni_immediate_intraprese:_se_il_lavoratore_ha_già_avvisato_il_preposto_o_messo_in_sicurezza_l&#x27;area.\">",
+      "type" : "text"
+    }, {
+      "id" : "eventuale_documentazione_fotografica",
+      "label" : "Eventuale documentazione fotografica",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"eventuale_documentazione_fotografica\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

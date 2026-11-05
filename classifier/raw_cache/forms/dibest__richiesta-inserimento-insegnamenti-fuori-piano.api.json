@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:58.123655Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dibest/richiesta-inserimento-insegnamenti-fuori-piano/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La richiesta è scaduta. SI prega di contattare l'ufficio Didattico",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

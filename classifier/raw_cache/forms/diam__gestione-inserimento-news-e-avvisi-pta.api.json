@@ -1,0 +1,304 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:02.675241Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/diam/gestione-inserimento-news-e-avvisi-pta/ticket/new/",
+  "jsonBody" : {
+    "name" : "Gestione Inserimento News e Avvisi - PTA",
+    "description" : "Gestione Inserimento News e Avvisi - PTA",
+    "protocol_required" : false,
+    "slug" : "gestione-inserimento-news-e-avvisi-pta",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Gestione Inserimento News e Avvisi - PTA",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Gestione Inserimento News e Avvisi - PTA\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Gestione Inserimento News e Avvisi - PTA",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nGestione Inserimento News e Avvisi - PTA</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "seleziona_tipo",
+      "label" : "Seleziona Tipo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"seleziona_tipo\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"NEWS\">NEWS</option>\n\n  <option value=\"AVVISO\">AVVISO</option>\n\n  <option value=\"BANDO\">BANDO</option>\n\n  <option value=\"ALTRO\">ALTRO</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "etichetta",
+      "label" : "ETICHETTA",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"etichetta\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"STANDARD\">STANDARD</option>\n\n  <option value=\"IMPORTANTE\">IMPORTANTE</option>\n\n  <option value=\"URGENTE\">URGENTE</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "titolo",
+      "label" : "TITOLO",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"titolo\">",
+      "type" : "text"
+    }, {
+      "id" : "sottotitolo",
+      "label" : "SOTTOTITOLO",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"sottotitolo\">",
+      "type" : "text"
+    }, {
+      "id" : "contenuto_della_news_avviso",
+      "label" : "Contenuto della News/Avviso",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"contenuto_della_news_avviso\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "foto_news_avviso",
+      "label" : "FOTO NEWS/AVVISO",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Inserire immagine di massimo 10MB e il tipo deve essere jpg, png  la lunghezza del nome deve essere al max 50 caratteri compresi gli spazi",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"foto_news_avviso\">",
+      "type" : "file"
+    }, {
+      "id" : "foto_preview",
+      "label" : "FOTO PREVIEW",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Se identica alla foto News/Avviso non inserire in questo campo - le immagini non devono superare i 10MB e il tipo deve essere jpg, png la lunghezza del nome deve essere al max 50 caratteri compresi gli spazi",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"foto_preview\">",
+      "type" : "file"
+    }, {
+      "id" : "allegato_pdf",
+      "label" : "Allegato PDF",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Inserire eventuale file PDF (MAX 10MB) la lunghezza del nome deve essere al max 50 caratteri compresi gli spazi",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegato_pdf\">",
+      "type" : "file"
+    }, {
+      "id" : "secondo_allegato_pdf",
+      "label" : "Secondo Allegato PDF",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Inserire eventuale file PDF (MAX 10MB) la lunghezza del nome deve essere al max 50 caratteri compresi gli spazi",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"secondo_allegato_pdf\">",
+      "type" : "file"
+    }, {
+      "id" : "terzo_allegato_pdf",
+      "label" : "Terzo Allegato PDF",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Inserire eventuale file PDF (MAX 10MB) la lunghezza del nome deve essere al max 50 caratteri compresi gli spazi",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"terzo_allegato_pdf\">",
+      "type" : "file"
+    }, {
+      "id" : "allegato_file_dati",
+      "label" : "Allegato File Dati",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Allegare Eventuali file di tipo JSON,CSV o XLXS  (MAX 10MB) la lunghezza del nome deve essere al max 50 caratteri compresi gli spazi",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegato_file_dati\">",
+      "type" : "file"
+    }, {
+      "id" : "tag",
+      "label" : "TAG",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "TAG da inserire alla fine della News, utilizzare le key words",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"tag\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "link_1",
+      "label" : "LINK 1",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un URL valido"
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"url\" name=\"link_1\">",
+      "type" : "url"
+    }, {
+      "id" : "link_2",
+      "label" : "LINK 2",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un URL valido"
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"url\" name=\"link_2\">",
+      "type" : "url"
+    }, {
+      "id" : "note",
+      "label" : "NOTE",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"note\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

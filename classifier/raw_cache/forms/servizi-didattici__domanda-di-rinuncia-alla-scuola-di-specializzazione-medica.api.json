@@ -1,0 +1,90 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:51.102510Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizi-didattici/domanda-di-rinuncia-alla-scuola-di-specializzazione-medica/ticket/new/",
+  "jsonBody" : {
+    "name" : "DOMANDA DI RINUNCIA ALLA SCUOLA DI SPECIALIZZAZIONE MEDICA",
+    "description" : "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.\r\nModulo per richiedere la chiusura della carriera",
+    "protocol_required" : true,
+    "slug" : "domanda-di-rinuncia-alla-scuola-di-specializzazione-medica",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "DOMANDA DI RINUNCIA ALLA SCUOLA DI SPECIALIZZAZIONE MEDICA",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"DOMANDA DI RINUNCIA ALLA SCUOLA DI SPECIALIZZAZIONE MEDICA\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "ATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.\r\nModulo per richiedere la chiusura della carriera",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nATTENZIONE: prenderemo in carico la richiesta entro due giorni lavorativi successivi alla presentazione.\r\nModulo per richiedere la chiusura della carriera</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "testo_della_richiesta",
+      "label" : "Testo della richiesta",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"testo_della_richiesta\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "dichiara_di_aver_letto_e_compreso_quanto_scritto_sopra_e_di_assumersi_ogni_responsabilità_su_quanto_dichiarato:",
+      "label" : "Dichiara di aver letto e compreso quanto scritto sopra e di assumersi ogni responsabilità su quanto dichiarato:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"dichiara_di_aver_letto_e_compreso_quanto_scritto_sopra_e_di_assumersi_ogni_responsabilità_su_quanto_dichiarato:\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "inserisci_il_tuo_indirizzo_mail_personale:",
+      "label" : "Inserisci il tuo indirizzo mail personale:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"inserisci_il_tuo_indirizzo_mail_personale:\" maxlength=\"320\">",
+      "type" : "email"
+    } ]
+  },
+  "rawTextBody" : null
+}

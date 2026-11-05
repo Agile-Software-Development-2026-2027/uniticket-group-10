@@ -1,0 +1,9 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:43.538347Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/distanti-ma-parlanti/richiesta-di-assistenza/ticket/new/",
+  "jsonBody" : {
+    "detail" : "No OrganizationalStructure matches the given query."
+  },
+  "rawTextBody" : null
+}

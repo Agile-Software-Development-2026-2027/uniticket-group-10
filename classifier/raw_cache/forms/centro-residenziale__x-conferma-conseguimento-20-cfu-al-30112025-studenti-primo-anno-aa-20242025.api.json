@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:39.172843Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/centro-residenziale/x-conferma-conseguimento-20-cfu-al-30112025-studenti-primo-anno-aa-20242025/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,484 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:11.613779Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/demacs/master-accettazione-incarico-generico/ticket/new/",
+  "jsonBody" : {
+    "name" : "Master - Accettazione incarico (generico)",
+    "description" : "Modulo di accettazione incarico generico",
+    "protocol_required" : true,
+    "slug" : "master-accettazione-incarico-generico",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 827,
+      "fields" : {
+        "category" : 806,
+        "title" : "Note operative",
+        "text" : "Alla presente devono essere **obbligatoriamente** allegati i documenti i cui moduli sono riportati al seguente link.\r\n\r\n[Modulistica](https://drive.google.com/drive/folders/1G2ry--ccR7v5ikVPlFPpS99MLc4Zvgkj?usp=sharing) \r\n\r\n **ATTENZIONE** per la compilazione dei moduli consultare le istruzioni disponibili al link  sopra indicato.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 828,
+      "fields" : {
+        "category" : 806,
+        "title" : "Autocertificazione",
+        "text" : "Consapevole delle sanzioni penali in caso di dichiarazioni non veritiere, di formazioni o di uso di atti falsi, come richiamate dall’art. 76 del D.P.R. 28 dicembre 2000 n. 445 e delle conseguenze di cui all’art. 20, co. 5 del D. Lgs. n. 39/ 2013, in caso di dichiarazioni mendaci,\r\n\r\n**DICHIARA**\r\n\r\nche quanto riportato nella presente richiesta corrisponde a verità.",
+        "ordinamento" : 2,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Master - Accettazione incarico (generico)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Master - Accettazione incarico (generico)\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Modulo di accettazione incarico generico",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nModulo di accettazione incarico generico</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "destinatario",
+      "label" : "Destinatario",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"destinatario\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "nato_a_a",
+      "label" : "Nato/a a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nato_a_a\">",
+      "type" : "text"
+    }, {
+      "id" : "provincia",
+      "label" : "Provincia",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"provincia\">",
+      "type" : "text"
+    }, {
+      "id" : "in_data",
+      "label" : "in Data",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"in_data\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "cittadinanza",
+      "label" : "Cittadinanza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cittadinanza\">",
+      "type" : "text"
+    }, {
+      "id" : "residente_in",
+      "label" : "Residente in",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"residente_in\">",
+      "type" : "text"
+    }, {
+      "id" : "provincia_di_residenza",
+      "label" : "Provincia di residenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"provincia_di_residenza\">",
+      "type" : "text"
+    }, {
+      "id" : "cap",
+      "label" : "CAP",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cap\">",
+      "type" : "text"
+    }, {
+      "id" : "via_e_numero_civico",
+      "label" : "Via e Numero civico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"via_e_numero_civico\">",
+      "type" : "text"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cellulare\">",
+      "type" : "text"
+    }, {
+      "id" : "email",
+      "label" : "Email",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"email\">",
+      "type" : "text"
+    }, {
+      "id" : "designato_con",
+      "label" : "Designato con",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"designato_con\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Delibera del Senato Accademico e dal Consiglio di Amministrazione rispettivamente nelle sedute del 20 maggio 2025 e del 27 maggio 2025\">Delibera del Senato Accademico e dal Consiglio di Amministrazione rispettivamente nelle sedute del 20 maggio 2025 e del 27 maggio 2025</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "insegnamenti",
+      "label" : "Insegnamenti",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-insegnamenti\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_insegnamenti-NNNNN-modulo\">Modulo:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti-NNNNN-modulo\" id=\"id_insegnamenti-NNNNN-modulo\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti-NNNNN-ore\">Ore:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti-NNNNN-ore\" id=\"id_insegnamenti-NNNNN-ore\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti-NNNNN-cfu\">Cfu:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti-NNNNN-cfu\" id=\"id_insegnamenti-NNNNN-cfu\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti-NNNNN-compenso_orario\">Compenso orario:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti-NNNNN-compenso_orario\" id=\"id_insegnamenti-NNNNN-compenso_orario\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti-NNNNN-importo\">Importo:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti-NNNNN-importo\" id=\"id_insegnamenti-NNNNN-importo\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti-NNNNN-periodo\">Periodo:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti-NNNNN-periodo\" id=\"id_insegnamenti-NNNNN-periodo\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-insegnamenti-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"insegnamenti-TOTAL_FORMS\" value=\"1\" id=\"id_insegnamenti-TOTAL_FORMS\"><input type=\"hidden\" name=\"insegnamenti-INITIAL_FORMS\" value=\"0\" id=\"id_insegnamenti-INITIAL_FORMS\"><input type=\"hidden\" name=\"insegnamenti-MIN_NUM_FORMS\" value=\"1\" id=\"id_insegnamenti-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"insegnamenti-MAX_NUM_FORMS\" value=\"1000\" id=\"id_insegnamenti-MAX_NUM_FORMS\">\n\n<div class=\"form-container\">\n    <div class=\"row form-row spacer\">\n        <div class=\"col\">\n            <div class=\"input-group\">\n                <div class=\"table-responsive\">\n                    <table class=\"table table-bordered formset-table\">\n                        <tr>\n    <th><label for=\"id_insegnamenti-0-modulo\">Modulo:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti-0-modulo\" id=\"id_insegnamenti-0-modulo\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti-0-ore\">Ore:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti-0-ore\" id=\"id_insegnamenti-0-ore\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti-0-cfu\">Cfu:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti-0-cfu\" id=\"id_insegnamenti-0-cfu\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti-0-compenso_orario\">Compenso orario:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti-0-compenso_orario\" id=\"id_insegnamenti-0-compenso_orario\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti-0-importo\">Importo:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti-0-importo\" id=\"id_insegnamenti-0-importo\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti-0-periodo\">Periodo:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti-0-periodo\" id=\"id_insegnamenti-0-periodo\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                    </table>\n                </div>\n            </div>\n            <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-insegnamenti-0\">\n                <svg class=\"icon icon-xs icon-white\">\n                    <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                </svg> Rimuovi inserimento\n            </button>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-insegnamenti\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "1._dichiarazione_insussistenza_conflitti_di_interessi",
+      "label" : "1. Dichiarazione insussistenza conflitti di interessi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"1._dichiarazione_insussistenza_conflitti_di_interessi\">",
+      "type" : "file"
+    }, {
+      "id" : "2._dichiarazione_grado_parentela_e_affinità",
+      "label" : "2. Dichiarazione grado parentela e affinità",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"2._dichiarazione_grado_parentela_e_affinità\">",
+      "type" : "file"
+    }, {
+      "id" : "3._dichiarazione_svolgimento_altri_incarichi",
+      "label" : "3. Dichiarazione Svolgimento Altri Incarichi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"3._dichiarazione_svolgimento_altri_incarichi\">",
+      "type" : "file"
+    }, {
+      "id" : "4._scafis",
+      "label" : "4. Scafis",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"4._scafis\">",
+      "type" : "file"
+    }, {
+      "id" : "5._dichiarazione_gestione_separata",
+      "label" : "5. Dichiarazione gestione separata",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"5._dichiarazione_gestione_separata\">",
+      "type" : "file"
+    }, {
+      "id" : "6._dichiarazione_per_titolari_di_p._iva",
+      "label" : "6. Dichiarazione per Titolari di P. IVA",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Solo se titolare di Partita IVA",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"6._dichiarazione_per_titolari_di_p._iva\">",
+      "type" : "file"
+    }, {
+      "id" : "7._lettera_di_incarico_firmata",
+      "label" : "7. Lettera di Incarico Firmata",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"7._lettera_di_incarico_firmata\">",
+      "type" : "file"
+    }, {
+      "id" : "comunicazione_o_autorizzazione",
+      "label" : "Comunicazione o Autorizzazione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Obbligatorio per i Dipendenti Pubblici/PTA allegare qui il documento di Comunicazione all’ente di appartenenza. Obbligatorio per assegnisti e dottorandi allegare qui il documento di autorizzazione a svolgere attività didattica.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"comunicazione_o_autorizzazione\">",
+      "type" : "file"
+    }, {
+      "id" : "curriculum_vitae",
+      "label" : "Curriculum vitae",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Allegare versione oscurata (priva di data e luogo di nascita, numeri di telefono, indirizzi di residenza, indirizzi email personali, fotografie, firme autografe e digitali) ai sensi della normativa in vigore lo stesso sarà pubblicato.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"curriculum_vitae\">",
+      "type" : "file"
+    }, {
+      "id" : "documento_di_riconoscimento_fronte_retro",
+      "label" : "Documento di riconoscimento (Fronte/Retro)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento_di_riconoscimento_fronte_retro\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

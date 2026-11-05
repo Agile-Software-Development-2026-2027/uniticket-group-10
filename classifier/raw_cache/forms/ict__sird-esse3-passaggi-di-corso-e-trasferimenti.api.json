@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:20.189647Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/sird-esse3-passaggi-di-corso-e-trasferimenti/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

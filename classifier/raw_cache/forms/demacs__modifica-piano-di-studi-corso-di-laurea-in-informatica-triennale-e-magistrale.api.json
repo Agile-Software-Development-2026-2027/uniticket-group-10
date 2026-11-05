@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:13.358925Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/demacs/modifica-piano-di-studi-corso-di-laurea-in-informatica-triennale-e-magistrale/ticket/new/",
+  "jsonBody" : {
+    "detail" : "I termini per la presentazione della richiesta sono scaduti",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

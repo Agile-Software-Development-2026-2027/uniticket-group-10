@@ -1,0 +1,142 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:34.697415Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dices/richiesta-badge/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta Badge",
+    "description" : "richiesta badge",
+    "protocol_required" : false,
+    "slug" : "richiesta-badge",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta Badge",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta Badge\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "richiesta badge",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nrichiesta badge</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "indicare_il_titolare_del_contratto_convenzione_progetto_ricerca",
+      "label" : "Indicare il titolare del contratto/convenzione/progetto ricerca",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"indicare_il_titolare_del_contratto_convenzione_progetto_ricerca\">",
+      "type" : "text"
+    }, {
+      "id" : "tipologia_di_contratto_rapporto_con_l'università",
+      "label" : "Tipologia di contratto/rapporto con l'università",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"tipologia_di_contratto_rapporto_con_l&#x27;università\">",
+      "type" : "text"
+    }, {
+      "id" : "inizio_contratto_-_fine_contratto_data_inizio_dyn",
+      "label" : "Inizio contratto - Fine contratto (Data inizio)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"inizio_contratto_-_fine_contratto_data_inizio_dyn\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "inizio_contratto_-_fine_contratto_data_fine_dyn",
+      "label" : "Inizio contratto - Fine contratto (Data fine)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"inizio_contratto_-_fine_contratto_data_fine_dyn\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "indicare_le_aule_stanze_laboratori_dove_utilizzare_il_badge",
+      "label" : "Indicare le aule/stanze/laboratori dove utilizzare il badge",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"indicare_le_aule_stanze_laboratori_dove_utilizzare_il_badge\">",
+      "type" : "text"
+    }, {
+      "id" : "allegare_il_file_del_contratto_in_essere_con_l'università",
+      "label" : "Allegare il file del contratto in essere con l'università",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegare_il_file_del_contratto_in_essere_con_l&#x27;università\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

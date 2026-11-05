@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:27.875788Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/sab/bats-proposta-acquisto-libri/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

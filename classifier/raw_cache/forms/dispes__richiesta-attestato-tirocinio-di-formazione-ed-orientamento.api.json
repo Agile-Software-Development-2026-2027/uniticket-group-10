@@ -1,0 +1,199 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:30.510810Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dispes/richiesta-attestato-tirocinio-di-formazione-ed-orientamento/ticket/new/",
+  "jsonBody" : {
+    "name" : "RICHIESTA ATTESTATO TIROCINIO DI FORMAZIONE ED ORIENTAMENTO",
+    "description" : "RICHIESTA ATTESTATO TIROCINIO DI FORMAZIONE ED ORIENTAMENTO\r\nDICHIARAZIONE SOSTITUTIVA DI CERTIFICAZIONE (ex art. 46 D.P.R. 445/00)",
+    "protocol_required" : true,
+    "slug" : "richiesta-attestato-tirocinio-di-formazione-ed-orientamento",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "RICHIESTA ATTESTATO TIROCINIO DI FORMAZIONE ED ORIENTAMENTO",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"RICHIESTA ATTESTATO TIROCINIO DI FORMAZIONE ED ORIENTAMENTO\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "RICHIESTA ATTESTATO TIROCINIO DI FORMAZIONE ED ORIENTAMENTO\r\nDICHIARAZIONE SOSTITUTIVA DI CERTIFICAZIONE (ex art. 46 D.P.R. 445/00)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRICHIESTA ATTESTATO TIROCINIO DI FORMAZIONE ED ORIENTAMENTO\r\nDICHIARAZIONE SOSTITUTIVA DI CERTIFICAZIONE (ex art. 46 D.P.R. 445/00)</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "il_la_sottoscritto_a_[cognome_e_nome]",
+      "label" : "Il/la sottoscritto/a [cognome e nome]",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_la_sottoscritto_a_[cognome_e_nome]\">",
+      "type" : "text"
+    }, {
+      "id" : "luogo_di_nascita",
+      "label" : "Luogo di nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"luogo_di_nascita\">",
+      "type" : "text"
+    }, {
+      "id" : "data_di_nascita",
+      "label" : "Data di nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_di_nascita\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"matricola\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "iscritto_a_o_laureato_a",
+      "label" : "Iscritto/a o laureato/a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"iscritto_a_o_laureato_a\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Iscritto/al Corso di Studio\">Iscritto/al Corso di Studio</option>\n\n  <option value=\"Laureato/a in\">Laureato/a in</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "corso_di_studio",
+      "label" : "Corso di Studio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"corso_di_studio\">",
+      "type" : "text"
+    }, {
+      "id" : "e-mail_unical",
+      "label" : "e-mail Unical",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail_unical\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "e-mail_personale",
+      "label" : "e-mail personale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail_personale\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "elenco_attività",
+      "label" : "elenco attività",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-elenco_attività\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_elenco_attività-NNNNN-tirocinio\">Tirocinio:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_attività-NNNNN-tirocinio\" id=\"id_elenco_attività-NNNNN-tirocinio\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_attività-NNNNN-sede\">Sede:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_attività-NNNNN-sede\" id=\"id_elenco_attività-NNNNN-sede\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_attività-NNNNN-servizio\">Servizio:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_attività-NNNNN-servizio\" id=\"id_elenco_attività-NNNNN-servizio\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_attività-NNNNN-periodo\">Periodo:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_attività-NNNNN-periodo\" id=\"id_elenco_attività-NNNNN-periodo\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-elenco_attività-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"elenco_attività-TOTAL_FORMS\" value=\"1\" id=\"id_elenco_attività-TOTAL_FORMS\"><input type=\"hidden\" name=\"elenco_attività-INITIAL_FORMS\" value=\"0\" id=\"id_elenco_attività-INITIAL_FORMS\"><input type=\"hidden\" name=\"elenco_attività-MIN_NUM_FORMS\" value=\"1\" id=\"id_elenco_attività-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"elenco_attività-MAX_NUM_FORMS\" value=\"1000\" id=\"id_elenco_attività-MAX_NUM_FORMS\">\n\n<div class=\"form-container\">\n    <div class=\"row form-row spacer\">\n        <div class=\"col\">\n            <div class=\"input-group\">\n                <div class=\"table-responsive\">\n                    <table class=\"table table-bordered formset-table\">\n                        <tr>\n    <th><label for=\"id_elenco_attività-0-tirocinio\">Tirocinio:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_attività-0-tirocinio\" id=\"id_elenco_attività-0-tirocinio\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_attività-0-sede\">Sede:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_attività-0-sede\" id=\"id_elenco_attività-0-sede\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_attività-0-servizio\">Servizio:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_attività-0-servizio\" id=\"id_elenco_attività-0-servizio\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_attività-0-periodo\">Periodo:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_attività-0-periodo\" id=\"id_elenco_attività-0-periodo\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                    </table>\n                </div>\n            </div>\n            <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-elenco_attività-0\">\n                <svg class=\"icon icon-xs icon-white\">\n                    <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                </svg> Rimuovi inserimento\n            </button>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-elenco_attività\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "autorizzo_al_trattamento_dei_dati_personali",
+      "label" : "Autorizzo al trattamento dei dati personali",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"autorizzo_al_trattamento_dei_dati_personali\">",
+      "type" : "checkbox"
+    } ]
+  },
+  "rawTextBody" : null
+}

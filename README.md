@@ -19,7 +19,8 @@ L'assistente virtuale di UniTicket che ti aiuta a trovare il ticket giusto senza
 
 ## Struttura e avvio locale
 
-- `agent/`: microservizio dell'agente (da integrare il retrival).
+- `classifier/`: il classificatore delle richieste (Java). In docker-compose è il servizio che risponde al widget.
+- `agent/`: microservizio dell'agente in Python e LangGraph, non più avviato da docker-compose. Resta come riferimento del contratto `POST /conversation`.
 - `widget/`: sorgenti del widget, compilati negli static di UniTicket.
 - `uniticket/`: applicazione UniTicket, configurazione ed estensioni Django.
 
@@ -35,11 +36,28 @@ Se hai già clonato la repo, inizializza i submodule prima di avviare Docker:
 git submodule update --init --recursive
 ```
 
-Il `docker-compose.yml` nella root compila il widget e avvia UniTicket e "agente":
+Il classificatore usa Jev. Copia `.env.example` in `.env` (che git ignora) e inserisci la tua chiave:
+
+```bash
+cp .env.example .env    # poi scrivi la chiave dopo TYPESAFE_API_KEY=
+```
+
+Senza chiave l'assistente risponde con i soli risultati della ricerca. Per la ricerca semantica serve [Ollama](https://ollama.com) sull'host con `ollama pull bge-m3`; senza, usa solo la ricerca per parole chiave.
+
+Il `docker-compose.yml` nella root compila il widget e avvia UniTicket e il classificatore:
 
 ```bash
 docker compose up --build
 ```
+
+Se aggiungi o cambi la chiave a stack acceso, riavvia il solo classificatore e controlla che usi Jev:
+
+```bash
+docker compose up -d classifier
+docker compose logs classifier | grep "Servizio per il widget"   # deve dire "modello: jev-1.14.0"
+```
+
+Per provare l'assistente apri http://localhost:8000 ed entra con un utente di prova (vedi `uniticket/README.md`).
 
 Per l'arresto:
 

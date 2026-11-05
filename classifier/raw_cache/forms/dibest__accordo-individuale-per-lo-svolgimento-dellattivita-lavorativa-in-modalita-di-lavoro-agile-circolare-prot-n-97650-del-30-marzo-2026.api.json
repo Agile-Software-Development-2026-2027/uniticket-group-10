@@ -1,0 +1,333 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:20.878689Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dibest/accordo-individuale-per-lo-svolgimento-dellattivita-lavorativa-in-modalita-di-lavoro-agile-circolare-prot-n-97650-del-30-marzo-2026/ticket/new/",
+  "jsonBody" : {
+    "name" : "ACCORDO INDIVIDUALE PER LO SVOLGIMENTO DELL’ATTIVITÀ LAVORATIVA IN MODALITÀ DI LAVORO AGILE (Circolare prot. n. 97650 del 30 marzo 2026)",
+    "description" : "ACCORDO INDIVIDUALE PER LO SVOLGIMENTO DELL’ATTIVITÀ LAVORATIVA IN MODALITÀ DI LAVORO AGILE (Circolare prot. n. 97650 del 30 marzo 2026)",
+    "protocol_required" : false,
+    "slug" : "accordo-individuale-per-lo-svolgimento-dellattivita-lavorativa-in-modalita-di-lavoro-agile-circolare-prot-n-97650-del-30-marzo-2026",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 896,
+      "fields" : {
+        "category" : 860,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "ACCORDO INDIVIDUALE PER LO SVOLGIMENTO DELL’ATTIVITÀ LAVORATIVA IN MODALITÀ DI LAVORO AGILE (Circolare prot. n. 97650 del 30 marzo 2026)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"ACCORDO INDIVIDUALE PER LO SVOLGIMENTO DELL’ATTIVITÀ LAVORATIVA IN MODALITÀ DI LAVORO AGILE (Circolare prot. n. 97650 del 30 marzo 2026)\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "ACCORDO INDIVIDUALE PER LO SVOLGIMENTO DELL’ATTIVITÀ LAVORATIVA IN MODALITÀ DI LAVORO AGILE (Circolare prot. n. 97650 del 30 marzo 2026)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nACCORDO INDIVIDUALE PER LO SVOLGIMENTO DELL’ATTIVITÀ LAVORATIVA IN MODALITÀ DI LAVORO AGILE (Circolare prot. n. 97650 del 30 marzo 2026)</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "il_dipendente",
+      "label" : "Il Dipendente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"il_dipendente\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "cognome_e_nome",
+      "label" : "Cognome e Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome_e_nome\">",
+      "type" : "text"
+    }, {
+      "id" : "nato_a",
+      "label" : "Nato a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nato_a\">",
+      "type" : "text"
+    }, {
+      "id" : "il",
+      "label" : "Il",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"il\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "residente_in",
+      "label" : "Residente in",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare via e numero civico",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"residente_in\">",
+      "type" : "text"
+    }, {
+      "id" : "cap",
+      "label" : "CAP",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cap\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "città",
+      "label" : "Città",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare città e provincia",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"città\">",
+      "type" : "text"
+    }, {
+      "id" : "il_la_dott._dott.ssa_prof._prof.ssa_in_qualità_di_coordinatore_della_struttura",
+      "label" : "Il/La dott./dott.ssa/prof./prof.ssa in qualità di Coordinatore della Struttura",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"il_la_dott._dott.ssa_prof._prof.ssa_in_qualità_di_coordinatore_della_struttura\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "cognome_nome",
+      "label" : "Cognome Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome_nome\">",
+      "type" : "text"
+    }, {
+      "id" : "struttura",
+      "label" : "Struttura",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"struttura\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Dipartimento di Biologia, Ecologia e Scienze della terra\">Dipartimento di Biologia, Ecologia e Scienze della terra</option>\n\n  <option value=\"Direzione Risorse Umane\">Direzione Risorse Umane</option>\n\n  <option value=\"Dipartimento di Fisica\">Dipartimento di Fisica</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "prestazione_lavorativa",
+      "label" : "Prestazione lavorativa",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"prestazione_lavorativa\" value=\"una giornata lavorativa di 6 ore e due turni pomeridiani\">\n\n            \n            <label\n            >\n                una giornata lavorativa di 6 ore e due turni pomeridiani\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"prestazione_lavorativa\" value=\"una giornata lavorativa di 9 ore e un turno pomeridiano\">\n\n            \n            <label\n            >\n                una giornata lavorativa di 9 ore e un turno pomeridiano\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"prestazione_lavorativa\" value=\"due giornate lavorative di 6 ore\">\n\n            \n            <label\n            >\n                due giornate lavorative di 6 ore\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"prestazione_lavorativa\" value=\"una/due giornate a settimane alterne (per le giornate da 7,12 ore)\">\n\n            \n            <label\n            >\n                una/due giornate a settimane alterne (per le giornate da 7,12 ore)\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "rischio_salute_eventuale",
+      "label" : "Rischio salute (Eventuale)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"rischio_salute_eventuale\" value=\"Il Dipendente, in quanto soggetto più esposto a situazioni di rischio per la salute, svolgerà la prestazione lavorativa in modalità agile, usufruendo di una giornata lavorativa in più rispetto a quanto sopra indicato. Le giornate saranno stabilite di comune accordo tra il Coordinatore di Struttura e il Dipendente, sulla base di una preventiva programmazione.\">\n\n            \n            <label\n            >\n                Il Dipendente, in quanto soggetto più esposto a situazioni di rischio per la salute, svolgerà la prestazione lavorativa in modalità agile, usufruendo di una giornata lavorativa in più rispetto a quanto sopra indicato. Le giornate saranno stabilite di comune accordo tra il Coordinatore di Struttura e il Dipendente, sulla base di una preventiva programmazione.\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "esigenze",
+      "label" : "esigenze",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"esigenze\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "attività_lavorativa_da_svolgere",
+      "label" : "Attività lavorativa da svolgere",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"attività_lavorativa_da_svolgere\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "descrizione_obiettivi_da_raggiungere",
+      "label" : "Descrizione obiettivi da raggiungere",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"descrizione_obiettivi_da_raggiungere\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "indicatore_di_risultato_e_valore_target",
+      "label" : "Indicatore di risultato e valore target",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"indicatore_di_risultato_e_valore_target\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "-",
+      "label" : "-",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"-\" value=\"\">",
+      "type" : "hidden"
+    } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:16.599604Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/sab/modulo-riservato-ai-coordinatori-ed-ai-bibliotecari-per-le-richieste-al-sab-di-assistenza-su-apparati-hardware-e-su-applicativi-software/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

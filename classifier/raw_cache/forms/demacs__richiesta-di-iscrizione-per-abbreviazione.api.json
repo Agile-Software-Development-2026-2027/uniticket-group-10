@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:48.411153Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-di-iscrizione-per-abbreviazione/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Modulo aperto dal primo luglio al 31 agosto",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:41.625977Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-conferimento-incarico-di-seminario/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,135 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:21.838378Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/centro-residenziale/sistemi-informativi-segnalazione-problema-informatico-borsa-di-studio-e-alloggi/ticket/new/",
+  "jsonBody" : {
+    "name" : "Sistemi Informativi – Segnalazione problema informatico Borsa di studio e Alloggi",
+    "description" : "Modulo di segnalazione problema informatico relativo a Borse di studio e Alloggi",
+    "protocol_required" : false,
+    "slug" : "sistemi-informativi-segnalazione-problema-informatico-borsa-di-studio-e-alloggi",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 733,
+      "fields" : {
+        "category" : 716,
+        "title" : "Privacy",
+        "text" : "Compilando questo form on line, in tutti i suoi campi, potrà inoltrare la sua richiesta; riceverà appena possibile una risposta. È garantita la riservatezza sui dati personali.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Sistemi Informativi – Segnalazione problema informatico Borsa di studio e Alloggi",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Sistemi Informativi – Segnalazione problema informatico Borsa di studio e Alloggi\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Modulo di segnalazione problema informatico relativo a Borse di studio e Alloggi",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nModulo di segnalazione problema informatico relativo a Borse di studio e Alloggi</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "richiesta_relativa_a:",
+      "label" : "Richiesta relativa a:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"richiesta_relativa_a:\" value=\"Borsa di Studio\">\n\n            \n            <label\n            >\n                Borsa di Studio\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"richiesta_relativa_a:\" value=\"Borsa di Studio e Alloggi\">\n\n            \n            <label\n            >\n                Borsa di Studio e Alloggi\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"richiesta_relativa_a:\" value=\" Alloggi\">\n\n            \n            <label\n            >\n                 Alloggi\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "ambito:",
+      "label" : "Ambito:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"ambito:\" value=\"Domanda\">\n\n            \n            <label\n            >\n                Domanda\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"ambito:\" value=\"Graduatorie\">\n\n            \n            <label\n            >\n                Graduatorie\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"ambito:\" value=\"Ricorsi\">\n\n            \n            <label\n            >\n                Ricorsi\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"ambito:\" value=\"Caricamento documentazione\">\n\n            \n            <label\n            >\n                Caricamento documentazione\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"ambito:\" value=\"Altro\">\n\n            \n            <label\n            >\n                Altro\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "se_si_è_selezionato_altro,_specificare_l'ambito:",
+      "label" : "Se si è selezionato Altro, specificare l'ambito:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"se_si_è_selezionato_altro,_specificare_l&#x27;ambito:\">",
+      "type" : "text"
+    }, {
+      "id" : "descrizione_del_problema_riscontrato:",
+      "label" : "Descrizione del problema riscontrato:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"descrizione_del_problema_riscontrato:\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

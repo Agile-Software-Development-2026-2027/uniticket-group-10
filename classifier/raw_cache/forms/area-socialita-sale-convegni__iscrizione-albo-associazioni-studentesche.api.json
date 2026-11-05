@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:06.805187Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/area-socialita-sale-convegni/iscrizione-albo-associazioni-studentesche/ticket/new/",
+  "jsonBody" : {
+    "detail" : "I termini per l'invio della domanda sono scaduti",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

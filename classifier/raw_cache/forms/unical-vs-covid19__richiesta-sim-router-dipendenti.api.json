@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:05.850935Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/unical-vs-covid19/richiesta-sim-router-dipendenti/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:25.260350Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/post-laurea/autocertificazione-percorso-36-cfu-all-5-dpcm-482023-percorso-di-completamento-per-vincitori-di-concorsocui-hanno-avuto-accesso-con-i-24cfu/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

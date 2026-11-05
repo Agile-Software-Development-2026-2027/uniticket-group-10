@@ -1,0 +1,112 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:37.315277Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/ctc/richiesta-certificati-di-iscrizione-laurea-e-diploma-supplement/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta certificati di iscrizione, laurea e diploma supplement",
+    "description" : "",
+    "protocol_required" : false,
+    "slug" : "richiesta-certificati-di-iscrizione-laurea-e-diploma-supplement",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 540,
+      "fields" : {
+        "category" : 465,
+        "title" : "Bolli virtuali",
+        "text" : "E' previsto il pagamento di un bollo su istanza (16 euro) e un bollo (16 euro) per ogni certificato rilasciato\r\n_Il diploma supplement non richiede bollo_\r\n_Nel caso di richiesta in carta libera indicarne l’uso e la disposizione di legge che ne prevede l’esenzione_\r\nPagamento online su [Esse3](https://unical.esse3.cineca.it) (sezione segreteria > situazione tasse).",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 541,
+      "fields" : {
+        "category" : 465,
+        "title" : "Autocertificazioni",
+        "text" : "Attenzione: NON si rilasciano certificati per la pubblica amministrazione (art. 15 L.183/2011).\r\nE' disponibile l'autocertificazione accedendo a [Esse3](https://unical.esse3.cineca.it) (sezione Carriera >\r\nAutocertificazioni)",
+        "ordinamento" : 2,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 542,
+      "fields" : {
+        "category" : 465,
+        "title" : "Credenziali Esse3",
+        "text" : "L'indirizzo mail su Esse3 verrà aggiornato con quello indicato nel ticket per consentire l'eventuale\r\nrecupero della password.\r\n\r\n*Per recuperare la password*\r\n*1) \"password dimenticata\" da [Esse3](https://unical.esse3.cineca.it)*\r\n*2) inserire solo il codice fiscale*\r\n*3) entro 15 minuti sulla mail arriverà un link per impostare la password (controllare anche spam)*\r\n*IL LINK HA VALIDITA' UN'ORA, dopodiché la procedura dovrà essere ripetuta*\r\n*4) dopo aver impostato la password attendere circa 10 minuti per accedere ad Esse3 (il nome utente è\r\nil codice fiscale)*",
+        "ordinamento" : 3,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 543,
+      "fields" : {
+        "category" : 465,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza delle responsabilità penali cui va incontro in caso di dichiarazione\r\nmendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art 495 c.p., art 640 c.p.e art\r\n76 D.P.R. n. 445/2000",
+        "ordinamento" : 4,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta certificati di iscrizione, laurea e diploma supplement",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta certificati di iscrizione, laurea e diploma supplement\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

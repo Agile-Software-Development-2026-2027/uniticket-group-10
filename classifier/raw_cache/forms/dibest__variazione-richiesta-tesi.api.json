@@ -1,0 +1,357 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:36.624290Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dibest/variazione-richiesta-tesi/ticket/new/",
+  "jsonBody" : {
+    "name" : "Variazione Richiesta tesi",
+    "description" : "Variazione Richiesta tesi",
+    "protocol_required" : true,
+    "slug" : "variazione-richiesta-tesi",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 514,
+      "fields" : {
+        "category" : 437,
+        "title" : "Note Operative",
+        "text" : "**ATTENZIONE NON INVIARE IL MODULO, MA SEGUI LE INDICAZIONI**\r\n\r\n* Il modulo va solo compilato ma non inviato.\r\n\r\n* Clicca sulla voce **Se la richiesta che stai compilando deve essere completata e sottoscritta da un altro utente (es. Direttore Dipartimento, responsabile ufficio, ecc.), clicca qui;**\r\n\r\n* Mettere segno di spunta su **Tieni traccia della mia compilazione nel ticket**\r\n\r\n* Premere il pulsante **Genera URL per inviarlo al docente relatore/trice**\r\n\r\n* Preparare e inviare una mail al relatore/trice incollando l URL generato\r\n\r\n* Il/la Relatore/trice provvederà ad inviare la richiesta.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 513,
+      "fields" : {
+        "category" : 437,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Variazione Richiesta tesi",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Variazione Richiesta tesi\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Variazione Richiesta tesi",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nVariazione Richiesta tesi</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "al_alla_coordinatore_trice_del_cds",
+      "label" : "Al/Alla Coordinatore/trice del CDS",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"al_alla_coordinatore_trice_del_cds\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "il_la_sottoscritto_a_è_nato_a_a",
+      "label" : "Il/la sottoscritto/a è nato/a a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_la_sottoscritto_a_è_nato_a_a\">",
+      "type" : "text"
+    }, {
+      "id" : "il",
+      "label" : "Il",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"il\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cellulare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "iscritto_a_per_l'a.a.",
+      "label" : "Iscritto/a per l'A.A.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"iscritto_a_per_l&#x27;a.a.\">",
+      "type" : "text"
+    }, {
+      "id" : "con_matricola",
+      "label" : "con matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"con_matricola\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "al_corso_di_laurea_in",
+      "label" : "Al Corso di Laurea In",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"al_corso_di_laurea_in\">",
+      "type" : "text"
+    }, {
+      "id" : "comunica",
+      "label" : "COMUNICA",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"comunica\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "protocollo_tipo_numerazione_dyn",
+      "label" : "Protocollo (Tipo numerazione)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Scegli se protocollo/decreto/delibera, al/alla quale la numerazione è riferita",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"protocollo_tipo_numerazione_dyn\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"protocollo\">Protocollo</option>\n\n  <option value=\"decreto_rettorale\">Decreto Rettorale (D.R.)</option>\n\n  <option value=\"decreto_direttore_generale\">Decreto del Direttore Generale (D.D.G.)</option>\n\n  <option value=\"decreto_dirigente_struttura\">Decreto del Direttore Dipartimento o Dirigente Struttura</option>\n\n  <option value=\"decreto_direttore_cr\">Decreto del Direttore del Centro Residenziale (D.CR.)</option>\n\n  <option value=\"decreto_prorettore\">Decreto del Prorettore (Centro Residenziale)</option>\n\n  <option value=\"delibera_dipartimento_facolta\">Delibera di Dipartimento/Facoltà</option>\n\n  <option value=\"delibera_senato\">Delibera del Senato</option>\n\n  <option value=\"delibera_cda\">Delibera del C.D.A.</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "protocollo_numero_protocollo_delibera_decreto_dyn",
+      "label" : "Protocollo (Numero Protocollo/Delibera/Decreto)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indica il numero del protocollo/decreto/delibera",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"protocollo_numero_protocollo_delibera_decreto_dyn\">",
+      "type" : "text"
+    }, {
+      "id" : "protocollo_data_protocollo_delibera_decreto_dyn",
+      "label" : "Protocollo (Data Protocollo/Delibera/Decreto)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "Indica la data del protocollo/delibera/decreto",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"protocollo_data_protocollo_delibera_decreto_dyn\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "progetto_formativo",
+      "label" : "Progetto Formativo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"progetto_formativo\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "indicare_il_progetto_formativo",
+      "label" : "Indicare il progetto formativo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"indicare_il_progetto_formativo\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "laboratorio_presso_il_quale_verrà_svolto_il_lavoro_finale",
+      "label" : "Laboratorio presso il quale verrà svolto il lavoro finale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"laboratorio_presso_il_quale_verrà_svolto_il_lavoro_finale\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "indicare_il_laboratorio",
+      "label" : "Indicare il Laboratorio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"indicare_il_laboratorio\">",
+      "type" : "text"
+    }, {
+      "id" : "relatore_trice_o_correlatore_trice",
+      "label" : "Relatore/trice o Correlatore/trice",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Relatore/trice",
+        "value" : "Relatore/trice"
+      }, {
+        "text" : "Correlatore/trice Interno",
+        "value" : "Correlatore/trice Interno"
+      }, {
+        "text" : " Correlatore/trice Esterno",
+        "value" : " Correlatore/trice Esterno"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"relatore_trice_o_correlatore_trice\" value=\"Relatore/trice\">\n Relatore/trice</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"relatore_trice_o_correlatore_trice\" value=\"Correlatore/trice Interno\">\n Correlatore/trice Interno</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"relatore_trice_o_correlatore_trice\" value=\" Correlatore/trice Esterno\">\n  Correlatore/trice Esterno</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "indicare_il_relatore_trice_o_correlatori_trici_separare_un_una_virgola",
+      "label" : "Indicare il relatore/trice o correlatori/trici (separare un una virgola)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"indicare_il_relatore_trice_o_correlatori_trici_separare_un_una_virgola\">",
+      "type" : "text"
+    } ]
+  },
+  "rawTextBody" : null
+}

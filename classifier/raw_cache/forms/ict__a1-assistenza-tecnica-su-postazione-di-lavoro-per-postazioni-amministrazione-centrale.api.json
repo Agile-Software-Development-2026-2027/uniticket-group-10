@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:17.337869Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/a1-assistenza-tecnica-su-postazione-di-lavoro-per-postazioni-amministrazione-centrale/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

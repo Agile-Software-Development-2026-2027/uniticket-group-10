@@ -1,0 +1,171 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:29.561938Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/sab/bats-richiesta-di-consultazione-sezione-specialistica-cartografia-progetto-speciale-26/ticket/new/",
+  "jsonBody" : {
+    "name" : "BATS - Richiesta di consultazione Sezione Specialistica Cartografia - Progetto Speciale 26",
+    "description" : "La sezione di Cartografia, con annesse sottosezioni specialistiche, è aperta al pubblico dal Lunedì al Venerdì dalle ore 9:00 alle ore 13:00 e anche al pomeriggio dal Lunedì al Mercoledì dalle ore 13:00 alle ore 17:00.",
+    "protocol_required" : false,
+    "slug" : "bats-richiesta-di-consultazione-sezione-specialistica-cartografia-progetto-speciale-26",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 704,
+      "fields" : {
+        "category" : 681,
+        "title" : "CONSENSO AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "Presto il mio consenso al trattamento dei dati da me forniti per le finalità di gestione del servizio ed a fini statistici",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 705,
+      "fields" : {
+        "category" : 681,
+        "title" : "PRIVACY - INFORMATIVA RELATIVA AL TRATTAMENTO DEI DATI PERSONALI",
+        "text" : "I dati richiesti verranno trattati dall’Università della Calabria, in qualità di Titolare del trattamento, nel rispetto delle disposizioni di cui al Regolamento Europeo 2016/679 (“GDPR”). Si invita a prendere visione dell’Informativa relativa al trattamento dei dati personali consultando la pagina: https://www.unical.it/portale/ateneo/privacy/",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "BATS - Richiesta di consultazione Sezione Specialistica Cartografia - Progetto Speciale 26",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"BATS - Richiesta di consultazione Sezione Specialistica Cartografia - Progetto Speciale 26\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "La sezione di Cartografia, con annesse sottosezioni specialistiche, è aperta al pubblico dal Lunedì al Venerdì dalle ore 9:00 alle ore 13:00 e anche al pomeriggio dal Lunedì al Mercoledì dalle ore 13:00 alle ore 17:00.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nLa sezione di Cartografia, con annesse sottosezioni specialistiche, è aperta al pubblico dal Lunedì al Venerdì dalle ore 9:00 alle ore 13:00 e anche al pomeriggio dal Lunedì al Mercoledì dalle ore 13:00 alle ore 17:00.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "cognome_e_nome_del_richiedente",
+      "label" : "Cognome e Nome del richiedente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome_e_nome_del_richiedente\">",
+      "type" : "text"
+    }, {
+      "id" : "tipologia_utente",
+      "label" : "Tipologia utente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"tipologia_utente\" value=\"Istituzionale (interno all&#x27;Ateneo)\">\n\n            \n            <label\n            >\n                Istituzionale (interno all&#x27;Ateneo)\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"tipologia_utente\" value=\" Altro (utente esterno)\">\n\n            \n            <label\n            >\n                 Altro (utente esterno)\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "se_hai_scelto_\"altro\"_specificare",
+      "label" : "Se hai scelto \"Altro\" specificare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare ad esempio l'Ente di appartenenza, Studio Professionale oppure Libero Cittadino",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"se_hai_scelto_&quot;altro&quot;_specificare\">",
+      "type" : "text"
+    }, {
+      "id" : "prenotazione_in_data",
+      "label" : "Prenotazione in data",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"prenotazione_in_data\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "fasce_orarie",
+      "label" : "Fasce orarie",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "9:00 - 13:00",
+        "value" : "9:00 - 13:00"
+      }, {
+        "text" : " 13:00 - 17:00",
+        "value" : " 13:00 - 17:00"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"fasce_orarie\" value=\"9:00 - 13:00\">\n 9:00 - 13:00</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"fasce_orarie\" value=\" 13:00 - 17:00\">\n  13:00 - 17:00</label>\n\n</div>\n</div>",
+      "type" : "select"
+    } ]
+  },
+  "rawTextBody" : null
+}

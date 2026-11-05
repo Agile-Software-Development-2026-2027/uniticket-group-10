@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:53.207352Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/fisica/domanda-di-trasferimento-in-ingresso-fisica/ticket/new/",
+  "jsonBody" : {
+    "detail" : "E' possibile inoltrare la richiesta di trasferimento in ingresso dal 1° luglio al 31 agosto",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

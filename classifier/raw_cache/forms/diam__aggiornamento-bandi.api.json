@@ -1,0 +1,127 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:21.591121Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/diam/aggiornamento-bandi/ticket/new/",
+  "jsonBody" : {
+    "name" : "Aggiornamento Bandi",
+    "description" : "Aggiornamento Bandi",
+    "protocol_required" : false,
+    "slug" : "aggiornamento-bandi",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Aggiornamento Bandi",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Aggiornamento Bandi\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Aggiornamento Bandi",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nAggiornamento Bandi</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "riferimento",
+      "label" : "Riferimento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "INSERIRE Ad esempio Assegno di Ricerca PRof. Furnari e d.d 130",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"riferimento\">",
+      "type" : "text"
+    }, {
+      "id" : "titolo",
+      "label" : "Titolo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"titolo\">",
+      "type" : "text"
+    }, {
+      "id" : "allegato_pdf",
+      "label" : "Allegato PDF",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "non deve essere maggiore di 10 MB",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegato_pdf\">",
+      "type" : "file"
+    }, {
+      "id" : "indirizzo-link__pat",
+      "label" : "Indirizzo-link  PAT",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un URL valido"
+      },
+      "help_text" : "Inserire il link presente nel bando sul PAT",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"url\" name=\"indirizzo-link__pat\">",
+      "type" : "url"
+    }, {
+      "id" : "link_diam",
+      "label" : "Link DIAm",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un URL valido"
+      },
+      "help_text" : "Inserire il link presente nel bando sul sito del nostro dipartimento diam.unical.it",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"url\" name=\"link_diam\">",
+      "type" : "url"
+    } ]
+  },
+  "rawTextBody" : null
+}

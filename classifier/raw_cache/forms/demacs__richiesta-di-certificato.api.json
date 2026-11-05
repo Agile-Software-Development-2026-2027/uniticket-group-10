@@ -1,0 +1,173 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:45.938559Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-di-certificato/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta di certificato",
+    "description" : "Richiesta di certificato",
+    "protocol_required" : false,
+    "slug" : "richiesta-di-certificato",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 235,
+      "fields" : {
+        "category" : 224,
+        "title" : "Note operative",
+        "text" : "- Alla richiesta deve essere allegato un documento di riconoscimento fonte/retro, in formato PDF, in corso di validità. \r\n\r\n- E' previsto il pagamento di due o più marche da bollo in modalità on line (un bollo su istanza ed un bollo su ogni certificato richiesto), tranne che per i certificati di supplemento.\r\n\r\n- Solo se sei un utente esterno (cioè se non hai una carriera su esse3), puoi pagare i bolli cliccando sui seguenti link: \r\n [Imposta di bollo su istanza di rilascio di certificati](https://unipay.unical.it/prodotto/imposta-di-bollo-su-istanza-di-rilascio-di-certificati/) e \r\n [Imposta di bollo per rilascio di certificati](https://unipay.unical.it/prodotto/imposta-di-bollo-per-rilascio-di-certificati/) ed allegare le ricevute di pagamento, in un unico PDF, nell'apposito campo allegato di questo modulo. Potrai unire le ricevute in un unico PDF utilizzando uno dei tanti servizi gratuiti online. \r\n- Se sei invece un utente interno (cioè se hai una carriera, anche passata, su esse3), l'operatore che prenderà in carico la richiesta avrà cura di informarti riguardo l'avvenuto caricamento, su esse3, dei bolli da pagare.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 236,
+      "fields" : {
+        "category" : 224,
+        "title" : "Dischiarazione di responsabilità",
+        "text" : "Dichiara di essere a conoscenza delle responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art 495 c.p., art 640 c.p.e art 76 D.P.R. n. 445/2000",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta di certificato",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta di certificato\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta di certificato",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta di certificato</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserisci la matricola relativa alla carriera per la quale vuoi richiedere il certificato",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"matricola\">",
+      "type" : "text"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cellulare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "il_rilascio_del_seguente_certificato",
+      "label" : "il rilascio del seguente certificato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-il_rilascio_del_seguente_certificato\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_il_rilascio_del_seguente_certificato-NNNNN-certificato_di_\">Certificato di :</label></th>\n    <td>\n      \n      <select name=\"il_rilascio_del_seguente_certificato-NNNNN-certificato_di_\" id=\"id_il_rilascio_del_seguente_certificato-NNNNN-certificato_di_\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"DECADENZA\">DECADENZA</option>\n\n  <option value=\"DECADENZA CON ANNI ACCADEMICI\">DECADENZA CON ANNI ACCADEMICI</option>\n\n  <option value=\"DECADENZA CON ANNI ACCADEMICI ED ESAMI\">DECADENZA CON ANNI ACCADEMICI ED ESAMI</option>\n\n  <option value=\"DECADENZA CON ESAMI\">DECADENZA CON ESAMI</option>\n\n  <option value=\"DECADENZA CON PIANO\">DECADENZA CON PIANO</option>\n\n  <option value=\"ISCRIZIONE\">ISCRIZIONE</option>\n\n  <option value=\"ISCRIZIONE CON ANNI ACCADEMICI\">ISCRIZIONE CON ANNI ACCADEMICI</option>\n\n  <option value=\"ISCRIZIONE CON ANNI ACCADEMICI ED ESAMI \">ISCRIZIONE CON ANNI ACCADEMICI ED ESAMI </option>\n\n  <option value=\"ISCRIZIONE CON ESAMI\">ISCRIZIONE CON ESAMI</option>\n\n  <option value=\"ISCRIZIONE CON ESAMI CORSI SINGOLI\">ISCRIZIONE CON ESAMI CORSI SINGOLI</option>\n\n  <option value=\"ISCRIZIONE CON ESAMI DA SUPERARE\">ISCRIZIONE CON ESAMI DA SUPERARE</option>\n\n  <option value=\"ISCRIZIONE CON ESAMI E DATE\">ISCRIZIONE CON ESAMI E DATE</option>\n\n  <option value=\"ISCRIZIONE CON ESAMI E STRUTTURA CORSI SINGOLI\">ISCRIZIONE CON ESAMI E STRUTTURA CORSI SINGOLI</option>\n\n  <option value=\"ISCRIZIONE CON ESAMI SOSTENUTI SENZA VOTO E DATA ED ESAMI DA SOSTENERE\">ISCRIZIONE CON ESAMI SOSTENUTI SENZA VOTO E DATA ED ESAMI DA SOSTENERE</option>\n\n  <option value=\"ISCRIZIONE CON PIANO\">ISCRIZIONE CON PIANO</option>\n\n  <option value=\"ISCRIZIONE CORSI SINGOLI\">ISCRIZIONE CORSI SINGOLI</option>\n\n  <option value=\"LAUREA\">LAUREA</option>\n\n  <option value=\"LAUREA CON ANNI ACCADEMICI \">LAUREA CON ANNI ACCADEMICI </option>\n\n  <option value=\"LAUREA CON ANNI ACCADEMICI ED ESAMI \">LAUREA CON ANNI ACCADEMICI ED ESAMI </option>\n\n  <option value=\"LAUREA CON ESAMI E DATE\">LAUREA CON ESAMI E DATE</option>\n\n  <option value=\"LAUREA CON ESAMI SENZA DATA\">LAUREA CON ESAMI SENZA DATA</option>\n\n  <option value=\"LAUREA CON ESAMI, TESI E RELATORE\">LAUREA CON ESAMI, TESI E RELATORE</option>\n\n  <option value=\"LAUREA CON PIANO\">LAUREA CON PIANO</option>\n\n  <option value=\"LAUREA CON TASSE\">LAUREA CON TASSE</option>\n\n  <option value=\"LAUREA CON TESI\">LAUREA CON TESI</option>\n\n  <option value=\"LAUREA SENZA VOTO \">LAUREA SENZA VOTO </option>\n\n  <option value=\"RINUNCIA\">RINUNCIA</option>\n\n  <option value=\"RINUNCIA CON ANNI ACC. ED ESAMI\">RINUNCIA CON ANNI ACC. ED ESAMI</option>\n\n  <option value=\"RINUNCIA CON ANNI ACCADEMICI\">RINUNCIA CON ANNI ACCADEMICI</option>\n\n  <option value=\"RINUNCIA CON ESAMI\">RINUNCIA CON ESAMI</option>\n\n  <option value=\"RINUNCIA CON PIANO\">RINUNCIA CON PIANO</option>\n\n  <option value=\"SUPPLEMENTO AL DIPLOMA\">SUPPLEMENTO AL DIPLOMA</option>\n\n  <option value=\"CORSO AGGIUNTIVO PER LE ATTIVITÀ FORMATIVE PER GLI ALUNNI IN SITUAZIONE DI DISABILITÀ\">CORSO AGGIUNTIVO PER LE ATTIVITÀ FORMATIVE PER GLI ALUNNI IN SITUAZIONE DI DISABILITÀ</option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-il_rilascio_del_seguente_certificato-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"il_rilascio_del_seguente_certificato-TOTAL_FORMS\" value=\"1\" id=\"id_il_rilascio_del_seguente_certificato-TOTAL_FORMS\"><input type=\"hidden\" name=\"il_rilascio_del_seguente_certificato-INITIAL_FORMS\" value=\"0\" id=\"id_il_rilascio_del_seguente_certificato-INITIAL_FORMS\"><input type=\"hidden\" name=\"il_rilascio_del_seguente_certificato-MIN_NUM_FORMS\" value=\"1\" id=\"id_il_rilascio_del_seguente_certificato-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"il_rilascio_del_seguente_certificato-MAX_NUM_FORMS\" value=\"1000\" id=\"id_il_rilascio_del_seguente_certificato-MAX_NUM_FORMS\">\n\n<div class=\"form-container\">\n    <div class=\"row form-row spacer\">\n        <div class=\"col\">\n            <div class=\"input-group\">\n                <div class=\"table-responsive\">\n                    <table class=\"table table-bordered formset-table\">\n                        <tr>\n    <th><label for=\"id_il_rilascio_del_seguente_certificato-0-certificato_di_\">Certificato di :</label></th>\n    <td>\n      \n      <select name=\"il_rilascio_del_seguente_certificato-0-certificato_di_\" id=\"id_il_rilascio_del_seguente_certificato-0-certificato_di_\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"DECADENZA\">DECADENZA</option>\n\n  <option value=\"DECADENZA CON ANNI ACCADEMICI\">DECADENZA CON ANNI ACCADEMICI</option>\n\n  <option value=\"DECADENZA CON ANNI ACCADEMICI ED ESAMI\">DECADENZA CON ANNI ACCADEMICI ED ESAMI</option>\n\n  <option value=\"DECADENZA CON ESAMI\">DECADENZA CON ESAMI</option>\n\n  <option value=\"DECADENZA CON PIANO\">DECADENZA CON PIANO</option>\n\n  <option value=\"ISCRIZIONE\">ISCRIZIONE</option>\n\n  <option value=\"ISCRIZIONE CON ANNI ACCADEMICI\">ISCRIZIONE CON ANNI ACCADEMICI</option>\n\n  <option value=\"ISCRIZIONE CON ANNI ACCADEMICI ED ESAMI \">ISCRIZIONE CON ANNI ACCADEMICI ED ESAMI </option>\n\n  <option value=\"ISCRIZIONE CON ESAMI\">ISCRIZIONE CON ESAMI</option>\n\n  <option value=\"ISCRIZIONE CON ESAMI CORSI SINGOLI\">ISCRIZIONE CON ESAMI CORSI SINGOLI</option>\n\n  <option value=\"ISCRIZIONE CON ESAMI DA SUPERARE\">ISCRIZIONE CON ESAMI DA SUPERARE</option>\n\n  <option value=\"ISCRIZIONE CON ESAMI E DATE\">ISCRIZIONE CON ESAMI E DATE</option>\n\n  <option value=\"ISCRIZIONE CON ESAMI E STRUTTURA CORSI SINGOLI\">ISCRIZIONE CON ESAMI E STRUTTURA CORSI SINGOLI</option>\n\n  <option value=\"ISCRIZIONE CON ESAMI SOSTENUTI SENZA VOTO E DATA ED ESAMI DA SOSTENERE\">ISCRIZIONE CON ESAMI SOSTENUTI SENZA VOTO E DATA ED ESAMI DA SOSTENERE</option>\n\n  <option value=\"ISCRIZIONE CON PIANO\">ISCRIZIONE CON PIANO</option>\n\n  <option value=\"ISCRIZIONE CORSI SINGOLI\">ISCRIZIONE CORSI SINGOLI</option>\n\n  <option value=\"LAUREA\">LAUREA</option>\n\n  <option value=\"LAUREA CON ANNI ACCADEMICI \">LAUREA CON ANNI ACCADEMICI </option>\n\n  <option value=\"LAUREA CON ANNI ACCADEMICI ED ESAMI \">LAUREA CON ANNI ACCADEMICI ED ESAMI </option>\n\n  <option value=\"LAUREA CON ESAMI E DATE\">LAUREA CON ESAMI E DATE</option>\n\n  <option value=\"LAUREA CON ESAMI SENZA DATA\">LAUREA CON ESAMI SENZA DATA</option>\n\n  <option value=\"LAUREA CON ESAMI, TESI E RELATORE\">LAUREA CON ESAMI, TESI E RELATORE</option>\n\n  <option value=\"LAUREA CON PIANO\">LAUREA CON PIANO</option>\n\n  <option value=\"LAUREA CON TASSE\">LAUREA CON TASSE</option>\n\n  <option value=\"LAUREA CON TESI\">LAUREA CON TESI</option>\n\n  <option value=\"LAUREA SENZA VOTO \">LAUREA SENZA VOTO </option>\n\n  <option value=\"RINUNCIA\">RINUNCIA</option>\n\n  <option value=\"RINUNCIA CON ANNI ACC. ED ESAMI\">RINUNCIA CON ANNI ACC. ED ESAMI</option>\n\n  <option value=\"RINUNCIA CON ANNI ACCADEMICI\">RINUNCIA CON ANNI ACCADEMICI</option>\n\n  <option value=\"RINUNCIA CON ESAMI\">RINUNCIA CON ESAMI</option>\n\n  <option value=\"RINUNCIA CON PIANO\">RINUNCIA CON PIANO</option>\n\n  <option value=\"SUPPLEMENTO AL DIPLOMA\">SUPPLEMENTO AL DIPLOMA</option>\n\n  <option value=\"CORSO AGGIUNTIVO PER LE ATTIVITÀ FORMATIVE PER GLI ALUNNI IN SITUAZIONE DI DISABILITÀ\">CORSO AGGIUNTIVO PER LE ATTIVITÀ FORMATIVE PER GLI ALUNNI IN SITUAZIONE DI DISABILITÀ</option>\n\n</select>\n      \n      \n        \n      \n    </td>\n  </tr>\n                    </table>\n                </div>\n            </div>\n            <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-il_rilascio_del_seguente_certificato-0\">\n                <svg class=\"icon icon-xs icon-white\">\n                    <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                </svg> Rimuovi inserimento\n            </button>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-il_rilascio_del_seguente_certificato\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "documento_di_riconoscimento_fronte_retro_in_formato_pdf",
+      "label" : "Documento di riconoscimento fronte/retro in formato PDF",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento_di_riconoscimento_fronte_retro_in_formato_pdf\">",
+      "type" : "file"
+    }, {
+      "id" : "pdf_con_le_ricevute_dei_pagamenti_per_utenti_esterni",
+      "label" : "PDF con le ricevute dei pagamenti (per utenti esterni)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"pdf_con_le_ricevute_dei_pagamenti_per_utenti_esterni\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

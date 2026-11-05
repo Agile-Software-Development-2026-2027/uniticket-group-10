@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:50.703859Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-di-riconoscimento-cfu-per-i-cds-informatica-e-matematica/ticket/new/",
+  "jsonBody" : {
+    "detail" : "I termini per la presentazione della richiesta sono scaduti",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

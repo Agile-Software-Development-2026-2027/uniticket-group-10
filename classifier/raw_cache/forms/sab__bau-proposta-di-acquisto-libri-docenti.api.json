@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:32.159396Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/sab/bau-proposta-di-acquisto-libri-docenti/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

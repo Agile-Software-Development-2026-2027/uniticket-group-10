@@ -1,0 +1,469 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:24.499565Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/fisica/attivazione-di-un-incarico-di-ricerca-art-22-ter-legge-2402010/ticket/new/",
+  "jsonBody" : {
+    "name" : "Attivazione di un incarico di ricerca (art. 22-ter legge 240/2010)",
+    "description" : "Modulo per l'attivazione di un incarico di ricerca  (art. 22-ter legge 240/2010) presso il Dipartimento di Fisica - UNICAL",
+    "protocol_required" : false,
+    "slug" : "attivazione-di-un-incarico-di-ricerca-art-22-ter-legge-2402010",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 842,
+      "fields" : {
+        "category" : 812,
+        "title" : "Regolamento Contratti di Ricerca",
+        "text" : "Per leggere il\r\n\r\nREGOLAMENTO PER IL CONFERIMENTO DI CONTRATTI DI RICERCA, INCARICHI POST-DOC E INCARICHI DI \r\nRICERCA, AI SENSI DEGLI ARTT. 22, 22-BIS E 22-TER DELLA LEGGE 30 DICEMBRE 2010, N. 240.  \r\nEmanato con decreto rettorale 27 novembre 2025 n. 1520\r\n\r\nclicca sul link",
+        "ordinamento" : 0,
+        "attachment" : "structures/fisica/categories/attivazione-di-un-incarico-di-ricerca-art-22-ter-legge-2402010/conditions/Regolamento_Contratti_Ricerca.pdf",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 854,
+      "fields" : {
+        "category" : 812,
+        "title" : "Nota sul Trattamento Economico",
+        "text" : "Si prega di far riferimento alla tabella pubblicata su [myUniCal](https://proxy.auth.unical.it/static/disco.html?entityID=https%3A%2F%2Fproxy.auth.unical.it%2FSaml2%2Fmetadata&return=https%3A%2F%2Fproxy.auth.unical.it%2FSaml2%2Fdisco) per reperire informazioni aggiornate sul trattamento economico della figura richiesta (Incarico di Ricerca ex art. 22-ter), il cui importo minimo è definito con decreto del Ministro dell'Università e della Ricerca.\r\n\r\nSi fa presente che tutti gli importi tabellari (inclusi quelli relativi ai contratti di ricerca e agli incarichi post-doc adeguati al DPCM 4 luglio 2025) vengono aggiornati annualmente su [myUniCal](https://proxy.auth.unical.it/static/disco.html?entityID=https%3A%2F%2Fproxy.auth.unical.it%2FSaml2%2Fmetadata&return=https%3A%2F%2Fproxy.auth.unical.it%2FSaml2%2Fdisco).",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 846,
+      "fields" : {
+        "category" : 812,
+        "title" : "Modello EURAXESS (da allegare alla presente richiesta)",
+        "text" : "Scarica il Modello Euraxess e compilalo.\r\n\r\nTi verrà richiesto di allegarlo a questa Richiesta più avanti.",
+        "ordinamento" : 20,
+        "attachment" : "structures/fisica/categories/attivazione-di-un-incarico-di-ricerca-art-22-ter-legge-2402010/conditions/Modello_Euraxess.xlsx",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Attivazione di un incarico di ricerca (art. 22-ter legge 240/2010)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Attivazione di un incarico di ricerca (art. 22-ter legge 240/2010)\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Modulo per l'attivazione di un incarico di ricerca  (art. 22-ter legge 240/2010) presso il Dipartimento di Fisica - UNICAL",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nModulo per l&#x27;attivazione di un incarico di ricerca  (art. 22-ter legge 240/2010) presso il Dipartimento di Fisica - UNICAL</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "il_la_sottoscritto_a__prof._ssa",
+      "label" : "Il/la sottoscritto/a  Prof./ssa",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_la_sottoscritto_a__prof._ssa\">",
+      "type" : "text"
+    }, {
+      "id" : "durata_di_mesi",
+      "label" : "durata di mesi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "(minimo 12 mesi, massimo 36 mesi)",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"durata_di_mesi\">",
+      "type" : "text"
+    }, {
+      "id" : "euro",
+      "label" : "euro",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"euro\">",
+      "type" : "text"
+    }, {
+      "id" : "progetto_di_ricerca:",
+      "label" : "Progetto di ricerca:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"progetto_di_ricerca:\">",
+      "type" : "text"
+    }, {
+      "id" : "cup_inserire_\"n.d.\"_se_non_presente",
+      "label" : "CUP (inserire \"n.d.\" se non presente)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cup_inserire_&quot;n.d.&quot;_se_non_presente\">",
+      "type" : "text"
+    }, {
+      "id" : "il_responsabile_del_progetto_di_ricerca_è_il_la_prof._ssa",
+      "label" : "Il Responsabile del Progetto di Ricerca è il/la Prof./ssa",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_responsabile_del_progetto_di_ricerca_è_il_la_prof._ssa\">",
+      "type" : "text"
+    }, {
+      "id" : "indicare_il_dipartimento,_il_cubo,_il_laboratorio",
+      "label" : "Indicare il Dipartimento, il Cubo, il Laboratorio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"indicare_il_dipartimento,_il_cubo,_il_laboratorio\">",
+      "type" : "text"
+    }, {
+      "id" : "numero_posti",
+      "label" : "Numero posti",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"numero_posti\">",
+      "type" : "text"
+    }, {
+      "id" : "data_presunta_di_inizio_attività",
+      "label" : "Data presunta di inizio attività",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"data_presunta_di_inizio_attività\">",
+      "type" : "text"
+    }, {
+      "id" : "gruppo_scientifico-disciplinare",
+      "label" : "Gruppo scientifico-disciplinare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"gruppo_scientifico-disciplinare\">",
+      "type" : "text"
+    }, {
+      "id" : "settore_scientifico-disciplinare_ssd",
+      "label" : "Settore Scientifico-Disciplinare (SSD)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"settore_scientifico-disciplinare_ssd\">",
+      "type" : "text"
+    }, {
+      "id" : "titolo_del_programma_di_ricerca",
+      "label" : "Titolo del programma di ricerca",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"titolo_del_programma_di_ricerca\">",
+      "type" : "text"
+    }, {
+      "id" : "fondi_di_progetto_e_codice_u-gov_su_cui_grava_il_costo_del_contratto_e_vincolo_di_budget",
+      "label" : "Fondi di progetto e Codice U-GOV su cui grava il costo del contratto e vincolo di budget",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"fondi_di_progetto_e_codice_u-gov_su_cui_grava_il_costo_del_contratto_e_vincolo_di_budget\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "a_rilevanza_e_congruenza_del_percorso_di_studi_con_il_programma_di_ricerca_oggetto_dell’incarico_punteggio_in_centesimi",
+      "label" : "a) rilevanza e congruenza del percorso di studi con il programma di ricerca oggetto dell’incarico (punteggio in centesimi)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"a_rilevanza_e_congruenza_del_percorso_di_studi_con_il_programma_di_ricerca_oggetto_dell’incarico_punteggio_in_centesimi\">",
+      "type" : "text"
+    }, {
+      "id" : "attività_di_ricerca_oggetto_dell'incarico_punteggio_in_centesimi",
+      "label" : "attività di ricerca oggetto dell'incarico (punteggio in centesimi)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"attività_di_ricerca_oggetto_dell&#x27;incarico_punteggio_in_centesimi\">",
+      "type" : "text"
+    }, {
+      "id" : "con_il_programma_di_ricerca_oggetto_dell’incarico_punteggio_in_centesimi",
+      "label" : "con il programma di ricerca oggetto dell’incarico (punteggio in centesimi)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"con_il_programma_di_ricerca_oggetto_dell’incarico_punteggio_in_centesimi\">",
+      "type" : "text"
+    }, {
+      "id" : "punteggio_del_colloquio_orale_espresso_in_centesimi",
+      "label" : "punteggio del colloquio orale espresso in centesimi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"punteggio_del_colloquio_orale_espresso_in_centesimi\">",
+      "type" : "text"
+    }, {
+      "id" : "data,_ora_e_modalità_di_convocazione_dei_candidati_all'eventuale_colloquio_pubblico",
+      "label" : "Data, ora e modalità di convocazione dei candidati all'eventuale colloquio pubblico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"data,_ora_e_modalità_di_convocazione_dei_candidati_all&#x27;eventuale_colloquio_pubblico\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "nota_2",
+      "label" : "Nota 2",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"nota_2\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "laurea_magistrale_o_titolo_equipollente",
+      "label" : "Laurea Magistrale o titolo equipollente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"laurea_magistrale_o_titolo_equipollente\">",
+      "type" : "text"
+    }, {
+      "id" : "numero_massimo_di_pubblicazioni_da_presentare",
+      "label" : "Numero massimo di pubblicazioni da presentare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "(non oltre 4)",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"numero_massimo_di_pubblicazioni_da_presentare\">",
+      "type" : "text"
+    }, {
+      "id" : "il_colloquio_verterà_sulla_verifica_dei_seguenti_aspetti:",
+      "label" : "Il colloquio verterà sulla verifica dei seguenti aspetti:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"il_colloquio_verterà_sulla_verifica_dei_seguenti_aspetti:\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "inserire_il_logo_del_progetto:",
+      "label" : "Inserire il logo del progetto:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"inserire_il_logo_del_progetto:\">",
+      "type" : "file"
+    }, {
+      "id" : "modello_euraxess",
+      "label" : "Modello EURAXESS",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"modello_euraxess\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

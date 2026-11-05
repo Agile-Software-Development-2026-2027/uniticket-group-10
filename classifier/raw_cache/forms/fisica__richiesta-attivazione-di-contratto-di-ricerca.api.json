@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:30.703702Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/fisica/richiesta-attivazione-di-contratto-di-ricerca/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,201 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:24.873672Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/ict/srs-registrazione-dns/ticket/new/",
+  "jsonBody" : {
+    "name" : "SRS - Registrazione DNS",
+    "description" : "Utilizzando questo modulo è possibile richiedere la registrazione di un dominio unical.it, di un sottodominio dipartimento.unical.it, di un sito unical.it o di un mail host",
+    "protocol_required" : true,
+    "slug" : "srs-registrazione-dns",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 902,
+      "fields" : {
+        "category" : 99,
+        "title" : "ISTRUZIONI E DEFINIZIONE DEI RUOLI",
+        "text" : "Ai fini del presente procedimento di abilitazione servizi e in conformità con le policy di sicurezza informatica di Ateneo, si precisa che:\r\n\r\n- **Soggetto richiedente (riportato in alto dal sistema)**: Identifica il **Responsabile della struttura (Sottoscrittore/Validatore)**, ovverosia l'organo di vertice (Direttore/Dirigente) che valida formalmente l'esigenza istituzionale e autorizza l'apertura delle porte sui sistemi firewall di Ateneo.\r\n- **Soggetto Utilizzatore/Amministratore di sistema (da indicare nel corpo del modulo)**: È il beneficiario finale del servizio di rete (es. docente, ricercatore, personale, ditta esterna) o l'Amministratore di Sistema / Referente Tecnico che accede al portale, inserisce i parametri di rete e assume la responsabilità della conformità tecnica della richiesta.\r\n\r\nLe richieste devono essere **compilate dal Referente Tecnico (Soggetto Utilizzatore/Amministratore di sistema)**, responsabile della gestione e/o dell’utilizzo del servizio richiesto, e **sottoscritte dal Responsabile della Struttura** (direttore, dirigente, responsabile di area) utilizzando un modulo on-line con i seguenti passaggi:\r\n\r\n1. Il **Referente Tecnico (Soggetto Utilizzatore/Amministratore di sistema)**\r\n\t- accede al modulo con le credenziali di ateneo\r\n\t- compila il modulo on-line accettandone le clausole (nota: si suggerisce di modificare la descrizione predefinita per richiamare lo specifico servizio richiesto)\r\n\t- clicca sul link in fondo alla pagina (sotto il pulsante INVIA) per generare un link al modulo compilato\r\n\t- invia il link generato (per email o altro canale) al responsabile della struttura\r\n2. Il **Responsabile della Struttura** (direttore, dirigente, responsabile di area)\r\n\t- clicca sul link ricevuto, accede con le proprie credenziali istituzionali e verifica ed, eventualmente, modifica il contenuto tecnico;\r\n\t- cliccando su **INVIA, rilascia formale autorizzazione amministrativa** all'attivazione del servizio per conto del  **Referente Tecnico (Soggetto Utilizzatore/Amministratore di sistema)** indicato , assumendone la validità istituzionale.\r\n\r\nIl modulo viene inviato e protocollato automaticamente mentre il sistema manda una email di conferma dell’invio al responsabile della struttura.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 903,
+      "fields" : {
+        "category" : 99,
+        "title" : "Dichiarazione del Referente Tecnico (Utilizzatore/Amministratore di Sistema)",
+        "text" : "Il sottoscritto (**Amministratore di Sistema / Utilizzatore del Servizio identificato come Referente Tecnico**), dichiara:\r\n\r\n- di assumere la responsabilità tecnica derivante dall'istruttoria, dalla configurazione dei parametri di rete inseriti e dalla gestione dei sistemi interessati;\r\n- di attestare che l'apertura dei servizi è finalizzata esclusivamente a consentire le attività istituzionali del **Soggetto Utilizzatore ovvero Amministratore di Sistema / Referente Tecnico** indicato nel presente modulo di richiesta;\r\n- di impegnarsi a comunicare tempestivamente al Responsabile dell'Area Servizi Informatici e Tecnologici (ASIT) la variazione dei dati dichiarati o la dismissione del servizio;\r\n- di essere a conoscenza e di accettare le norme di buon uso delle risorse di rete espresse nel documento “Netiquette\" e le “Acceptable Use Policy – AUP” del GARR pubblicate sul sito web del GARR (www.garr.it)[https://www.garr.it] e di impegnarsi a rispettarle;\r\n- di accettare che, in caso di erronea o falsa dichiarazione, il Responsabile dell'ASIT potrà provvedere alla immediata revoca delle attivazioni richieste salvo ogni più ampia azione legale;\r\n- di essere a conoscenza e rispettare le vigenti norme sulla privacy e di autorizzare il trattamento dei dati riportati nel presente documento ai sensi del **Regolamento (UE) 2016/679 (GDPR)**, coordinato con il **D.Lgs. 196/2003 (Codice della Privacy)**, come modificato dal **D.Lgs. 101/2018**",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 495,
+      "fields" : {
+        "category" : 99,
+        "title" : "ISTRUZIONI PER LA COMPILAZIONE",
+        "text" : "Le richieste devono essere compilate dal referente tecnico, responsabile della gestione e/o dell’utilizzo del servizio richiesto, e sottoscritte dal responsabile della struttura (direttore, dirigente,  responsabile di area) utilizzando un modulo on-line con i seguenti passaggi:  \r\n\r\n1. Il ***referente***\r\n    - accede al modulo con le credenziali di ateneo  \r\n    - compila il modulo on-line accettandone le clausole (nota: si suggerisce di modificare la descrizione predefinita per richiamare lo specifico servizio richiesto)  \r\n    - clicca sul link in fondo alla pagina (sotto il pulsante INVIA) per generare un link al modulo compilato  \r\n    - invia il link generato (per email o altro canale) al responsabile della struttura  \r\n\r\n2. Il ***responsabile della struttura*** (direttore, dirigente, responsabile di area)  \r\n    - clicca sul link ricevuto  \r\n    - accede al modulo con le credenziali di ateneo  \r\n    - verifica e eventualmente modifica il contenuto e clicca su INVIA   \r\n\r\nIl modulo viene inviato e protocollato automaticamente mentre il sistema manda una email di conferma dell’invio al responsabile della struttura.",
+        "ordinamento" : 10,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : false
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 89,
+      "fields" : {
+        "category" : 99,
+        "title" : "Dichiarazione referente",
+        "text" : "Il sottoscritto, dichiara:\r\n\r\n- di assumere la responsabilità che deriva dall’utilizzo e dalla gestione degli stessi;\r\n\r\n- di impegnarsi a comunicare tempestivamente al Responsabile dell'Area Servizi Informatici e Tecnologici (ASIT) la variazione dei dati dichiarati o la dismissione del servizio;\r\n\r\n- di essere a conoscenza e di accettare le norme di buon uso delle risorse di rete espresse nel documento “*Netiquette*\" e le “*Acceptable Use Policy – AUP*” del GARR pubblicate sul sito web del GARR (www.garr.it)[https://www.garr.it] e di impegnarsi a rispettarle;\r\n\r\n- di accettare che, in caso di erronea o falsa dichiarazione, il Responsabile dell'ASIT potrà provvedere alla immediata revoca delle attivazioni richieste salvo ogni più ampia azione legale;\r\n\r\n- di essere a conoscenza e rispettare le vigenti norme sulla privacy;\r\n\r\n- autorizzare il trattamento dei dati riportati nel presente documento ai sensi del Dlgs. 196/2003 e s.m.",
+        "ordinamento" : 20,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : true,
+        "is_active" : false
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 494,
+      "fields" : {
+        "category" : 99,
+        "title" : "Tipologie di record DNS",
+        "text" : "- RECORD TIPO “A”:  crea un collegamento tra un nome a dominio ed un indirizzo IP.   *Dominio -> IP*  \r\n- RECORD TIPO “AAAA”: crea un collegamento tra un nome a dominio ed un indirizzo IPv6.   *Dominio -> IP6*  \r\n- RECORD TIPO “CNAME”: crea un alias di un nome a dominio già registrato (con record A o AAAA).  *Dominio Alias-> Dominio*  \r\n- RECORD TIPO “SRV”: identifica server, porta e tipo di protocollo necessari per utilizzare un determinato servizio.   \r\n- RECORD TIPO “TXT”: fornisce ulteriori informazioni su uno specifico dominio.   *Dominio -> info...*  \r\n- RECORD TIPO “MX”: indica su quale dominio raggiungere un determinato server di posta. *Dominio -> Mail host*",
+        "ordinamento" : 30,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : false
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "SRS - Registrazione DNS",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"SRS - Registrazione DNS\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Utilizzando questo modulo è possibile richiedere la registrazione di un dominio unical.it, di un sottodominio dipartimento.unical.it, di un sito unical.it o di un mail host",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nUtilizzando questo modulo è possibile richiedere la registrazione di un dominio unical.it, di un sottodominio dipartimento.unical.it, di un sito unical.it o di un mail host</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "nome_richiedente",
+      "label" : "Nome richiedente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome_richiedente\">",
+      "type" : "text"
+    }, {
+      "id" : "cognome_richiedente",
+      "label" : "Cognome richiedente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome_richiedente\">",
+      "type" : "text"
+    }, {
+      "id" : "email",
+      "label" : "Email",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"email\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "elenco_richieste",
+      "label" : "Elenco richieste",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Utilizza la legenda sopra riportata per compilare la richiesta",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-elenco_richieste\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_elenco_richieste-NNNNN-tipo_di_registrazione\">Tipo di registrazione:</label></th>\n    <td>\n      \n      <select name=\"elenco_richieste-NNNNN-tipo_di_registrazione\" id=\"id_elenco_richieste-NNNNN-tipo_di_registrazione\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Dominio\">Dominio</option>\n\n  <option value=\"Alias\">Alias</option>\n\n  <option value=\"Record CNAME\">Record CNAME</option>\n\n  <option value=\"Record TXT\">Record TXT</option>\n\n  <option value=\"Mail host\">Mail host</option>\n\n  <option value=\"Indirizzo Google Site\">Indirizzo Google Site</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_richieste-NNNNN-campo_1\">Campo 1:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_richieste-NNNNN-campo_1\" id=\"id_elenco_richieste-NNNNN-campo_1\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_richieste-NNNNN-campo_2\">Campo 2:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_richieste-NNNNN-campo_2\" id=\"id_elenco_richieste-NNNNN-campo_2\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-elenco_richieste-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"elenco_richieste-TOTAL_FORMS\" value=\"1\" id=\"id_elenco_richieste-TOTAL_FORMS\"><input type=\"hidden\" name=\"elenco_richieste-INITIAL_FORMS\" value=\"0\" id=\"id_elenco_richieste-INITIAL_FORMS\"><input type=\"hidden\" name=\"elenco_richieste-MIN_NUM_FORMS\" value=\"1\" id=\"id_elenco_richieste-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"elenco_richieste-MAX_NUM_FORMS\" value=\"1000\" id=\"id_elenco_richieste-MAX_NUM_FORMS\">\n\n<div class=\"form-container\">\n    <div class=\"row form-row spacer\">\n        <div class=\"col\">\n            <div class=\"input-group\">\n                <div class=\"table-responsive\">\n                    <table class=\"table table-bordered formset-table\">\n                        <tr>\n    <th><label for=\"id_elenco_richieste-0-tipo_di_registrazione\">Tipo di registrazione:</label></th>\n    <td>\n      \n      <select name=\"elenco_richieste-0-tipo_di_registrazione\" id=\"id_elenco_richieste-0-tipo_di_registrazione\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Dominio\">Dominio</option>\n\n  <option value=\"Alias\">Alias</option>\n\n  <option value=\"Record CNAME\">Record CNAME</option>\n\n  <option value=\"Record TXT\">Record TXT</option>\n\n  <option value=\"Mail host\">Mail host</option>\n\n  <option value=\"Indirizzo Google Site\">Indirizzo Google Site</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_richieste-0-campo_1\">Campo 1:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_richieste-0-campo_1\" id=\"id_elenco_richieste-0-campo_1\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_elenco_richieste-0-campo_2\">Campo 2:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"elenco_richieste-0-campo_2\" id=\"id_elenco_richieste-0-campo_2\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                    </table>\n                </div>\n            </div>\n            <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-elenco_richieste-0\">\n                <svg class=\"icon icon-xs icon-white\">\n                    <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                </svg> Rimuovi inserimento\n            </button>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-elenco_richieste\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "motivazione_della_richiesta",
+      "label" : "Motivazione della richiesta",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"motivazione_della_richiesta\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

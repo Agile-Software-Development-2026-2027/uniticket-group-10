@@ -1,0 +1,489 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:28.799240Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dibest/svolgimento-attivita-di-studio-allestero/ticket/new/",
+  "jsonBody" : {
+    "name" : "Svolgimento Attività di studio all'estero",
+    "description" : "Svolgimento Attività di studio all'estero",
+    "protocol_required" : true,
+    "slug" : "svolgimento-attivita-di-studio-allestero",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 245,
+      "fields" : {
+        "category" : 228,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza delle responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art 495 c.p., art 640 c.p.e art 76 D.P.R. n. 445/2000",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Svolgimento Attività di studio all'estero",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Svolgimento Attività di studio all&#x27;estero\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Svolgimento Attività di studio all'estero",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nSvolgimento Attività di studio all&#x27;estero</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "consiglio",
+      "label" : "Consiglio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"consiglio\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "il_sottoscritto_a_è_nato_a_a",
+      "label" : "Il sottoscritto/a è nato/a a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_sottoscritto_a_è_nato_a_a\">",
+      "type" : "text"
+    }, {
+      "id" : "il",
+      "label" : "Il",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"il\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "email_personale",
+      "label" : "Email personale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"email_personale\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cellulare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "iscritto_per_l'a.a.",
+      "label" : "Iscritto per l'A.A.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"iscritto_per_l&#x27;a.a.\">",
+      "type" : "text"
+    }, {
+      "id" : "con_matricola",
+      "label" : "con matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"con_matricola\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "al_corso_di_laurea",
+      "label" : "Al Corso di Laurea",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"al_corso_di_laurea\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"triennale in Biologia\">triennale in Biologia</option>\n\n  <option value=\"triennale in Scienze e Tecnologie Biologiche\">triennale in Scienze e Tecnologie Biologiche</option>\n\n  <option value=\"triennale in Scienze Naturalie Ambinetali\">triennale in Scienze Naturalie Ambinetali</option>\n\n  <option value=\"triennale in Scienze Geologiche\">triennale in Scienze Geologiche</option>\n\n  <option value=\"magistrale a ciclo unico in Conservazione e Restauro dei Beni Culturali\">magistrale a ciclo unico in Conservazione e Restauro dei Beni Culturali</option>\n\n  <option value=\"magistrale in Biologia\">magistrale in Biologia</option>\n\n  <option value=\"magistrale in Biodiversità e Conservazione dei Sistemi Naturali\">magistrale in Biodiversità e Conservazione dei Sistemi Naturali</option>\n\n  <option value=\"magistrale in Health Biotechnology\">magistrale in Health Biotechnology</option>\n\n  <option value=\"magistrale in Scienze Geologiche\">magistrale in Scienze Geologiche</option>\n\n  <option value=\"triennale in Scienze e tecnologie per le attività motorie e sportive\">triennale in Scienze e tecnologie per le attività motorie e sportive</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "informa",
+      "label" : "informa",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"informa\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "programma",
+      "label" : "Programma",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Studio",
+        "value" : "Studio"
+      }, {
+        "text" : "Short Term",
+        "value" : "Short Term"
+      }, {
+        "text" : "Traineeship",
+        "value" : "Traineeship"
+      }, {
+        "text" : "MOST",
+        "value" : "MOST"
+      }, {
+        "text" : "Erasmus Italiano",
+        "value" : "Erasmus Italiano"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"programma\" value=\"Studio\">\n Studio</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"programma\" value=\"Short Term\">\n Short Term</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"programma\" value=\"Traineeship\">\n Traineeship</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"programma\" value=\"MOST\">\n MOST</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"programma\" value=\"Erasmus Italiano\">\n Erasmus Italiano</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "presso",
+      "label" : "presso",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"presso\">",
+      "type" : "text"
+    }, {
+      "id" : "permanenza",
+      "label" : "permanenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"permanenza\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "dal",
+      "label" : "Dal",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"dal\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "al",
+      "label" : "Al",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"al\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "pertanto_comunica",
+      "label" : "Pertanto comunica",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "di frequentare le lezioni e sostenere gli esami",
+        "value" : "di frequentare le lezioni e sostenere gli esami"
+      }, {
+        "text" : "di svolgere lavoro di ricerca tesi",
+        "value" : "di svolgere lavoro di ricerca tesi"
+      }, {
+        "text" : "di svolgere lavoro di tirocinio",
+        "value" : "di svolgere lavoro di tirocinio"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"pertanto_comunica\" value=\"di frequentare le lezioni e sostenere gli esami\">\n di frequentare le lezioni e sostenere gli esami</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"pertanto_comunica\" value=\"di svolgere lavoro di ricerca tesi\">\n di svolgere lavoro di ricerca tesi</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"pertanto_comunica\" value=\"di svolgere lavoro di tirocinio\">\n di svolgere lavoro di tirocinio</label>\n\n</div>\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "piano",
+      "label" : "piano",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"piano\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "prof",
+      "label" : "Prof",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"prof\">",
+      "type" : "text"
+    }, {
+      "id" : "del_corso_di_studio_in",
+      "label" : "del corso di studio in",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"del_corso_di_studio_in\">",
+      "type" : "text"
+    }, {
+      "id" : "dich",
+      "label" : "dich",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"dich\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "chiede,_altresì,_la_variazione_degli_insegnamenti_a_scelta_del_piano_di_studi_come_di_seguito_riportato",
+      "label" : "Chiede, altresì, la variazione degli insegnamenti a scelta del piano di studi come di seguito riportato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"chiede,_altresì,_la_variazione_degli_insegnamenti_a_scelta_del_piano_di_studi_come_di_seguito_riportato\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "insegnamenti_da_eliminare_se_presenti",
+      "label" : "Insegnamenti da Eliminare (se presenti)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-insegnamenti_da_eliminare_se_presenti\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_insegnamenti_da_eliminare_se_presenti-NNNNN-codice\">Codice:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti_da_eliminare_se_presenti-NNNNN-codice\" id=\"id_insegnamenti_da_eliminare_se_presenti-NNNNN-codice\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti_da_eliminare_se_presenti-NNNNN-denominazione_insegnamento\">Denominazione insegnamento:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti_da_eliminare_se_presenti-NNNNN-denominazione_insegnamento\" id=\"id_insegnamenti_da_eliminare_se_presenti-NNNNN-denominazione_insegnamento\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti_da_eliminare_se_presenti-NNNNN-ssd\">Ssd:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti_da_eliminare_se_presenti-NNNNN-ssd\" id=\"id_insegnamenti_da_eliminare_se_presenti-NNNNN-ssd\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti_da_eliminare_se_presenti-NNNNN-cfu\">Cfu:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti_da_eliminare_se_presenti-NNNNN-cfu\" id=\"id_insegnamenti_da_eliminare_se_presenti-NNNNN-cfu\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-insegnamenti_da_eliminare_se_presenti-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"insegnamenti_da_eliminare_se_presenti-TOTAL_FORMS\" value=\"0\" id=\"id_insegnamenti_da_eliminare_se_presenti-TOTAL_FORMS\"><input type=\"hidden\" name=\"insegnamenti_da_eliminare_se_presenti-INITIAL_FORMS\" value=\"0\" id=\"id_insegnamenti_da_eliminare_se_presenti-INITIAL_FORMS\"><input type=\"hidden\" name=\"insegnamenti_da_eliminare_se_presenti-MIN_NUM_FORMS\" value=\"0\" id=\"id_insegnamenti_da_eliminare_se_presenti-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"insegnamenti_da_eliminare_se_presenti-MAX_NUM_FORMS\" value=\"1000\" id=\"id_insegnamenti_da_eliminare_se_presenti-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-insegnamenti_da_eliminare_se_presenti\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "insegnamenti_da_inserire",
+      "label" : "Insegnamenti da inserire",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-insegnamenti_da_inserire\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_insegnamenti_da_inserire-NNNNN-codice\">Codice:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti_da_inserire-NNNNN-codice\" id=\"id_insegnamenti_da_inserire-NNNNN-codice\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti_da_inserire-NNNNN-denominazione_insegnamento\">Denominazione insegnamento:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti_da_inserire-NNNNN-denominazione_insegnamento\" id=\"id_insegnamenti_da_inserire-NNNNN-denominazione_insegnamento\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti_da_inserire-NNNNN-ssd\">Ssd:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti_da_inserire-NNNNN-ssd\" id=\"id_insegnamenti_da_inserire-NNNNN-ssd\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti_da_inserire-NNNNN-cfu\">Cfu:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti_da_inserire-NNNNN-cfu\" id=\"id_insegnamenti_da_inserire-NNNNN-cfu\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-insegnamenti_da_inserire-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"insegnamenti_da_inserire-TOTAL_FORMS\" value=\"0\" id=\"id_insegnamenti_da_inserire-TOTAL_FORMS\"><input type=\"hidden\" name=\"insegnamenti_da_inserire-INITIAL_FORMS\" value=\"0\" id=\"id_insegnamenti_da_inserire-INITIAL_FORMS\"><input type=\"hidden\" name=\"insegnamenti_da_inserire-MIN_NUM_FORMS\" value=\"0\" id=\"id_insegnamenti_da_inserire-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"insegnamenti_da_inserire-MAX_NUM_FORMS\" value=\"1000\" id=\"id_insegnamenti_da_inserire-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-insegnamenti_da_inserire\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "all",
+      "label" : "All",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"all\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "learning_agreement",
+      "label" : "Learning Agreement",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"learning_agreement\">",
+      "type" : "file"
+    }, {
+      "id" : "var",
+      "label" : "var",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"var\" value=\"\">",
+      "type" : "hidden"
+    } ]
+  },
+  "rawTextBody" : null
+}

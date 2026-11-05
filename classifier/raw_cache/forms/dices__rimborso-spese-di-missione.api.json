@@ -1,0 +1,355 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:12.967558Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dices/rimborso-spese-di-missione/ticket/new/",
+  "jsonBody" : {
+    "name" : "Rimborso spese di missione",
+    "description" : "RICHIESTA di rimborso spese di missione",
+    "protocol_required" : false,
+    "slug" : "rimborso-spese-di-missione",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 127,
+      "fields" : {
+        "category" : 128,
+        "title" : "**ATTENZIONE NON INVIARE IL MODULO, MA SEGUI LE INDICAZIONI**",
+        "text" : "**Il modulo va solo compilato ma non inviato.**\r\n\r\nClicca sulla voce **\"Se la richiesta che stai compilando deve essere completata e sottoscritta da un altro utente (es. Direttore Dipartimento, responsabile ufficio, ecc.), clicca qui;\"**\r\n\r\nMettere segno di spunta su **\"Tieni traccia della mia compilazione nel ticket\"**\r\n\r\nPremere il pulsante Genera URL \r\n\r\nPreparare una mail indirizzata al Direttore  e incollare lo URL generato e copiato\r\n\r\nIl Direttore, accolta la richiesta, provvederà ad inviarla all'ufficio preposto.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : false
+      }
+    } ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Rimborso spese di missione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Rimborso spese di missione\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "RICHIESTA di rimborso spese di missione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRICHIESTA di rimborso spese di missione</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "indirizzo_di_residenza",
+      "label" : "Indirizzo di residenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"indirizzo_di_residenza\">",
+      "type" : "text"
+    }, {
+      "id" : "importo_totale_missione_€",
+      "label" : "importo totale missione €",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"importo_totale_missione_€\">",
+      "type" : "text"
+    }, {
+      "id" : "chiede_il_rimborso_delle_spese_sostenute",
+      "label" : "CHIEDE IL RIMBORSO DELLE SPESE SOSTENUTE",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"chiede_il_rimborso_delle_spese_sostenute\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "mediante_bonifico_bancario_-_codice_iban",
+      "label" : "MEDIANTE Bonifico bancario - Codice IBAN",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"mediante_bonifico_bancario_-_codice_iban\">",
+      "type" : "text"
+    }, {
+      "id" : "fondi",
+      "label" : "FONDI",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"fondi\">",
+      "type" : "text"
+    }, {
+      "id" : "il_titolare",
+      "label" : "IL TITOLARE",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_titolare\">",
+      "type" : "text"
+    }, {
+      "id" : "itinerari",
+      "label" : "Itinerari",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-itinerari\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_itinerari-NNNNN-mezzo_di_trasporto\">Mezzo di trasporto:</label></th>\n    <td>\n      \n      <select name=\"itinerari-NNNNN-mezzo_di_trasporto\" id=\"id_itinerari-NNNNN-mezzo_di_trasporto\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Aereo\">Aereo</option>\n\n  <option value=\"Treno\">Treno</option>\n\n  <option value=\"Autobus\">Autobus</option>\n\n  <option value=\"Mezzo proprio\">Mezzo proprio</option>\n\n  <option value=\"Mezzo a noleggio\">Mezzo a noleggio</option>\n\n  <option value=\"Nave\">Nave</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_itinerari-NNNNN-partenza_da_a\">Partenza da a:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"itinerari-NNNNN-partenza_da_a\" id=\"id_itinerari-NNNNN-partenza_da_a\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_itinerari-NNNNN-data_partenza\">Data partenza:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"itinerari-NNNNN-data_partenza\" id=\"id_itinerari-NNNNN-data_partenza\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_itinerari-NNNNN-ora_partenza\">Ora partenza:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"itinerari-NNNNN-ora_partenza\" id=\"id_itinerari-NNNNN-ora_partenza\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_itinerari-NNNNN-ritorno_da__a\">Ritorno da  a:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"itinerari-NNNNN-ritorno_da__a\" id=\"id_itinerari-NNNNN-ritorno_da__a\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_itinerari-NNNNN-data_arrivo\">Data arrivo:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"itinerari-NNNNN-data_arrivo\" id=\"id_itinerari-NNNNN-data_arrivo\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_itinerari-NNNNN-ora_arrivo\">Ora arrivo:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"itinerari-NNNNN-ora_arrivo\" id=\"id_itinerari-NNNNN-ora_arrivo\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-itinerari-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"itinerari-TOTAL_FORMS\" value=\"1\" id=\"id_itinerari-TOTAL_FORMS\"><input type=\"hidden\" name=\"itinerari-INITIAL_FORMS\" value=\"0\" id=\"id_itinerari-INITIAL_FORMS\"><input type=\"hidden\" name=\"itinerari-MIN_NUM_FORMS\" value=\"1\" id=\"id_itinerari-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"itinerari-MAX_NUM_FORMS\" value=\"1000\" id=\"id_itinerari-MAX_NUM_FORMS\">\n\n<div class=\"form-container\">\n    <div class=\"row form-row spacer\">\n        <div class=\"col\">\n            <div class=\"input-group\">\n                <div class=\"table-responsive\">\n                    <table class=\"table table-bordered formset-table\">\n                        <tr>\n    <th><label for=\"id_itinerari-0-mezzo_di_trasporto\">Mezzo di trasporto:</label></th>\n    <td>\n      \n      <select name=\"itinerari-0-mezzo_di_trasporto\" id=\"id_itinerari-0-mezzo_di_trasporto\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Aereo\">Aereo</option>\n\n  <option value=\"Treno\">Treno</option>\n\n  <option value=\"Autobus\">Autobus</option>\n\n  <option value=\"Mezzo proprio\">Mezzo proprio</option>\n\n  <option value=\"Mezzo a noleggio\">Mezzo a noleggio</option>\n\n  <option value=\"Nave\">Nave</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_itinerari-0-partenza_da_a\">Partenza da a:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"itinerari-0-partenza_da_a\" id=\"id_itinerari-0-partenza_da_a\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_itinerari-0-data_partenza\">Data partenza:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"itinerari-0-data_partenza\" id=\"id_itinerari-0-data_partenza\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_itinerari-0-ora_partenza\">Ora partenza:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"itinerari-0-ora_partenza\" id=\"id_itinerari-0-ora_partenza\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_itinerari-0-ritorno_da__a\">Ritorno da  a:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"itinerari-0-ritorno_da__a\" id=\"id_itinerari-0-ritorno_da__a\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_itinerari-0-data_arrivo\">Data arrivo:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"itinerari-0-data_arrivo\" id=\"id_itinerari-0-data_arrivo\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_itinerari-0-ora_arrivo\">Ora arrivo:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"itinerari-0-ora_arrivo\" id=\"id_itinerari-0-ora_arrivo\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                    </table>\n                </div>\n            </div>\n            <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-itinerari-0\">\n                <svg class=\"icon icon-xs icon-white\">\n                    <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                </svg> Rimuovi inserimento\n            </button>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-itinerari\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "note",
+      "label" : "Note",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"note\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "caricamento_file_singoli",
+      "label" : "caricamento file singoli",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-caricamento_file_singoli\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_caricamento_file_singoli-NNNNN-file_da_allegare\">File da allegare:</label></th>\n    <td>\n      \n      <input type=\"file\" name=\"caricamento_file_singoli-NNNNN-file_da_allegare\" id=\"id_caricamento_file_singoli-NNNNN-file_da_allegare\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-caricamento_file_singoli-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"caricamento_file_singoli-TOTAL_FORMS\" value=\"0\" id=\"id_caricamento_file_singoli-TOTAL_FORMS\"><input type=\"hidden\" name=\"caricamento_file_singoli-INITIAL_FORMS\" value=\"0\" id=\"id_caricamento_file_singoli-INITIAL_FORMS\"><input type=\"hidden\" name=\"caricamento_file_singoli-MIN_NUM_FORMS\" value=\"0\" id=\"id_caricamento_file_singoli-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"caricamento_file_singoli-MAX_NUM_FORMS\" value=\"1000\" id=\"id_caricamento_file_singoli-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-caricamento_file_singoli\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "inserire_tutti_i_biglietti_di_viaggio_in_un_unico_file.",
+      "label" : "Inserire tutti i Biglietti di viaggio in un unico file.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"inserire_tutti_i_biglietti_di_viaggio_in_un_unico_file.\">",
+      "type" : "file"
+    }, {
+      "id" : "inserire_tutte_le_ricevute_fatture_albergo_in_un_unico_file.",
+      "label" : "Inserire tutte le Ricevute/Fatture albergo in un unico file.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"inserire_tutte_le_ricevute_fatture_albergo_in_un_unico_file.\">",
+      "type" : "file"
+    }, {
+      "id" : "inserire_tutte_le_ricevute_fatture_pasti_in_un_unico_file",
+      "label" : "Inserire tutte le Ricevute/Fatture pasti in un unico file",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"inserire_tutte_le_ricevute_fatture_pasti_in_un_unico_file\">",
+      "type" : "file"
+    }, {
+      "id" : "allegare_la_ricevuta_quota_iscrizione",
+      "label" : "Allegare la ricevuta quota iscrizione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegare_la_ricevuta_quota_iscrizione\">",
+      "type" : "file"
+    }, {
+      "id" : "inserire_tutte_le_ricevute_taxi_in_un_unico_file.",
+      "label" : "Inserire tutte le Ricevute taxi in un unico file.",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"inserire_tutte_le_ricevute_taxi_in_un_unico_file.\">",
+      "type" : "file"
+    }, {
+      "id" : "parcheggio;_mezzo_proprio",
+      "label" : "Parcheggio; (mezzo proprio)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"parcheggio;_mezzo_proprio\">",
+      "type" : "file"
+    }, {
+      "id" : "pedaggio_mezzo_proprio",
+      "label" : "Pedaggio (mezzo proprio)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"pedaggio_mezzo_proprio\">",
+      "type" : "file"
+    }, {
+      "id" : "altro",
+      "label" : "Altro",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"altro\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

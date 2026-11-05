@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:22.498124Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/demacs/assegnazione-attivita-del-demacs-pta-settore-didattica/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

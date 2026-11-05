@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:49.883378Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dibest/richiesta-di-passaggio-di-corso-di-laurea-fuori-termine/ticket/new/",
+  "jsonBody" : {
+    "detail" : "E' possibile inoltrare la richiesta di passaggio dal 1° agosto al 10 settembre.",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

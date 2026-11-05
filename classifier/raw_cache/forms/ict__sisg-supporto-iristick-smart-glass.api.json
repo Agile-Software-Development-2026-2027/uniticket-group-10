@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:21.517662Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/sisg-supporto-iristick-smart-glass/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

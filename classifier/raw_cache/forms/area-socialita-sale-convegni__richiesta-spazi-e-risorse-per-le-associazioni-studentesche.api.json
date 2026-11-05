@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:06.040665Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/area-socialita-sale-convegni/richiesta-spazi-e-risorse-per-le-associazioni-studentesche/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Modulo disattivato: la richiesta è fuori dai termini previsti dall'Avviso",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

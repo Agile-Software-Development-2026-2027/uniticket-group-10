@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:14.978265Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/s-sondaggi-creazione-account-piattaforma-sondaggi-dateneo/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

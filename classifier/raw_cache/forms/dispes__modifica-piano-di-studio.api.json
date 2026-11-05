@@ -1,0 +1,123 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:13.900386Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dispes/modifica-piano-di-studio/ticket/new/",
+  "jsonBody" : {
+    "name" : "Modifica Piano di Studio",
+    "description" : "Richiesta di modifica del piano di studio",
+    "protocol_required" : true,
+    "slug" : "modifica-piano-di-studio",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Modifica Piano di Studio",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Modifica Piano di Studio\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta di modifica del piano di studio",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta di modifica del piano di studio</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "tipologia_di_richiesta",
+      "label" : "Tipologia di richiesta",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"tipologia_di_richiesta\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Studente fuori corso\">Studente fuori corso</option>\n\n  <option value=\" Piano di studio individuale (es. riconoscimento erasmus)\"> Piano di studio individuale (es. riconoscimento erasmus)</option>\n\n  <option value=\"Cambio percorso\">Cambio percorso</option>\n\n  <option value=\"Iscrizione LM &quot;in ipotesi&quot;\">Iscrizione LM &quot;in ipotesi&quot;</option>\n\n  <option value=\"\"></option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "il_la_sottoscritto_a_[nome_e_cognome]",
+      "label" : "Il/la sottoscritto/a [nome e cognome]",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"il_la_sottoscritto_a_[nome_e_cognome]\">",
+      "type" : "text"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"matricola\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "insegnamenti_da_sostituire",
+      "label" : "Insegnamenti da sostituire",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-insegnamenti_da_sostituire\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_insegnamenti_da_sostituire-NNNNN-insegnamento_presente_in_piano\">Insegnamento presente in piano:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti_da_sostituire-NNNNN-insegnamento_presente_in_piano\" id=\"id_insegnamenti_da_sostituire-NNNNN-insegnamento_presente_in_piano\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti_da_sostituire-NNNNN-insegnamento_che_si_intende_inserire_in_piano\">Insegnamento che si intende inserire in piano:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti_da_sostituire-NNNNN-insegnamento_che_si_intende_inserire_in_piano\" id=\"id_insegnamenti_da_sostituire-NNNNN-insegnamento_che_si_intende_inserire_in_piano\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-insegnamenti_da_sostituire-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"insegnamenti_da_sostituire-TOTAL_FORMS\" value=\"1\" id=\"id_insegnamenti_da_sostituire-TOTAL_FORMS\"><input type=\"hidden\" name=\"insegnamenti_da_sostituire-INITIAL_FORMS\" value=\"0\" id=\"id_insegnamenti_da_sostituire-INITIAL_FORMS\"><input type=\"hidden\" name=\"insegnamenti_da_sostituire-MIN_NUM_FORMS\" value=\"1\" id=\"id_insegnamenti_da_sostituire-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"insegnamenti_da_sostituire-MAX_NUM_FORMS\" value=\"1000\" id=\"id_insegnamenti_da_sostituire-MAX_NUM_FORMS\">\n\n<div class=\"form-container\">\n    <div class=\"row form-row spacer\">\n        <div class=\"col\">\n            <div class=\"input-group\">\n                <div class=\"table-responsive\">\n                    <table class=\"table table-bordered formset-table\">\n                        <tr>\n    <th><label for=\"id_insegnamenti_da_sostituire-0-insegnamento_presente_in_piano\">Insegnamento presente in piano:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti_da_sostituire-0-insegnamento_presente_in_piano\" id=\"id_insegnamenti_da_sostituire-0-insegnamento_presente_in_piano\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_insegnamenti_da_sostituire-0-insegnamento_che_si_intende_inserire_in_piano\">Insegnamento che si intende inserire in piano:</label></th>\n    <td>\n      \n      <input type=\"text\" name=\"insegnamenti_da_sostituire-0-insegnamento_che_si_intende_inserire_in_piano\" id=\"id_insegnamenti_da_sostituire-0-insegnamento_che_si_intende_inserire_in_piano\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                    </table>\n                </div>\n            </div>\n            <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-insegnamenti_da_sostituire-0\">\n                <svg class=\"icon icon-xs icon-white\">\n                    <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                </svg> Rimuovi inserimento\n            </button>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-insegnamenti_da_sostituire\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "eventuali_note_aggiuntive",
+      "label" : "Eventuali note aggiuntive",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"eventuali_note_aggiuntive\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

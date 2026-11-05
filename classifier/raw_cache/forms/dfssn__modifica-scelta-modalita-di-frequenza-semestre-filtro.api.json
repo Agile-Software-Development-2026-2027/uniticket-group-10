@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:14.298162Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dfssn/modifica-scelta-modalita-di-frequenza-semestre-filtro/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

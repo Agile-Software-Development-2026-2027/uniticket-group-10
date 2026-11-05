@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:18.234561Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/siad-missioni-richiesta-assistenza/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

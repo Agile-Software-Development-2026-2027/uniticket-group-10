@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:52.355748Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/demacs/richiesta-di-trasferimento-da-altro-ateneo-non-sfp-a-scienze-della-formazione-primaria/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Richiesta di trasferimento da altro Ateneo (non SFP) a Scienze della Formazione Primaria. Il modulo sarà attivo dopo la pubblicazione del bando di ammissione 2026/2027",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

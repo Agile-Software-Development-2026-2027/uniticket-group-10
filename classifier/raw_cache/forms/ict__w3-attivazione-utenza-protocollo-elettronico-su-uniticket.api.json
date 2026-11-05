@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:38.396542Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/w3-attivazione-utenza-protocollo-elettronico-su-uniticket/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

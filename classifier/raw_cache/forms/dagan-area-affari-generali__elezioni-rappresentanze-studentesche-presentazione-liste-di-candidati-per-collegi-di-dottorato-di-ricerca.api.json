@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:56.659657Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dagan-area-affari-generali/elezioni-rappresentanze-studentesche-presentazione-liste-di-candidati-per-collegi-di-dottorato-di-ricerca/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Il modulo non è attivo",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

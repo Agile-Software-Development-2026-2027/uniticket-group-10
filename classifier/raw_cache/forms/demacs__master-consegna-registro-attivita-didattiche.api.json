@@ -1,0 +1,156 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:11.960496Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/demacs/master-consegna-registro-attivita-didattiche/ticket/new/",
+  "jsonBody" : {
+    "name" : "Master - Consegna registro attività didattiche",
+    "description" : "Consegna registro delle ore frontali svolte presso i Master attivati dal Dipartimento di Matematica e Informatica.",
+    "protocol_required" : true,
+    "slug" : "master-consegna-registro-attivita-didattiche",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 825,
+      "fields" : {
+        "category" : 799,
+        "title" : "Note Operative",
+        "text" : "Alla presente deve essere **obbligatoriamente** allegato il registro compilato e sottoscritto secondo il format riportato di seguito.\r\n\r\n[Scarica modello](https://docs.google.com/document/d/1H-EXRXV3ZEmxXyuzfatkUVapbb5CNU6_/edit?usp=sharing&ouid=108253050341282363798&rtpof=true&sd=true)",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 826,
+      "fields" : {
+        "category" : 799,
+        "title" : "Autocertificazione",
+        "text" : "Consapevole delle sanzioni penali in caso di dichiarazioni non veritiere, di formazioni o di uso di atti falsi, come richiamate dall’art. 76 del D.P.R. 28 dicembre 2000 n. 445 e delle conseguenze di cui all’art. 20, co. 5 del D. Lgs. n. 39/ 2013, in caso di dichiarazioni mendaci,\r\n\r\n**DICHIARA**\r\n\r\nche quanto riportato nella presente richiesta corrisponde a verità.",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Master - Consegna registro attività didattiche",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Master - Consegna registro attività didattiche\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Consegna registro delle ore frontali svolte presso i Master attivati dal Dipartimento di Matematica e Informatica.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nConsegna registro delle ore frontali svolte presso i Master attivati dal Dipartimento di Matematica e Informatica.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "destinatario",
+      "label" : "Destinatario",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"destinatario\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "email",
+      "label" : "Email",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"email\">",
+      "type" : "text"
+    }, {
+      "id" : "registro_lezioni_master",
+      "label" : "Registro lezioni Master",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Utilizzare il format per come indicato nelle Note Operative della parte iniziale del presente modulo.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"registro_lezioni_master\">",
+      "type" : "file"
+    }, {
+      "id" : "documento_di_riconoscimento_fronte_retro",
+      "label" : "Documento di riconoscimento (Fronte/Retro)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"documento_di_riconoscimento_fronte_retro\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

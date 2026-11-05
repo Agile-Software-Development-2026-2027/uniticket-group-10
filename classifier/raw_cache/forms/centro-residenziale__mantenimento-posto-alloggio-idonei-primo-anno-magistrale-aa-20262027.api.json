@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:10.804065Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/centro-residenziale/mantenimento-posto-alloggio-idonei-primo-anno-magistrale-aa-20262027/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

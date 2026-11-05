@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:56.269577Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dagan-area-affari-generali/elezioni-rappresentanze-studentesche-designazione-rappresentanti-di-lista-nei-seggi/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Il modulo non è attivo",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:38.983832Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/centro-residenziale/x-autocertificazione-per-rimborso-spese-di-viaggio-aa-20242025-studenti-idonei-di-borsa-con-alloggio-preso-in-consegna-in-data-successiva-al-giorno-08-novembre-2024/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

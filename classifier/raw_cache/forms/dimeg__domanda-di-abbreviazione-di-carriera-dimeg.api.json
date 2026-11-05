@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:44.388506Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dimeg/domanda-di-abbreviazione-di-carriera-dimeg/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Il modulo sarà disponibile dal 1° luglio al 31 agosto 2026",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

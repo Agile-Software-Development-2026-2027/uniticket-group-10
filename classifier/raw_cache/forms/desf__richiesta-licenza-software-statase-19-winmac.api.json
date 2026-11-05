@@ -1,0 +1,105 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:58.664555Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/desf/richiesta-licenza-software-statase-19-winmac/ticket/new/",
+  "jsonBody" : {
+    "name" : "RIchiesta licenza software STATA/SE 19 Win/Mac",
+    "description" : "",
+    "protocol_required" : false,
+    "slug" : "richiesta-licenza-software-statase-19-winmac",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 252,
+      "fields" : {
+        "category" : 237,
+        "title" : "Licenza e Software",
+        "text" : "Dichiaro di non cedere a terzi la licenza di attivazione che sarà fornita nè alcun altro dato necessario al download e attivazione.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "RIchiesta licenza software STATA/SE 19 Win/Mac",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"RIchiesta licenza software STATA/SE 19 Win/Mac\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "corso_di_studio",
+      "label" : "Corso di studio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"corso_di_studio\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Economia\">Economia</option>\n\n  <option value=\"Economia e Commercio\">Economia e Commercio</option>\n\n  <option value=\"Finance and Insurance\">Finance and Insurance</option>\n\n  <option value=\"Statistica per Data Science\">Statistica per Data Science</option>\n\n  <option value=\"Statistica per l&#x27;Azienda\">Statistica per l&#x27;Azienda</option>\n\n  <option value=\"Data Science per le Strategie Aziendali\">Data Science per le Strategie Aziendali</option>\n\n  <option value=\"Statistica e Informatica per le Decisioni e le Analisi di Mercato\">Statistica e Informatica per le Decisioni e le Analisi di Mercato</option>\n\n  <option value=\"Altro (solo se dottorando, assegnista di Ricerca, cultore della materia, tutor)\">Altro (solo se dottorando, assegnista di Ricerca, cultore della materia, tutor)</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "versione_del_software_stata_richiesto",
+      "label" : "Versione del Software Stata richiesto",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"versione_del_software_stata_richiesto\" value=\"Versione Windows\">\n\n            \n            <label\n            >\n                Versione Windows\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"versione_del_software_stata_richiesto\" value=\"Versione Mac\">\n\n            \n            <label\n            >\n                Versione Mac\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    } ]
+  },
+  "rawTextBody" : null
+}

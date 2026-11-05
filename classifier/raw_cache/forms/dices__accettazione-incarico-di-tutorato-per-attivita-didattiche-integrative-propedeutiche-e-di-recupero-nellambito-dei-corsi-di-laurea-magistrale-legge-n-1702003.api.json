@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:20.521325Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dices/accettazione-incarico-di-tutorato-per-attivita-didattiche-integrative-propedeutiche-e-di-recupero-nellambito-dei-corsi-di-laurea-magistrale-legge-n-1702003/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

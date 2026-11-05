@@ -1,0 +1,241 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:00.664169Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dispes/richiesta-per-il-rilascio-di-certificazione-di-carriera-universitaria/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta per il rilascio di certificazione di carriera universitaria",
+    "description" : "Richiesta per il rilascio di certificazione di carriera universitaria",
+    "protocol_required" : true,
+    "slug" : "richiesta-per-il-rilascio-di-certificazione-di-carriera-universitaria",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 784,
+      "fields" : {
+        "category" : 752,
+        "title" : "Informativa sul trattamento dei dati personali",
+        "text" : "I dati personali saranno trattati, anche con strumenti informatici, per fini amministrativi e didattici unicamente per la gestione della presente procedura di competenza del Settore Didattica, nel rispetto della normativa vigente in materia di protezione dei dati (Regolamento (UE) 2016/679 del Parlamento Europeo e del Consiglio del 27 aprile 2016 – “RGPD Regolamento Generale per la Protezione dei Dati” informativa completa su http://www.unical.it/portale/ateneo/privacy/)",
+        "ordinamento" : 12,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta per il rilascio di certificazione di carriera universitaria",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta per il rilascio di certificazione di carriera universitaria\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Richiesta per il rilascio di certificazione di carriera universitaria",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nRichiesta per il rilascio di certificazione di carriera universitaria</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "cognome_e_nome",
+      "label" : "Cognome e nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome_e_nome\">",
+      "type" : "text"
+    }, {
+      "id" : "luogo_di_nascita",
+      "label" : "Luogo di nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"luogo_di_nascita\">",
+      "type" : "text"
+    }, {
+      "id" : "provincia",
+      "label" : "Provincia",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"provincia\">",
+      "type" : "text"
+    }, {
+      "id" : "data_di_nascita",
+      "label" : "Data di nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_di_nascita\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "codice_fiscale",
+      "label" : "Codice fiscale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_fiscale\">",
+      "type" : "text"
+    }, {
+      "id" : "recapito_telefonico",
+      "label" : "Recapito telefonico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"recapito_telefonico\">",
+      "type" : "text"
+    }, {
+      "id" : "indirizzo_e-mail",
+      "label" : "Indirizzo e-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"indirizzo_e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "iscritto_a_o_laureato_a",
+      "label" : "Iscritto/a o laureato/a",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"iscritto_a_o_laureato_a\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Iscritto/a\">Iscritto/a</option>\n\n  <option value=\"Laureato/a\">Laureato/a</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "corso_di_studio",
+      "label" : "Corso di Studio",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"corso_di_studio\">",
+      "type" : "text"
+    }, {
+      "id" : "il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato",
+      "label" : "il rilascio del/dei seguente/i certificato/i nel numero di copie indicato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-NNNNN-tipologia\">Tipologia:</label></th>\n    <td>\n      \n      <select name=\"il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-NNNNN-tipologia\" id=\"id_il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-NNNNN-tipologia\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"iscrizione\">iscrizione</option>\n\n  <option value=\"iscrizione con esami\">iscrizione con esami</option>\n\n  <option value=\"iscrizione con anni accademici\">iscrizione con anni accademici</option>\n\n  <option value=\"iscrizione con anni accademici ed esami\">iscrizione con anni accademici ed esami</option>\n\n  <option value=\"di laurea\">di laurea</option>\n\n  <option value=\"di laurea con esami\">di laurea con esami</option>\n\n  <option value=\"di laurea con esami, relatore e titolo della tesi\">di laurea con esami, relatore e titolo della tesi</option>\n\n  <option value=\"di iscrizione a corsi singoli\">di iscrizione a corsi singoli</option>\n\n  <option value=\"di diploma supplement - non è richiesta alcuna marca da bollo\">di diploma supplement - non è richiesta alcuna marca da bollo</option>\n\n  <option value=\"di rinuncia agli studi con esami\">di rinuncia agli studi con esami</option>\n\n  <option value=\"di decadenza con esami\">di decadenza con esami</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-NNNNN-numero_di_copie\">Numero di copie:</label></th>\n    <td>\n      \n      <input type=\"number\" name=\"il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-NNNNN-numero_di_copie\" step=\"1\" id=\"id_il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-NNNNN-numero_di_copie\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-TOTAL_FORMS\" value=\"1\" id=\"id_il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-TOTAL_FORMS\"><input type=\"hidden\" name=\"il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-INITIAL_FORMS\" value=\"0\" id=\"id_il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-INITIAL_FORMS\"><input type=\"hidden\" name=\"il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-MIN_NUM_FORMS\" value=\"1\" id=\"id_il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-MAX_NUM_FORMS\" value=\"1000\" id=\"id_il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-MAX_NUM_FORMS\">\n\n<div class=\"form-container\">\n    <div class=\"row form-row spacer\">\n        <div class=\"col\">\n            <div class=\"input-group\">\n                <div class=\"table-responsive\">\n                    <table class=\"table table-bordered formset-table\">\n                        <tr>\n    <th><label for=\"id_il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-0-tipologia\">Tipologia:</label></th>\n    <td>\n      \n      <select name=\"il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-0-tipologia\" id=\"id_il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-0-tipologia\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"iscrizione\">iscrizione</option>\n\n  <option value=\"iscrizione con esami\">iscrizione con esami</option>\n\n  <option value=\"iscrizione con anni accademici\">iscrizione con anni accademici</option>\n\n  <option value=\"iscrizione con anni accademici ed esami\">iscrizione con anni accademici ed esami</option>\n\n  <option value=\"di laurea\">di laurea</option>\n\n  <option value=\"di laurea con esami\">di laurea con esami</option>\n\n  <option value=\"di laurea con esami, relatore e titolo della tesi\">di laurea con esami, relatore e titolo della tesi</option>\n\n  <option value=\"di iscrizione a corsi singoli\">di iscrizione a corsi singoli</option>\n\n  <option value=\"di diploma supplement - non è richiesta alcuna marca da bollo\">di diploma supplement - non è richiesta alcuna marca da bollo</option>\n\n  <option value=\"di rinuncia agli studi con esami\">di rinuncia agli studi con esami</option>\n\n  <option value=\"di decadenza con esami\">di decadenza con esami</option>\n\n</select>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-0-numero_di_copie\">Numero di copie:</label></th>\n    <td>\n      \n      <input type=\"number\" name=\"il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-0-numero_di_copie\" step=\"1\" id=\"id_il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-0-numero_di_copie\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                    </table>\n                </div>\n            </div>\n            <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato-0\">\n                <svg class=\"icon icon-xs icon-white\">\n                    <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                </svg> Rimuovi inserimento\n            </button>\n        </div>\n    </div>\n</div>\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-il_rilascio_del_dei_seguente_i_certificato_i_nel_numero_di_copie_indicato\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "nel_caso_di_richiesta_in_carta_libera_indicarne_l’uso_e_la_disposizione_di_legge_che_ne_prevede_l’esenzione",
+      "label" : "Nel caso di richiesta in carta libera indicarne l’uso e la disposizione di legge che ne prevede l’esenzione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nel_caso_di_richiesta_in_carta_libera_indicarne_l’uso_e_la_disposizione_di_legge_che_ne_prevede_l’esenzione\">",
+      "type" : "text"
+    } ]
+  },
+  "rawTextBody" : null
+}

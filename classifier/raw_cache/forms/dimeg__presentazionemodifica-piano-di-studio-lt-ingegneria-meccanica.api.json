@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:23.425080Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dimeg/presentazionemodifica-piano-di-studio-lt-ingegneria-meccanica/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

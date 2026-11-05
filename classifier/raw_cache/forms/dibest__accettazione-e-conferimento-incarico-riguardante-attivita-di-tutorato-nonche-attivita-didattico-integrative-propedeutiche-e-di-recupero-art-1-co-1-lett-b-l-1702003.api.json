@@ -1,0 +1,343 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:18.355568Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dibest/accettazione-e-conferimento-incarico-riguardante-attivita-di-tutorato-nonche-attivita-didattico-integrative-propedeutiche-e-di-recupero-art-1-co-1-lett-b-l-1702003/ticket/new/",
+  "jsonBody" : {
+    "name" : "Accettazione e Conferimento incarico riguardante attività di tutorato, nonché attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)",
+    "description" : "Accettazione e Conferimento incarico riguardante attività di tutorato, nonché attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)",
+    "protocol_required" : true,
+    "slug" : "accettazione-e-conferimento-incarico-riguardante-attivita-di-tutorato-nonche-attivita-didattico-integrative-propedeutiche-e-di-recupero-art-1-co-1-lett-b-l-1702003",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 681,
+      "fields" : {
+        "category" : 648,
+        "title" : "ATTENZIONE! GUIDA ALLA COMPILAZIONE",
+        "text" : "**ATTENZIONE! Spuntare la casella posta in alto in corrispondenza della voce \"Dichiarazione di Responsabilità\".**\r\n\r\n**E' disponibile una guida sia per la compilazione del modulo che per gli adempimenti successivi [cliccando qui](https://drive.google.com/file/d/1D8pKoM1zQpRDWkDdJeSBYWLolQyloyZn/view?usp=sharing).**\r\n\r\nAl presente modulo devono essere allegati i seguenti documenti:\r\n\r\n* **Lettera di incarico** [compilabile qui](https://form.jotform.com/261404460207346). Compilare i campi richiesti, scaricare il file pdf in allegato alla mail di conferma che riceverà dopo l'invio del modulo  e allegarlo al ticket (come da guida).\r\n\r\n* **Dichiarazione di collaborazione individuale**  [scaricabile qui](https://docs.google.com/document/d/1j9rMdVd1qRUeio5XUPFjDhky15qOLFHh/). Il documento deve essere compilato, firmato e allegato al modulo. (Come da guida)\r\n\r\n* **Autorizzazione Collegio Docenti Dottorato** (solo per gli iscritti al Dottorato di Ricerca). Se non disponibile al momento dell'invio del modulo, è possibile caricare l'autorizzazione del collegio docenti del dottorato di ricerca in un secondo momento tramite la sezione \"messaggi\". (Come da guida)",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 682,
+      "fields" : {
+        "category" : 648,
+        "title" : "DOCUMENTAZIONE PER ADEMPIMENTI SUCCESSIVI",
+        "text" : "**E' disponibile una guida sia per la compilazione del modulo che per gli adempimenti successivi [cliccando qui](https://drive.google.com/file/d/1RwR1ErenbbZG8IkxXV7ZKjBTVrPzZdjH/view?usp=sharing).**\r\n\r\nAl termine delle attività di tutoraggio:\r\n\r\n* accedere al ticket secondo le indicazioni presenti nella guida;\r\n* compilare il registro delle attività [disponibile qui](https://docs.google.com/document/d/1RP4iTLFWdmARPxz5t7ajay9-PnKDU2Q8/);\r\n* compilare il documento di fine attività [disponibile qui](https://docs.google.com/document/d/1RUCuiVnghjR8IVBnKN4NTUO6WO9yq0VX/edit?usp=sharing&ouid=102914102078024712101&rtpof=true&sd=true), inviarlo al docente responsabile dell’attività che provvederà a firmarlo digitalmente;\r\n* caricare entrambi i documenti (di cui ai punti 2 e 3) sul ticket tramite la funzione messaggi (pulsante in alto a sinistra)",
+        "ordinamento" : 1,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    }, {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 680,
+      "fields" : {
+        "category" : 648,
+        "title" : "Dichiarazione di Responsabilità",
+        "text" : "Dichiara di essere a conoscenza della responsabilità penali cui va incontro in caso di dichiarazione mendace, reticente o contenenti dati non rispondenti a verità (art. 483 c.p., art. 495 c.p., art 640 c.p. e art 76 D.P.R. n. 445/2000)",
+        "ordinamento" : 2,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Accettazione e Conferimento incarico riguardante attività di tutorato, nonché attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Accettazione e Conferimento incarico riguardante attività di tutorato, nonché attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)\" maxlength=\"255\" minlength=\"20\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Accettazione e Conferimento incarico riguardante attività di tutorato, nonché attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nAccettazione e Conferimento incarico riguardante attività di tutorato, nonché attività didattico integrative, propedeutiche e di recupero (ART. 1 Co. 1°, lett. b) L. 170/2003)</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "al_direttore_del_dipartimento",
+      "label" : "AL Direttore del Dipartimento",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"al_direttore_del_dipartimento\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "anno_accademico",
+      "label" : "Anno Accademico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"anno_accademico\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "luogo_di_nascita",
+      "label" : "Luogo di Nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Città e Provincia",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"luogo_di_nascita\">",
+      "type" : "text"
+    }, {
+      "id" : "data_di_nascita",
+      "label" : "Data di Nascita",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"data_di_nascita\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "residente_in",
+      "label" : "Residente in",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare via e numero civico",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"residente_in\">",
+      "type" : "text"
+    }, {
+      "id" : "cap",
+      "label" : "CAP",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cap\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "città",
+      "label" : "Città",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare città e provincia",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"città\">",
+      "type" : "text"
+    }, {
+      "id" : "cellulare",
+      "label" : "Cellulare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"cellulare\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "e-mail",
+      "label" : "E-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "profili",
+      "label" : "Profili",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "\n\n\n\n<div id=\"formset-template-profili\" style=\"display:none;\" generic_id=\"NNNNN\">\n    <div class=\"form-container\">\n        <div class=\"row form-row spacer\">\n            <div class=\"col\">\n                <div class=\"input-group\">\n                    <div class=\"table-responsive\">\n                        <table class=\"table table-bordered formset-table\">\n                            <tr>\n    <th><label for=\"id_profili-NNNNN-dichiara_di_accettare_i_seguenti_incarichi_di_attività_di_tutorato_nonché_attività_didattico_integrative_propedeutiche_e_di_recupero\">Dichiara di accettare i seguenti incarichi di attività di tutorato nonché attività didattico integrative propedeutiche e di recupero:</label></th>\n    <td>\n      \n      <input type=\"checkbox\" name=\"profili-NNNNN-dichiara_di_accettare_i_seguenti_incarichi_di_attività_di_tutorato_nonché_attività_didattico_integrative_propedeutiche_e_di_recupero\" id=\"id_profili-NNNNN-dichiara_di_accettare_i_seguenti_incarichi_di_attività_di_tutorato_nonché_attività_didattico_integrative_propedeutiche_e_di_recupero\">\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label>Profilo:</label></th>\n    <td>\n      \n      <div id=\"id_profili-NNNNN-profilo\"><div>\n    <label for=\"id_profili-NNNNN-profilo_0\"><input type=\"checkbox\" name=\"profili-NNNNN-profilo\" value=\"PROFILO A - CdL in Biologia e Scienze e Tecnologie biologiche conferito con D.D. n. 251 del 05.06.2026 per un totale di 16 ore e un importo di 322.58 euro\" id=\"id_profili-NNNNN-profilo_0\">\n PROFILO A - CdL in Biologia e Scienze e Tecnologie biologiche conferito con D.D. n. 251 del 05.06.2026 per un totale di 16 ore e un importo di 322.58 euro</label>\n\n</div><div>\n    <label for=\"id_profili-NNNNN-profilo_1\"><input type=\"checkbox\" name=\"profili-NNNNN-profilo\" value=\"PROFILO B - CdL in Scienze Naturali e Ambientali conferito con D.D. n. 251 del 05.06.2026 per un totale di 15 ore e un importo di 302.42 euro\" id=\"id_profili-NNNNN-profilo_1\">\n PROFILO B - CdL in Scienze Naturali e Ambientali conferito con D.D. n. 251 del 05.06.2026 per un totale di 15 ore e un importo di 302.42 euro</label>\n\n</div><div>\n    <label for=\"id_profili-NNNNN-profilo_2\"><input type=\"checkbox\" name=\"profili-NNNNN-profilo\" value=\"PROFILO C - CdL in Scienze Geologiche conferito con D.D. 251 del 05.06.2026 per un totale di 11 ore e un importo di 221.77 euro\" id=\"id_profili-NNNNN-profilo_2\">\n PROFILO C - CdL in Scienze Geologiche conferito con D.D. 251 del 05.06.2026 per un totale di 11 ore e un importo di 221.77 euro</label>\n\n</div><div>\n    <label for=\"id_profili-NNNNN-profilo_3\"><input type=\"checkbox\" name=\"profili-NNNNN-profilo\" value=\"PROFILO D - CdL in Scienze e tecnologie per le attività motorie e sportive conferito con 251 del 05.06.2026 per un totale di 10 ore e un importo di 201.61 euro\" id=\"id_profili-NNNNN-profilo_3\">\n PROFILO D - CdL in Scienze e tecnologie per le attività motorie e sportive conferito con 251 del 05.06.2026 per un totale di 10 ore e un importo di 201.61 euro</label>\n\n</div><div>\n    <label for=\"id_profili-NNNNN-profilo_4\"><input type=\"checkbox\" name=\"profili-NNNNN-profilo\" value=\"PROFILO E - CdLMU in Conservazione e restauro dei beni culturali conferito con D.D. n. 251 del 05.06.2026 per un totale di 31.5 ore e un importo di 635.08 euro\" id=\"id_profili-NNNNN-profilo_4\">\n PROFILO E - CdLMU in Conservazione e restauro dei beni culturali conferito con D.D. n. 251 del 05.06.2026 per un totale di 31.5 ore e un importo di 635.08 euro</label>\n\n</div>\n</div>\n      \n      \n    </td>\n  </tr>\n\n  <tr>\n    <th><label for=\"id_profili-NNNNN-dichiaro_di_aver_contattato_il_docente_responsabile_delle_attività_selezionate\">Dichiaro di aver contattato il docente responsabile delle attività selezionate:</label></th>\n    <td>\n      \n      <input type=\"checkbox\" name=\"profili-NNNNN-dichiaro_di_aver_contattato_il_docente_responsabile_delle_attività_selezionate\" id=\"id_profili-NNNNN-dichiaro_di_aver_contattato_il_docente_responsabile_delle_attività_selezionate\">\n      \n      \n        \n      \n    </td>\n  </tr>\n                        </table>\n                    </div>\n                </div>\n                <button class=\"btn btn-danger btn-xs remove-form-row mb-4\" id=\"remove-profili-NNNNN\">\n                    <svg class=\"icon icon-xs icon-white\">\n                        <use xlink:href=\"/static/svg/sprites.svg#it-arrow-up-circle\"></use>\n                    </svg> Rimuovi inserimento\n                </button>\n            </div>\n        </div>\n    </div>\n</div>\n<input type=\"hidden\" name=\"profili-TOTAL_FORMS\" value=\"0\" id=\"id_profili-TOTAL_FORMS\"><input type=\"hidden\" name=\"profili-INITIAL_FORMS\" value=\"0\" id=\"id_profili-INITIAL_FORMS\"><input type=\"hidden\" name=\"profili-MIN_NUM_FORMS\" value=\"0\" id=\"id_profili-MIN_NUM_FORMS\"><input type=\"hidden\" name=\"profili-MAX_NUM_FORMS\" value=\"1000\" id=\"id_profili-MAX_NUM_FORMS\">\n\n\n<div class=\"input-group-append\">\n    <button id=\"add-form-profili\" class=\"btn btn-xs float-left btn-success add-form-row\">\n        <svg class=\"icon icon-xs icon-white\">\n            <use xlink:href=\"/static/svg/sprites.svg#it-plus-circle\"></use>\n        </svg>\n        Aggiungi inserimento\n    </button>\n</div>\n",
+      "type" : "textarea"
+    }, {
+      "id" : "periodo_attività",
+      "label" : "Periodo Attività",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"periodo_attività\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "allega_alla_presente",
+      "label" : "Allega alla presente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"hidden\" name=\"allega_alla_presente\" value=\"\">",
+      "type" : "hidden"
+    }, {
+      "id" : "lettera_incarico",
+      "label" : "Lettera Incarico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"lettera_incarico\">",
+      "type" : "file"
+    }, {
+      "id" : "dichiarazione_di_collaborazione_individuale",
+      "label" : "Dichiarazione di collaborazione individuale",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"dichiarazione_di_collaborazione_individuale\">",
+      "type" : "file"
+    }, {
+      "id" : "autorizzazione_collegio_docenti_dottorato_o_eventuali_altre_autorizzazioni",
+      "label" : "Autorizzazione Collegio Docenti Dottorato o eventuali altre autorizzazioni",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"autorizzazione_collegio_docenti_dottorato_o_eventuali_altre_autorizzazioni\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

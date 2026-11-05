@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:48.132448Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dices/domanda-di-riconoscimento-esamicfu-dices/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

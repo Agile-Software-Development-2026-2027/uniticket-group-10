@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:45.154048Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/ctc/domanda-di-abbreviazione-di-carrieraiscrizione-anni-successivi-dictc/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Modulo aperto dal 1 luglio al 31 agosto",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

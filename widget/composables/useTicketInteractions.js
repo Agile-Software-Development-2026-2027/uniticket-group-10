@@ -7,7 +7,7 @@ import {createAgentClient} from '../services/agent-client.js';
 
 export function useTicketInteractions(root, csrfToken) {
     const {gettext} = useI18n();
-    const client = createAgentClient(root.dataset.conversationUrl, csrfToken);
+    const client = createAgentClient(root.dataset.conversationUrl, csrfToken, () => threadId);
     const helpAction = shallowRef(null);
     const selectedCategory = ref(''), loadingCategory = ref(''), error = ref(''), failedRun = shallowRef(null);
     let disposed = false, active = null, generation = 0;

@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:17.549873Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/ict/a2-autenticazione-a-due-fattori/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Permesso negato a questa tipologia di utente",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

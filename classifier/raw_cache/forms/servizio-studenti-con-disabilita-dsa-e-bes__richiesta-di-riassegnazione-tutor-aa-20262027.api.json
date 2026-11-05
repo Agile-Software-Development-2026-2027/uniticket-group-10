@@ -1,0 +1,194 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:50.518118Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/servizio-studenti-con-disabilita-dsa-e-bes/richiesta-di-riassegnazione-tutor-aa-20262027/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta di Riassegnazione Tutor – A.A. 2026/2027",
+    "description" : "La presente richiesta di riassegnazione del tutor per l'Anno Accademico 2026/2027 è esclusivamente riservata a studenti e studentesse che hanno già partecipato e frequentato le attività di tutorato nel corso dell'Anno Accademico 2025/2026.",
+    "protocol_required" : false,
+    "slug" : "richiesta-di-riassegnazione-tutor-aa-20262027",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 895,
+      "fields" : {
+        "category" : 859,
+        "title" : "Informativa sull'uso dei dati personali da parte del Servizio Disabilità DSA dell’UniCal",
+        "text" : "Di seguito troverà alcune informazioni su come noi utilizziamo i Suoi dati personali nella gestione Delle prove di ammissione per i Corsi di laurea a numero programmato La invitiamo quindi a leggere con attenzione le seguenti informazioni prima di barrare le opzioni relative al consenso riportate sotto la presente finestra.\r\n\r\nFinalità dei trattamenti - I trattamenti dei dati personali che richiediamo agli utenti sono effettuati ai sensi dell'art. 6 lettera e) del regolamento UE 2016/679, per le seguenti finalità: a) utilizzo dei servizi telematici e di posta elettronica b) accesso ai laboratori e ad altre strutture c) invio di comunicazioni inerenti allo svolgimento delle prove; d) archiviazione e conservazione degli atti inerenti allo svolgimento delle prove;\r\n\r\nNecessità del trattamento. Per lo svolgimento delle prove è necessario e, in alcuni casi, obbligatorio per legge raccogliere ed utilizzare alcuni dati personali dell'utente senza necessità di acquisire il consenso dell'interessato. In assenza di tali dati il Servizio disabilità e DSA dell’UniCal non è in grado di fornire il servizio offerto.\r\n\r\nDiritti dell’interessato - Gli interessati hanno il diritto di ottenere dal Titolare del trattamento, nei casi previsti, l’accesso ai dati personali e la rettifica o la cancellazione degli stessi o la limitazione del trattamento che li riguarda o di opporsi al trattamento (artt. 15 e ss. del RGPD). Tali diritti sono esercitabili scrivendo al Titolare del trattamento. Se Lei è un minorenne, prima di comunicare i suoi dati all’Ateneo, Le chiediamo di leggere attentamente l’informativa insieme ai Suoi genitori o a chi ne fa le veci.\r\n\r\nUn’informativa con ulteriori dettagli è disponibile all’indirizzo unical.it/privacy.",
+        "ordinamento" : 10,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta di Riassegnazione Tutor – A.A. 2026/2027",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta di Riassegnazione Tutor – A.A. 2026/2027\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "La presente richiesta di riassegnazione del tutor per l'Anno Accademico 2026/2027 è esclusivamente riservata a studenti e studentesse che hanno già partecipato e frequentato le attività di tutorato nel corso dell'Anno Accademico 2025/2026.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nLa presente richiesta di riassegnazione del tutor per l&#x27;Anno Accademico 2026/2027 è esclusivamente riservata a studenti e studentesse che hanno già partecipato e frequentato le attività di tutorato nel corso dell&#x27;Anno Accademico 2025/2026.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "nome",
+      "label" : "Nome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome\">",
+      "type" : "text"
+    }, {
+      "id" : "cognome",
+      "label" : "Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "matricola",
+      "label" : "Matricola",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"matricola\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "corso_di_studio_di_appartenenza",
+      "label" : "Corso di Studio di appartenenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"corso_di_studio_di_appartenenza\">",
+      "type" : "text"
+    }, {
+      "id" : "dipartimento_di_afferenza",
+      "label" : "Dipartimento di afferenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"dipartimento_di_afferenza\">",
+      "type" : "text"
+    }, {
+      "id" : "conferma_dei_requisiti:",
+      "label" : "Conferma dei Requisiti:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"conferma_dei_requisiti:\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "nome_del_tutor_dell'a.a._2025_2026",
+      "label" : "Nome del Tutor dell'A.A. 2025/2026",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome_del_tutor_dell&#x27;a.a._2025_2026\">",
+      "type" : "text"
+    }, {
+      "id" : "note_o_richieste_particolari:",
+      "label" : "Note o Richieste Particolari:",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"note_o_richieste_particolari:\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

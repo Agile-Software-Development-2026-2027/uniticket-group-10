@@ -1,0 +1,198 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:00.091459Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dimes/richiesta-missione/ticket/new/",
+  "jsonBody" : {
+    "name" : "Richiesta missione",
+    "description" : "Inserire qui eventuali note sulla richiesta di missione",
+    "protocol_required" : false,
+    "slug" : "richiesta-missione",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Richiesta missione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Richiesta missione\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Inserire qui eventuali note sulla richiesta di missione",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nInserire qui eventuali note sulla richiesta di missione</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "nome_e_cognome",
+      "label" : "Nome e Cognome",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicare il nome e il cognome del richiedente",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"nome_e_cognome\">",
+      "type" : "text"
+    }, {
+      "id" : "ruolo",
+      "label" : "Ruolo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "Indicazione del titolo della collaborazione o del rapporto lavorativo con il DIMES",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"ruolo\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"docente ordinario\">docente ordinario</option>\n\n  <option value=\"docente associato\">docente associato</option>\n\n  <option value=\"PTA\">PTA</option>\n\n  <option value=\"ricercatore\">ricercatore</option>\n\n  <option value=\"collaboratore\">collaboratore</option>\n\n  <option value=\"consulente professionista\">consulente professionista</option>\n\n  <option value=\"dottorando\">dottorando</option>\n\n  <option value=\"assegnista\">assegnista</option>\n\n  <option value=\"borsista\">borsista</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "finalità_della_missione",
+      "label" : "Finalità della missione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Descrivere  la missione per la quale si chiede di essere autorizzati",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"finalità_della_missione\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "data_e_ora_di_inizio_della_missione",
+      "label" : "Data e ora di inizio della missione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data/ora valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"uniticket-datetimepicker-wrapper\">\n    <input type=\"text\"\n           name=\"data_e_ora_di_inizio_della_missione\"\n           class=\"form-control uniticket-datetimepicker\"\n           \n           >\n</div>",
+      "type" : "text"
+    }, {
+      "id" : "data_e_ora_di_fine_della_missione",
+      "label" : "Data e ora di fine della missione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data/ora valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"uniticket-datetimepicker-wrapper\">\n    <input type=\"text\"\n           name=\"data_e_ora_di_fine_della_missione\"\n           class=\"form-control uniticket-datetimepicker\"\n           \n           >\n</div>",
+      "type" : "text"
+    }, {
+      "id" : "progetto_o_voce_di_contabilità",
+      "label" : "Progetto (o voce di contabilità)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"progetto_o_voce_di_contabilità\">",
+      "type" : "text"
+    }, {
+      "id" : "codice_identificativo_progetto",
+      "label" : "Codice Identificativo Progetto",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_identificativo_progetto\">",
+      "type" : "text"
+    }, {
+      "id" : "responsabile_dei_fondi",
+      "label" : "Responsabile dei fondi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"responsabile_dei_fondi\">",
+      "type" : "text"
+    }, {
+      "id" : "approvazione_del_responsabile_dei_fondi",
+      "label" : "Approvazione del responsabile dei fondi",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"approvazione_del_responsabile_dei_fondi\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "approvazione_dei_direttore",
+      "label" : "Approvazione dei direttore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"approvazione_dei_direttore\">",
+      "type" : "checkbox"
+    } ]
+  },
+  "rawTextBody" : null
+}

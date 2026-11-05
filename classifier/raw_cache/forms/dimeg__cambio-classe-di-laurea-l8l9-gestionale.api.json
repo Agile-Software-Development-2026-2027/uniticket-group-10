@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:35.029121Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dimeg/cambio-classe-di-laurea-l8l9-gestionale/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La tipologia di richiesta non è attiva",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

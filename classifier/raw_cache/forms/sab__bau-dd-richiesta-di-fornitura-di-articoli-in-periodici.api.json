@@ -1,0 +1,390 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:31.275116Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/sab/bau-dd-richiesta-di-fornitura-di-articoli-in-periodici/ticket/new/",
+  "jsonBody" : {
+    "name" : "BAU - DD Richiesta di fornitura di articoli in periodici",
+    "description" : "Questo modulo serve per richiedere articoli pubblicati in periodici non presenti nelle biblioteche di ateneo. \r\nIl servizio è riservato a docenti, ricercatori, dottorandi e studenti afferenti ai dipartimenti DiCES e DISU dell'Università della Calabria.",
+    "protocol_required" : false,
+    "slug" : "bau-dd-richiesta-di-fornitura-di-articoli-in-periodici",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 170,
+      "fields" : {
+        "category" : 179,
+        "title" : "Condizioni del servizio di fornitura documenti (Document Delivery)",
+        "text" : "Inviando questo modulo l'utente si impegna ad accettare tutte le seguenti condizioni.\r\n\r\n1.\tL'utente accetta di corrispondere alla biblioteca esterna fornitrice i rimborsi eventualmente richiesti, secondo le modalità fissate per il pagamento.\r\n2.\tNon è previsto diritto di recesso nel caso in cui la transazione sia già in itinere.\r\n3.\tGli articoli pervenuti saranno consegnati all’utente in formato cartaceo presso lo Sportello Prestito.\r\n\r\nLa Biblioteca di Area Umanistica \"F. E. Fagiani\" da parte sua\r\n\r\n• si impegna ad inoltrare con rapidità la richiesta alle biblioteche esterne e ad avvertire tempestivamente l'utente dell'arrivo del documento;\r\n\r\n• declina ogni responsabilità circa i tempi, la qualità e le modalità di espletamento dei servizi che non ricadono nella sua competenza.",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "BAU - DD Richiesta di fornitura di articoli in periodici",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"BAU - DD Richiesta di fornitura di articoli in periodici\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Questo modulo serve per richiedere articoli pubblicati in periodici non presenti nelle biblioteche di ateneo. \r\nIl servizio è riservato a docenti, ricercatori, dottorandi e studenti afferenti ai dipartimenti DiCES e DISU dell'Università della Calabria.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nQuesto modulo serve per richiedere articoli pubblicati in periodici non presenti nelle biblioteche di ateneo. \r\nIl servizio è riservato a docenti, ricercatori, dottorandi e studenti afferenti ai dipartimenti DiCES e DISU dell&#x27;Università della Calabria.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "indirizzo_e-mail",
+      "label" : "Indirizzo e-mail",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Inserire l’indirizzo istituzionale, o l’indirizzo a cui si preferisce essere contattati.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"indirizzo_e-mail\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "recapito_telefonico",
+      "label" : "Recapito telefonico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un numero."
+      },
+      "help_text" : "Inserire il numero di telefono (solo numeri, senza spazi) a cui si desidera essere contattati.",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"number\" name=\"recapito_telefonico\" step=\"1\">",
+      "type" : "number"
+    }, {
+      "id" : "codice_tessera_bau",
+      "label" : "Codice tessera BAU",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"codice_tessera_bau\">",
+      "type" : "text"
+    }, {
+      "id" : "indica_il_tuo_profilo_utente",
+      "label" : "Indica il tuo profilo utente",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"indica_il_tuo_profilo_utente\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Studente\">Studente</option>\n\n  <option value=\"Docente/Ricercatore\">Docente/Ricercatore</option>\n\n  <option value=\"Dottorando\">Dottorando</option>\n\n  <option value=\"Unità di personale Unical\">Unità di personale Unical</option>\n\n  <option value=\"Altro\">Altro</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "autore_e_titolo_dell'articolo",
+      "label" : "Autore e titolo dell'articolo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"autore_e_titolo_dell&#x27;articolo\">",
+      "type" : "text"
+    }, {
+      "id" : "pagina_iniziale-pagina_finale_dell’articolo",
+      "label" : "Pagina iniziale-pagina finale dell’articolo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"pagina_iniziale-pagina_finale_dell’articolo\">",
+      "type" : "text"
+    }, {
+      "id" : "titolo_del_periodico",
+      "label" : "Titolo del periodico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"titolo_del_periodico\">",
+      "type" : "text"
+    }, {
+      "id" : "issn_del_periodico",
+      "label" : "ISSN del periodico",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"issn_del_periodico\">",
+      "type" : "text"
+    }, {
+      "id" : "anno,_volume,_fascicolo",
+      "label" : "Anno, volume, fascicolo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"anno,_volume,_fascicolo\">",
+      "type" : "text"
+    }, {
+      "id" : "autore_e_titolo_dell'articolo_2",
+      "label" : "Autore e titolo dell'articolo 2",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"autore_e_titolo_dell&#x27;articolo_2\">",
+      "type" : "text"
+    }, {
+      "id" : "pagina_iniziale-pagina_finale_dell’articolo_2",
+      "label" : "Pagina iniziale-pagina finale dell’articolo 2",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"pagina_iniziale-pagina_finale_dell’articolo_2\">",
+      "type" : "text"
+    }, {
+      "id" : "titolo_del_periodico_2",
+      "label" : "Titolo del periodico 2",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"titolo_del_periodico_2\">",
+      "type" : "text"
+    }, {
+      "id" : "issn_del_periodico_2",
+      "label" : "ISSN del periodico 2",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"issn_del_periodico_2\">",
+      "type" : "text"
+    }, {
+      "id" : "anno,_volume,_fascicolo_2",
+      "label" : "Anno, volume, fascicolo 2",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"anno,_volume,_fascicolo_2\">",
+      "type" : "text"
+    }, {
+      "id" : "autore_e_titolo_dell'articolo_3",
+      "label" : "Autore e titolo dell'articolo 3",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"autore_e_titolo_dell&#x27;articolo_3\">",
+      "type" : "text"
+    }, {
+      "id" : "pagina_iniziale-pagina_finale_dell’articolo_3",
+      "label" : "Pagina iniziale-pagina finale dell’articolo 3",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"pagina_iniziale-pagina_finale_dell’articolo_3\">",
+      "type" : "text"
+    }, {
+      "id" : "titolo_del_periodico_3",
+      "label" : "Titolo del periodico 3",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"titolo_del_periodico_3\">",
+      "type" : "text"
+    }, {
+      "id" : "issn_del_periodico_3",
+      "label" : "ISSN del periodico 3",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"issn_del_periodico_3\">",
+      "type" : "text"
+    }, {
+      "id" : "anno,_volume,_fascicolo_3",
+      "label" : "Anno, volume, fascicolo 3",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"anno,_volume,_fascicolo_3\">",
+      "type" : "text"
+    }, {
+      "id" : "per_presa_visione",
+      "label" : "Per presa visione",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"per_presa_visione\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "presto_il_mio_consenso_al_trattamento_dei_dati_da_me_forniti_per_le_finalità_di_gestione_del_servizio_e_a_fini_statistici",
+      "label" : "Presto il mio consenso al trattamento dei dati da me forniti per le finalità di gestione del servizio e a fini statistici",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"presto_il_mio_consenso_al_trattamento_dei_dati_da_me_forniti_per_le_finalità_di_gestione_del_servizio_e_a_fini_statistici\">",
+      "type" : "checkbox"
+    } ]
+  },
+  "rawTextBody" : null
+}

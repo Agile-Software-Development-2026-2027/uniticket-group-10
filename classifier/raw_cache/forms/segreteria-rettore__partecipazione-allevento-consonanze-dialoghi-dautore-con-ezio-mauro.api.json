@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:18.515469Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/segreteria-rettore/partecipazione-allevento-consonanze-dialoghi-dautore-con-ezio-mauro/ticket/new/",
+  "jsonBody" : {
+    "detail" : "La partecipazione all'evento sarà attiva dal 6 febbraio 2026",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

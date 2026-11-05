@@ -1,0 +1,112 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:24.468466Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/ict/problematiche-di-accesso-alle-risorse-telematiche-mediante-sso-di-ateneo-unical-id-spid-cie/ticket/new/",
+  "jsonBody" : {
+    "name" : "Problematiche di Accesso alle risorse telematiche mediante SSO di Ateneo (Unical ID, SPID, CIE)",
+    "description" : "Problematiche relative alla indisponibilità o eventuali anomalie di funzionamento del SingleSignOn di Ateneo.",
+    "protocol_required" : false,
+    "slug" : "problematiche-di-accesso-alle-risorse-telematiche-mediante-sso-di-ateneo-unical-id-spid-cie",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Problematiche di Accesso alle risorse telematiche mediante SSO di Ateneo (Unical ID, SPID, CIE)",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Problematiche di Accesso alle risorse telematiche mediante SSO di Ateneo (Unical ID, SPID, CIE)\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Problematiche relative alla indisponibilità o eventuali anomalie di funzionamento del SingleSignOn di Ateneo.",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nProblematiche relative alla indisponibilità o eventuali anomalie di funzionamento del SingleSignOn di Ateneo.</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "url_del_servizio_a_cui_si_desidera_accedere",
+      "label" : "URL del servizio a cui si desidera accedere",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci un URL valido"
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"url\" name=\"url_del_servizio_a_cui_si_desidera_accedere\">",
+      "type" : "url"
+    }, {
+      "id" : "descrizione_dettagliata_del_problema_riscontrato",
+      "label" : "Descrizione dettagliata del problema riscontrato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"descrizione_dettagliata_del_problema_riscontrato\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "date_e_ora_dell'avvenuta_problematica",
+      "label" : "Date e ora dell'avvenuta problematica",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data/ora valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"uniticket-datetimepicker-wrapper\">\n    <input type=\"text\"\n           name=\"date_e_ora_dell&#x27;avvenuta_problematica\"\n           class=\"form-control uniticket-datetimepicker\"\n           \n           >\n</div>",
+      "type" : "text"
+    }, {
+      "id" : "screenshot_messaggio_di_errore",
+      "label" : "Screenshot messaggio di errore",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"screenshot_messaggio_di_errore\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

@@ -1,0 +1,173 @@
+{
+  "fetchedAt" : "2026-10-29T06:21:35.027648Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dinci/utilizzo-droni/ticket/new/",
+  "jsonBody" : {
+    "name" : "Utilizzo Droni",
+    "description" : "",
+    "protocol_required" : false,
+    "slug" : "utilizzo-droni",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 317,
+      "fields" : {
+        "category" : 300,
+        "title" : "Necessaria approvazione direttore di dipartimento",
+        "text" : "Per l'invio del modulo e' necessario generare l'url e inviarlo a direttore.ingegneriacivile@unical.it",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : false,
+        "is_collapsable" : false,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Utilizzo Droni",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Utilizzo Droni\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "allegare_eventuale_documentazione_a_supporto_della_richiesta",
+      "label" : "Allegare eventuale documentazione a supporto della richiesta",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"allegare_eventuale_documentazione_a_supporto_della_richiesta\">",
+      "type" : "file"
+    }, {
+      "id" : "periodo_sorvolo_data_inizio_dyn",
+      "label" : "Periodo sorvolo (Data inizio)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"periodo_sorvolo_data_inizio_dyn\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "periodo_sorvolo_data_fine_dyn",
+      "label" : "Periodo sorvolo (Data fine)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data valida."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"date\"\n       name=\"periodo_sorvolo_data_fine_dyn\"\n       \n       >",
+      "type" : "text"
+    }, {
+      "id" : "ambito",
+      "label" : "Ambito",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"ambito\" value=\"Ricerca\">\n\n            \n            <label\n            >\n                Ricerca\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"ambito\" value=\" didattica\">\n\n            \n            <label\n            >\n                 didattica\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"ambito\" value=\" conto terzi\">\n\n            \n            <label\n            >\n                 conto terzi\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "servizi_richiesti",
+      "label" : "Servizi richiesti",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili.",
+        "invalid_list" : "Inserisci una lista di valori."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ {
+        "text" : "Acquisizione video",
+        "value" : "Acquisizione video"
+      }, {
+        "text" : " acquisizione foto",
+        "value" : " acquisizione foto"
+      }, {
+        "text" : " acquisizione foto immersive",
+        "value" : " acquisizione foto immersive"
+      }, {
+        "text" : " acquisizione ortofoto",
+        "value" : " acquisizione ortofoto"
+      }, {
+        "text" : " acquisizione modello 3D",
+        "value" : " acquisizione modello 3D"
+      } ],
+      "multiple" : 1,
+      "html" : "<div><div>\n    <label><input type=\"checkbox\" name=\"servizi_richiesti\" value=\"Acquisizione video\">\n Acquisizione video</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"servizi_richiesti\" value=\" acquisizione foto\">\n  acquisizione foto</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"servizi_richiesti\" value=\" acquisizione foto immersive\">\n  acquisizione foto immersive</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"servizi_richiesti\" value=\" acquisizione ortofoto\">\n  acquisizione ortofoto</label>\n\n</div><div>\n    <label><input type=\"checkbox\" name=\"servizi_richiesti\" value=\" acquisizione modello 3D\">\n  acquisizione modello 3D</label>\n\n</div>\n</div>",
+      "type" : "select"
+    } ]
+  },
+  "rawTextBody" : null
+}

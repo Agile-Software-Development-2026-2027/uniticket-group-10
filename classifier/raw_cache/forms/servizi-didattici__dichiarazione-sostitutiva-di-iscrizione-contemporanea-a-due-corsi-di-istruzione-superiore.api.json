@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:42.535446Z",
+  "statusCode" : 403,
+  "url" : "https://ticket.unical.it/api/servizi-didattici/dichiarazione-sostitutiva-di-iscrizione-contemporanea-a-due-corsi-di-istruzione-superiore/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Per accedere a questo modulo è necessario autenticarsi con SPID o CIE",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

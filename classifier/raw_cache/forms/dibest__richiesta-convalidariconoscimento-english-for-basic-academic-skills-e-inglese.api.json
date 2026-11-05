@@ -1,0 +1,10 @@
+{
+  "fetchedAt" : "2026-10-29T06:20:41.815809Z",
+  "statusCode" : 404,
+  "url" : "https://ticket.unical.it/api/dibest/richiesta-convalidariconoscimento-english-for-basic-academic-skills-e-inglese/ticket/new/",
+  "jsonBody" : {
+    "detail" : "Il modulo è in aggiornamento. Si prega di riprovare più tardi",
+    "messages" : [ { } ]
+  },
+  "rawTextBody" : null
+}

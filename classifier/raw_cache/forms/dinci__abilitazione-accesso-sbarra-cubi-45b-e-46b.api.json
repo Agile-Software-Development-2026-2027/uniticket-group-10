@@ -1,0 +1,122 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:17.961816Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/dinci/abilitazione-accesso-sbarra-cubi-45b-e-46b/ticket/new/",
+  "jsonBody" : {
+    "name" : "Abilitazione accesso sbarra cubi 45B e 46B",
+    "description" : "Si richiede l'abilitazione per l'apertura della sbarra di accesso al parcheggio dei cubi 45B e 46B",
+    "protocol_required" : false,
+    "slug" : "abilitazione-accesso-sbarra-cubi-45b-e-46b",
+    "messages" : [ { } ],
+    "conditions" : [ ],
+    "form" : [ {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Abilitazione accesso sbarra cubi 45B e 46B",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Abilitazione accesso sbarra cubi 45B e 46B\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Si richiede l'abilitazione per l'apertura della sbarra di accesso al parcheggio dei cubi 45B e 46B",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nSi richiede l&#x27;abilitazione per l&#x27;apertura della sbarra di accesso al parcheggio dei cubi 45B e 46B</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "numero_di_telefono_da_abilitare",
+      "label" : "Numero di telefono da abilitare",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"numero_di_telefono_da_abilitare\">",
+      "type" : "text"
+    }, {
+      "id" : "ruolo",
+      "label" : "Ruolo",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"ruolo\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"Docente\">Docente</option>\n\n  <option value=\"Personale tecnico amministrativo\">Personale tecnico amministrativo</option>\n\n  <option value=\"Studente\">Studente</option>\n\n  <option value=\"Dottorando\">Dottorando</option>\n\n  <option value=\"Assegnista\">Assegnista</option>\n\n  <option value=\"Collaboratore\">Collaboratore</option>\n\n  <option value=\"Altro\">Altro</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "struttura_di_appartenenza",
+      "label" : "Struttura di appartenenza",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"select-wrapper\">\n    <select name=\"struttura_di_appartenenza\" data-live-search=\"true\" data-live-search-placeholder=\"Cerca...\">\n  <option value=\"\" selected>Scegli una opzione</option>\n\n  <option value=\"DINCI\">DINCI</option>\n\n  <option value=\"DIAM\">DIAM</option>\n\n  <option value=\"DIMES\">DIMES</option>\n\n  <option value=\"DIMEG\">DIMEG</option>\n\n  <option value=\"Altra struttura di Ateneo\">Altra struttura di Ateneo</option>\n\n  <option value=\"Ditta esterna per accesso temporaneo\">Ditta esterna per accesso temporaneo</option>\n\n</select>\n\n</div>",
+      "type" : "select"
+    }, {
+      "id" : "desidero_ricevere_il_comando_rapido_per_l'apertura_tramite_siri_riservato_a_utenti_che_utilizzano_iphone",
+      "label" : "Desidero ricevere il comando rapido per l'apertura tramite SIRI (riservato a utenti che utilizzano IPhone)",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"desidero_ricevere_il_comando_rapido_per_l&#x27;apertura_tramite_siri_riservato_a_utenti_che_utilizzano_iphone\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "note",
+      "label" : "Note",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"note\" cols=\"40\" rows=\"2\">\n</textarea>",
+      "type" : "textarea"
+    } ]
+  },
+  "rawTextBody" : null
+}

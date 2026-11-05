@@ -1,0 +1,200 @@
+{
+  "fetchedAt" : "2026-10-29T06:19:36.292163Z",
+  "statusCode" : 200,
+  "url" : "https://ticket.unical.it/api/unical-vs-covid19/certification-for-international-students-for-exams-or-graduation-on-line/ticket/new/",
+  "jsonBody" : {
+    "name" : "Certification for international students for exams or graduation on-line",
+    "description" : "Insert here a brief description and then provide the requested information ...",
+    "protocol_required" : false,
+    "slug" : "certification-for-international-students-for-exams-or-graduation-on-line",
+    "messages" : [ { } ],
+    "conditions" : [ {
+      "model" : "uni_ticket.ticketcategorycondition",
+      "pk" : 291,
+      "fields" : {
+        "category" : 277,
+        "title" : "IMPORTANT WARNINGS (click to open)",
+        "text" : "**Responsibility of the declarant**\r\n\r\n- The declarations contained in this form are provided **under the full responsibility** of the declarant who is liable for them in the event of a false or mendacious declaration, even criminally (as required by art. 76 of Presidential Decree 445/2000).\r\n- If the check carried out by the University reveals an untruthful content of the declarations, **the declarant will forfeit any benefits** obtained on the basis of the false declaration.\r\n\r\n**Remind**\r\n\r\nIn addition to sending this declaration, **do not forget** \r\n\r\n- To make the request using the specific function provided by the **Esse3 booking system**\r\n- **To send the receipt of this form** to the professor in charge of the exam or to the President of the graduation Committee\r\n\r\n** References **\r\n\r\n- For further information consult the [Operational indications for exams and final tests](https://drive.google.com/file/d/1N_llPsXmiZRTpNAQw824u3wEESNi9fH0/view?usp=sharing) drawn up on the basis of *Article 12 of Rector's Decree 1159,  27 August 2021* and *Articles 7 and 8 of [Rector's Decree 198, 6 January 2022](https://drive.google.com/file/d/1NdBUVw3-rbTH-Dr3sfKAbIFiGppDuTe4/view?usp=sharing)*",
+        "ordinamento" : 0,
+        "attachment" : "",
+        "is_printable" : true,
+        "is_collapsable" : true,
+        "is_active" : true
+      }
+    } ],
+    "form" : [ {
+      "id" : "condizioni_field_id",
+      "label" : "Dichiaro di aver letto e compreso quanto scritto sopra e di assumermi ogni responsabilità su quanto dichiarato",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"condizioni_field_id\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "ticket_subject",
+      "label" : "Oggetto della Richiesta",
+      "initial" : "Certification for international students for exams or graduation on-line",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Oggetto è impostato con la denominazione della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"ticket_subject\" value=\"Certification for international students for exams or graduation on-line\" maxlength=\"255\" minlength=\"1\">",
+      "type" : "text"
+    }, {
+      "id" : "ticket_description",
+      "label" : "Descrizione",
+      "initial" : "Insert here a brief description and then provide the requested information ...",
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Il campo Descrizione è impostato con la descrizione generica della richiesta. E' possibile modificarlo o integrarlo per fornire indicazioni specifiche",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<textarea name=\"ticket_description\" cols=\"40\" rows=\"2\">\nInsert here a brief description and then provide the requested information ...</textarea>",
+      "type" : "textarea"
+    }, {
+      "id" : "on-line_activity",
+      "label" : "On-line activity",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid_choice" : "Scegli un'opzione valida. %(value)s non è tra quelle disponibili."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"on-line_activity\" value=\"Exam\">\n\n            \n            <label\n            >\n                Exam\n            </label>\n            \n            \n        </div>\n    \n\n    \n        <div class=\"form-check form-check-group\">\n            \n            <input type=\"radio\" name=\"on-line_activity\" value=\"Graduation session\">\n\n            \n            <label\n            >\n                Graduation session\n            </label>\n            \n            \n        </div>",
+      "type" : "radio"
+    }, {
+      "id" : "course_of_study",
+      "label" : "Course of Study",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicate the full name of the Course and its type (Bachelor's, Master's, Single Cycle, Master's)",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"course_of_study\">",
+      "type" : "text"
+    }, {
+      "id" : "professor",
+      "label" : "Professor",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Indicate the name of the professor (the holder of the course or, for graduation sessions, the President of the graduation committee)",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"professor\">",
+      "type" : "text"
+    }, {
+      "id" : "e-mail_address_of_the_professor",
+      "label" : "E-mail address of the professor",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "You can search the Unical address book here:  https://www.unical.it/portale/portaltemplates/view/search_phone.cfm",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"email\" name=\"e-mail_address_of_the_professor\" maxlength=\"320\">",
+      "type" : "email"
+    }, {
+      "id" : "exam",
+      "label" : "Exam",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "Specify only if applicable",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"text\" name=\"exam\">",
+      "type" : "text"
+    }, {
+      "id" : "date",
+      "label" : "Date",
+      "initial" : null,
+      "disabled" : false,
+      "required" : false,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Inserisci una data/ora valida."
+      },
+      "help_text" : "Specify the expected date for the face-to-face session",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<div class=\"uniticket-datetimepicker-wrapper\">\n    <input type=\"text\"\n           name=\"date\"\n           class=\"form-control uniticket-datetimepicker\"\n           \n           >\n</div>",
+      "type" : "text"
+    }, {
+      "id" : "i_am_a_student_residing_abroad_or_currently_in_erasmus_mobility_who_is_unable_to_return_to_italy_to_take_the_exam",
+      "label" : "I am a student residing abroad or currently in Erasmus mobility who is unable to return to Italy to take the exam",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio."
+      },
+      "help_text" : "",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"checkbox\" name=\"i_am_a_student_residing_abroad_or_currently_in_erasmus_mobility_who_is_unable_to_return_to_italy_to_take_the_exam\">",
+      "type" : "checkbox"
+    }, {
+      "id" : "identity_document",
+      "label" : "Identity document",
+      "initial" : null,
+      "disabled" : false,
+      "required" : true,
+      "error_messages" : {
+        "required" : "Campo obbligatorio.",
+        "invalid" : "Non è stato inviato alcun file. Verifica il tipo di codifica sul form.",
+        "missing" : "Non è stato inviato alcun file.",
+        "empty" : "Il file inviato è vuoto.",
+        "max_length" : "",
+        "contradiction" : "È possibile inviare un file o selezionare la casella \"svuota\", ma non entrambi."
+      },
+      "help_text" : "Upload a copy of a valid identity document",
+      "api_source" : "",
+      "options" : [ ],
+      "multiple" : 0,
+      "html" : "<input type=\"file\" name=\"identity_document\">",
+      "type" : "file"
+    } ]
+  },
+  "rawTextBody" : null
+}

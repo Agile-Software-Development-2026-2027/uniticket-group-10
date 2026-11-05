@@ -45,9 +45,9 @@ import java.util.logging.Logger;
  * Il modello è Jev e serve {@code TYPESAFE_API_KEY}. Ollama si trova in {@code OLLAMA_URL} (default
  * localhost). Opzioni comuni ai comandi:
  * <pre>
- * --search hybrid|semantic|lexical   la ricerca (default hybrid); semantic ripiega su BM25 se Ollama
- *                                    cade; --lexical-only equivale a --search lexical
- * --shortlist N                      quanti candidati vede il modello (default 50)
+ * --search semantic|hybrid|lexical   la ricerca (default semantic, che ripiega su BM25 se Ollama
+ *                                    cade); --lexical-only equivale a --search lexical
+ * --shortlist N                      quanti candidati vede il modello (default 20)
  * </pre>
  */
 public final class Main {
@@ -176,14 +176,15 @@ public final class Main {
     }
 
     /**
-     * La ricerca scelta con {@code --search}: ibrida (default), solo semantica o solo BM25. Se Ollama
-     * non c'è all'avvio resta BM25; se cade dopo, ibrida e semantica ripiegano su BM25 da sole.
+     * La ricerca scelta con {@code --search}: solo semantica (default), ibrida o solo BM25. Nell'eval
+     * con Jev la fusione con BM25 non migliora i risultati, quindi BM25 resta come riserva: se Ollama
+     * non c'è all'avvio si usa solo BM25, se cade dopo semantica e ibrida ripiegano su BM25 da sole.
      */
     private static Search search(Map<String, String> options, Catalog catalog) {
         Search lexical = new LexicalSearch(catalog);
-        String kind = options.containsKey("lexical-only") ? "lexical" : options.getOrDefault("search", "hybrid");
-        if (!List.of("hybrid", "semantic", "lexical").contains(kind)) {
-            System.err.println("Ricerca sconosciuta: " + kind + ". Valori: hybrid, semantic, lexical");
+        String kind = options.containsKey("lexical-only") ? "lexical" : options.getOrDefault("search", "semantic");
+        if (!List.of("semantic", "hybrid", "lexical").contains(kind)) {
+            System.err.println("Ricerca sconosciuta: " + kind + ". Valori: semantic, hybrid, lexical");
             System.exit(2);
         }
         if (kind.equals("lexical")) {

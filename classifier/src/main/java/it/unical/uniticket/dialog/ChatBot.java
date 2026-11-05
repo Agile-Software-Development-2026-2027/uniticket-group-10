@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
  * La logica del dialogo. Ogni messaggio dell'utente passa per gli stessi passi:
  * <ol>
  *   <li>se è una risposta chiusa ("2", "sì") alla proposta precedente, si chiude lì;</li>
- *   <li><b>ricerca</b>: i moduli aperti più vicini a tutto ciò che l'utente ha scritto (50, salvo
+ *   <li><b>ricerca</b>: i moduli aperti più vicini a tutto ciò che l'utente ha scritto (20, salvo
  *       diversa indicazione);</li>
  *   <li><b>stima</b>: il modello distribuisce la probabilità tra quei moduli;</li>
  *   <li><b>verifica</b> della struttura riportata dal modello;</li>
@@ -41,8 +41,12 @@ import java.util.stream.Collectors;
  */
 public final class ChatBot {
 
-    /** Quanti candidati vede il modello, se non si indica altro. */
-    public static final int DEFAULT_SHORTLIST = 50;
+    /**
+     * Quanti candidati vede il modello, se non si indica altro. Con {@code bge-m3} il modulo giusto è
+     * tra i primi 20 nel 98% dei casi; nell'eval con Jev 20 candidati valgono quanto 50, con meno
+     * della metà delle domande per chiamata.
+     */
+    public static final int DEFAULT_SHORTLIST = 20;
     private static final int DEGRADED_OPTIONS = 3;
     private static final int MAX_MESSAGE_CHARS = 2000;
 

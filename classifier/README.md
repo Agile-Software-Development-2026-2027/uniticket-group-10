@@ -27,11 +27,11 @@ Senza Ollama il bot usa solo la ricerca per parole chiave (`--lexical-only` lo f
 
 Due opzioni valgono per `chat`, `eval` e `serve` e servono a confrontare configurazioni:
 
-- `--search hybrid|semantic|lexical`: BM25 e `bge-m3` fusi (default), solo `bge-m3` con BM25 come riserva se Ollama cade, solo BM25;
-- `--shortlist N`: quanti candidati vede Jev (default 50). Jev riceve una domanda per candidato, quindi meno candidati vogliono dire chiamate più leggere.
+- `--search semantic|hybrid|lexical`: solo `bge-m3` con BM25 come riserva se Ollama cade (default), BM25 e `bge-m3` fusi con RRF, solo BM25;
+- `--shortlist N`: quanti candidati vede Jev (default 20). Jev riceve una domanda per candidato, quindi meno candidati vogliono dire chiamate più leggere.
 
 ```bash
-java -jar target/uniticket-chatbot.jar eval --split dev --search semantic --shortlist 20
+java -jar target/uniticket-chatbot.jar eval --split dev --search hybrid --shortlist 50
 ```
 
 ## Servizio per il widget
@@ -57,7 +57,7 @@ In docker-compose il servizio si chiama `classifier`. La chiave di Jev viene da 
 flowchart TD
     U["Messaggio dell'utente"] --> R{"Risposta chiusa?<br/>'2', 'la seconda', 'sì'"}
     R -->|sì| OK["Modulo scelto"]
-    R -->|no| S["1. Ricerca: BM25 + bge-m3<br/>→ 50 moduli aperti"]
+    R -->|no| S["1. Ricerca: bge-m3<br/>→ 20 moduli aperti"]
     S --> M["2. Stima di Jev: probabilità di ogni modulo,<br/>'nessun modulo', 'servono informazioni'"]
     M --> V["3. Verifica della struttura"]
     V --> P{"4. DecisionPolicy:<br/>ipotesi che coprono l'80%"}
@@ -89,7 +89,7 @@ modulo i           = (1 - vago) × adatto × P(i)
 | Pacchetto | Cosa fa |
 |---|---|
 | `catalog` | I 241 moduli disponibili; riconosce le strutture nominate in un testo |
-| `search` | Ricerca BM25 (Lucene) ed embedding `bge-m3`, fusi con RRF o con BM25 come riserva |
+| `search` | Embedding `bge-m3` con BM25 (Lucene) come riserva, o i due fusi con RRF |
 | `estimate` | Le domande a Jev e la lettura delle risposte, dietro l'interfaccia `Estimator` |
 | `dialog` | `ChatBot.reply` (i passi di un turno, numerati), `ChatSession` (lo stato), `DecisionPolicy`, `UserChoice` |
 | `web` | Il servizio per il widget: `WidgetApi` (il contratto), `Sessions`, `WebServer` |
@@ -107,13 +107,15 @@ modulo i           = (1 - vago) × adatto × P(i)
 
 `eval` misura il bot sui 252 casi di `eval/cases.json`, con la data fissata a quella dello scrape. Riporta il primo turno e un dialogo con un utente "a copione". L'errore grave è la selezione sbagliata, perché l'utente non può accorgersene.
 
-Misure con Jev del 3/11/2026, 126 casi per split:
+Misure con Jev del 5/11/2026, 126 casi per split, con la configurazione di default (solo `bge-m3`, 20 candidati):
 
 | | dev | test |
 |---|---|---|
-| Selezioni giuste / sbagliate | 60 / 0 | 58 / 1 |
-| Domande con il modulo giusto / senza | 35 / 17 | 33 / 18 |
-| "Nessun modulo" giusti / a torto | 14 / 0 | 12 / 4 |
+| Selezioni giuste / sbagliate | 63 / 0 | 60 / 1 |
+| Domande con il modulo giusto / senza | 30 / 18 | 31 / 18 |
+| "Nessun modulo" giusti / a torto | 14 / 1 | 13 / 3 |
+
+**Perché solo `bge-m3` e 20 candidati.** Lo stesso giorno la configurazione precedente (BM25 e `bge-m3` fusi, 50 candidati) ha fatto 61 / 0 e 58 / 2 selezioni, con 0 e 6 "nessun modulo" a torto. Le differenze sono di 1–2 casi, quanto cambia una stessa configurazione da un'esecuzione all'altra: la qualità è la stessa. Cambia l'efficienza: Jev riceve una domanda per candidato, quindi le chiamate hanno circa 23 domande invece di 53 e l'eval dura un quarto in meno. Sui casi con un modulo preciso, `bge-m3` da solo mette quello giusto tra i primi 20 nel 98% dei casi, la fusione nel 96%.
 
 I casi sono scritti da un LLM che conosceva il catalogo, quindi i numeri sono ottimistici. `eval/casi-reali.json` serve a raccogliere richieste scritte da persone: si misura con `eval --cases eval/casi-reali.json --split all`.
 
@@ -135,6 +137,5 @@ I casi sono scritti da un LLM che conosceva il catalogo, quindi i numeri sono ot
 
 ## Prossimi passi
 
-1. Raccogliere richieste reali e misurarle.
-2. Valutare la sola ricerca semantica, senza BM25: stessa copertura a 50 candidati, ma va rimisurata.
-3. Compilazione assistita dei ticket: oggi `request_form_help` risponde come `agent/`, senza aiuto vero.
+1. Raccogliere richieste reali e misurarle, anche per confermare la scelta di `bge-m3` e 20 candidati su testi più parafrasati di quelli dei casi.
+2. Compilazione assistita dei ticket: oggi `request_form_help` risponde come `agent/`, senza aiuto vero.

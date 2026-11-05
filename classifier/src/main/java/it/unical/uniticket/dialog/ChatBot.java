@@ -29,7 +29,8 @@ import java.util.stream.Collectors;
  * La logica del dialogo. Ogni messaggio dell'utente passa per gli stessi passi:
  * <ol>
  *   <li>se è una risposta chiusa ("2", "sì") alla proposta precedente, si chiude lì;</li>
- *   <li><b>ricerca</b>: i 50 moduli aperti più vicini a tutto ciò che l'utente ha scritto;</li>
+ *   <li><b>ricerca</b>: i moduli aperti più vicini a tutto ciò che l'utente ha scritto (50, salvo
+ *       diversa indicazione);</li>
  *   <li><b>stima</b>: il modello distribuisce la probabilità tra quei moduli;</li>
  *   <li><b>verifica</b> della struttura riportata dal modello;</li>
  *   <li><b>decisione</b> con {@link DecisionPolicy} e risposta.</li>
@@ -40,7 +41,8 @@ import java.util.stream.Collectors;
  */
 public final class ChatBot {
 
-    private static final int SHORTLIST = 50;
+    /** Quanti candidati vede il modello, se non si indica altro. */
+    public static final int DEFAULT_SHORTLIST = 50;
     private static final int DEGRADED_OPTIONS = 3;
     private static final int MAX_MESSAGE_CHARS = 2000;
 
@@ -49,14 +51,25 @@ public final class ChatBot {
     private final Estimator estimator;
     private final DecisionPolicy policy;
     private final Clock clock;
+    private final int shortlist;
 
     public ChatBot(Catalog catalog, Search search, Estimator estimator, DecisionPolicy policy,
                    Clock clock) {
+        this(catalog, search, estimator, policy, clock, DEFAULT_SHORTLIST);
+    }
+
+    /** Con {@code shortlist} candidati per il modello: meno candidati, meno domande a ogni stima. */
+    public ChatBot(Catalog catalog, Search search, Estimator estimator, DecisionPolicy policy,
+                   Clock clock, int shortlist) {
+        if (shortlist < 1) {
+            throw new IllegalArgumentException("Serve almeno un candidato, non " + shortlist);
+        }
         this.catalog = catalog;
         this.search = search;
         this.estimator = estimator;
         this.policy = policy;
         this.clock = clock;
+        this.shortlist = shortlist;
     }
 
     /** Risponde a un messaggio dell'utente e aggiorna la sua sessione. */
@@ -133,9 +146,9 @@ public final class ChatBot {
         Map<String, Category> selected = new LinkedHashMap<>();
         session.proposed().stream().filter(c -> !rejected.contains(c.id()) && allowed.test(c))
                 .forEach(c -> selected.put(c.id(), c));
-        for (Search.Hit hit : search.search(query, SHORTLIST + rejected.size() + 20)) {
+        for (Search.Hit hit : search.search(query, shortlist + rejected.size() + 20)) {
             Category category = hit.category();
-            if (selected.size() < SHORTLIST && !rejected.contains(category.id()) && category.isOpenAt(now)
+            if (selected.size() < shortlist && !rejected.contains(category.id()) && category.isOpenAt(now)
                     && allowed.test(category)) {
                 selected.putIfAbsent(category.id(), category);
             }

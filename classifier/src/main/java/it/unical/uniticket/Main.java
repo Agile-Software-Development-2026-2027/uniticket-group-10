@@ -11,6 +11,7 @@ import it.unical.uniticket.estimate.Estimate;
 import it.unical.uniticket.estimate.Estimator;
 import it.unical.uniticket.estimate.JevEstimator;
 import it.unical.uniticket.estimate.Turn;
+import it.unical.uniticket.search.FallbackSearch;
 import it.unical.uniticket.search.HybridSearch;
 import it.unical.uniticket.search.LexicalSearch;
 import it.unical.uniticket.search.Search;
@@ -42,7 +43,12 @@ import java.util.logging.Logger;
  * serve           il servizio HTTP per il widget di uniTicket; --port (default 8001)
  * </pre>
  * Il modello è Jev e serve {@code TYPESAFE_API_KEY}. Ollama si trova in {@code OLLAMA_URL} (default
- * localhost); con {@code --lexical-only} se ne fa a meno.
+ * localhost). Opzioni comuni ai comandi:
+ * <pre>
+ * --search hybrid|semantic|lexical   la ricerca (default hybrid); semantic ripiega su BM25 se Ollama
+ *                                    cade; --lexical-only equivale a --search lexical
+ * --shortlist N                      quanti candidati vede il modello (default 50)
+ * </pre>
  */
 public final class Main {
 
@@ -77,7 +83,7 @@ public final class Main {
         Catalog catalog = Catalog.load(CATALOG);
         Estimator estimator = estimator(catalog);
         ChatBot bot = new ChatBot(catalog, search(options, catalog), estimator,
-                new DecisionPolicy(DecisionPolicy.Params.DEFAULT), Clock.systemUTC());
+                new DecisionPolicy(DecisionPolicy.Params.DEFAULT), Clock.systemUTC(), shortlist(options));
         ChatSession session = new ChatSession();
         boolean debug = options.containsKey("debug");
 
@@ -115,12 +121,14 @@ public final class Main {
         Search search = search(options, catalog);
         DecisionPolicy policy = new DecisionPolicy(DecisionPolicy.Params.DEFAULT);
         Clock clock = Clock.fixed(catalog.fetchedAt(), ZoneOffset.UTC);
+        int shortlist = shortlist(options);
         String out = options.get("out");
         Evaluation.run(
                 Evaluation.load(Path.of(options.getOrDefault("cases", "eval/cases.json")),
                         options.getOrDefault("split", "dev"), Integer.parseInt(options.getOrDefault("limit", "0"))),
-                new ChatBot(catalog, search, estimator, policy, clock),
-                estimator.name(), out == null ? null : Path.of(out));
+                new ChatBot(catalog, search, estimator, policy, clock, shortlist),
+                estimator.name() + ", ricerca " + search.name() + ", " + shortlist + " candidati",
+                out == null ? null : Path.of(out));
     }
 
     /**
@@ -132,7 +140,7 @@ public final class Main {
         String key = System.getenv("TYPESAFE_API_KEY");
         Estimator estimator = key == null || key.isBlank() ? withoutModel() : new JevEstimator(catalog, key, JEV_MODEL);
         ChatBot bot = new ChatBot(catalog, search(options, catalog), estimator,
-                new DecisionPolicy(DecisionPolicy.Params.DEFAULT), Clock.systemUTC());
+                new DecisionPolicy(DecisionPolicy.Params.DEFAULT), Clock.systemUTC(), shortlist(options));
         Sessions sessions = new Sessions(Duration.ofMinutes(30), 10_000, Clock.systemUTC());
         int port = Integer.parseInt(options.getOrDefault("port", "8001"));
         new WebServer(new WidgetApi(catalog, bot, sessions), "0.0.0.0", port).start();
@@ -167,18 +175,44 @@ public final class Main {
         return new JevEstimator(catalog, key, JEV_MODEL);
     }
 
-    /** Ricerca ibrida; se Ollama non c'è, solo BM25. */
+    /**
+     * La ricerca scelta con {@code --search}: ibrida (default), solo semantica o solo BM25. Se Ollama
+     * non c'è all'avvio resta BM25; se cade dopo, ibrida e semantica ripiegano su BM25 da sole.
+     */
     private static Search search(Map<String, String> options, Catalog catalog) {
         Search lexical = new LexicalSearch(catalog);
-        if (options.containsKey("lexical-only")) {
+        String kind = options.containsKey("lexical-only") ? "lexical" : options.getOrDefault("search", "hybrid");
+        if (!List.of("hybrid", "semantic", "lexical").contains(kind)) {
+            System.err.println("Ricerca sconosciuta: " + kind + ". Valori: hybrid, semantic, lexical");
+            System.exit(2);
+        }
+        if (kind.equals("lexical")) {
             return lexical;
         }
+        SemanticSearch semantic;
         try {
-            return new HybridSearch(lexical, new SemanticSearch(catalog, OLLAMA_URL, Path.of("data/cache")));
+            semantic = new SemanticSearch(catalog, OLLAMA_URL, Path.of("data/cache"));
         } catch (Http.ServiceException e) {
             System.err.println("Embedding non disponibili (" + e.getMessage() + "): uso solo BM25.");
             return lexical;
         }
+        return kind.equals("semantic") ? new FallbackSearch(semantic, lexical) : new HybridSearch(lexical, semantic);
+    }
+
+    /** {@code --shortlist N}: quanti candidati vede il modello. */
+    private static int shortlist(Map<String, String> options) {
+        String value = options.getOrDefault("shortlist", String.valueOf(ChatBot.DEFAULT_SHORTLIST));
+        try {
+            int n = Integer.parseInt(value);
+            if (n >= 1) {
+                return n;
+            }
+        } catch (NumberFormatException e) {
+            // sotto
+        }
+        System.err.println("--shortlist vuole un intero positivo, non: " + value);
+        System.exit(2);
+        return 0;
     }
 
     /** {@code --nome valore} e {@code --flag}. */

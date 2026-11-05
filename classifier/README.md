@@ -25,6 +25,15 @@ java -jar target/uniticket-chatbot.jar serve              # servizio per il widg
 
 Senza Ollama il bot usa solo la ricerca per parole chiave (`--lexical-only` lo forza). In chat, `/nuova` ricomincia e `/esci` chiude.
 
+Due opzioni valgono per `chat`, `eval` e `serve` e servono a confrontare configurazioni:
+
+- `--search hybrid|semantic|lexical`: BM25 e `bge-m3` fusi (default), solo `bge-m3` con BM25 come riserva se Ollama cade, solo BM25;
+- `--shortlist N`: quanti candidati vede Jev (default 50). Jev riceve una domanda per candidato, quindi meno candidati vogliono dire chiamate più leggere.
+
+```bash
+java -jar target/uniticket-chatbot.jar eval --split dev --search semantic --shortlist 20
+```
+
 ## Servizio per il widget
 
 `serve` espone lo stesso contratto di `agent/`, quindi Django lo chiama senza modifiche (`ASSISTANT_AGENT_URL`):
@@ -75,12 +84,12 @@ modulo i           = (1 - vago) × adatto × P(i)
 
 ## Il codice
 
-`src/main/java/it/unical/uniticket/`, 25 file:
+`src/main/java/it/unical/uniticket/`, 26 file:
 
 | Pacchetto | Cosa fa |
 |---|---|
 | `catalog` | I 241 moduli disponibili; riconosce le strutture nominate in un testo |
-| `search` | Ricerca BM25 (Lucene) ed embedding `bge-m3`, fusi con RRF |
+| `search` | Ricerca BM25 (Lucene) ed embedding `bge-m3`, fusi con RRF o con BM25 come riserva |
 | `estimate` | Le domande a Jev e la lettura delle risposte, dietro l'interfaccia `Estimator` |
 | `dialog` | `ChatBot.reply` (i passi di un turno, numerati), `ChatSession` (lo stato), `DecisionPolicy`, `UserChoice` |
 | `web` | Il servizio per il widget: `WidgetApi` (il contratto), `Sessions`, `WebServer` |
@@ -114,13 +123,14 @@ I casi sono scritti da un LLM che conosceva il catalogo, quindi i numeri sono ot
 ./mvnw test
 ```
 
-107 test, nessuno chiama un modello:
+112 test, nessuno chiama un modello:
 
 - `ChatBotTest`: il dialogo con un modello finto;
 - `DecisionPolicyTest`: la regola dell'80% e i dipartimenti;
 - `UserChoiceTest`: le risposte chiuse;
 - `CatalogTest`: il riconoscimento delle strutture;
 - `JevEstimatorTest`: la lettura delle risposte di Jev;
+- `FallbackSearchTest`: la riserva quando la ricerca principale non risponde;
 - `WidgetApiTest` e `WebServerTest`: il contratto con il widget, con gli stessi controlli che il widget fa sulle risposte.
 
 ## Prossimi passi

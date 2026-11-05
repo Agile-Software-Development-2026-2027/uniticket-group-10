@@ -205,6 +205,25 @@ class ChatBotTest {
     }
 
     @Test
+    void ilModelloVedeAlPiuIlNumeroDiCandidatiIndicato() {
+        FakeEstimator estimator = new FakeEstimator().then(estimate(null, 0, 1));
+        new ChatBot(CATALOG, SEARCH, estimator, new DecisionPolicy(DecisionPolicy.Params.DEFAULT), SCRAPE_DAY, 5)
+                .reply(new ChatSession(), "mi serve un certificato di laurea");
+        assertEquals(5, estimator.lastCandidates.size());
+    }
+
+    @Test
+    void conPochiCandidatiIModuliPropostiRestanoComunque() {
+        FakeEstimator estimator = new FakeEstimator().then(TIED).then(TIED);
+        ChatBot bot = new ChatBot(CATALOG, SEARCH, estimator, new DecisionPolicy(DecisionPolicy.Params.DEFAULT),
+                SCRAPE_DAY, 1);
+        ChatSession session = new ChatSession();
+        bot.reply(session, "mi serve un certificato di laurea");
+        bot.reply(session, "non so di che dipartimento sono");
+        assertTrue(estimator.lastCandidates.containsAll(List.of(form(DIBEST), form(DIMES))));
+    }
+
+    @Test
     void unFormChiusoNonVieneMaiMostratoAlModello() {
         String query = "parere sulle certificazioni internazionali in lingua inglese";
         FakeEstimator open = new FakeEstimator().then(estimate(null, 0, 1));

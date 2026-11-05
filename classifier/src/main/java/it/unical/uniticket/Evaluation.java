@@ -50,7 +50,7 @@ final class Evaluation {
         return limit > 0 ? cases.subList(0, Math.min(limit, cases.size())) : cases;
     }
 
-    static void run(List<Case> cases, ChatBot bot, String model, Path out) {
+    static void run(List<Case> cases, ChatBot bot, String setup, Path out) {
         Map<String, Integer> first = new LinkedHashMap<>();
         for (String key : List.of("selezioni giuste", "selezioni sbagliate", "domande con il modulo giusto",
                 "domande senza il modulo giusto", "nessun modulo, giusto", "nessun modulo, a torto", "errori del modello")) {
@@ -95,9 +95,9 @@ final class Evaluation {
             details.add(row);
         }
         System.err.println();
-        print(model, cases.size(), goldCases, first, dialogues);
+        print(setup, cases.size(), goldCases, first, dialogues);
         if (out != null) {
-            Json.writePretty(out, Map.of("model", model, "firstTurn", first, "dialogues", dialogues, "cases", details));
+            Json.writePretty(out, Map.of("setup", setup, "firstTurn", first, "dialogues", dialogues, "cases", details));
             System.out.println("Dettaglio dei casi in " + out);
         }
     }
@@ -137,9 +137,9 @@ final class Evaluation {
         return -1;
     }
 
-    private static void print(String model, int cases, int goldCases, Map<String, Integer> first,
+    private static void print(String setup, int cases, int goldCases, Map<String, Integer> first,
                               Map<String, Map<String, Integer>> dialogues) {
-        System.out.printf("%nModello %s, %d casi%n%nPrimo turno:%n", model, cases);
+        System.out.printf("%n%s, %d casi%n%nPrimo turno:%n", setup, cases);
         first.forEach((k, v) -> System.out.printf("  %-32s %4d%n", k, v));
         int right = first.get("selezioni giuste");
         int selected = right + first.get("selezioni sbagliate");

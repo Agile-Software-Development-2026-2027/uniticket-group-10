@@ -71,15 +71,12 @@ docker compose down
 
 ## Git hooks
 
-The hooks in `.pre-commit-config.yaml` check commit message formatting and run the uniTicket
-Docker tests before every commit, including documentation-only commits. Docker must be running,
-GNU Make must be available in `PATH` (install it with "Winget install --id GnuWin32.Make --exact --version 3.81" eventually), and the image must be built once with
-`docker compose -f uniticket/docker-compose.yml build uniticket`. Install the hooks once per clone:
+The native Git hooks in `.githooks/` check commit message formatting and run the uniTicket Docker
+tests before every commit, including documentation-only commits. Docker and GNU Make must be
+available in `PATH`. Enable the hooks once per clone:
 
 ```bash
-pip install pre-commit
-pre-commit install
-
+git config core.hooksPath .githooks
 ```
 
 ## CI

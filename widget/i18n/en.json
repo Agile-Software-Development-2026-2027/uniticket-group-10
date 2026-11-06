@@ -1,0 +1,28 @@
+{
+  "Risposta interrotta. Puoi riprovare.": "Response interrupted. You can retry.",
+  "Non è stato possibile inviare la risposta. Riprova.": "Your reply could not be sent. Please try again.",
+  "La ricerca non è riuscita. Riprova tra poco.": "The search failed. Please try again shortly.",
+  "Il caricamento del modulo non è riuscito. Riprova.": "The form could not be loaded. Please try again.",
+  "Mostra un’altra richiesta": [
+    "Show another request",
+    "Show %(count)s more requests"
+  ],
+  "Aiuto alla compilazione": "Help filling out the form",
+  "Assistente": "Assistant",
+  "Assistente UniTicket": "UniTicket Assistant",
+  "Caricamento modulo…": "Loading form…",
+  "Chiudi l'assistente": "Close the assistant",
+  "Ciao! Descrivi ciò di cui hai bisogno e ti suggerirò la richiesta più adatta. Ad esempio: \"Ho bisogno di un certificato di iscrizione\"": "Hi! Describe what you need and I will suggest the right request. For example: \"I need an enrolment certificate\".",
+  "Interrompi": "Stop",
+  "Invia": "Send",
+  "Modulo aperto": "Ready to fill out",
+  "Richieste suggerite": "Suggested requests",
+  "Ridimensiona la chat": "Resize the chat",
+  "Riprova": "Retry",
+  "Riprova la ricerca": "Retry the search",
+  "Scrivi la tua richiesta…": "Type your request…",
+  "Trascina o usa i tasti freccia per ridimensionare": "Drag or use the arrow keys to resize",
+  "Tu": "You",
+  "Vai agli ultimi messaggi": "Go to the latest messages",
+  "Nuova chat": "New chat"
+}

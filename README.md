@@ -1,6 +1,51 @@
 # Project name
 
-One paragraph: what the project is.
+L'assistente virtuale di UniTicket che ti aiuta a trovare il ticket giusto senza bestemmiare troppo (si spera). Un giorno, forse, ti aiuterà anche a compilare i form, [tipo così](https://www.assistant-ui.com/examples/form-demo).
+
+## Overview
+
+<p align="center">
+  <img src="_images/overview.png" alt="Overview" width="800">
+</p>
+
+<p align="center">
+  <img src="_images/flusso.png" alt="Overview" width="800">
+</p>
+
+<p align="center">
+  <img src="_images/eventi-ag-ui.png" alt="Overview" width="800">
+</p>
+
+
+## Struttura e avvio locale
+
+- `agent/`: microservizio dell'agente (da integrare il retrival).
+- `widget/`: sorgenti del widget, compilati negli static di UniTicket.
+- `uniticket/`: applicazione UniTicket, configurazione ed estensioni Django.
+
+Clona la repo con tutti i suoi submodule:
+
+```bash
+git clone --recurse-submodules https://github.com/Agile-Software-Development-2026-2027/uniticket-group-10
+```
+
+Se hai già clonato la repo, inizializza i submodule prima di avviare Docker:
+
+```bash
+git submodule update --init --recursive
+```
+
+Il `docker-compose.yml` nella root compila il widget e avvia UniTicket e "agente":
+
+```bash
+docker compose up --build
+```
+
+Per l'arresto:
+
+```bash
+docker compose down
+```
 
 ## How we work
 

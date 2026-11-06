@@ -9,7 +9,7 @@ install:
 
 test-local:
 	@echo "Running Django tests in the uniticket container..."
-	docker compose -f uniticket/docker-compose.yml run --rm -T uniticket python manage.py test chatbot_tests
+	docker compose -f ./docker-compose.yml run --rm -T uniticket python manage.py test chatbot_tests
 
 clean:
 	@echo "Cleaning temporary files..."

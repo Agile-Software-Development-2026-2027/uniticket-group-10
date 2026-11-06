@@ -1,18 +1,28 @@
+# CI: runs on every pull request and on every push to main.
+# The job "test" is a required check on main: a pull request cannot be merged until it is green.
+# Do not rename the job.
 name: CI
+
 on:
   pull_request:
   push:
     branches: [main]
+  workflow_dispatch: # lets you run CI by hand from the Actions tab
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Build uniTicket image
-        run: docker compose -f uniticket/docker-compose.yml build uniticket
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Build Docker image
+        run: docker compose build
 
       - name: Run uniTicket tests
         run: make test-local

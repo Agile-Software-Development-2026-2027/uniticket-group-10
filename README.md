@@ -72,12 +72,20 @@ docker compose down
 ## Git hooks
 
 The native Git hooks in `.githooks/` check commit message formatting and run the uniTicket Docker
-tests before every commit, including documentation-only commits. Docker and GNU Make must be
-available in `PATH`. Enable the hooks once per clone:
+tests before every commit, including documentation-only commits. Git, Python 3, Docker Compose
+v2, and `make` must be available in `PATH`. Enable the hooks once per clone:
 
 ```bash
 git config core.hooksPath .githooks
 ```
+
+Git tracks the hook files as executable. If Git reports that a hook is not executable on Linux or
+macOS, restore the permission with:
+
+```bash
+chmod +x .githooks/commit-msg .githooks/pre-commit
+```
+
 
 ## CI
 

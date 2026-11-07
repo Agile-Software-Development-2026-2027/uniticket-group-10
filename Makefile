@@ -2,11 +2,6 @@
 
 default: test-local
 
-install:
-	@echo "Installing dependencies..."
-	python -m pip install --upgrade pip
-	python -m pip install -r test_requirements.txt
-
 test-local:
 	@echo "Running Django tests in the uniticket container..."
 	docker compose -f ./docker-compose.yml run --build --rm -T uniticket python manage.py test chatbot_tests

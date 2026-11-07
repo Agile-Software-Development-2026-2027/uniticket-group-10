@@ -71,17 +71,26 @@ docker compose down
 
 ## Git hooks
 
-The hooks in `.pre-commit-config.yaml` check the format of commit messages before each commit.
-Install them once per clone:
+The native Git hooks in `.githooks/` check commit message formatting and run the uniTicket Docker
+tests before every commit, including documentation-only commits. Git, Python 3, Docker Compose
+v2, and `make` must be available in `PATH`. Enable the hooks once per clone:
 
 ```bash
-pip install pre-commit
-pre-commit install
+git config core.hooksPath .githooks
 ```
+
+Git tracks the hook files as executable. If Git reports that a hook is not executable on Linux or
+macOS, restore the permission with:
+
+```bash
+chmod +x .githooks/commit-msg .githooks/pre-commit
+```
+
 
 ## CI
 
-- `.github/workflows/ci.yml` runs on every pull request and builds the Docker image of uniTicket.
+- `.github/workflows/ci.yml` runs on every pull request, builds the uniTicket Docker image, and
+  runs its tests in the required `test` job.
 - `.github/workflows/pr-format.yml` checks that the title of every pull request follows the
   format above and that the body fills in the pull request template. It also warns about the
   commit messages of the pull request that do not follow the format, without failing.

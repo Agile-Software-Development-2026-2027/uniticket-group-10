@@ -23,3 +23,6 @@ jobs:
           submodules: recursive
       - name: Build Docker image
         run: docker compose build
+
+      - name: Run uniTicket tests
+        run: make test-local

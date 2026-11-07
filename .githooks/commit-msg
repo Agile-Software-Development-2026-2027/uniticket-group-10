@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+if command -v python3 >/dev/null 2>&1; then
+    python3 .github/scripts/check_commits.py --message-file "$1"
+else
+    python .github/scripts/check_commits.py --message-file "$1"
+fi

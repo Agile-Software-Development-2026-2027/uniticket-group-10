@@ -55,7 +55,7 @@ def call_agent(data, *, user):
                       headers={"Content-Type": "application/json", "Accept": "application/json"}, method="POST")
     try:
         try:
-            response = urlopen(request, timeout=30)
+            response = urlopen(request, timeout=150)
         except HTTPError as error:
             if error.code not in (400, 404, 422):
                 error.close()

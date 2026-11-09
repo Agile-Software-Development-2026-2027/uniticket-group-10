@@ -6,11 +6,11 @@ from django.db import transaction
 from django.test import TestCase, TransactionTestCase, override_settings
 from organizational_area.models import OrganizationalStructure, OrganizationalStructureOffice
 
-from .index_fields import INDEX_FIELDS, METADATA_FIELDS
-from .test_create_events import CreateTestsSetup
+from ..index_fields import INDEX_FIELDS, METADATA_FIELDS
+from .helpers import CategoryTestsSetup
 
 
-class UpdateTestsSetup(CreateTestsSetup):
+class UpdateTestsSetup(CategoryTestsSetup):
     def setUp(self):
         super().setUp()
         # La preparazione conferma CREATE prima di osservare soltanto gli UPDATE.

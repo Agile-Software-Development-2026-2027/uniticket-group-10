@@ -207,7 +207,7 @@
       const id = current().id;
       await request('DELETE', '/api/categories/' + id + '/');
       await refresh('');
-      status('Tipologia ' + id + ' eliminata dal database della demo. Atteso nel terminale: DELETED / REMOVE.');
+      status('Tipologia ' + id + ' eliminata dal database della demo. Atteso nel terminale: DELETE, ricevuto dal destinatario della demo.');
     });
     $('renameStructure').onclick = () => run(async () => {
       await request('PUT', '/api/context/', {name: $('structure').value});

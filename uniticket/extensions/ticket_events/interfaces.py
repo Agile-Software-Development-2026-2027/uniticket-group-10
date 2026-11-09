@@ -1,6 +1,8 @@
 """Contratti di integrazione per gli eventi delle definizioni TicketCategory."""
 
-from typing import Protocol, TypeAlias, Literal
+from typing import Literal, Protocol, TypeAlias
+
+from .index_fields import CategoryMetadata
 
 
 # I valori identificano il CRUD della categoria, indipendentemente dal trasporto.
@@ -22,7 +24,7 @@ class IndexRepository(Protocol):
         self,
         category_id: int,
         vector: list[float],
-        metadata: dict[str, object],
+        metadata: CategoryMetadata,
     ) -> None:
         """Inserisce o sostituisce il record della categoria con vettore e metadata."""
         ...

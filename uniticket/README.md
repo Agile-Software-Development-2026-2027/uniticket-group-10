@@ -1,192 +1,130 @@
-# Prova locale degli eventi TicketCategory
+# TicketCategory — prototipo e test dei receiver
 
-**Prototipo di verifica separato dalla UI ufficiale UniTicket.** Il laboratorio usa i modelli originali e un database SQLite dedicato. Il destinatario della notifica è fittizio.
+Il branch verifica il CRUD delle tipologie `TicketCategory`: view, form, permessi e modelli originali UniTicket; signals Django; nostri receiver raccolti in `extensions/ticket_events/signals.py`. Nessuna elaborazione degli embedding viene eseguita.
 
-## Stato dei tre flussi
-
-| Flusso | Stato attuale |
-|---|---|
-| CREATE | Notifica di operazione e ID dopo commit, con gestione degli errori |
-| UPDATE | Confronto di testo e otto metadata, notifica dopo commit solo quando cambiano i valori persistiti |
-| DELETE | Notifica dell’ID dopo commit, anche per cancellazioni multiple e con cascata |
-
-### CREATE — implementato
+## Flusso
 
 ```text
-TicketCategory.save(), anche con is_active=False
-  → Django post_save(created=True) → category_saved()
-  → transaction.on_commit()
-  → safe_notify("CREATE", category_id)
-  → notify_index() → destinatario configurato
+Prototipo UI → view originale UniTicket → database locale → signal Django → nostri receiver
+
+CREATE: category_add_new() → save() → pre_save / post_save(created=True)
+UPDATE: category_edit() → save() → pre_save: stato precedente / post_save: confronto
+DELETE: category_delete() → delete() → pre_delete: stato precedente / post_delete: ID eliminato
 ```
 
-Il destinatario fittizio predefinito produce questo log.
+I receiver originali UniTicket restano attivi, incluso quello che pulisce gli allegati. Le view originali per ufficio e attivazione usano gli stessi modelli e signals. Per `SET_NULL` ascoltiamo anche l’eliminazione dell’ufficio.
 
-```text
-[TICKET EVENT] {
-  "operation": "CREATE",
+## Prova manuale
+
+Aprire Docker Desktop. Dalla cartella `uniticket`:
+
+```powershell
+.\prototipo\demo-receivers.ps1
+```
+
+In Git Bash: `bash prototipo/demo-receivers.sh`.
+
+1. Aprire [il prototipo locale](http://localhost:8010/receiver-lab/).
+2. Premere **Entra nel prototipo**. Le credenziali precompilate appartengono soltanto al manager locale: servono ai controlli di autorizzazione originali.
+3. Creare una tipologia: nel terminale `CREATE` / `INDEX`.
+4. Cambiare nome, descrizione o un flag e salvare: `UPDATE` / `REINDEX`.
+5. Salvare senza cambiamenti: `UPDATE` / `NONE`, soltanto nel laboratorio.
+6. Eliminare la tipologia: `DELETE` / `REMOVE`.
+
+`possible_action` indica soltanto cosa potrebbe essere richiesto in futuro. Non genera né rimuove embedding.
+
+Tutti i file specifici del prototipo sono in `prototipo/`, versionati per le prove del team e rimovibili insieme. Non modifica i template ufficiali e non implementa API CRUD: i form inviano alle view originali. Il solo `prototipo/compose.yml` prepara server, database e UI di prova; il Dockerfile dell’applicazione non lo copia nell’immagine.
+
+Il laboratorio usa SQLite nel volume dedicato `demo-data`, file locali, email/cache in memoria, una rete backend interna e l’accesso browser su `127.0.0.1:8010`. Il comando di preparazione, anch’esso in `prototipo/`, crea solo struttura e manager di prova. Non usa account o database di server esterni.
+
+## Messaggi nel terminale
+
+Esempio: cambia soltanto la descrizione.
+
+```json
+{
+  "signal": "post_save",
+  "source_model": "TicketCategory",
   "category_id": 42,
-  "delivery": "demo"
+  "operation": "UPDATE",
+  "possible_action": "REINDEX",
+  "before": {
+    "name": "Assistenza Wi-Fi",
+    "description": "Supporto nelle residenze",
+    "organizational_structure_id": 1,
+    "organizational_office_id": 2,
+    "allow_user": true,
+    "allow_employee": true,
+    "allow_anonymous": false,
+    "allow_guest": true,
+    "allow_spid_cie": false,
+    "is_active": true
+  },
+  "after": {
+    "name": "Assistenza Wi-Fi",
+    "description": "Supporto nelle aule",
+    "organizational_structure_id": 1,
+    "organizational_office_id": 2,
+    "allow_user": true,
+    "allow_employee": true,
+    "allow_anonymous": false,
+    "allow_guest": true,
+    "allow_spid_cie": false,
+    "is_active": true
+  }
 }
 ```
 
-`TICKET_EVENTS_NOTIFIER` accetta una funzione, un oggetto invocabile come `FakeNotifier`, oppure un percorso Python. La configurazione seguente seleziona il destinatario locale predefinito.
+Per CREATE il precedente è `null`; per DELETE il successivo è `null`. Per UPDATE entrambi gli stati contengono tutti i campi osservati, inclusi i metadata invariati. Il confronto rileva il cambiamento, ma non riduce i dati del report. Il futuro indicizzatore rileggerà la categoria tramite ID per ricostruire il record completo; il contratto di notifica resta operazione + ID. I messaggi attendono il commit; un rollback li scarta. Il caso NONE è un messaggio diagnostico del laboratorio e non chiama il destinatario dell’indice.
 
-```python
-TICKET_EVENTS_NOTIFIER = "ticket_events.notifications.log_notification"
-```
-
-### UPDATE — implementato
-
-```text
-pre_save → lettura del vecchio stato con INDEX_FIELDS
-  → salvataggio → post_save → lettura dei valori persistiti
-  → dizionari uguali: nessuna notifica
-  → dizionari diversi: dopo commit, safe_notify("UPDATE", category_id)
-```
-
-Il confronto legge entrambi gli stati dal database e rispetta `save(update_fields=...)`. Una modifica a qualsiasi campo di `INDEX_FIELDS` notifica `("UPDATE", category_id)` al destinatario. Salvataggi invariati o cambiamenti a campi esclusi non producono notifiche. Il componente destinatario ricostruirà il record completo.
-
-Assegnare un altro ufficio con lo stesso nome produce UPDATE, perché cambia il suo ID. Rinominare struttura o ufficio lascia invece invariati gli ID e non produce notifiche. L’eliminazione dell’ufficio imposta l’ID a `None` tramite `SET_NULL`, senza chiamare `TicketCategory.save()`: i receiver sull’ufficio coprono anche questo percorso e notificano UPDATE per le categorie rimaste.
-
-Il destinatario fittizio stampa `operation: "UPDATE"`, `category_id` e `delivery: "demo"`. Gli eventi vengono inviati soltanto dopo commit e gli errori del destinatario vengono registrati preservando il CRUD.
-
-### DELETE — implementato
-
-```text
-TicketCategory.delete() → Django post_delete
-  → cattura del category_id → transaction.on_commit()
-  → safe_notify("DELETE", category_id) → destinatario dell’indice
-```
-
-Il receiver `category_deleted()` conserva l’ID prima che Django possa azzerarlo sull’istanza. La notifica non rilegge la categoria eliminata. Sono coperti `.delete()` e `QuerySet.delete()`, con una notifica per categoria anche quando vengono eliminati a cascata i moduli collegati.
-
-Il destinatario fittizio stampa `operation: "DELETE"`, `category_id` e `delivery: "demo"`. Come per CREATE e UPDATE, rollback ed errori esterni vengono gestiti dopo il confine della transazione. Il destinatario definitivo dovrà accettare la rimozione di un ID già assente dall’indice. Ripetere una cancellazione locale tramite un queryset ormai vuoto non produce nuovi eventi.
-
-I tre flussi usano ora lo stesso confine `safe_notify()` → `notify_index()` → destinatario configurabile. I precedenti `report()` e `handle_definition_event()` sono stati sostituiti da questo collegamento. `pre_delete` resta utilizzato sull’ufficio per rilevare gli UPDATE causati da `SET_NULL`.
-
-Il receiver originale UniTicket per la pulizia degli allegati continua a essere eseguito. Nei test i percorsi sono temporanei; il rollback del database non ripristina eventuali file eliminati da quel receiver originale.
-
-## Testo da embeddare e metadata
-
-Il record futuro è `category_id + vector + metadata`. Il vettore sarà generato dal componente di indicizzazione usando soltanto `name` e `description`. La notifica corrente trasmette operazione e ID.
+## Campi osservati e formato del testo
 
 | Gruppo | Campi |
 |---|---|
-| `TEXT_FIELDS` | `name`, `description` |
-| `METADATA_FIELDS` | `organizational_structure_id`, `organizational_office_id`, `allow_user`, `allow_employee`, `allow_anonymous`, `allow_guest`, `allow_spid_cie`, `is_active` |
-| `INDEX_FIELDS` | Unione di testo e metadata confrontati durante UPDATE |
+| Testo | `name`, `description` |
+| Metadata | `organizational_structure_id`, `organizational_office_id`, `allow_user`, `allow_employee`, `allow_anonymous`, `allow_guest`, `allow_spid_cie`, `is_active` |
 
-`organizational_office_id` può essere `None`. Anche le categorie inattive devono essere indicizzate con `is_active=False`. I metadata affiancano i controlli di autorizzazione Django.
-
-I contratti sono in `extensions/ticket_events/interfaces.py` e `index_fields.py`. L’anteprima della demo mostra separatamente il testo con nome e descrizione e gli otto metadata. Gli ID organizzativi non vengono inseriti nel testo da embeddare. La generazione di vettori e il repository concreto appartengono ad altre task.
-
-## Avvio dell’incremento grafico
-
-Aprire Docker Desktop. Dalla root del repository entrare nella cartella `uniticket`.
-
-```powershell
-cd uniticket
-```
-
-In PowerShell avviare il laboratorio e i log degli eventi.
-
-```powershell
-.\demo-receivers.ps1
-```
-
-In Git Bash il comando equivalente è `bash demo-receivers.sh`.
-
-Aprire [localhost:8010](http://localhost:8010/) e premere **Crea tipologia**. Il terminale deve mostrare `CREATE`, l’ID e `delivery: "demo"`. Gli script eseguono Compose e mostrano gli eventi recenti e quelli nuovi. Per provare UPDATE cambiare nome, descrizione o uno dei checkbox nella sezione metadata, quindi salvare. Salvando gli stessi valori non deve comparire un nuovo evento. La demo consente di modificare i flag e l’ufficio; il cambio di struttura è verificato tramite ORM nei test. Premendo Elimina tipologia il terminale deve mostrare DELETE con il suo ID.
-
-Dopo modifiche ai file Python, ricaricare il processo Django.
-
-```powershell
-docker compose -f compose.receiver-demo.yml restart lab
-```
-
-**Ctrl+C** interrompe i log. Per fermare il laboratorio conservando il suo database dedicato eseguire il comando seguente.
-
-```powershell
-docker compose -f compose.receiver-demo.yml down
-```
-
-## Eccezioni e transazioni CRUD
-
-| Caso | Comportamento verificato |
-|---|---|
-| Categoria inattiva | Viene notificata sia alla creazione sia alla cancellazione; cambiare is_active produce UPDATE |
-| Transazione aperta | La notifica attende il commit |
-| Autocommit | La callback viene eseguita subito |
-| Rollback, anche di un savepoint | La relativa notifica viene scartata |
-| Istanza modificata prima del callback | Viene usato l’ID catturato alla creazione |
-| Fixture con `raw=True` | La notifica viene ignorata durante il caricamento |
-| Errore del destinatario o configurazione non invocabile | Errore, operazione, ID e stack trace nei log; il CRUD già riuscito viene preservato |
-
-Il filtro degli script mostra gli eventi. Per consultare anche errori e stack trace, leggere i log completi.
-
-```powershell
-docker compose -f compose.receiver-demo.yml logs --tail 100 lab
-```
-
-Retry, recupero dei fallimenti e ordine delle elaborazioni concorrenti restano da concordare. `on_commit()` lega la notifica al commit ma non costituisce una coda persistente. Scritture con `QuerySet.update()`, operazioni bulk e SQL diretto richiedono una verifica specifica perché aggirano i normali signals di salvataggio.
-
-## TDD e verifiche degli incrementi
-
-I test CREATE sono stati scritti prima dell’implementazione. La fase **RED** ha evidenziato l’assenza della notifica; la fase **GREEN** ha verificato il nuovo collegamento al destinatario fittizio.
-
-Le fasi RED di UPDATE e DELETE hanno verificato l’assenza delle notifiche prima delle rispettive implementazioni. La suite corrente comprende **13 test CREATE**, **19 test UPDATE**, **13 test DELETE** e **2 test di regressione**, per un totale di **47**, usando SQLite in memoria e percorsi temporanei per gli allegati.
-
-Le prove CREATE coprono notifica singola e ID corretto, categoria inattiva, callback differito e ID catturato, fixture, configurazione del notifier, errore con stack trace e risposta HTTP 201 preservata, commit reale, autocommit, rollback e savepoint.
-
-Le verifiche UPDATE coprono tutti i dieci campi, modifiche multiple, assenza di cambiamenti, campi esclusi, `update_fields`, distinzione fra `None` e stringa vuota, fixture, errori del destinatario, commit, rollback, ID catturato e metadata booleani nell’API. Sono inoltre verificati rinomine senza evento, riassegnazione tra uffici omonimi e `SET_NULL`. I test confermano che `QuerySet.update()` aggira i signals.
-
-Le prove DELETE coprono notifica singola, ID catturato, categoria inattiva, queryset multipli, queryset vuoto, cascata dei moduli, errori con stack trace e risposta API preservata, destinatario dimostrativo, commit reale, autocommit, rollback e savepoint.
-
-### Struttura dei test
+`embedding_text()` restituisce `<name>\n<description>`, senza etichette:
 
 ```text
-extensions/ticket_events/
-├── signals.py
-├── notifications.py
-├── content.py
-├── test_settings.py
-└── tests/
-    ├── __init__.py
-    ├── helpers.py
-    ├── test_create_events.py
-    ├── test_update_events.py
-    ├── test_delete_events.py
-    └── test_content.py
+Assistenza Wi-Fi
+Supporto nelle aule
 ```
 
-I casi di test sono separati dal codice applicativo. `helpers.py` contiene il destinatario fittizio e la preparazione condivisa. `test_settings.py` conserva la configurazione del database in memoria e dei percorsi temporanei.
+I metadata restano fuori dal testo. Il confronto legge il database prima/dopo e rispetta `update_fields`. La notifica configurabile mantiene il contratto operazione + ID; il contesto del messaggio serve solo alla diagnostica.
 
-Dalla cartella `uniticket`, eseguire soltanto i test DELETE.
+## Test
+
+Eliminare `prototipo/` non rimuove receiver, contratti o test dei percorsi originali. Il laboratorio Docker deve essere fermato prima della rimozione della cartella; il volume dei dati locali resta separato.
+
+I test dei receiver e delle view originali sono in `extensions/ticket_events/tests/`; quelli del prototipo sono in `prototipo/receiver_lab/tests/`. Usano SQLite in memoria e allegati temporanei, senza richieste a server esterni.
 
 ```powershell
-docker compose -f compose.receiver-demo.yml run --rm --no-deps lab "python3 manage.py test ticket_events.tests.test_delete_events --settings=ticket_events.test_settings --verbosity 1 --noinput"
+# Suite completa, incluso il prototipo condiviso.
+docker compose -f prototipo/compose.yml run --rm --no-deps lab "python3 manage.py test ticket_events.tests receiver_lab.tests --settings=receiver_lab.test_settings --verbosity 1 --noinput"
+
+# Soltanto i test del componente principale, usando il container come ambiente di esecuzione.
+docker compose -f prototipo/compose.yml run --rm --no-deps lab "python3 manage.py test ticket_events.tests --settings=ticket_events.test_settings --verbosity 1 --noinput"
 ```
 
-Dalla cartella `uniticket`, eseguire soltanto i test UPDATE.
+Sono verificati CRUD originale, campi rilevanti, dati invalidi, duplicati, permessi, CSRF, letture, rollback, uffici, pulizia originale degli allegati e messaggi ricevuti. Gli hook pre-commit e commit-msg vanno eseguiti prima del commit.
+
+## Comandi utili e limiti
 
 ```powershell
-docker compose -f compose.receiver-demo.yml run --rm --no-deps lab "python3 manage.py test ticket_events.tests.test_update_events --settings=ticket_events.test_settings --verbosity 1 --noinput"
+# Ricaricare il processo dopo modifiche Python.
+docker compose -f prototipo/compose.yml restart lab
+
+# Leggere anche errori e stack trace esclusi dal filtro degli eventi.
+docker compose -f prototipo/compose.yml logs --tail 100 lab
+
+# Fermare il laboratorio conservando il database locale.
+docker compose -f prototipo/compose.yml down
 ```
 
-Dalla cartella `uniticket`, eseguire soltanto i test CREATE.
+`Ctrl+C` ferma soltanto la visualizzazione dei log. Le fixture `raw=True` sono ignorate; `QuerySet.update()`, operazioni bulk e SQL diretto non emettono signals di salvataggio. L’eliminazione di un ufficio può produrre due UPDATE sulla stessa categoria: disattivazione e successivo scollegamento sono due cambiamenti reali. Rinominare struttura o ufficio non cambia gli ID osservati.
 
-```powershell
-docker compose -f compose.receiver-demo.yml run --rm --no-deps lab "python3 manage.py test ticket_events.tests.test_create_events --settings=ticket_events.test_settings --verbosity 1 --noinput"
-```
-
-Per eseguire la suite completa usare il comando seguente.
-
-```powershell
-docker compose -f compose.receiver-demo.yml run --rm --no-deps lab "python3 manage.py test ticket_events --settings=ticket_events.test_settings --verbosity 1 --noinput"
-```
-
-Ogni incremento funzionale comprende i test dei nuovi comportamenti, l’implementazione minima, la regressione, l’aggiornamento di questo README e gli hook pre-commit e commit-msg.
+Restano valide le regole originali: attivare una tipologia richiede un ufficio e un modulo attivi; eliminarla è impedito se esistono richieste collegate. Un rollback non ripristina eventuali file già eliminati dal receiver originale. Nei test i file sono temporanei. Generazione embedding, consegna affidabile e ordinamento a valle appartengono ad altri ticket.
 
 <details>
 <summary>Istruzioni dell’applicazione standard, separata dalla demo</summary>

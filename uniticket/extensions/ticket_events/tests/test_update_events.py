@@ -172,31 +172,6 @@ class UpdateNotificationTests(UpdateTestsSetup, TestCase):
             type(self.category).objects.filter(pk=self.category.pk).update(description="SQL diretto")
         self.assertEqual(self.notifier.events, [])
 
-    @override_settings(RECEIVER_DEMO=True, ROOT_URLCONF="ticket_events.demo_urls")
-    def test_demo_can_change_boolean_metadata(self):
-        with self.captureOnCommitCallbacks(execute=True):
-            created = self.client.post("/api/categories/", data={
-                "name": "Categoria demo UPDATE", "description": "Prova",
-            }, content_type="application/json")
-        category_id = created.json()["id"]
-        self.notifier.events.clear()
-        with self.captureOnCommitCallbacks(execute=True):
-            response = self.client.put(f"/api/categories/{category_id}/", data={
-                "name": "Categoria demo UPDATE", "description": "Prova", "is_active": True,
-            }, content_type="application/json")
-        self.assertEqual(response.status_code, 200)
-        self.assertTrue(response.json()["metadata"]["is_active"])
-        self.assertEqual(self.notifier.events, [("UPDATE", category_id)])
-
-    @override_settings(RECEIVER_DEMO=True, ROOT_URLCONF="ticket_events.demo_urls")
-    def test_demo_rejects_non_boolean_metadata(self):
-        with self.captureOnCommitCallbacks(execute=True):
-            response = self.client.post("/api/categories/", data={
-                "name": "Categoria non valida", "description": "Prova", "is_active": "false",
-            }, content_type="application/json")
-        self.assertEqual(response.status_code, 400)
-        self.assertEqual(self.notifier.events, [])
-
 
 class UpdateTransactionTests(UpdateTestsSetup, TransactionTestCase):
     def test_real_commit_delivers_update(self):

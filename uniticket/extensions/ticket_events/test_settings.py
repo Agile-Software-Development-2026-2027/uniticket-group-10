@@ -26,7 +26,6 @@ TMP_DIR = str(Path(TICKET_EVENTS_TEST_ROOT) / "tmp")
 for _directory in (MEDIA_ROOT, STATIC_ROOT, TMP_DIR):
     Path(_directory).mkdir(parents=True, exist_ok=True)
 
-INSTALLED_APPS = [*INSTALLED_APPS, "ticket_events.apps.TicketEventsConfig"]  # noqa: F405
 EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
 CACHES = {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache"}}
 PASSWORD_HASHERS = ["django.contrib.auth.hashers.MD5PasswordHasher"]

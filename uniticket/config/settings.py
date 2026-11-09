@@ -111,6 +111,8 @@ INSTALLED_APPS = [
 
     # 'bootstrapform',
     'uni_ticket',
+    # Registra i receiver delle definizioni anche nei percorsi originali UniTicket.
+    'ticket_events.apps.TicketEventsConfig',
     'django_form_builder',
     'nested_admin',
     'organizational_area',

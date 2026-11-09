@@ -19,7 +19,7 @@ def embedding_text(content):
     """Prepara l’anteprima testuale usando esclusivamente nome e descrizione."""
     name = content["name"] or ""
     description = content["description"] or ""
-    return f"Servizio: {name}\nDescrizione: {description}"
+    return f"{name}\n{description}"
 
 
 def office_snapshots(office_id, using):

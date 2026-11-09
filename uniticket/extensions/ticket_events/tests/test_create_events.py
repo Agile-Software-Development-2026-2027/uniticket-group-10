@@ -77,26 +77,6 @@ class CreateNotificationTests(CategoryTestsSetup, TestCase):
                     category = self.create_category()
         self.assertTrue(TicketCategory.objects.filter(pk=category.pk).exists())
 
-    def test_demo_post_returns_created_even_when_notifier_fails(self):
-        def failing_notifier(operation, category_id):
-            raise RuntimeError("Errore simulato")
-
-        # Il prototipo resta un punto d’ingresso locale per provare il CRUD reale.
-        with override_settings(
-            RECEIVER_DEMO=True,
-            ROOT_URLCONF="ticket_events.demo_urls",
-            TICKET_EVENTS_NOTIFIER=failing_notifier,
-        ):
-            with self.assertLogs("ticket_events", level=logging.ERROR):
-                with self.captureOnCommitCallbacks(execute=True):
-                    response = self.client.post(
-                        "/api/categories/",
-                        data={"name": "CREATE tramite API", "description": "Prova"},
-                        content_type="application/json",
-                    )
-        self.assertEqual(response.status_code, 201)
-        self.assertTrue(TicketCategory.objects.filter(pk=response.json()["id"]).exists())
-
 
 class CreateTransactionTests(CategoryTestsSetup, TransactionTestCase):
     def test_real_commit_delivers_notification(self):

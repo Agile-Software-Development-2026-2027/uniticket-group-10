@@ -12,17 +12,20 @@ from .interfaces import CategoryOperation, IndexNotifier
 logger = logging.getLogger("ticket_events")
 
 
-def log_notification(operation: CategoryOperation, category_id: int) -> None:
-    """Destinatario fittizio predefinito del laboratorio locale."""
-    event = {
-        "operation": operation,
-        "category_id": category_id,
-        "delivery": "demo",
-    }
-    logger.info("[TICKET EVENT] %s", json.dumps(event, indent=2))
+def log_notification(operation: CategoryOperation, category_id: int, *, event=None) -> None:
+    """Mostra il signal ricevuto e i dati rilevanti, senza elaborare embedding."""
+    if event is None:
+        event = {
+            "signal": "post_delete" if operation == "DELETE" else "post_save",
+            "source_model": "TicketCategory",
+            "category_id": category_id,
+            "operation": operation,
+            "possible_action": {"CREATE": "INDEX", "UPDATE": "REINDEX", "DELETE": "REMOVE"}[operation],
+        }
+    logger.info("[TICKET EVENT] %s", json.dumps(event, ensure_ascii=False, indent=2))
 
 
-def notify_index(operation: CategoryOperation, category_id: int) -> None:
+def notify_index(operation: CategoryOperation, category_id: int, *, event=None) -> None:
     """Inoltra operazione e ID al destinatario concordato con l’indicizzatore."""
     notifier: IndexNotifier | str = getattr(
         settings, "TICKET_EVENTS_NOTIFIER", log_notification,
@@ -33,13 +36,17 @@ def notify_index(operation: CategoryOperation, category_id: int) -> None:
     # Il contratto invocabile accetta sia funzioni sia oggetti come FakeNotifier.
     if not callable(notifier):
         raise TypeError("TICKET_EVENTS_NOTIFIER deve essere un destinatario invocabile")
-    notifier(operation, category_id)
+    if notifier is log_notification:
+        # I dettagli sono soltanto diagnostici: il contratto esterno resta operazione + ID.
+        notifier(operation, category_id, event=event)
+    else:
+        notifier(operation, category_id)
 
 
-def safe_notify(operation: CategoryOperation, category_id: int) -> None:
+def safe_notify(operation: CategoryOperation, category_id: int, *, event=None) -> None:
     """Registra un fallimento esterno dopo il commit, preservando il CRUD riuscito."""
     try:
-        notify_index(operation, category_id)
+        notify_index(operation, category_id, event=event)
     except Exception:
         # Il commit è già avvenuto: il log conserva contesto e stack trace per la diagnosi.
         logger.exception(

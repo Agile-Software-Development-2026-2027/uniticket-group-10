@@ -1,0 +1,15 @@
+{# Usa gli stessi campi del form originale, preservando quelli non mostrati. #}
+{% for field in form %}
+  {% if field.name == "name" or field.name == "description" %}
+    <label>{{ field.label }}{{ field }}</label>
+  {% elif field.name not in visible_fields %}
+    {{ field.as_hidden }}
+  {% endif %}
+{% endfor %}
+<details><summary>Flag di accesso (metadata)</summary>
+  {% for field in form %}
+    {% if field.name in visible_fields and field.name != "name" and field.name != "description" %}
+      <label class="flag">{{ field }} {{ field.label }}</label>
+    {% endif %}
+  {% endfor %}
+</details>

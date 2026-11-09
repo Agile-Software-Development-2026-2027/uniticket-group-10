@@ -95,28 +95,13 @@ class DeleteNotificationTests(DeleteTestsSetup, TestCase):
                 with self.captureOnCommitCallbacks(execute=True):
                     self.category.delete()
         message = logs.records[0].getMessage().removeprefix("[TICKET EVENT] ")
-        self.assertEqual(json.loads(message), {
-            "operation": "DELETE", "category_id": category_id, "delivery": "demo",
-        })
-
-    @override_settings(RECEIVER_DEMO=True, ROOT_URLCONF="ticket_events.demo_urls")
-    def test_demo_delete_succeeds_even_when_notifier_fails(self):
-        with self.captureOnCommitCallbacks(execute=True):
-            response = self.client.post("/api/categories/", data={
-                "name": "Categoria demo DELETE", "description": "Prova",
-            }, content_type="application/json")
-        category_id = response.json()["id"]
-
-        def failing_notifier(operation, category_id):
-            raise RuntimeError("Destinatario DELETE indisponibile")
-
-        with override_settings(TICKET_EVENTS_NOTIFIER=failing_notifier):
-            with self.assertLogs("ticket_events", level=logging.ERROR):
-                with self.captureOnCommitCallbacks(execute=True):
-                    response = self.client.delete(f"/api/categories/{category_id}/")
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json(), {"deleted": category_id})
-        self.assertFalse(TicketCategory.objects.filter(pk=category_id).exists())
+        event = json.loads(message)
+        self.assertEqual(event["signal"], "post_delete")
+        self.assertEqual(event["source_model"], "TicketCategory")
+        self.assertEqual(event["operation"], "DELETE")
+        self.assertEqual(event["category_id"], category_id)
+        self.assertEqual(event["possible_action"], "REMOVE")
+        self.assertIsNone(event["after"])
 
 
 class DeleteTransactionTests(DeleteTestsSetup, TransactionTestCase):

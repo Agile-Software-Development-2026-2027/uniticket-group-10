@@ -1,12 +1,12 @@
-"""Settings exclusively for the local receiver laboratory."""
+"""Configurazione del solo prototipo: database, file e accesso locali."""
+from copy import deepcopy
 from pathlib import Path
 from uni_ticket_project.settings import *  # noqa: F403
 
 RECEIVER_DEMO = True
-DEBUG = False
+# Il server locale deve servire anche gli asset dell’interfaccia originale.
+DEBUG = True
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
-ROOT_URLCONF = "ticket_events.demo_urls"
-INSTALLED_APPS = [*INSTALLED_APPS, "ticket_events.apps.TicketEventsConfig"]
 DATABASES = {"default": {
     "ENGINE": "django.db.backends.sqlite3",
     "NAME": "/sandbox/receiver-demo.sqlite3",
@@ -24,3 +24,9 @@ LOGGING = {
     "handlers": {"console": {"class": "logging.StreamHandler", "stream": "ext://sys.stdout"}},
     "loggers": {"ticket_events": {"handlers": ["console"], "level": "INFO", "propagate": False}},
 }
+
+# Registra soltanto nel prototipo il comando di preparazione e i template della UI.
+INSTALLED_APPS = [*INSTALLED_APPS, "receiver_lab"]  # noqa: F405
+ROOT_URLCONF = "receiver_lab.urls"
+TEMPLATES = deepcopy(TEMPLATES)  # noqa: F405
+TEMPLATES[0]["DIRS"].insert(0, str(Path(__file__).parent / "templates"))

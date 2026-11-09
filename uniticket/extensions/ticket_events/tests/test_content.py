@@ -20,5 +20,5 @@ class IndexContentTests(CategoryTestsSetup, TestCase):
         data = snapshot(category.pk, "default")
         self.assertEqual(
             embedding_text(data),
-            "Servizio: Categoria CREATE test\nDescrizione: Descrizione di prova",
+            "Categoria CREATE test\nDescrizione di prova",
         )

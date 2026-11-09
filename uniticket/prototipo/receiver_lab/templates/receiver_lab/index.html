@@ -1,0 +1,78 @@
+<!doctype html>
+<!-- PROTOTIPO UI DI TEST: non è la grafica ufficiale UniTicket e è separato dai template ufficiali. -->
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototipo locale — receiver TicketCategory</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f5f7;color:#172232;font:16px/1.5 system-ui,sans-serif}
+main{max-width:1040px;margin:36px auto;padding:0 20px}h1{font-size:28px;margin:8px 0}h2{font-size:21px;margin-top:0}
+.badge{display:inline-block;background:#fff0bc;border:1px solid #dbbb52;padding:5px 12px;border-radius:6px;font-weight:700}
+.hint{color:#4b596c}.flow{background:#e4edf6;padding:14px;border-radius:8px;font-size:14px}
+.grid{display:grid;grid-template-columns:350px 1fr;gap:22px;align-items:start;margin-top:24px}
+.card{background:white;border:1px solid #d8dfe7;border-radius:10px;padding:22px;margin-bottom:18px}
+label{display:block;font-weight:600;margin:12px 0 6px}input:not([type=checkbox]),textarea{display:block;width:100%;margin-top:5px;padding:9px;border:1px solid #aab7c5;border-radius:5px;font:inherit}
+textarea{min-height:90px;resize:vertical}.flag{font-size:14px;font-weight:400}button{padding:10px 15px;border:0;border-radius:6px;background:#1859a9;color:white;font:inherit;cursor:pointer;margin-top:14px}
+button:disabled{opacity:.5;cursor:wait}.delete{background:#b32d3b}details{margin-top:14px}summary{cursor:pointer;font-size:14px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f6f8;padding:12px;font-size:13px;border-radius:5px}
+#status{min-height:24px;margin-top:18px;font-weight:600}small{color:#556274}.login{max-width:470px;margin:24px auto}
+@media(max-width:760px){.grid{grid-template-columns:1fr}main{margin:20px auto}}
+</style></head><body><main>
+<span class="badge">Prototipo locale · non ufficiale · solo per test dei receiver</span>
+<h1>Prova i receiver di TicketCategory</h1>
+<p class="hint">Crea, modifica ed elimina soltanto tipologie del database del laboratorio. La grafica UniTicket resta invariata.</p>
+<div class="flow">Questa UI → view originale UniTicket → database locale → signal Django → nostri receiver → messaggio nel terminale</div>
+{% if not request.user.is_authenticated %}
+<section class="card login"><h2>Accesso al laboratorio</h2>
+<p>UniTicket richiede un manager per modificare le tipologie. Questo account esiste solo nel database locale.</p>
+<form action="{% url 'login' %}" method="post">{% csrf_token %}
+<input type="hidden" name="next" value="/receiver-lab/">
+<label>Utente locale<input name="username" value="receiver-manager" autocomplete="username" required></label>
+<label>Password locale<input type="password" name="password" value="local-receivers-only" autocomplete="current-password" required></label>
+<button type="submit">Entra nel prototipo</button></form>
+<small>Accesso tramite la view di login originale. Nessun account esterno.</small></section>
+{% else %}
+<p class="hint">Manager locale: <strong>{{ request.user.username }}</strong>. Tieni aperto il terminale con <code>.\prototipo\demo-receivers.ps1</code>.</p>
+<div id="status" role="status" aria-live="polite">Scegli un’operazione. I segnali ricevuti si verificano nel terminale.</div>
+<div class="grid"><section class="card"><h2>1. Crea una tipologia</h2>
+<p class="hint">Atteso nel terminale: <strong>CREATE</strong>.</p>
+<form action="{{ create_url }}" method="post" data-crud="CREATE">{% csrf_token %}
+{% include "receiver_lab/fields.html" with form=create_form %}
+<button type="submit">Crea tipologia locale</button></form></section>
+<section><h2>2. Modifica o elimina</h2>
+{% for card in cards %}<article class="card"><h2>{{ card.category.name }}</h2><small>ID: {{ card.category.pk }} · Solo laboratorio locale</small>
+<form action="{{ card.edit_url }}" method="post" data-crud="UPDATE">{% csrf_token %}
+{% include "receiver_lab/fields.html" with form=card.form %}
+<button type="submit">Salva modifica</button></form>
+<p class="hint">Cambia nome, descrizione o un flag: atteso <strong>UPDATE</strong>. Stessi valori: nessun nuovo evento.</p>
+<details><summary>Valori attuali nel database locale</summary><pre>{{ card.state }}</pre></details>
+<form action="{{ card.delete_url }}" method="post" data-crud="DELETE">{% csrf_token %}<button class="delete" type="submit">Elimina questa tipologia locale</button></form>
+<small>Atteso: DELETE con questo ID. Valgono i vincoli originali UniTicket.</small>
+</article>{% empty %}<p class="card">Non ci sono tipologie di prova. Creane una con il modulo a sinistra.</p>{% endfor %}
+</section></div>
+{% endif %}
+<script>
+// Ogni form invia il POST all’action originale: nessuna API CRUD del prototipo.
+const statusBox=document.getElementById('status');
+if(statusBox){
+  const previous=sessionStorage.getItem('receiver-lab-status');
+  if(previous){statusBox.textContent=previous;sessionStorage.removeItem('receiver-lab-status');}
+}
+document.querySelectorAll('form[data-crud]').forEach(form=>{
+  form.addEventListener('submit',async event=>{
+    event.preventDefault();
+    const button=form.querySelector('button');
+    button.disabled=true;
+    statusBox.textContent='Richiesta alla view originale UniTicket in corso…';
+    try{
+      const response=await fetch(form.action,{method:'POST',body:new FormData(form),credentials:'same-origin'});
+      // Le view originali restituiscono redirect dopo il CRUD e HTML per gli errori del form.
+      if(!response.ok)throw new Error('La view originale ha risposto HTTP '+response.status+'.');
+      if(!response.redirected){
+        const page=new DOMParser().parseFromString(await response.text(),'text/html');
+        const errors=Array.from(page.querySelectorAll('.errorlist')).map(item=>item.textContent.trim()).join(' ');
+        throw new Error(errors||'Operazione non eseguita: controlla i dati e le regole del form originale.');
+      }
+      sessionStorage.setItem('receiver-lab-status',({CREATE:'Creazione',UPDATE:'Modifica',DELETE:'Eliminazione'}[form.dataset.crud])+' inviata a UniTicket. Controlla il receiver nel terminale.');
+      location.reload();
+    }catch(error){statusBox.textContent=error.message;button.disabled=false;}
+  });
+});
+</script></main></body></html>

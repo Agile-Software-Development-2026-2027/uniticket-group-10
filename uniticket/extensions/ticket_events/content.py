@@ -1,22 +1,36 @@
-"""The agreed embedding input, independent of demo views and settings."""
+"""Lettura dei dati persistiti secondo il contratto di indicizzazione."""
+
 from uni_ticket.models import TicketCategory
 
-FIELDS = ("name", "description", "organizational_structure.name", "organizational_office.name")
-DB_FIELDS = tuple(field.replace(".", "__") for field in FIELDS)
+from .index_fields import INDEX_FIELDS
+
 
 def snapshot(category_id, using):
-    row = (TicketCategory.objects.using(using).filter(pk=category_id)
-           .values(*DB_FIELDS).first())
-    if row is None:
-        return None
-    return {field: row[db_field] or "" for field, db_field in zip(FIELDS, DB_FIELDS)}
+    """Conserva i valori originali, inclusi None, booleani e chiavi esterne."""
+    return (
+        TicketCategory.objects.using(using)
+        .filter(pk=category_id)
+        .values(*INDEX_FIELDS)
+        .first()
+    )
+
 
 def embedding_text(content):
-    return "\n".join(f"{label}: {content[field]}" for label, field in zip(
-        ("Servizio", "Descrizione", "Struttura", "Ufficio"), FIELDS
-    ))
+    """Prepara l’anteprima testuale usando esclusivamente nome e descrizione."""
+    name = content["name"] or ""
+    description = content["description"] or ""
+    return f"Servizio: {name}\nDescrizione: {description}"
 
-def related_snapshots(sender, instance, using):
-    relation = "organizational_structure_id" if sender._meta.model_name == "organizationalstructure" else "organizational_office_id"
-    ids = TicketCategory.objects.using(using).filter(**{relation: instance.pk}).values_list("pk", flat=True)
-    return {pk: snapshot(pk, using) for pk in ids}
+
+def office_snapshots(office_id, using):
+    """Conserva le categorie interessate prima del SET_NULL sull’ufficio."""
+    rows = (
+        TicketCategory.objects.using(using)
+        .filter(organizational_office_id=office_id)
+        .values("pk", *INDEX_FIELDS)
+    )
+    previous_categories = {}
+    for row in rows:
+        category_id = row.pop("pk")
+        previous_categories[category_id] = row
+    return previous_categories

@@ -37,5 +37,5 @@ METADATA_FIELDS: Final = (
     "is_active",
 )
 
-# Il futuro confronto prima/dopo deve includere anche le modifiche ai metadata.
+# Il confronto prima/dopo include anche le modifiche ai metadata.
 INDEX_FIELDS: Final = TEXT_FIELDS + METADATA_FIELDS

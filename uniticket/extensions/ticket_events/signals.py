@@ -1,7 +1,7 @@
 """Real Django receivers for the agreed TicketCategory embedding inputs.
 
-CREATE notifica il destinatario configurato dopo il commit. Gli altri percorsi
-conservano i log dimostrativi del prototipo fino ai successivi incrementi.
+CREATE e UPDATE notificano il destinatario configurato dopo il commit.
+DELETE conserva il log dimostrativo fino al successivo incremento.
 """
 import json
 import logging
@@ -9,12 +9,11 @@ from functools import partial
 from django.db import transaction
 from django.db.models.signals import pre_save, post_save, pre_delete, post_delete
 from django.dispatch import receiver
-from .content import snapshot, related_snapshots
+from .content import snapshot, office_snapshots
 from .notifications import safe_notify
 
 logger = logging.getLogger("ticket_events")
 CATEGORY = "uni_ticket.TicketCategory"
-STRUCTURE = "organizational_area.OrganizationalStructure"
 OFFICE = "organizational_area.OrganizationalStructureOffice"
 STATE = "_ticket_events_before"
 
@@ -72,13 +71,17 @@ def category_saved(sender, instance, created, using, raw=False, **kwargs):
         callback = partial(safe_notify, "CREATE", instance.pk)
         transaction.on_commit(callback, using=using)
         return
-    if not hasattr(instance, STATE):
-        logger.warning("[TICKET EVENT] Snapshot unavailable for category %s", instance.pk)
+    # L’istanza può contenere modifiche escluse da update_fields: conta il database.
+    before = getattr(instance, STATE, None)
+    if hasattr(instance, STATE):
+        delattr(instance, STATE)
+    if before is None:
+        logger.warning("Stato precedente assente: category_id=%s", instance.pk)
         return
-    before = getattr(instance, STATE)
-    delattr(instance, STATE)
-    report("post_save", sender, instance.pk, instance.pk,
-           before, snapshot(instance.pk, using), using)
+    after = snapshot(instance.pk, using)
+    if after is not None and before != after:
+        callback = partial(safe_notify, "UPDATE", instance.pk)
+        transaction.on_commit(callback, using=using)
 
 @receiver(pre_delete, sender=CATEGORY, dispatch_uid="ticket_events.category_deleting")
 def category_deleting(sender, instance, using, **kwargs):
@@ -91,40 +94,19 @@ def category_deleted(sender, instance, using, **kwargs):
         delattr(instance, STATE)
     report("post_delete", sender, instance.pk, instance.pk, before, None, using)
 
-@receiver(pre_save, sender=STRUCTURE, dispatch_uid="ticket_events.structure_before")
-@receiver(pre_save, sender=OFFICE, dispatch_uid="ticket_events.office_before")
-def related_before(sender, instance, using, raw=False, update_fields=None, **kwargs):
-    if raw:
-        return
-    before = {}
-    if instance.pk and (update_fields is None or "name" in update_fields):
-        old = sender._default_manager.using(using).filter(pk=instance.pk).values("name").first()
-        if old is not None and old["name"] != instance.name:
-            before = related_snapshots(sender, instance, using)
-    setattr(instance, STATE, before)
-
-@receiver(post_save, sender=STRUCTURE, dispatch_uid="ticket_events.structure_saved")
-@receiver(post_save, sender=OFFICE, dispatch_uid="ticket_events.office_saved")
-def related_saved(sender, instance, using, raw=False, **kwargs):
-    if raw:
-        return
-    before = getattr(instance, STATE, {})
-    if hasattr(instance, STATE):
-        delattr(instance, STATE)
-    for category_id, old_content in before.items():
-        report("post_save", sender, instance.pk, category_id,
-               old_content, snapshot(category_id, using), using)
-
 @receiver(pre_delete, sender=OFFICE, dispatch_uid="ticket_events.office_deleting")
 def office_deleting(sender, instance, using, **kwargs):
-    # SET_NULL does not call TicketCategory.save(): capture affected rows here.
-    setattr(instance, STATE, related_snapshots(sender, instance, using))
+    # SET_NULL aggiorna i metadata senza chiamare TicketCategory.save().
+    setattr(instance, STATE, office_snapshots(instance.pk, using))
 
 @receiver(post_delete, sender=OFFICE, dispatch_uid="ticket_events.office_deleted")
 def office_deleted(sender, instance, using, **kwargs):
     before = getattr(instance, STATE, {})
     if hasattr(instance, STATE):
         delattr(instance, STATE)
-    for category_id, old_content in before.items():
-        report("post_delete", sender, instance.pk, category_id,
-               old_content, snapshot(category_id, using), using)
+    for category_id, previous_state in before.items():
+        current_state = snapshot(category_id, using)
+        # Le categorie rimaste ricevono UPDATE perché è cambiato l’ID dell’ufficio.
+        if current_state is not None and previous_state != current_state:
+            callback = partial(safe_notify, "UPDATE", category_id)
+            transaction.on_commit(callback, using=using)

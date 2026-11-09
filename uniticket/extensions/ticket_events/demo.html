@@ -19,7 +19,7 @@
     :focus-visible{outline:3px solid #84b4fc;outline-offset:2px}.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
     .status{margin:18px 0 0;padding:12px 14px;background:#eef3fb;border-radius:6px;border-left:4px solid #2156be}.status.error{background:#fff0f1;border-color:#b52a3d}
     summary{font-weight:650;cursor:pointer}details p{margin-top:14px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f6f9;padding:14px;border-radius:6px;font-size:13px;max-height:360px;overflow:auto}code{font-size:.9em}
-    .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row>*{flex:1}hr{border:0;border-top:1px solid #e4e8ed;margin:22px 0}
+    .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.metadata-flags{border:1px solid #dbe1e8;border-radius:6px;padding:12px;margin:15px 0}.metadata-flags label{font-weight:400;margin:7px 0;display:flex;align-items:center;gap:9px}.metadata-flags input{width:auto;margin:0}hr{border:0;border-top:1px solid #e4e8ed;margin:22px 0}
     @media(max-width:520px){body{padding:0 12px 24px;margin-top:18px}.panel,details{padding:16px}.actions button{width:100%}}
   </style>
 </head>
@@ -47,17 +47,30 @@
       <input id="name" value="TEST - Assistenza Wi-Fi" maxlength="255">
       <label for="description">Descrizione del servizio</label>
       <textarea id="description" maxlength="500">Supporto Wi-Fi nelle residenze</textarea>
+      <details>
+        <summary>Modifica i metadata della categoria</summary>
+        <p class="muted">Cambiare uno di questi valori produce UPDATE dopo il salvataggio.</p>
+        <fieldset class="metadata-flags">
+          <legend>Stato e accessi</legend>
+          <label><input type="checkbox" id="is_active">Categoria attiva</label>
+          <label><input type="checkbox" id="allow_user" checked>Utenti dell’organizzazione</label>
+          <label><input type="checkbox" id="allow_employee" checked>Dipendenti</label>
+          <label><input type="checkbox" id="allow_anonymous">Utenti anonimi</label>
+          <label><input type="checkbox" id="allow_guest" checked>Ospiti</label>
+          <label><input type="checkbox" id="allow_spid_cie">Vincolo SPID/CIE</label>
+        </fieldset>
+      </details>
       <div class="actions">
         <button id="create" class="primary">1. Crea tipologia</button>
         <button id="save" disabled>2. Salva modifiche</button>
         <button id="remove" class="danger" disabled>3. Elimina tipologia</button>
       </div>
       <div id="status" class="status" role="status" aria-live="polite">Caricamento del laboratorio…</div>
-      <p class="muted"><small>Salvare gli stessi valori è una prova valida: nel terminale è atteso <code>NONE</code>. Per ricominciare scegli “Nuova tipologia di prova”.</small></p>
+      <p class="muted"><small>Salvare gli stessi valori è una prova valida: nel terminale non deve comparire una nuova notifica. Per ricominciare scegli “Nuova tipologia di prova”.</small></p>
     </section>
     <details id="relatedTests">
       <summary>Altre prove: struttura e ufficio</summary>
-      <p class="muted">Rinominandoli cambia il testo delle tipologie collegate. Queste prove sono facoltative: inizia dai tre pulsanti sopra.</p>
+      <p class="muted">I metadata conservano gli ID di struttura e ufficio. Le sole rinomine non richiedono UPDATE. Assegnare o rimuovere un ufficio cambia invece il suo ID nella categoria.</p>
       <label for="structure">Nome della struttura della demo</label>
       <input id="structure" value="Dipartimento di prova" maxlength="255">
       <div class="actions"><button id="renameStructure">Salva nome struttura</button></div>
@@ -72,8 +85,8 @@
       <small>L’ufficio predefinito non si può rinominare o eliminare da questa demo. Creane uno per le prove. L’eliminazione di un ufficio non elimina le tipologie.</small>
     </details>
     <details>
-      <summary>Vedi i quattro dati salvati</summary>
-      <p class="muted">Sono i dati letti dal database per il confronto. Non sono embedding.</p>
+      <summary>Vedi testo e metadata salvati</summary>
+      <p class="muted">Il confronto usa nome, descrizione e gli otto metadata. Il testo da embeddare usa solo nome e descrizione.</p>
       <pre id="content">Nessuna tipologia selezionata.</pre>
     </details>
     <details>
@@ -87,6 +100,9 @@
     // Nessuna logica dei receiver o degli embedding deve essere implementata qui.
     const $ = id => document.getElementById(id);
     let categories = [], offices = [], busy = false, ready = false;
+    // I checkbox rappresentano i metadata booleani del contratto condiviso.
+    const metadataFlags = ['is_active', 'allow_user', 'allow_employee', 'allow_anonymous', 'allow_guest', 'allow_spid_cie'];
+    const defaultFlags = {is_active: false, allow_user: true, allow_employee: true, allow_anonymous: false, allow_guest: true, allow_spid_cie: false};
 
     function status(message, error = false) {
       $('status').textContent = message;
@@ -115,11 +131,16 @@
         $('name').value = category.name;
         $('description').value = category.description || '';
         $('office').value = category.office_id === null ? '' : String(category.office_id);
-        $('content').textContent = JSON.stringify(category.content, null, 2);
+        for (const field of metadataFlags) $(field).checked = category.metadata[field];
+        $('content').textContent = JSON.stringify({
+          text: {name: category.name, description: category.description},
+          metadata: category.metadata
+        }, null, 2);
         $('selectionHint').textContent = 'ID ' + category.id + ' selezionato. Modifica la descrizione e salva, oppure elimina la tipologia.';
       } else {
         $('name').value = 'TEST - Assistenza Wi-Fi';
         $('description').value = 'Supporto Wi-Fi nelle residenze';
+        for (const field of metadataFlags) $(field).checked = defaultFlags[field];
         $('content').textContent = 'Nessuna tipologia selezionata.';
         $('selectionHint').textContent = 'Compila i campi e premi Crea.';
         $('office').value = '';
@@ -159,7 +180,10 @@
     }
     function fields() {
       if (!$('name').value.trim()) throw Error('Inserisci il nome del servizio.');
-      return {name: $('name').value, description: $('description').value};
+      const data = {name: $('name').value, description: $('description').value};
+      // L’API valida i booleani JSON e salva soltanto i campi ricevuti.
+      for (const field of metadataFlags) data[field] = $(field).checked;
+      return data;
     }
     function selectedOffice() {
       if (!$('office').value) throw Error('Seleziona un ufficio.');
@@ -177,7 +201,7 @@
       const result = await request('PUT', '/api/categories/' + category.id + '/', fields());
       const changed = JSON.stringify(category.content) !== JSON.stringify(result.content);
       await refresh(String(result.id));
-      status(changed ? 'Modifiche salvate. Atteso nel terminale: UPDATED / REINDEX.' : 'Salvato senza cambiare il testo. Atteso nel terminale: UNCHANGED / NONE.');
+      status(changed ? 'Modifiche salvate. Atteso nel terminale: UPDATE.' : 'Dati rilevanti invariati: nessuna nuova notifica.');
     });
     $('remove').onclick = () => run(async () => {
       const id = current().id;
@@ -187,28 +211,28 @@
     });
     $('renameStructure').onclick = () => run(async () => {
       await request('PUT', '/api/context/', {name: $('structure').value});
-      await refresh(); status('Nome struttura salvato. Controlla nel terminale le tipologie interessate.');
+      await refresh(); status('Nome struttura salvato. Gli ID metadata restano uguali: nessuna notifica.');
     });
     $('assignOffice').onclick = () => run(async () => {
       const category = current();
       const officeId = $('office').value ? Number($('office').value) : null;
       await request('PUT', '/api/categories/' + category.id + '/', {name: category.name, description: category.description || '', office_id: officeId});
-      await refresh(String(category.id)); status('Associazione ufficio salvata. Controlla before e after nel terminale.');
+      await refresh(String(category.id)); status('Associazione ufficio salvata. Se l’ID è cambiato, nel terminale compare UPDATE.');
     });
     $('newOffice').onclick = () => run(async () => {
       const office = await request('POST', '/api/offices/', {name: $('officeName').value});
       await refresh(); $('office').value = String(office.id); officeFill();
-      status('Ufficio creato. Per includerlo nel testo della tipologia premi Assegna / rimuovi ufficio.');
+      status('Ufficio creato. Premi Assegna / rimuovi ufficio per salvare il suo ID nei metadata della categoria.');
     });
     $('renameOffice').onclick = () => run(async () => {
       const id = selectedOffice();
       await request('PUT', '/api/offices/' + id + '/', {name: $('officeName').value});
       await refresh(); if (!$('office').value) $('office').value = id; officeFill();
-      status('Nome ufficio salvato. Controlla nel terminale le tipologie collegate.');
+      status('Nome ufficio salvato. Gli ID metadata restano uguali: nessuna notifica.');
     });
     $('deleteOffice').onclick = () => run(async () => {
       await request('DELETE', '/api/offices/' + selectedOffice() + '/');
-      await refresh(); status('Ufficio eliminato. Le tipologie restano; il loro testo non contiene più il nome dell’ufficio.');
+      await refresh(); status('Ufficio eliminato. Il suo ID diventa null nelle categorie collegate, producendo UPDATE.');
     });
     $('refresh').onclick = () => run(async () => {await refresh(); status('Dati locali ricaricati. Nessuna modifica eseguita.');});
     run(async () => {await refresh(''); status('Pronto. Inizia con 1. Crea tipologia, oppure seleziona una prova esistente.');});

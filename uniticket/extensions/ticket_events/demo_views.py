@@ -16,10 +16,17 @@ from django.views.decorators.http import require_http_methods
 from organizational_area.models import OrganizationalStructure, OrganizationalStructureOffice
 from uni_ticket.models import TicketCategory
 from .content import snapshot, embedding_text
+from .index_fields import METADATA_FIELDS
 
 if not getattr(settings, "RECEIVER_DEMO", False):
     raise ImproperlyConfigured("Only use the dedicated demo settings.")
 SLUG = "receiver-demo-only"
+# I booleani del contratto vengono validati senza conversioni implicite da stringa.
+BOOLEAN_FIELDS = tuple(
+    field for field in METADATA_FIELDS
+    if field not in {"organizational_structure_id", "organizational_office_id"}
+)
+CATEGORY_INPUT_FIELDS = ("name", "description", "office_id") + BOOLEAN_FIELDS
 
 def structure():
     return OrganizationalStructure.objects.get_or_create(
@@ -38,6 +45,9 @@ def payload(request, allowed, required):
         if key == "office_id":
             if value is not None and (type(value) is not int or value < 1):
                 raise ValueError("office_id deve essere un ID positivo oppure null")
+        elif key in BOOLEAN_FIELDS:
+            if type(value) is not bool:
+                raise ValueError(key + " deve essere un booleano JSON")
         elif not isinstance(value, str):
             raise ValueError(key + " deve essere una stringa")
     if "name" in data and not data["name"].strip():
@@ -51,7 +61,8 @@ def serialize(category):
     content = snapshot(category.pk, category._state.db)
     return {"id": category.pk, "name": category.name, "description": category.description,
             "office_id": category.organizational_office_id, "content": content,
-            "embedding_text": embedding_text(content)}
+            "embedding_text": embedding_text(content),
+            "metadata": {field: content[field] for field in METADATA_FIELDS}}
 
 def office_for(value, owner):
     return None if value is None else get_object_or_404(
@@ -68,12 +79,15 @@ def categories(request):
         rows = TicketCategory.objects.filter(organizational_structure__slug=SLUG)
         return JsonResponse({"categories": [serialize(c) for c in rows]})
     try:
-        data = payload(request, ("name", "description", "office_id"), ("name", "description"))
+        data = payload(request, CATEGORY_INPUT_FIELDS, ("name", "description"))
         with transaction.atomic():
             owner = structure()
             category = TicketCategory(name=data["name"], description=data["description"],
                 slug="demo-" + uuid4().hex, organizational_structure=owner,
                 organizational_office=office_for(data.get("office_id"), owner))
+            for field in BOOLEAN_FIELDS:
+                if field in data:
+                    setattr(category, field, data[field])
             category.full_clean()
             category.save()
             result = serialize(category)
@@ -94,12 +108,17 @@ def category_detail(request, pk):
                 category.delete()
                 result = {"deleted": pk}
             else:
-                data = payload(request, ("name", "description", "office_id"), ("name", "description"))
+                data = payload(request, CATEGORY_INPUT_FIELDS, ("name", "description"))
                 category.name, category.description = data["name"], data["description"]
                 fields = ["name", "description", "modified"]
                 if "office_id" in data:
                     category.organizational_office = office_for(data["office_id"], category.organizational_structure)
                     fields.append("organizational_office")
+                # Solo i metadata presenti nel payload entrano nel salvataggio parziale.
+                for field in BOOLEAN_FIELDS:
+                    if field in data:
+                        setattr(category, field, data[field])
+                        fields.append(field)
                 category.full_clean()
                 category.save(update_fields=fields)
                 result = serialize(category)

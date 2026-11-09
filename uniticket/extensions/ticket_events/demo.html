@@ -170,7 +170,7 @@
     $('create').onclick = () => run(async () => {
       const category = await request('POST', '/api/categories/', fields());
       await refresh(String(category.id));
-      status('Tipologia ' + category.id + ' creata. Atteso nel terminale: CREATED / INDEX. Ora cambia la descrizione.');
+      status('Tipologia ' + category.id + ' creata. Atteso nel terminale: CREATE, ricevuto dal destinatario della demo.');
     });
     $('save').onclick = () => run(async () => {
       const category = current();

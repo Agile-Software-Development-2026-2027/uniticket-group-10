@@ -42,7 +42,7 @@ class ContentEventsTests(TransactionTestCase):
 
     def test_create_update_unchanged_and_delete(self):
         category = self.create_category()
-        self.assertEqual(self.collector.events[-1]["possible_action"], "INDEX")
+        self.assertEqual(self.collector.events[-1]["operation"], "CREATE")
         category.description = "Dopo"
         category.save(update_fields=["description"])
         self.assertEqual(self.differences(self.collector.events[-1]), {"description": {"before": "Prima", "after": "Dopo"}})

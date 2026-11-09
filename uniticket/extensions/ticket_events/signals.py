@@ -1,14 +1,16 @@
 """Real Django receivers for the agreed TicketCategory embedding inputs.
 
-They read real models and emit local logs after commit; no embedding service
-or vector database is called. Demo APIs are not imported by this module.
+CREATE notifica il destinatario configurato dopo il commit. Gli altri percorsi
+conservano i log dimostrativi del prototipo fino ai successivi incrementi.
 """
 import json
 import logging
+from functools import partial
 from django.db import transaction
 from django.db.models.signals import pre_save, post_save, pre_delete, post_delete
 from django.dispatch import receiver
 from .content import snapshot, related_snapshots
+from .notifications import safe_notify
 
 logger = logging.getLogger("ticket_events")
 CATEGORY = "uni_ticket.TicketCategory"
@@ -60,8 +62,15 @@ def category_before(sender, instance, using, raw=False, **kwargs):
         setattr(instance, STATE, snapshot(instance.pk, using) if instance.pk else None)
 
 @receiver(post_save, sender=CATEGORY, dispatch_uid="ticket_events.category_saved")
-def category_saved(sender, instance, using, raw=False, **kwargs):
-    if raw:  # Fixture synchronization must happen after the complete import.
+def category_saved(sender, instance, created, using, raw=False, **kwargs):
+    if raw:  # Durante loaddata i dati correlati possono essere ancora incompleti.
+        return
+    if created:
+        if hasattr(instance, STATE):
+            delattr(instance, STATE)
+        # partial conserva l’ID attuale anche se l’istanza cambia prima del commit.
+        callback = partial(safe_notify, "CREATE", instance.pk)
+        transaction.on_commit(callback, using=using)
         return
     if not hasattr(instance, STATE):
         logger.warning("[TICKET EVENT] Snapshot unavailable for category %s", instance.pk)

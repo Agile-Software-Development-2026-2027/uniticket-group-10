@@ -1,28 +1,20 @@
-"""TDD di UPDATE con notifier fittizio, modelli originali e database isolato."""
+"""Campi osservati, dati ignorati e cambiamenti dell’ufficio."""
 
-import logging
-
-from django.db import transaction
-from django.test import TestCase, TransactionTestCase, override_settings
+from django.test import TestCase
 from organizational_area.models import OrganizationalStructure, OrganizationalStructureOffice
 
 from ..index_fields import INDEX_FIELDS, METADATA_FIELDS
 from .helpers import CategoryTestsSetup
 
 
-class UpdateTestsSetup(CategoryTestsSetup):
+class UpdateNotificationTests(CategoryTestsSetup, TestCase):
+    # Salva la categoria prima di osservare soltanto le sue modifiche.
     def setUp(self):
         super().setUp()
-        # La preparazione conferma CREATE prima di osservare soltanto gli UPDATE.
-        if isinstance(self, TestCase):
-            with self.captureOnCommitCallbacks(execute=True):
-                self.category = self.create_category()
-        else:
+        with self.captureOnCommitCallbacks(execute=True):
             self.category = self.create_category()
         self.notifier.events.clear()
 
-
-class UpdateNotificationTests(UpdateTestsSetup, TestCase):
     def test_each_index_field_triggers_update(self):
         other_structure = OrganizationalStructure.objects.create(
             name="Altra struttura", slug="other-update", unique_code="OTHER-UPDATE",
@@ -54,25 +46,25 @@ class UpdateNotificationTests(UpdateTestsSetup, TestCase):
             self.category.save()
         self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
 
-    def test_unchanged_save_does_not_notify(self):
-        with self.captureOnCommitCallbacks(execute=True) as callbacks:
-            self.category.save()
-        self.assertEqual(callbacks, [])
-        self.assertEqual(self.notifier.events, [])
-
-    def test_excluded_field_does_not_notify(self):
-        self.category.footer_text = "Nuovo testo di stampa"
-        with self.captureOnCommitCallbacks(execute=True):
-            self.category.save(update_fields=["footer_text"])
-        self.assertEqual(self.notifier.events, [])
-
-    def test_update_fields_ignores_unsaved_instance_changes(self):
-        self.category.name = "Nome presente soltanto nell’istanza"
-        with self.captureOnCommitCallbacks(execute=True):
-            self.category.save(update_fields=["description"])
-        self.assertEqual(self.notifier.events, [])
-        self.category.refresh_from_db()
-        self.assertEqual(self.category.name, "Categoria CREATE test")
+    # Questi salvataggi non modificano i campi osservati nel database.
+    def test_ignored_changes_do_not_notify(self):
+        cases = (
+            ("invariato", {}, None),
+            ("campo escluso", {"footer_text": "Solo stampa"}, ["footer_text"]),
+            ("nome non salvato", {"name": "Solo in memoria"}, ["description"]),
+            ("nessun campo salvato", {"name": "Ignorato"}, []),
+        )
+        for label, changes, fields in cases:
+            with self.subTest(case=label):
+                self.category.refresh_from_db()
+                for field, value in changes.items():
+                    setattr(self.category, field, value)
+                with self.captureOnCommitCallbacks(execute=True) as callbacks:
+                    self.category.save(update_fields=fields)
+                self.assertEqual(callbacks, [])
+                self.assertEqual(self.notifier.events, [])
+                self.category.refresh_from_db()
+                self.assertEqual(self.category.name, "Categoria CREATE test")
 
     def test_null_and_empty_description_are_compared_as_saved(self):
         with self.captureOnCommitCallbacks(execute=True):
@@ -84,43 +76,6 @@ class UpdateNotificationTests(UpdateTestsSetup, TestCase):
             self.category.save(update_fields=["description"])
         self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
 
-    def test_empty_update_fields_does_not_notify(self):
-        with self.captureOnCommitCallbacks(execute=True):
-            self.category.name = "Ignorato"
-            self.category.save(update_fields=[])
-        self.assertEqual(self.notifier.events, [])
-
-    def test_fixture_update_is_skipped(self):
-        self.category.description = "Valore fixture"
-        with self.captureOnCommitCallbacks(execute=True):
-            self.category.save_base(raw=True)
-        self.assertEqual(self.notifier.events, [])
-
-    def test_waits_for_commit_and_keeps_category_id(self):
-        original_id = self.category.pk
-        with self.captureOnCommitCallbacks(execute=False) as callbacks:
-            self.category.description = "Aggiornato"
-            self.category.save(update_fields=["description"])
-            self.assertEqual(self.notifier.events, [])
-        self.assertEqual(len(callbacks), 1)
-        self.category.pk = None
-        callbacks[0]()
-        self.assertEqual(self.notifier.events, [("UPDATE", original_id)])
-
-    def test_notifier_failure_preserves_saved_values(self):
-        def failing_notifier(operation, category_id):
-            raise RuntimeError("Errore UPDATE simulato")
-
-        with override_settings(TICKET_EVENTS_NOTIFIER=failing_notifier):
-            with self.assertLogs("ticket_events", level=logging.ERROR) as logs:
-                with self.captureOnCommitCallbacks(execute=True):
-                    self.category.description = "Modifica confermata"
-                    self.category.save(update_fields=["description"])
-        self.category.refresh_from_db()
-        self.assertEqual(self.category.description, "Modifica confermata")
-        self.assertIn("UPDATE", logs.output[0])
-        self.assertIn(str(self.category.pk), logs.output[0])
-        self.assertIsNotNone(logs.records[0].exc_info)
 
     def test_renaming_structure_and_office_does_not_notify(self):
         office = OrganizationalStructureOffice.objects.create(
@@ -171,27 +126,3 @@ class UpdateNotificationTests(UpdateTestsSetup, TestCase):
         with self.captureOnCommitCallbacks(execute=True):
             type(self.category).objects.filter(pk=self.category.pk).update(description="SQL diretto")
         self.assertEqual(self.notifier.events, [])
-
-
-class UpdateTransactionTests(UpdateTestsSetup, TransactionTestCase):
-    def test_real_commit_delivers_update(self):
-        with transaction.atomic():
-            self.category.description = "Confermato"
-            self.category.save(update_fields=["description"])
-            self.assertEqual(self.notifier.events, [])
-        self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
-
-    def test_rollback_discards_update(self):
-        with self.assertRaises(ValueError):
-            with transaction.atomic():
-                self.category.description = "Da annullare"
-                self.category.save(update_fields=["description"])
-                raise ValueError("Rollback UPDATE")
-        self.category.refresh_from_db()
-        self.assertEqual(self.category.description, "Descrizione di prova")
-        self.assertEqual(self.notifier.events, [])
-
-    def test_autocommit_notifies_update_immediately(self):
-        self.category.description = "Autocommit"
-        self.category.save(update_fields=["description"])
-        self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])

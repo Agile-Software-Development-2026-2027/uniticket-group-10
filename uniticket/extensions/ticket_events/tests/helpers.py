@@ -1,10 +1,10 @@
-"""Preparazione condivisa dei test CRUD e destinatario fittizio."""
+"""Dati locali dei test e funzione finta che registra operazione e ID."""
 
 from pathlib import Path
 
 from django.conf import settings
 from django.db import connection
-from django.test import override_settings
+from unittest.mock import patch
 from organizational_area.models import OrganizationalStructure
 from uni_ticket.models import TicketCategory
 
@@ -32,10 +32,10 @@ class CategoryTestsSetup:
             name="Struttura CREATE test", slug="create-test", unique_code="CREATE-TEST",
         )
         self.notifier = FakeNotifier()
-        # La sostituzione riguarda il confine di notifica, lasciando attivi i signals reali.
-        configured_notifier = override_settings(TICKET_EVENTS_NOTIFIER=self.notifier)
-        configured_notifier.enable()
-        self.addCleanup(configured_notifier.disable)
+        # Registra nei test le chiamate a synchronize(), lasciando attivi i signals reali.
+        self.synchronize_patch = patch("ticket_events.notifications.synchronize", self.notifier)
+        self.synchronize_patch.start()
+        self.addCleanup(self.synchronize_patch.stop)
 
     def create_category(self, **overrides):
         values = {
@@ -48,3 +48,7 @@ class CategoryTestsSetup:
         return TicketCategory.objects.create(**values)
 
 
+    # Esegue il POST originale e le funzioni prenotate con on_commit nei test.
+    def post_and_commit(self, url, data=None):
+        with self.captureOnCommitCallbacks(execute=True):
+            return self.client.post(url, data)

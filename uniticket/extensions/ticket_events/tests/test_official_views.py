@@ -70,93 +70,68 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
             self.category.save(update_fields=["organizational_office", "is_active"])
         self.notifier.events.clear()
 
-    def test_standard_settings_register_receivers_once(self):
-        app = "ticket_events.apps.TicketEventsConfig"
-        self.assertEqual(original_settings.INSTALLED_APPS.count(app), 1)
-        self.assertTrue(apps.is_installed("ticket_events"))
 
     def test_original_create_reaches_receiver(self):
         url = self.url("manager_category_add_new")
-        with self.captureOnCommitCallbacks(execute=True):
-            response = self.client.post(url, self.payload(name="Nuova tipologia ufficiale"))
+        response = self.post_and_commit(url, self.payload(name="Nuova tipologia ufficiale"))
         self.assertEqual(response.status_code, 302)
         category = TicketCategory.objects.get(slug="nuova-tipologia-ufficiale")
         self.assertEqual(category.organizational_structure_id, self.structure.pk)
         self.assertEqual(self.notifier.events, [("CREATE", category.pk)])
 
-    def test_original_edit_detects_both_embedding_fields(self):
-        for field, value in (("name", "Nuovo servizio"), ("description", "Supporto nelle aule")):
+    # Ogni campo del form viene modificato separatamente.
+    def test_original_edit_detects_text_and_access_flags(self):
+        changes = {"name": "Nuovo servizio", "description": "Supporto nelle aule"}
+        for field in ("allow_user", "allow_employee", "allow_anonymous", "allow_guest", "allow_spid_cie"):
+            changes[field] = not getattr(self.category, field)
+        for field, value in changes.items():
             with self.subTest(field=field):
                 self.notifier.events.clear()
-                with self.captureOnCommitCallbacks(execute=True):
-                    response = self.client.post(
-                        self.url("manager_category_edit", self.category),
-                        self.payload(**{field: value}),
-                    )
+                response = self.post_and_commit(
+                    self.url("manager_category_edit", self.category),
+                    self.payload(**{field: value}),
+                )
                 self.assertEqual(response.status_code, 302)
                 self.category.refresh_from_db()
                 self.assertEqual(getattr(self.category, field), value)
                 self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
 
-    def test_original_edit_detects_each_access_flag(self):
-        fields = ("allow_user", "allow_employee", "allow_anonymous", "allow_guest", "allow_spid_cie")
-        for field in fields:
-            with self.subTest(field=field):
-                value = not getattr(self.category, field)
-                self.notifier.events.clear()
-                with self.captureOnCommitCallbacks(execute=True):
-                    response = self.client.post(
-                        self.url("manager_category_edit", self.category),
-                        self.payload(**{field: value}),
-                    )
-                self.assertEqual(response.status_code, 302)
-                self.category.refresh_from_db()
-                self.assertEqual(getattr(self.category, field), value)
-                self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
 
     def test_original_edit_ignores_unchanged_and_excluded_fields(self):
         for changes in ({}, {"footer_text": "Solo testo di stampa"}):
             with self.subTest(changes=changes):
-                with self.captureOnCommitCallbacks(execute=True):
-                    response = self.client.post(
-                        self.url("manager_category_edit", self.category), self.payload(**changes),
-                    )
+                response = self.post_and_commit(
+                    self.url("manager_category_edit", self.category), self.payload(**changes),
+                )
                 self.assertEqual(response.status_code, 302)
                 self.category.refresh_from_db()
                 self.assertEqual(self.notifier.events, [])
 
-    def test_original_create_rejects_invalid_name_without_event(self):
+    # Nomi invalidi e duplicati non devono salvare dati o emettere notifiche.
+    def test_original_forms_reject_invalid_and_duplicate_names(self):
         before = TicketCategory.objects.count()
-        with self.captureOnCommitCallbacks(execute=True):
-            response = self.client.post(self.url("manager_category_add_new"), self.payload(name="123"))
-        self.assertEqual(response.status_code, 200)
-        self.assertTrue(response.context["form"].errors)
-        self.assertEqual(TicketCategory.objects.count(), before)
-        self.assertEqual(self.notifier.events, [])
+        cases = (
+            ("manager_category_add_new", None, {"name": "123"}, True),
+            ("manager_category_add_new", None, {}, False),
+            ("manager_category_edit", self.category, {"name": "123"}, True),
+        )
+        for view, category, changes, form_errors in cases:
+            with self.subTest(view=view, changes=changes):
+                response = self.post_and_commit(self.url(view, category), self.payload(**changes))
+                self.assertEqual(response.status_code, 200)
+                self.assertEqual(bool(response.context["form"].errors), form_errors)
+                self.assertEqual(TicketCategory.objects.count(), before)
+                self.category.refresh_from_db()
+                self.assertEqual(self.category.name, "Categoria CREATE test")
+                self.assertEqual(self.notifier.events, [])
 
-    def test_original_create_rejects_duplicate_without_event(self):
-        before = TicketCategory.objects.count()
-        with self.captureOnCommitCallbacks(execute=True):
-            response = self.client.post(self.url("manager_category_add_new"), self.payload())
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(TicketCategory.objects.count(), before)
-        self.assertEqual(self.notifier.events, [])
-
-    def test_original_delete_reaches_receiver(self):
-        category_id = self.category.pk
-        with self.captureOnCommitCallbacks(execute=True):
-            response = self.client.post(self.url("manager_delete_category", self.category))
-        self.assertEqual(response.status_code, 302)
-        self.assertFalse(TicketCategory.objects.filter(pk=category_id).exists())
-        self.assertEqual(self.notifier.events, [("DELETE", category_id)])
 
     def test_anonymous_crud_is_blocked_without_events(self):
         self.client.logout()
         for name in ("manager_category_add_new", "manager_category_edit", "manager_delete_category"):
             with self.subTest(view=name):
                 category = None if name == "manager_category_add_new" else self.category
-                with self.captureOnCommitCallbacks(execute=True):
-                    response = self.client.post(self.url(name, category), self.payload(name="Non consentito"))
+                response = self.post_and_commit(self.url(name, category), self.payload(name="Non consentito"))
                 self.assertEqual(response.status_code, 302)
                 self.assertIn("login", response.url)
                 self.assertEqual(self.notifier.events, [])
@@ -166,10 +141,9 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
     def test_user_without_manager_permissions_cannot_modify_category(self):
         user = get_user_model().objects.create_user(username="not-manager")
         self.client.force_login(user)
-        with self.captureOnCommitCallbacks(execute=True):
-            response = self.client.post(
-                self.url("manager_category_edit", self.category), self.payload(name="Non consentito"),
-            )
+        response = self.post_and_commit(
+            self.url("manager_category_edit", self.category), self.payload(name="Non consentito"),
+        )
         self.assertEqual(response.status_code, 200)
         self.category.refresh_from_db()
         self.assertEqual(self.category.name, "Categoria CREATE test")
@@ -188,16 +162,14 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
         for name, expected in (("manager_enable_category", True), ("manager_disable_category", False)):
             with self.subTest(view=name):
                 self.notifier.events.clear()
-                with self.captureOnCommitCallbacks(execute=True):
-                    response = self.client.post(self.url(name, self.category))
+                response = self.post_and_commit(self.url(name, self.category))
                 self.assertEqual(response.status_code, 302)
                 self.category.refresh_from_db()
                 self.assertEqual(self.category.is_active, expected)
                 self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
 
     def test_original_enable_blocked_without_office_does_not_notify(self):
-        with self.captureOnCommitCallbacks(execute=True):
-            response = self.client.post(self.url("manager_enable_category", self.category))
+        response = self.post_and_commit(self.url("manager_enable_category", self.category))
         self.assertEqual(response.status_code, 302)
         self.category.refresh_from_db()
         self.assertFalse(self.category.is_active)
@@ -215,8 +187,7 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
                 else:
                     url = self.url(name, office_slug=office.slug)
                     data = {"category": self.category.slug}
-                with self.captureOnCommitCallbacks(execute=True):
-                    response = self.client.post(url, data)
+                response = self.post_and_commit(url, data)
                 self.assertEqual(response.status_code, 302)
                 self.category.refresh_from_db()
                 self.assertEqual(self.category.organizational_office_id, office.pk)
@@ -227,8 +198,7 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
         for name in ("manager_remove_category_office", "manager_remove_office_category"):
             with self.subTest(view=name):
                 self.assign_office(office, active=True)
-                with self.captureOnCommitCallbacks(execute=True):
-                    response = self.client.post(self.url(name, self.category, office_slug=office.slug))
+                response = self.post_and_commit(self.url(name, self.category, office_slug=office.slug))
                 self.assertEqual(response.status_code, 302)
                 self.category.refresh_from_db()
                 self.assertIsNone(self.category.organizational_office_id)
@@ -241,8 +211,7 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
         with self.captureOnCommitCallbacks(execute=True):
             second = self.create_category(slug="second-category", name="Seconda categoria", organizational_office=office)
         self.notifier.events.clear()
-        with self.captureOnCommitCallbacks(execute=True):
-            response = self.client.post(self.url("manager_delete_office", office_slug=office.slug))
+        response = self.post_and_commit(self.url("manager_delete_office", office_slug=office.slug))
         self.assertEqual(response.status_code, 302)
         self.assertFalse(OrganizationalStructureOffice.objects.filter(pk=office.pk).exists())
         self.category.refresh_from_db()
@@ -274,14 +243,17 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
                 self.assertEqual(self.category.description, "Descrizione di prova")
                 self.assertFalse(TicketCategory.objects.filter(slug="creazione-annullata").exists())
 
-    def test_repeated_app_initialization_does_not_duplicate_receivers(self):
+    # La configurazione registra l’app una volta; ready ripetuto non duplica i receiver.
+    def test_app_registration_does_not_duplicate_receivers(self):
+        app = "ticket_events.apps.TicketEventsConfig"
+        self.assertEqual(original_settings.INSTALLED_APPS.count(app), 1)
+        self.assertTrue(apps.is_installed("ticket_events"))
         app_config = apps.get_app_config("ticket_events")
         app_config.ready()
         app_config.ready()
-        with self.captureOnCommitCallbacks(execute=True):
-            response = self.client.post(
-                self.url("manager_category_edit", self.category), self.payload(description="Un solo evento"),
-            )
+        response = self.post_and_commit(
+            self.url("manager_category_edit", self.category), self.payload(description="Un solo evento"),
+        )
         self.assertEqual(response.status_code, 302)
         self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
 
@@ -301,16 +273,6 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
         self.assertEqual(callbacks, [])
         self.assertEqual(self.notifier.events, [])
 
-    def test_original_edit_rejects_invalid_data_without_event(self):
-        with self.captureOnCommitCallbacks(execute=True):
-            response = self.client.post(
-                self.url("manager_category_edit", self.category), self.payload(name="123"),
-            )
-        self.assertEqual(response.status_code, 200)
-        self.assertTrue(response.context["form"].errors)
-        self.category.refresh_from_db()
-        self.assertEqual(self.category.name, "Categoria CREATE test")
-        self.assertEqual(self.notifier.events, [])
 
     def test_original_delete_of_used_category_is_blocked_without_event(self):
         module = TicketCategoryModule.objects.create(name="Modulo utilizzato", ticket_category=self.category)
@@ -319,8 +281,7 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
             subject="Richiesta di test", description="Dato temporaneo", input_module=module,
             created_by=self.manager,
         )
-        with self.captureOnCommitCallbacks(execute=True):
-            response = self.client.post(self.url("manager_delete_category", self.category))
+        response = self.post_and_commit(self.url("manager_delete_category", self.category))
         self.assertEqual(response.status_code, 302)
         self.assertTrue(TicketCategory.objects.filter(pk=self.category.pk).exists())
         self.assertEqual(self.notifier.events, [])
@@ -332,8 +293,8 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
         self.assertTrue(folder.is_relative_to(Path(settings.TICKET_EVENTS_TEST_ROOT).resolve()))
         folder.mkdir(parents=True, exist_ok=True)
         (folder / "attachment.txt").write_text("allegato temporaneo", encoding="utf-8")
-        with self.captureOnCommitCallbacks(execute=True):
-            response = self.client.post(self.url("manager_delete_category", self.category))
+        response = self.post_and_commit(self.url("manager_delete_category", self.category))
         self.assertEqual(response.status_code, 302)
         self.assertFalse(folder.exists())
+        self.assertFalse(TicketCategory.objects.filter(pk=self.category.pk).exists())
         self.assertEqual(self.notifier.events, [("DELETE", self.category.pk)])

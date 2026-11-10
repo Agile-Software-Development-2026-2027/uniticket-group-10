@@ -6,7 +6,6 @@ WORKDIR /app
 COPY agent/requirements.txt ./requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY agent/locale ./locale
 COPY agent/app ./app
 COPY agent/tests ./tests
 

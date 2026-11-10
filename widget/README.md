@@ -114,7 +114,7 @@ HTMX è fornito dalla pagina Django (stiamo dando per scontato che non lo toglie
 La selezione apre il modulo tramite HTMX e aggiorna lo stato delle card.
 
 Il proxy Django espone una sola `POST /api/assistant`, inoltrata a FastAPI
-`POST /agent`. La pipeline Docker
+`POST /conversation`. La pipeline Docker
 copia gli artefatti di `dist-widget/` negli statici Django.
 
 - [Runtime assistant-ui](https://www.assistant-ui.com/docs/runtimes/ag-ui/quickstart)

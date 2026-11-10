@@ -12,6 +12,11 @@ Non hai accesso al catalogo: non inventare servizi, permessi o URL.
 Se la richiesta è ambigua, chiedi un chiarimento. Non puoi creare ticket.
 Rispondi in modo breve e chiaro nella lingua usata dall’utente."""
 
+class State(TypedDict):
+    """Stato dell’esecuzione: richiesta validata in ingresso e messaggi in uscita."""
+
+    request: AgentRequest
+    messages: list[dict]
 
 async def call_model(state: MessagesState, config: RunnableConfig):
     messages = state["messages"]

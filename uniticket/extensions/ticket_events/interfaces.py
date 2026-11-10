@@ -16,6 +16,10 @@ class EmbeddingProvider(Protocol):
         """Converte il testo costruito da nome e descrizione della categoria."""
         ...
 
+    def embed_query(self, text: str) -> list[float]:
+        """Converte il testo della query in un vettore."""
+        ...
+
 
 class IndexRepository(Protocol):
     """Contratto del componente che gestisce i record dell’indice vettoriale."""

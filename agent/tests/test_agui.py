@@ -6,7 +6,7 @@ from uuid import uuid4
 import httpx
 from ag_ui.core import EventType, RawEvent, RunFinishedEvent, RunStartedEvent
 
-from agent.app.main import agent, app
+from app.main import agent, app
 
 
 class AgUiTests(unittest.IsolatedAsyncioTestCase):
@@ -56,7 +56,7 @@ class AgUiTests(unittest.IsolatedAsyncioTestCase):
             "state": {}, "tools": [], "context": [], "forwardedProps": {},
         }
 
-        with patch("agent.app.graph.llm", ainvoke=AsyncMock(side_effect=RuntimeError(secret))):
+        with patch("app.graph.llm", ainvoke=AsyncMock(side_effect=RuntimeError(secret))):
             async with httpx.AsyncClient(
                 transport=httpx.ASGITransport(app=app), base_url="http://agent",
             ) as client:

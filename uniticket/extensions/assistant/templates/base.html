@@ -11,7 +11,7 @@
 {{ block.super }}
 {% if request.user.is_authenticated %}
 <div id="assistant-root" hx-preserve> {#<--- Occhio a preserve, serve a non "ricaricare" il componente#}
-    <script src="{% static 'chat/vendor/htmx.js' %}"></script>
+    <script src="{% static 'js/htmx-1.9.10.min.js' %}"></script>
     {% include "widget/widget.html" %}
 </div>
 {% endif %}

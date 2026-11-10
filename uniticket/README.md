@@ -1,7 +1,5 @@
 
 ## Partial page update
-Bo HTMX che era già presente
-
 <p align="center">
   <img src="../_images/partial-page-update.png" alt="Overview" width="800">
 </p>

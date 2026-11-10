@@ -1,7 +1,7 @@
 {% load static i18n %}
 {% get_current_language as WIDGET_LANGUAGE %}
-<link rel="stylesheet" href="{% static 'chat/vendor/assistant-ui.css' %}?v=i18n-1">
-<div id="assistant-widget" class="assistant-widget" v-cloak data-language="{{ WIDGET_LANGUAGE }}" data-conversation-url="{% url 'assistant_conversation' %}">
+<link rel="stylesheet" href="{% static 'chat/vendor/assistant-ui.css' %}?v=ag-ui-1">
+<div id="assistant-widget" class="assistant-widget" data-language="{{ WIDGET_LANGUAGE }}" data-agui-url="/api/assistant">
     <div hidden>{% csrf_token %}</div>
 </div>
-<script src="{% static 'chat/vendor/assistant-ui.js' %}?v=i18n-1" defer></script>
+<script src="{% static 'chat/vendor/assistant-ui.js' %}" defer></script>

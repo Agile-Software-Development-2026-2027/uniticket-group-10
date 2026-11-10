@@ -29,6 +29,7 @@ class Category(Contract):
     id: int = Field(gt=0, strict=True)
     name: str = Field(min_length=1, max_length=255, strict=True)
     description: str = ""
+    structure_id: int = Field(gt=0, strict=True)
     structure_name: str = ""
     url: str
     hidden: bool = False

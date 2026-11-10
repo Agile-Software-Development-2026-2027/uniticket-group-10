@@ -1,6 +1,10 @@
-.PHONY: install test-local test-acceptance test-all clean
+.PHONY: install test-local test-agent test-acceptance test-all clean
 
 default: test-local
+
+test-agent:
+	@echo "Running agent tests..."
+	cd agent && python -m pytest
 
 test-local:
 	@echo "Running Django tests in the uniticket container..."

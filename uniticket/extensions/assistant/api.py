@@ -34,6 +34,7 @@ def get_catalog(user) -> list[dict]:
     return [
         {
             "id": category.pk, "name": category.name, "description": category.description or "",
+            "structure_id": category.organizational_structure.pk,
             "structure_name": category.organizational_structure.name, "hidden": category.is_hidden,
             "url": reverse("uni_ticket:add_new_ticket", kwargs={
                 "structure_slug": category.organizational_structure.slug, "category_slug": category.slug,

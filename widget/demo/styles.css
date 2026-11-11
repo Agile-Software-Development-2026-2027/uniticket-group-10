@@ -1,0 +1,227 @@
+@import "./fonts.css";
+
+:root {
+  font-family: "Titillium Web", Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  color: #242d38;
+  background: #f3f5f7;
+  line-height: 1.5;
+}
+body {
+  margin: 0;
+}
+.demo-page {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+}
+.demo-page * {
+  box-sizing: border-box;
+}
+.demo-page button,
+.demo-page select,
+.demo-page textarea {
+  font: inherit;
+}
+.demo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 -2rem;
+  padding: 1.5rem 2rem;
+  background: #a51e22;
+  color: #fff;
+}
+.demo-header h1 {
+  font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+  line-height: 1.15;
+  margin: 0 0 0.625rem;
+  color: inherit;
+}
+.demo-header p {
+  color: inherit;
+  margin-bottom: 0;
+}
+.demo-page .demo-header p {
+  color: #fff;
+}
+.demo-page p {
+  color: #536171;
+  max-width: 65ch;
+}
+.demo-page :is(h1, h2, h3, h4, h5, h6, strong, b) {
+  font-weight: 600;
+}
+.demo-page :is(h4, h5, h6) {
+  font-size: 0.9375rem;
+}
+.demo-page h2 {
+  font-size: 1.0625rem;
+  margin: 0 0 0.5rem;
+}
+.demo-page h3 {
+  font-size: 1rem;
+  margin-top: 0;
+}
+.demo-page svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+.demo-header .demo-open {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 0.5rem;
+  min-height: 40px;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: #fff;
+  color: #a51e22;
+  cursor: pointer;
+}
+.demo-header .demo-open:hover {
+  background: #faf1f1;
+}
+.demo-page .demo-header :focus-visible {
+  outline-color: #fff;
+}
+.demo-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  border-block: 1px solid #d9dfe5;
+  margin: 0 -2rem 1.5rem;
+  padding: 0.625rem 2rem;
+  background: #fff;
+}
+.demo-toolbar p {
+  font-size: 0.875rem;
+  margin: 0;
+}
+.demo-toolbar label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  font-size: 0.875rem;
+}
+.demo-toolbar select {
+  min-height: 36px;
+  padding: 0.375rem 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid #8793a0;
+  border-radius: 0.375rem;
+  background: #fff;
+  color: #242d38;
+}
+.demo-columns {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.demo-scenarios {
+  margin-top: 1rem;
+  border-top: 1px solid #d9dfe5;
+}
+.demo-scenarios button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.625rem 0.875rem;
+  border: 0;
+  border-bottom: 1px solid #d9dfe5;
+  text-align: left;
+  background: #fff;
+  color: #242d38;
+  cursor: pointer;
+}
+.demo-scenarios button:hover:not(:disabled) {
+  color: #a51e22;
+  background: #faf1f1;
+}
+.demo-scenarios button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+.demo-scenarios strong,
+.demo-scenarios small {
+  display: block;
+}
+.demo-scenarios small {
+  color: #536171;
+  margin-top: 0.125rem;
+  font-size: 0.875rem;
+}
+.demo-form-panel {
+  padding: 1.125rem;
+  background: #fff;
+  border-radius: 0.25rem;
+  border: 1px solid #d9dfe5;
+}
+.demo-form-panel #assistant-page-content {
+  margin-top: 1rem;
+  min-height: 6rem;
+  color: #536171;
+}
+.demo-form-panel label {
+  display: block;
+  font-size: 0.875rem;
+  color: #242d38;
+}
+.demo-form-panel textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid #8793a0;
+  border-radius: 0.375rem;
+  background: #fff;
+  color: #242d38;
+  resize: vertical;
+}
+.demo-note {
+  font-size: 0.8125rem;
+  margin-top: 1rem;
+}
+.demo-page :focus-visible {
+  outline: 3px solid #a51e22;
+  outline-offset: 3px;
+}
+.demo-page ::selection {
+  background: #f4d9da;
+  color: #242d38;
+}
+@media (max-width: 800px) {
+  .demo-page {
+    padding: 0 1rem 6rem;
+  }
+  .demo-header,
+  .demo-toolbar {
+    margin-inline: -1rem;
+    padding-inline: 1rem;
+  }
+  .demo-header,
+  .demo-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .demo-header .demo-open,
+  .demo-toolbar select {
+    min-height: 44px;
+  }
+  .demo-columns {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

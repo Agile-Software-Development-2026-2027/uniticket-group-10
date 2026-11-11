@@ -1,105 +1,103 @@
-import json
-from http.client import HTTPException
-from urllib.error import HTTPError, URLError
-from urllib.request import Request, urlopen
+"""Authenticated AG-UI proxy to the internal agent service."""
+
+import logging
+
+import httpx
 
 from django.conf import settings
-from django.urls import reverse
-from django.utils.translation import get_language
+from django.http import StreamingHttpResponse
+from rest_framework import serializers
 from rest_framework.authentication import SessionAuthentication
-from rest_framework.exceptions import ValidationError
+from rest_framework.exceptions import PermissionDenied
 from rest_framework.parsers import JSONParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from uni_ticket.models import TicketCategory
+from .models import AssistantThread
+
+logger = logging.getLogger(__name__)
 
 
-def get_catalog(user) -> list[dict]:
-    if not user.is_authenticated:
-        return []
-    categories = (
-        TicketCategory.objects.filter(
-            is_active=True,
-            organizational_structure__is_active=True,
-            organizational_office__is_active=True,
-            ticketcategorymodule__is_active=True,
-        )
-        .select_related("organizational_structure")
-        .prefetch_related("allowed_users", "allowed_users_lists__allowed_users")
-        .distinct()
-    )
-    return [
-        {
-            "id": category.pk, "name": category.name, "description": category.description or "",
-            "structure_id": category.organizational_structure.pk,
-            "structure_name": category.organizational_structure.name, "hidden": category.is_hidden,
-            "url": reverse("uni_ticket:add_new_ticket", kwargs={
-                "structure_slug": category.organizational_structure.slug, "category_slug": category.slug,
-            }),
-        }
-        for category in categories
-        if category.is_published() and category.allowed_to_user(user)[0] and category.user_can_open_tickets(user)
-    ]
+class AgentRequestSerializer(serializers.Serializer):
+    threadId = serializers.UUIDField()
 
 
-class AgentUnavailable(RuntimeError):
-    pass
+class AgentStream:
+    """Stream upstream events and release HTTP resources on close."""
 
+    def __init__(self, client: httpx.Client, upstream: httpx.Response):
+        self.client = client
+        self.upstream = upstream
+        self.closed = False
 
-def call_agent(data, *, user):
-    catalog = get_catalog(user)
-    payload = {"input": data, "catalog": catalog, "language": get_language() or "it"}
-    request = Request(settings.ASSISTANT_AGENT_URL, data=json.dumps(payload).encode(),
-                      headers={"Content-Type": "application/json", "Accept": "application/json"}, method="POST")
-    try:
+    def __iter__(self):
         try:
-            response = urlopen(request, timeout=150)
-        except HTTPError as error:
-            if error.code not in (400, 404, 422):
-                error.close()
-                raise
-            response = error
-        with response:
-            if response.headers.get_content_type() != "application/json":
-                raise ValueError("Expected a JSON response")
-            return json.load(response), response.status
-    except (URLError, OSError, HTTPException, ValueError) as error:
-        raise AgentUnavailable("Agent service unavailable or invalid response") from error
+            yield from self.upstream.iter_bytes()
+        finally:
+            self.close()
+
+    def close(self):
+        if self.closed:
+            return
+
+        self.closed = True
+        try:
+            self.upstream.close()
+        finally:
+            self.client.close()
 
 
-class ConversationView(APIView):
-    """
-    Endpoint Django che funge da intermediario tra il frontend e il microservizio agentico.
-
-    Frontend (Django) -> API Django -> Agent Microservice (LangGraph)
-
-    Responsabilità:
-    - Verificare che l'utente sia autenticato.
-    - Inoltrare all'agente i dati ricevuti dal frontend.
-    - Fornire la lingua dell'utente, utile per generare risposte LLM localizzate.
-    - Recuperare e trasmettere le categorie di ticket accessibili all'utente (si potrebbe fare in un altro modo ma questo è il più semplice)
-    - Restituire al frontend le risposte prodotte dall'agente.
-
-    La comunicazione avviene tramite HTTP POST con richiesta e risposta JSON.
-    La validazione del contenuto della richiesta appartiene all’agente.
-
-    Django gestisce autenticazione e autorizzazione, mentre il microservizio LangGraph è responsabile della logica conversazionale.
-    """
+class AgentProxyView(APIView):
+    """Forward authenticated AG-UI requests to the internal agent."""
 
     authentication_classes = [SessionAuthentication]
     permission_classes = [IsAuthenticated]
     parser_classes = [JSONParser]
-    renderer_classes = [JSONRenderer]
+
+    def perform_content_negotiation(self, request, force=False):
+        # Allow SSE requests while keeping DRF errors in JSON.
+        return JSONRenderer(), "application/json"
 
     def post(self, request):
-        if not isinstance(request.data, dict):
-            raise ValidationError({"detail": "Expected a JSON object"})
+        serializer = AgentRequestSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        thread_id = serializer.validated_data["threadId"]
+
+        if not AssistantThread.objects.filter(id=thread_id, user=request.user).exists():
+            raise PermissionDenied("Thread not found or access denied")
+
+        client = httpx.Client(
+            timeout=httpx.Timeout(150.0, connect=10.0),
+            follow_redirects=False,
+        )
 
         try:
-            data, status = call_agent(request.data, user=request.user)
-        except AgentUnavailable:
-            return Response({"detail": "Agent service unavailable"}, status=503)
-        return Response(data, status=status)
+            upstream_request = client.build_request(
+                "POST",
+                settings.ASSISTANT_AGENT_URL,
+                json=request.data,
+                headers={"Accept": "text/event-stream"},
+            )
+            upstream = client.send(upstream_request, stream=True)
+        except httpx.RequestError:
+            client.close()
+            logger.exception("Agent request failed (thread_id=%s)", thread_id)
+            return Response({"detail": "Agent unavailable"}, status=503)
+
+        stream = AgentStream(client, upstream)
+        content_type = upstream.headers.get("content-type", "").split(";", 1)[0].strip().lower()
+
+        if upstream.status_code != 200 or content_type != "text/event-stream":
+            stream.close()
+            logger.error(
+                "Agent response rejected (thread_id=%s, status=%s, content_type=%s)",
+                thread_id, upstream.status_code, content_type,
+            )
+            return Response({"detail": "Invalid agent response"}, status=502)
+
+        response = StreamingHttpResponse(stream, content_type="text/event-stream")
+        response["Cache-Control"] = "no-store"
+        return response

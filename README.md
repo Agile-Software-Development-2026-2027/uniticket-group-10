@@ -1,25 +1,16 @@
-# Project name
+# UniTicket assistant
 
-L'assistente virtuale di UniTicket che ti aiuta a trovare il ticket giusto senza bestemmiare troppo (si spera). Un giorno, forse, ti aiuterà anche a compilare i form, [tipo così](https://www.assistant-ui.com/examples/form-demo).
+L'assistente virtuale di UniTicket che ti aiuta a trovare il ticket giusto senza bestemmiare troppo (si spera). Un giorno, forse, ti aiuterà anche a compilare i form.
 
 ## Overview
-
-<p align="center">
-  <img src="_images/overview.png" alt="Overview" width="800">
-</p>
-
 <p align="center">
   <img src="_images/flusso.png" alt="Overview" width="800">
-</p>
-
-<p align="center">
-  <img src="_images/eventi-ag-ui.png" alt="Overview" width="800">
 </p>
 
 
 ## Struttura e avvio locale
 
-- `agent/`: microservizio dell'agente (da integrare il retrival).
+- `agent/`: microservizio dell'agente
 - `widget/`: sorgenti del widget, compilati negli static di UniTicket.
 - `uniticket/`: applicazione UniTicket, configurazione ed estensioni Django.
 

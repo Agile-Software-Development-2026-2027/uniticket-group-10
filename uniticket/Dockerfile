@@ -4,7 +4,8 @@ FROM ghcr.io/universitadellacalabria/uniticket@sha256:b010d9000f16942ae207f19a01
 
 RUN python3 -m ensurepip --upgrade \
     && python3 -m pip install --no-cache-dir \
-       django-unical-bootstrap-italia==2.0.1
+       django-unical-bootstrap-italia==2.0.1 \
+       qdrant-client==1.14.3
        
 
 WORKDIR /app/uniticket

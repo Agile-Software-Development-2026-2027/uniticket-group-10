@@ -25,5 +25,13 @@ services:
       python manage.py runserver 0.0.0.0:8000
       "
 
+  qdrant:
+    image: qdrant/qdrant:v1.14.3
+    expose:
+      - "6333"
+    volumes:
+      - qdrant-data:/qdrant/storage
+
 volumes:
   uniticket-data:
+  qdrant-data:

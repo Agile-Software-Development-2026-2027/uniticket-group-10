@@ -79,6 +79,8 @@ class QdrantIndexRepository:
         if not authorized_category_ids or not self.client.collection_exists(self.collection_name):
             return []
 
+        # Gli ID devono provenire dal catalogo autorizzato da Django: Qdrant applica
+        # questo filtro prima del limite, senza sostituire i controlli di accesso.
         result = self.client.query_points(
             collection_name=self.collection_name,
             query=vector,
@@ -96,6 +98,8 @@ class QdrantIndexRepository:
         if self.client.collection_exists(self.collection_name):
             return
 
+        # La dimensione iniziale diventa lo schema della collezione: tutti i successivi
+        # vettori di categorie e query devono avere la stessa dimensione.
         self.client.create_collection(
             collection_name=self.collection_name,
             vectors_config=VectorParams(size=vector_size, distance=Distance.COSINE),

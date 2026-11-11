@@ -32,7 +32,8 @@ def synchronize(operation: CategoryOperation, category_id: int) -> None:
     else:
         raise ValueError(f"Operazione sconosciuta: {operation}")
 
-    # Stampa operazione, ID e azione scelta; per ora non aggiorna alcun vettore.
+    # CREATE e UPDATE registrano l'azione prevista, ma restano inattivi finché
+    # l'embedder e la chiamata a repository.upsert non saranno implementati.
     logger.info(
         "[ORCHESTRATION] operation=%s category_id=%s action=%s",
         operation, category_id, action,

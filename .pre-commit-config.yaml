@@ -12,3 +12,9 @@ repos:
         entry: python .github/scripts/check_commits.py --message-file
         language: python
         stages: [commit-msg]
+      - id: ticket-events-tests
+        name: Ticket events tests
+        entry: make test-ticket-events
+        language: system
+        pass_filenames: false
+        always_run: true

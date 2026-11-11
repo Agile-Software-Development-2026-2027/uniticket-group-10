@@ -70,6 +70,23 @@ class CrudSignalTests(CrudExamples, TestCase):
                     callbacks[0]()
                     self.assertEqual(self.notifier.events, [(operation, category_id)])
 
+    def test_delete_signal_reaches_qdrant_only_after_commit(self):
+        with self.captureOnCommitCallbacks(execute=True):
+            category = self.create_category()
+        category_id = category.pk
+
+        self.synchronize_patch.stop()
+        with patch("ticket_events.orchestrator.QdrantIndexRepository") as repository:
+            with self.captureOnCommitCallbacks(execute=False) as callbacks:
+                category.delete()
+                repository.assert_not_called()
+
+            self.assertEqual(len(callbacks), 1)
+            repository.assert_not_called()
+            callbacks[0]()
+
+        repository.return_value.delete.assert_called_once_with(category_id)
+
     # I caricamenti raw non notificano né creazioni né aggiornamenti.
     def test_fixture_saves_do_not_notify(self):
         for operation in ("CREATE", "UPDATE"):

@@ -41,6 +41,16 @@ class IndexRepository(Protocol):
         """Rimuove il record della categoria, accettando anche un ID già assente."""
         ...
 
+    # Descrive la ricerca limitata alle categorie autorizzate dall'applicazione.
+    def search(
+        self,
+        vector: list[float],
+        top_k: int,
+        authorized_category_ids: list[int],
+    ) -> list[int]:
+        """Restituisce gli ID dei punti più vicini, in ordine di similarità."""
+        ...
+
 
 class IndexNotifier(Protocol):
     """Indica quali argomenti deve accettare la chiamata fatta da notify_index()."""

@@ -5,9 +5,10 @@ from langchain_core.embeddings import Embeddings
 from app.contracts import Category
 
 
-def make_category(category_id, name="", structure_id=1, hidden=False):
+def make_category(category_id, name="", structure_id=1, hidden=False, description="", structure_name=""):
     return Category(id=category_id, name=name or f"Categoria {category_id}", structure_id=structure_id,
-                    url=f"/tickets/{category_id}", hidden=hidden)
+                    url=f"/tickets/{category_id}", hidden=hidden, description=description,
+                    structure_name=structure_name)
 
 
 def ids(categories):

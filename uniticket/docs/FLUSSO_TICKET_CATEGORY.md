@@ -129,7 +129,7 @@ La suite copre i receiver, le view originali e il repository Qdrant. I test del 
 | `test_update_events.py` | 8 | Tutti i campi osservati, più modifiche insieme, campi esclusi, update_fields, descrizione nulla/vuota, uffici e limiti di QuerySet.update |
 | `test_official_views.py` | 17 | CRUD HTTP originale, form invalidi e duplicati, permessi, letture, attivazione, assegnazione/rimozione/eliminazione ufficio, rollback, registrazione unica e allegati |
 | `test_content.py` | 2 | Campi degli snapshot, valori nulli e testo nome/descrizione |
-| `test_orchestrator.py` | 3 | Azione diagnostica scelta per tutto il CRUD, chiamata diretta da notify_index e logging degli errori |
+| `test_orchestrator.py` | 2 | Azione scelta per tutto il CRUD e chiamata diretta da notify_index |
 | `test_repository.py` | 11 | Contratto, upsert con ID stabile, sostituzione di vettore e metadata, delete, ricerca top-k filtrata per ID autorizzati e validazione degli input |
 
 `helpers.py` prepara i dati locali; `post_and_commit()` evita di ripetere il blocco del POST con le callback. Nei test della ricezione `unittest.mock.patch` intercetta la funzione importata: non servono impostazioni aggiuntive nel codice applicativo.
@@ -149,7 +149,7 @@ docker run --rm --network none --read-only --tmpfs /tmp --tmpfs /app/uniticket/d
 docker run --rm --network none --read-only --tmpfs /tmp --tmpfs /app/uniticket/data -e PYTHONDONTWRITEBYTECODE=1 --entrypoint python3 uniticket-events:local manage.py test ticket_events.tests.test_orchestrator --settings=ticket_events.test_settings --verbosity 1 --noinput
 ```
 
-I test verificano il codice attuale: la scelta dell’azione è implementata, l’esecuzione della sincronizzazione verso Qdrant ancora no. Il repository Qdrant è testato separatamente con un client in memoria. Prima del commit vanno eseguiti anche gli hook del repository.
+I test verificano il codice attuale: la scelta dell’azione è implementata, l’esecuzione della sincronizzazione ancora no. Il collegamento diretto è stato verificato RED → GREEN. Prima del commit vanno eseguiti anche gli hook del repository.
 
 ## 8. Prossimi incrementi
 

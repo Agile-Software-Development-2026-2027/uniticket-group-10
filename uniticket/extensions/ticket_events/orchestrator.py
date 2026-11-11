@@ -25,13 +25,13 @@ def synchronize(operation: CategoryOperation, category_id: int) -> None:
         # repository.upsert(category_id, vector, metadata)
         action = "REINDEX"
     elif operation == "DELETE":
+        action = "REMOVE"
         # Pseudocodice: rimuovere dal repository il punto identificato dall'ID.
         # repository.delete(category_id)
-        action = "REMOVE"
     else:
         raise ValueError(f"Operazione sconosciuta: {operation}")
 
-    # L'azione è soltanto diagnostica: nessun punto viene creato o rimosso.
+    # Stampa operazione, ID e azione scelta; per ora non aggiorna alcun vettore.
     logger.info(
         "[ORCHESTRATION] operation=%s category_id=%s action=%s",
         operation, category_id, action,

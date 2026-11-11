@@ -111,9 +111,9 @@ Le interfacce sono in `interfaces.py`. Descrivono come chiamare i componenti; no
 |---|---|---|
 | `IndexNotifier` | Chiamata con operazione e ID | Contratto conservato; la chiamata attuale è diretta a synchronize |
 | `EmbeddingProvider` | `embed(text)` restituisce `list[float]` | Il provider Snowflake del collega esiste, ma questo flusso non lo chiama |
-| `IndexRepository` | `upsert(id, vector, metadata)` e `delete(id)` | Contratto conservato; repository non collegato |
+| `IndexRepository` | `upsert(id, vector, metadata)` e `delete(id)` | `QdrantIndexRepository` è implementato e testato in memoria; non è collegato all’orchestratore |
 
-`embed_query()` riguarda le ricerche e resta fuori da questo flusso.
+`embed_query()` riguarda le ricerche e resta fuori da questo flusso. Il metodo `search()` è presente come estensione del contratto Qdrant e riceve un vettore già calcolato; non è collegato a un flusso di retrieval.
 
 Testo previsto: `name + "\n" + description`, senza etichette o metadata. I metadata sono separati: `organizational_structure_id`, `organizational_office_id`, `is_active`, `allow_user`, `allow_employee`, `allow_anonymous`, `allow_guest`, `allow_spid_cie`.
 
@@ -121,15 +121,16 @@ Testo previsto: `name + "\n" + description`, senza etichette o metadata. I metad
 
 Tutti i test sono in `extensions/ticket_events/tests/`, separati dai file applicativi. Usano i modelli e le view originali UniTicket con SQLite in memoria e file temporanei. Non modificano dati di server esterni e non chiamano il modello di embedding.
 
-La suite è stata accorpata: 37 test con esempi raggruppati per operazione, mantenendo le verifiche della ricezione e dei percorsi originali. Il confronto prima/dopo del riordino mostra le stesse 139 righe applicative permanenti esercitate. Tutti i 37 test passano anche senza rete.
+La suite copre i receiver, le view originali e il repository Qdrant. I test del repository usano un client Qdrant in memoria e non chiamano un server Qdrant né il modello di embedding. Tutti i 50 test passano senza rete.
 
 | File | Test | Funzionalità verificate |
 |---|---|---|
-| `test_crud_events.py` | 8 | CREATE/UPDATE/DELETE, categorie attive e inattive, attesa del commit, ID conservato, fixture, errori, cancellazioni multiple, cascata, autocommit, rollback e savepoint |
+| `test_crud_events.py` | 9 | CREATE/UPDATE/DELETE, categorie attive e inattive, attesa del commit, ID conservato, fixture, errori, cancellazioni multiple, cascata, autocommit, rollback e savepoint; DELETE resta solo diagnostico |
 | `test_update_events.py` | 8 | Tutti i campi osservati, più modifiche insieme, campi esclusi, update_fields, descrizione nulla/vuota, uffici e limiti di QuerySet.update |
 | `test_official_views.py` | 17 | CRUD HTTP originale, form invalidi e duplicati, permessi, letture, attivazione, assegnazione/rimozione/eliminazione ufficio, rollback, registrazione unica e allegati |
 | `test_content.py` | 2 | Campi degli snapshot, valori nulli e testo nome/descrizione |
-| `test_orchestrator.py` | 2 | Azione scelta per tutto il CRUD e chiamata diretta da notify_index |
+| `test_orchestrator.py` | 3 | Azione diagnostica scelta per tutto il CRUD, chiamata diretta da notify_index e logging degli errori |
+| `test_repository.py` | 11 | Contratto, upsert con ID stabile, sostituzione di vettore e metadata, delete, ricerca top-k filtrata per ID autorizzati e validazione degli input |
 
 `helpers.py` prepara i dati locali; `post_and_commit()` evita di ripetere il blocco del POST con le callback. Nei test della ricezione `unittest.mock.patch` intercetta la funzione importata: non servono impostazioni aggiuntive nel codice applicativo.
 
@@ -141,14 +142,14 @@ Dalla cartella `uniticket`, con Docker Desktop avviato:
 # Costruisce l’immagine con il codice permanente.
 docker build -t uniticket-events:local .
 
-# Esegue i 37 test senza rete, con DB in memoria e file temporanei.
+# Esegue i 50 test senza rete, con DB in memoria e file temporanei.
 docker run --rm --network none --read-only --tmpfs /tmp --tmpfs /app/uniticket/data -e PYTHONDONTWRITEBYTECODE=1 --entrypoint python3 uniticket-events:local manage.py test ticket_events.tests --settings=ticket_events.test_settings --verbosity 1 --noinput
 
-# Esegue soltanto i due test dell’orchestratore.
+# Esegue soltanto i tre test dell’orchestratore.
 docker run --rm --network none --read-only --tmpfs /tmp --tmpfs /app/uniticket/data -e PYTHONDONTWRITEBYTECODE=1 --entrypoint python3 uniticket-events:local manage.py test ticket_events.tests.test_orchestrator --settings=ticket_events.test_settings --verbosity 1 --noinput
 ```
 
-I test verificano il codice attuale: la scelta dell’azione è implementata, l’esecuzione della sincronizzazione ancora no. Il collegamento diretto è stato verificato RED → GREEN. Prima del commit vanno eseguiti anche gli hook del repository.
+I test verificano il codice attuale: la scelta dell’azione è implementata, l’esecuzione della sincronizzazione verso Qdrant ancora no. Il repository Qdrant è testato separatamente con un client in memoria. Prima del commit vanno eseguiti anche gli hook del repository.
 
 ## 8. Prossimi incrementi
 
@@ -156,7 +157,7 @@ I test verificano il codice attuale: la scelta dell’azione è implementata, l�
 |---|---|---|
 | 1. Provider | CREATE/UPDATE leggono la categoria, costruiscono il testo e chiamano EmbeddingProvider; DELETE usa solo l’ID | Verifica del testo e delle chiamate con funzioni di prova; integrazione locale separata con il modello di embedding |
 | 2. Repository | CREATE inserisce, UPDATE sostituisce, DELETE rimuove tramite IndexRepository | Repository fittizio limitato ai test, con record per ID e metadata completi |
-| 3. Repository reale | Collega l’implementazione del collega mantenendo lo stesso contratto | Verifica con un’istanza locale di prova |
+| 3. Repository reale | `QdrantIndexRepository` è implementato in `extensions/ticket_events/repository.py`, ma resta scollegato dall’orchestratore | Test unitari con client Qdrant in memoria; integrazione con un server Qdrant locale ancora da fare |
 
 Il comportamento finale atteso, ripreso dal precedente documento di orchestrazione, è:
 

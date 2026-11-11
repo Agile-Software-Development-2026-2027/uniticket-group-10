@@ -12,11 +12,12 @@ from qdrant_client.http.models import (
     VectorParams,
 )
 
-from .index_fields import CategoryMetadata
+from .index_fields import METADATA_FIELDS, CategoryMetadata
+from .interfaces import IndexRepository
 
 
-class QdrantIndexRepository:
-    """Implementazione Qdrant del contratto di persistenza dell'indice."""
+class QdrantIndexRepository(IndexRepository):
+    """Persiste in Qdrant vettori e metadata già preparati dal chiamante."""
 
     def __init__(
         self,
@@ -40,6 +41,13 @@ class QdrantIndexRepository:
         """Crea o sostituisce il punto della categoria usando il suo ID stabile."""
         if not vector:
             raise ValueError("Il vettore della categoria non può essere vuoto")
+        if set(metadata) != set(METADATA_FIELDS):
+            missing = set(METADATA_FIELDS) - set(metadata)
+            extra = set(metadata) - set(METADATA_FIELDS)
+            raise ValueError(
+                f"Metadata categoria non validi: mancanti={sorted(missing)}, "
+                f"non previsti={sorted(extra)}"
+            )
 
         self._ensure_collection(len(vector))
         self.client.upsert(

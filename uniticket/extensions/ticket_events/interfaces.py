@@ -1,6 +1,6 @@
 """Contratti di integrazione per gli eventi delle definizioni TicketCategory."""
 
-from typing import Literal, Protocol, TypeAlias
+from typing import Literal, Protocol, TypeAlias, runtime_checkable
 
 from .index_fields import CategoryMetadata
 
@@ -23,6 +23,7 @@ class EmbeddingProvider(Protocol):
         ...
 
 
+@runtime_checkable
 class IndexRepository(Protocol):
     """Contratto del componente che gestisce i record dell’indice vettoriale."""
 

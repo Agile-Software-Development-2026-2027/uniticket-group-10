@@ -1,8 +1,7 @@
-"""Primo passo dell’orchestrazione: sceglie l’azione"""
+"""Registra l'azione CRUD prevista senza modificare l'indice."""
 import logging
 
 from .interfaces import CategoryOperation
-from .repository import QdrantIndexRepository
 
 logger = logging.getLogger("ticket_events.orchestrator")
 
@@ -26,14 +25,13 @@ def synchronize(operation: CategoryOperation, category_id: int) -> None:
         # repository.upsert(category_id, vector, metadata)
         action = "REINDEX"
     elif operation == "DELETE":
-        # DELETE non richiede un embedding.
-        QdrantIndexRepository().delete(category_id)
+        # Pseudocodice: rimuovere dal repository il punto identificato dall'ID.
+        # repository.delete(category_id)
         action = "REMOVE"
     else:
         raise ValueError(f"Operazione sconosciuta: {operation}")
 
-    # CREATE e UPDATE registrano l'azione prevista, ma restano inattivi finché
-    # l'embedder e la chiamata a repository.upsert non saranno implementati.
+    # L'azione è soltanto diagnostica: nessun punto viene creato o rimosso.
     logger.info(
         "[ORCHESTRATION] operation=%s category_id=%s action=%s",
         operation, category_id, action,

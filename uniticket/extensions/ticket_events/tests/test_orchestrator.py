@@ -11,40 +11,24 @@ class OrchestratorTests(SimpleTestCase):
     def test_each_crud_operation_selects_its_action(self):
         for operation, action in (("CREATE", "INDEX"), ("UPDATE", "REINDEX"), ("DELETE", "REMOVE")):
             with self.subTest(operation=operation):
-                with patch("ticket_events.orchestrator.QdrantIndexRepository") as repository:
-                    with self.assertLogs("ticket_events", level="INFO") as logs:
-                        synchronize(operation, 42)
+                with self.assertLogs("ticket_events.orchestrator", level="INFO") as logs:
+                    synchronize(operation, 42)
                 self.assertEqual(len(logs.records), 1)
                 self.assertIn(f"operation={operation}", logs.output[0])
                 self.assertIn("category_id=42", logs.output[0])
                 self.assertIn(f"action={action}", logs.output[0])
-                if operation == "DELETE":
-                    repository.return_value.delete.assert_called_once_with(42)
-                else:
-                    repository.assert_not_called()
 
-    def test_delete_propagates_repository_errors_for_safe_notification_logging(self):
-        error = RuntimeError("Qdrant unavailable")
+    def test_safe_notification_logs_indexer_errors_without_raising(self):
         with patch(
-            "ticket_events.orchestrator.QdrantIndexRepository"
-        ) as repository:
-            repository.return_value.delete.side_effect = error
-
-            with self.assertRaisesRegex(RuntimeError, "Qdrant unavailable"):
-                synchronize("DELETE", 42)
-
-    def test_safe_notification_logs_repository_errors_without_raising(self):
-        with patch(
-            "ticket_events.orchestrator.QdrantIndexRepository"
-        ) as repository:
-            repository.return_value.delete.side_effect = RuntimeError("Qdrant unavailable")
-
+            "ticket_events.notifications.synchronize",
+            side_effect=RuntimeError("Indexer unavailable"),
+        ):
             with self.assertLogs("ticket_events", level="ERROR") as logs:
                 safe_notify("DELETE", 42)
 
         self.assertIn("operation=DELETE", logs.output[0])
         self.assertIn("category_id=42", logs.output[0])
-        self.assertIn("Qdrant unavailable", logs.output[0])
+        self.assertIn("Indexer unavailable", logs.output[0])
 
     # La vecchia impostazione non deve più cambiare la chiamata a synchronize().
     @override_settings(TICKET_EVENTS_NOTIFIER=object())

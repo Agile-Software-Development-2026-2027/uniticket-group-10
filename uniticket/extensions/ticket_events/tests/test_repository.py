@@ -3,11 +3,16 @@
 from django.test import SimpleTestCase
 from qdrant_client import QdrantClient
 
+from ..interfaces import IndexRepository
 from ..repository import QdrantIndexRepository
 
 
 class QdrantIndexRepositoryTests(SimpleTestCase):
     """Verifica persistenza, sostituzione e rimozione dei punti Qdrant."""
+
+    def test_qdrant_repository_implements_index_repository_contract(self):
+        """La classe concreta dichiara esplicitamente il contratto dell'interfaccia."""
+        self.assertTrue(issubclass(QdrantIndexRepository, IndexRepository))
 
     def setUp(self):
         """Prepara un client Qdrant isolato e i metadata di una categoria."""
@@ -65,6 +70,20 @@ class QdrantIndexRepositoryTests(SimpleTestCase):
         self.assertEqual(points[0].vector, [0.0, 1.0])
         self.assertEqual(points[0].payload, updated_metadata)
 
+    def test_search_uses_updated_vector_not_the_previous_vector(self):
+        """Dopo l'upsert la ricerca classifica il punto con il solo vettore nuovo."""
+        self.repository.upsert(42, [1.0, 0.0], self.metadata)
+        self.repository.upsert(43, [0.8, 0.2], self.metadata)
+
+        self.repository.upsert(
+            42,
+            [0.0, 1.0],
+            {**self.metadata, "is_active": False},
+        )
+
+        self.assertEqual(self.repository.search([1.0, 0.0], 1, [42, 43]), [43])
+        self.assertEqual(self.repository.search([0.0, 1.0], 1, [42, 43]), [42])
+
     def test_delete_removes_existing_category(self):
         """DELETE rimuove il punto identificato dall'ID stabile della categoria."""
         self.repository.upsert(42, [1.0, 0.0], self.metadata)
@@ -92,6 +111,16 @@ class QdrantIndexRepositoryTests(SimpleTestCase):
         """Rifiuta un vettore vuoto invece di creare una collezione non valida."""
         with self.assertRaises(ValueError):
             self.repository.upsert(42, [], self.metadata)
+
+        self.assertFalse(self.client.collection_exists(self.collection_name))
+
+    def test_upsert_rejects_incomplete_or_unexpected_metadata(self):
+        """Impedisce di salvare punti senza il payload completo previsto dal contratto."""
+        incomplete_metadata = {**self.metadata}
+        del incomplete_metadata["allow_guest"]
+
+        with self.assertRaisesRegex(ValueError, "Metadata categoria non validi"):
+            self.repository.upsert(42, [1.0, 0.0], incomplete_metadata)
 
         self.assertFalse(self.client.collection_exists(self.collection_name))
 

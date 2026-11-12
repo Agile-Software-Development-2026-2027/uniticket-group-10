@@ -3,6 +3,7 @@
 import os
 
 from qdrant_client import QdrantClient
+from qdrant_client.http.exceptions import UnexpectedResponse
 from qdrant_client.http.models import (
     Distance,
     Filter,
@@ -108,7 +109,14 @@ class QdrantIndexRepository(IndexRepository):
 
         # La dimensione iniziale diventa lo schema della collezione: tutti i successivi
         # vettori di categorie e query devono avere la stessa dimensione.
-        self.client.create_collection(
-            collection_name=self.collection_name,
-            vectors_config=VectorParams(size=vector_size, distance=Distance.COSINE),
-        )
+        try:
+            self.client.create_collection(
+                collection_name=self.collection_name,
+                vectors_config=VectorParams(size=vector_size, distance=Distance.COSINE),
+            )
+        except UnexpectedResponse as error:
+            if (
+                error.status_code != 409
+                or not self.client.collection_exists(self.collection_name)
+            ):
+                raise

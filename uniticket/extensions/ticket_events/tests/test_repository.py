@@ -1,7 +1,11 @@
 """Test CRUD del repository Qdrant con un client in memoria."""
 
+from unittest.mock import Mock
+
 from django.test import SimpleTestCase
+from httpx import Headers
 from qdrant_client import QdrantClient
+from qdrant_client.http.exceptions import UnexpectedResponse
 
 from ..interfaces import IndexRepository
 from ..repository import QdrantIndexRepository
@@ -123,6 +127,54 @@ class QdrantIndexRepositoryTests(SimpleTestCase):
             self.repository.upsert(42, [1.0, 0.0], incomplete_metadata)
 
         self.assertFalse(self.client.collection_exists(self.collection_name))
+
+    def test_collection_created_concurrently_allows_upsert_to_continue(self):
+        repository = QdrantIndexRepository(
+            collection_name=self.collection_name,
+            client=Mock(),
+        )
+        repository.client.collection_exists.side_effect = [False, True]
+        repository.client.create_collection.side_effect = UnexpectedResponse(
+            409, "Conflict", b'{"status":{"error":"already exists"}}', Headers()
+        )
+
+        repository.upsert(42, [1.0, 0.0], self.metadata)
+
+        self.assertEqual(repository.client.collection_exists.call_count, 2)
+        repository.client.upsert.assert_called_once()
+
+    def test_collection_creation_errors_are_not_hidden_when_collection_is_absent(self):
+        repository = QdrantIndexRepository(
+            collection_name=self.collection_name,
+            client=Mock(),
+        )
+        repository.client.collection_exists.side_effect = [False, False]
+        error = UnexpectedResponse(
+            409, "Conflict", b'{"status":{"error":"already exists"}}', Headers()
+        )
+        repository.client.create_collection.side_effect = error
+
+        with self.assertRaises(UnexpectedResponse) as raised:
+            repository._ensure_collection(vector_size=2)
+
+        self.assertIs(raised.exception, error)
+
+    def test_non_conflict_collection_creation_errors_are_not_hidden(self):
+        repository = QdrantIndexRepository(
+            collection_name=self.collection_name,
+            client=Mock(),
+        )
+        repository.client.collection_exists.return_value = False
+        error = UnexpectedResponse(
+            500, "Internal Server Error", b'{"status":{"error":"failed"}}', Headers()
+        )
+        repository.client.create_collection.side_effect = error
+
+        with self.assertRaises(UnexpectedResponse) as raised:
+            repository._ensure_collection(vector_size=2)
+
+        self.assertIs(raised.exception, error)
+        repository.client.collection_exists.assert_called_once_with(self.collection_name)
 
     def test_search_returns_nearest_authorized_category_ids_up_to_top_k(self):
         """La ricerca ordina i vicini e filtra gli ID non autorizzati prima del top_k."""

@@ -11,8 +11,8 @@ FROM upstream
 RUN python3 -m ensurepip --upgrade \
     && python3 -m pip install --no-cache-dir \
        django-unical-bootstrap-italia==2.0.1 \
-       qdrant-client==1.14.3 \
-       httpx==0.28.1
+       httpx==0.28.1 \
+       qdrant-client==1.14.3
 
 WORKDIR /app/uniticket
 

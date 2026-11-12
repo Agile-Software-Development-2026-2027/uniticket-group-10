@@ -9,8 +9,16 @@ Le domande sono in inglese, la lingua in cui Jev rende meglio; i dati restano in
 """
 
 from .contracts import Category
+from .decision import Estimate
 
 MAX_DESCRIPTION_CHARS = 240
+# Come si legge un sì/no di Jev: da 0,7 in su è sì, fino a 0,3 è no.
+NOUL_YES = 0.7
+NOUL_NO = 0.3
+# Per "adatto" il no comincia più in basso: un "adatto" tiepido lascia una quota alle categorie.
+FITS_NO = 0.1
+# Conta l'"adatto" delle prime 3 della scelta: alto su una categoria scartata non conta.
+CHECKED_FORMS = 3
 
 VAGUE_QUESTION = "In the whole conversation, does the user ask for help without ever naming what the help is about?"
 VAGUE_TRUE = ("No user message names a subject: the user only wrote things like 'ho un problema', "
@@ -78,3 +86,30 @@ def build_questions(candidates: list[Category]) -> dict:
         questions[f"adatto_{code(index)}"] = noul(fits, FITS_TRUE, FITS_FALSE)
     questions["modulo"] = choice({"question": FORM_QUESTION, "rules": FORM_RULES}, options)
     return questions
+
+
+def ramp(noul: float, no: float) -> float:
+    """Porta un sì/no di Jev tra 0 e 1: fino a `no` vale 0, da NOUL_YES vale 1, in mezzo sale in linea retta."""
+    return min(1.0, max(0.0, (noul - no) / (NOUL_YES - no)))
+
+
+def parse_answers(answers: dict, candidates: list[Category]) -> Estimate:
+    """Ricompone le risposte di Jev in una stima.
+
+    servono informazioni = vago
+    nessuna categoria    = (1 - vago) × (1 - adatto)
+    categoria i          = (1 - vago) × adatto × P(i)
+    """
+    vague = ramp(answers["vago"]["noul"], NOUL_NO)
+    if not candidates:
+        return Estimate(no_match=1 - vague, needs_info=vague)
+    by_code = {code(index): category for index, category in enumerate(candidates)}
+    given = answers["modulo"]["probabilities"]
+    probabilities = {key: given[key] for key in by_code if given.get(key, 0) > 0}
+    if not probabilities:
+        raise ValueError("Jev non ha dato probabilità ai candidati")
+    ranked = sorted(probabilities, key=probabilities.get, reverse=True)
+    fits = ramp(max(answers[f"adatto_{key}"]["noul"] for key in ranked[:CHECKED_FORMS]), FITS_NO)
+    total = sum(probabilities.values())  # arrivano arrotondate: si riportano a somma 1
+    categories = [(by_code[key], (1 - vague) * fits * probabilities[key] / total) for key in ranked]
+    return Estimate(categories, no_match=(1 - vague) * (1 - fits), needs_info=vague)

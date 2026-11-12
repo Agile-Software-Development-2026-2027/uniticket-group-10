@@ -70,3 +70,9 @@ def decide(estimate: Estimate, confidence: float = CONFIDENCE, max_options: int 
     if categories and only_categories and len(categories) <= max_options:
         return Decision("PROPOSE", categories)
     return Decision("ASK", categories[:max_options])
+
+
+def decide_with(model: DecisionModel, query: str, candidates: list[Category]) -> Decision:
+    """La decisione di un modello sui candidati: riceve solo i primi in classifica, quanti ne accetta."""
+    asked = candidates[:model.max_candidates]
+    return decide(model.estimate(query, asked))

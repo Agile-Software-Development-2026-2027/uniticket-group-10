@@ -1,7 +1,8 @@
 import pytest
 
-from app.decision import NEEDS_INFO, NO_MATCH, Decision, DecisionModel, Estimate, decide, likely_hypotheses
-from helpers import ids, make_category
+from app.decision import (NEEDS_INFO, NO_MATCH, Decision, DecisionModel, Estimate, decide, decide_with,
+                          likely_hypotheses)
+from helpers import FirstCandidateModel, ids, make_category
 
 ESSE3 = make_category(1, "Assistenza Esse3")
 LAUREA = make_category(2, "Certificato di laurea")
@@ -84,3 +85,20 @@ def test_a_decision_model_must_implement_estimate():
 
     with pytest.raises(TypeError):
         Incomplete()
+
+
+def test_a_model_receives_only_the_highest_ranked_candidates_it_accepts():
+    model = FirstCandidateModel(max_candidates=2)
+
+    decision = decide_with(model, "laurea", [ESSE3, LAUREA, TASSE])
+
+    assert model.received == [ESSE3, LAUREA]
+    assert decision == Decision("PROPOSE", [ESSE3])
+
+
+def test_a_model_receives_all_the_candidates_when_they_are_within_its_maximum():
+    model = FirstCandidateModel(max_candidates=16)
+
+    decide_with(model, "laurea", [ESSE3, LAUREA, TASSE])
+
+    assert model.received == [ESSE3, LAUREA, TASSE]

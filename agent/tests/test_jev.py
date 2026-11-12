@@ -4,6 +4,7 @@ import httpx
 import pytest
 from pytest import approx
 
+from app.decision import DecisionModel
 from app.jev import JevModel, build_questions, parse_answers, ramp
 from helpers import make_category
 
@@ -132,3 +133,7 @@ def test_the_api_key_is_sent_only_when_there_is_one():
 
     assert "authorization" not in without_key[0].headers
     assert with_key[0].headers["authorization"] == "Bearer chiave"
+
+
+def test_jev_is_a_decision_model():
+    assert isinstance(fake_jev([]), DecisionModel)

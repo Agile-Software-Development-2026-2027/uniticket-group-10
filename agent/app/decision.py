@@ -5,6 +5,7 @@ Un modello (Jev) dice quanto è probabile ogni ipotesi: ciascuna categoria candi
 la stima in una decisione: si prova senza modello e si capisce perché ha deciso così.
 """
 
+from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Literal
 
@@ -26,6 +27,16 @@ class Estimate:
     categories: list[tuple[Category, float]] = field(default_factory=list)
     no_match: float = 0.0
     needs_info: float = 0.0
+
+
+class DecisionModel(ABC):
+    """L'interfaccia comune dei modelli: Jev oggi, un altro domani, senza toccare il resto."""
+
+    max_candidates: int  # quanti candidati accetta al massimo
+
+    @abstractmethod
+    def estimate(self, query: str, candidates: list[Category]) -> Estimate:
+        """Quanto è probabile ogni candidato, che nessuno vada bene e che l'utente abbia detto troppo poco."""
 
 
 def likely_hypotheses(estimate: Estimate, confidence: float = CONFIDENCE) -> list[Category | str]:

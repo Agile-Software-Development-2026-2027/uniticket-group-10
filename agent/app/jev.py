@@ -16,7 +16,7 @@ import os
 import httpx
 
 from .contracts import Category
-from .decision import Estimate
+from .decision import DecisionModel, Estimate
 
 MAX_DESCRIPTION_CHARS = 240
 # Come si legge un sì/no di Jev: da 0,7 in su è sì, fino a 0,3 è no.
@@ -122,7 +122,7 @@ def parse_answers(answers: dict, candidates: list[Category]) -> Estimate:
     return Estimate(categories, no_match=(1 - vague) * (1 - fits), needs_info=vague)
 
 
-class JevModel:
+class JevModel(DecisionModel):
     """Chiede la stima a Jev. `max_candidates` è quante opzioni accetta: 16 per `autotrust-jev`."""
 
     def __init__(self, base_url: str, model: str, max_candidates: int, api_key: str = "",

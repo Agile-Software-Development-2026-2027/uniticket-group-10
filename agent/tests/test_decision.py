@@ -1,4 +1,6 @@
-from app.decision import NEEDS_INFO, NO_MATCH, Decision, Estimate, decide, likely_hypotheses
+import pytest
+
+from app.decision import NEEDS_INFO, NO_MATCH, Decision, DecisionModel, Estimate, decide, likely_hypotheses
 from helpers import ids, make_category
 
 ESSE3 = make_category(1, "Assistenza Esse3")
@@ -74,3 +76,11 @@ def test_too_many_likely_categories_are_asked_with_the_first_five():
 
     assert decision.action == "ASK"
     assert ids(decision.categories) == [1, 2, 3, 4, 5]
+
+
+def test_a_decision_model_must_implement_estimate():
+    class Incomplete(DecisionModel):
+        max_candidates = 16
+
+    with pytest.raises(TypeError):
+        Incomplete()

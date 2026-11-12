@@ -9,6 +9,7 @@ from uni_ticket.models import TicketCategory
 from organizational_area.models import OrganizationalStructureOffice
 
 from .content import snapshot, office_snapshots
+from .interfaces import CategoryOperation
 from .notifications import safe_notify
 
 logger = logging.getLogger("ticket_events")
@@ -38,7 +39,7 @@ def category_saved(sender, instance, created, using, raw=False, **kwargs):
 
     # Django indica se è stata inserita una nuova riga.
     if created:
-        operation = "CREATE"
+        operation = CategoryOperation.CREATE
     else:
         # Senza il prima non può confrontare una modifica.
         if before is None:
@@ -49,7 +50,7 @@ def category_saved(sender, instance, created, using, raw=False, **kwargs):
         # Nessuna notifica se la categoria è assente o i dati osservati sono uguali.
         if after is None or before == after:
             return
-        operation = "UPDATE"
+        operation = CategoryOperation.UPDATE
 
     # Prepara operazione e ID; Django chiama safe_notify solo dopo il commit.
     transaction.on_commit(partial(safe_notify, operation, instance.pk), using=using)
@@ -59,7 +60,7 @@ def category_saved(sender, instance, created, using, raw=False, **kwargs):
 @receiver(post_delete, sender=TicketCategory, dispatch_uid="ticket_events.category_deleted")
 def category_deleted(sender, instance, using, **kwargs):
     # Conserva l’ID nella chiamata prima che Django lo tolga dall’oggetto.
-    transaction.on_commit(partial(safe_notify, "DELETE", instance.pk), using=using)
+    transaction.on_commit(partial(safe_notify, CategoryOperation.DELETE, instance.pk), using=using)
 
 
 # Prima di eliminare un ufficio legge le categorie che lo usano.
@@ -83,4 +84,4 @@ def office_deleted(sender, instance, using, **kwargs):
         # Notifica solo le categorie ancora presenti e con dati cambiati.
         if current_state is not None and previous_state != current_state:
             # Conserva questo ID per la chiamata che avverrà al commit.
-            transaction.on_commit(partial(safe_notify, "UPDATE", category_id), using=using)
+            transaction.on_commit(partial(safe_notify, CategoryOperation.UPDATE, category_id), using=using)

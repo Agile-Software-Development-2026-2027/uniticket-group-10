@@ -8,11 +8,11 @@ logger = logging.getLogger("ticket_events.orchestrator")
 
 # Associa CREATE a INDEX, UPDATE a REINDEX e DELETE a REMOVE.
 def synchronize(operation: CategoryOperation, category_id: int) -> None:
-    if operation == "CREATE":
+    if operation == CategoryOperation.CREATE:
         action = "INDEX"
-    elif operation == "UPDATE":
+    elif operation == CategoryOperation.UPDATE:
         action = "REINDEX"
-    elif operation == "DELETE":
+    elif operation == CategoryOperation.DELETE:
         action = "REMOVE"
     else:
         raise ValueError(f"Operazione sconosciuta: {operation}")

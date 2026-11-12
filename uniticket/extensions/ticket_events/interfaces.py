@@ -1,12 +1,17 @@
 """Contratti di integrazione per gli eventi delle definizioni TicketCategory."""
 
-from typing import Literal, Protocol, TypeAlias
+from enum import StrEnum
+from typing import Protocol
 
 from .index_fields import CategoryMetadata
 
 
-# I valori identificano il CRUD della categoria, indipendentemente dal trasporto.
-CategoryOperation: TypeAlias = Literal["CREATE", "UPDATE", "DELETE"]
+class CategoryOperation(StrEnum):
+    """Operazioni della categoria, con valori testuali utilizzabili nei log."""
+
+    CREATE = "CREATE"
+    UPDATE = "UPDATE"
+    DELETE = "DELETE"
 
 
 class EmbeddingProvider(Protocol):

@@ -3,13 +3,19 @@ from unittest.mock import patch
 
 from django.test import SimpleTestCase, override_settings
 
+from ..interfaces import CategoryOperation
 from ..notifications import safe_notify
 from ..orchestrator import synchronize
 
 
 class OrchestratorTests(SimpleTestCase):
     def test_each_crud_operation_selects_its_action(self):
-        for operation, action in (("CREATE", "INDEX"), ("UPDATE", "REINDEX"), ("DELETE", "REMOVE")):
+        cases = (
+            (CategoryOperation.CREATE, "INDEX"),
+            (CategoryOperation.UPDATE, "REINDEX"),
+            (CategoryOperation.DELETE, "REMOVE"),
+        )
+        for operation, action in cases:
             with self.subTest(operation=operation):
                 with self.assertLogs("ticket_events", level="INFO") as logs:
                     synchronize(operation, 42)
@@ -21,7 +27,7 @@ class OrchestratorTests(SimpleTestCase):
     # La vecchia impostazione non deve più cambiare la chiamata a synchronize().
     @override_settings(TICKET_EVENTS_NOTIFIER=object())
     def test_notification_always_calls_the_imported_orchestrator(self):
-        for operation in ("CREATE", "UPDATE", "DELETE"):
+        for operation in CategoryOperation:
             with self.subTest(operation=operation):
                 with patch("ticket_events.notifications.synchronize") as orchestrator:
                     safe_notify(operation, 42)

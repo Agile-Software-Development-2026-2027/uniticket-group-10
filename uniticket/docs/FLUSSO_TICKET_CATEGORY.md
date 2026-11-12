@@ -46,17 +46,17 @@ def safe_notify(operation: CategoryOperation, category_id: int) -> None:
 
 | Caso | Funzioni in signals.py | Risultato dopo il commit |
 |---|---|---|
-| Creazione | `category_before()` → `category_saved(created=True)` | `safe_notify("CREATE", id)` |
+| Creazione | `category_before()` → `category_saved(created=True)` | `safe_notify(CategoryOperation.CREATE, id)` |
 | Modifica | `category_before()` → `category_saved(created=False)` | UPDATE solo se cambiano i campi osservati |
 | Salvataggio invariato | `category_saved()` confronta prima e dopo | Nessuna chiamata all’orchestratore |
-| Eliminazione | `category_deleted()` | `safe_notify("DELETE", id)` |
+| Eliminazione | `category_deleted()` | `safe_notify(CategoryOperation.DELETE, id)` |
 | Eliminazione ufficio | `office_deleting()` → `office_deleted()` | UPDATE per le categorie che perdono il collegamento |
 
 `snapshot()` in `content.py` legge dal DB di UniTicket i campi elencati in `index_fields.py`. Il confronto usa i valori realmente salvati, anche con `save(update_fields=...)`.
 
 Eliminando un ufficio, il collegamento nelle categorie diventa nullo (`SET_NULL`) senza chiamare `TicketCategory.save()`: per questo ascoltiamo anche l’ufficio. La struttura usa invece PROTECT. Rinominare struttura o ufficio non cambia gli ID osservati.
 
-Esempio: la categoria 42 passa dalla descrizione “Supporto nelle residenze” a “Supporto nelle aule”. Il receiver confronta i due stati e, dopo il commit, avvia `safe_notify("UPDATE", 42)`.
+Esempio: la categoria 42 passa dalla descrizione “Supporto nelle residenze” a “Supporto nelle aule”. Il receiver confronta i due stati e, dopo il commit, avvia `safe_notify(CategoryOperation.UPDATE, 42)`.
 
 ### Come leggere la firma di un receiver
 
@@ -90,7 +90,7 @@ delattr(instance, STATE)              # Lo rimuove dopo averlo letto.
 ## 4. Commit, notifiche e orchestratore
 
 ```python
-transaction.on_commit(partial(safe_notify, "UPDATE", instance.pk), using=using)
+transaction.on_commit(partial(safe_notify, CategoryOperation.UPDATE, instance.pk), using=using)
 ```
 
 `partial()` prepara la chiamata fissando operazione e ID. Django la esegue al commit e la scarta al rollback. Senza transazione aperta la esegue subito. `post_save` indica che la scrittura è avvenuta, non che la transazione sia già confermata.
@@ -110,6 +110,17 @@ Esempio di log: `[ORCHESTRATION] operation=UPDATE category_id=42 action=REINDEX`
 ## 5. Interfacce e dati da usare dopo
 
 Le interfacce sono in `interfaces.py`. Descrivono come chiamare i componenti; non eseguono passaggi aggiuntivi.
+
+`CategoryOperation` è un `StrEnum` con `CREATE`, `UPDATE` e `DELETE`. I receiver passano i membri dell'enum a `safe_notify()`, che li inoltra a `synchronize()`. I log mantengono i valori testuali precedenti; per esempio `str(CategoryOperation.UPDATE)` restituisce `"UPDATE"`.
+
+```python
+transaction.on_commit(
+    partial(safe_notify, CategoryOperation.UPDATE, instance.pk), using=using,
+)
+```
+
+La verifica già presente sul commit controlla anche che i receiver inviino un `CategoryOperation`, anziché una semplice stringa. Prima della modifica fallisce; con l'enum passa. Il numero dei test resta invariato.
+
 
 | Interfaccia | Cosa descrive | Stato |
 |---|---|---|

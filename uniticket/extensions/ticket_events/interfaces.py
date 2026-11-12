@@ -43,7 +43,7 @@ class IndexRepository(Protocol):
 
 
 class IndexNotifier(Protocol):
-    """Indica quali argomenti deve accettare la chiamata fatta da notify_index()."""
+    """Descrive la chiamata all’orchestratore con operazione e ID della categoria."""
 
     # Richiede due argomenti: CREATE/UPDATE/DELETE e ID della categoria.
     def __call__(self, operation: CategoryOperation, category_id: int) -> None:

@@ -19,8 +19,6 @@ extensions/ticket_events/signals.py — receiver nostri
 Commit riuscito
       ↓
 notifications.py: safe_notify(operation, category_id)
-      ↓
-notifications.py: notify_index(operation, category_id)
       ↓ chiamata diretta
 orchestrator.py: synchronize(operation, category_id)
       ↓
@@ -29,13 +27,19 @@ Stampa l’azione scelta, poi termina
 
 `apps.py`, con `TicketEventsConfig.ready()`, importa `signals.py` all’avvio e registra i receiver.
 
-La chiamata tra notifiche e orchestratore è solo questa:
+`safe_notify()` chiama direttamente l’orchestratore e registra gli errori:
 
 ```python
 from .orchestrator import synchronize
 
-def notify_index(operation: CategoryOperation, category_id: int) -> None:
-    synchronize(operation, category_id)
+def safe_notify(operation: CategoryOperation, category_id: int) -> None:
+    try:
+        synchronize(operation, category_id)
+    except Exception:
+        logger.exception(
+            "Index notification failed: operation=%s, category_id=%s",
+            operation, category_id,
+        )
 ```
 
 ## 3. Cosa fanno i receiver
@@ -91,7 +95,7 @@ transaction.on_commit(partial(safe_notify, "UPDATE", instance.pk), using=using)
 
 `partial()` prepara la chiamata fissando operazione e ID. Django la esegue al commit e la scarta al rollback. Senza transazione aperta la esegue subito. `post_save` indica che la scrittura è avvenuta, non che la transazione sia già confermata.
 
-`safe_notify()` chiama `notify_index()` dentro un try/except. Se la chiamata fallisce, scrive nei log errore, operazione e ID. Il CRUD già confermato resta valido; non ci sono retry automatici.
+`safe_notify()` chiama direttamente `synchronize()` dentro un try/except. Se la chiamata fallisce, scrive nei log errore, operazione e ID. Il CRUD già confermato resta valido; non ci sono retry automatici.
 
 `synchronize()` attualmente fa soltanto questa scelta:
 
@@ -129,7 +133,7 @@ La suite è stata accorpata: 37 test con esempi raggruppati per operazione, mant
 | `test_update_events.py` | 8 | Tutti i campi osservati, più modifiche insieme, campi esclusi, update_fields, descrizione nulla/vuota, uffici e limiti di QuerySet.update |
 | `test_official_views.py` | 17 | CRUD HTTP originale, form invalidi e duplicati, permessi, letture, attivazione, assegnazione/rimozione/eliminazione ufficio, rollback, registrazione unica e allegati |
 | `test_content.py` | 2 | Campi degli snapshot, valori nulli e testo nome/descrizione |
-| `test_orchestrator.py` | 2 | Azione scelta per tutto il CRUD e chiamata diretta da notify_index |
+| `test_orchestrator.py` | 2 | Azione scelta per tutto il CRUD e chiamata diretta da safe_notify |
 
 `helpers.py` prepara i dati locali; `post_and_commit()` evita di ripetere il blocco del POST con le callback. Nei test della ricezione `unittest.mock.patch` intercetta la funzione importata: non servono impostazioni aggiuntive nel codice applicativo.
 
@@ -177,4 +181,4 @@ L’ID resta stabile; UPDATE deve sostituire tutto il record, inclusi metadata i
 
 ## 9. Cosa fa ora
 
-L’incremento attuale copre **CRUD → signals → receiver → commit → notify_index → synchronize → scelta dell’azione**.
+L’incremento attuale copre **CRUD → signals → receiver → commit → safe_notify → synchronize → scelta dell’azione**.

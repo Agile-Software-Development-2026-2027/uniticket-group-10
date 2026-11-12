@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block container %}
+<div id="assistant-page-content" hx-history-elt hx-history="false"> {#<--- Quando clicchiamo un ticket dentro l'assistente viene caricato il form rimpiazzando #assistant-page-content#}
+    <span hidden data-assistant-module data-category-id="{% if categoria and form and user_can_open_tickets %}{{ categoria.pk }}{% endif %}"
+          data-url="{{ request.path }}"></span>
+    {{ block.super }}
+</div>
+{% endblock %}
+{% block bottom_scripts %}
+{{ block.super }}
+{% if request.user.is_authenticated %}
+<div id="assistant-root" hx-preserve> {#<--- Occhio a preserve, serve a non "ricaricare" il componente#}
+    <script src="{% static 'js/htmx-1.9.10.min.js' %}"></script>
+    {% include "widget/widget.html" %}
+</div>
+{% endif %}
+{% endblock bottom_scripts %}

@@ -16,7 +16,7 @@ from organizational_area.models import (
 )
 from uni_ticket.forms import CategoryForm
 from uni_ticket.models import Ticket, TicketCategory, TicketCategoryModule
-from uni_ticket_project import settings as original_settings
+from extensions import settings as original_settings
 
 from .helpers import CategoryTestsSetup
 

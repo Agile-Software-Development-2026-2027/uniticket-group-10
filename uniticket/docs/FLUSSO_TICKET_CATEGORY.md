@@ -135,17 +135,20 @@ La suite è stata accorpata: 37 test con esempi raggruppati per operazione, mant
 
 ## 7. Comandi per verificare il codice
 
-Dalla cartella `uniticket`, con Docker Desktop avviato:
+La CI esegue `make test-local`, che avvia insieme i test dell'assistente (`chatbot_tests`) e dei receiver (`ticket_events.tests`) con `ticket_events.test_settings`: 54 test, SQLite in memoria e file temporanei. Non richiede Ollama o un database vettoriale. Lo stesso comando è usato dall'hook pre-commit.
+
+Dalla radice del repository, con Docker Desktop avviato e il submodule upstream inizializzato:
 
 ```powershell
 # Costruisce l’immagine con il codice permanente.
-docker build -t uniticket-events:local .
+git submodule update --init --recursive
+docker compose build uniticket
 
-# Esegue i 37 test senza rete, con DB in memoria e file temporanei.
-docker run --rm --network none --read-only --tmpfs /tmp --tmpfs /app/uniticket/data -e PYTHONDONTWRITEBYTECODE=1 --entrypoint python3 uniticket-events:local manage.py test ticket_events.tests --settings=ticket_events.test_settings --verbosity 1 --noinput
+# Esegue i 37 test con DB in memoria e file temporanei, senza chiamare servizi esterni.
+docker compose run --rm --no-deps uniticket python manage.py test ticket_events.tests --settings=ticket_events.test_settings --verbosity 1 --noinput
 
 # Esegue soltanto i due test dell’orchestratore.
-docker run --rm --network none --read-only --tmpfs /tmp --tmpfs /app/uniticket/data -e PYTHONDONTWRITEBYTECODE=1 --entrypoint python3 uniticket-events:local manage.py test ticket_events.tests.test_orchestrator --settings=ticket_events.test_settings --verbosity 1 --noinput
+docker compose run --rm --no-deps uniticket python manage.py test ticket_events.tests.test_orchestrator --settings=ticket_events.test_settings --verbosity 1 --noinput
 ```
 
 I test verificano il codice attuale: la scelta dell’azione è implementata, l’esecuzione della sincronizzazione ancora no. Il collegamento diretto è stato verificato RED → GREEN. Prima del commit vanno eseguiti anche gli hook del repository.
@@ -156,7 +159,7 @@ I test verificano il codice attuale: la scelta dell’azione è implementata, l�
 |---|---|---|
 | 1. Provider | CREATE/UPDATE leggono la categoria, costruiscono il testo e chiamano EmbeddingProvider; DELETE usa solo l’ID | Verifica del testo e delle chiamate con funzioni di prova; integrazione locale separata con il modello di embedding |
 | 2. Repository | CREATE inserisce, UPDATE sostituisce, DELETE rimuove tramite IndexRepository | Repository fittizio limitato ai test, con record per ID e metadata completi |
-| 3. Repository reale | Collega l’implementazione del collega mantenendo lo stesso contratto | Verifica con un’istanza locale di prova |
+| 3. Repository reale | Collega l’implementazione del repository reale mantenendo lo stesso contratto | Verifica con un’istanza locale di prova |
 
 Il comportamento finale atteso, ripreso dal precedente documento di orchestrazione, è:
 
@@ -174,4 +177,4 @@ L’ID resta stabile; UPDATE deve sostituire tutto il record, inclusi metadata i
 
 ## 9. Cosa fa ora
 
-L’incremento attuale copre **CRUD → signals → receiver → commit → notify_index → synchronize → scelta dell’azione**. 
+L’incremento attuale copre **CRUD → signals → receiver → commit → notify_index → synchronize → scelta dell’azione**.

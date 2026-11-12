@@ -1,12 +1,19 @@
 """Contratti di integrazione per gli eventi delle definizioni TicketCategory."""
 
-from typing import Literal, Protocol, TypeAlias, runtime_checkable
+from enum import StrEnum
+from typing import Protocol, runtime_checkable
+
+
 
 from .index_fields import CategoryMetadata
 
 
-# I valori identificano il CRUD della categoria, indipendentemente dal trasporto.
-CategoryOperation: TypeAlias = Literal["CREATE", "UPDATE", "DELETE"]
+class CategoryOperation(StrEnum):
+    """Operazioni della categoria, con valori testuali utilizzabili nei log."""
+
+    CREATE = "CREATE"
+    UPDATE = "UPDATE"
+    DELETE = "DELETE"
 
 
 class EmbeddingProvider(Protocol):
@@ -54,7 +61,7 @@ class IndexRepository(Protocol):
 
 
 class IndexNotifier(Protocol):
-    """Indica quali argomenti deve accettare la chiamata fatta da notify_index()."""
+    """Descrive la chiamata all’orchestratore con operazione e ID della categoria."""
 
     # Richiede due argomenti: CREATE/UPDATE/DELETE e ID della categoria.
     def __call__(self, operation: CategoryOperation, category_id: int) -> None:

@@ -4,7 +4,7 @@ import atexit
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from uni_ticket_project.settings import *  # noqa: F403
+from extensions.settings import *  # noqa: F403
 
 
 _test_directory = TemporaryDirectory(prefix="uniticket-signal-test-")

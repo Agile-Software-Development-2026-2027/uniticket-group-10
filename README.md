@@ -1,6 +1,42 @@
-# Project name
+# UniTicket assistant
 
-One paragraph: what the project is.
+L'assistente virtuale di UniTicket che ti aiuta a trovare il ticket giusto senza bestemmiare troppo (si spera). Un giorno, forse, ti aiuterà anche a compilare i form.
+
+## Overview
+<p align="center">
+  <img src="_images/flusso.png" alt="Overview" width="800">
+</p>
+
+
+## Struttura e avvio locale
+
+- `agent/`: microservizio dell'agente
+- `widget/`: sorgenti del widget, compilati negli static di UniTicket.
+- `uniticket/`: applicazione UniTicket, configurazione ed estensioni Django.
+
+Clona la repo con tutti i suoi submodule:
+
+```bash
+git clone --recurse-submodules https://github.com/Agile-Software-Development-2026-2027/uniticket-group-10
+```
+
+Se hai già clonato la repo, inizializza i submodule prima di avviare Docker:
+
+```bash
+git submodule update --init --recursive
+```
+
+Il `docker-compose.yml` nella root compila il widget e avvia UniTicket e "agente":
+
+```bash
+docker compose up --build
+```
+
+Per l'arresto:
+
+```bash
+docker compose down
+```
 
 ## How we work
 
@@ -26,17 +62,26 @@ One paragraph: what the project is.
 
 ## Git hooks
 
-The hooks in `.pre-commit-config.yaml` check the format of commit messages before each commit.
-Install them once per clone:
+The native Git hooks in `.githooks/` check commit message formatting and run the uniTicket Docker
+tests before every commit, including documentation-only commits. Git, Python 3, Docker Compose
+v2, and `make` must be available in `PATH`. Enable the hooks once per clone:
 
 ```bash
-pip install pre-commit
-pre-commit install
+git config core.hooksPath .githooks
 ```
+
+Git tracks the hook files as executable. If Git reports that a hook is not executable on Linux or
+macOS, restore the permission with:
+
+```bash
+chmod +x .githooks/commit-msg .githooks/pre-commit
+```
+
 
 ## CI
 
-- `.github/workflows/ci.yml` runs on every pull request and builds the Docker image of uniTicket.
+- `.github/workflows/ci.yml` runs on every pull request, builds the uniTicket Docker image, and
+  runs its tests in the required `test` job.
 - `.github/workflows/pr-format.yml` checks that the title of every pull request follows the
   format above and that the body fills in the pull request template. It also warns about the
   commit messages of the pull request that do not follow the format, without failing.

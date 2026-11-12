@@ -7,9 +7,10 @@ from django.test import TestCase, TransactionTestCase
 from django.utils import timezone
 from uni_ticket.models import TicketCategory, TicketCategoryModule
 
+from ..interfaces import CategoryOperation
 from .helpers import CategoryTestsSetup
 
-OPERATIONS = ("CREATE", "UPDATE", "DELETE")
+OPERATIONS = (CategoryOperation.CREATE, CategoryOperation.UPDATE, CategoryOperation.DELETE)
 
 
 class CrudExamples(CategoryTestsSetup):
@@ -25,7 +26,7 @@ class CrudExamples(CategoryTestsSetup):
             name=f"Categoria {self.example_number}", slug=f"categoria-{self.example_number}",
             description="Prima", organizational_structure=self.structure, is_active=active,
         )
-        if operation != "CREATE":
+        if operation != CategoryOperation.CREATE:
             if isinstance(self, TestCase):
                 with self.captureOnCommitCallbacks(execute=True):
                     category.save()
@@ -37,18 +38,18 @@ class CrudExamples(CategoryTestsSetup):
     # Esegue l’operazione richiesta e restituisce l’ID, anche dopo DELETE.
     def change_category(self, operation, category):
         category_id = category.pk
-        if operation == "DELETE":
+        if operation == CategoryOperation.DELETE:
             category.delete()
             return category_id
-        if operation == "UPDATE":
+        if operation == CategoryOperation.UPDATE:
             category.description = "Dopo"
         category.save()
         return category.pk
 
     # Controlla che il database conservi il risultato dell’operazione.
     def assert_saved(self, operation, category_id):
-        self.assertEqual(TicketCategory.objects.filter(pk=category_id).exists(), operation != "DELETE")
-        if operation == "UPDATE":
+        self.assertEqual(TicketCategory.objects.filter(pk=category_id).exists(), operation != CategoryOperation.DELETE)
+        if operation == CategoryOperation.UPDATE:
             self.assertEqual(TicketCategory.objects.get(pk=category_id).description, "Dopo")
 
 
@@ -64,11 +65,12 @@ class CrudSignalTests(CrudExamples, TestCase):
                         self.assertEqual(self.notifier.events, [])
                     self.assertEqual(len(callbacks), 1)
                     self.assertEqual(category.is_active, active)
-                    if operation == "DELETE":
+                    if operation == CategoryOperation.DELETE:
                         self.assertIsNone(category.pk)
                     category.pk = None
                     callbacks[0]()
                     self.assertEqual(self.notifier.events, [(operation, category_id)])
+                    self.assertIsInstance(self.notifier.events[0][0], CategoryOperation)
 
     def test_delete_signal_only_logs_action_after_commit(self):
         with self.captureOnCommitCallbacks(execute=True):
@@ -92,7 +94,7 @@ class CrudSignalTests(CrudExamples, TestCase):
 
     # I caricamenti raw non notificano né creazioni né aggiornamenti.
     def test_fixture_saves_do_not_notify(self):
-        for operation in ("CREATE", "UPDATE"):
+        for operation in (CategoryOperation.CREATE, CategoryOperation.UPDATE):
             with self.subTest(operation=operation):
                 category = self.prepare_category(operation)
                 category.created = category.modified = timezone.now()
@@ -118,11 +120,11 @@ class CrudSignalTests(CrudExamples, TestCase):
 
     # QuerySet.delete notifica ogni categoria; ripetere la cancellazione non crea eventi.
     def test_queryset_delete_and_absent_categories(self):
-        categories = [self.prepare_category("DELETE") for _ in range(2)]
+        categories = [self.prepare_category(CategoryOperation.DELETE) for _ in range(2)]
         ids = {category.pk for category in categories}
         with self.captureOnCommitCallbacks(execute=True):
             TicketCategory.objects.filter(pk__in=ids).delete()
-        self.assertCountEqual(self.notifier.events, [("DELETE", pk) for pk in ids])
+        self.assertCountEqual(self.notifier.events, [(CategoryOperation.DELETE, pk) for pk in ids])
         self.notifier.events.clear()
         with self.captureOnCommitCallbacks(execute=True):
             TicketCategory.objects.filter(pk__in=ids).delete()
@@ -130,13 +132,13 @@ class CrudSignalTests(CrudExamples, TestCase):
 
     # I moduli eliminati insieme alla categoria non duplicano la notifica DELETE.
     def test_cascading_modules_do_not_duplicate_delete(self):
-        category = self.prepare_category("DELETE")
+        category = self.prepare_category(CategoryOperation.DELETE)
         category_id = category.pk
         module = TicketCategoryModule.objects.create(name="Modulo", ticket_category=category)
         with self.captureOnCommitCallbacks(execute=True):
             category.delete()
         self.assertFalse(TicketCategoryModule.objects.filter(pk=module.pk).exists())
-        self.assertEqual(self.notifier.events, [("DELETE", category_id)])
+        self.assertEqual(self.notifier.events, [(CategoryOperation.DELETE, category_id)])
 
 
 class CrudTransactionTests(CrudExamples, TransactionTestCase):
@@ -172,6 +174,6 @@ class CrudTransactionTests(CrudExamples, TransactionTestCase):
                                 category_id = self.change_category(operation, category)
                                 raise ValueError("Rollback di prova")
                     self.assertEqual(self.notifier.events, [])
-                    self.assertEqual(TicketCategory.objects.filter(pk=category_id).exists(), operation != "CREATE")
-                    if operation == "UPDATE":
+                    self.assertEqual(TicketCategory.objects.filter(pk=category_id).exists(), operation != CategoryOperation.CREATE)
+                    if operation == CategoryOperation.UPDATE:
                         self.assertEqual(TicketCategory.objects.get(pk=category_id).description, "Prima")

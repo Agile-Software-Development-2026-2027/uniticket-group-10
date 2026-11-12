@@ -24,7 +24,7 @@ def synchronize(operation: CategoryOperation, category_id: int) -> None:
         # metadata = category_metadata(category)
         # repository.upsert(category_id, vector, metadata)
         action = "REINDEX"
-    elif operation == "DELETE":
+    elif operation == CategoryOperation.DELETE:
         action = "REMOVE"
         # Pseudocodice: rimuovere dal repository il punto identificato dall'ID.
         # repository.delete(category_id)

@@ -16,8 +16,9 @@ from organizational_area.models import (
 )
 from uni_ticket.forms import CategoryForm
 from uni_ticket.models import Ticket, TicketCategory, TicketCategoryModule
-from uni_ticket_project import settings as original_settings
+from extensions import settings as original_settings
 
+from ..interfaces import CategoryOperation
 from .helpers import CategoryTestsSetup
 
 
@@ -77,7 +78,7 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
         self.assertEqual(response.status_code, 302)
         category = TicketCategory.objects.get(slug="nuova-tipologia-ufficiale")
         self.assertEqual(category.organizational_structure_id, self.structure.pk)
-        self.assertEqual(self.notifier.events, [("CREATE", category.pk)])
+        self.assertEqual(self.notifier.events, [(CategoryOperation.CREATE, category.pk)])
 
     # Ogni campo del form viene modificato separatamente.
     def test_original_edit_detects_text_and_access_flags(self):
@@ -94,7 +95,7 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
                 self.assertEqual(response.status_code, 302)
                 self.category.refresh_from_db()
                 self.assertEqual(getattr(self.category, field), value)
-                self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
+                self.assertEqual(self.notifier.events, [(CategoryOperation.UPDATE, self.category.pk)])
 
 
     def test_original_edit_ignores_unchanged_and_excluded_fields(self):
@@ -166,7 +167,7 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
                 self.assertEqual(response.status_code, 302)
                 self.category.refresh_from_db()
                 self.assertEqual(self.category.is_active, expected)
-                self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
+                self.assertEqual(self.notifier.events, [(CategoryOperation.UPDATE, self.category.pk)])
 
     def test_original_enable_blocked_without_office_does_not_notify(self):
         response = self.post_and_commit(self.url("manager_enable_category", self.category))
@@ -191,7 +192,7 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
                 self.assertEqual(response.status_code, 302)
                 self.category.refresh_from_db()
                 self.assertEqual(self.category.organizational_office_id, office.pk)
-                self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
+                self.assertEqual(self.notifier.events, [(CategoryOperation.UPDATE, self.category.pk)])
 
     def test_original_office_removal_from_both_views(self):
         office = self.office()
@@ -203,7 +204,7 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
                 self.category.refresh_from_db()
                 self.assertIsNone(self.category.organizational_office_id)
                 self.assertFalse(self.category.is_active)
-                self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
+                self.assertEqual(self.notifier.events, [(CategoryOperation.UPDATE, self.category.pk)])
 
     def test_original_office_delete_updates_all_surviving_categories(self):
         office = self.office()
@@ -219,8 +220,8 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
         self.assertIsNone(self.category.organizational_office_id)
         self.assertIsNone(second.organizational_office_id)
         # La view disattiva prima la categoria attiva, poi SET_NULL modifica l’ufficio.
-        self.assertEqual(self.notifier.events.count(("UPDATE", self.category.pk)), 2)
-        self.assertEqual(self.notifier.events.count(("UPDATE", second.pk)), 1)
+        self.assertEqual(self.notifier.events.count((CategoryOperation.UPDATE, self.category.pk)), 2)
+        self.assertEqual(self.notifier.events.count((CategoryOperation.UPDATE, second.pk)), 1)
         self.assertEqual(len(self.notifier.events), 3)
 
     def test_original_crud_rollback_discards_receiver_callbacks(self):
@@ -255,7 +256,7 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
             self.url("manager_category_edit", self.category), self.payload(description="Un solo evento"),
         )
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
+        self.assertEqual(self.notifier.events, [(CategoryOperation.UPDATE, self.category.pk)])
 
     def test_original_office_delete_rollback_preserves_links_without_events(self):
         office = self.office()
@@ -297,4 +298,4 @@ class OfficialCategoryViewTests(CategoryTestsSetup, TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertFalse(folder.exists())
         self.assertFalse(TicketCategory.objects.filter(pk=self.category.pk).exists())
-        self.assertEqual(self.notifier.events, [("DELETE", self.category.pk)])
+        self.assertEqual(self.notifier.events, [(CategoryOperation.DELETE, self.category.pk)])

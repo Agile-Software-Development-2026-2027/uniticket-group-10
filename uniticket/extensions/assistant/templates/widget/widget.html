@@ -1,0 +1,7 @@
+{% load static i18n %}
+{% get_current_language as WIDGET_LANGUAGE %}
+<link rel="stylesheet" href="{% static 'chat/vendor/assistant-ui.css' %}?v=ag-ui-1">
+<div id="assistant-widget" class="assistant-widget" data-language="{{ WIDGET_LANGUAGE }}" data-agui-url="/api/assistant">
+    <div hidden>{% csrf_token %}</div>
+</div>
+<script src="{% static 'chat/vendor/assistant-ui.js' %}" defer></script>

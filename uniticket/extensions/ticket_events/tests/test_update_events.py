@@ -4,6 +4,7 @@ from django.test import TestCase
 from organizational_area.models import OrganizationalStructure, OrganizationalStructureOffice
 
 from ..index_fields import INDEX_FIELDS, METADATA_FIELDS
+from ..interfaces import CategoryOperation
 from .helpers import CategoryTestsSetup
 
 
@@ -37,14 +38,14 @@ class UpdateNotificationTests(CategoryTestsSetup, TestCase):
                 setattr(self.category, field, changed_values[field])
                 with self.captureOnCommitCallbacks(execute=True):
                     self.category.save(update_fields=[field])
-                self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
+                self.assertEqual(self.notifier.events, [(CategoryOperation.UPDATE, self.category.pk)])
 
     def test_multiple_changes_produce_one_notification(self):
         self.category.name = "Nome aggiornato"
         self.category.is_active = True
         with self.captureOnCommitCallbacks(execute=True):
             self.category.save()
-        self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
+        self.assertEqual(self.notifier.events, [(CategoryOperation.UPDATE, self.category.pk)])
 
     # Questi salvataggi non modificano i campi osservati nel database.
     def test_ignored_changes_do_not_notify(self):
@@ -74,7 +75,7 @@ class UpdateNotificationTests(CategoryTestsSetup, TestCase):
         with self.captureOnCommitCallbacks(execute=True):
             self.category.description = ""
             self.category.save(update_fields=["description"])
-        self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
+        self.assertEqual(self.notifier.events, [(CategoryOperation.UPDATE, self.category.pk)])
 
 
     def test_renaming_structure_and_office_does_not_notify(self):
@@ -106,7 +107,7 @@ class UpdateNotificationTests(CategoryTestsSetup, TestCase):
         with self.captureOnCommitCallbacks(execute=True):
             self.category.organizational_office = office_two
             self.category.save(update_fields=["organizational_office"])
-        self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
+        self.assertEqual(self.notifier.events, [(CategoryOperation.UPDATE, self.category.pk)])
 
     def test_office_deletion_notifies_set_null(self):
         office = OrganizationalStructureOffice.objects.create(
@@ -120,7 +121,7 @@ class UpdateNotificationTests(CategoryTestsSetup, TestCase):
             office.delete()
         self.category.refresh_from_db()
         self.assertIsNone(self.category.organizational_office_id)
-        self.assertEqual(self.notifier.events, [("UPDATE", self.category.pk)])
+        self.assertEqual(self.notifier.events, [(CategoryOperation.UPDATE, self.category.pk)])
 
     def test_queryset_update_bypasses_model_signals(self):
         with self.captureOnCommitCallbacks(execute=True):

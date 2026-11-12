@@ -1,0 +1,7 @@
+langgraph==1.2.19
+ag-ui-langgraph[fastapi]==0.0.47
+ag-ui-protocol==1.0.0
+uvicorn==0.54.0
+httpx==0.28.1
+langchain==1.4.9
+langchain-ollama==1.1.0

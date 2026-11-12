@@ -68,3 +68,10 @@ replay_pid*
 results.local/
 dummy_datasets/
 /ticket-retrival/retrival/prototypes/output/
+node_modules/
+uniticket/extensions/assistant/static
+
+# Compiled widget assets
+dist-widget/
+dist-demo/
+*.tsbuildinfo

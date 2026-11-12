@@ -1,0 +1,4 @@
+[submodule "uniticket/upstream"]
+	path = uniticket/upstream
+	url = https://github.com/UniversitaDellaCalabria/uniTicket
+	branch = draft

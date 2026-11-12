@@ -1,7 +1,10 @@
+import json
+
+import httpx
 import pytest
 from pytest import approx
 
-from app.jev import build_questions, parse_answers, ramp
+from app.jev import JevModel, build_questions, parse_answers, ramp
 from helpers import make_category
 
 LAUREA = make_category(1, "Certificato di laurea", description="Richiesta del certificato", structure_name="DiBEST")
@@ -95,3 +98,37 @@ def test_a_yes_or_no_of_jev_is_read_between_the_two_thresholds():
     assert ramp(0.2, no=0.3) == approx(0)
     assert ramp(0.5, no=0.3) == approx(0.5)
     assert ramp(0.9, no=0.3) == approx(1)
+
+
+def fake_jev(requests, api_key=""):
+    """Un JevModel che non usa la rete: annota le richieste e risponde sempre che M1 è la categoria giusta."""
+    def server(request):
+        requests.append(request)
+        return httpx.Response(200, json={"answers": answers(0.1, {"M1": 1.0}, [0.9])})
+
+    client = httpx.Client(transport=httpx.MockTransport(server))
+    return JevModel("http://jev", "autotrust-jev:35b", max_candidates=16, api_key=api_key, client=client)
+
+
+def test_jev_receives_the_request_and_the_questions_and_its_answers_become_an_estimate():
+    requests = []
+
+    estimate = fake_jev(requests).estimate("mi serve il certificato di laurea", [LAUREA])
+
+    assert str(requests[0].url) == "http://jev/v1/systemone"
+    assert json.loads(requests[0].content) == {
+        "model": "autotrust-jev:35b",
+        "state": "Utente: mi serve il certificato di laurea\n",
+        "questions": build_questions([LAUREA]),
+    }
+    assert estimate.categories == [(LAUREA, approx(1))]
+
+
+def test_the_api_key_is_sent_only_when_there_is_one():
+    without_key, with_key = [], []
+
+    fake_jev(without_key).estimate("laurea", [LAUREA])
+    fake_jev(with_key, api_key="chiave").estimate("laurea", [LAUREA])
+
+    assert "authorization" not in without_key[0].headers
+    assert with_key[0].headers["authorization"] == "Bearer chiave"

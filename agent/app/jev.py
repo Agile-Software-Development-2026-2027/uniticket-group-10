@@ -6,7 +6,14 @@ Riceve la richiesta dell'utente e tre tipi di domanda:
 - `adatto_M1`, `adatto_M2`..., un sì/no per candidato: quella categoria gli serve davvero.
 Una scelta sceglie comunque qualcosa, i sì/no possono risultare tutti bassi: per questo servono entrambi.
 Le domande sono in inglese, la lingua in cui Jev rende meglio; i dati restano in italiano.
+
+Lo stesso servizio (`POST /v1/systemone`) è offerto da TypeSafe AI e da `autotrust-jev` in Ollama:
+si sceglie con JEV_BASE_URL, JEV_MODEL e, solo per TypeSafe, JEV_API_KEY.
 """
+
+import os
+
+import httpx
 
 from .contracts import Category
 from .decision import Estimate
@@ -113,3 +120,30 @@ def parse_answers(answers: dict, candidates: list[Category]) -> Estimate:
     total = sum(probabilities.values())  # arrivano arrotondate: si riportano a somma 1
     categories = [(by_code[key], (1 - vague) * fits * probabilities[key] / total) for key in ranked]
     return Estimate(categories, no_match=(1 - vague) * (1 - fits), needs_info=vague)
+
+
+class JevModel:
+    """Chiede la stima a Jev. `max_candidates` è quante opzioni accetta: 16 per `autotrust-jev`."""
+
+    def __init__(self, base_url: str, model: str, max_candidates: int, api_key: str = "",
+                 client: httpx.Client | None = None):
+        self.url = f"{base_url}/v1/systemone"
+        self.model = model
+        self.max_candidates = max_candidates
+        self.headers = {"Authorization": f"Bearer {api_key}"} if api_key else {}
+        self.client = client or httpx.Client(timeout=120)
+
+    def estimate(self, query: str, candidates: list[Category]) -> Estimate:
+        """Manda a Jev la richiesta e le domande sui candidati, e ne legge le risposte."""
+        body = {"model": self.model, "state": f"Utente: {query}\n", "questions": build_questions(candidates)}
+        response = self.client.post(self.url, json=body, headers=self.headers)
+        response.raise_for_status()
+        return parse_answers(response.json()["answers"], candidates)
+
+
+jev = JevModel(
+    base_url=os.getenv("JEV_BASE_URL", "http://host.docker.internal:11434"),
+    model=os.getenv("JEV_MODEL", "autotrust-jev:35b"),
+    max_candidates=int(os.getenv("JEV_MAX_CANDIDATES", "16")),
+    api_key=os.getenv("JEV_API_KEY", ""),
+)

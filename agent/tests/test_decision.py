@@ -1,5 +1,5 @@
-from app.decision import NEEDS_INFO, NO_MATCH, Estimate, likely_hypotheses
-from helpers import make_category
+from app.decision import NEEDS_INFO, NO_MATCH, Decision, Estimate, decide, likely_hypotheses
+from helpers import ids, make_category
 
 ESSE3 = make_category(1, "Assistenza Esse3")
 LAUREA = make_category(2, "Certificato di laurea")
@@ -33,3 +33,44 @@ def test_hypotheses_without_share_are_never_likely():
 
 def test_an_empty_estimate_has_no_likely_hypothesis():
     assert likely_hypotheses(Estimate()) == []
+
+
+def test_a_confident_category_is_proposed():
+    decision = decide(Estimate(categories=[(ESSE3, 0.95)], no_match=0.05))
+
+    assert decision == Decision("PROPOSE", [ESSE3])
+
+
+def test_categories_that_reach_the_confidence_together_are_proposed_from_the_most_probable():
+    decision = decide(Estimate(categories=[(LAUREA, 0.4), (ESSE3, 0.5)], no_match=0.1))
+
+    assert decision == Decision("PROPOSE", [ESSE3, LAUREA])
+
+
+def test_only_no_match_means_no_match():
+    decision = decide(Estimate(categories=[(ESSE3, 0.0)], no_match=0.9, needs_info=0.1))
+
+    assert decision == Decision("NO_MATCH")
+
+
+def test_a_doubt_between_a_category_and_no_match_is_asked():
+    decision = decide(Estimate(categories=[(ESSE3, 0.5)], no_match=0.5))
+
+    assert decision == Decision("ASK", [ESSE3])
+
+
+def test_a_vague_request_is_asked_without_categories():
+    assert decide(Estimate(needs_info=1.0)) == Decision("ASK")
+
+
+def test_an_empty_estimate_is_asked_and_not_proposed():
+    assert decide(Estimate()) == Decision("ASK")
+
+
+def test_too_many_likely_categories_are_asked_with_the_first_five():
+    twelve = [(make_category(category_id), 1 / 12) for category_id in range(1, 13)]
+
+    decision = decide(Estimate(categories=twelve))
+
+    assert decision.action == "ASK"
+    assert ids(decision.categories) == [1, 2, 3, 4, 5]

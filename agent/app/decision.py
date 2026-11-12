@@ -6,6 +6,7 @@ la stima in una decisione: si prova senza modello e si capisce perché ha deciso
 """
 
 from dataclasses import dataclass, field
+from typing import Literal
 
 from .contracts import Category
 
@@ -14,6 +15,8 @@ NO_MATCH = "NO_MATCH"
 NEEDS_INFO = "NEEDS_INFO"
 # Quota che le ipotesi più probabili devono raggiungere insieme.
 CONFIDENCE = 0.8
+# Categorie mostrate al massimo all'utente.
+MAX_OPTIONS = 5
 
 
 @dataclass
@@ -36,3 +39,23 @@ def likely_hypotheses(estimate: Estimate, confidence: float = CONFIDENCE) -> lis
         likely.append(hypothesis)
         total += share
     return likely
+
+
+@dataclass
+class Decision:
+    """Cosa fare e con quali categorie, dalla più probabile."""
+
+    action: Literal["PROPOSE", "ASK", "NO_MATCH"]
+    categories: list[Category] = field(default_factory=list)
+
+
+def decide(estimate: Estimate, confidence: float = CONFIDENCE, max_options: int = MAX_OPTIONS) -> Decision:
+    """Propone se le ipotesi più probabili sono solo poche categorie, altrimenti chiede o dice che non c'è."""
+    likely = likely_hypotheses(estimate, confidence)
+    categories = [hypothesis for hypothesis in likely if isinstance(hypothesis, Category)]
+    if likely == [NO_MATCH]:
+        return Decision("NO_MATCH")
+    only_categories = len(categories) == len(likely)
+    if categories and only_categories and len(categories) <= max_options:
+        return Decision("PROPOSE", categories)
+    return Decision("ASK", categories[:max_options])

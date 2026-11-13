@@ -8,12 +8,14 @@ Una scelta sceglie comunque qualcosa, i sì/no possono risultare tutti bassi: pe
 Le domande sono in inglese, la lingua in cui Jev rende meglio; i dati restano in italiano.
 
 Lo stesso servizio (`POST /v1/systemone`) è offerto da TypeSafe AI e da `autotrust-jev` in Ollama:
-si sceglie con JEV_BASE_URL, JEV_MODEL e, solo per TypeSafe, JEV_API_KEY.
+si sceglie con JEV_BASE_URL, JEV_MODEL e, solo per TypeSafe, JEV_API_KEY. Lo si chiama con l'SDK di
+TypeSafe, che vale per entrambi; l'SDK resta in questo file: il resto dell'agente vede solo una stima.
 """
 
 import os
 
-import httpx
+import httpx2
+from typesafe_sdk import TypeSafeClient
 
 from .contracts import Category
 from .decision import DecisionModel, Estimate
@@ -26,6 +28,8 @@ NOUL_NO = 0.3
 FITS_NO = 0.1
 # Conta l'"adatto" delle prime 3 della scelta: alto su una categoria scartata non conta.
 CHECKED_FORMS = 3
+# L'SDK vuole sempre una chiave; Ollama non la chiede e la ignora.
+NO_API_KEY = "ollama"
 
 VAGUE_QUESTION = "In the whole conversation, does the user ask for help without ever naming what the help is about?"
 VAGUE_TRUE = ("No user message names a subject: the user only wrote things like 'ho un problema', "
@@ -126,19 +130,17 @@ class JevModel(DecisionModel):
     """Chiede la stima a Jev. `max_candidates` è quante opzioni accetta: 16 per `autotrust-jev`."""
 
     def __init__(self, base_url: str, model: str, max_candidates: int, api_key: str = "",
-                 client: httpx.Client | None = None):
-        self.url = f"{base_url}/v1/systemone"
+                 transport: httpx2.BaseTransport | None = None):
         self.model = model
         self.max_candidates = max_candidates
-        self.headers = {"Authorization": f"Bearer {api_key}"} if api_key else {}
-        self.client = client or httpx.Client(timeout=120)
+        self.client = TypeSafeClient(api_key=api_key or NO_API_KEY, base_url=base_url, timeout=120,
+                                     transport=transport)
 
     def estimate(self, query: str, candidates: list[Category]) -> Estimate:
         """Manda a Jev la richiesta e le domande sui candidati, e ne legge le risposte."""
-        body = {"model": self.model, "state": f"Utente: {query}\n", "questions": build_questions(candidates)}
-        response = self.client.post(self.url, json=body, headers=self.headers)
-        response.raise_for_status()
-        return parse_answers(response.json()["answers"], candidates)
+        response = self.client.system_one(f"Utente: {query}\n", build_questions(candidates), model=self.model)
+        answers = {name: answer.model_dump() for name, answer in response.answers.items()}
+        return parse_answers(answers, candidates)
 
 
 jev = JevModel(

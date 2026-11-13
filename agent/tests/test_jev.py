@@ -1,11 +1,12 @@
 import json
 
-import httpx
+import httpx2
 import pytest
 from pytest import approx
+from typesafe_sdk import TypeSafeAPIResponseValidationError
 
 from app.decision import DecisionModel
-from app.jev import JevModel, build_questions, parse_answers, ramp
+from app.jev import NO_API_KEY, JevModel, build_questions, parse_answers, ramp
 from helpers import make_category
 
 LAUREA = make_category(1, "Certificato di laurea", description="Richiesta del certificato", structure_name="DiBEST")
@@ -101,14 +102,26 @@ def test_a_yes_or_no_of_jev_is_read_between_the_two_thresholds():
     assert ramp(0.9, no=0.3) == approx(1)
 
 
-def fake_jev(requests, api_key=""):
+# Una risposta come la manda Jev, sia TypeSafe sia `autotrust-jev`: l'SDK rifiuta quelle incomplete.
+JEV_RESPONSE = {
+    "model": "autotrust-jev:35b",
+    "usage": {"input_tokens": 431, "output_tokens": 0},
+    "answers": {
+        "vago": {"type": "noul", "noul": 0.1},
+        "modulo": {"type": "choice", "choice": "M1", "confidence": 1.0, "probabilities": {"M1": 1.0}},
+        "adatto_M1": {"type": "noul", "noul": 0.9},
+    },
+}
+
+
+def fake_jev(requests, api_key="", response=JEV_RESPONSE):
     """Un JevModel che non usa la rete: annota le richieste e risponde sempre che M1 è la categoria giusta."""
     def server(request):
         requests.append(request)
-        return httpx.Response(200, json={"answers": answers(0.1, {"M1": 1.0}, [0.9])})
+        return httpx2.Response(200, json=response)
 
-    client = httpx.Client(transport=httpx.MockTransport(server))
-    return JevModel("http://jev", "autotrust-jev:35b", max_candidates=16, api_key=api_key, client=client)
+    return JevModel("http://jev", "autotrust-jev:35b", max_candidates=16, api_key=api_key,
+                    transport=httpx2.MockTransport(server))
 
 
 def test_jev_receives_the_request_and_the_questions_and_its_answers_become_an_estimate():
@@ -125,14 +138,21 @@ def test_jev_receives_the_request_and_the_questions_and_its_answers_become_an_es
     assert estimate.categories == [(LAUREA, approx(1))]
 
 
-def test_the_api_key_is_sent_only_when_there_is_one():
+def test_the_api_key_is_sent_and_without_one_a_placeholder_goes_to_ollama():
     without_key, with_key = [], []
 
     fake_jev(without_key).estimate("laurea", [LAUREA])
     fake_jev(with_key, api_key="chiave").estimate("laurea", [LAUREA])
 
-    assert "authorization" not in without_key[0].headers
+    assert without_key[0].headers["authorization"] == f"Bearer {NO_API_KEY}"
     assert with_key[0].headers["authorization"] == "Bearer chiave"
+
+
+def test_an_incomplete_response_of_jev_is_an_error():
+    incomplete = {"answers": answers(0.1, {"M1": 1.0}, [0.9])}
+
+    with pytest.raises(TypeSafeAPIResponseValidationError):
+        fake_jev([], response=incomplete).estimate("laurea", [LAUREA])
 
 
 def test_jev_is_a_decision_model():

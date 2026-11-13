@@ -3,7 +3,7 @@ import json
 import httpx2
 import pytest
 from pytest import approx
-from typesafe_sdk import TypeSafeAPIResponseValidationError
+from typesafe_sdk import Choice, ChoiceAnswer, Noul, NoulAnswer, TypeSafeAPIResponseValidationError
 
 from app.decision import DecisionModel
 from app.jev import NO_API_KEY, JevModel, build_questions, parse_answers, ramp
@@ -16,8 +16,8 @@ TASSE = make_category(2, "Pagamento tasse")
 def test_every_candidate_is_an_option_of_the_choice():
     questions = build_questions([LAUREA, TASSE])
 
-    assert questions["modulo"]["type"] == "choice"
-    assert questions["modulo"]["criteria"] == {
+    assert isinstance(questions["modulo"], Choice)
+    assert questions["modulo"].criteria == {
         "M1": {"titolo": "Certificato di laurea", "descrizione": "Richiesta del certificato", "struttura": "DiBEST"},
         "M2": {"titolo": "Pagamento tasse"},
     }
@@ -26,10 +26,10 @@ def test_every_candidate_is_an_option_of_the_choice():
 def test_every_candidate_has_its_own_fit_question_without_the_structure():
     questions = build_questions([LAUREA, TASSE])
 
-    assert questions["adatto_M1"]["type"] == "noul"
-    assert questions["adatto_M1"]["instructions"]["modulo"] == {
+    assert isinstance(questions["adatto_M1"], Noul)
+    assert questions["adatto_M1"].instructions["modulo"] == {
         "titolo": "Certificato di laurea", "descrizione": "Richiesta del certificato"}
-    assert questions["adatto_M2"]["instructions"]["modulo"] == {"titolo": "Pagamento tasse"}
+    assert questions["adatto_M2"].instructions["modulo"] == {"titolo": "Pagamento tasse"}
 
 
 def test_without_candidates_only_the_vague_question_is_asked():
@@ -39,20 +39,23 @@ def test_without_candidates_only_the_vague_question_is_asked():
 def test_long_descriptions_are_cut():
     category = make_category(1, description="x" * 1000)
 
-    assert len(build_questions([category])["modulo"]["criteria"]["M1"]["descrizione"]) == 240
+    assert len(build_questions([category])["modulo"].criteria["M1"]["descrizione"]) == 240
 
 
 def answers(vague, probabilities, fits):
-    """Le risposte di Jev come arrivano: `fits` è l'"adatto" di M1, M2..."""
-    replies = {"vago": {"noul": vague}, "modulo": {"probabilities": probabilities}}
+    """Le risposte di Jev come le divide l'SDK, sì/no e scelte: `fits` è l'"adatto" di M1, M2..."""
+    nouls = {"vago": NoulAnswer(noul=vague)}
     for index, fit in enumerate(fits):
-        replies[f"adatto_M{index + 1}"] = {"noul": fit}
-    return replies
+        nouls[f"adatto_M{index + 1}"] = NoulAnswer(noul=fit)
+    chosen = max(probabilities, key=probabilities.get, default="")
+    choices = {"modulo": ChoiceAnswer(choice=chosen, confidence=probabilities.get(chosen, 0.0),
+                                      probabilities=probabilities)}
+    return nouls, choices
 
 
 def test_the_share_of_the_categories_is_split_as_the_choice_says():
     # vago 0,3 vale 0 e adatto 0,7 vale 1: tutta la quota va alle categorie.
-    estimate = parse_answers(answers(0.3, {"M1": 0.5, "M2": 0.5}, [0.7, 0.5]), [LAUREA, TASSE])
+    estimate = parse_answers(*answers(0.3, {"M1": 0.5, "M2": 0.5}, [0.7, 0.5]), [LAUREA, TASSE])
 
     assert estimate.categories == [(LAUREA, approx(0.5)), (TASSE, approx(0.5))]
     assert estimate.no_match == approx(0)
@@ -60,40 +63,40 @@ def test_the_share_of_the_categories_is_split_as_the_choice_says():
 
 
 def test_categories_are_ordered_from_the_most_probable():
-    estimate = parse_answers(answers(0.1, {"M1": 0.2, "M2": 0.8}, [0.9, 0.9]), [LAUREA, TASSE])
+    estimate = parse_answers(*answers(0.1, {"M1": 0.2, "M2": 0.8}, [0.9, 0.9]), [LAUREA, TASSE])
 
     assert estimate.categories == [(TASSE, approx(0.8)), (LAUREA, approx(0.2))]
 
 
 def test_categories_that_do_not_fit_mean_no_match():
-    estimate = parse_answers(answers(0.1, {"M1": 0.9, "M2": 0.1}, [0.05, 0.1]), [LAUREA, TASSE])
+    estimate = parse_answers(*answers(0.1, {"M1": 0.9, "M2": 0.1}, [0.05, 0.1]), [LAUREA, TASSE])
 
     assert estimate.no_match == approx(1)
 
 
 def test_a_lukewarm_fit_leaves_a_share_to_the_categories():
-    estimate = parse_answers(answers(0.1, {"M1": 1.0}, [0.25, 0.1]), [LAUREA, TASSE])
+    estimate = parse_answers(*answers(0.1, {"M1": 1.0}, [0.25, 0.1]), [LAUREA, TASSE])
 
     assert estimate.categories == [(LAUREA, approx(0.25))]
     assert estimate.no_match == approx(0.75)
 
 
 def test_a_vague_request_needs_information():
-    estimate = parse_answers(answers(0.9, {"M1": 1.0}, [0.9]), [LAUREA])
+    estimate = parse_answers(*answers(0.9, {"M1": 1.0}, [0.9]), [LAUREA])
 
     assert estimate.needs_info == approx(1)
     assert estimate.categories == [(LAUREA, approx(0))]
 
 
 def test_without_candidates_the_request_is_vague_or_has_no_match():
-    estimate = parse_answers(answers(0.5, {}, []), [])
+    estimate = parse_answers(*answers(0.5, {}, []), [])
 
     assert (estimate.categories, estimate.no_match, estimate.needs_info) == ([], approx(0.5), approx(0.5))
 
 
 def test_a_choice_without_probabilities_is_an_error():
     with pytest.raises(ValueError):
-        parse_answers(answers(0.1, {}, [0.9]), [LAUREA])
+        parse_answers(*answers(0.1, {}, [0.9]), [LAUREA])
 
 
 def test_a_yes_or_no_of_jev_is_read_between_the_two_thresholds():
@@ -133,7 +136,7 @@ def test_jev_receives_the_request_and_the_questions_and_its_answers_become_an_es
     assert json.loads(requests[0].content) == {
         "model": "autotrust-jev:35b",
         "state": "Utente: mi serve il certificato di laurea\n",
-        "questions": build_questions([LAUREA]),
+        "questions": {name: question.model_dump(mode="json") for name, question in build_questions([LAUREA]).items()},
     }
     assert estimate.categories == [(LAUREA, approx(1))]
 
@@ -149,7 +152,8 @@ def test_the_api_key_is_sent_and_without_one_a_placeholder_goes_to_ollama():
 
 
 def test_an_incomplete_response_of_jev_is_an_error():
-    incomplete = {"answers": answers(0.1, {"M1": 1.0}, [0.9])}
+    nouls, choices = answers(0.1, {"M1": 1.0}, [0.9])
+    incomplete = {"answers": {name: answer.model_dump() for name, answer in {**nouls, **choices}.items()}}
 
     with pytest.raises(TypeSafeAPIResponseValidationError):
         fake_jev([], response=incomplete).estimate("laurea", [LAUREA])

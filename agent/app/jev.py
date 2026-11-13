@@ -15,7 +15,7 @@ TypeSafe, che vale per entrambi; l'SDK resta in questo file: il resto dell'agent
 import os
 
 import httpx2
-from typesafe_sdk import TypeSafeClient
+from typesafe_sdk import Choice, ChoiceAnswer, Noul, NoulAnswer, Question, TypeSafeClient
 
 from .contracts import Category
 from .decision import DecisionModel, Estimate
@@ -59,16 +59,6 @@ FITS_FALSE = ("The form only shares some words with the request. Reporting a fau
               "general contact.")
 
 
-def noul(instructions: str | dict, when_true: str, when_false: str) -> dict:
-    """Una domanda sì/no: Jev risponde con un numero tra 0 (no) e 1 (sì)."""
-    return {"type": "noul", "instructions": instructions, "criteria": {"true": when_true, "false": when_false}}
-
-
-def choice(instructions: str | dict, options: dict) -> dict:
-    """Una domanda a scelta: Jev risponde con una probabilità per ogni opzione."""
-    return {"type": "choice", "instructions": instructions, "criteria": options}
-
-
 def code(index: int) -> str:
     """I candidati si chiamano M1, M2...: codici brevi, uguali in tutte le domande."""
     return f"M{index + 1}"
@@ -84,9 +74,10 @@ def card(category: Category, with_structure: bool = False) -> dict:
     return summary
 
 
-def build_questions(candidates: list[Category]) -> dict:
+def build_questions(candidates: list[Category]) -> dict[str, Question]:
     """Le domande per Jev: se la richiesta è vaga e, per i candidati, quale serve e se serve davvero."""
-    questions = {"vago": noul(VAGUE_QUESTION, VAGUE_TRUE, VAGUE_FALSE)}
+    questions: dict[str, Question] = {
+        "vago": Noul(instructions=VAGUE_QUESTION, criteria={"true": VAGUE_TRUE, "false": VAGUE_FALSE})}
     if not candidates:  # l'API rifiuta una scelta senza opzioni
         return questions
     options = {}
@@ -94,8 +85,9 @@ def build_questions(candidates: list[Category]) -> dict:
         options[code(index)] = card(category, with_structure=True)
         # Se è adatta non dipende dalla struttura: qui Jev legge la categoria senza.
         fits = {"question": FITS_QUESTION, "modulo": card(category)}
-        questions[f"adatto_{code(index)}"] = noul(fits, FITS_TRUE, FITS_FALSE)
-    questions["modulo"] = choice({"question": FORM_QUESTION, "rules": FORM_RULES}, options)
+        questions[f"adatto_{code(index)}"] = Noul(instructions=fits,
+                                                  criteria={"true": FITS_TRUE, "false": FITS_FALSE})
+    questions["modulo"] = Choice(instructions={"question": FORM_QUESTION, "rules": FORM_RULES}, criteria=options)
     return questions
 
 
@@ -104,23 +96,24 @@ def ramp(noul: float, no: float) -> float:
     return min(1.0, max(0.0, (noul - no) / (NOUL_YES - no)))
 
 
-def parse_answers(answers: dict, candidates: list[Category]) -> Estimate:
-    """Ricompone le risposte di Jev in una stima.
+def parse_answers(nouls: dict[str, NoulAnswer], choices: dict[str, ChoiceAnswer],
+                  candidates: list[Category]) -> Estimate:
+    """Ricompone le risposte di Jev, divise dall'SDK in sì/no e scelte, in una stima.
 
     servono informazioni = vago
     nessuna categoria    = (1 - vago) × (1 - adatto)
     categoria i          = (1 - vago) × adatto × P(i)
     """
-    vague = ramp(answers["vago"]["noul"], NOUL_NO)
+    vague = ramp(nouls["vago"].noul, NOUL_NO)
     if not candidates:
         return Estimate(no_match=1 - vague, needs_info=vague)
     by_code = {code(index): category for index, category in enumerate(candidates)}
-    given = answers["modulo"]["probabilities"]
+    given = choices["modulo"].probabilities
     probabilities = {key: given[key] for key in by_code if given.get(key, 0) > 0}
     if not probabilities:
         raise ValueError("Jev non ha dato probabilità ai candidati")
     ranked = sorted(probabilities, key=probabilities.get, reverse=True)
-    fits = ramp(max(answers[f"adatto_{key}"]["noul"] for key in ranked[:CHECKED_FORMS]), FITS_NO)
+    fits = ramp(max(nouls[f"adatto_{key}"].noul for key in ranked[:CHECKED_FORMS]), FITS_NO)
     total = sum(probabilities.values())  # arrivano arrotondate: si riportano a somma 1
     categories = [(by_code[key], (1 - vague) * fits * probabilities[key] / total) for key in ranked]
     return Estimate(categories, no_match=(1 - vague) * (1 - fits), needs_info=vague)
@@ -139,8 +132,7 @@ class JevModel(DecisionModel):
     def estimate(self, query: str, candidates: list[Category]) -> Estimate:
         """Manda a Jev la richiesta e le domande sui candidati, e ne legge le risposte."""
         response = self.client.system_one(f"Utente: {query}\n", build_questions(candidates), model=self.model)
-        answers = {name: answer.model_dump() for name, answer in response.answers.items()}
-        return parse_answers(answers, candidates)
+        return parse_answers(response.nouls, response.choices, candidates)
 
 
 jev = JevModel(

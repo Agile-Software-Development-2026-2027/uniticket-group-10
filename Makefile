@@ -1,13 +1,12 @@
-.PHONY: install test-local test-agent test-acceptance test-all clean
+.PHONY: install test-django test-agent test-acceptance test-all clean
 
-default: test-local
+default: test-django
 
 test-agent:
 	@echo "Running agent tests..."
 	cd agent && python -m pytest
 
-# Usa il DB temporaneo dei test e non avvia il servizio agent.
-test-local:
+test-django:
 	@echo "Running Django tests in the uniticket container..."
 	docker compose -f ./docker-compose.yml run --build --rm -T --no-deps uniticket python manage.py test chatbot_tests ticket_events.tests --settings=ticket_events.test_settings --noinput
 

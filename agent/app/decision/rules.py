@@ -9,7 +9,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Literal
 
-from .contracts import Category
+from ..contracts import Category
 
 # Le due ipotesi che non sono una categoria.
 NO_MATCH = "NO_MATCH"

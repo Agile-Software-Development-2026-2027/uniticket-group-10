@@ -8,7 +8,7 @@ from langgraph.prebuilt import InjectedState
 from .contracts import AgentRequest
 from .decision import decide_with
 from .embeddings import embedder
-from .jev import jev
+from .decision.jev import jev
 from .retrieval import Retriever
 
 DEFAULT_TOP_K = 20

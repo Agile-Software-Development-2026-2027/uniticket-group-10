@@ -6,7 +6,7 @@ from pytest import approx
 from typesafe_sdk import Choice, ChoiceAnswer, Noul, NoulAnswer, TypeSafeAPIResponseValidationError
 
 from app.decision import DecisionModel
-from app.jev import NO_API_KEY, JevModel, build_questions, parse_answers, ramp
+from app.decision.jev import NO_API_KEY, JevModel, build_questions, parse_answers, ramp
 from helpers import make_category
 
 LAUREA = make_category(1, "Certificato di laurea", description="Richiesta del certificato", structure_name="DiBEST")

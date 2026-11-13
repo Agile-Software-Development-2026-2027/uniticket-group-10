@@ -1,6 +1,6 @@
 import pytest
 
-from app.decision import (NEEDS_INFO, NO_MATCH, Decision, DecisionModel, Estimate, decide, decide_with,
+from app.decision.rules import (NEEDS_INFO, NO_MATCH, Decision, DecisionModel, Estimate, decide, decide_with,
                           likely_hypotheses)
 from helpers import FirstCandidateModel, ids, make_category
 

@@ -1,7 +1,6 @@
 import pytest
 
-from app.decision.rules import (NEEDS_INFO, NO_MATCH, Decision, DecisionModel, Estimate, decide, decide_with,
-                          likely_hypotheses)
+from app.decision.rules import Decision, DecisionModel, Estimate, Hypothesis, decide, decide_with, likely_hypotheses
 from helpers import FirstCandidateModel, ids, make_category
 
 ESSE3 = make_category(1, "Assistenza Esse3")
@@ -19,7 +18,7 @@ def test_hypotheses_are_added_until_their_shares_reach_the_confidence():
     # 34% alla prima e il resto sparso: nessuna ipotesi da sola arriva all'80%.
     estimate = Estimate(categories=[(ESSE3, 0.34), (LAUREA, 0.11), (TASSE, 0.11)], no_match=0.22, needs_info=0.22)
 
-    assert likely_hypotheses(estimate) == [ESSE3, NO_MATCH, NEEDS_INFO, LAUREA]
+    assert likely_hypotheses(estimate) == [ESSE3, Hypothesis.NO_MATCH, Hypothesis.NEEDS_INFO, LAUREA]
 
 
 def test_hypotheses_are_ordered_by_share_not_by_arrival():
@@ -31,7 +30,7 @@ def test_hypotheses_are_ordered_by_share_not_by_arrival():
 def test_hypotheses_without_share_are_never_likely():
     estimate = Estimate(categories=[(ESSE3, 0.0)], no_match=0.7, needs_info=0.0)
 
-    assert likely_hypotheses(estimate) == [NO_MATCH]
+    assert likely_hypotheses(estimate) == [Hypothesis.NO_MATCH]
 
 
 def test_an_empty_estimate_has_no_likely_hypothesis():

@@ -13,8 +13,8 @@ from qdrant_client.http.models import (
     VectorParams,
 )
 
-from .index_fields import METADATA_FIELDS, CategoryMetadata
-from .interfaces import IndexRepository
+from ticket_events.index_fields import METADATA_FIELDS, CategoryMetadata
+from ticket_events.interfaces import IndexRepository
 
 
 class QdrantIndexRepository(IndexRepository):

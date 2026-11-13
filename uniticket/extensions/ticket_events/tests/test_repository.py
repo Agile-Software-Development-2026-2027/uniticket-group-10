@@ -7,8 +7,8 @@ from httpx import Headers
 from qdrant_client import QdrantClient
 from qdrant_client.http.exceptions import UnexpectedResponse
 
+from database.repository import QdrantIndexRepository
 from ..interfaces import IndexRepository
-from ..repository import QdrantIndexRepository
 
 
 class QdrantIndexRepositoryTests(SimpleTestCase):

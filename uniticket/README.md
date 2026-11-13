@@ -19,7 +19,7 @@ docker compose run --rm --no-deps uniticket python manage.py test ticket_events.
 ```
 
 I test automatici usano SQLite e Qdrant in memoria, file temporanei e risposte HTTP simulate: non richiedono Ollama o un servizio Qdrant. La prova facoltativa con Ollama e Qdrant reali, inclusa una collection isolata per il test, è descritta nel documento del flusso.
-La CI e l'hook pre-commit eseguono `make test-local`: include sia `chatbot_tests` sia `ticket_events.tests`, senza avviare l'agent.
+La CI e l'hook pre-commit eseguono `make test-django`: include sia `chatbot_tests` sia `ticket_events.tests`, senza avviare l'agent.
 
 ## Partial page update
 <p align="center">
@@ -35,3 +35,9 @@ Credenziali di prova per l’ambiente locale:
 | Manager | `user1` | `secret1!` |
 | Operatore | `user2` | `secret2!` |
 | Utente normale | `utente` | `secret1!` |
+
+## Dashboard Qdrant locale
+
+Dalla radice del repository: `docker compose up -d qdrant`.
+Aprire [Qdrant Dashboard](http://localhost:6333/dashboard), quindi **Collections** e la collezione da esaminare. Nei punti sono visibili ID, vettore e payload (metadata).
+La porta è accessibile solo dal PC locale. La prova automatica elimina la propria collezione alla fine, quindi non lascia record da consultare nel dashboard.

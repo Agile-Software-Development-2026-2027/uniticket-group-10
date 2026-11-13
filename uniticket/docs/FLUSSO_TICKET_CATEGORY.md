@@ -79,7 +79,7 @@ Se l'embedding fallisce, `safe_notify()` registra l'errore senza annullare il CR
 Dalla radice del repository, con Docker Desktop avviato:
 
 ```powershell
-make test-local
+make test-django
 ```
 
 Il comando costruisce l'immagine ed esegue i test dell'assistente e dei receiver con SQLite e Qdrant in memoria e file temporanei. Non avvia l'agent e non richiede Ollama o un servizio Qdrant. La prova con i servizi reali viene saltata per impostazione predefinita.
@@ -94,27 +94,28 @@ Avviare Docker Desktop e Ollama sull'host. `ollama list` deve mostrare `snowflak
 docker compose up -d qdrant
 ```
 
-Dalla radice del repository, eseguire la prova con una collection dedicata:
+Dopo `make test-django`, dalla radice del repository, eseguire la prova:
 
 ```powershell
-docker compose run --rm -T --no-deps `
+docker compose run --build --rm -T --no-deps `
   -e TICKET_EVENTS_LIVE_EMBEDDING=1 `
-  -e QDRANT_COLLECTION=ticket_categories_live_test `
   uniticket python manage.py test ticket_events.tests.test_embedding_integration `
   --settings=ticket_events.test_settings --verbosity 1 --noinput
 ```
 
-La prova è in `tests/test_embedding_integration.py`: crea una categoria temporanea, modifica la descrizione e la elimina. Attraversa signals, receiver, commit, `safe_notify()`, orchestratore, Ollama e Qdrant. Non passa dalle view/API. La collection dedicata evita che gli ID temporanei del database di test sovrascrivano o eliminino punti della collection usata dall'applicazione. Controllare i log: un errore del provider o di Qdrant appare come `Index notification failed` e non fa fallire automaticamente il CRUD di Django.
+La prova è in `tests/test_embedding_integration.py`: crea una categoria temporanea, modifica la descrizione e la elimina. Attraversa signals, receiver, commit, `safe_notify()`, orchestratore, Ollama e Qdrant. Non passa dalle view/API. Il test crea automaticamente una collezione nuova con nome `ticket_categories_live_test_<uuid>` e configura soltanto il repository della prova per usarla. Non usa la collezione dell'applicazione, anche se `QDRANT_COLLECTION` è impostata. La collezione viene eliminata alla fine, anche se il test fallisce dopo la creazione.
 
 | Messaggio | Origine |
 |---|---|
 | `[ORCHESTRATION] operation=...` | Log permanente di `synchronize()` |
-| JSON con operazione, modello, testo, dimensione e primi sei valori | Test: mostra il risultato reale |
+| JSON con operazione, ID, collezione, testo, vettore e metadata | Test: legge il record realmente salvato in Qdrant |
 | `Categoria indicizzata: ...` | Log permanente dopo l'upsert Qdrant |
 | `DELETE: categoria temporanea...` | Test: nessuna chiamata al modello |
 | `OK` e distruzione del database | Django: risultato e pulizia |
 
-Il test usa SQLite in memoria e file temporanei; il database di test viene distrutto alla fine. La collection Qdrant di test resta nel volume `qdrant-data` (vuota dopo il DELETE) e può essere rimossa separatamente quando non serve più.
+Dopo CREATE il test legge il record e controlla vettore e tutti gli otto metadata. Dopo UPDATE verifica lo stesso ID, un vettore diverso e i metadata aggiornati, inclusi `False` e `None`, senza duplicati. Dopo DELETE verifica che il record non esista più e che non sia stato generato un terzo embedding.
+
+Un errore del modello o di Qdrant viene registrato da `safe_notify()`, ma il test ora verifica i dati nel database vettoriale: non può risultare riuscito se il record manca o non viene eliminato. SQLite in memoria e file temporanei vengono rimossi da Django; la collezione Qdrant viene eliminata dalla pulizia del test. In caso di interruzione forzata del processo la collezione temporanea potrebbe restare, senza coinvolgere quella applicativa.
 
 ## 7. Limiti attuali
 

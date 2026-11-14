@@ -4,22 +4,6 @@ from django.db import connection
 from threading import Thread
 import time
 
-def _get_strutture():
-    from rest_framework.test import APIRequestFactory
-    from api_rest.views.generic import TicketAPIStruttureList
-
-    factory = APIRequestFactory()
-    view = TicketAPIStruttureList.as_view(permission_classes=[])
-    url = reverse("api_rest:api-strutture-list")
-    strutture = []
-
-    while url:
-        response = view(factory.get(url))
-        strutture.extend(response.data["results"])
-        url = response.data["next"]
-
-    return strutture
-
 def _get_categories():
     from rest_framework.test import APIRequestFactory
     from api_rest.views.generic import TicketAPITicketCategoryList
@@ -58,7 +42,6 @@ class InitialIndexingConfig(AppConfig):
     name = "initial_indexing"
     verbose_name = "Initial ticket indexing"
 
-    has_strutture = False
     has_categories = False
 
     def ready(self):
@@ -66,14 +49,6 @@ class InitialIndexingConfig(AppConfig):
 
     def initial_indexing(self):
         _wait_db()
-
-        if not self.has_strutture:
-            strutture = _get_strutture()
-
-            if len(strutture) > 0:
-                pass # What to do here?
-
-            self.has_strutture = True
 
         if not self.has_categories:
             categories = _get_categories()

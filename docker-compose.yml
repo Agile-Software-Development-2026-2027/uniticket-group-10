@@ -22,6 +22,9 @@ services:
       ASSISTANT_AGENT_URL: http://agent:8001/conversation
       QDRANT_URL: http://qdrant:6333
 
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # Required for Linux
+
     depends_on:
       agent:
         condition: service_healthy

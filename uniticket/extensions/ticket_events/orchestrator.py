@@ -17,11 +17,11 @@ index_repository: IndexRepository = QdrantIndexRepository()
 def synchronize(operation: CategoryOperation, category_id: int) -> None:
     if operation == CategoryOperation.CREATE:
         action = "INDEX"
-        _upsert_category(category_id)
+        upsert_category(category_id)
 
     elif operation == CategoryOperation.UPDATE:
         action = "REINDEX"
-        _upsert_category(category_id)
+        upsert_category(category_id)
 
     elif operation == CategoryOperation.DELETE:
         action = "REMOVE"
@@ -35,7 +35,7 @@ def synchronize(operation: CategoryOperation, category_id: int) -> None:
         operation, category_id, action,
     )
 
-def _upsert_category(category_id: int) -> None:
+def upsert_category(category_id: int) -> None:
     category = snapshot(category_id, "default")
     if category is None:
         logger.warning("Categoria non trovata: category_id=%s", category_id)

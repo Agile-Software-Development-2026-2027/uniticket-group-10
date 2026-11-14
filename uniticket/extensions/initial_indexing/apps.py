@@ -5,20 +5,9 @@ from threading import Thread
 import time
 
 def _get_categories():
-    from rest_framework.test import APIRequestFactory
-    from api_rest.views.generic import TicketAPITicketCategoryList
+    from uni_ticket.models import TicketCategory
 
-    factory = APIRequestFactory()
-    view = TicketAPITicketCategoryList.as_view(permission_classes=[])
-    url = reverse("api_rest:api-ticket-category-list")
-    categories = []
-
-    while url:
-        response = view(factory.get(url))
-        categories.extend(response.data["results"])
-        url = response.data["next"]
-
-    return categories
+    return list(TicketCategory.objects.all().values())
 
 # WARNING: this is an accrocco.
 def _wait_db():

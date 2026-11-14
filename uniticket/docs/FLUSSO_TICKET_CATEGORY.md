@@ -1,195 +1,122 @@
-# TicketCategory — flusso attuale e prossimi passi
+# TicketCategory — indicizzazione con Ollama e Qdrant
 
-## 1. Dove siamo
+## 1. Cosa funziona
 
-Gestiamo gli eventi di creazione, modifica ed eliminazione delle **tipologie** UniTicket (`TicketCategory`), non le richieste compilate dagli utenti.
+CREATE e UPDATE generano il vettore di una tipologia tramite il modello `snowflake-arctic-embed2` in Ollama e lo salvano in Qdrant con i metadata previsti. DELETE rimuove da Qdrant il punto con lo stesso ID della categoria e non chiama il modello.
 
-**Oggi:** riceviamo i signals, aspettiamo il commit e chiamiamo l’orchestratore. L’orchestratore sceglie e stampa INDEX, REINDEX o REMOVE. **Non genera ancora vettori e non aggiorna un indice.**
+Il repository usa `QDRANT_URL` (default `http://qdrant:6333`) e `QDRANT_COLLECTION` (default `ticket_categories`). Docker Compose configura l'URL per UniTicket e mantiene i dati Qdrant nel volume `qdrant-data`.
 
-## 2. Flusso permanente, con file e funzioni
+Questa indicizzazione non è ancora usata dalla ricerca dell'agente: `agent/app/retrieval.py` calcola embedding `bge-m3` e li mantiene in memoria. I vettori prodotti da `snowflake-arctic-embed2` non vanno confrontati con quelli di un modello diverso.
+
+## 2. Flusso e file
 
 ```text
-uni_ticket/views/manager.py — view originali UniTicket
-  category_add_new() / category_edit() / category_delete()
-      ↓ save() / delete()
-Django emette pre_save, post_save, pre_delete, post_delete
-      ↓
-extensions/ticket_events/signals.py — receiver nostri
-      ↓ transaction.on_commit(...)
-Commit riuscito
-      ↓
-notifications.py: safe_notify(operation, category_id)
-      ↓ chiamata diretta
-orchestrator.py: synchronize(operation, category_id)
-      ↓
-Stampa l’azione scelta, poi termina
+View originali UniTicket → save()/delete() → signal Django
+    → signals.py: receiver e scelta di CategoryOperation
+    → transaction.on_commit(...)
+    → notifications.py: safe_notify(operation, category_id)
+    → orchestrator.py: synchronize(operation, category_id)
+        CREATE/UPDATE → content.py: snapshot(category_id, "default")
+                      → embedding_text(category)
+                      → provider.embed(text)
+                      → embedder.py: SnowflakeEmbedder.embed(text)
+                      → _finalEmbed([text]) → POST Ollama /api/embed
+                      → vettore + metadata → database.repository: upsert()
+        DELETE        → database.repository: delete(category_id)
 ```
 
-`apps.py`, con `TicketEventsConfig.ready()`, importa `signals.py` all’avvio e registra i receiver.
-
-`safe_notify()` chiama direttamente l’orchestratore e registra gli errori:
-
-```python
-from .orchestrator import synchronize
-
-def safe_notify(operation: CategoryOperation, category_id: int) -> None:
-    try:
-        synchronize(operation, category_id)
-    except Exception:
-        logger.exception(
-            "Index notification failed: operation=%s, category_id=%s",
-            operation, category_id,
-        )
-```
-
-## 3. Cosa fanno i receiver
-
-| Caso | Funzioni in signals.py | Risultato dopo il commit |
-|---|---|---|
-| Creazione | `category_before()` → `category_saved(created=True)` | `safe_notify(CategoryOperation.CREATE, id)` |
-| Modifica | `category_before()` → `category_saved(created=False)` | UPDATE solo se cambiano i campi osservati |
-| Salvataggio invariato | `category_saved()` confronta prima e dopo | Nessuna chiamata all’orchestratore |
-| Eliminazione | `category_deleted()` | `safe_notify(CategoryOperation.DELETE, id)` |
-| Eliminazione ufficio | `office_deleting()` → `office_deleted()` | UPDATE per le categorie che perdono il collegamento |
-
-`snapshot()` in `content.py` legge dal DB di UniTicket i campi elencati in `index_fields.py`. Il confronto usa i valori realmente salvati, anche con `save(update_fields=...)`.
-
-Eliminando un ufficio, il collegamento nelle categorie diventa nullo (`SET_NULL`) senza chiamare `TicketCategory.save()`: per questo ascoltiamo anche l’ufficio. La struttura usa invece PROTECT. Rinominare struttura o ufficio non cambia gli ID osservati.
-
-Esempio: la categoria 42 passa dalla descrizione “Supporto nelle residenze” a “Supporto nelle aule”. Il receiver confronta i due stati e, dopo il commit, avvia `safe_notify(CategoryOperation.UPDATE, 42)`.
-
-### Come leggere la firma di un receiver
-
-```python
-@receiver(pre_save, sender=TicketCategory,
-          dispatch_uid="ticket_events.category_before")
-def category_before(sender, instance, using, raw=False, **kwargs):
-    ...
-```
-
-| Elemento | Significato |
+| File | Responsabilità |
 |---|---|
-| `@receiver` | Collega la funzione a un signal e a un modello |
-| `dispatch_uid` | Evita di registrare due volte lo stesso collegamento |
-| `sender` | Classe del modello, per esempio `TicketCategory` |
-| `instance` | Singola categoria coinvolta nell’operazione |
-| `using` | Nome della connessione DB usata, normalmente `"default"` |
-| `raw` | Indica un caricamento speciale di dati da fixture: viene ignorato |
-| `**kwargs` | Accetta gli altri argomenti inviati da Django |
-| `created` nel post_save | True per una nuova riga, False per un aggiornamento |
+| `extensions/ticket_events/apps.py` | Importa i receiver all'avvio |
+| `extensions/ticket_events/signals.py` | Rileva i cambiamenti e prenota la chiamata dopo il commit |
+| `extensions/ticket_events/notifications.py` | Chiama l'orchestratore e registra gli errori |
+| `extensions/ticket_events/orchestrator.py` | Legge il contenuto salvato, genera il vettore e coordina il repository |
+| `extensions/ticket_events/content.py` | Legge i dati dal DB UniTicket e costruisce il testo |
+| `extensions/ticket_events/interfaces.py` | Definisce l'enum e i contratti dei componenti |
+| `extensions/embedder/embedder.py` | Invia il testo a Ollama e restituisce il vettore |
+| `extensions/database/repository.py` | Crea la collection, esegue upsert/delete e supporta la ricerca in Qdrant |
 
-`STATE` è il nome dell’attributo temporaneo che contiene il prima sull’oggetto Python. Non è una colonna del DB:
+`@receiver` collega una funzione a un signal e a un modello; `dispatch_uid` evita collegamenti duplicati. `pre_save` conserva il prima sull'istanza Python, `post_save` confronta i campi osservati. I salvataggi invariati non avviano l'orchestratore. L'eliminazione di un ufficio viene ascoltata separatamente per rilevare il collegamento che diventa nullo (`SET_NULL`).
 
-```python
-setattr(instance, STATE, before)       # Conserva il prima sull’oggetto.
-getattr(instance, STATE, None)         # Lo legge, oppure restituisce None se manca.
-hasattr(instance, STATE)              # Controlla se l’attributo esiste.
-delattr(instance, STATE)              # Lo rimuove dopo averlo letto.
-```
+`transaction.on_commit()` esegue la chiamata dopo il commit e la scarta al rollback. `safe_notify()` registra un eventuale errore del modello senza annullare il CRUD già confermato. Non esegue retry automatici.
 
-## 4. Commit, notifiche e orchestratore
+## 3. Interfaccia e implementazione
 
-```python
-transaction.on_commit(partial(safe_notify, CategoryOperation.UPDATE, instance.pk), using=using)
-```
+`EmbeddingProvider` descrive la firma `embed(text) -> list[float]`; non contiene la richiesta HTTP. `SnowflakeEmbedder` la implementa.
 
-`partial()` prepara la chiamata fissando operazione e ID. Django la esegue al commit e la scarta al rollback. Senza transazione aperta la esegue subito. `post_save` indica che la scrittura è avvenuta, non che la transazione sia già confermata.
-
-`safe_notify()` chiama direttamente `synchronize()` dentro un try/except. Se la chiamata fallisce, scrive nei log errore, operazione e ID. Il CRUD già confermato resta valido; non ci sono retry automatici.
-
-`synchronize()` attualmente fa soltanto questa scelta:
-
-| Operazione | Azione scelta | Esecuzione attuale |
-|---|---|---|
-| CREATE | INDEX | Stampa la scelta |
-| UPDATE | REINDEX | Stampa la scelta |
-| DELETE | REMOVE | Stampa la scelta |
-
-Esempio di log: `[ORCHESTRATION] operation=UPDATE category_id=42 action=REINDEX`. Significa che la funzione è stata raggiunta e ha scelto l’azione; non che il vettore sia stato aggiornato.
-
-## 5. Interfacce e dati da usare dopo
-
-Le interfacce sono in `interfaces.py`. Descrivono come chiamare i componenti; non eseguono passaggi aggiuntivi.
-
-`CategoryOperation` è un `StrEnum` con `CREATE`, `UPDATE` e `DELETE`. I receiver passano i membri dell'enum a `safe_notify()`, che li inoltra a `synchronize()`. I log mantengono i valori testuali precedenti; per esempio `str(CategoryOperation.UPDATE)` restituisce `"UPDATE"`.
+In `orchestrator.py`:
 
 ```python
-transaction.on_commit(
-    partial(safe_notify, CategoryOperation.UPDATE, instance.pk), using=using,
-)
+provider: EmbeddingProvider = SnowflakeEmbedder()
+# Dentro synchronize(), dopo la lettura della categoria:
+text = embedding_text(category)
+vector = provider.embed(text)
 ```
 
-La verifica già presente sul commit controlla anche che i receiver inviino un `CategoryOperation`, anziché una semplice stringa. Prima della modifica fallisce; con l'enum passa. Il numero dei test resta invariato.
+Creare il provider non contatta Ollama. La richiesta parte con `embed()`, che chiama `_finalEmbed()` e restituisce il primo vettore della risposta. Il vettore e i metadata vengono poi passati a `IndexRepository.upsert()`; DELETE chiama `IndexRepository.delete()`.
 
+`CategoryOperation` è un `StrEnum`: i receiver passano `CategoryOperation.CREATE`, `.UPDATE` o `.DELETE`; nei log restano i valori testuali. `IndexNotifier` descrive la chiamata con operazione e ID. `embed_query()` riguarda la ricerca e resta fuori da questo flusso.
 
-| Interfaccia | Cosa descrive | Stato |
-|---|---|---|
-| `IndexNotifier` | Chiamata con operazione e ID | Contratto conservato; la chiamata attuale è diretta a synchronize |
-| `EmbeddingProvider` | `embed(text)` restituisce `list[float]` | Il provider Snowflake del collega esiste, ma questo flusso non lo chiama |
-| `IndexRepository` | `upsert(id, vector, metadata)` e `delete(id)` | Contratto conservato; repository non collegato |
+## 4. Testo inviato e risultato
 
-`embed_query()` riguarda le ricerche e resta fuori da questo flusso.
+`snapshot()` legge dal database relazionale UniTicket, non da un database vettoriale. `synchronize()` usa la connessione `default` e i dati realmente salvati. Se la categoria non esiste più, termina senza chiamare il modello.
 
-Testo previsto: `name + "\n" + description`, senza etichette o metadata. I metadata sono separati: `organizational_structure_id`, `organizational_office_id`, `is_active`, `allow_user`, `allow_employee`, `allow_anonymous`, `allow_guest`, `allow_spid_cie`.
+Il testo contiene soltanto `name + "\n" + description`:
 
-## 6. Test permanenti
+```text
+Assistenza Wi-Fi
+Supporto nelle residenze
+```
 
-Tutti i test sono in `extensions/ticket_events/tests/`, separati dai file applicativi. Usano i modelli e le view originali UniTicket con SQLite in memoria e file temporanei. Non modificano dati di server esterni e non chiamano il modello di embedding.
+Una descrizione `None` diventa testo vuoto. I metadata restano separati: `organizational_structure_id`, `organizational_office_id`, `allow_user`, `allow_employee`, `allow_anonymous`, `allow_guest`, `allow_spid_cie`, `is_active`.
 
-La suite è stata accorpata: 37 test con esempi raggruppati per operazione, mantenendo le verifiche della ricezione e dei percorsi originali. Il confronto prima/dopo del riordino mostra le stesse 139 righe applicative permanenti esercitate. Tutti i 37 test passano anche senza rete.
+Il provider usa `http://host.docker.internal:11434/api/embed` e il modello `snowflake-arctic-embed2`, che restituisce 1024 valori. L'orchestratore salva il vettore e i metadata nella collection Qdrant. Anche una modifica ai soli metadata può avviare nuovamente la generazione: il confronto dei receiver continua a osservare tutti i campi previsti.
 
-| File | Test | Funzionalità verificate |
-|---|---|---|
-| `test_crud_events.py` | 8 | CREATE/UPDATE/DELETE, categorie attive e inattive, attesa del commit, ID conservato, fixture, errori, cancellazioni multiple, cascata, autocommit, rollback e savepoint |
-| `test_update_events.py` | 8 | Tutti i campi osservati, più modifiche insieme, campi esclusi, update_fields, descrizione nulla/vuota, uffici e limiti di QuerySet.update |
-| `test_official_views.py` | 17 | CRUD HTTP originale, form invalidi e duplicati, permessi, letture, attivazione, assegnazione/rimozione/eliminazione ufficio, rollback, registrazione unica e allegati |
-| `test_content.py` | 2 | Campi degli snapshot, valori nulli e testo nome/descrizione |
-| `test_orchestrator.py` | 2 | Azione scelta per tutto il CRUD e chiamata diretta da safe_notify |
+Se l'embedding fallisce, `safe_notify()` registra l'errore senza annullare il CRUD già confermato; non è previsto un retry automatico. Se la chiamata a Qdrant fallisce, l'errore è registrato nello stesso modo.
 
-`helpers.py` prepara i dati locali; `post_and_commit()` evita di ripetere il blocco del POST con le callback. Nei test della ricezione `unittest.mock.patch` intercetta la funzione importata: non servono impostazioni aggiuntive nel codice applicativo.
+## 5. Test automatici
 
-## 7. Comandi per verificare il codice
-
-La CI esegue `make test-local`, che avvia insieme i test dell'assistente (`chatbot_tests`) e dei receiver (`ticket_events.tests`) con `ticket_events.test_settings`: 54 test, SQLite in memoria e file temporanei. Non richiede Ollama o un database vettoriale. Lo stesso comando è usato dall'hook pre-commit.
-
-Dalla radice del repository, con Docker Desktop avviato e il submodule upstream inizializzato:
+Dalla radice del repository, con Docker Desktop avviato:
 
 ```powershell
-# Costruisce l’immagine con il codice permanente.
-git submodule update --init --recursive
-docker compose build uniticket
-
-# Esegue i 37 test con DB in memoria e file temporanei, senza chiamare servizi esterni.
-docker compose run --rm --no-deps uniticket python manage.py test ticket_events.tests --settings=ticket_events.test_settings --verbosity 1 --noinput
-
-# Esegue soltanto i due test dell’orchestratore.
-docker compose run --rm --no-deps uniticket python manage.py test ticket_events.tests.test_orchestrator --settings=ticket_events.test_settings --verbosity 1 --noinput
+make test-django
 ```
 
-I test verificano il codice attuale: la scelta dell’azione è implementata, l’esecuzione della sincronizzazione ancora no. Il collegamento diretto è stato verificato RED → GREEN. Prima del commit vanno eseguiti anche gli hook del repository.
+Il comando costruisce l'immagine ed esegue i test dell'assistente e dei receiver con SQLite e Qdrant in memoria e file temporanei. Non avvia l'agent e non richiede Ollama o un servizio Qdrant. La prova con i servizi reali viene saltata per impostazione predefinita.
 
-## 8. Prossimi incrementi
+I test del repository e dell'orchestratore usano un client Qdrant in memoria e verificano creazione, sostituzione e rimozione del punto. I test dei signal verificano il commit/rollback e la persistenza del CRUD; le richieste HTTP a Ollama sono simulate. La prova reale seguente non sostituisce questi test.
 
-| Passo | Cosa implementare per tutto il CRUD | Verifica nei test |
-|---|---|---|
-| 1. Provider | CREATE/UPDATE leggono la categoria, costruiscono il testo e chiamano EmbeddingProvider; DELETE usa solo l’ID | Verifica del testo e delle chiamate con funzioni di prova; integrazione locale separata con il modello di embedding |
-| 2. Repository | CREATE inserisce, UPDATE sostituisce, DELETE rimuove tramite IndexRepository | Repository fittizio limitato ai test, con record per ID e metadata completi |
-| 3. Repository reale | Collega l’implementazione del repository reale mantenendo lo stesso contratto | Verifica con un’istanza locale di prova |
+## 6. Prova locale con Ollama reale
 
-Il comportamento finale atteso, ripreso dal precedente documento di orchestrazione, è:
+Avviare Docker Desktop e Ollama sull'host. `ollama list` deve mostrare `snowflake-arctic-embed2`; se manca, scaricarlo una volta con `ollama pull snowflake-arctic-embed2`. Avviare anche Qdrant:
 
-```text
-CREATE / UPDATE → rilettura della categoria dal DB
-                → nome + a capo + descrizione
-                → provider.embed(text)
-                → repository.upsert(category_id, vector, metadata completi)
-DELETE          → repository.delete(category_id), senza generare vettori
+```powershell
+docker compose up -d qdrant
 ```
 
-L’ID resta stabile; UPDATE deve sostituire tutto il record, inclusi metadata invariati, falsi o nulli. Le ripetizioni non devono creare duplicati. Se una rilettura trova la categoria già eliminata, non deve ricrearne il record. Questi comportamenti futuri andranno implementati e testati: non sono attivi oggi.
+Dopo `make test-django`, dalla radice del repository, eseguire la prova:
 
+```powershell
+docker compose run --build --rm -T --no-deps `
+  -e TICKET_EVENTS_LIVE_EMBEDDING=1 `
+  uniticket python manage.py test ticket_events.tests.test_embedding_integration `
+  --settings=ticket_events.test_settings --verbosity 1 --noinput
+```
 
+La prova è in `tests/test_embedding_integration.py`: crea una categoria temporanea, modifica la descrizione e la elimina. Attraversa signals, receiver, commit, `safe_notify()`, orchestratore, Ollama e Qdrant. Non passa dalle view/API. Il test crea automaticamente una collezione nuova con nome `ticket_categories_live_test_<uuid>` e configura soltanto il repository della prova per usarla. Non usa la collezione dell'applicazione, anche se `QDRANT_COLLECTION` è impostata. La collezione viene eliminata alla fine, anche se il test fallisce dopo la creazione.
 
-## 9. Cosa fa ora
+| Messaggio | Origine |
+|---|---|
+| `[ORCHESTRATION] operation=...` | Log permanente di `synchronize()` |
+| JSON con operazione, ID, collezione, testo, vettore e metadata | Test: legge il record realmente salvato in Qdrant |
+| `Categoria indicizzata: ...` | Log permanente dopo l'upsert Qdrant |
+| `DELETE: categoria temporanea...` | Test: nessuna chiamata al modello |
+| `OK` e distruzione del database | Django: risultato e pulizia |
 
-L’incremento attuale copre **CRUD → signals → receiver → commit → safe_notify → synchronize → scelta dell’azione**.
+Dopo CREATE il test legge il record e controlla vettore e tutti gli otto metadata. Dopo UPDATE verifica lo stesso ID, un vettore diverso e i metadata aggiornati, inclusi `False` e `None`, senza duplicati. Dopo DELETE verifica che il record non esista più e che non sia stato generato un terzo embedding.
+
+Un errore del modello o di Qdrant viene registrato da `safe_notify()`, ma il test ora verifica i dati nel database vettoriale: non può risultare riuscito se il record manca o non viene eliminato. SQLite in memoria e file temporanei vengono rimossi da Django; la collezione Qdrant viene eliminata dalla pulizia del test. In caso di interruzione forzata del processo la collezione temporanea potrebbe restare, senza coinvolgere quella applicativa.
+
+## 7. Limiti attuali
+
+L'orchestratore delle categorie scrive e cancella i punti Qdrant, ma la ricerca dell'agente non interroga ancora questa collection. L'agente usa `bge-m3` e conserva i vettori delle categorie in memoria; per passare alla ricerca Qdrant occorre collegare esplicitamente il retriever e usare un modello di embedding coerente con quello usato per indicizzare.

@@ -54,6 +54,10 @@ services:
       EMBEDDING_BASE_URL: ${EMBEDDING_BASE_URL:-http://host.docker.internal:11434}
       EMBEDDING_MODEL: ${EMBEDDING_MODEL:-bge-m3}
       QDRANT_URL: http://qdrant:6333
+      JEV_BASE_URL: ${JEV_BASE_URL:-http://host.docker.internal:11434}
+      JEV_MODEL: ${JEV_MODEL:-autotrust-jev:35b}
+      JEV_MAX_CANDIDATES: ${JEV_MAX_CANDIDATES:-16}
+      JEV_API_KEY: ${JEV_API_KEY:-}
     depends_on:
       qdrant:
         condition: service_healthy

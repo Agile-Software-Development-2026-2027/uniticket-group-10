@@ -3,11 +3,13 @@
 from langchain_core.embeddings import Embeddings
 
 from app.contracts import Category
+from app.decision import DecisionModel, Estimate
 
 
-def make_category(category_id, name="", structure_id=1, hidden=False):
+def make_category(category_id, name="", structure_id=1, hidden=False, description="", structure_name=""):
     return Category(id=category_id, name=name or f"Categoria {category_id}", structure_id=structure_id,
-                    url=f"/tickets/{category_id}", hidden=hidden)
+                    url=f"/tickets/{category_id}", hidden=hidden, description=description,
+                    structure_name=structure_name)
 
 
 def ids(categories):
@@ -28,3 +30,17 @@ class KeywordEmbedder(Embeddings):
 
     def embed_query(self, text):
         return [text.lower().count(keyword) for keyword in self.KEYWORDS]
+
+
+class FirstCandidateModel(DecisionModel):
+    """Modello finto: è sicuro che serva il primo candidato che riceve; senza candidati, che non ci sia."""
+
+    def __init__(self, max_candidates=16):
+        self.max_candidates = max_candidates
+        self.received = []
+
+    def estimate(self, query, candidates):
+        self.received = candidates
+        if not candidates:
+            return Estimate(no_match=1.0)
+        return Estimate(categories=[(candidates[0], 1.0)])

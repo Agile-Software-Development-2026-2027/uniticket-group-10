@@ -6,7 +6,9 @@ from langchain_core.tools import tool
 from langgraph.prebuilt import InjectedState
 
 from .contracts import AgentRequest
+from .decision import decide_with
 from .embeddings import embedder
+from .decision.jev import jev
 from .retrieval import Retriever
 
 DEFAULT_TOP_K = 20
@@ -14,6 +16,8 @@ DEFAULT_TOP_K = 20
 CANDIDATE_FIELDS = {"id", "name", "description", "structure_id", "structure_name"}
 
 retriever = Retriever(embedder)
+# Il modello che decide sui candidati: per usarne un altro basta cambiare questa riga.
+decision_model = jev
 
 
 @tool(parse_docstring=True)
@@ -34,3 +38,25 @@ def search_ticket_categories(
     """
     categories = retriever.search(query, request.catalog, top_k, exclude, structure_ids)
     return [category.model_dump(include=CANDIDATE_FIELDS) for category in categories]
+
+
+@tool(parse_docstring=True)
+def decide_ticket_categories(
+    query: str,
+    candidate_ids: list[int],
+    request: Annotated[AgentRequest, InjectedState("request")],
+) -> dict:
+    """Decide cosa fare con le categorie candidate: proporle, chiedere un chiarimento o dire che nessuna va bene.
+
+    Args:
+        query: La richiesta dell'utente, con le sue parole.
+        candidate_ids: ID delle categorie trovate da search_ticket_categories, nello stesso ordine.
+    """
+    # I candidati si rileggono dal catalogo: il modello non può proporre categorie inventate o nascoste.
+    visible = {category.id: category for category in request.catalog if not category.hidden}
+    candidates = [visible[candidate_id] for candidate_id in candidate_ids if candidate_id in visible]
+    decision = decide_with(decision_model, query, candidates)
+    return {
+        "action": decision.action,
+        "categories": [category.model_dump(include=CANDIDATE_FIELDS) for category in decision.categories],
+    }

@@ -124,6 +124,7 @@ function ActiveAssistantSession({
 
   const runtime = useAgUiRuntime({
     agent,
+    joinStrategy: "concat-content",
     adapters: {
       threadList: {
         threadId,

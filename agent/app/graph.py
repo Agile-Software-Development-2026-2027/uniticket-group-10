@@ -19,7 +19,7 @@ def create_graph(checkpointer=None):
     return create_agent(
         model=llm,
         tools=tools,
-        #context_schema=UserContext, # Funziona anche senza, ma la documentazione lo richiede...
+        #context_schema=UserContext, # Non funziona se lo metto, la documentazione lo richiede... ma non spiega perché...
         system_prompt=SYSTEM_PROMPT,
         checkpointer=checkpointer,
     )

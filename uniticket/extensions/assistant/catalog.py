@@ -1,9 +1,6 @@
 """Catalogo delle richieste proponibili all'utente dell'assistente."""
 
 from api_rest.authorizations import AuthorizationToken
-from api_rest.serializers import (
-    TicketCategorySerializer,
-)
 from django.urls import reverse
 from django.utils import timezone
 from rest_framework import serializers
@@ -32,9 +29,14 @@ def available_categories(user):
     return [category for category in categories if category.allowed_to_user(user)[0]]
 
 
-class AvailableCategorySerializer(TicketCategorySerializer):
+class AvailableCategorySerializer(serializers.ModelSerializer):
+    structure_id = serializers.IntegerField(source="organizational_structure_id", read_only=True)
     structure_name = serializers.CharField(source="organizational_structure.name", read_only=True)
     url = serializers.SerializerMethodField()
+
+    class Meta:
+        model = TicketCategory
+        fields = ("id", "name", "description", "structure_id", "structure_name", "url")
 
     def get_url(self, category):
         return reverse("uni_ticket:add_new_ticket", kwargs={

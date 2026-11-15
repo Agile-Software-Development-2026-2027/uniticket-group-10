@@ -79,7 +79,10 @@ class AgentProxyView(APIView):
                 "POST",
                 settings.ASSISTANT_AGENT_URL,
                 json=request.data,
-                headers={"Accept": "text/event-stream"},
+                cookies={settings.SESSION_COOKIE_NAME: request.session.session_key},
+                headers={
+                    "Accept": "text/event-stream",
+                },
             )
             upstream = client.send(upstream_request, stream=True)
         except httpx.RequestError:

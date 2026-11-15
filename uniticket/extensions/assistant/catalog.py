@@ -1,6 +1,7 @@
 """Catalogo delle richieste proponibili all'utente dell'assistente."""
 
 from api_rest.authorizations import AuthorizationToken
+from api_rest.serializers import OrganizationalStructureSerializer
 from django.urls import reverse
 from django.utils import timezone
 from rest_framework import serializers
@@ -52,3 +53,14 @@ class AvailableCategoriesView(ListAPIView):
 
     def get_queryset(self):
         return available_categories(self.request.user)
+
+class AvailableStructuresView(ListAPIView):
+    authentication_classes = [AuthorizationToken, SessionAuthentication]
+    permission_classes = [IsAuthenticated]
+    serializer_class = OrganizationalStructureSerializer
+
+    def get_queryset(self):
+        return list({
+            category.organizational_structure_id: category.organizational_structure
+            for category in available_categories(self.request.user)
+        }.values())

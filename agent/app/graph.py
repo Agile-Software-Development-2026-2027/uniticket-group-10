@@ -1,37 +1,25 @@
 """Grafo condiviso da FastAPI e test: messaggi e tool LangChain standard."""
+from langchain.agents import create_agent
 
-from langchain_core.messages import HumanMessage, SystemMessage
-from langchain_core.runnables import RunnableConfig
-from langgraph.graph import END, START, MessagesState, StateGraph
-from typing import TypedDict
-from .contracts import AgentRequest
+from .client.context import UserContext
+from .tools import tools
 
 from .llm import llm
 
 SYSTEM_PROMPT = """Sei l'assistente UniTicket. Aiuta l'utente a trovare il servizio
 adatto e a capire come presentare una richiesta. Non inventare i campi del modulo.
-Non hai accesso al catalogo: non inventare servizi, permessi o URL.
+Usa get_structures e get_ticket_categories per consultare strutture e servizi
+disponibili all’utente. Usa search_ticket_categories per cercare i servizi
+più adatti alla richiesta. Per proporre servizi usa suggest_tickets con gli ID
+restituiti dal catalogo. Non inventare servizi, permessi o URL.
 Se la richiesta è ambigua, chiedi un chiarimento. Non puoi creare ticket.
 Rispondi in modo breve e chiaro nella lingua usata dall’utente."""
 
-class State(TypedDict):
-    """Stato dell’esecuzione: richiesta validata in ingresso e messaggi in uscita."""
-
-    request: AgentRequest
-    messages: list[dict]
-
-async def call_model(state: MessagesState, config: RunnableConfig):
-    messages = state["messages"]
-    latest = next((message for message in reversed(messages) if isinstance(message, HumanMessage)), None)
-    if latest is None or not latest.text.strip() or len(latest.text) > 500:
-        raise ValueError("Expected a user message of 1–500 characters")
-    response = await llm.ainvoke([SystemMessage(content=SYSTEM_PROMPT), *messages], config=config)
-    return {"messages": [response]}
-
-
-workflow = StateGraph(MessagesState)
-workflow.add_node("assistant", call_model)
-workflow.add_edge(START, "assistant")
-workflow.add_edge("assistant", END)
-# FastAPI compila lo stesso workflow con un checkpointer per sessione.
-graph = workflow.compile().with_config({"recursion_limit": 12})
+def create_graph(checkpointer=None):
+    return create_agent(
+        model=llm,
+        tools=tools,
+        #context_schema=UserContext, # Funziona anche senza, ma la documentazione lo richiede...
+        system_prompt=SYSTEM_PROMPT,
+        checkpointer=checkpointer,
+    )

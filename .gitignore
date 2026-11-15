@@ -16,6 +16,7 @@ Desktop.ini
 .apt_generated/
 *.swp
 *~
+.devcontainer/
 
 # Personal tools and AI assistants
 # Shared files (CLAUDE.md, AGENTS.md, .claude/settings.json) stay tracked.

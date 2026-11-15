@@ -5,18 +5,23 @@ from api_rest.serializers import (
     TicketCategorySerializer,
 )
 from django.urls import reverse
+from django.utils import timezone
 from rest_framework import serializers
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import IsAuthenticated
 from uni_ticket.models import Ticket, TicketCategory
+from django.db.models import Q
 
 
 def available_categories(user):
     if Ticket.number_limit_reached_by_user(user):
         return []
 
+    now = timezone.now()
     categories = TicketCategory.objects.filter(
+        Q(date_start__isnull=True) | Q(date_start__lte=now),
+        Q(date_end__isnull=True) | Q(date_end__gt=now),
         is_active=True,
         is_hidden=False,
         organizational_structure__is_active=True,
@@ -24,20 +29,7 @@ def available_categories(user):
         ticketcategorymodule__is_active=True,
     ).select_related("organizational_structure", "organizational_office").distinct()
 
-    available = []
-    for category in categories:
-        if not category.is_published() or not category.allowed_to_user(user)[0]:
-            continue
-        if not category.user_can_open_tickets(user):
-            continue
-        if not category.user_multiple_open_tickets and Ticket.existent_open_ticket(user, category):
-            continue
-        if category.max_requests_per_user and Ticket.objects.filter(
-            created_by=user, input_module__ticket_category=category,
-        ).count() >= category.max_requests_per_user:
-            continue
-        available.append(category)
-    return available
+    return [category for category in categories if category.allowed_to_user(user)[0]]
 
 
 class AvailableCategorySerializer(TicketCategorySerializer):

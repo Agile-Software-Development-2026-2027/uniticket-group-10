@@ -49,6 +49,12 @@ class UniTicketAgent(SaferAgent):
     def for_request(self, context: UserContext) -> "UniTicketAgent":
         """Crea una nuova istanza dell'agente con il contesto runtime nuovo."""
         agent = self.clone()
+        if agent is self:
+            raise RuntimeError("Agent cloning returned the original instance")
+
+        if context is self._runtime_context:
+            raise ValueError("Runtime context must be a new instance")
+            
         agent._runtime_context = context
         return agent
 

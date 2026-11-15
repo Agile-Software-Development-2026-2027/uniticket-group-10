@@ -1,5 +1,6 @@
 """Strumenti che l'agente può chiamare durante la conversazione."""
 
+from asyncio import to_thread
 from typing import Annotated
 
 from langchain_core.tools import tool
@@ -7,6 +8,10 @@ from langgraph.prebuilt import ToolRuntime
 from pydantic import Field, StringConstraints
 
 from .client.context import UserContext
+from .decision import decide_with
+from .decision.jev import jev
+
+decision_model = jev
 
 
 async def search_ticket_categories(
@@ -39,6 +44,31 @@ async def get_ticket_categories(runtime: ToolRuntime[UserContext]) -> list[dict]
     """Get ticket categories the current user can open, with names and descriptions."""
     categories = await runtime.context.uniticket.get_ticket_categories()
     return [category.model_dump() for category in categories]
+
+
+@tool(parse_docstring=True)
+async def decide_ticket_categories(
+    query: str,
+    candidate_ids: list[int],
+    runtime: ToolRuntime[UserContext],
+) -> dict:
+    """Decide se proporre le categorie, chiedere chiarimenti o non proporne nessuna.
+
+    Args:
+        query: La richiesta dell'utente, con le sue parole.
+        candidate_ids: ID delle categorie candidate, ordinate per rilevanza.
+    """
+    catalog = await runtime.context.uniticket.get_ticket_categories()
+    available = {category.id: category for category in catalog}
+    candidates = [available[category_id] for category_id in candidate_ids if category_id in available]
+    decision = await to_thread(decide_with, decision_model, query, candidates)
+    return {
+        "action": decision.action,
+        "categories": [
+            category.model_dump(include={"id", "name", "description", "structure_id", "structure_name"})
+            for category in decision.categories
+        ],
+    }
 
 
 @tool(return_direct=True)
@@ -84,4 +114,4 @@ async def suggest_tickets(
         for ticket_id in ticket_ids if ticket_id in categories
     ]}
 
-tools = [get_structures, get_ticket_categories, suggest_tickets]
+tools = [get_structures, get_ticket_categories, decide_ticket_categories, suggest_tickets]

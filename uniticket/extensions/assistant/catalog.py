@@ -50,6 +50,7 @@ class AvailableCategoriesView(ListAPIView):
     authentication_classes = [AuthorizationToken, SessionAuthentication]
     permission_classes = [IsAuthenticated]
     serializer_class = AvailableCategorySerializer
+    pagination_class = None
 
     def get_queryset(self):
         return available_categories(self.request.user)
@@ -58,7 +59,8 @@ class AvailableStructuresView(ListAPIView):
     authentication_classes = [AuthorizationToken, SessionAuthentication]
     permission_classes = [IsAuthenticated]
     serializer_class = OrganizationalStructureSerializer
-
+    pagination_class = None
+        
     def get_queryset(self):
         return list({
             category.organizational_structure_id: category.organizational_structure

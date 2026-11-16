@@ -3,9 +3,15 @@ import os
 import httpx
 
 from .api import Catalog, Structure, UniTicketAPI
+from pydantic import TypeAdapter
 
 
 class UniTicketClient(UniTicketAPI):
+    # https://pydantic.dev/docs/validation/latest/concepts/type_adapter/
+    # it is recommended to create a TypeAdapter for a given type just once and reuse it
+    _structure_adapter = TypeAdapter(list[Structure])
+    _ticket_adapter = TypeAdapter(list[Catalog])
+
     def __init__(self, *, session_cookie: str, base_url: str | None = None):
         if base_url is None:
             base_url = os.environ["UNITICKET_API_URL"]
@@ -22,24 +28,12 @@ class UniTicketClient(UniTicketAPI):
     async def __aexit__(self, exc_type, exc_value, traceback):
         return await self._client.__aexit__(exc_type, exc_value, traceback)
 
-    async def _get_items(self, path: str) -> list[dict]:
-        items = []
-        page = 1
-        while True:
-            response = await self._client.get(path, params={"page": page})
-            response.raise_for_status()
-            data = response.json()
-            if isinstance(data, list):
-                return items + data
-            items.extend(data["results"])
-            if not data["next"]:
-                return items
-            page += 1
-
     async def get_structures(self) -> list[Structure]:
-        items = await self._get_items("assistant/structures/")
-        return [Structure.model_validate(item) for item in items]
-
+        response = await self._client.get("assistant/structures/")
+        response.raise_for_status()
+        return self._structure_adapter.validate_python(response.json())
+    
     async def get_ticket_categories(self) -> list[Catalog]:
-        items = await self._get_items("assistant/categories/")
-        return [Catalog.model_validate(item) for item in items]
+        response = await self._client.get("assistant/categories/")
+        response.raise_for_status()
+        return self._ticket_adapter.validate_python(response.json())

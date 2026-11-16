@@ -1,62 +1,117 @@
 """Strumenti che l'agente può chiamare durante la conversazione."""
 
+from asyncio import to_thread
 from typing import Annotated
 
 from langchain_core.tools import tool
-from langgraph.prebuilt import InjectedState
+from langgraph.prebuilt import ToolRuntime
+from pydantic import Field, StringConstraints
 
-from .contracts import AgentRequest
+from .client.context import UserContext
 from .decision import decide_with
-from .embeddings import embedder
 from .decision.jev import jev
-from .retrieval import Retriever
 
-DEFAULT_TOP_K = 20
-# Quello che serve per scegliere tra i candidati: URL e visibilità restano nel catalogo.
-CANDIDATE_FIELDS = {"id", "name", "description", "structure_id", "structure_name"}
-
-retriever = Retriever(embedder)
-# Il modello che decide sui candidati: per usarne un altro basta cambiare questa riga.
 decision_model = jev
 
 
-@tool(parse_docstring=True)
-def search_ticket_categories(
+async def search_ticket_categories(
+    runtime: ToolRuntime[UserContext],
     query: str,
-    request: Annotated[AgentRequest, InjectedState("request")],
-    top_k: int = DEFAULT_TOP_K,
-    exclude: list[int] | None = None,
+    top_k: int = 20,
+    excluded_category_ids: list[int] | None = None,
     structure_ids: list[int] | None = None,
 ) -> list[dict]:
-    """Cerca le categorie di ticket più adatte alla richiesta dell'utente, dalla più rilevante.
+    """Cerca le categorie di ticket più pertinenti alla richiesta, ordinate per rilevanza.
 
     Args:
-        query: La richiesta dell'utente, con le sue parole.
-        top_k: Quante categorie restituire al massimo.
-        exclude: ID delle categorie da non restituire, per esempio quelle che l'utente ha già scartato.
-        structure_ids: ID delle strutture a cui limitare la ricerca. Senza, si cerca in tutte.
+        query: Testo da cercare, eventualmente riformulato per migliorare i risultati.
+        top_k: Numero massimo di categorie da restituire.
+        excluded_category_ids: ID delle categorie da escludere dalla ricerca.
+        structure_ids: ID delle strutture in cui cercare. None cerca in tutte le strutture; 
     """
-    categories = retriever.search(query, request.catalog, top_k, exclude, structure_ids)
-    return [category.model_dump(include=CANDIDATE_FIELDS) for category in categories]
+    raise NotImplementedError()
+
+
+@tool
+async def get_structures(runtime: ToolRuntime[UserContext]) -> list[dict]:
+    """Get the structures available to the current user."""
+    structures = await runtime.context.uniticket.get_structures()
+    return [structure.model_dump() for structure in structures]
+
+
+@tool
+async def get_ticket_categories(runtime: ToolRuntime[UserContext]) -> list[dict]:
+    """Get ticket categories the current user can open, with names and descriptions."""
+    categories = await runtime.context.uniticket.get_ticket_categories()
+    return [category.model_dump() for category in categories]
 
 
 @tool(parse_docstring=True)
-def decide_ticket_categories(
+async def decide_ticket_categories(
     query: str,
     candidate_ids: list[int],
-    request: Annotated[AgentRequest, InjectedState("request")],
+    runtime: ToolRuntime[UserContext],
 ) -> dict:
-    """Decide cosa fare con le categorie candidate: proporle, chiedere un chiarimento o dire che nessuna va bene.
+    """Decide se proporre le categorie, chiedere chiarimenti o non proporne nessuna.
 
     Args:
         query: La richiesta dell'utente, con le sue parole.
-        candidate_ids: ID delle categorie trovate da search_ticket_categories, nello stesso ordine.
+        candidate_ids: ID delle categorie candidate, ordinate per rilevanza.
     """
-    # I candidati si rileggono dal catalogo: il modello non può proporre categorie inventate o nascoste.
-    visible = {category.id: category for category in request.catalog if not category.hidden}
-    candidates = [visible[candidate_id] for candidate_id in candidate_ids if candidate_id in visible]
-    decision = decide_with(decision_model, query, candidates)
+    catalog = await runtime.context.uniticket.get_ticket_categories()
+    available = {category.id: category for category in catalog}
+    candidates = [available[category_id] for category_id in candidate_ids if category_id in available]
+    decision = await to_thread(decide_with, decision_model, query, candidates)
     return {
         "action": decision.action,
-        "categories": [category.model_dump(include=CANDIDATE_FIELDS) for category in decision.categories],
+        "categories": [
+            category.model_dump(include={"id", "name", "description", "structure_id", "structure_name"})
+            for category in decision.categories
+        ],
     }
+
+
+@tool(return_direct=True)
+async def suggest_tickets(
+    ticket_ids: list[int],
+    message: Annotated[
+    str,
+    StringConstraints(
+        strip_whitespace=True,
+        min_length=1,
+        max_length=200,
+    ),
+    Field(
+        description=(
+            "A short, plain-text introduction in the user's language. "
+            "Prefer one sentence, ideally under 100 characters. "
+            "Do not use Markdown."
+        )
+    )],
+    runtime: ToolRuntime[UserContext],
+) -> dict:
+    """Display selected ticket categories as clickable cards.
+
+    Use only category IDs returned by get_ticket_categories or search_ticket_categories.
+
+    Generate a short introduction in the user's language.
+    The message MUST be plain text without Markdown formatting.
+
+    The message will be displayed alongside the ticket cards.
+    This tool completes the assistant's response.
+
+    Ticket titles, structures, and URLs are loaded from
+    the authorized catalog.
+    """
+    categories = {category.id: category for category in await runtime.context.uniticket.get_ticket_categories()}
+    return {"message": message, "tickets": [
+        {
+            "category_id": categories[ticket_id].id,
+            "title": categories[ticket_id].name,
+            "structure_name": categories[ticket_id].structure_name,
+            "url": categories[ticket_id].url,
+        }
+        for ticket_id in ticket_ids if ticket_id in categories
+    ]}
+
+tools = [get_structures, get_ticket_categories, decide_ticket_categories, suggest_tickets]

@@ -10,7 +10,7 @@ from dataclasses import dataclass, field
 from enum import Enum, auto
 from typing import Literal
 
-from ..contracts import Category
+from ..client.api import Catalog
 
 # Quota che le ipotesi più probabili devono raggiungere insieme.
 CONFIDENCE = 0.8
@@ -27,7 +27,7 @@ class Hypothesis(Enum):
 class Estimate:
     """La stima del modello: le quote di tutte le ipotesi sommano a 1."""
 
-    categories: list[tuple[Category, float]] = field(default_factory=list)
+    categories: list[tuple[Catalog, float]] = field(default_factory=list)
     no_match: float = 0.0
     needs_info: float = 0.0
 
@@ -38,11 +38,11 @@ class DecisionModel(ABC):
     max_candidates: int  # quanti candidati accetta al massimo
 
     @abstractmethod
-    def estimate(self, query: str, candidates: list[Category]) -> Estimate:
+    def estimate(self, query: str, candidates: list[Catalog]) -> Estimate:
         """Quanto è probabile ogni candidato, che nessuno vada bene e che l'utente abbia detto troppo poco."""
 
 
-def likely_hypotheses(estimate: Estimate, confidence: float = CONFIDENCE) -> list[Category | Hypothesis]:
+def likely_hypotheses(estimate: Estimate, confidence: float = CONFIDENCE) -> list[Catalog | Hypothesis]:
     """Le ipotesi più probabili, prese dalla prima finché insieme non raggiungono la confidenza."""
     hypotheses = [*estimate.categories, (Hypothesis.NO_MATCH, estimate.no_match),
                   (Hypothesis.NEEDS_INFO, estimate.needs_info)]
@@ -61,7 +61,7 @@ class Decision:
     """Cosa fare e con quali categorie, dalla più probabile."""
 
     action: Literal["PROPOSE", "ASK", "NO_MATCH"]
-    categories: list[Category] = field(default_factory=list)
+    categories: list[Catalog] = field(default_factory=list)
 
 
 def decide(estimate: Estimate, confidence: float = CONFIDENCE, max_options: int = 5) -> Decision:
@@ -70,7 +70,7 @@ def decide(estimate: Estimate, confidence: float = CONFIDENCE, max_options: int 
     `max_options` è quante categorie si mostrano al massimo all'utente.
     """
     likely = likely_hypotheses(estimate, confidence)
-    categories = [hypothesis for hypothesis in likely if isinstance(hypothesis, Category)]
+    categories = [hypothesis for hypothesis in likely if isinstance(hypothesis, Catalog)]
     if likely == [Hypothesis.NO_MATCH]:
         return Decision("NO_MATCH")
     only_categories = len(categories) == len(likely)
@@ -79,7 +79,7 @@ def decide(estimate: Estimate, confidence: float = CONFIDENCE, max_options: int 
     return Decision("ASK", categories[:max_options])
 
 
-def decide_with(model: DecisionModel, query: str, candidates: list[Category]) -> Decision:
+def decide_with(model: DecisionModel, query: str, candidates: list[Catalog]) -> Decision:
     """La decisione di un modello sui candidati: riceve solo i primi in classifica, quanti ne accetta."""
     asked = candidates[:model.max_candidates]
     return decide(model.estimate(query, asked))

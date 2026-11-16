@@ -17,7 +17,7 @@ import os
 import httpx2
 from typesafe_sdk import Choice, ChoiceAnswer, Noul, NoulAnswer, Question, TypeSafeClient
 
-from ..contracts import Category
+from ..client.api import Catalog
 from .prompts import (FITS_FALSE, FITS_QUESTION, FITS_TRUE, FORM_QUESTION, FORM_RULES, VAGUE_FALSE,
                       VAGUE_QUESTION, VAGUE_TRUE)
 from .rules import DecisionModel, Estimate
@@ -39,7 +39,7 @@ def code(index: int) -> str:
     return f"M{index + 1}"
 
 
-def card(category: Category, with_structure: bool = False) -> dict:
+def card(category: Catalog, with_structure: bool = False) -> dict:
     """Quello che Jev legge di una categoria: cosa offre e, se richiesto, quale struttura la offre."""
     summary = {"titolo": category.name}
     if category.description:
@@ -49,7 +49,7 @@ def card(category: Category, with_structure: bool = False) -> dict:
     return summary
 
 
-def build_questions(candidates: list[Category]) -> dict[str, Question]:
+def build_questions(candidates: list[Catalog]) -> dict[str, Question]:
     """Le domande per Jev: se la richiesta è vaga e, per i candidati, quale serve e se serve davvero."""
     questions: dict[str, Question] = {
         "vago": Noul(instructions=VAGUE_QUESTION, criteria={"true": VAGUE_TRUE, "false": VAGUE_FALSE})}
@@ -72,7 +72,7 @@ def ramp(noul: float, no: float) -> float:
 
 
 def parse_answers(nouls: dict[str, NoulAnswer], choices: dict[str, ChoiceAnswer],
-                  candidates: list[Category]) -> Estimate:
+                  candidates: list[Catalog]) -> Estimate:
     """Ricompone le risposte di Jev, divise dall'SDK in sì/no e scelte, in una stima.
 
     servono informazioni = vago
@@ -104,7 +104,7 @@ class JevModel(DecisionModel):
         self.client = TypeSafeClient(api_key=api_key or NO_API_KEY, base_url=base_url, timeout=120,
                                      transport=transport)
 
-    def estimate(self, query: str, candidates: list[Category]) -> Estimate:
+    def estimate(self, query: str, candidates: list[Catalog]) -> Estimate:
         """Manda a Jev la richiesta e le domande sui candidati, e ne legge le risposte."""
         response = self.client.system_one(f"Utente: {query}\n", build_questions(candidates), model=self.model)
         return parse_answers(response.nouls, response.choices, candidates)

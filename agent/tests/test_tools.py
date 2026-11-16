@@ -1,75 +1,49 @@
+import asyncio
 import json
+from unittest.mock import AsyncMock
 
 import pytest
 from langchain_core.messages import AIMessage
 from langchain_core.utils.function_calling import convert_to_openai_tool
-from langgraph.graph import END, START, StateGraph
+from langgraph.graph import END, START, MessagesState, StateGraph
 from langgraph.prebuilt import ToolNode
 
 from app import tools
-from app.contracts import AgentRequest
-from app.graph import State
-from app.retrieval import Retriever
-from helpers import FirstCandidateModel, KeywordEmbedder, make_category
-
-
-@pytest.fixture(autouse=True)
-def fake_retriever(monkeypatch):
-    """Sostituisce il retriever di bge-m3 con uno finto: i test non hanno bisogno di Ollama."""
-    monkeypatch.setattr(tools, "retriever", Retriever(KeywordEmbedder()))
+from app.client.api import UniTicketAPI
+from app.client.context import UserContext
+from helpers import FirstCandidateModel, make_category
 
 
 @pytest.fixture(autouse=True)
 def fake_decision_model(monkeypatch):
     """Sostituisce Jev con un modello finto: i test non hanno bisogno del server."""
-    monkeypatch.setattr(tools, "decision_model", FirstCandidateModel())
+    model = FirstCandidateModel()
+    monkeypatch.setattr(tools, "decision_model", model)
+    return model
 
 
-def make_request(catalog):
-    return AgentRequest(input={"type": "message", "message": "ciao"}, catalog=catalog)
-
-
-def test_the_model_sees_only_the_search_parameters():
-    parameters = convert_to_openai_tool(tools.search_ticket_categories)["function"]["parameters"]
-
-    assert set(parameters["properties"]) == {"query", "top_k", "exclude", "structure_ids"}
-    assert parameters["required"] == ["query"]
-
-
-def test_the_tool_returns_the_candidates_from_the_most_relevant():
-    request = make_request([make_category(1, "Pagamento tasse"), make_category(2, "Certificato di laurea")])
-
-    results = tools.search_ticket_categories.invoke({"query": "certificato di laurea", "request": request})
-
-    assert results == [
-        {"id": 2, "name": "Certificato di laurea", "description": "", "structure_id": 1, "structure_name": ""},
-        {"id": 1, "name": "Pagamento tasse", "description": "", "structure_id": 1, "structure_name": ""},
-    ]
-
-
-def test_the_tool_applies_top_k_exclude_and_structure_ids():
-    request = make_request([make_category(1, "Certificato di laurea", structure_id=10),
-                            make_category(2, "Laurea e tasse", structure_id=10),
-                            make_category(3, "Laurea magistrale", structure_id=20)])
-
-    results = tools.search_ticket_categories.invoke(
-        {"query": "laurea", "request": request, "top_k": 1, "exclude": [1], "structure_ids": [10]})
-
-    assert [candidate["id"] for candidate in results] == [2]
-
-
-def test_the_agent_calls_the_tool_with_the_catalog_of_the_request():
-    workflow = StateGraph(State)
-    workflow.add_node("tools", ToolNode([tools.search_ticket_categories]))
+@pytest.fixture
+def decision_graph():
+    workflow = StateGraph(MessagesState, context_schema=UserContext)
+    workflow.add_node("tools", ToolNode([tools.decide_ticket_categories]))
     workflow.add_edge(START, "tools")
     workflow.add_edge("tools", END)
-    request = make_request([make_category(1, "Pagamento tasse"), make_category(2, "Certificato di laurea")])
-    call = {"name": "search_ticket_categories", "args": {"query": "laurea", "top_k": 1},
-            "id": "call-1", "type": "tool_call"}
+    return workflow.compile()
 
-    state = workflow.compile().invoke({"request": request, "messages": [AIMessage(content="", tool_calls=[call])]})
 
-    assert [candidate["id"] for candidate in json.loads(state["messages"][-1].content)] == [2]
+def run_decision(graph, catalog, candidate_ids):
+    client = AsyncMock(spec=UniTicketAPI)
+    client.get_ticket_categories.return_value = catalog
+    call = {
+        "name": "decide_ticket_categories",
+        "args": {"query": "certificato di laurea", "candidate_ids": candidate_ids},
+        "id": "call-1", "type": "tool_call",
+    }
+    state = asyncio.run(graph.ainvoke(
+        {"messages": [AIMessage(content="", tool_calls=[call])]},
+        context=UserContext(uniticket=client),
+    ))
+    return json.loads(state["messages"][-1].content)
 
 
 def test_the_model_sees_only_the_decision_parameters():
@@ -79,44 +53,33 @@ def test_the_model_sees_only_the_decision_parameters():
     assert parameters["required"] == ["query", "candidate_ids"]
 
 
-def test_the_decision_tool_returns_the_action_and_the_categories():
-    request = make_request([make_category(1, "Pagamento tasse"), make_category(2, "Certificato di laurea")])
+def test_the_decision_tool_returns_the_action_and_the_categories(decision_graph):
+    catalog = [make_category(1, "Pagamento tasse"), make_category(2, "Certificato di laurea")]
 
-    decision = tools.decide_ticket_categories.invoke(
-        {"query": "certificato di laurea", "candidate_ids": [2, 1], "request": request})
+    decision = run_decision(decision_graph, catalog, [2, 1])
 
     assert decision == {"action": "PROPOSE", "categories": [
         {"id": 2, "name": "Certificato di laurea", "description": "", "structure_id": 1, "structure_name": ""},
     ]}
 
 
-def test_the_decision_tool_ignores_candidates_that_are_hidden_or_not_in_the_catalog():
-    request = make_request([make_category(1), make_category(2, hidden=True)])
+def test_the_decision_tool_ignores_ids_outside_the_authorized_catalog(decision_graph, fake_decision_model):
+    catalog = [make_category(1), make_category(2)]
 
-    decision = tools.decide_ticket_categories.invoke(
-        {"query": "laurea", "candidate_ids": [99, 2, 1], "request": request})
+    run_decision(decision_graph, catalog, [99, 2, 1])
 
-    assert [category["id"] for category in decision["categories"]] == [1]
+    assert fake_decision_model.received == [catalog[1], catalog[0]]
 
 
-def test_the_decision_tool_reports_no_match_without_candidates():
-    decision = tools.decide_ticket_categories.invoke(
-        {"query": "laurea", "candidate_ids": [], "request": make_request([make_category(1)])})
+def test_the_decision_tool_reports_no_match_without_candidates(decision_graph):
+    decision = run_decision(decision_graph, [make_category(1)], [])
 
     assert decision == {"action": "NO_MATCH", "categories": []}
 
 
-def test_the_agent_calls_the_decision_tool_with_the_catalog_of_the_request():
-    workflow = StateGraph(State)
-    workflow.add_node("tools", ToolNode([tools.decide_ticket_categories]))
-    workflow.add_edge(START, "tools")
-    workflow.add_edge("tools", END)
-    request = make_request([make_category(1, "Pagamento tasse"), make_category(2, "Certificato di laurea")])
-    call = {"name": "decide_ticket_categories", "args": {"query": "laurea", "candidate_ids": [2, 1]},
-            "id": "call-1", "type": "tool_call"}
+def test_the_agent_uses_the_catalog_from_each_run_context(decision_graph):
+    first = run_decision(decision_graph, [make_category(1)], [2, 1])
+    second = run_decision(decision_graph, [make_category(2)], [2, 1])
 
-    state = workflow.compile().invoke({"request": request, "messages": [AIMessage(content="", tool_calls=[call])]})
-
-    decision = json.loads(state["messages"][-1].content)
-    assert decision["action"] == "PROPOSE"
-    assert [category["id"] for category in decision["categories"]] == [2]
+    assert [category["id"] for category in first["categories"]] == [1]
+    assert [category["id"] for category in second["categories"]] == [2]

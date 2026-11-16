@@ -5,4 +5,8 @@ from uni_ticket_project.settings import *
 ROOT_URLCONF = "assistant.urls"
 
 # Registra i receiver senza sostituire le app configurate da UniTicket e dall'assistente.
-INSTALLED_APPS = [*INSTALLED_APPS, "ticket_events.apps.TicketEventsConfig"]
+INSTALLED_APPS = [
+    *INSTALLED_APPS,
+    "ticket_events.apps.TicketEventsConfig",
+    "initial_indexing.apps.InitialIndexingConfig"
+]

@@ -72,6 +72,26 @@ class CrudSignalTests(CrudExamples, TestCase):
                     self.assertEqual(self.notifier.events, [(operation, category_id)])
                     self.assertIsInstance(self.notifier.events[0][0], CategoryOperation)
 
+    def test_delete_signal_removes_index_point_after_commit(self):
+        with self.captureOnCommitCallbacks(execute=True):
+            category = self.create_category()
+        category_id = category.pk
+
+        self.synchronize_patch.stop()
+        with patch("ticket_events.orchestrator.index_repository.delete") as delete:
+            with self.captureOnCommitCallbacks(execute=False) as callbacks:
+                category.delete()
+                delete.assert_not_called()
+
+            self.assertEqual(len(callbacks), 1)
+            with self.assertLogs("ticket_events.orchestrator", level="INFO") as logs:
+                callbacks[0]()
+
+        delete.assert_called_once_with(category_id)
+        self.assertIn("operation=DELETE", logs.output[0])
+        self.assertIn(f"category_id={category_id}", logs.output[0])
+        self.assertIn("action=REMOVE", logs.output[0])
+
     # I caricamenti raw non notificano né creazioni né aggiornamenti.
     def test_fixture_saves_do_not_notify(self):
         for operation in (CategoryOperation.CREATE, CategoryOperation.UPDATE):

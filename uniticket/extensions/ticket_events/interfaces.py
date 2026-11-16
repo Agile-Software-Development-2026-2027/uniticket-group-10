@@ -1,7 +1,9 @@
 """Contratti di integrazione per gli eventi delle definizioni TicketCategory."""
 
 from enum import StrEnum
-from typing import Protocol
+from typing import Protocol, runtime_checkable
+
+
 
 from .index_fields import CategoryMetadata
 
@@ -28,6 +30,7 @@ class EmbeddingProvider(Protocol):
         ...
 
 
+@runtime_checkable
 class IndexRepository(Protocol):
     """Contratto del componente che gestisce i record dell’indice vettoriale."""
 
@@ -44,6 +47,16 @@ class IndexRepository(Protocol):
     # Descrive la rimozione del record tramite ID categoria.
     def delete(self, category_id: int) -> None:
         """Rimuove il record della categoria, accettando anche un ID già assente."""
+        ...
+
+    # Descrive la ricerca limitata alle categorie autorizzate dall'applicazione.
+    def search(
+        self,
+        vector: list[float],
+        top_k: int,
+        authorized_category_ids: list[int],
+    ) -> list[int]:
+        """Restituisce gli ID dei punti più vicini, in ordine di similarità."""
         ...
 
 

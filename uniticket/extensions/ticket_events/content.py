@@ -19,7 +19,7 @@ def snapshot(category_id, using):
 
 # Unisce nome e descrizione con una riga a capo, senza aggiungere metadata.
 def embedding_text(content):
-    """Prepara l’anteprima testuale usando esclusivamente nome e descrizione."""
+    """Costruisce il testo inviato al modello usando nome e descrizione."""
     # Usa testo vuoto quando il valore è None.
     name = content["name"] or ""
     description = content["description"] or ""

@@ -20,9 +20,15 @@ services:
       PYTHONPATH: /:/app/uniticket:/extensions # Add root aswell for settings file lookup
       DJANGO_SETTINGS_MODULE: extensions.settings # Hook into django initialization
       ASSISTANT_AGENT_URL: http://agent:8001/conversation
+      QDRANT_URL: http://qdrant:6333
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # Required for Linux
 
     depends_on:
       agent:
+        condition: service_healthy
+      qdrant:
         condition: service_healthy
 
     ports:
@@ -50,10 +56,14 @@ services:
       OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3.5:9b}
       EMBEDDING_BASE_URL: ${EMBEDDING_BASE_URL:-http://host.docker.internal:11434}
       EMBEDDING_MODEL: ${EMBEDDING_MODEL:-bge-m3}
+      QDRANT_URL: http://qdrant:6333
       JEV_BASE_URL: ${JEV_BASE_URL:-http://host.docker.internal:11434}
       JEV_MODEL: ${JEV_MODEL:-autotrust-jev:35b}
       JEV_MAX_CANDIDATES: ${JEV_MAX_CANDIDATES:-16}
       JEV_API_KEY: ${JEV_API_KEY:-}
+    depends_on:
+      qdrant:
+        condition: service_healthy
     extra_hosts:
       - "host.docker.internal:host-gateway" # Required for Linux
     build:
@@ -68,5 +78,21 @@ services:
       retries: 10
       start_period: 10s
 
+  qdrant:
+    image: qdrant/qdrant:v1.14.1
+    # Rende la dashboard accessibile soltanto dal PC locale.
+    ports:
+      - "127.0.0.1:6333:6333"
+    volumes:
+      - qdrant-data:/qdrant/storage
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo > /dev/tcp/127.0.0.1/6333"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+    restart: unless-stopped
+
 volumes:
   uniticket-data:
+  qdrant-data:

@@ -1,3 +1,5 @@
+import logging
+
 import pytest
 
 from app.decision.rules import Decision, DecisionModel, Estimate, Hypothesis, decide, decide_with, likely_hypotheses
@@ -101,3 +103,29 @@ def test_a_model_receives_all_the_candidates_when_they_are_within_its_maximum():
     decide_with(model, "laurea", [ESSE3, LAUREA, TASSE])
 
     assert model.received == [ESSE3, LAUREA, TASSE]
+
+
+class BrokenModel(DecisionModel):
+    """Modello finto che non riesce mai a stimare, come Jev quando non risponde."""
+
+    max_candidates = 16
+
+    def estimate(self, query, candidates):
+        raise ConnectionError("offline")
+
+
+def test_a_model_that_fails_makes_the_agent_ask_about_the_first_five_candidates():
+    seven = [make_category(category_id) for category_id in range(1, 8)]
+
+    decision = decide_with(BrokenModel(), "laurea", seven)
+
+    assert decision.action == "ASK"
+    assert ids(decision.categories) == [1, 2, 3, 4, 5]
+
+
+def test_a_model_that_fails_is_logged(caplog):
+    with caplog.at_level(logging.ERROR, logger="app.decision.rules"):
+        decide_with(BrokenModel(), "laurea", [ESSE3])
+
+    assert "non ha dato una stima" in caplog.text
+    assert "offline" in caplog.text

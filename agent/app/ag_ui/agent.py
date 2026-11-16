@@ -31,7 +31,7 @@ class SaferAgent(LangGraphAgent):
 
     async def run(self, input: RunAgentInput):
         async for event in super().run(input):
-            if event.type not in self.allow_events:
+            if self.allow_events is not None and event.type not in self.allow_events:
                 continue
             if event.type == EventType.RUN_ERROR:
                 logger.error(event.message)

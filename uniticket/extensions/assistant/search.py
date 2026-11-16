@@ -30,7 +30,6 @@ class CategorySearchSerializer(serializers.Serializer):
     # per limitare la ricerca a certe strutture
     structure_ids = serializers.ListField(child=serializers.IntegerField(min_value=1), default=list)
 
-
 class CategorySearchView(APIView):
     # autenticazione con cookie di sessione
     authentication_classes=[AuthorizationToken, SessionAuthentication]
@@ -44,23 +43,18 @@ class CategorySearchView(APIView):
         # validated_data contiene già i valori controllati e convertiti
         query=params.validated_data["query"]
         top_k=params.validated_data["top_k"]
-        excluded=set(params.validated_data["excluded_category_ids"])
-        structures=set(params.validated_data["structure_ids"])
-
-
-        categories={}
-
-        # scorro le categorie che l'utente può aprire
-        for category in available_categories(request.user):
-            # not structures... vuol dire se la lista delle struttura è vuote, vanno bene tutte
-            if category.id not in excluded and (not structures or category.organizational_structure_id in structures):
-                # id -> category
-                categories[category.id]=category
+        categories = {
+            category.id: category
+            for category in available_categories(
+                request.user,
+                excluded_category_ids=params.validated_data["excluded_category_ids"],
+                structure_ids=params.validated_data["structure_ids"],
+            )
+        }
 
         # se dopo i filtri non resta niente, restituisce subito una lista vuota così non chiama ollama
         if not categories:
             return Response([])
-
 
         try:
             # embedda la query tramite snowflake
@@ -71,11 +65,7 @@ class CategorySearchView(APIView):
             logger.exception("Category search failed")
             return Response({"detail": "Search unavailable"}, status=503)
 
-        ranked=[]
-        for category_id in ranked_ids:
-            if category_id in categories:
-                # trasforma gli id ordinati di Qdrant nelle categorie complete mantenendo l'ordine
-                ranked.append(categories[category_id])
+        ranked = [categories[category_id] for category_id in ranked_ids if category_id in categories]
 
         # AvailableCategorySerializer trasforma ogni categoria in JSON con gli stessi campi di angelo
         # many=True vuol dire che è una lista di categorie, non una sola

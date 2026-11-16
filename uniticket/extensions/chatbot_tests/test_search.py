@@ -8,6 +8,8 @@ from organizational_area.models import OrganizationalStructure
 from rest_framework.test import APIClient
 from uni_ticket.models import TicketCategory
 
+from assistant.catalog import available_categories
+
 URL = "/api/assistant/search/"
 
 
@@ -57,13 +59,19 @@ class CategorySearchTests(TestCase):
     # verifica se i filtri excluded_category_ids e structure_ids funzionano
     def test_excluded_and_structure_filters_reach_qdrant(self):
         self.repository.search.return_value = []
+        self.available.side_effect = available_categories
 
-        self.client.get(URL, {
-            "query": "password",
-            "excluded_category_ids": [self.reset_password.id],
-            "structure_ids": [self.ict.id],
-        })
+        with (
+            patch("assistant.catalog.category_queryset", return_value=TicketCategory.objects.all()),
+            patch.object(TicketCategory, "allowed_to_user", return_value=(True, "")) as allowed,
+        ):
+            self.client.get(URL, {
+                "query": "password",
+                "excluded_category_ids": [self.reset_password.id],
+                "structure_ids": [self.ict.id],
+            })
 
+        allowed.assert_called_once_with(self.user)
         self.assertEqual(self.searched_ids(), {self.reset_2fa.id})
 
     # query senza testo, verifica se l'endpoint rifiuta la richiesta

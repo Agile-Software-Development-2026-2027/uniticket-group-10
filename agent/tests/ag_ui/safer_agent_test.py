@@ -61,6 +61,23 @@ class SaferAgentTest(unittest.IsolatedAsyncioTestCase):
         for actual, expected in zip(received, allowed_events):
             self.assertIs(actual, expected)
 
+    async def test_none_allows_all_events(self):
+        agent = SaferAgent(name="uniticket", graph=make_graph(), allow_events=None)
+        emitted = [
+            RunStartedEvent(type=EventType.RUN_STARTED, thread_id="thread-1", run_id="run-1"),
+            RawEvent(type=EventType.RAW, event={"data": "test"}),
+            RunFinishedEvent(type=EventType.RUN_FINISHED, thread_id="thread-1", run_id="run-1"),
+        ]
+
+        async def events(agent, input):
+            for event in emitted:
+                yield event
+
+        with patch.object(LangGraphAgent, "run", events):
+            received = [event async for event in agent.run(self.input)]
+
+        self.assertEqual(received, emitted)
+
     async def test_clone_preserves_allowed_events_and_filters_stream(self):
         self.agent.allow_events = {EventType.RUN_FINISHED}
         cloned = self.agent.clone()

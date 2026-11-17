@@ -13,20 +13,26 @@ from .decision.jev import jev
 
 decision_model = jev
 
-
 @tool(parse_docstring=True)
 async def search_ticket_categories(
     runtime: ToolRuntime[UserContext],
     query: str,
-    excluded_category_ids: list[int] | None = None,
     structure_ids: list[int] | None = None,
+    excluded_category_ids: list[int] | None = None,
 ) -> list[dict]:
     """Cerca le categorie di ticket più pertinenti alla richiesta, ordinate per rilevanza.
 
-    Args:
-        query: Testo da cercare, eventualmente riformulato per migliorare i risultati.
-        excluded_category_ids: ID delle categorie da escludere dalla ricerca.
-        structure_ids: ID delle strutture in cui cercare. None cerca in tutte le strutture.
+        PREREQUISITO: Usa questo tool solo DOPO aver ottenuto l'elenco delle
+        strutture
+        tramite `get_available_structures`.
+
+        Args:
+            query: Testo da cercare, eventualmente riformulato per migliorare i
+            risultati.
+            structure_ids: ID delle strutture rilevanti selezionati da
+            `get_available_structures`. Usa None solo se nessuna struttura è
+            compatibile.
+            excluded_category_ids: ID delle categorie da escludere dalla ricerca.
     """
     categories = await runtime.context.uniticket.search_ticket_categories(
         query,

@@ -62,6 +62,7 @@ services:
       JEV_MODEL: ${JEV_MODEL:-autotrust-jev:35b}
       JEV_MAX_CANDIDATES: ${JEV_MAX_CANDIDATES:-16}
       JEV_API_KEY: ${JEV_API_KEY:-}
+      JEV_TIMEOUT: ${JEV_TIMEOUT:-60}
     depends_on:
       qdrant:
         condition: service_healthy

@@ -55,7 +55,7 @@ async def decide_ticket_categories(
     """Decide se proporre le categorie, chiedere chiarimenti o non proporne nessuna.
 
     Args:
-        query: La richiesta dell'utente, con le sue parole.
+        query: La richiesta dell'utente con le sue parole, completa di quello che ha detto nei messaggi precedenti.
         candidate_ids: ID delle categorie candidate, ordinate per rilevanza.
     """
     catalog = await runtime.context.uniticket.get_ticket_categories()

@@ -1,5 +1,7 @@
 """Catalogo delle richieste proponibili all'utente dell'assistente."""
 
+from typing import List
+
 from api_rest.authorizations import AuthorizationToken
 from api_rest.serializers import OrganizationalStructureSerializer
 from django.urls import reverse
@@ -9,15 +11,14 @@ from rest_framework.authentication import SessionAuthentication
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import IsAuthenticated
 from uni_ticket.models import Ticket, TicketCategory
-from django.db.models import Q
+from django.db.models import Q, QuerySet
 
 
-def available_categories(user):
-    if Ticket.number_limit_reached_by_user(user):
-        return []
-
+def category_queryset() -> QuerySet[TicketCategory]:
+    """Return a lazily evaluated QuerySet of active, visible ticket categories."""
+    # https://docs.djangoproject.com/en/6.0/ref/models/querysets/#when-querysets-are-evaluated
     now = timezone.now()
-    categories = TicketCategory.objects.filter(
+    return TicketCategory.objects.filter(
         Q(date_start__isnull=True) | Q(date_start__lte=now),
         Q(date_end__isnull=True) | Q(date_end__gt=now),
         is_active=True,
@@ -27,8 +28,16 @@ def available_categories(user):
         ticketcategorymodule__is_active=True,
     ).select_related("organizational_structure", "organizational_office").distinct()
 
-    return [category for category in categories if category.allowed_to_user(user)[0]]
 
+def available_categories(user, *, excluded_category_ids=(), structure_ids=()) -> List[TicketCategory]:
+    """Return categories accessible to the user, applying optional exclusions and structure filters."""
+    categories = category_queryset()
+    if excluded_category_ids:
+        categories = categories.exclude(pk__in=excluded_category_ids)
+    if structure_ids:
+        categories = categories.filter(organizational_structure_id__in=structure_ids)
+
+    return [category for category in categories if category.allowed_to_user(user)[0]]
 
 class AvailableCategorySerializer(serializers.ModelSerializer):
     structure_id = serializers.IntegerField(source="organizational_structure_id", read_only=True)

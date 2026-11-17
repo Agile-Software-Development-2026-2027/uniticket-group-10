@@ -666,11 +666,15 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.25rem 0.625rem;
-  margin-top: 0.75rem;
+  gap: 0.25rem 0.5rem;
+  margin-top: 0.5rem;
   color: var(--assistant-muted);
   font-size: 0.8125rem;
   line-height: 1.5;
+}
+.assistant-tool + .assistant-markdown,
+.assistant-markdown + .assistant-tool {
+  margin-top: 1.125rem;
 }
 .assistant-tool-state {
   font-size: 0.75rem;
@@ -678,13 +682,13 @@
 .assistant-tool-icon {
   display: grid;
   flex-shrink: 0;
-  width: 1rem;
-  height: 1rem;
+  width: 0.875rem;
+  height: 0.875rem;
 }
 .assistant-tool-icon svg {
   grid-area: 1 / 1;
-  width: 1rem;
-  height: 1rem;
+  width: 0.875rem;
+  height: 0.875rem;
   opacity: 0;
   transition: opacity 180ms ease-out;
 }

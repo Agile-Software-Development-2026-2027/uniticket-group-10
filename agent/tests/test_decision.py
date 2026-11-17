@@ -23,6 +23,19 @@ def test_hypotheses_are_added_until_their_shares_reach_the_confidence():
     assert likely_hypotheses(estimate) == [ESSE3, Hypothesis.NO_MATCH, Hypothesis.NEEDS_INFO, LAUREA]
 
 
+def test_shares_that_add_up_to_the_confidence_reach_it_despite_rounding():
+    # 0,7 + 0,1 in float fa 0,7999999999999999: conta comunque come 80%.
+    estimate = Estimate(categories=[(ESSE3, 0.7), (LAUREA, 0.1)], no_match=0.1, needs_info=0.1)
+
+    assert likely_hypotheses(estimate) == [ESSE3, LAUREA]
+
+
+def test_shares_just_below_the_confidence_do_not_reach_it():
+    estimate = Estimate(categories=[(ESSE3, 0.79)], no_match=0.21)
+
+    assert likely_hypotheses(estimate) == [ESSE3, Hypothesis.NO_MATCH]
+
+
 def test_hypotheses_are_ordered_by_share_not_by_arrival():
     estimate = Estimate(categories=[(LAUREA, 0.05), (ESSE3, 0.9)], no_match=0.05)
 

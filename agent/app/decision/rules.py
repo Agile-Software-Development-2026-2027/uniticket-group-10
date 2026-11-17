@@ -17,6 +17,8 @@ logger = logging.getLogger(__name__)
 
 # Quota che le ipotesi più probabili devono raggiungere insieme.
 CONFIDENCE = 0.8
+# Le quote sono somme di float: 0,7 + 0,1 fa 0,7999..., che senza un margine non raggiungerebbe 0,8.
+TOLERANCE = 1e-9
 # Quante categorie si mostrano al massimo all'utente.
 MAX_OPTIONS = 5
 
@@ -54,7 +56,7 @@ def likely_hypotheses(estimate: Estimate, confidence: float = CONFIDENCE) -> lis
     hypotheses.sort(key=lambda hypothesis: hypothesis[1], reverse=True)
     likely, total = [], 0.0
     for hypothesis, share in hypotheses:
-        if total >= confidence or share <= 0:
+        if total >= confidence - TOLERANCE or share <= 0:
             break
         likely.append(hypothesis)
         total += share

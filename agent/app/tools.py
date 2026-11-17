@@ -1,11 +1,8 @@
 """Strumenti che l'agente può chiamare durante la conversazione."""
 
 from asyncio import to_thread
-from typing import Annotated
-
 from langchain_core.tools import tool
 from langgraph.prebuilt import ToolRuntime
-from pydantic import Field, StringConstraints
 
 from .client.context import UserContext
 from .decision import decide_with
@@ -77,37 +74,19 @@ async def decide_ticket_categories(
 @tool(return_direct=True)
 async def suggest_tickets(
     ticket_ids: list[int],
-    message: Annotated[
-    str,
-    StringConstraints(
-        strip_whitespace=True,
-        min_length=1,
-        max_length=200,
-    ),
-    Field(
-        description=(
-            "A short, plain-text introduction in the user's language. "
-            "Prefer one sentence, ideally under 100 characters. "
-            "Do not use Markdown."
-        )
-    )],
     runtime: ToolRuntime[UserContext],
 ) -> dict:
     """Display selected ticket categories as clickable cards.
 
     Use only category IDs returned by search_ticket_categories.
 
-    Generate a short introduction in the user's language.
-    The message MUST be plain text without Markdown formatting.
-
-    The message will be displayed alongside the ticket cards.
     This tool completes the assistant's response.
 
     Ticket titles, structures, and URLs are loaded from
     the authorized catalog.
     """
     categories = {category.id: category for category in await runtime.context.uniticket.get_ticket_categories()}
-    return {"message": message, "tickets": [
+    return {"tickets": [
         {
             "category_id": categories[ticket_id].id,
             "title": categories[ticket_id].name,

@@ -738,6 +738,9 @@
   margin: 0.5rem 0;
   padding-left: 1.5rem;
 }
+.assistant-widget .assistant-markdown :is(ul, ol, li) {
+  font-size: inherit;
+}
 .assistant-markdown ul {
   list-style: disc;
 }

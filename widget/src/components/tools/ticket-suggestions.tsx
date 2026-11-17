@@ -4,7 +4,6 @@ import { TicketResults } from "../ticket/ticket-results";
 import { ToolFallback } from "./tool-fallback";
 
 const ticketResultSchema = z.object({
-  message: z.string().optional(),
   tickets: z.array(
     z.object({
       category_id: z.number().int().positive(),
@@ -28,10 +27,7 @@ const ticketResultSchema = z.object({
 export const TicketSuggestions: ToolCallMessagePartComponent = (props) => {
   const result = readTicketResult(props.result);
   return result && !props.isError ? (
-    <>
-      {result.message && <p className="assistant-markdown">{result.message}</p>}
-      <TicketResults tickets={result.tickets} />
-    </>
+    <TicketResults tickets={result.tickets} />
   ) : (
     <ToolFallback {...props} />
   );

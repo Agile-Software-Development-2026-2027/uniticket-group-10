@@ -109,7 +109,6 @@ function tickets() {
     "Prenotazione impianti sportivi",
   ];
   return tool("suggest_tickets", {
-    message: "Ecco alcune richieste di esempio. Apri una card per provare il modulo.",
     tickets: titles.map((title, index) => ({
       category_id: index + 1,
       title,

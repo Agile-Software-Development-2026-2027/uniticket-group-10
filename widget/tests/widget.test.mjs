@@ -36,7 +36,6 @@ test("ticket results reject malformed data and unsafe URLs", () => {
   ])
     assert.equal(readTicketResult({ tickets: [{ ...ticket, url }] }), null);
   for (const result of [
-    { message: 42, tickets: [] },
     null,
     "{",
     { tickets: [{}] },

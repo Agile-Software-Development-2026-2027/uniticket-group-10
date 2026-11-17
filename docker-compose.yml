@@ -54,7 +54,7 @@ services:
     environment:
       UNITICKET_API_URL: http://uniticket:8000/api/
       OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
-      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3.5:9b}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3.8:27b-mlx}
       QDRANT_URL: http://qdrant:6333
       JEV_BASE_URL: ${JEV_BASE_URL:-http://host.docker.internal:11434}
       JEV_MODEL: ${JEV_MODEL:-autotrust-jev:35b}

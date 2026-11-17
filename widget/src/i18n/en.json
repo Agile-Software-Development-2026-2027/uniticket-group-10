@@ -29,11 +29,10 @@
   "In attesa": "Waiting",
   "Interrotta": "Cancelled",
   "Completata": "Completed",
-  "tool.suggest_tickets": "Selecting requests",
+  "tool.suggest_tickets": "Selecting tickets",
   "tool.get_structures": "Finding offices",
-  "tool.get_available_structures": "Finding offices",
-  "tool.get_categories": "Finding requests",
-  "tool.get_available_categories": "Finding requests",
+  "tool.search_ticket_categories": "Finding tickets",
+  "tool.decide_ticket_categories": "Evaluating tickets",
   "Quali documenti servono?": "Which documents do I need?",
   "Come compilo questo modulo?": "How do I fill in this form?"
 }

@@ -21,3 +21,11 @@ class UniTicketAPI(Protocol):
 
     async def get_ticket_categories(self) -> list[Catalog]:
         """Return ticket categories available to the current user."""
+
+    async def search_ticket_categories(
+        self,
+        query: str,
+        excluded_category_ids: list[int] | None = None,
+        structure_ids: list[int] | None = None,
+    ) -> list[Catalog]:
+        """Search available categories, excluding IDs and optionally limiting structures."""

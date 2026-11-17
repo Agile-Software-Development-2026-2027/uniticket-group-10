@@ -37,3 +37,20 @@ class UniTicketClient(UniTicketAPI):
         response = await self._client.get("assistant/categories/")
         response.raise_for_status()
         return self._ticket_adapter.validate_python(response.json())
+
+    async def search_ticket_categories(
+        self,
+        query: str,
+        excluded_category_ids: list[int] | None = None,
+        structure_ids: list[int] | None = None,
+    ) -> list[Catalog]:
+        response = await self._client.get(
+            "assistant/search/",
+            params={
+                "query": query,
+                "excluded_category_ids": excluded_category_ids or [],
+                "structure_ids": structure_ids or [],
+            },
+        )
+        response.raise_for_status()
+        return self._ticket_adapter.validate_python(response.json())

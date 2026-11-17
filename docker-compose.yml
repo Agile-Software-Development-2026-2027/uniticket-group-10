@@ -54,7 +54,7 @@ services:
     environment:
       UNITICKET_API_URL: http://uniticket:8000/api/
       OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
-      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3.5:9b}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3.8:27b-mlx}
       EMBEDDING_BASE_URL: ${EMBEDDING_BASE_URL:-http://host.docker.internal:11434}
       EMBEDDING_MODEL: ${EMBEDDING_MODEL:-bge-m3}
       QDRANT_URL: http://qdrant:6333

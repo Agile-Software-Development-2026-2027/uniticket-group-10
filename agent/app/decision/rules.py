@@ -5,6 +5,7 @@ Un modello (Jev) dice quanto è probabile ogni ipotesi: ciascuna categoria candi
 la stima in una decisione: si prova senza modello e si capisce perché ha deciso così.
 """
 
+import logging
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from enum import Enum, auto
@@ -12,8 +13,14 @@ from typing import Literal
 
 from ..client.api import Catalog
 
+logger = logging.getLogger(__name__)
+
 # Quota che le ipotesi più probabili devono raggiungere insieme.
 CONFIDENCE = 0.8
+# Le quote sono somme di float: 0,7 + 0,1 fa 0,7999..., che senza un margine non raggiungerebbe 0,8.
+TOLERANCE = 1e-9
+# Quante categorie si mostrano al massimo all'utente.
+MAX_OPTIONS = 5
 
 
 class Hypothesis(Enum):
@@ -49,7 +56,7 @@ def likely_hypotheses(estimate: Estimate, confidence: float = CONFIDENCE) -> lis
     hypotheses.sort(key=lambda hypothesis: hypothesis[1], reverse=True)
     likely, total = [], 0.0
     for hypothesis, share in hypotheses:
-        if total >= confidence or share <= 0:
+        if total >= confidence - TOLERANCE or share <= 0:
             break
         likely.append(hypothesis)
         total += share
@@ -64,7 +71,7 @@ class Decision:
     categories: list[Catalog] = field(default_factory=list)
 
 
-def decide(estimate: Estimate, confidence: float = CONFIDENCE, max_options: int = 5) -> Decision:
+def decide(estimate: Estimate, confidence: float = CONFIDENCE, max_options: int = MAX_OPTIONS) -> Decision:
     """Propone se le ipotesi più probabili sono solo poche categorie, altrimenti chiede o dice che non c'è.
 
     `max_options` è quante categorie si mostrano al massimo all'utente.
@@ -80,6 +87,15 @@ def decide(estimate: Estimate, confidence: float = CONFIDENCE, max_options: int 
 
 
 def decide_with(model: DecisionModel, query: str, candidates: list[Catalog]) -> Decision:
-    """La decisione di un modello sui candidati: riceve solo i primi in classifica, quanti ne accetta."""
+    """La decisione di un modello sui candidati: riceve solo i primi in classifica, quanti ne accetta.
+
+    Se il modello non dà una stima (non risponde, o risponde male) non si può né proporre né escludere:
+    si chiede all'utente, con i primi candidati della ricerca.
+    """
     asked = candidates[:model.max_candidates]
-    return decide(model.estimate(query, asked))
+    try:
+        estimate = model.estimate(query, asked)
+    except Exception:  # qualunque modello e qualunque guasto: la conversazione non deve cadere
+        logger.exception("Il modello di decisione non ha dato una stima: si chiede all'utente")
+        return Decision("ASK", asked[:MAX_OPTIONS])
+    return decide(estimate)

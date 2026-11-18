@@ -1,3 +1,5 @@
+import logging
+
 import pytest
 
 from app.decision.rules import Decision, DecisionModel, Estimate, Hypothesis, decide, decide_with, likely_hypotheses
@@ -19,6 +21,19 @@ def test_hypotheses_are_added_until_their_shares_reach_the_confidence():
     estimate = Estimate(categories=[(ESSE3, 0.34), (LAUREA, 0.11), (TASSE, 0.11)], no_match=0.22, needs_info=0.22)
 
     assert likely_hypotheses(estimate) == [ESSE3, Hypothesis.NO_MATCH, Hypothesis.NEEDS_INFO, LAUREA]
+
+
+def test_shares_that_add_up_to_the_confidence_reach_it_despite_rounding():
+    # 0,7 + 0,1 in float fa 0,7999999999999999: conta comunque come 80%.
+    estimate = Estimate(categories=[(ESSE3, 0.7), (LAUREA, 0.1)], no_match=0.1, needs_info=0.1)
+
+    assert likely_hypotheses(estimate) == [ESSE3, LAUREA]
+
+
+def test_shares_just_below_the_confidence_do_not_reach_it():
+    estimate = Estimate(categories=[(ESSE3, 0.79)], no_match=0.21)
+
+    assert likely_hypotheses(estimate) == [ESSE3, Hypothesis.NO_MATCH]
 
 
 def test_hypotheses_are_ordered_by_share_not_by_arrival():
@@ -101,3 +116,29 @@ def test_a_model_receives_all_the_candidates_when_they_are_within_its_maximum():
     decide_with(model, "laurea", [ESSE3, LAUREA, TASSE])
 
     assert model.received == [ESSE3, LAUREA, TASSE]
+
+
+class BrokenModel(DecisionModel):
+    """Modello finto che non riesce mai a stimare, come Jev quando non risponde."""
+
+    max_candidates = 16
+
+    def estimate(self, query, candidates):
+        raise ConnectionError("offline")
+
+
+def test_a_model_that_fails_makes_the_agent_ask_about_the_first_five_candidates():
+    seven = [make_category(category_id) for category_id in range(1, 8)]
+
+    decision = decide_with(BrokenModel(), "laurea", seven)
+
+    assert decision.action == "ASK"
+    assert ids(decision.categories) == [1, 2, 3, 4, 5]
+
+
+def test_a_model_that_fails_is_logged(caplog):
+    with caplog.at_level(logging.ERROR, logger="app.decision.rules"):
+        decide_with(BrokenModel(), "laurea", [ESSE3])
+
+    assert "non ha dato una stima" in caplog.text
+    assert "offline" in caplog.text

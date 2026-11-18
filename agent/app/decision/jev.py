@@ -10,6 +10,7 @@ Le domande sono in inglese, la lingua in cui Jev rende meglio; i dati restano in
 Lo stesso servizio (`POST /v1/systemone`) è offerto da TypeSafe AI e da `autotrust-jev` in Ollama:
 si sceglie con JEV_BASE_URL, JEV_MODEL e, solo per TypeSafe, JEV_API_KEY. Lo si chiama con l'SDK di
 TypeSafe, che vale per entrambi; l'SDK resta in questo file: il resto dell'agente vede solo una stima.
+Quanto aspettare la risposta si sceglie con JEV_TIMEOUT, in secondi.
 """
 
 import os
@@ -32,6 +33,10 @@ FITS_NO = 0.1
 CHECKED_FORMS = 3
 # L'SDK vuole sempre una chiave; Ollama non la chiede e la ignora.
 NO_API_KEY = "ollama"
+# Quanto si aspetta la risposta di Jev, in secondi: deve restare tempo all'LLM entro i 150 del proxy Django.
+TIMEOUT = 60.0
+# Un server che non accetta nemmeno la connessione è spento: non serve aspettarlo quanto una risposta.
+CONNECT_TIMEOUT = 5.0
 
 
 def code(index: int) -> str:
@@ -98,11 +103,11 @@ class JevModel(DecisionModel):
     """Chiede la stima a Jev. `max_candidates` è quante opzioni accetta: 16 per `autotrust-jev`."""
 
     def __init__(self, base_url: str, model: str, max_candidates: int, api_key: str = "",
-                 transport: httpx2.BaseTransport | None = None):
+                 timeout: float = TIMEOUT, transport: httpx2.BaseTransport | None = None):
         self.model = model
         self.max_candidates = max_candidates
-        self.client = TypeSafeClient(api_key=api_key or NO_API_KEY, base_url=base_url, timeout=120,
-                                     transport=transport)
+        self.client = TypeSafeClient(api_key=api_key or NO_API_KEY, base_url=base_url,
+                                     timeout=httpx2.Timeout(timeout, connect=CONNECT_TIMEOUT), transport=transport)
 
     def estimate(self, query: str, candidates: list[Catalog]) -> Estimate:
         """Manda a Jev la richiesta e le domande sui candidati, e ne legge le risposte."""
@@ -115,4 +120,5 @@ jev = JevModel(
     model=os.getenv("JEV_MODEL", "autotrust-jev:35b"),
     max_candidates=int(os.getenv("JEV_MAX_CANDIDATES", "16")),
     api_key=os.getenv("JEV_API_KEY", ""),
+    timeout=float(os.getenv("JEV_TIMEOUT", TIMEOUT)),
 )

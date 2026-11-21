@@ -1,11 +1,17 @@
 # Schema del form — SCRUM-94
 
-`build_form_schema()` in `extensions/assistant/form_schema.py` legge il form Django di una tipologia di richiesta (`TicketCategoryModule.get_form()`) e lo descrive in JSON: campi, obbligatorietà, tipi, validazioni e valori iniziali. Non salva richieste e non valida le risposte.
+`build_form_schema()` in `extensions/assistant/form_schema.py` riusa il `serialize_form()` originale di UniTicket per descrivere il form di una tipologia di richiesta. Il nostro codice adatta il risultato al JSON concordato e aggiunge i vincoli mancanti. Non salva richieste e non valida le risposte.
 
 ```python
 form = module.get_form(show_conditions=True, current_user=user)
 schema = build_form_schema(form, category_id=module.ticket_category_id, module_id=module.pk)
 ```
+
+Il flusso è: `TicketCategoryModule.get_form()` → `serialize_form()` di UniTicket → nostro adattamento → JSON.
+
+`serialize_fields()` passa al serializer originale una copia del form e dei campi, senza CAPTCHA, con etichette e valori iniziali già risolti da Django. `serialize_field()` usa ID, etichetta, obbligatorietà, valore iniziale e stato disabilitato restituiti da UniTicket; aggiunge i vincoli ed esclude HTML e messaggi destinati alla grafica.
+
+Le opzioni vengono riusate quando disponibili. Per radio button, widget personalizzati e gruppi non gestiti dal serializer, Django REST Framework le ricava dal campo. Manteniamo la traduzione dei tipi perché il serializer originale si basa sui widget; aggiungiamo anche le colonne delle tabelle e le regole tra sotto-campi. Il codice originale di UniTicket non viene modificato.
 
 Le tabelle di configurazione sono in `schema_field_config.py` (tipi dei campi, campi esclusi, limiti) e `schema_validator_config.py` (validator e controlli interni del form builder).
 
@@ -44,6 +50,8 @@ Gli allegati hanno tipo `file`: l'agente non li compila, ma deve dire all'utente
 Un tipo di campo non riconosciuto genera `NotImplementedError`, invece di una descrizione inventata.
 
 ## Test
+
+I test verificano anche la chiamata al vero serializer UniTicket, l'assenza di modifiche al form ricevuto e il mantenimento del JSON concordato.
 
 ```sh
 docker compose run --build --rm -T --no-deps uniticket python manage.py test chatbot_tests.test_form_schema --settings=ticket_events.test_settings --noinput

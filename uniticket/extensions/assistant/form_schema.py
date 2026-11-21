@@ -1,12 +1,15 @@
 """Legge il form UniTicket e prepara il JSON, senza salvare o validare risposte."""
 
 import json
+from copy import copy
 
 from django import forms
 from django.core import validators
 from django.core.serializers.json import DjangoJSONEncoder
 from django.utils import timezone
 from django_form_builder import dynamic_fields
+from rest_framework import serializers
+from uni_ticket.dynamic_form import serialize_form
 
 from .schema_field_config import EXCLUDED_FIELDS, FIELD_LIMITS, FIELD_TYPES
 from .schema_validator_config import CUSTOM_RULES, LIMIT_VALIDATORS, VALIDATOR_ATTRS
@@ -74,16 +77,16 @@ def must_be_true(field: forms.Field) -> dict:
     return {"must_be_true": True} if is_checkbox and field.required else {}
 
 
-# Legge le opzioni disponibili, anche raggruppate
-def choice_options(field: forms.Field) -> dict:
+# Riusa le opzioni del serializer originale e adatta i casi non gestiti
+def choice_options(field: forms.Field, serialized_field: dict) -> dict:
     if not isinstance(field, forms.ChoiceField) or isinstance(field, dynamic_fields.CustomComplexTableField):
         return {}
-    options = []
-    for value, label in field.choices:
-        # Un gruppo è ("Nome gruppo", [(valore, etichetta), ...]).
-        group = label if isinstance(label, (list, tuple)) else [(value, label)]
-        options.extend({"value": v, "label": l} for v, l in group)
-    return {"choices": options}
+    options = serialized_field["options"]
+    # UniTicket omette le opzioni di alcuni widget e non appiattisce tutti i gruppi.
+    if not options or any(isinstance(option["text"], (list, tuple)) for option in options):
+        choices = serializers.ChoiceField(choices=field.choices).choices
+        options = [{"value": value, "text": label} for value, label in choices.items()]
+    return {"choices": [{"value": option["value"], "label": option["text"]} for option in options]}
 
 # Legge il massimo delle selezioni, solo se il campo multiplo ha un limite
 def max_choices(field: forms.Field) -> dict:
@@ -116,10 +119,10 @@ def parent_rules(field: forms.Field) -> dict:
     return constraints
 
 # Riunisce i vincoli del campo chiamando esplicitamente ogni funzione
-def field_constraints(field: forms.Field) -> dict:
+def field_constraints(field: forms.Field, serialized_field: dict) -> dict:
     constraints = standard_constraints(field)
     constraints.update(must_be_true(field))
-    constraints.update(choice_options(field))
+    constraints.update(choice_options(field, serialized_field))
     constraints.update(max_choices(field))
     constraints.update(custom_rule(field))
     constraints.update(password_pattern(field))
@@ -140,37 +143,49 @@ def table_details(name: str, field: forms.Field) -> tuple[list[dict], dict]:
         constraints["max_rows"] = formset.max_num
     return serialize_fields(formset.empty_form), constraints
 
-# Costruisce il dizionario di un campo con nome, tipo, vincoli e valore iniziale
-def serialize_field(bound_field) -> dict:
+# Adatta il campo serializzato da UniTicket e aggiunge i vincoli mancanti
+def serialize_field(bound_field, serialized_field: dict) -> dict:
     field = bound_field.field
     try:
         schema_type = field_type(field)
     except NotImplementedError as error:
         raise NotImplementedError(f"{bound_field.name}: {error}") from error
-    initial_value = bound_field.initial
+    initial_value = serialized_field["initial"]
     if isinstance(field, dynamic_fields.CustomHiddenField) and initial_value is None:
         initial_value = field.widget.attrs.get("value")
+    # Seleziona i dati utili del serializer originale: l'HTML resta fuori dal JSON.
     result = {
-        "id": bound_field.name,
-        "label": bound_field.label,
+        "id": serialized_field["id"],
+        "label": serialized_field["label"],
         "type": schema_type,
-        "required": field.required,
-        "constraints": field_constraints(field),
+        "required": serialized_field["required"],
+        "constraints": field_constraints(field, serialized_field),
         "initial_value": initial_value,
     }
-    if field.disabled:
+    if serialized_field["disabled"]:
         result["disabled"] = True
     if schema_type == "array":
         result["fields"], table_constraints = table_details(bound_field.name, field)
         result["constraints"].update(table_constraints)
     return result
 
-# Legge i campi nell'ordine del form, escludendo i CAPTCHA
+# Chiama il serializer originale su una copia del form, escludendo i CAPTCHA
 def serialize_fields(form: forms.Form) -> list[dict]:
+    # La copia esclude i CAPTCHA prima che UniTicket ne provi a generare l'HTML.
+    schema_form = copy(form)
+    schema_form.fields = {}
+    for bound_field in form:
+        if isinstance(bound_field.field, EXCLUDED_FIELDS):
+            continue
+        field = copy(bound_field.field)
+        # Django risolve etichetta e valore iniziale; il serializer legge questi attributi.
+        field.label = bound_field.label
+        field.initial = bound_field.initial
+        schema_form.fields[bound_field.name] = field
+    serialized_fields = serialize_form(schema_form)
     return [
-        serialize_field(bound_field)
-        for bound_field in form
-        if not isinstance(bound_field.field, EXCLUDED_FIELDS)
+        serialize_field(form[serialized_field["id"]], serialized_field)
+        for serialized_field in serialized_fields
     ]
 
 

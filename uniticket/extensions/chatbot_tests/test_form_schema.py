@@ -13,6 +13,7 @@ from django.utils import timezone
 from django_form_builder import dynamic_fields as fields
 from django_form_builder.forms import BaseDynamicForm
 from organizational_area.models import OrganizationalStructure
+from uni_ticket.dynamic_form import serialize_form
 from uni_ticket.models import Ticket, TicketCategory, TicketCategoryInputList, TicketCategoryModule
 
 from assistant.form_schema import build_form_schema
@@ -26,6 +27,24 @@ def schema_field(field):
 
 
 class FormSchemaTests(SimpleTestCase):
+    # Usa davvero il serializer UniTicket e lascia invariati i campi del form ricevuto.
+    def test_reuses_uniticket_serializer(self):
+        form = forms.Form(initial={"nome": "Valore del form"})
+        form.fields["nome"] = forms.CharField(initial="Valore del campo", disabled=True)
+        form.fields["captcha"] = fields.CaptchaField()
+        with patch("assistant.form_schema.serialize_form", wraps=serialize_form) as original:
+            schema = build_form_schema(form, category_id=42, module_id=15)
+        original.assert_called_once()
+        self.assertEqual(list(original.call_args.args[0].fields), ["nome"])
+        self.assertIn("captcha", form.fields)
+        self.assertEqual(form.fields["nome"].initial, "Valore del campo")
+        result = schema["fields"][0]
+        self.assertEqual((result["id"], result["label"], result["initial_value"]),
+                         ("nome", "Nome", "Valore del form"))
+        self.assertTrue(result["disabled"])
+        self.assertNotIn("html", result)
+        self.assertNotIn("error_messages", result)
+
     # Legge valori iniziali e vincoli senza validare i dati eventualmente presenti.
     def test_text_and_initial_values(self):
         form = forms.Form(data={"oggetto": "Risposta utente"}, initial={"oggetto": "Assistenza"})
@@ -53,6 +72,11 @@ class FormSchemaTests(SimpleTestCase):
         self.assertEqual(result["type"], "choice")
         self.assertEqual(result["constraints"]["choices"][0], {"value": 8, "label": "Aula"})
         self.assertEqual(result["initial_value"], 8)
+        for field in [fields.CustomRadioBoxField(), fields.CustomSelectBoxField()]:
+            with self.subTest(field=type(field).__name__):
+                field.define_value("Aula;Residenza")
+                result = schema_field(field)
+                self.assertIn({"value": "Aula", "label": "Aula"}, result["constraints"]["choices"])
         for configuration, limit in [("Wi-Fi;Stampante#2", 2), ("Wi-Fi;Stampante", None)]:
             with self.subTest(configuration=configuration):
                 field = fields.CustomMultiChoiceField(required=False, initial=["Wi-Fi"])

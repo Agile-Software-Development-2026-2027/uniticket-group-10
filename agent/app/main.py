@@ -14,6 +14,8 @@ from .client.context import UserContext
 from .graph import create_graph
 from .ag_ui.agent import UniTicketAgent
 
+from pydantic import BaseModel
+
 logger = logging.getLogger(__name__)
 app = FastAPI(title="UniTicket assistant")
 
@@ -48,6 +50,19 @@ async def run_agent(input_data: RunAgentInput, request: Request, session_cookie:
 
     return StreamingResponse(event_generator(), media_type=encoder.get_content_type())
 
+class ContextRequest(BaseModel):
+    user_first_name: str
+    user_last_name: str
+    user_email: str
+    user_identifier: int
+    user_is_employee: bool
+
+@app.post("/context")
+async def set_context(req: ContextRequest):
+    print("AGENT: /context called")
+    # Utilizza questi dati per il context...
+    print(req)
+    return {}
 
 @app.get("/health")
 def health():

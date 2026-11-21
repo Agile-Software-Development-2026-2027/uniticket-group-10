@@ -519,3 +519,4 @@ DEFAULT_BASE_TEMPLATE = 'base-setup.html'
 
 
 ASSISTANT_AGENT_URL = os.environ.get("ASSISTANT_AGENT_URL", "http://agent:8001/conversation")
+ASSISTANT_CONTEXT_URL = os.environ.get("ASSISTANT_CONTEXT_URL", "http://agent:8001/context")

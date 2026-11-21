@@ -7,6 +7,7 @@ from .catalog import AvailableCategoriesView, AvailableStructuresView
 
 from .search import CategorySearchView
 
+from .context import SetContextView
 
 urlpatterns = [
     path("api/assistant", AgentProxyView.as_view(), name="assistant_agent"),
@@ -14,5 +15,6 @@ urlpatterns = [
     path("api/assistant/categories/", AvailableCategoriesView.as_view(), name="assistant_categories"),
     path("api/assistant/search/", CategorySearchView.as_view(), name="assistant_search"),
     path("api/assistant/thread/new/", CreateThreadView.as_view(), name="assistant-thread-new"),
+    path("api/assistant/context", SetContextView.as_view(), name="assistant-set-context"),
     path("", include("uni_ticket_project.urls")),
 ]

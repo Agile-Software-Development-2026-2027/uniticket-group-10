@@ -20,6 +20,7 @@ services:
       PYTHONPATH: /:/app/uniticket:/extensions # Add root aswell for settings file lookup
       DJANGO_SETTINGS_MODULE: extensions.settings # Hook into django initialization
       ASSISTANT_AGENT_URL: http://agent:8001/conversation
+      ASSISTANT_CONTEXT_URL: http://agent:8001/context
       QDRANT_URL: http://qdrant:6333
 
     extra_hosts:

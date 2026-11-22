@@ -25,13 +25,13 @@ async def search_ticket_categories(
 
         PREREQUISITO: Usa questo tool solo DOPO aver ottenuto l'elenco delle
         strutture
-        tramite `get_available_structures`.
+        tramite `get_structures`.
 
         Args:
             query: Testo da cercare, eventualmente riformulato per migliorare i
             risultati.
             structure_ids: ID delle strutture rilevanti selezionati da
-            `get_available_structures`. Usa None solo se nessuna struttura è
+            `get_structures`. Usa None solo se nessuna struttura è
             compatibile.
             excluded_category_ids: ID delle categorie da escludere dalla ricerca.
     """

@@ -36,10 +36,14 @@ def test_without_candidates_only_the_vague_question_is_asked():
     assert list(build_questions([])) == ["vago"]
 
 
+def test_with_one_candidate_only_its_fit_is_asked_because_jev_rejects_a_choice_of_one():
+    assert list(build_questions([LAUREA])) == ["vago", "adatto_M1"]
+
+
 def test_long_descriptions_are_cut():
     category = make_category(1, description="x" * 1000)
 
-    assert len(build_questions([category])["modulo"].criteria["M1"]["descrizione"]) == 240
+    assert len(build_questions([category, TASSE])["modulo"].criteria["M1"]["descrizione"]) == 240
 
 
 def answers(vague, probabilities, fits):
@@ -94,9 +98,18 @@ def test_without_candidates_the_request_is_vague_or_has_no_match():
     assert (estimate.categories, estimate.no_match, estimate.needs_info) == ([], approx(0.5), approx(0.5))
 
 
+def test_a_single_candidate_takes_the_whole_share_its_fit_allows():
+    nouls, _ = answers(0.1, {}, [0.5])
+
+    estimate = parse_answers(nouls, {}, [LAUREA])
+
+    assert estimate.categories == [(LAUREA, approx(2 / 3))]
+    assert estimate.no_match == approx(1 / 3)
+
+
 def test_a_choice_without_probabilities_is_an_error():
     with pytest.raises(ValueError):
-        parse_answers(*answers(0.1, {}, [0.9]), [LAUREA])
+        parse_answers(*answers(0.1, {}, [0.9, 0.9]), [LAUREA, TASSE])
 
 
 def test_a_yes_or_no_of_jev_is_read_between_the_two_thresholds():
@@ -111,7 +124,6 @@ JEV_RESPONSE = {
     "usage": {"input_tokens": 431, "output_tokens": 0},
     "answers": {
         "vago": {"type": "noul", "noul": 0.1},
-        "modulo": {"type": "choice", "choice": "M1", "confidence": 1.0, "probabilities": {"M1": 1.0}},
         "adatto_M1": {"type": "noul", "noul": 0.9},
     },
 }

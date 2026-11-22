@@ -67,7 +67,9 @@ def build_questions(candidates: list[Catalog]) -> dict[str, Question]:
         fits = {"question": FITS_QUESTION, "modulo": card(category)}
         questions[f"adatto_{code(index)}"] = Noul(instructions=fits,
                                                   criteria={"true": FITS_TRUE, "false": FITS_FALSE})
-    questions["modulo"] = Choice(instructions={"question": FORM_QUESTION, "rules": FORM_RULES}, criteria=options)
+    if len(options) > 1:  # l'API rifiuta una scelta con una sola opzione: con un candidato basta il suo "adatto"
+        questions["modulo"] = Choice(instructions={"question": FORM_QUESTION, "rules": FORM_RULES},
+                                     criteria=options)
     return questions
 
 
@@ -88,7 +90,8 @@ def parse_answers(nouls: dict[str, NoulAnswer], choices: dict[str, ChoiceAnswer]
     if not candidates:
         return Estimate(no_match=1 - vague, needs_info=vague)
     by_code = {code(index): category for index, category in enumerate(candidates)}
-    given = choices["modulo"].probabilities
+    # Con un solo candidato la scelta non si chiede (vedi build_questions): è lui con probabilità 1.
+    given = choices["modulo"].probabilities if len(candidates) > 1 else {code(0): 1.0}
     probabilities = {key: given[key] for key in by_code if given.get(key, 0) > 0}
     if not probabilities:
         raise ValueError("Jev non ha dato probabilità ai candidati")

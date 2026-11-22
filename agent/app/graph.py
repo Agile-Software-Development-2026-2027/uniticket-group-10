@@ -36,6 +36,11 @@ Poi segui l'azione che find_ticket_categories restituisce:
 - PROPOSE: le categorie restituite vengono mostrate all'utente come card da aprire.
   Non ripeterne l'elenco: scrivi una o due frasi e, se sono più d'una, di' in cosa differiscono
   o chiedi quale gli serve.
+- CONFIRM: la categoria restituita è riservata a un dipartimento che l'utente non ha nominato; la sua
+  card viene mostrata comunque. Non presentarla come la risposta: di' che è riservata a chi fa parte di
+  `department`, per esempio a chi studia uno dei `courses`, e chiedi se ne fa parte. Se risponde di sì,
+  digli di aprire la card. Se risponde di no, o dice il suo corso o dipartimento, chiama di nuovo
+  find_ticket_categories aggiungendo alla `query` il corso o il dipartimento che ha detto.
 - ASK: fai una sola domanda che aiuti a scegliere tra le categorie restituite, che vengono mostrate
   come card anche in questo caso: l'utente può aprirne una, quindi non ripeterne l'elenco. Se non ce
   ne sono, chiedi all'utente di spiegare meglio cosa gli serve.

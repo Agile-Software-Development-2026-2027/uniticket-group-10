@@ -67,7 +67,8 @@ def likely_hypotheses(estimate: Estimate, confidence: float = CONFIDENCE) -> lis
 class Decision:
     """Cosa fare e con quali categorie, dalla più probabile."""
 
-    action: Literal["PROPOSE", "ASK", "NO_MATCH"]
+    # CONFIRM: una sola categoria, di un dipartimento che l'utente non ha nominato (vedi `departments`).
+    action: Literal["PROPOSE", "CONFIRM", "ASK", "NO_MATCH"]
     categories: list[Catalog] = field(default_factory=list)
 
 

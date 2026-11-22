@@ -1,0 +1,72 @@
+{
+  "CTC": {
+    "full_name": "Dipartimento di Chimica e Tecnologie Chimiche",
+    "aliases": ["CTC", "DiCTC", "dipartimento di chimica"],
+    "courses": ["Chimica"]
+  },
+  "DeMaCS": {
+    "full_name": "Dipartimento di Matematica e Informatica",
+    "aliases": ["DeMaCS", "dipartimento di matematica", "dipartimento di informatica"],
+    "courses": ["Informatica", "Matematica", "Artificial Intelligence and Computer Science", "Scienze della Formazione Primaria (SFP)"]
+  },
+  "DESF": {
+    "full_name": "Dipartimento di Economia, Statistica e Finanza \"Giovanni Anania\"",
+    "aliases": ["DESF"],
+    "courses": ["Economia", "Economia e Commercio", "Finance and Insurance", "Statistica per Data Science", "Statistica per l'Azienda", "Data Science per le Strategie Aziendali", "Statistica e Informatica per le Decisioni e le Analisi di Mercato"]
+  },
+  "DFSSN": {
+    "full_name": "Dipartimento di Farmacia e Scienze della Salute e della Nutrizione",
+    "aliases": ["DFSSN", "dipartimento di farmacia"],
+    "courses": ["Farmacia", "Chimica e Tecnologia Farmaceutiche (CTF)", "Medicina e Chirurgia TD", "Scienza della Nutrizione", "Informazione Scientifica sul Farmaco e sui Prodotti per la Salute", "Infermieristica", "Fisioterapia"]
+  },
+  "DIAm": {
+    "full_name": "Dipartimento di Ingegneria dell'Ambiente",
+    "aliases": ["DIAm", "ingegneria ambientale"],
+    "courses": ["Ingegneria per l'Ambiente e la Sicurezza del Territorio", "Ingegneria per l'Ambiente e il Territorio", "Ingegneria Ambientale e Chimica", "Tecnologie del Mare e della Navigazione"]
+  },
+  "DiBEST": {
+    "full_name": "Dipartimento di Biologia, Ecologia e Scienze della Terra",
+    "aliases": ["DiBEST", "dipartimento di biologia"],
+    "courses": ["Biologia", "Scienze e Tecnologie Biologiche", "Scienze Geologiche", "Scienze Naturali e Ambientali", "Biotecnologie per la Salute", "Health Biotechnology", "Biodiversità e Sistemi Naturali", "Conservazione e Restauro dei Beni Culturali", "Scienze e Tecnologie per le Attività Motorie e Sportive"]
+  },
+  "DiCES": {
+    "full_name": "Dipartimento di Culture, Educazione e Società",
+    "aliases": ["DiCES"],
+    "courses": ["Scienze dell'Educazione", "Scienze Pedagogiche", "Media Education", "Archeologia", "Gestione e Conservazione dei Documenti Digitali", "Intelligence e Analisi del Rischio", "Mediazione Linguistica", "Lingue per la Comunicazione Internazionale"]
+  },
+  "DIMEG": {
+    "full_name": "Dipartimento di Ingegneria Meccanica, Energetica e Gestionale",
+    "aliases": ["DIMEG"],
+    "courses": ["Ingegneria Meccanica", "Ingegneria Gestionale", "Ingegneria Energetica"]
+  },
+  "DIMES": {
+    "full_name": "Dipartimento di Ingegneria Informatica, Modellistica, Elettronica e Sistemistica",
+    "aliases": ["DIMES"],
+    "courses": ["Ingegneria Informatica", "Ingegneria Elettronica", "Ingegneria Chimica", "Ingegneria Biomedica", "Robotics and Automation Engineering", "Telecommunication Engineering"]
+  },
+  "DInCi": {
+    "full_name": "Dipartimento di Ingegneria Civile",
+    "aliases": ["DInCi"],
+    "courses": ["Ingegneria Civile", "Ingegneria Edile-Architettura"]
+  },
+  "DiScAG": {
+    "full_name": "Dipartimento di Scienze Aziendali e Giuridiche",
+    "aliases": ["DiScAG"],
+    "courses": ["Economia Aziendale", "Economia Aziendale e Management", "Scienze Turistiche", "Valorizzazione dei Sistemi Turistico Culturali", "Giurisprudenza", "Servizi Giuridici per l'Innovazione Digitale"]
+  },
+  "DiSPeS": {
+    "full_name": "Dipartimento di Scienze Politiche e Sociali",
+    "aliases": ["DiSPeS"],
+    "courses": ["Scienze Politiche", "Scienze dell'Amministrazione", "Scienze delle Pubbliche Amministrazioni", "Scienze della Politica e Istituzioni Internazionali", "Servizio Sociale", "Scienze delle Politiche e dei Servizi Sociali", "Media e Società Digitale", "Scritture, Immagini, Media Digitali", "Cooperazione, Sviluppo, Ecologia"]
+  },
+  "DiSU": {
+    "full_name": "Dipartimento di Studi Umanistici",
+    "aliases": ["DiSU"],
+    "courses": ["Lettere e Beni Culturali", "Lettere", "Filosofia e Storia", "Lingue e Culture Moderne", "Comunicazione e DAMS", "Filologia Moderna", "Lingue e Letterature Moderne", "Scienze dell'Antichità", "Scienze Filosofiche", "Scienze Storiche", "Comunicazione e Tecnologie dell'Informazione"]
+  },
+  "Fisica": {
+    "full_name": "Dipartimento di Fisica",
+    "aliases": [],
+    "courses": ["Fisica"]
+  }
+}

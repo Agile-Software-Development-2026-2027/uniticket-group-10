@@ -1,18 +1,22 @@
 """Strumenti che l'agente può chiamare durante la conversazione."""
 
+import json
 from asyncio import to_thread
 from typing import Annotated
 
 import httpx
 from pydantic import Field
+from langchain_core.messages import AnyMessage, HumanMessage, ToolMessage
 from langchain_core.tools import tool
 from langgraph.prebuilt import ToolRuntime
 
 from .client.context import UserContext
-from .decision import decide_with
+from .decision import belongs_elsewhere, confirm_department, decide_with, departments
 from .decision.jev import jev
 
 decision_model = jev
+# Quello che l'assistente legge di una categoria decisa: URL e visibilità restano nel catalogo.
+CANDIDATE_FIELDS = {"id", "name", "description", "structure_id", "structure_name"}
 
 @tool(parse_docstring=True)
 async def search_ticket_categories(
@@ -91,16 +95,51 @@ async def find_ticket_categories(
     """
     # Ricerca e decisione in un passo solo: i candidati vanno a Jev così come li ordina la ricerca,
     # senza che l'LLM li ricopi o li scremi (misurato: g10n in misure/LEGGIMI.md).
+    messages = (runtime.state or {}).get("messages", [])
+    excluded = [*(excluded_category_ids or []), *confirmations_declined(messages)]
     candidates = await runtime.context.uniticket.search_ticket_categories(
-        query, excluded_category_ids=excluded_category_ids)
+        query, excluded_category_ids=excluded or None)
     decision = await to_thread(decide_with, decision_model, query, candidates)
-    return {
+    # Una sola categoria di un dipartimento che l'utente non ha nominato diventa una conferma da chiedere:
+    # si guardano le parole dell'utente, non la query, in cui l'assistente potrebbe averlo dedotto.
+    said = ". ".join(message.text for message in messages if isinstance(message, HumanMessage))
+    decision = confirm_department(decision, said, confirmations_asked(messages))
+    result = {
         "action": decision.action,
-        "categories": [
-            category.model_dump(include={"id", "name", "description", "structure_id", "structure_name"})
-            for category in decision.categories
-        ],
+        "categories": [category.model_dump(include=CANDIDATE_FIELDS) for category in decision.categories],
     }
+    if decision.action == "CONFIRM":
+        result.update(departments.describe(decision.categories[0].structure_name))
+    return result
+
+
+def past_decisions(messages: list[AnyMessage]) -> list[tuple[int, dict]]:
+    """Le decisioni già prese da find_ticket_categories in questa conversazione, con la posizione del messaggio."""
+    return [(index, json.loads(message.content)) for index, message in enumerate(messages)
+            if isinstance(message, ToolMessage) and message.name == find_ticket_categories.name
+            and message.status == "success"]
+
+
+def confirmations_asked(messages: list[AnyMessage]) -> set[int]:
+    """Le categorie per cui in questa conversazione è già stata chiesta la conferma del dipartimento."""
+    return {category["id"] for _, decision in past_decisions(messages) if decision["action"] == "CONFIRM"
+            for category in decision["categories"]}
+
+
+def confirmations_declined(messages: list[AnyMessage]) -> list[int]:
+    """Le categorie di cui si è chiesta conferma a chi poi ha detto di essere di un altro dipartimento.
+
+    Non vanno riproposte: senza questo, se l'assistente ricerca senza escluderle, la stessa categoria
+    torna da sola e, a conferma già chiesta, passa per la risposta giusta.
+    """
+    declined = []
+    for index, decision in past_decisions(messages):
+        if decision["action"] != "CONFIRM":
+            continue
+        answer = ". ".join(message.text for message in messages[index + 1:] if isinstance(message, HumanMessage))
+        declined += [category["id"] for category in decision["categories"]
+                     if belongs_elsewhere(category["structure_name"], answer)]
+    return declined
 
 
 @tool

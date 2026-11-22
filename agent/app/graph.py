@@ -9,7 +9,11 @@ from .llm import llm
 SYSTEM_PROMPT = """Sei l'assistente UniTicket. Aiuta l'utente a trovare il servizio
 adatto e a capire come presentare una richiesta. Non inventare i campi del modulo. Non inventare servizi, permessi o URL.
 Se la richiesta è ambigua, chiedi un chiarimento. Non puoi creare ticket.
-Rispondi in modo breve e chiaro nella lingua usata dall’utente."""
+Rispondi in modo breve e chiaro nella lingua usata dall’utente.
+
+Per trovare un modulo: cerca con `search_ticket_categories`, poi passa gli ID trovati a
+`decide_ticket_categories` e segui l'azione che restituisce (PROPOSE, ASK o NO_MATCH).
+Non mostrare categorie con `suggest_tickets` senza una decisione PROPOSE."""
 
 def create_graph(checkpointer=None):
     return create_agent(

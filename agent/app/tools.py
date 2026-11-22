@@ -85,6 +85,13 @@ async def decide_ticket_categories(
 ) -> dict:
     """Decide se proporre le categorie, chiedere chiarimenti o non proporne nessuna.
 
+    Chiamalo sempre dopo `search_ticket_categories`, prima di mostrare qualsiasi categoria,
+    e segui l'azione che restituisce:
+    - PROPOSE: chiama `suggest_tickets` con gli ID delle categorie restituite qui.
+    - ASK: non chiamare `suggest_tickets`; fai una sola domanda che aiuti a capire cosa serve
+      all'utente, eventualmente citando le categorie restituite.
+    - NO_MATCH: di' che nel catalogo non c'è un servizio adatto alla richiesta.
+
     Args:
         query: La richiesta dell'utente con le sue parole, completa di quello che ha detto nei messaggi precedenti.
         candidate_ids: ID delle categorie candidate, ordinate per rilevanza.
@@ -109,7 +116,7 @@ async def suggest_tickets(
 ) -> dict:
     """Display selected ticket categories as clickable cards.
 
-    Use only category IDs returned by search_ticket_categories.
+    Use only category IDs returned by decide_ticket_categories with action PROPOSE.
 
     This tool completes the assistant's response.
 
@@ -127,4 +134,4 @@ async def suggest_tickets(
         for ticket_id in ticket_ids if ticket_id in categories
     ]}
 
-tools = [get_structures, search_ticket_categories, get_form_schema, suggest_tickets]
+tools = [get_structures, search_ticket_categories, decide_ticket_categories, get_form_schema, suggest_tickets]

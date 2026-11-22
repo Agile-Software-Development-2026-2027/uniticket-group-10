@@ -78,27 +78,21 @@ async def get_form_schema(
 
 
 @tool(parse_docstring=True)
-async def decide_ticket_categories(
+async def find_ticket_categories(
     query: str,
-    candidate_ids: list[int],
     runtime: ToolRuntime[UserContext],
+    excluded_category_ids: list[int] | None = None,
 ) -> dict:
-    """Decide se proporre le categorie, chiedere chiarimenti o non proporne nessuna.
-
-    Chiamalo sempre dopo `search_ticket_categories`, prima di mostrare qualsiasi categoria,
-    e segui l'azione che restituisce:
-    - PROPOSE: chiama `suggest_tickets` con gli ID delle categorie restituite qui.
-    - ASK: non chiamare `suggest_tickets`; fai una sola domanda che aiuti a capire cosa serve
-      all'utente, eventualmente citando le categorie restituite.
-    - NO_MATCH: di' che nel catalogo non c'è un servizio adatto alla richiesta.
+    """Cerca nel catalogo le categorie adatte alla richiesta e decide cosa farne: proporle, chiedere un chiarimento o dire che nessuna va bene.
 
     Args:
         query: La richiesta dell'utente con le sue parole, completa di quello che ha detto nei messaggi precedenti.
-        candidate_ids: ID delle categorie candidate, ordinate per rilevanza.
+        excluded_category_ids: ID delle categorie da non considerare, per esempio quelle che l'utente ha già scartato.
     """
-    catalog = await runtime.context.uniticket.get_ticket_categories()
-    available = {category.id: category for category in catalog}
-    candidates = [available[category_id] for category_id in candidate_ids if category_id in available]
+    # Ricerca e decisione in un passo solo: i candidati vanno a Jev così come li ordina la ricerca,
+    # senza che l'LLM li ricopi o li scremi (misurato: g10n in misure/LEGGIMI.md).
+    candidates = await runtime.context.uniticket.search_ticket_categories(
+        query, excluded_category_ids=excluded_category_ids)
     decision = await to_thread(decide_with, decision_model, query, candidates)
     return {
         "action": decision.action,
@@ -109,19 +103,16 @@ async def decide_ticket_categories(
     }
 
 
-@tool(return_direct=True)
+@tool
 async def suggest_tickets(
     ticket_ids: list[int],
     runtime: ToolRuntime[UserContext],
 ) -> dict:
     """Display selected ticket categories as clickable cards.
 
-    Use only category IDs returned by decide_ticket_categories with action PROPOSE.
-
-    This tool completes the assistant's response.
-
-    Ticket titles, structures, and URLs are loaded from
-    the authorized catalog.
+    The graph calls it with the categories decided by find_ticket_categories:
+    the assistant never calls it. Ticket titles, structures, and URLs are loaded
+    from the authorized catalog.
     """
     categories = {category.id: category for category in await runtime.context.uniticket.get_ticket_categories()}
     return {"tickets": [
@@ -134,4 +125,7 @@ async def suggest_tickets(
         for ticket_id in ticket_ids if ticket_id in categories
     ]}
 
-tools = [get_structures, search_ticket_categories, decide_ticket_categories, get_form_schema, suggest_tickets]
+# I tool che l'assistente può chiamare: suggest_tickets lo chiama il grafo quando ci sono card da mostrare.
+# get_structures e search_ticket_categories restano disponibili ma l'assistente non li riceve:
+# filtrare per struttura e scegliere i candidati a mano faceva perdere il modulo giusto prima di Jev.
+tools = [find_ticket_categories, get_form_schema]

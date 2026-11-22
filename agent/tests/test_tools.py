@@ -23,63 +23,57 @@ def fake_decision_model(monkeypatch):
 
 
 @pytest.fixture
-def decision_graph():
+def find_graph():
     workflow = StateGraph(MessagesState, context_schema=UserContext)
-    workflow.add_node("tools", ToolNode([tools.decide_ticket_categories]))
+    workflow.add_node("tools", ToolNode([tools.find_ticket_categories]))
     workflow.add_edge(START, "tools")
     workflow.add_edge("tools", END)
     return workflow.compile()
 
 
-def run_decision(graph, catalog, candidate_ids):
+def run_find(graph, found, excluded=None):
     client = AsyncMock(spec=UniTicketAPI)
-    client.get_ticket_categories.return_value = catalog
-    call = {
-        "name": "decide_ticket_categories",
-        "args": {"query": "certificato di laurea", "candidate_ids": candidate_ids},
-        "id": "call-1", "type": "tool_call",
-    }
+    client.search_ticket_categories.return_value = found
+    args = {"query": "certificato di laurea"}
+    if excluded is not None:
+        args["excluded_category_ids"] = excluded
+    call = {"name": "find_ticket_categories", "args": args, "id": "call-1", "type": "tool_call"}
     state = asyncio.run(graph.ainvoke(
         {"messages": [AIMessage(content="", tool_calls=[call])]},
         context=UserContext(uniticket=client),
     ))
-    return json.loads(state["messages"][-1].content)
+    return json.loads(state["messages"][-1].content), client
 
 
-def test_the_model_sees_only_the_decision_parameters():
-    parameters = convert_to_openai_tool(tools.decide_ticket_categories)["function"]["parameters"]
-
-    assert set(parameters["properties"]) == {"query", "candidate_ids"}
-    assert parameters["required"] == ["query", "candidate_ids"]
+def test_the_assistant_only_gets_the_tool_that_searches_and_decides():
+    assert [tool.name for tool in tools.tools] == ["find_ticket_categories"]
 
 
-def test_the_decision_tool_returns_the_action_and_the_categories(decision_graph):
-    catalog = [make_category(1, "Pagamento tasse"), make_category(2, "Certificato di laurea")]
+def test_the_model_sees_only_the_query_and_the_exclusions():
+    parameters = convert_to_openai_tool(tools.find_ticket_categories)["function"]["parameters"]
 
-    decision = run_decision(decision_graph, catalog, [2, 1])
+    assert set(parameters["properties"]) == {"query", "excluded_category_ids"}
+    assert parameters["required"] == ["query"]
 
+
+def test_the_search_results_go_to_the_decision_model_in_their_order(find_graph, fake_decision_model):
+    found = [make_category(2, "Certificato di laurea"), make_category(1, "Pagamento tasse")]
+
+    decision, _ = run_find(find_graph, found)
+
+    assert fake_decision_model.received == found
     assert decision == {"action": "PROPOSE", "categories": [
         {"id": 2, "name": "Certificato di laurea", "description": "", "structure_id": 1, "structure_name": ""},
     ]}
 
 
-def test_the_decision_tool_ignores_ids_outside_the_authorized_catalog(decision_graph, fake_decision_model):
-    catalog = [make_category(1), make_category(2)]
+def test_the_excluded_categories_are_passed_to_the_search(find_graph):
+    _, client = run_find(find_graph, [make_category(1)], excluded=[7])
 
-    run_decision(decision_graph, catalog, [99, 2, 1])
-
-    assert fake_decision_model.received == [catalog[1], catalog[0]]
+    client.search_ticket_categories.assert_awaited_once_with("certificato di laurea", excluded_category_ids=[7])
 
 
-def test_the_decision_tool_reports_no_match_without_candidates(decision_graph):
-    decision = run_decision(decision_graph, [make_category(1)], [])
+def test_without_search_results_there_is_no_match(find_graph):
+    decision, _ = run_find(find_graph, [])
 
     assert decision == {"action": "NO_MATCH", "categories": []}
-
-
-def test_the_agent_uses_the_catalog_from_each_run_context(decision_graph):
-    first = run_decision(decision_graph, [make_category(1)], [2, 1])
-    second = run_decision(decision_graph, [make_category(2)], [2, 1])
-
-    assert [category["id"] for category in first["categories"]] == [1]
-    assert [category["id"] for category in second["categories"]] == [2]

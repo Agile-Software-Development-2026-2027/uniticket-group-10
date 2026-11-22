@@ -78,7 +78,7 @@ def test_a_doubt_between_a_category_and_no_match_is_asked():
 
 
 def test_a_vague_request_is_asked_without_categories():
-    assert decide(Estimate(needs_info=1.0)) == Decision("ASK", vague=True)
+    assert decide(Estimate(needs_info=1.0)) == Decision("ASK")
 
 
 def test_an_empty_estimate_is_asked_and_not_proposed():
@@ -148,11 +148,6 @@ def test_a_model_that_fails_is_logged(caplog):
 def test_a_question_says_if_no_match_is_the_most_probable_hypothesis():
     assert decide(Estimate(categories=[(ESSE3, 0.3)], no_match=0.7)).unlikely
     assert not decide(Estimate(categories=[(ESSE3, 0.6)], no_match=0.4)).unlikely
-
-
-def test_a_question_says_if_the_user_said_too_little():
-    assert decide(Estimate(categories=[(ESSE3, 0.3)], needs_info=0.7)).vague
-    assert not decide(Estimate(categories=[(ESSE3, 0.45), (LAUREA, 0.35)], needs_info=0.2)).vague
 
 
 def test_after_a_question_a_still_unlikely_match_becomes_no_match():

@@ -72,9 +72,6 @@ class Decision:
     categories: list[Catalog] = field(default_factory=list)
     # In una domanda (ASK): l'ipotesi più probabile è che nessuna categoria vada bene.
     unlikely: bool = False
-    # In una domanda (ASK): l'ipotesi più probabile è che l'utente abbia detto troppo poco. Allora si chiede
-    # a parole cosa gli serve, invece di mostrare le categorie trovate come opzioni tra cui scegliere.
-    vague: bool = False
 
 
 def decide(estimate: Estimate, confidence: float = CONFIDENCE, max_options: int = MAX_OPTIONS) -> Decision:
@@ -89,8 +86,7 @@ def decide(estimate: Estimate, confidence: float = CONFIDENCE, max_options: int 
     only_categories = len(categories) == len(likely)
     if categories and only_categories and len(categories) <= max_options:
         return Decision("PROPOSE", categories)
-    return Decision("ASK", categories[:max_options], unlikely=likely[:1] == [Hypothesis.NO_MATCH],
-                    vague=likely[:1] == [Hypothesis.NEEDS_INFO])
+    return Decision("ASK", categories[:max_options], unlikely=likely[:1] == [Hypothesis.NO_MATCH])
 
 
 def stop_asking(decision: Decision, asked: int) -> Decision:

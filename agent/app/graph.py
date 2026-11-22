@@ -41,12 +41,9 @@ Poi segui l'azione che find_ticket_categories restituisce:
   `department`, per esempio a chi studia uno dei `courses`, e chiedi se ne fa parte. Se risponde di sì,
   digli di aprire la card. Se risponde di no, o dice il suo corso o dipartimento, chiama di nuovo
   find_ticket_categories aggiungendo alla `query` il corso o il dipartimento che ha detto.
-- ASK con `vague` vero: l'utente ha detto troppo poco e non viene mostrata nessuna card. Fai una
-  sola domanda aperta per capire cosa gli serve; puoi citare come esempio una o due delle categorie
-  restituite, senza elencarle tutte.
-- ASK con `vague` falso: fai una sola domanda che aiuti a scegliere tra le categorie restituite, che
-  vengono mostrate come card: l'utente può aprirne una, quindi non ripeterne l'elenco. Se non ce ne
-  sono, chiedi all'utente di spiegare meglio cosa gli serve.
+- ASK: fai una sola domanda che aiuti a scegliere tra le categorie restituite, che vengono mostrate
+  come card anche in questo caso: l'utente può aprirne una, quindi non ripeterne l'elenco. Se non ce
+  ne sono, chiedi all'utente di spiegare meglio cosa gli serve.
 - NO_MATCH: di' che nel catalogo non c'è un servizio adatto alla richiesta.
 Se l'utente dice che le categorie mostrate non sono quelle giuste, chiama di nuovo find_ticket_categories
 con i loro ID in `excluded_category_ids`.
@@ -64,15 +61,11 @@ async def call_model(state: MessagesState, config: RunnableConfig) -> dict:
 def after_tools(state: MessagesState) -> Literal["propose", "assistant"]:
     """Se la decisione porta delle categorie se ne mostrano le card; altrimenti si torna dall'assistente.
 
-    Vale anche per una domanda tra alcune categorie (ASK): l'utente che riconosce la sua richiesta tra le
-    card la apre subito. Non vale per una domanda perché l'utente ha detto troppo poco (`vague`): lì
-    l'assistente chiede a parole cosa gli serve, come in una conversazione.
+    Vale anche per una domanda (ASK): l'utente che riconosce la sua richiesta tra le card la apre subito.
     """
     last = state["messages"][-1]
-    if last.name != find_ticket_categories.name or last.status != "success":
-        return "assistant"
-    decision = json.loads(last.content)
-    return "propose" if decision["categories"] and not decision.get("vague") else "assistant"
+    decided = last.name == find_ticket_categories.name and last.status == "success"
+    return "propose" if decided and json.loads(last.content)["categories"] else "assistant"
 
 
 def propose(state: MessagesState) -> dict:

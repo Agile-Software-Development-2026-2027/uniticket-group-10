@@ -70,6 +70,8 @@ class Decision:
     # CONFIRM: una sola categoria, di un dipartimento che l'utente non ha nominato (vedi `departments`).
     action: Literal["PROPOSE", "CONFIRM", "ASK", "NO_MATCH"]
     categories: list[Catalog] = field(default_factory=list)
+    # In una domanda (ASK): l'ipotesi più probabile è che nessuna categoria vada bene.
+    unlikely: bool = False
 
 
 def decide(estimate: Estimate, confidence: float = CONFIDENCE, max_options: int = MAX_OPTIONS) -> Decision:
@@ -84,7 +86,18 @@ def decide(estimate: Estimate, confidence: float = CONFIDENCE, max_options: int 
     only_categories = len(categories) == len(likely)
     if categories and only_categories and len(categories) <= max_options:
         return Decision("PROPOSE", categories)
-    return Decision("ASK", categories[:max_options])
+    return Decision("ASK", categories[:max_options], unlikely=likely[:1] == [Hypothesis.NO_MATCH])
+
+
+def stop_asking(decision: Decision, asked: int) -> Decision:
+    """Se "nessuna va bene" resta l'ipotesi più probabile anche dopo una domanda, si dice che non c'è.
+
+    `asked` è quante domande sono già state fatte per questa richiesta. In quel caso la categoria giusta,
+    se esiste, non è tra i candidati: un'altra domanda sugli stessi non la farebbe comparire.
+    """
+    if decision.action == "ASK" and decision.unlikely and asked >= 1:
+        return Decision("NO_MATCH")
+    return decision
 
 
 def decide_with(model: DecisionModel, query: str, candidates: list[Catalog]) -> Decision:

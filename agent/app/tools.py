@@ -11,7 +11,7 @@ from langchain_core.tools import tool
 from langgraph.prebuilt import ToolRuntime
 
 from .client.context import UserContext
-from .decision import belongs_elsewhere, confirm_department, decide_with, departments
+from .decision import belongs_elsewhere, confirm_department, decide_with, departments, stop_asking
 from .decision.jev import jev
 
 decision_model = jev
@@ -104,6 +104,8 @@ async def find_ticket_categories(
     # si guardano le parole dell'utente, non la query, in cui l'assistente potrebbe averlo dedotto.
     said = ". ".join(message.text for message in messages if isinstance(message, HumanMessage))
     decision = confirm_department(decision, said, confirmations_asked(messages))
+    # Dopo una domanda non se ne fa un'altra se resta più probabile che non ci sia nulla.
+    decision = stop_asking(decision, questions_asked(messages))
     result = {
         "action": decision.action,
         "categories": [category.model_dump(include=CANDIDATE_FIELDS) for category in decision.categories],
@@ -140,6 +142,17 @@ def confirmations_declined(messages: list[AnyMessage]) -> list[int]:
         declined += [category["id"] for category in decision["categories"]
                      if belongs_elsewhere(category["structure_name"], answer)]
     return declined
+
+
+def questions_asked(messages: list[AnyMessage]) -> int:
+    """Quante domande (ASK) sono state fatte per la richiesta in corso: una proposta o un "non c'è" la chiudono."""
+    asked = 0
+    for _, decision in past_decisions(messages):
+        if decision["action"] == "ASK":
+            asked += 1
+        elif decision["action"] in ("PROPOSE", "NO_MATCH"):
+            asked = 0
+    return asked
 
 
 @tool

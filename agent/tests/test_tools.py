@@ -3,7 +3,7 @@ import json
 from unittest.mock import AsyncMock
 
 import pytest
-from langchain_core.messages import AIMessage
+from langchain_core.messages import AIMessage, ToolMessage
 from langchain_core.utils.function_calling import convert_to_openai_tool
 from langgraph.graph import END, START, MessagesState, StateGraph
 from langgraph.prebuilt import ToolNode
@@ -11,6 +11,7 @@ from langgraph.prebuilt import ToolNode
 from app import tools
 from app.client.api import UniTicketAPI
 from app.client.context import UserContext
+from app.decision import Estimate
 from helpers import FirstCandidateModel, make_category
 
 
@@ -31,7 +32,7 @@ def find_graph():
     return workflow.compile()
 
 
-def run_find(graph, found, excluded=None):
+def run_find(graph, found, excluded=None, history=()):
     client = AsyncMock(spec=UniTicketAPI)
     client.search_ticket_categories.return_value = found
     args = {"query": "certificato di laurea"}
@@ -39,7 +40,7 @@ def run_find(graph, found, excluded=None):
         args["excluded_category_ids"] = excluded
     call = {"name": "find_ticket_categories", "args": args, "id": "call-1", "type": "tool_call"}
     state = asyncio.run(graph.ainvoke(
-        {"messages": [AIMessage(content="", tool_calls=[call])]},
+        {"messages": [*history, AIMessage(content="", tool_calls=[call])]},
         context=UserContext(uniticket=client),
     ))
     return json.loads(state["messages"][-1].content), client
@@ -77,3 +78,31 @@ def test_without_search_results_there_is_no_match(find_graph):
     decision, _ = run_find(find_graph, [])
 
     assert decision == {"action": "NO_MATCH", "categories": []}
+
+
+def decided(action, *ids):
+    """Un risultato passato di find_ticket_categories, come resta nella conversazione."""
+    content = json.dumps({"action": action, "categories": [{"id": category_id} for category_id in ids]})
+    return ToolMessage(content=content, name="find_ticket_categories", tool_call_id=f"call-{action}")
+
+
+def test_questions_are_counted_for_the_current_request_only():
+    assert tools.questions_asked([decided("ASK", 1), decided("ASK", 2)]) == 2
+    assert tools.questions_asked([decided("ASK", 1), decided("CONFIRM", 2)]) == 1
+    assert tools.questions_asked([decided("ASK", 1), decided("PROPOSE", 2), decided("ASK", 3)]) == 1
+    assert tools.questions_asked([decided("ASK", 1), decided("NO_MATCH")]) == 0
+
+
+def test_finding_stops_asking_when_no_match_stays_the_most_probable(find_graph, monkeypatch):
+    class Unlikely(FirstCandidateModel):
+        def estimate(self, query, candidates):
+            return Estimate(categories=[(candidates[0], 0.3)], no_match=0.7)
+
+    monkeypatch.setattr(tools, "decision_model", Unlikely())
+    found = [make_category(1, "Pagamento tasse")]
+
+    first, _ = run_find(find_graph, found)
+    second, _ = run_find(find_graph, found, history=[decided("ASK", 1)])
+
+    assert first["action"] == "ASK"
+    assert second == {"action": "NO_MATCH", "categories": []}

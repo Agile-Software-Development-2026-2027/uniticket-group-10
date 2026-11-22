@@ -2,7 +2,8 @@ import logging
 
 import pytest
 
-from app.decision.rules import Decision, DecisionModel, Estimate, Hypothesis, decide, decide_with, likely_hypotheses
+from app.decision.rules import (Decision, DecisionModel, Estimate, Hypothesis, decide, decide_with, likely_hypotheses,
+                                stop_asking)
 from helpers import FirstCandidateModel, ids, make_category
 
 ESSE3 = make_category(1, "Assistenza Esse3")
@@ -142,3 +143,18 @@ def test_a_model_that_fails_is_logged(caplog):
 
     assert "non ha dato una stima" in caplog.text
     assert "offline" in caplog.text
+
+
+def test_a_question_says_if_no_match_is_the_most_probable_hypothesis():
+    assert decide(Estimate(categories=[(ESSE3, 0.3)], no_match=0.7)).unlikely
+    assert not decide(Estimate(categories=[(ESSE3, 0.6)], no_match=0.4)).unlikely
+
+
+def test_after_a_question_a_still_unlikely_match_becomes_no_match():
+    unlikely = decide(Estimate(categories=[(ESSE3, 0.3)], no_match=0.7))
+    doubt = decide(Estimate(categories=[(ESSE3, 0.45), (LAUREA, 0.35)], no_match=0.2, needs_info=0.0))
+
+    assert stop_asking(unlikely, asked=0) == unlikely
+    assert stop_asking(unlikely, asked=1) == Decision("NO_MATCH")
+    # Un dubbio tra categorie si può chiedere ancora: la categoria giusta può essere tra quelle.
+    assert stop_asking(doubt, asked=3) == doubt

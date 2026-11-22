@@ -29,9 +29,12 @@ def category_queryset() -> QuerySet[TicketCategory]:
     ).select_related("organizational_structure", "organizational_office").distinct()
 
 
-def available_categories(user, *, excluded_category_ids=(), structure_ids=()) -> List[TicketCategory]:
-    """Return categories accessible to the user, applying optional exclusions and structure filters."""
+def available_categories(user, *, category_id=None, excluded_category_ids=(), structure_ids=()) -> List[TicketCategory]:
+    """Return accessible categories, optionally filtering IDs, exclusions and structures."""
     categories = category_queryset()
+    # Permette allo schema di verificare un solo ID con gli stessi filtri della chat.
+    if category_id is not None:
+        categories = categories.filter(pk=category_id)
     if excluded_category_ids:
         categories = categories.exclude(pk__in=excluded_category_ids)
     if structure_ids:

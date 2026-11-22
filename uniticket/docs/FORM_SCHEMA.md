@@ -15,6 +15,37 @@ Le opzioni vengono riusate quando disponibili. Per radio button, widget personal
 
 Le tabelle di configurazione sono in `schema_field_config.py` (tipi dei campi, campi esclusi, limiti) e `schema_validator_config.py` (validator e controlli interni del form builder).
 
+## Endpoint
+
+```http
+GET /api/assistant/categories/42/form-schema/
+```
+
+`42` è il `TicketCategory.id`, non l'ID di una richiesta compilata.
+La vista è `CategoryFormSchemaView` in `extensions/assistant/form_schema_api.py`.
+La risposta include i campi obbligatori e opzionali, i tipi, i vincoli e i valori iniziali del modulo attivo.
+
+```text
+Richiesta autenticata
+    ↓
+available_categories(user, category_id=category_id)
+    ↓ categoria ammessa dagli stessi filtri della chat
+Modulo attivo → get_form(show_conditions=True, current_user=user)
+    ↓
+build_form_schema() → risposta JSON
+```
+
+La vista usa sessione e token originali, come catalogo e ricerca. `available_categories()` può filtrare un solo ID prima di verificare `allowed_to_user()`: non carica l'intero catalogo. I controlli vengono ripetuti a ogni richiesta, anche se la categoria era già stata suggerita dalla chat.
+
+| Risposta | Significato |
+|---|---|
+| `200` | Schema del modulo attivo |
+| `401` | Autenticazione assente o non valida |
+| `404` | ID non valido, categoria non accessibile nella chat o modulo attivo assente |
+| `409` | Più moduli attivi: non è possibile scegliere un modulo univoco |
+
+Si applicano i criteri di lettura del catalogo. I limiti per creare una richiesta restano nella logica originale di UniTicket. Questo endpoint non crea ticket e non aggiunge regole di validazione dei campi.
+
 ## Formato
 
 ```json
@@ -51,8 +82,8 @@ Un tipo di campo non riconosciuto genera `NotImplementedError`, invece di una de
 
 ## Test
 
-I test verificano anche la chiamata al vero serializer UniTicket, l'assenza di modifiche al form ricevuto e il mantenimento del JSON concordato.
+I test dello schema verificano la chiamata al vero serializer UniTicket, l'assenza di modifiche al form ricevuto e il mantenimento del JSON concordato. Cinque test API in `extensions/chatbot_tests/test_form_schema_api.py` coprono il JSON restituito (tipi, obbligatorietà, vincoli, scelte e valori iniziali), il percorso autenticato, i filtri del catalogo, gli ID invalidi e i moduli attivi. Usano soltanto il database temporaneo dei test e sono già inclusi nella CI.
 
 ```sh
-docker compose run --build --rm -T --no-deps uniticket python manage.py test chatbot_tests.test_form_schema --settings=ticket_events.test_settings --noinput
+docker compose run --build --rm -T --no-deps uniticket python manage.py test chatbot_tests.test_form_schema chatbot_tests.test_form_schema_api --settings=ticket_events.test_settings --noinput
 ```

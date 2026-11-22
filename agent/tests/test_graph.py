@@ -8,6 +8,7 @@ from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 from app import graph, tools
 from app.client.api import UniTicketAPI
 from app.client.context import UserContext
+from app.decision import Estimate
 from helpers import FirstCandidateModel, make_category
 
 LAUREA = make_category(2, "Certificato di laurea")
@@ -84,3 +85,39 @@ def test_without_a_tool_call_the_assistant_just_answers(monkeypatch):
 
     assert tool_results(messages) == []
     assert messages[-1].content == "Ciao! Di cosa hai bisogno?"
+
+
+class VagueModel(FirstCandidateModel):
+    """Jev finto per cui l'utente ha detto troppo poco, oppure è indeciso tra i primi due candidati."""
+
+    def __init__(self, vague):
+        super().__init__()
+        self.vague = vague
+
+    def estimate(self, query, candidates):
+        if self.vague:
+            return Estimate(categories=[(candidates[0], 0.2)], needs_info=0.8)
+        return Estimate(categories=[(candidates[0], 0.4), (candidates[1], 0.3)], no_match=0.3)
+
+
+def test_a_question_because_the_user_said_too_little_shows_no_cards(monkeypatch):
+    monkeypatch.setattr(tools, "decision_model", VagueModel(vague=True))
+    model = ScriptedModel(find_call(), AIMessage("Di che certificato hai bisogno?"))
+
+    messages = run(monkeypatch, model, [LAUREA, TASSE])
+
+    results = tool_results(messages)
+    assert [name for name, _ in results] == ["find_ticket_categories"]
+    assert results[0][1]["action"] == "ASK" and results[0][1]["vague"] is True
+    assert messages[-1].content == "Di che certificato hai bisogno?"
+
+
+def test_a_question_between_some_categories_shows_their_cards(monkeypatch):
+    monkeypatch.setattr(tools, "decision_model", VagueModel(vague=False))
+    model = ScriptedModel(find_call(), AIMessage("Quale di questi ti serve?"))
+
+    messages = run(monkeypatch, model, [LAUREA, TASSE])
+
+    results = tool_results(messages)
+    assert [name for name, _ in results] == ["find_ticket_categories", "suggest_tickets"]
+    assert results[0][1]["vague"] is False

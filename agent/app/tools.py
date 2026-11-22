@@ -112,6 +112,8 @@ async def find_ticket_categories(
     }
     if decision.action == "CONFIRM":
         result.update(departments.describe(decision.categories[0].structure_name))
+    if decision.action == "ASK":
+        result["vague"] = decision.vague
     return result
 
 

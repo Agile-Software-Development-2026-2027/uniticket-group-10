@@ -13,7 +13,7 @@ from rest_framework.views import APIView
 
 from ticket_events.orchestrator import index_repository, provider
 
-from .catalog import AvailableCategorySerializer, available_categories
+from .catalog import AvailableCategorySerializer, available_categories, distinctive_field_labels
 
 
 logger=logging.getLogger(__name__)
@@ -58,7 +58,9 @@ class CategorySearchView(APIView):
 
         ranked = [categories[category_id] for category_id in ranked_ids if category_id in categories]
 
-        return Response(AvailableCategorySerializer(ranked,many=True).data)
+        # Per chi è e i campi che lo distinguono: Jev li legge per scegliere tra moduli simili.
+        context = {"field_labels": distinctive_field_labels(ranked)}
+        return Response(AvailableCategorySerializer(ranked, many=True, context=context).data)
 
         
 

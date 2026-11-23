@@ -19,11 +19,11 @@ import httpx2
 from typesafe_sdk import Choice, ChoiceAnswer, Noul, NoulAnswer, Question, TypeSafeClient
 
 from ..client.api import Catalog
+from .cards import card
 from .prompts import (FITS_FALSE, FITS_QUESTION, FITS_TRUE, FORM_QUESTION, FORM_RULES, VAGUE_FALSE,
                       VAGUE_QUESTION, VAGUE_TRUE)
 from .rules import DecisionModel, Estimate
 
-MAX_DESCRIPTION_CHARS = 240
 # Come si legge un sì/no di Jev: da 0,7 in su è sì, fino a 0,3 è no.
 NOUL_YES = 0.7
 NOUL_NO = 0.3
@@ -42,16 +42,6 @@ CONNECT_TIMEOUT = 5.0
 def code(index: int) -> str:
     """I candidati si chiamano M1, M2...: codici brevi, uguali in tutte le domande."""
     return f"M{index + 1}"
-
-
-def card(category: Catalog, with_structure: bool = False) -> dict:
-    """Quello che Jev legge di una categoria: cosa offre e, se richiesto, quale struttura la offre."""
-    summary = {"titolo": category.name}
-    if category.description:
-        summary["descrizione"] = category.description[:MAX_DESCRIPTION_CHARS]
-    if with_structure and category.structure_name:
-        summary["struttura"] = category.structure_name
-    return summary
 
 
 def build_questions(candidates: list[Catalog]) -> dict[str, Question]:

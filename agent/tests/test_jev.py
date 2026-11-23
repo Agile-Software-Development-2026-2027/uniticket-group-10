@@ -7,9 +7,10 @@ from typesafe_sdk import Choice, ChoiceAnswer, Noul, NoulAnswer, TypeSafeAPIResp
 
 from app.decision import DecisionModel
 from app.decision.jev import NO_API_KEY, JevModel, build_questions, parse_answers, ramp
+from app.decision.cards import card
 from helpers import make_category
 
-LAUREA = make_category(1, "Certificato di laurea", description="Richiesta del certificato", structure_name="DiBEST")
+LAUREA = make_category(1, "Certificato di laurea", description="Richiesta del certificato", structure_name="Servizi Didattici")
 TASSE = make_category(2, "Pagamento tasse")
 
 
@@ -18,7 +19,7 @@ def test_every_candidate_is_an_option_of_the_choice():
 
     assert isinstance(questions["modulo"], Choice)
     assert questions["modulo"].criteria == {
-        "M1": {"titolo": "Certificato di laurea", "descrizione": "Richiesta del certificato", "struttura": "DiBEST"},
+        "M1": {"titolo": "Certificato di laurea", "descrizione": "Richiesta del certificato", "struttura": "Servizi Didattici"},
         "M2": {"titolo": "Pagamento tasse"},
     }
 
@@ -40,10 +41,13 @@ def test_with_one_candidate_only_its_fit_is_asked_because_jev_rejects_a_choice_o
     assert list(build_questions([LAUREA])) == ["vago", "adatto_M1"]
 
 
-def test_long_descriptions_are_cut():
-    category = make_category(1, description="x" * 1000)
+def test_the_options_and_the_fit_questions_read_the_card_of_the_category():
+    category = make_category(1, "Esonero IV rata", audience={"students": True},
+                             field_labels=["Altri componenti del nucleo familiare attualmente iscritti"])
+    questions = build_questions([category, TASSE])
 
-    assert len(build_questions([category, TASSE])["modulo"].criteria["M1"]["descrizione"]) == 240
+    assert questions["modulo"].criteria["M1"] == card(category, with_structure=True)
+    assert questions["adatto_M1"].instructions["modulo"] == card(category)
 
 
 def answers(vague, probabilities, fits):

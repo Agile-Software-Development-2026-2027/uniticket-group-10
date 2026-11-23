@@ -13,6 +13,10 @@ class Catalog(BaseModel):
     structure_id: int = Field(gt=0, strict=True)
     structure_name: str
     url: str
+    # Per chi è (students, staff, guests, anonymous) e i campi del modulo che la distinguono dalle altre:
+    # li legge Jev per scegliere tra categorie simili.
+    audience: dict[str, bool] = {}
+    field_labels: list[str] = []
 
 # Descrive i dati ricevuti, senza applicare nuove validazioni ai valori del modulo.
 class FormField(BaseModel):

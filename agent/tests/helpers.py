@@ -4,10 +4,11 @@ from app.client.api import Catalog
 from app.decision import DecisionModel, Estimate
 
 
-def make_category(category_id, name="", structure_id=1, description="", structure_name=""):
+def make_category(category_id, name="", structure_id=1, description="", structure_name="", audience=None,
+                  field_labels=()):
     return Catalog(id=category_id, name=name or f"Categoria {category_id}", structure_id=structure_id,
                     url=f"/tickets/{category_id}", description=description,
-                    structure_name=structure_name)
+                    structure_name=structure_name, audience=audience or {}, field_labels=list(field_labels))
 
 
 def ids(categories):

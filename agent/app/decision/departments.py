@@ -67,11 +67,18 @@ class Departments:
         normalized = f" {normalize(text)} "
         return {name for name, known in self._phrases.items() if any(f" {phrase} " in normalized for phrase in known)}
 
+    def label(self, structure_name: str) -> str:
+        """Il nome esteso con la sigla, se è un dipartimento ("Dipartimento di Chimica... (CTC)"); se no il nome."""
+        entry = self._entries.get(structure_name.lower())
+        return f"{entry['full_name']} ({structure_name})" if entry else structure_name
+
+    def courses(self, structure_name: str) -> list[str]:
+        """I corsi di studio del dipartimento; nessuno se la struttura non è un dipartimento."""
+        return list(self._entries.get(structure_name.lower(), {}).get("courses", []))
+
     def describe(self, structure_name: str) -> dict:
         """Come presentare il dipartimento all'utente: il nome esteso con la sigla e alcuni corsi."""
-        entry = self._entries[structure_name.lower()]
-        return {"department": f"{entry['full_name']} ({structure_name})",
-                "courses": entry.get("courses", [])[:COURSE_EXAMPLES]}
+        return {"department": self.label(structure_name), "courses": self.courses(structure_name)[:COURSE_EXAMPLES]}
 
 
 departments = Departments.load()

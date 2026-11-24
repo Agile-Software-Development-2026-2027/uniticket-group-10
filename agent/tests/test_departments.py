@@ -1,4 +1,4 @@
-"""La conferma del dipartimento: una categoria di dipartimento è certa solo per chi lo ha nominato."""
+"""La conferma del dipartimento: una categoria di dipartimento è certa solo se l'utente lo ha nominato."""
 
 import asyncio
 import json

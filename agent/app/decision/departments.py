@@ -1,7 +1,9 @@
 """I dipartimenti: quali strutture lo sono e come riconoscerli nelle parole dell'utente.
 
-Più della metà delle categorie è di un solo dipartimento e vale solo per chi ne fa parte: a chi chiede
-"un certificato di laurea" senza dire dove studia non si può dare per buona quella del DiBEST.
+Più della metà delle categorie è di un solo dipartimento: a chi chiede "un certificato di laurea" senza
+dire dove studia non si può dare per buona quella del DiBEST. Non sono riservate a chi ne fa parte (un
+docente di un altro ateneo accetta l'incarico al DiBEST con il modulo del DiBEST): all'utente si chiede se
+è quello il dipartimento che gli serve, non se ne fa parte.
 `departments.json` è curato a mano: per ogni dipartimento, con il nome che ha in uniTicket ("DiBEST"),
 il nome esteso, le sigle e i corsi di studio, per capire che "faccio giurisprudenza" vuol dire DiScAG.
 """
@@ -14,7 +16,7 @@ from pathlib import Path
 from .rules import Decision
 
 DATA_FILE = Path(__file__).with_name("departments.json")
-# Quanti corsi si citano come esempio quando si chiede all'utente se fa parte di un dipartimento.
+# Quanti corsi si citano come esempio quando si chiede all'utente se gli serve un dipartimento.
 COURSE_EXAMPLES = 3
 
 _NOT_ALPHANUMERIC = re.compile(r"[^a-z0-9]+")

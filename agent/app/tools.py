@@ -129,7 +129,7 @@ def confirmations_asked(messages: list[AnyMessage]) -> set[int]:
 
 
 def confirmations_declined(messages: list[AnyMessage]) -> list[int]:
-    """Le categorie di cui si è chiesta conferma a chi poi ha detto di essere di un altro dipartimento.
+    """Le categorie di cui si è chiesta conferma a chi poi ha nominato solo un altro dipartimento o corso.
 
     Non vanno riproposte: senza questo, se l'assistente ricerca senza escluderle, la stessa categoria
     torna da sola e, a conferma già chiesta, passa per la risposta giusta.

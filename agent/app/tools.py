@@ -18,41 +18,6 @@ decision_model = jev
 # Quello che l'assistente legge di una categoria decisa: URL e visibilità restano nel catalogo.
 CANDIDATE_FIELDS = {"id", "name", "description", "structure_id", "structure_name"}
 
-@tool(parse_docstring=True)
-async def search_ticket_categories(
-    runtime: ToolRuntime[UserContext],
-    query: str,
-    structure_ids: list[int] | None = None,
-    excluded_category_ids: list[int] | None = None,
-) -> list[dict]:
-    """Cerca le categorie di ticket più pertinenti alla richiesta, ordinate per rilevanza.
-
-        PREREQUISITO: Usa questo tool solo DOPO aver ottenuto l'elenco delle
-        strutture
-        tramite `get_structures`.
-
-        Args:
-            query: Testo da cercare, eventualmente riformulato per migliorare i
-            risultati.
-            structure_ids: ID delle strutture rilevanti selezionati da
-            `get_structures`. Usa None solo se nessuna struttura è
-            compatibile.
-            excluded_category_ids: ID delle categorie da escludere dalla ricerca.
-    """
-    categories = await runtime.context.uniticket.search_ticket_categories(
-        query,
-        excluded_category_ids=excluded_category_ids,
-        structure_ids=structure_ids,
-    )
-    return [category.model_dump() for category in categories]
-
-
-@tool
-async def get_structures(runtime: ToolRuntime[UserContext]) -> list[dict]:
-    """Get the structures available to the current user."""
-    structures = await runtime.context.uniticket.get_structures()
-    return [structure.model_dump() for structure in structures]
-
 
 # Recupera il modulo della categoria scelta e restituisce i dati che l'agente può leggere.
 @tool(parse_docstring=True)
@@ -182,6 +147,4 @@ async def suggest_tickets(
     ]}
 
 # I tool che l'assistente può chiamare: suggest_tickets lo chiama il grafo quando ci sono card da mostrare.
-# get_structures e search_ticket_categories restano disponibili ma l'assistente non li riceve:
-# filtrare per struttura e scegliere i candidati a mano faceva perdere il modulo giusto prima di Jev.
 tools = [find_ticket_categories, get_form_schema]

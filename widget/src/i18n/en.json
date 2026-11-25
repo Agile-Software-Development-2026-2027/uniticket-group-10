@@ -30,9 +30,6 @@
   "Interrotta": "Cancelled",
   "Completata": "Completed",
   "tool.suggest_tickets": "Selecting tickets",
-  "tool.get_structures": "Finding offices",
-  "tool.search_ticket_categories": "Finding tickets",
-  "tool.decide_ticket_categories": "Evaluating tickets",
   "tool.find_ticket_categories": "Finding tickets",
   "Quali documenti servono?": "Which documents do I need?",
   "Come compilo questo modulo?": "How do I fill in this form?"

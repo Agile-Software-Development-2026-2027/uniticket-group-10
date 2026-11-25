@@ -94,7 +94,7 @@ async def find_ticket_categories(
         excluded_category_ids: ID delle categorie da non considerare, per esempio quelle che l'utente ha già scartato.
     """
     # Ricerca e decisione in un passo solo: i candidati vanno a Jev così come li ordina la ricerca,
-    # senza che l'LLM li ricopi o li scremi (misurato: g10n in misure/LEGGIMI.md).
+    # senza che l'LLM li ricopi o li scremi: scremandoli a mano perdeva il modulo giusto prima di Jev.
     messages = (runtime.state or {}).get("messages", [])
     excluded = [*(excluded_category_ids or []), *confirmations_declined(messages)]
     candidates = await runtime.context.uniticket.search_ticket_categories(

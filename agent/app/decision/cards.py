@@ -1,9 +1,9 @@
 """Quello che Jev legge di una categoria: la sua scheda.
 
-Come in uniticket-assistant-v1: titolo, per chi è, descrizione ripulita, i campi che la distinguono e, quando
-conta dove, la struttura con il nome esteso e i corsi del dipartimento. I campi sono spesso l'unica cosa che
-separa due moduli simili: l'esonero per fratelli iscritti si riconosce da "Altri componenti del nucleo
-familiare attualmente iscritti" (misurato: g10w in misure/LEGGIMI.md).
+Titolo, per chi è, descrizione ripulita, i campi che la distinguono e, quando conta dove, la struttura con
+il nome esteso e i corsi del dipartimento. I campi sono spesso l'unica cosa che separa due moduli simili:
+l'esonero per fratelli iscritti si riconosce solo da "Altri componenti del nucleo familiare attualmente
+iscritti".
 """
 
 import re

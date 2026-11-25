@@ -2,7 +2,7 @@ import os
 
 import httpx
 
-from .api import Catalog, Structure, UniTicketAPI
+from .api import Catalog, FormSchema, Structure, UniTicketAPI
 from pydantic import TypeAdapter
 
 
@@ -54,3 +54,14 @@ class UniTicketClient(UniTicketAPI):
         )
         response.raise_for_status()
         return self._ticket_adapter.validate_python(response.json())
+
+    # Legge lo schema usando la sessione già impostata sul client.
+    async def get_form_schema(self, ticket_id: int) -> FormSchema:
+        if type(ticket_id) is not int or ticket_id <= 0:
+            raise ValueError("ticket_id deve essere un intero positivo")
+        response = await self._client.get(f"assistant/categories/{ticket_id}/form-schema/")
+        response.raise_for_status()
+        schema = FormSchema.model_validate(response.json())
+        if schema.category_id != ticket_id:
+            raise ValueError("Lo schema ricevuto appartiene a una categoria diversa")
+        return schema

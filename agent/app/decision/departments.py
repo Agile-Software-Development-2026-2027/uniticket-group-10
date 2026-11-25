@@ -29,7 +29,7 @@ _DEPARTMENT_PREFIX = re.compile(r"^Dipartimento di\s+", re.IGNORECASE)
 def normalize(text: str) -> str:
     """Minuscole, senza accenti, punteggiatura ridotta a spazi: "dell'Antichità" = "dell antichita"."""
     decomposed = unicodedata.normalize("NFD", text.lower())
-    without_marks = "".join(char for char in decomposed if not "̀" <= char <= "ͯ")
+    without_marks = "".join(char for char in decomposed if not unicodedata.combining(char))
     return _NOT_ALPHANUMERIC.sub(" ", without_marks).strip()
 
 

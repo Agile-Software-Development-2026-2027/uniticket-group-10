@@ -132,13 +132,17 @@ def confirmations_declined(messages: list[AnyMessage]) -> list[int]:
     """Le categorie di cui si è chiesta conferma a chi poi ha nominato solo un altro dipartimento o corso.
 
     Non vanno riproposte: senza questo, se l'assistente ricerca senza escluderle, la stessa categoria
-    torna da sola e, a conferma già chiesta, passa per la risposta giusta.
+    torna da sola e, a conferma già chiesta, passa per la risposta giusta. La risposta alla conferma è
+    quello che l'utente scrive prima della ricerca seguente: un corso nominato dopo, in un'altra
+    richiesta, non è un no.
     """
+    decisions = past_decisions(messages)
     declined = []
-    for index, decision in past_decisions(messages):
+    for (index, decision), (next_index, _) in zip(decisions, [*decisions[1:], (len(messages), None)]):
         if decision["action"] != "CONFIRM":
             continue
-        answer = ". ".join(message.text for message in messages[index + 1:] if isinstance(message, HumanMessage))
+        answer = ". ".join(message.text for message in messages[index + 1:next_index]
+                           if isinstance(message, HumanMessage))
         declined += [category["id"] for category in decision["categories"]
                      if belongs_elsewhere(category["structure_name"], answer)]
     return declined

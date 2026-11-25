@@ -123,3 +123,12 @@ def test_a_department_named_before_the_confirmation_does_not_drop_the_category(c
     assert tools.confirmations_declined([HumanMessage("Ho un amico a Giurisprudenza"), asked, HumanMessage("sì")]) == []
     assert tools.confirmations_declined([asked, HumanMessage("studio Biologia, non Fisica")]) == []
     assert tools.confirmations_declined([asked, HumanMessage("faccio giurisprudenza")]) == [1]
+
+
+def test_a_department_named_in_a_later_request_does_not_drop_the_category(client):
+    asked = answered(find(client, [HumanMessage("Mi serve un certificato di laurea")]))
+    proposed = answered({"action": "PROPOSE", "categories": []})
+
+    later = [asked, HumanMessage("sì"), proposed, HumanMessage("ora un esonero, seguo anche un corso di Giurisprudenza")]
+
+    assert tools.confirmations_declined(later) == []

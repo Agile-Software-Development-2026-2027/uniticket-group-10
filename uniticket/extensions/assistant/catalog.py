@@ -6,6 +6,7 @@ from typing import Dict, Iterable, List
 
 from api_rest.authorizations import AuthorizationToken
 from api_rest.serializers import OrganizationalStructureSerializer
+from django.core.cache import cache
 from django.urls import reverse
 from django.utils import timezone
 from rest_framework import serializers
@@ -56,6 +57,9 @@ MAX_FORMS_PER_LABEL = 3
 MIN_LABEL_CHARS = 4
 MAX_LABEL_CHARS = 90
 HIDDEN_FIELD = "CustomHiddenField"
+# I campi di tutto il catalogo servono a ogni ricerca ma cambiano di rado: si rileggono al più ogni 10 minuti.
+CATALOG_LABELS_CACHE_KEY = "assistant:catalog-field-labels"
+CATALOG_LABELS_CACHE_SECONDS = 600
 _WHITESPACE = re.compile(r"\s+")
 
 
@@ -85,7 +89,8 @@ def distinctive_field_labels(categories: Iterable[TicketCategory]) -> Dict[int, 
     Restano fuori i campi di sistema e quelli presenti in più di MAX_FORMS_PER_LABEL moduli: "Altri
     componenti del nucleo familiare attualmente iscritti" distingue un esonero, "Matricola" no.
     """
-    every = field_labels(category_queryset())
+    every = cache.get_or_set(
+        CATALOG_LABELS_CACHE_KEY, lambda: field_labels(category_queryset()), CATALOG_LABELS_CACHE_SECONDS)
     forms_with = Counter(label.lower() for labels in every.values() for label in set(labels))
     wanted = {category.pk for category in categories}
     return {

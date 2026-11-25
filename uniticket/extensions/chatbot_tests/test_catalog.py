@@ -3,6 +3,7 @@
 from unittest.mock import patch
 
 from django.contrib.auth import get_user_model
+from django.core.cache import cache
 from django.test import TestCase, override_settings
 from organizational_area.models import OrganizationalStructure
 from rest_framework.test import APIClient
@@ -17,6 +18,9 @@ CATEGORIES_URL = "/api/assistant/categories/"
 @override_settings(ROOT_URLCONF="assistant.urls")
 class CategoryCardTests(TestCase):
     def setUp(self):
+        # I campi del catalogo restano in cache tra una richiesta e l'altra: ogni test parte senza.
+        cache.clear()
+        self.addCleanup(cache.clear)
         self.user = get_user_model().objects.create_user(username="catalog-user")
         self.client = APIClient()
         self.client.force_login(self.user)
@@ -60,6 +64,14 @@ class CategoryCardTests(TestCase):
             self.esonero.pk: ["Altri componenti del nucleo familiare attualmente iscritti"],
             self.rimborso.pk: ["IBAN"],
         })
+
+    def test_the_fields_of_the_catalog_are_read_once_for_many_requests(self):
+        distinctive_field_labels([self.esonero])
+
+        with self.assertNumQueries(0):
+            labels = distinctive_field_labels([self.rimborso])
+
+        self.assertEqual(labels, {self.rimborso.pk: ["IBAN"]})
 
     def test_the_search_sends_who_a_category_is_for_and_its_distinctive_fields(self):
         with (

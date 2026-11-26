@@ -1,4 +1,4 @@
-from typing import Any, Protocol, runtime_checkable
+from typing import Protocol, runtime_checkable
 from pydantic import BaseModel, Field, JsonValue
 
 
@@ -35,19 +35,6 @@ class FormSchema(BaseModel):
     fields: list[FormField]
 
 
-class FieldValidationError(BaseModel):
-    field: str | None
-    code: str
-    message: str
-
-
-class FormFieldUpdateResult(BaseModel):
-    valid: bool
-    field_id: str
-    value: Any = None
-    errors: list[FieldValidationError] = Field(default_factory=list)
-
-
 @runtime_checkable
 class UniTicketAPI(Protocol):
     async def get_form_schema(self, ticket_id: int) -> FormSchema:
@@ -66,12 +53,3 @@ class UniTicketAPI(Protocol):
         structure_ids: list[int] | None = None,
     ) -> list[Catalog]:
         """Search available categories, excluding IDs and optionally limiting structures."""
-
-    async def update_form_field(
-        self,
-        category_id: int,
-        field_id: str,
-        value: Any,
-        data: dict[str, Any] | None = None,
-    ) -> FormFieldUpdateResult:
-        """Validate and normalize a single field value for the opened category form."""

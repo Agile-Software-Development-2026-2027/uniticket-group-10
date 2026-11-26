@@ -2,6 +2,7 @@ import asyncio
 import json
 from unittest.mock import AsyncMock
 
+import httpx
 import pytest
 from langchain_core.messages import AIMessage
 from langchain_core.utils.function_calling import convert_to_openai_tool
@@ -9,7 +10,7 @@ from langgraph.graph import END, START, MessagesState, StateGraph
 from langgraph.prebuilt import ToolNode
 
 from app import tools
-from app.client.api import FormField, FormFieldUpdateResult, FormSchema, UniTicketAPI
+from app.client.api import FormField, FormSchema, UniTicketAPI
 from app.client.context import UserContext
 from helpers import FirstCandidateModel, make_category
 
@@ -56,6 +57,11 @@ def run_decision(graph, catalog, candidate_ids):
 
 
 def run_set_field(graph, client, field_id, value, category_id=10, form_fields=None):
+    context = UserContext(
+        uniticket=client,
+        category_id=category_id,
+        form_fields=form_fields if form_fields is not None else {},
+    )
     call = {
         "name": "set_field",
         "args": {"field_id": field_id, "value": value},
@@ -64,22 +70,25 @@ def run_set_field(graph, client, field_id, value, category_id=10, form_fields=No
     }
     state = asyncio.run(graph.ainvoke(
         {"messages": [AIMessage(content="", tool_calls=[call])]},
-        context=UserContext(
-            uniticket=client,
-            category_id=category_id,
-            form_fields=form_fields if form_fields is not None else {},
-        ),
+        context=context,
     ))
-    return json.loads(state["messages"][-1].content)
+    return json.loads(state["messages"][-1].content), context
 
 
-def make_email_field(disabled: bool = False) -> FormField:
+def make_field(
+    field_id: str,
+    label: str = "Email",
+    field_type: str = "email",
+    required: bool = True,
+    disabled: bool = False,
+    constraints: dict | None = None,
+) -> FormField:
     return FormField(
-        id="email",
-        label="Email",
-        type="email",
-        required=True,
-        constraints={},
+        id=field_id,
+        label=label,
+        type=field_type,
+        required=required,
+        constraints=constraints if constraints is not None else {},
         initial_value=None,
         disabled=disabled,
     )
@@ -129,15 +138,10 @@ def test_set_field_updates_valid_field_in_opened_form(set_field_graph):
     client.get_form_schema.return_value = FormSchema(
         category_id=10,
         module_id=1,
-        fields=[make_email_field()],
-    )
-    client.update_form_field.return_value = FormFieldUpdateResult(
-        valid=True,
-        field_id="email",
-        value="mario@unical.it",
+        fields=[make_field("email")],
     )
 
-    result = run_set_field(set_field_graph, client, "email", "mario@unical.it", category_id=10)
+    result, context = run_set_field(set_field_graph, client, "email", "mario@unical.it", category_id=10)
 
     assert result == {
         "ok": True,
@@ -145,12 +149,30 @@ def test_set_field_updates_valid_field_in_opened_form(set_field_graph):
         "field_id": "email",
         "value": "mario@unical.it",
     }
-    client.update_form_field.assert_awaited_once_with(
+    assert context.form_fields == {"email": "mario@unical.it"}
+    client.get_form_schema.assert_awaited_once_with(10)
+
+
+def test_set_field_validates_choice_against_schema_constraints(set_field_graph):
+    client = AsyncMock(spec=UniTicketAPI)
+    client.get_form_schema.return_value = FormSchema(
         category_id=10,
-        field_id="email",
-        value="mario@unical.it",
-        data=None,
+        module_id=1,
+        fields=[
+            make_field(
+                "sede",
+                label="Sede",
+                field_type="select",
+                constraints={"choices": [["arcavacata", "Arcavacata"], ["cetrato", "Cetraro"]]},
+            )
+        ],
     )
+
+    result, context = run_set_field(set_field_graph, client, "sede", "roma", category_id=10)
+
+    assert result["ok"] is False
+    assert result["errors"][0]["code"] == "invalid_choice"
+    assert context.form_fields == {}
 
 
 def test_set_field_rejects_field_not_in_opened_form(set_field_graph):
@@ -158,40 +180,46 @@ def test_set_field_rejects_field_not_in_opened_form(set_field_graph):
     client.get_form_schema.return_value = FormSchema(
         category_id=10,
         module_id=1,
-        fields=[make_email_field()],
+        fields=[make_field("email")],
     )
 
-    result = run_set_field(set_field_graph, client, "campo_inesistente", "valore", category_id=10)
+    result, context = run_set_field(set_field_graph, client, "campo_inesistente", "valore", category_id=10)
 
     assert result["ok"] is False
     assert "campo_inesistente" in result["error"]
-    client.update_form_field.assert_not_called()
+    assert context.form_fields == {}
+
+
+def test_set_field_rejects_disabled_field(set_field_graph):
+    client = AsyncMock(spec=UniTicketAPI)
+    client.get_form_schema.return_value = FormSchema(
+        category_id=10,
+        module_id=1,
+        fields=[make_field("matricola", label="Matricola", field_type="text", disabled=True)],
+    )
+
+    result, context = run_set_field(set_field_graph, client, "matricola", "123456", category_id=10)
+
+    assert result["ok"] is False
+    assert "matricola" in result["error"]
+    assert context.form_fields == {}
 
 
 def test_set_field_returns_error_when_no_form_is_open(set_field_graph):
     client = AsyncMock(spec=UniTicketAPI)
 
-    result = run_set_field(set_field_graph, client, "email", "mario@unical.it", category_id=None)
+    result, _ = run_set_field(set_field_graph, client, "email", "mario@unical.it", category_id=None)
 
     assert result["ok"] is False
     assert "Nessun form" in result["error"]
     client.get_form_schema.assert_not_called()
 
 
-def test_set_field_returns_validation_errors(set_field_graph):
+def test_set_field_handles_http_error(set_field_graph):
     client = AsyncMock(spec=UniTicketAPI)
-    client.get_form_schema.return_value = FormSchema(
-        category_id=10,
-        module_id=1,
-        fields=[make_email_field()],
-    )
-    client.update_form_field.return_value = FormFieldUpdateResult(
-        valid=False,
-        field_id="email",
-        errors=[{"field": "email", "code": "invalid", "message": "Inserisci un indirizzo email valido."}],
-    )
+    client.get_form_schema.side_effect = httpx.ConnectError("offline")
 
-    result = run_set_field(set_field_graph, client, "email", "non-valida", category_id=10)
+    result, _ = run_set_field(set_field_graph, client, "email", "mario@unical.it", category_id=10)
 
     assert result["ok"] is False
-    assert result["errors"][0]["code"] == "invalid"
+    assert "comunicazione" in result["error"]

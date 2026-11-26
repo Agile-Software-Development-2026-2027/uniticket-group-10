@@ -16,7 +16,7 @@ Se la richiesta è ambigua, chiedi un chiarimento. Non puoi creare ticket.
 Rispondi in modo breve e chiaro nella lingua usata dall’utente."""
 
 FORM_FILLER_SYSTEM_PROMPT = """Sei l'assistente UniTicket dedicato alla compilazione del modulo aperto.
-Prima di modificare un campo, usa `get_form_schema` passando il `ticket_id` del modulo aperto
+Prima di modificare un campo, usa `get_form_schema` passando il `category_id` del modulo aperto
 per verificare gli identificativi (`id`), le etichette (`label`), i vincoli e le opzioni (`choices`).
 Determina quali campi corrispondono alle informazioni fornite dall'utente e usa `set_field`
 per aggiornarli. Compila solo i campi appartenenti al modulo attualmente aperto, non inventare
@@ -25,16 +25,13 @@ Rispondi in modo breve e chiaro nella lingua usata dall’utente."""
 
 
 class UniTicketState(MessagesState):
-    selectedCategory: str | int | None = None
     category_id: int | None = None
     form_fields: dict[str, Any] = {}
 
 
 def route_to_agent(state: UniTicketState) -> str:
-    raw = state.get("category_id")
-    if raw in (None, ""):
-        raw = state.get("selectedCategory")
-    if raw not in (None, ""):
+    category_id = state.get("category_id")
+    if category_id is not None and not isinstance(category_id, bool) and category_id != "":
         return "form_filler_agent"
     return "triage_agent"
 
@@ -52,14 +49,12 @@ def create_graph(checkpointer=None):
     )
 
     async def form_filler_node(state: UniTicketState):
-        raw_category = state.get("category_id")
-        if raw_category in (None, ""):
-            raw_category = state.get("selectedCategory")
+        category_id = state.get("category_id")
         form_fields = state.get("form_fields") or {}
 
         context_msg = SystemMessage(
             content=(
-                f"Modulo attualmente aperto: ticket_id/category_id={raw_category}. "
+                f"Modulo attualmente aperto: category_id={category_id}. "
                 f"Valori già compilati (form_fields): {form_fields}."
             )
         )

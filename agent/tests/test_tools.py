@@ -9,7 +9,7 @@ from langgraph.graph import END, START, MessagesState, StateGraph
 from langgraph.prebuilt import ToolNode
 
 from app import tools
-from app.client.api import FormFieldSchema, FormFieldUpdateResult, FormSchema, UniTicketAPI
+from app.client.api import FormField, FormFieldUpdateResult, FormSchema, UniTicketAPI
 from app.client.context import UserContext
 from helpers import FirstCandidateModel, make_category
 
@@ -26,15 +26,6 @@ def fake_decision_model(monkeypatch):
 def decision_graph():
     workflow = StateGraph(MessagesState, context_schema=UserContext)
     workflow.add_node("tools", ToolNode([tools.decide_ticket_categories]))
-    workflow.add_edge(START, "tools")
-    workflow.add_edge("tools", END)
-    return workflow.compile()
-
-
-@pytest.fixture
-def form_schema_graph():
-    workflow = StateGraph(MessagesState, context_schema=UserContext)
-    workflow.add_node("tools", ToolNode([tools.get_form_schema]))
     workflow.add_edge(START, "tools")
     workflow.add_edge("tools", END)
     return workflow.compile()
@@ -64,24 +55,6 @@ def run_decision(graph, catalog, candidate_ids):
     return json.loads(state["messages"][-1].content)
 
 
-def run_get_form_schema(graph, client, category_id=10, form_fields=None):
-    call = {
-        "name": "get_form_schema",
-        "args": {},
-        "id": "call-get-form-schema",
-        "type": "tool_call",
-    }
-    state = asyncio.run(graph.ainvoke(
-        {"messages": [AIMessage(content="", tool_calls=[call])]},
-        context=UserContext(
-            uniticket=client,
-            category_id=category_id,
-            form_fields=form_fields if form_fields is not None else {},
-        ),
-    ))
-    return json.loads(state["messages"][-1].content)
-
-
 def run_set_field(graph, client, field_id, value, category_id=10, form_fields=None):
     call = {
         "name": "set_field",
@@ -98,6 +71,18 @@ def run_set_field(graph, client, field_id, value, category_id=10, form_fields=No
         ),
     ))
     return json.loads(state["messages"][-1].content)
+
+
+def make_email_field(disabled: bool = False) -> FormField:
+    return FormField(
+        id="email",
+        label="Email",
+        type="email",
+        required=True,
+        constraints={},
+        initial_value=None,
+        disabled=disabled,
+    )
 
 
 def test_the_model_sees_only_the_decision_parameters():
@@ -139,46 +124,12 @@ def test_the_agent_uses_the_catalog_from_each_run_context(decision_graph):
     assert [category["id"] for category in second["categories"]] == [2]
 
 
-def test_get_form_schema_returns_editable_fields_and_current_values(form_schema_graph):
-    client = AsyncMock(spec=UniTicketAPI)
-    client.get_form_schema.return_value = FormSchema(
-        category_id=10,
-        module_id=1,
-        fields=[
-            FormFieldSchema(id="email", label="Email", type="email", required=True),
-            FormFieldSchema(id="matricola", label="Matricola", type="text", required=False, disabled=True),
-        ],
-    )
-
-    result = run_get_form_schema(
-        form_schema_graph,
-        client,
-        category_id=10,
-        form_fields={"email": "mario@unical.it"},
-    )
-
-    assert result["ok"] is True
-    assert result["category_id"] == 10
-    assert [f["id"] for f in result["fields"]] == ["email"]
-    assert result["current_values"] == {"email": "mario@unical.it"}
-
-
-def test_get_form_schema_returns_error_when_no_form_is_open(form_schema_graph):
-    client = AsyncMock(spec=UniTicketAPI)
-
-    result = run_get_form_schema(form_schema_graph, client, category_id=None)
-
-    assert result["ok"] is False
-    assert "Nessun form" in result["error"]
-    client.get_form_schema.assert_not_called()
-
-
 def test_set_field_updates_valid_field_in_opened_form(set_field_graph):
     client = AsyncMock(spec=UniTicketAPI)
     client.get_form_schema.return_value = FormSchema(
         category_id=10,
         module_id=1,
-        fields=[FormFieldSchema(id="email", label="Email", type="email", required=True)],
+        fields=[make_email_field()],
     )
     client.update_form_field.return_value = FormFieldUpdateResult(
         valid=True,
@@ -207,7 +158,7 @@ def test_set_field_rejects_field_not_in_opened_form(set_field_graph):
     client.get_form_schema.return_value = FormSchema(
         category_id=10,
         module_id=1,
-        fields=[FormFieldSchema(id="email", label="Email", type="email", required=True)],
+        fields=[make_email_field()],
     )
 
     result = run_set_field(set_field_graph, client, "campo_inesistente", "valore", category_id=10)
@@ -232,7 +183,7 @@ def test_set_field_returns_validation_errors(set_field_graph):
     client.get_form_schema.return_value = FormSchema(
         category_id=10,
         module_id=1,
-        fields=[FormFieldSchema(id="email", label="Email", type="email", required=True)],
+        fields=[make_email_field()],
     )
     client.update_form_field.return_value = FormFieldUpdateResult(
         valid=False,

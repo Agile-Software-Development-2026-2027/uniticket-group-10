@@ -3,6 +3,7 @@
 from typing import Any
 
 from langchain.agents import create_agent
+from langchain_core.messages import SystemMessage
 from langgraph.graph import END, START, MessagesState, StateGraph
 
 from .client.context import UserContext
@@ -15,8 +16,8 @@ Se la richiesta è ambigua, chiedi un chiarimento. Non puoi creare ticket.
 Rispondi in modo breve e chiaro nella lingua usata dall’utente."""
 
 FORM_FILLER_SYSTEM_PROMPT = """Sei l'assistente UniTicket dedicato alla compilazione del modulo aperto.
-Prima di modificare un campo, usa `get_form_schema` per verificare gli identificativi (`id`),
-etichette (`label`), vincoli e opzioni ammesse (`choices`) dei campi del modulo aperto.
+Prima di modificare un campo, usa `get_form_schema` passando il `ticket_id` del modulo aperto
+per verificare gli identificativi (`id`), le etichette (`label`), i vincoli e le opzioni (`choices`).
 Determina quali campi corrispondono alle informazioni fornite dall'utente e usa `set_field`
 per aggiornarli. Compila solo i campi appartenenti al modulo attualmente aperto, non inventare
 valori non richiesti e non inviare mai il ticket.
@@ -50,9 +51,27 @@ def create_graph(checkpointer=None):
         system_prompt=FORM_FILLER_SYSTEM_PROMPT,
     )
 
+    async def form_filler_node(state: UniTicketState):
+        raw_category = state.get("category_id")
+        if raw_category in (None, ""):
+            raw_category = state.get("selectedCategory")
+        form_fields = state.get("form_fields") or {}
+
+        context_msg = SystemMessage(
+            content=(
+                f"Modulo attualmente aperto: ticket_id/category_id={raw_category}. "
+                f"Valori già compilati (form_fields): {form_fields}."
+            )
+        )
+        result = await form_filler_agent.ainvoke(
+            {"messages": [context_msg, *state["messages"]]}
+        )
+        new_messages = result["messages"][len(state["messages"]) + 1 :]
+        return {"messages": new_messages}
+
     workflow = StateGraph(UniTicketState, context_schema=UserContext)
     workflow.add_node("triage_agent", triage_agent)
-    workflow.add_node("form_filler_agent", form_filler_agent)
+    workflow.add_node("form_filler_agent", form_filler_node)
 
     workflow.add_conditional_edges(
         START,

@@ -87,3 +87,28 @@ I test dello schema verificano la chiamata al vero serializer UniTicket, l'assen
 ```sh
 docker compose run --build --rm -T --no-deps uniticket python manage.py test chatbot_tests.test_form_schema chatbot_tests.test_form_schema_api --settings=ticket_events.test_settings --noinput
 ```
+
+## Tool dell'agente — SCRUM-97
+
+```text
+L'agente ha bisogno dei campi di una categoria individuata
+→ get_form_schema(ticket_id), registrato in agent/app/tools.py
+→ UniTicketClient.get_form_schema(ticket_id)
+→ GET /api/assistant/categories/{ticket_id}/form-schema/ con la sessione dell'utente
+→ endpoint esistente: permessi e costruzione dello schema
+→ FormSchema → JSON strutturato restituito al modello
+```
+
+`ticket_id` è l'ID della TicketCategory. Il client e i tipi `FormSchema`/`FormField` sono in `agent/app/client/`: conservano campi, tipi, obbligatorietà, vincoli, scelte, valori iniziali e sotto-campi senza aggiungere validazioni dei valori compilati.
+
+Il client rifiuta ID non interi positivi e risposte appartenenti a un'altra categoria. Il tool gestisce gli errori HTTP con `error` e `status`; restituisce `503` per problemi di connessione e `502` per JSON non valido. Non inventa un form vuoto in caso di errore.
+
+Il tool è disponibile al modello quando servono informazioni sui campi, anche prima di proporre una categoria. Il click sulla scheda mantiene soltanto l'apertura originale del modulo: non recupera lo schema. Non sono stati aggiunti prompt, middleware, guardrail, messaggi automatici o trasferimenti dello schema dal widget alla conversazione.
+
+I test essenziali sono in `agent/tests/test_form_schema.py`: client HTTP, sessione, risposta strutturata, ID invalidi, errori API, tool registrato e schede precedenti. Si eseguono con `make test-agent` e sono inclusi nella CI esistente. `make test-django` verifica l'endpoint e i permessi senza modelli esterni.
+
+Per isolare la prova del tool dalla ricerca, aprire una chat nuova su `http://localhost:8000` e chiedere, senza cliccare schede: «Ho già scelto la categoria 352, Richiesta di modifica dati anagrafici su ESSE3. Consulta lo schema e dimmi quali campi sono obbligatori e quali regole hanno». L'ID è un dato tecnico della prova, non un nuovo elemento mostrato nelle schede.
+
+Per vedere l'esecuzione tecnica: aprire gli strumenti sviluppatore del browser, scheda Rete, e la richiesta `/api/assistant`. Nella risposta/EventStream cercare `TOOL_CALL_START` con `toolCallName: get_form_schema`; il `TOOL_CALL_RESULT` con lo stesso `toolCallId` contiene il JSON ricevuto dall'agente. La GET all'endpoint parte dal client Python. Questo controllo non richiede di chiedere al modello di stampare il JSON in chat e non aggiunge guardrail.
+
+Verifica reale sulla versione finale: con una categoria già nota dal catalogo, Qwen ha scelto `get_form_schema(ticket_id=352)`; il tool ha chiamato il client e ricevuto lo schema del modulo 209. Il JSON completo è stato confrontato con una seconda lettura dell'endpoint ed è risultato uguale. Non è stata usata una chiamata al click né modificato il prompt. Nella prova libera precedente il piccolo modello locale aveva scelto una struttura errata nella ricerca: la selezione del servizio resta distinta dalla verifica del collegamento SCRUM-97.

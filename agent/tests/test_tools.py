@@ -46,8 +46,8 @@ def run_find(graph, found, excluded=None, history=()):
     return json.loads(state["messages"][-1].content), client
 
 
-def test_the_assistant_only_gets_the_tool_that_searches_and_decides():
-    assert [tool.name for tool in tools.tools] == ["find_ticket_categories"]
+def test_the_assistant_gets_the_tool_that_searches_and_decides_and_the_form_schema():
+    assert [tool.name for tool in tools.tools] == ["find_ticket_categories", "get_form_schema"]
 
 
 def test_the_model_sees_only_the_query_and_the_exclusions():

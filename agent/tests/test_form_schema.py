@@ -127,5 +127,6 @@ def test_suggestions_keep_the_existing_behavior():
     result = asyncio.run(tools.suggest_tickets.coroutine([42], runtime))
     assert result == {"tickets": [{"category_id": 42, "title": category.name,
                                    "structure_name": category.structure_name, "url": category.url}]}
-    assert tools.suggest_tickets in tools.tools and tools.suggest_tickets.return_direct
+    # suggest_tickets la chiama il grafo quando ci sono card da mostrare, non l'assistente.
+    assert tools.suggest_tickets not in tools.tools
     client.get_form_schema.assert_not_called()

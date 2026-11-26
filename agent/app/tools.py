@@ -1,6 +1,9 @@
 """Strumenti che l'agente può chiamare durante la conversazione."""
 
 from asyncio import to_thread
+from typing import Any
+
+import httpx
 from langchain_core.tools import tool
 from langgraph.prebuilt import ToolRuntime
 
@@ -9,6 +12,7 @@ from .decision import decide_with
 from .decision.jev import jev
 
 decision_model = jev
+
 
 @tool(parse_docstring=True)
 async def search_ticket_categories(
@@ -96,4 +100,98 @@ async def suggest_tickets(
         for ticket_id in ticket_ids if ticket_id in categories
     ]}
 
-tools = [get_structures, search_ticket_categories, suggest_tickets]
+
+@tool(parse_docstring=True)
+async def set_field(
+    field_id: str | int,
+    value: Any,
+    runtime: ToolRuntime[UserContext],
+) -> dict[str, Any]:
+    """Aggiorna il valore di un campo nel form del ticket attualmente aperto senza inviare il ticket.
+
+    Usa solo gli identificativi dei campi appartenenti al form aperto.
+
+    Args:
+        field_id: Identificativo del campo da aggiornare nel form aperto.
+        value: Valore da assegnare al campo.
+    """
+    normalized_field_id = str(field_id)
+    category_id = runtime.context.category_id
+
+    if category_id is None:
+        return {
+            "ok": False,
+            "field_id": normalized_field_id,
+            "error": "Nessun form ticket è attualmente aperto.",
+        }
+
+    try:
+        schema = await runtime.context.uniticket.get_form_schema(category_id)
+    except httpx.HTTPStatusError as exc:
+        return {
+            "ok": False,
+            "field_id": normalized_field_id,
+            "error": f"Impossibile leggere lo schema del form (HTTP {exc.response.status_code}).",
+        }
+    except httpx.HTTPError as exc:
+        return {
+            "ok": False,
+            "field_id": normalized_field_id,
+            "error": f"Errore di comunicazione con UniTicket: {exc}",
+        }
+
+    editable_fields = {f.id: f for f in schema.fields if not f.disabled}
+    if normalized_field_id not in editable_fields:
+        return {
+            "ok": False,
+            "field_id": normalized_field_id,
+            "error": (
+                f"Il campo '{normalized_field_id}' non appartiene ai campi modificabili "
+                f"del form aperto (categoria {category_id})."
+            ),
+            "available_fields": [
+                {"id": f.id, "label": f.label, "type": f.type, "required": f.required}
+                for f in editable_fields.values()
+            ],
+        }
+
+    try:
+        result = await runtime.context.uniticket.update_form_field(
+            category_id=category_id,
+            field_id=normalized_field_id,
+            value=value,
+            data=runtime.context.form_fields or None,
+        )
+    except httpx.HTTPStatusError as exc:
+        return {
+            "ok": False,
+            "field_id": normalized_field_id,
+            "error": f"Errore HTTP {exc.response.status_code} durante l'aggiornamento del campo.",
+        }
+    except httpx.HTTPError as exc:
+        return {
+            "ok": False,
+            "field_id": normalized_field_id,
+            "error": f"Errore di comunicazione con UniTicket: {exc}",
+        }
+
+    if not result.valid:
+        return {
+            "ok": False,
+            "field_id": normalized_field_id,
+            "errors": [err.model_dump() for err in result.errors],
+        }
+
+    runtime.context.form_fields[normalized_field_id] = result.value
+
+    return {
+        "ok": True,
+        "category_id": category_id,
+        "field_id": result.field_id,
+        "value": result.value,
+    }
+
+
+triage_tools = [get_structures, search_ticket_categories, suggest_tickets]
+form_filler_tools = [set_field]
+tools = [*triage_tools, *form_filler_tools]

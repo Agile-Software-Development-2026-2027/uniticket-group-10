@@ -62,27 +62,13 @@ class UniTicketClient(UniTicketAPI):
         response.raise_for_status()
         return self._ticket_adapter.validate_python(response.json())
 
-    async def get_form_schema(self, category_id: int) -> FormSchema:
-        response = await self._client.get(f"assistant/categories/{category_id}/form-schema/")
+    # Legge lo schema usando la sessione già impostata sul client.
+    async def get_form_schema(self, ticket_id: int) -> FormSchema:
+        if type(ticket_id) is not int or ticket_id <= 0:
+            raise ValueError("ticket_id deve essere un intero positivo")
+        response = await self._client.get(f"assistant/categories/{ticket_id}/form-schema/")
         response.raise_for_status()
-        return FormSchema.model_validate(response.json())
-
-    async def update_form_field(
-        self,
-        category_id: int,
-        field_id: str,
-        value: Any,
-        data: dict[str, Any] | None = None,
-    ) -> FormFieldUpdateResult:
-        response = await self._client.post(
-            f"assistant/categories/{category_id}/form-fields/",
-            json={
-                "field_id": str(field_id),
-                "value": value,
-                "data": data or {},
-            },
-        )
-        if response.status_code in (200, 400):
-            return FormFieldUpdateResult.model_validate(response.json())
-        response.raise_for_status()
-        return FormFieldUpdateResult.model_validate(response.json())
+        schema = FormSchema.model_validate(response.json())
+        if schema.category_id != ticket_id:
+            raise ValueError("Lo schema ricevuto appartiene a una categoria diversa")
+        return schema

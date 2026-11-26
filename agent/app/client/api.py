@@ -1,5 +1,5 @@
 from typing import Any, Protocol, runtime_checkable
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, JsonValue
 
 
 class Structure(BaseModel):
@@ -17,20 +17,22 @@ class Catalog(BaseModel):
     url: str
 
 
-class FormFieldSchema(BaseModel):
+# Descrive i dati ricevuti, senza applicare nuove validazioni ai valori del modulo.
+class FormField(BaseModel):
     id: str
     label: str
     type: str
     required: bool
-    constraints: dict[str, Any] = Field(default_factory=dict)
-    initial_value: Any = None
+    constraints: dict[str, JsonValue]
+    initial_value: JsonValue
     disabled: bool = False
+    fields: list["FormField"] | None = None
 
 
 class FormSchema(BaseModel):
-    category_id: int
-    module_id: int
-    fields: list[FormFieldSchema]
+    category_id: int = Field(gt=0, strict=True)
+    module_id: int = Field(gt=0, strict=True)
+    fields: list[FormField]
 
 
 class FieldValidationError(BaseModel):
@@ -48,6 +50,9 @@ class FormFieldUpdateResult(BaseModel):
 
 @runtime_checkable
 class UniTicketAPI(Protocol):
+    async def get_form_schema(self, ticket_id: int) -> FormSchema:
+        """Return the active form schema for a TicketCategory accessible to the current user."""
+
     async def get_structures(self) -> list[Structure]:
         """Return structures with categories available to the current user."""
 
@@ -61,9 +66,6 @@ class UniTicketAPI(Protocol):
         structure_ids: list[int] | None = None,
     ) -> list[Catalog]:
         """Search available categories, excluding IDs and optionally limiting structures."""
-
-    async def get_form_schema(self, category_id: int) -> FormSchema:
-        """Return the active form schema for the given category."""
 
     async def update_form_field(
         self,

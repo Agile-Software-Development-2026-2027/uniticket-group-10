@@ -1,9 +1,10 @@
 """Strumenti che l'agente può chiamare durante la conversazione."""
 
 from asyncio import to_thread
-from typing import Any
+from typing import Annotated
 
 import httpx
+from pydantic import Field
 from langchain_core.tools import tool
 from langgraph.prebuilt import ToolRuntime
 
@@ -48,6 +49,33 @@ async def get_structures(runtime: ToolRuntime[UserContext]) -> list[dict]:
     """Get the structures available to the current user."""
     structures = await runtime.context.uniticket.get_structures()
     return [structure.model_dump() for structure in structures]
+
+
+# Recupera il modulo della categoria scelta e restituisce i dati che l'agente può leggere.
+@tool(parse_docstring=True)
+async def get_form_schema(
+    ticket_id: Annotated[int, Field(gt=0, strict=True)],
+    runtime: ToolRuntime[UserContext],
+) -> dict:
+    """Legge campi, obbligatorietà e regole del modulo senza compilare o creare richieste.
+
+    Usare questo tool quando servono i campi di una categoria individuata dalla ricerca.
+    I permessi sono verificati dall'API.
+
+    Args:
+        ticket_id: ID della TicketCategory scelta, non di una richiesta compilata.
+    """
+    try:
+        schema = await runtime.context.uniticket.get_form_schema(ticket_id)
+        # Conserva anche vincoli e colonne delle tabelle, senza aggiungere valori assenti.
+        return schema.model_dump(exclude_unset=True)
+    except httpx.HTTPStatusError as error:
+        return {"error": "Schema non disponibile per questa categoria o sessione.",
+                "status": error.response.status_code}
+    except httpx.RequestError:
+        return {"error": "Servizio UniTicket non raggiungibile.", "status": 503}
+    except ValueError:
+        return {"error": "La risposta dello schema non è valida.", "status": 502}
 
 
 @tool(parse_docstring=True)

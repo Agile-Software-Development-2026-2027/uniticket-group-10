@@ -1,6 +1,7 @@
 """Strumenti che l'agente può chiamare durante la conversazione."""
 
 import json
+import re
 from asyncio import to_thread
 from typing import Annotated
 
@@ -17,6 +18,14 @@ from .decision.jev import jev
 decision_model = jev
 # Quello che l'assistente legge di una categoria decisa: URL e visibilità restano nel catalogo.
 CANDIDATE_FIELDS = {"id", "name", "description", "structure_id", "structure_name"}
+# Una risposta che comincia con un sì accetta il dipartimento, qualunque cosa dica dopo: si è chiesto se è
+# quello che gli serve, non se ne fa parte. "si" senza accento è anche un pronome ("si tratta di..."):
+# vale come sì solo da solo o seguito da punteggiatura.
+_YES = re.compile(r"^\W*(?:(?:sì|esatto|giusto|certo|ok|okay|perfetto|confermo|va bene)(?!\w)|si(?=\s*(?:[,.!]|$)))",
+                  re.IGNORECASE)
+# Una risposta che comincia con un no lo rifiuta, anche se il corso che nomina non si riconosce
+# ("no, ho fatto chimica"). Solo la parola intera: "non lo so" non è un no.
+_NO = re.compile(r"^\W*no\b", re.IGNORECASE)
 
 
 # Recupera il modulo della categoria scelta e restituisce i dati che l'agente può leggere.
@@ -94,22 +103,23 @@ def confirmations_asked(messages: list[AnyMessage]) -> set[int]:
 
 
 def confirmations_declined(messages: list[AnyMessage]) -> list[int]:
-    """Le categorie di cui si è chiesta conferma a chi poi ha nominato solo un altro dipartimento o corso.
+    """Le categorie di cui si è chiesta conferma a chi poi ha detto di no o ha nominato un altro dipartimento o corso.
 
     Non vanno riproposte: senza questo, se l'assistente ricerca senza escluderle, la stessa categoria
     torna da sola e, a conferma già chiesta, passa per la risposta giusta. La risposta alla conferma è
     quello che l'utente scrive prima della ricerca seguente: un corso nominato dopo, in un'altra
-    richiesta, non è un no.
+    richiesta, non è un no. Se comincia con un sì, non è un no nemmeno se nomina un altro corso; se
+    comincia con un no, lo è anche se il corso che nomina non si riconosce.
     """
     decisions = past_decisions(messages)
     declined = []
     for (index, decision), (next_index, _) in zip(decisions, [*decisions[1:], (len(messages), None)]):
-        if decision["action"] != "CONFIRM":
+        replies = [message.text for message in messages[index + 1:next_index] if isinstance(message, HumanMessage)]
+        if decision["action"] != "CONFIRM" or (replies and _YES.match(replies[0])):
             continue
-        answer = ". ".join(message.text for message in messages[index + 1:next_index]
-                           if isinstance(message, HumanMessage))
+        refused = bool(replies) and bool(_NO.match(replies[0]))
         declined += [category["id"] for category in decision["categories"]
-                     if belongs_elsewhere(category["structure_name"], answer)]
+                     if refused or belongs_elsewhere(category["structure_name"], ". ".join(replies))]
     return declined
 
 

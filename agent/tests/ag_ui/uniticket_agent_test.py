@@ -67,7 +67,7 @@ class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
             thread_id="thread-1",
             run_id="run-1",
             messages=[],
-            state={"selectedCategory": "12", "form_fields": {"subject": "Test"}},
+            state={"category_id": "12", "form_fields": {"subject": "Test"}},
             tools=[],
             context=[],
             forwarded_props={},

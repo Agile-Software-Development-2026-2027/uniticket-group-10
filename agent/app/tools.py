@@ -101,6 +101,42 @@ async def suggest_tickets(
     ]}
 
 
+@tool
+async def get_form_schema(runtime: ToolRuntime[UserContext]) -> dict[str, Any]:
+    """Restituisce i campi modificabili del form attualmente aperto e i valori già compilati."""
+    category_id = runtime.context.category_id
+    if category_id is None:
+        return {
+            "ok": False,
+            "error": "Nessun form ticket è attualmente aperto.",
+        }
+
+    try:
+        schema = await runtime.context.uniticket.get_form_schema(category_id)
+    except httpx.HTTPStatusError as exc:
+        return {
+            "ok": False,
+            "error": f"Impossibile leggere lo schema del form (HTTP {exc.response.status_code}).",
+        }
+    except httpx.HTTPError as exc:
+        return {
+            "ok": False,
+            "error": f"Errore di comunicazione con UniTicket: {exc}",
+        }
+
+    return {
+        "ok": True,
+        "category_id": schema.category_id,
+        "module_id": schema.module_id,
+        "fields": [
+            field.model_dump()
+            for field in schema.fields
+            if not field.disabled
+        ],
+        "current_values": dict(runtime.context.form_fields),
+    }
+
+
 @tool(parse_docstring=True)
 async def set_field(
     field_id: str | int,
@@ -193,5 +229,5 @@ async def set_field(
 
 
 triage_tools = [get_structures, search_ticket_categories, suggest_tickets]
-form_filler_tools = [set_field]
+form_filler_tools = [get_form_schema, set_field]
 tools = [*triage_tools, *form_filler_tools]

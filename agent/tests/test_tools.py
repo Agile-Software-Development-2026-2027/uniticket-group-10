@@ -32,6 +32,15 @@ def decision_graph():
 
 
 @pytest.fixture
+def form_schema_graph():
+    workflow = StateGraph(MessagesState, context_schema=UserContext)
+    workflow.add_node("tools", ToolNode([tools.get_form_schema]))
+    workflow.add_edge(START, "tools")
+    workflow.add_edge("tools", END)
+    return workflow.compile()
+
+
+@pytest.fixture
 def set_field_graph():
     workflow = StateGraph(MessagesState, context_schema=UserContext)
     workflow.add_node("tools", ToolNode([tools.set_field]))
@@ -51,6 +60,24 @@ def run_decision(graph, catalog, candidate_ids):
     state = asyncio.run(graph.ainvoke(
         {"messages": [AIMessage(content="", tool_calls=[call])]},
         context=UserContext(uniticket=client),
+    ))
+    return json.loads(state["messages"][-1].content)
+
+
+def run_get_form_schema(graph, client, category_id=10, form_fields=None):
+    call = {
+        "name": "get_form_schema",
+        "args": {},
+        "id": "call-get-form-schema",
+        "type": "tool_call",
+    }
+    state = asyncio.run(graph.ainvoke(
+        {"messages": [AIMessage(content="", tool_calls=[call])]},
+        context=UserContext(
+            uniticket=client,
+            category_id=category_id,
+            form_fields=form_fields if form_fields is not None else {},
+        ),
     ))
     return json.loads(state["messages"][-1].content)
 
@@ -110,6 +137,40 @@ def test_the_agent_uses_the_catalog_from_each_run_context(decision_graph):
 
     assert [category["id"] for category in first["categories"]] == [1]
     assert [category["id"] for category in second["categories"]] == [2]
+
+
+def test_get_form_schema_returns_editable_fields_and_current_values(form_schema_graph):
+    client = AsyncMock(spec=UniTicketAPI)
+    client.get_form_schema.return_value = FormSchema(
+        category_id=10,
+        module_id=1,
+        fields=[
+            FormFieldSchema(id="email", label="Email", type="email", required=True),
+            FormFieldSchema(id="matricola", label="Matricola", type="text", required=False, disabled=True),
+        ],
+    )
+
+    result = run_get_form_schema(
+        form_schema_graph,
+        client,
+        category_id=10,
+        form_fields={"email": "mario@unical.it"},
+    )
+
+    assert result["ok"] is True
+    assert result["category_id"] == 10
+    assert [f["id"] for f in result["fields"]] == ["email"]
+    assert result["current_values"] == {"email": "mario@unical.it"}
+
+
+def test_get_form_schema_returns_error_when_no_form_is_open(form_schema_graph):
+    client = AsyncMock(spec=UniTicketAPI)
+
+    result = run_get_form_schema(form_schema_graph, client, category_id=None)
+
+    assert result["ok"] is False
+    assert "Nessun form" in result["error"]
+    client.get_form_schema.assert_not_called()
 
 
 def test_set_field_updates_valid_field_in_opened_form(set_field_graph):

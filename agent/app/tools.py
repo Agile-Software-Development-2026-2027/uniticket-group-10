@@ -8,7 +8,6 @@ from pydantic import Field
 from langchain_core.tools import tool
 from langgraph.prebuilt import ToolRuntime
 
-from .client.api import FormField
 from .client.context import UserContext
 from .decision import decide_with
 from .decision.jev import jev
@@ -130,77 +129,6 @@ async def suggest_tickets(
     ]}
 
 
-def _extract_choice_values(raw_choices: Any) -> set[str]:
-    allowed: set[str] = set()
-    if isinstance(raw_choices, dict):
-        allowed.update(str(k) for k in raw_choices.keys())
-    elif isinstance(raw_choices, list):
-        for item in raw_choices:
-            if isinstance(item, (list, tuple)) and item:
-                allowed.add(str(item[0]))
-            elif isinstance(item, dict) and "value" in item:
-                allowed.add(str(item["value"]))
-            elif item is not None:
-                allowed.add(str(item))
-    return allowed
-
-
-def _validate_value_against_schema(field_schema: FormField, value: Any) -> list[dict[str, Any]]:
-    errors: list[dict[str, Any]] = []
-    constraints = field_schema.constraints or {}
-
-    if value is None or value == "":
-        return errors
-
-    choices = constraints.get("choices")
-    if choices is not None:
-        allowed_values = _extract_choice_values(choices)
-        if allowed_values:
-            values_to_check = value if isinstance(value, list) else [value]
-            for item in values_to_check:
-                if str(item) not in allowed_values:
-                    errors.append({
-                        "field": field_schema.id,
-                        "code": "invalid_choice",
-                        "message": f"Il valore '{item}' non è tra le opzioni ammesse per '{field_schema.label}'.",
-                    })
-                    break
-
-    max_length = constraints.get("max_length")
-    if isinstance(max_length, int) and isinstance(value, str) and len(value) > max_length:
-        errors.append({
-            "field": field_schema.id,
-            "code": "max_length",
-            "message": f"Il valore supera la lunghezza massima consentita ({max_length} caratteri).",
-        })
-
-    min_length = constraints.get("min_length")
-    if isinstance(min_length, int) and isinstance(value, str) and len(value) < min_length:
-        errors.append({
-            "field": field_schema.id,
-            "code": "min_length",
-            "message": f"Il valore è più corto della lunghezza minima richiesta ({min_length} caratteri).",
-        })
-
-    if isinstance(value, (int, float)) and not isinstance(value, bool):
-        min_value = constraints.get("min_value")
-        if isinstance(min_value, (int, float)) and value < min_value:
-            errors.append({
-                "field": field_schema.id,
-                "code": "min_value",
-                "message": f"Il valore deve essere maggiore o uguale a {min_value}.",
-            })
-        max_value = constraints.get("max_value")
-        if isinstance(max_value, (int, float)) and value > max_value:
-            errors.append({
-                "field": field_schema.id,
-                "code": "max_value",
-                "message": f"Il valore deve essere minore o uguale a {max_value}.",
-            })
-
-    return errors
-
-
 @tool(parse_docstring=True)
 async def set_field(
     field_id: str | int,
@@ -259,14 +187,6 @@ async def set_field(
                 {"id": f.id, "label": f.label, "type": f.type, "required": f.required}
                 for f in editable_fields.values()
             ],
-        }
-
-    field_errors = _validate_value_against_schema(editable_fields[normalized_field_id], value)
-    if field_errors:
-        return {
-            "ok": False,
-            "field_id": normalized_field_id,
-            "errors": field_errors,
         }
 
     runtime.context.form_fields[normalized_field_id] = value

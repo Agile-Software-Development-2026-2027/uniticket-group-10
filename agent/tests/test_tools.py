@@ -81,14 +81,13 @@ def make_field(
     field_type: str = "email",
     required: bool = True,
     disabled: bool = False,
-    constraints: dict | None = None,
 ) -> FormField:
     return FormField(
         id=field_id,
         label=label,
         type=field_type,
         required=required,
-        constraints=constraints if constraints is not None else {},
+        constraints={},
         initial_value=None,
         disabled=disabled,
     )
@@ -151,28 +150,6 @@ def test_set_field_updates_valid_field_in_opened_form(set_field_graph):
     }
     assert context.form_fields == {"email": "mario@unical.it"}
     client.get_form_schema.assert_awaited_once_with(10)
-
-
-def test_set_field_validates_choice_against_schema_constraints(set_field_graph):
-    client = AsyncMock(spec=UniTicketAPI)
-    client.get_form_schema.return_value = FormSchema(
-        category_id=10,
-        module_id=1,
-        fields=[
-            make_field(
-                "sede",
-                label="Sede",
-                field_type="select",
-                constraints={"choices": [["arcavacata", "Arcavacata"], ["cetrato", "Cetraro"]]},
-            )
-        ],
-    )
-
-    result, context = run_set_field(set_field_graph, client, "sede", "roma", category_id=10)
-
-    assert result["ok"] is False
-    assert result["errors"][0]["code"] == "invalid_choice"
-    assert context.form_fields == {}
 
 
 def test_set_field_rejects_field_not_in_opened_form(set_field_graph):

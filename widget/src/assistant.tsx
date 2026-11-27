@@ -9,6 +9,7 @@ import { TicketFormContext, useTicketForm } from "./django/use-ticket-form";
 import { assistantToolkit } from "./tools";
 import { Widget } from "./components/widget";
 import "./styles/widget.css";
+import { getSelectedForm } from "./components/ticket/selected-form";
 
 export interface AssistantOptions {
   apiUrl?: string;
@@ -116,7 +117,18 @@ function ActiveAssistantSession({
     () =>
       new HttpAgent({
         url,
-        fetch: request,
+       fetch: async (input, init) => {
+          const body = JSON.parse(String(init?.body ?? "{}"));
+          const selectedForm = getSelectedForm();
+
+          return request(input, {
+            ...init,
+            body: JSON.stringify({
+              ...body,
+              ...(selectedForm !== null && { selected_form: selectedForm }),
+            }),
+          });
+        },
         threadId,
       }),
     [url, request, threadId],

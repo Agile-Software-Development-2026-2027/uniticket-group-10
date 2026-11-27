@@ -44,6 +44,10 @@ async def run_agent(input_data: RunAgentInput, request: Request, session_cookie:
 
     async def event_generator():
         async with UniTicketClient(session_cookie=session_cookie) as client:
+            if "selected_form" in request_data:
+                selected_form = request_data["selected_form"]
+                # Do something with this...
+
             # Create context.
             ctx = UserContext(
                 uniticket=client,

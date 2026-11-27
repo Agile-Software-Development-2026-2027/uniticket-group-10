@@ -3,7 +3,6 @@ import { useAuiState } from "@assistant-ui/react";
 import { ArrowRight } from "lucide-react";
 import { useTicketFormContext } from "../../django/use-ticket-form";
 import { useI18n } from "../../i18n";
-import { setSelectedForm } from "./selected-form";
 
 export interface Ticket {
   category_id: number;
@@ -42,8 +41,6 @@ export function TicketCard({ ticket }: { ticket: Ticket }) {
         aria-disabled={running || selected}
         onClick={(e) => {
           if (running || selected) e.preventDefault();
-
-          setSelectedForm(ticket.category_id);
         }}
       >
         <span className="assistant-card-details">

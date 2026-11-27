@@ -3,7 +3,6 @@ import { useAuiState } from "@assistant-ui/react";
 import { ArrowRight } from "lucide-react";
 import { useTicketFormContext } from "../../django/use-ticket-form";
 import { useI18n } from "../../i18n";
-import { createDjangoFetch } from "../../django/fetch";
 
 export interface Ticket {
   category_id: number;
@@ -42,27 +41,6 @@ export function TicketCard({ ticket }: { ticket: Ticket }) {
         aria-disabled={running || selected}
         onClick={(e) => {
           if (running || selected) e.preventDefault();
-
-          // Update agent context.
-          const csrfToken = document.querySelector<HTMLInputElement>('[name="csrfmiddlewaretoken"]')?.value;
-          if (!csrfToken)
-            throw new Error("Failed to get the django token");
-
-          const djangoFetch = createDjangoFetch(csrfToken);
-
-          djangoFetch("/api/assistant/context", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              selected_form: ticket.category_id,
-            })
-          }).then((response) => {
-            if (!response.ok) {
-              throw new Error(`Failed to set agent context: HTTP ${response.status}`);
-            }
-          });
         }}
       >
         <span className="assistant-card-details">

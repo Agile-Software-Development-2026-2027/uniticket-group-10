@@ -16,6 +16,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import AssistantThread
+from .context import get_user_context
 
 logger = logging.getLogger(__name__)
 
@@ -74,11 +75,16 @@ class AgentProxyView(APIView):
             follow_redirects=False,
         )
 
+        user_context = get_user_context(request)
+
+        # Note: values in user_context overwrite the original values in request data.
+        request_data = request.data | user_context
+
         try:
             upstream_request = client.build_request(
                 "POST",
                 settings.ASSISTANT_AGENT_URL,
-                json=request.data,
+                json=request_data,
                 cookies={settings.SESSION_COOKIE_NAME: request.session.session_key},
                 headers={
                     "Accept": "text/event-stream",

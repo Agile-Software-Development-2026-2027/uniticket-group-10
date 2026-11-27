@@ -9,8 +9,6 @@ from .search import CategorySearchView
 from .form_schema_api import CategoryFormSchemaView
 from .form_validation_api import CategoryFormValidationView
 
-from .context import SetContextView
-
 urlpatterns = [
     path("api/assistant", AgentProxyView.as_view(), name="assistant_agent"),
     path("api/assistant/structures/", AvailableStructuresView.as_view(), name="assistant_structures"),
@@ -19,6 +17,5 @@ urlpatterns = [
     path("api/assistant/categories/<int:category_id>/form-validation/", CategoryFormValidationView.as_view(), name="assistant_form_validation"),
     path("api/assistant/search/", CategorySearchView.as_view(), name="assistant_search"),
     path("api/assistant/thread/new/", CreateThreadView.as_view(), name="assistant-thread-new"),
-    path("api/assistant/context", SetContextView.as_view(), name="assistant-set-context"),
     path("", include("uni_ticket_project.urls")),
 ]

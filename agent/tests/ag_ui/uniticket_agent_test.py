@@ -21,7 +21,14 @@ def make_graph():
 class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
     def setUp(self):
         self.agent = UniTicketAgent(name="uniticket", graph=make_graph())
-        self.context = UserContext(uniticket=Mock(spec=UniTicketAPI))
+        self.context = UserContext(
+                uniticket=Mock(spec=UniTicketAPI),
+                user_first_name="Ciccio",
+                user_last_name="Pasticcio",
+                user_email="ciccio.pasticcio@unical.it",
+                user_identifier=676767,
+                user_is_employee=True,
+            )
         self.agent._runtime_context = self.context
 
     def test_clone_does_not_copy_runtime_context(self):
@@ -31,7 +38,14 @@ class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
         self.assertIs(self.agent._runtime_context, self.context)
 
     def test_for_request_uses_new_context_without_changing_original(self):
-        context = UserContext(uniticket=Mock(spec=UniTicketAPI))
+        context = UserContext(
+                uniticket=Mock(spec=UniTicketAPI),
+                user_first_name="Ciccio",
+                user_last_name="Pasticcio",
+                user_email="ciccio.pasticcio@unical.it",
+                user_identifier=676767,
+                user_is_employee=True,
+            )
 
         request_agent = self.agent.for_request(context)
 

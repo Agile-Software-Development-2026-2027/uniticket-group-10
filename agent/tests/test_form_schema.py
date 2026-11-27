@@ -51,7 +51,15 @@ def run_tool(client, ticket_id=42):
     workflow.add_edge("tools", END)
     call = {"name": "get_form_schema", "args": {"ticket_id": ticket_id}, "id": "schema-1", "type": "tool_call"}
     result = asyncio.run(workflow.compile().ainvoke(
-        {"messages": [AIMessage(content="", tool_calls=[call])]}, context=UserContext(uniticket=client),
+        {"messages": [AIMessage(content="", tool_calls=[call])]},
+            context=UserContext(
+                uniticket=client,
+                user_first_name="Ciccio",
+                user_last_name="Pasticcio",
+                user_email="ciccio.pasticcio@unical.it",
+                user_identifier=676767,
+                user_is_employee=True,
+                ),
     ))
     return result["messages"][-1]
 
@@ -123,7 +131,16 @@ def test_suggestions_keep_the_existing_behavior():
     client = AsyncMock(spec=UniTicketAPI)
     category = make_category(42, "Assistenza Wi-Fi")
     client.get_ticket_categories.return_value = [category]
-    runtime = SimpleNamespace(context=UserContext(uniticket=client))
+    runtime = SimpleNamespace(
+        context=UserContext(
+                uniticket=client,
+                user_first_name="Ciccio",
+                user_last_name="Pasticcio",
+                user_email="ciccio.pasticcio@unical.it",
+                user_identifier=676767,
+                user_is_employee=True,
+            )
+        )
     result = asyncio.run(tools.suggest_tickets.coroutine([42], runtime))
     assert result == {"tickets": [{"category_id": 42, "title": category.name,
                                    "structure_name": category.structure_name, "url": category.url}]}

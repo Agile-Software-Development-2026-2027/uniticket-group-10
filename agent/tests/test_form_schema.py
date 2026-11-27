@@ -15,7 +15,7 @@ from langgraph.prebuilt import ToolNode
 from app import tools
 from app.client.api import FormSchema, UniTicketAPI
 from app.client.client import UniTicketClient
-from app.client.context import UserContext
+from app.client.context import UserContext, ConversationContext
 from helpers import make_category
 
 
@@ -45,20 +45,22 @@ def fetch(client, ticket_id=42):
 
 # Usa un vero ToolNode: il contesto dell'utente viene iniettato dal grafo.
 def run_tool(client, ticket_id=42):
-    workflow = StateGraph(MessagesState, context_schema=UserContext)
+    workflow = StateGraph(MessagesState, context_schema=ConversationContext)
     workflow.add_node("tools", ToolNode([tools.get_form_schema]))
     workflow.add_edge(START, "tools")
     workflow.add_edge("tools", END)
     call = {"name": "get_form_schema", "args": {"ticket_id": ticket_id}, "id": "schema-1", "type": "tool_call"}
     result = asyncio.run(workflow.compile().ainvoke(
         {"messages": [AIMessage(content="", tool_calls=[call])]},
-            context=UserContext(
+            context=ConversationContext(
                 uniticket=client,
-                user_first_name="Ciccio",
-                user_last_name="Pasticcio",
-                user_email="ciccio.pasticcio@unical.it",
-                user_identifier=676767,
-                user_is_employee=True,
+                user=UserContext(
+                    first_name="Ciccio",
+                    last_name="Pasticcio",
+                    email="ciccio.pasticcio@unical.it",
+                    identifier=676767,
+                    is_employee=True,
+                    )
                 ),
     ))
     return result["messages"][-1]
@@ -132,13 +134,15 @@ def test_suggestions_keep_the_existing_behavior():
     category = make_category(42, "Assistenza Wi-Fi")
     client.get_ticket_categories.return_value = [category]
     runtime = SimpleNamespace(
-        context=UserContext(
+        context=ConversationContext(
                 uniticket=client,
-                user_first_name="Ciccio",
-                user_last_name="Pasticcio",
-                user_email="ciccio.pasticcio@unical.it",
-                user_identifier=676767,
-                user_is_employee=True,
+                user=UserContext(
+                    first_name="Ciccio",
+                    last_name="Pasticcio",
+                    email="ciccio.pasticcio@unical.it",
+                    identifier=676767,
+                    is_employee=True,
+                )
             )
         )
     result = asyncio.run(tools.suggest_tickets.coroutine([42], runtime))

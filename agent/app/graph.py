@@ -1,7 +1,7 @@
 """Grafo condiviso da FastAPI e test: messaggi e tool LangChain standard."""
 from langchain.agents import create_agent
 
-from .client.context import UserContext
+from .client.context import ConversationContext
 from .tools import tools
 
 from .llm import llm
@@ -15,7 +15,7 @@ def create_graph(checkpointer=None):
     return create_agent(
         model=llm,
         tools=tools,
-        #context_schema=UserContext, # Non funziona se lo metto, la documentazione lo richiede... ma non spiega perché...
+        #context_schema=ConversationContext, # Non funziona se lo metto, la documentazione lo richiede... ma non spiega perché...
         system_prompt=SYSTEM_PROMPT,
         checkpointer=checkpointer,
     )

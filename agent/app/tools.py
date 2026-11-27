@@ -8,7 +8,7 @@ from pydantic import Field
 from langchain_core.tools import tool
 from langgraph.prebuilt import ToolRuntime
 
-from .client.context import UserContext
+from .client.context import ConversationContext
 from .decision import decide_with
 from .decision.jev import jev
 
@@ -16,7 +16,7 @@ decision_model = jev
 
 @tool(parse_docstring=True)
 async def search_ticket_categories(
-    runtime: ToolRuntime[UserContext],
+    runtime: ToolRuntime[ConversationContext],
     query: str,
     structure_ids: list[int] | None = None,
     excluded_category_ids: list[int] | None = None,
@@ -44,7 +44,7 @@ async def search_ticket_categories(
 
 
 @tool
-async def get_structures(runtime: ToolRuntime[UserContext]) -> list[dict]:
+async def get_structures(runtime: ToolRuntime[ConversationContext]) -> list[dict]:
     """Get the structures available to the current user."""
     structures = await runtime.context.uniticket.get_structures()
     return [structure.model_dump() for structure in structures]
@@ -54,7 +54,7 @@ async def get_structures(runtime: ToolRuntime[UserContext]) -> list[dict]:
 @tool(parse_docstring=True)
 async def get_form_schema(
     ticket_id: Annotated[int, Field(gt=0, strict=True)],
-    runtime: ToolRuntime[UserContext],
+    runtime: ToolRuntime[ConversationContext],
 ) -> dict:
     """Legge campi, obbligatorietà e regole del modulo senza compilare o creare richieste.
 
@@ -81,7 +81,7 @@ async def get_form_schema(
 async def decide_ticket_categories(
     query: str,
     candidate_ids: list[int],
-    runtime: ToolRuntime[UserContext],
+    runtime: ToolRuntime[ConversationContext],
 ) -> dict:
     """Decide se proporre le categorie, chiedere chiarimenti o non proporne nessuna.
 
@@ -105,7 +105,7 @@ async def decide_ticket_categories(
 @tool(return_direct=True)
 async def suggest_tickets(
     ticket_ids: list[int],
-    runtime: ToolRuntime[UserContext],
+    runtime: ToolRuntime[ConversationContext],
 ) -> dict:
     """Display selected ticket categories as clickable cards.
 

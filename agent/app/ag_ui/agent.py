@@ -3,7 +3,7 @@ import logging
 from ag_ui_langgraph import LangGraphAgent
 from ag_ui.core import EventType, RunAgentInput, RunErrorEvent
 
-from ..client.context import UserContext
+from ..client.context import ConversationContext
 
 ALLOWED_EVENTS = {
     EventType.RUN_STARTED,
@@ -44,9 +44,9 @@ class SaferAgent(LangGraphAgent):
 # Configurable sembra servire per altre robe che non ho ancora capito, non è compito suo ricevere roba del RuntimeContext...
 # Alla fine ho usato questo approccio: https://github.com/CopilotKit/CopilotKit/issues/2646#issuecomment-3965644665 
 class UniTicketAgent(SaferAgent):
-    _runtime_context: UserContext = None
+    _runtime_context: ConversationContext = None
     
-    def for_request(self, context: UserContext) -> "UniTicketAgent":
+    def for_request(self, context: ConversationContext) -> "UniTicketAgent":
         """Crea una nuova istanza dell'agente con il contesto runtime nuovo."""
         agent = self.clone()
         if agent is self:

@@ -7,7 +7,7 @@ from langgraph.graph import END, START, StateGraph
 
 from app.ag_ui.agent import UniTicketAgent
 from app.client.api import UniTicketAPI
-from app.client.context import UserContext
+from app.client.context import UserContext, ConversationContext
 
 
 def make_graph():
@@ -23,11 +23,13 @@ class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
         self.agent = UniTicketAgent(name="uniticket", graph=make_graph())
         self.context = UserContext(
                 uniticket=Mock(spec=UniTicketAPI),
-                user_first_name="Ciccio",
-                user_last_name="Pasticcio",
-                user_email="ciccio.pasticcio@unical.it",
-                user_identifier=676767,
-                user_is_employee=True,
+                user=UserContext(
+                    first_name="Ciccio",
+                    last_name="Pasticcio",
+                    email="ciccio.pasticcio@unical.it",
+                    identifier=676767,
+                    is_employee=True,
+                )
             )
         self.agent._runtime_context = self.context
 
@@ -40,11 +42,13 @@ class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
     def test_for_request_uses_new_context_without_changing_original(self):
         context = UserContext(
                 uniticket=Mock(spec=UniTicketAPI),
-                user_first_name="Ciccio",
-                user_last_name="Pasticcio",
-                user_email="ciccio.pasticcio@unical.it",
-                user_identifier=676767,
-                user_is_employee=True,
+                user=UserContext(
+                    first_name="Ciccio",
+                    last_name="Pasticcio",
+                    email="ciccio.pasticcio@unical.it",
+                    identifier=676767,
+                    is_employee=True,
+                )
             )
 
         request_agent = self.agent.for_request(context)

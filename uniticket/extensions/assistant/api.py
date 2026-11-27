@@ -75,16 +75,13 @@ class AgentProxyView(APIView):
             follow_redirects=False,
         )
 
-        user_context = get_user_context(request)
-
-        # Note: values in user_context overwrite the original values in request data.
-        request_data = request.data | user_context
-
         try:
             upstream_request = client.build_request(
                 "POST",
                 settings.ASSISTANT_AGENT_URL,
-                json=request_data,
+                json=request.data | {
+                    "user" : get_user_context(request),
+                },
                 cookies={settings.SESSION_COOKIE_NAME: request.session.session_key},
                 headers={
                     "Accept": "text/event-stream",

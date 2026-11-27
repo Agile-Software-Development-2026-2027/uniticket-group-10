@@ -9,7 +9,7 @@ from fastapi.responses import StreamingResponse
 from langgraph.checkpoint.memory import InMemorySaver
 
 from .client.client import UniTicketClient
-from .client.context import UserContext
+from .client.context import UserContext, ConversationContext
 
 from .graph import create_graph
 from .ag_ui.agent import UniTicketAgent
@@ -41,22 +41,26 @@ async def run_agent(input_data: RunAgentInput, request: Request, session_cookie:
     encoder = EventEncoder(accept=accept_header)
 
     request_data = await request.json()
+    user_ctx_data = request_data["user"]
+
+    # Set an invalid form id if not available.
+    if "selected_form" in request_data:
+        selected_form = int(request_data["selected_form"])
+    else:
+        selected_form = None
 
     async def event_generator():
         async with UniTicketClient(session_cookie=session_cookie) as client:
-            if "selected_form" in request_data:
-                selected_form = request_data["selected_form"]
-                # Do something with this...
-
             # Create context.
-            ctx = UserContext(
-                uniticket=client,
-                user_first_name=request_data["user_first_name"],
-                user_last_name=request_data["user_last_name"],
-                user_email=request_data["user_email"],
-                user_identifier=request_data["user_identifier"],
-                user_is_employee=request_data["user_is_employee"],
-                )
+            user_ctx = UserContext(
+                first_name=user_ctx_data["first_name"],
+                last_name=user_ctx_data["last_name"],
+                email=user_ctx_data["email"],
+                identifier=user_ctx_data["identifier"],
+                is_employee=user_ctx_data["is_employee"],
+            )
+
+            ctx = ConversationContext(uniticket=client, user=user_ctx, selected_form=selected_form)
 
             request_agent = agent.for_request(ctx) # Clona agent e le assegna il context
             async for event in request_agent.run(input_data):

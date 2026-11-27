@@ -10,7 +10,7 @@ from langgraph.prebuilt import ToolNode
 
 from app import tools
 from app.client.api import UniTicketAPI
-from app.client.context import UserContext
+from app.client.context import UserContext, ConversationContext
 from helpers import FirstCandidateModel, make_category
 
 
@@ -24,7 +24,7 @@ def fake_decision_model(monkeypatch):
 
 @pytest.fixture
 def decision_graph():
-    workflow = StateGraph(MessagesState, context_schema=UserContext)
+    workflow = StateGraph(MessagesState, context_schema=ConversationContext)
     workflow.add_node("tools", ToolNode([tools.decide_ticket_categories]))
     workflow.add_edge(START, "tools")
     workflow.add_edge("tools", END)
@@ -41,13 +41,15 @@ def run_decision(graph, catalog, candidate_ids):
     }
     state = asyncio.run(graph.ainvoke(
         {"messages": [AIMessage(content="", tool_calls=[call])]},
-        context=UserContext(
+        context=ConversationContext(
                 uniticket=client,
-                user_first_name="Ciccio",
-                user_last_name="Pasticcio",
-                user_email="ciccio.pasticcio@unical.it",
-                user_identifier=676767,
-                user_is_employee=True,
+                user=UserContext(
+                    first_name="Ciccio",
+                    last_name="Pasticcio",
+                    email="ciccio.pasticcio@unical.it",
+                    identifier=676767,
+                    is_employee=True,
+                )
             )
     ))
     return json.loads(state["messages"][-1].content)

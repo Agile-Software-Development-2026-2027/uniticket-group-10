@@ -4,12 +4,16 @@ from dataclasses import dataclass
 
 from .api import UniTicketAPI
 
-
 @dataclass(kw_only=True)
 class UserContext:
+    first_name: str
+    last_name: str
+    email: str
+    identifier: int
+    is_employee: bool
+
+@dataclass(kw_only=True)
+class ConversationContext:
     uniticket: UniTicketAPI
-    user_first_name: str
-    user_last_name: str
-    user_email: str
-    user_identifier: int
-    user_is_employee: bool
+    user: UserContext
+    selected_form: int

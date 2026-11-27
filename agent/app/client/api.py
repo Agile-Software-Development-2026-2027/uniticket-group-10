@@ -1,11 +1,13 @@
-from typing import Protocol, runtime_checkable
+from typing import Any, Protocol, runtime_checkable
 from pydantic import BaseModel, Field, JsonValue
+
 
 
 class Structure(BaseModel):
     id: int
     name: str
     description: str | None
+
 
 
 class Catalog(BaseModel):
@@ -15,6 +17,7 @@ class Catalog(BaseModel):
     structure_id: int = Field(gt=0, strict=True)
     structure_name: str
     url: str
+
 
 
 # Descrive i dati ricevuti, senza applicare nuove validazioni ai valori del modulo.
@@ -35,6 +38,18 @@ class FormSchema(BaseModel):
     fields: list[FormField]
 
 
+class FieldValidationError(BaseModel):
+    field: str | None
+    code: str
+    message: str
+
+
+class FormValidationResult(BaseModel):
+    valid: bool
+    missing_fields: list[str]
+    errors: list[FieldValidationError]
+
+
 @runtime_checkable
 class UniTicketAPI(Protocol):
     async def get_form_schema(self, ticket_id: int) -> FormSchema:
@@ -53,3 +68,10 @@ class UniTicketAPI(Protocol):
         structure_ids: list[int] | None = None,
     ) -> list[Catalog]:
         """Search available categories, excluding IDs and optionally limiting structures."""
+
+    async def validate_form(
+        self,
+        category_id: int,
+        data: dict[str, Any],
+    ) -> FormValidationResult:
+        """Validate ticket form data without creating or modifying a ticket."""

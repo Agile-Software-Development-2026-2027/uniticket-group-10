@@ -1,6 +1,9 @@
 import os
+from typing import Any
 
 import httpx
+
+from .api import Catalog, FormSchema, FormValidationResult, Structure, UniTicketAPI
 from pydantic import TypeAdapter
 
 from .api import (
@@ -16,6 +19,7 @@ class UniTicketClient(UniTicketAPI):
     # it is recommended to create a TypeAdapter for a given type just once and reuse it
     _structure_adapter = TypeAdapter(list[Structure])
     _ticket_adapter = TypeAdapter(list[Catalog])
+    _validation_adapter = TypeAdapter(FormValidationResult)
 
     def __init__(self, *, session_cookie: str, base_url: str | None = None):
         if base_url is None:
@@ -37,6 +41,7 @@ class UniTicketClient(UniTicketAPI):
         response = await self._client.get("assistant/structures/")
         response.raise_for_status()
         return self._structure_adapter.validate_python(response.json())
+
 
     async def get_ticket_categories(self) -> list[Catalog]:
         response = await self._client.get("assistant/categories/")
@@ -70,3 +75,15 @@ class UniTicketClient(UniTicketAPI):
         if schema.category_id != ticket_id:
             raise ValueError("Lo schema ricevuto appartiene a una categoria diversa")
         return schema
+
+    async def validate_form(
+        self,
+        category_id: int,
+        data: dict[str, Any],
+    ) -> FormValidationResult:
+        response = await self._client.post(
+            f"assistant/categories/{category_id}/form-validation/",
+            json={"data": data},
+        )
+        response.raise_for_status()
+        return self._validation_adapter.validate_python(response.json())

@@ -17,6 +17,7 @@ class AgUiProxyTests(ProxyTestCase):
             "context": [],
             "state": {},
             "forwardedProps": {},
+            "user" : {},
         })
 
         response = self.post()

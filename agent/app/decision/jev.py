@@ -44,10 +44,18 @@ def code(index: int) -> str:
     return f"M{index + 1}"
 
 
+def yes_no(instructions: dict, true: str, false: str) -> Noul:
+    """Un sì/no con scritto quando è vero e quando è falso.
+
+    Vero e falso si scrivono anche nelle istruzioni: `autotrust-jev` in Ollama non legge `criteria` e dà le
+    stesse stime anche con vero e falso scambiati. TypeSafe li legge, per questo restano anche in `criteria`.
+    """
+    return Noul(instructions=instructions | {"true": true, "false": false}, criteria={"true": true, "false": false})
+
+
 def build_questions(candidates: list[Catalog]) -> dict[str, Question]:
     """Le domande per Jev: se la richiesta è vaga e, per i candidati, quale serve e se serve davvero."""
-    questions: dict[str, Question] = {
-        "vago": Noul(instructions=VAGUE_QUESTION, criteria={"true": VAGUE_TRUE, "false": VAGUE_FALSE})}
+    questions: dict[str, Question] = {"vago": yes_no({"question": VAGUE_QUESTION}, VAGUE_TRUE, VAGUE_FALSE)}
     if not candidates:  # l'API rifiuta una scelta senza opzioni
         return questions
     options = {}
@@ -55,8 +63,7 @@ def build_questions(candidates: list[Catalog]) -> dict[str, Question]:
         options[code(index)] = card(category, with_structure=True)
         # Se è adatta non dipende dalla struttura: qui Jev legge la categoria senza.
         fits = {"question": FITS_QUESTION, "modulo": card(category)}
-        questions[f"adatto_{code(index)}"] = Noul(instructions=fits,
-                                                  criteria={"true": FITS_TRUE, "false": FITS_FALSE})
+        questions[f"adatto_{code(index)}"] = yes_no(fits, FITS_TRUE, FITS_FALSE)
     if len(options) > 1:  # l'API rifiuta una scelta con una sola opzione: con un candidato basta il suo "adatto"
         questions["modulo"] = Choice(instructions={"question": FORM_QUESTION, "rules": FORM_RULES},
                                      criteria=options)

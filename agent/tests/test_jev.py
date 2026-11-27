@@ -8,6 +8,7 @@ from typesafe_sdk import Choice, ChoiceAnswer, Noul, NoulAnswer, TypeSafeAPIResp
 from app.decision import DecisionModel
 from app.decision.jev import NO_API_KEY, JevModel, build_questions, parse_answers, ramp
 from app.decision.cards import card
+from app.decision.prompts import FITS_FALSE, FITS_QUESTION, FITS_TRUE, VAGUE_FALSE, VAGUE_QUESTION, VAGUE_TRUE
 from helpers import make_category
 
 LAUREA = make_category(1, "Certificato di laurea", description="Richiesta del certificato", structure_name="Servizi Didattici")
@@ -31,6 +32,20 @@ def test_every_candidate_has_its_own_fit_question_without_the_structure():
     assert questions["adatto_M1"].instructions["modulo"] == {
         "titolo": "Certificato di laurea", "descrizione": "Richiesta del certificato"}
     assert questions["adatto_M2"].instructions["modulo"] == {"titolo": "Pagamento tasse"}
+
+
+def test_every_yes_no_carries_true_and_false_in_the_instructions_too():
+    # autotrust-jev in Ollama legge solo le istruzioni: con vero e falso soltanto in `criteria`, anche scambiati,
+    # le stime non cambiano. TypeSafe li legge anche in `criteria`.
+    questions = build_questions([LAUREA, TASSE])
+
+    assert questions["vago"].instructions == {"question": VAGUE_QUESTION, "true": VAGUE_TRUE, "false": VAGUE_FALSE}
+    assert questions["vago"].criteria == {"true": VAGUE_TRUE, "false": VAGUE_FALSE}
+    for name in ("adatto_M1", "adatto_M2"):
+        instructions = questions[name].instructions
+        assert (instructions["question"], instructions["true"], instructions["false"]) == (
+            FITS_QUESTION, FITS_TRUE, FITS_FALSE)
+        assert questions[name].criteria == {"true": FITS_TRUE, "false": FITS_FALSE}
 
 
 def test_without_candidates_only_the_vague_question_is_asked():

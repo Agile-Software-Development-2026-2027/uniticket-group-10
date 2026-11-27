@@ -49,7 +49,8 @@ def run_decision(graph, catalog, candidate_ids):
                     email="ciccio.pasticcio@unical.it",
                     identifier=676767,
                     is_employee=True,
-                )
+                ),
+                selected_form=0,
             )
     ))
     return json.loads(state["messages"][-1].content)

@@ -21,7 +21,7 @@ def make_graph():
 class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
     def setUp(self):
         self.agent = UniTicketAgent(name="uniticket", graph=make_graph())
-        self.context = UserContext(
+        self.context = ConversationContext(
                 uniticket=Mock(spec=UniTicketAPI),
                 user=UserContext(
                     first_name="Ciccio",
@@ -29,7 +29,8 @@ class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
                     email="ciccio.pasticcio@unical.it",
                     identifier=676767,
                     is_employee=True,
-                )
+                ),
+                selected_form=0,
             )
         self.agent._runtime_context = self.context
 
@@ -40,7 +41,7 @@ class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
         self.assertIs(self.agent._runtime_context, self.context)
 
     def test_for_request_uses_new_context_without_changing_original(self):
-        context = UserContext(
+        context = ConversationContext(
                 uniticket=Mock(spec=UniTicketAPI),
                 user=UserContext(
                     first_name="Ciccio",
@@ -48,7 +49,8 @@ class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
                     email="ciccio.pasticcio@unical.it",
                     identifier=676767,
                     is_employee=True,
-                )
+                ),
+                selected_form=0
             )
 
         request_agent = self.agent.for_request(context)

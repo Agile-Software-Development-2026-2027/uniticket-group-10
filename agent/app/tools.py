@@ -1,7 +1,7 @@
 """Strumenti che l'agente può chiamare durante la conversazione."""
 
 from asyncio import to_thread
-from typing import Annotated
+from typing import Annotated, Any
 
 import httpx
 from pydantic import Field
@@ -127,4 +127,35 @@ async def suggest_tickets(
         for ticket_id in ticket_ids if ticket_id in categories
     ]}
 
-tools = [get_structures, search_ticket_categories, get_form_schema, suggest_tickets]
+
+
+# Controlla i dati raccolti con le regole di validazione di UniTicket, senza creare richieste.
+@tool(parse_docstring=True)
+async def validate_form(
+    ticket_id: Annotated[int, Field(gt=0, strict=True)],
+    data: dict[str, Any],
+    runtime: ToolRuntime[UserContext],
+) -> dict:
+    """Controlla i dati raccolti per un modulo senza creare, inviare o modificare richieste.
+
+    Usare questo tool dopo aver letto il modulo con `get_form_schema` e raccolto i valori
+    dall'utente. Accetta anche dati incompleti: restituisce i campi obbligatori mancanti
+    e gli errori sui valori, così si può guidare l'utente a correggerli.
+    I permessi sono verificati dall'API.
+
+    Args:
+        ticket_id: ID della TicketCategory scelta, non di una richiesta compilata.
+        data: Valori raccolti finora, con l'ID del campo come chiave.
+    """
+    try:
+        result = await runtime.context.uniticket.validate_form(ticket_id, data)
+        return result.model_dump()
+    except httpx.HTTPStatusError as error:
+        return {"error": "Validazione non disponibile per questa categoria o sessione.",
+                "status": error.response.status_code}
+    except httpx.RequestError:
+        return {"error": "Servizio UniTicket non raggiungibile.", "status": 503}
+    except ValueError:
+        return {"error": "La risposta della validazione non è valida.", "status": 502}
+
+tools = [get_structures, search_ticket_categories, get_form_schema, validate_form, suggest_tickets]

@@ -120,3 +120,15 @@ def test_finding_stops_asking_when_no_match_stays_the_most_probable(find_graph, 
 
     assert first["action"] == "ASK"
     assert second == {"action": "NO_MATCH", "categories": []}
+
+
+def test_a_department_category_carries_the_full_department_name(find_graph):
+    decision, _ = run_find(find_graph, [make_category(1, structure_name="CTC")])
+
+    assert decision["categories"][0]["department"] == "Dipartimento di Chimica e Tecnologie Chimiche (CTC)"
+
+
+def test_a_category_of_another_structure_has_no_department_name(find_graph):
+    decision, _ = run_find(find_graph, [make_category(1, structure_name="Servizi Didattici")])
+
+    assert "department" not in decision["categories"][0]

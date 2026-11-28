@@ -8,6 +8,7 @@ from pydantic import Field
 from langchain_core.tools import tool
 from langgraph.prebuilt import ToolRuntime
 
+from .client.api import Catalog
 from .client.context import UserContext
 from .conversation import confirmations_asked, confirmations_declined, questions_asked, user_texts
 from .decision import confirm_department, decide_with, departments, stop_asking
@@ -68,10 +69,18 @@ async def find_ticket_categories(
     decision = stop_asking(decision, questions_asked(messages))
     result = {
         "action": decision.action,
-        "categories": [category.model_dump(include=CANDIDATE_FIELDS) for category in decision.categories],
+        "categories": [candidate(category) for category in decision.categories],
     }
     if decision.action == "CONFIRM":
         result.update(departments.describe(decision.categories[0].structure_name))
+    return result
+
+
+def candidate(category: Catalog) -> dict:
+    """Una categoria decisa per l'assistente: di un dipartimento anche il nome esteso, perché non indovini la sigla."""
+    result = category.model_dump(include=CANDIDATE_FIELDS)
+    if departments.is_department(category.structure_name):
+        result["department"] = departments.label(category.structure_name)
     return result
 
 

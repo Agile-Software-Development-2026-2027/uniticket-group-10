@@ -8,7 +8,7 @@ from langchain_core.utils.function_calling import convert_to_openai_tool
 from langgraph.graph import END, START, MessagesState, StateGraph
 from langgraph.prebuilt import ToolNode
 
-from app import tools
+from app import conversation, tools
 from app.client.api import UniTicketAPI
 from app.client.context import UserContext
 from app.decision import Estimate
@@ -86,11 +86,25 @@ def decided(action, *ids):
     return ToolMessage(content=content, name="find_ticket_categories", tool_call_id=f"call-{action}")
 
 
+def test_the_conversation_recognizes_the_results_of_the_find_tool():
+    assert tools.find_ticket_categories.name == conversation.FIND_TOOL
+
+
+def test_a_reply_that_starts_with_yes_or_no():
+    for reply in ("sì", "Sì, ma studio fisica", "si", "si, studio informatica", "ok!", "va bene grazie", "«Certo»"):
+        assert conversation.is_yes(reply), reply
+    for reply in ("si tratta di un altro", "certosa la sede?", "no", "non lo so", "", "vabbè"):
+        assert not conversation.is_yes(reply), reply
+    assert conversation.is_no("No, ho fatto chimica")
+    assert not conversation.is_no("non lo so")
+    assert not conversation.is_no("nope")
+
+
 def test_questions_are_counted_for_the_current_request_only():
-    assert tools.questions_asked([decided("ASK", 1), decided("ASK", 2)]) == 2
-    assert tools.questions_asked([decided("ASK", 1), decided("CONFIRM", 2)]) == 1
-    assert tools.questions_asked([decided("ASK", 1), decided("PROPOSE", 2), decided("ASK", 3)]) == 1
-    assert tools.questions_asked([decided("ASK", 1), decided("NO_MATCH")]) == 0
+    assert conversation.questions_asked([decided("ASK", 1), decided("ASK", 2)]) == 2
+    assert conversation.questions_asked([decided("ASK", 1), decided("CONFIRM", 2)]) == 1
+    assert conversation.questions_asked([decided("ASK", 1), decided("PROPOSE", 2), decided("ASK", 3)]) == 1
+    assert conversation.questions_asked([decided("ASK", 1), decided("NO_MATCH")]) == 0
 
 
 def test_finding_stops_asking_when_no_match_stays_the_most_probable(find_graph, monkeypatch):

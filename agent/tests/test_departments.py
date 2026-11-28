@@ -9,7 +9,7 @@ from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 from langgraph.graph import END, START, MessagesState, StateGraph
 from langgraph.prebuilt import ToolNode
 
-from app import tools
+from app import conversation, tools
 from app.client.api import UniTicketAPI
 from app.client.context import UserContext
 from app.decision import Decision, confirm_department, departments
@@ -121,39 +121,39 @@ def test_a_department_named_before_the_confirmation_does_not_drop_the_category(c
     first = find(client, [HumanMessage("Mi serve un certificato di laurea")])
     asked = answered(first)
 
-    assert tools.confirmations_declined([HumanMessage("Ho un amico a Giurisprudenza"), asked, HumanMessage("sì")]) == []
-    assert tools.confirmations_declined([asked, HumanMessage("studio Biologia, non Fisica")]) == []
-    assert tools.confirmations_declined([asked, HumanMessage("faccio giurisprudenza")]) == [1]
-    assert tools.confirmations_declined([asked, HumanMessage("sì, è per educazione fisica")]) == []
+    assert conversation.confirmations_declined([HumanMessage("Ho un amico a Giurisprudenza"), asked, HumanMessage("sì")]) == []
+    assert conversation.confirmations_declined([asked, HumanMessage("studio Biologia, non Fisica")]) == []
+    assert conversation.confirmations_declined([asked, HumanMessage("faccio giurisprudenza")]) == [1]
+    assert conversation.confirmations_declined([asked, HumanMessage("sì, è per educazione fisica")]) == []
 
 
 def test_a_yes_keeps_the_category_even_if_another_course_is_named():
     asked = answered({"action": "CONFIRM", "categories": [{"id": 1, "structure_name": "DiBEST"}]})
 
-    assert tools.confirmations_declined([asked, HumanMessage("sì, ma sono iscritto a fisica")]) == []
-    assert tools.confirmations_declined([asked, HumanMessage("Si, studio informatica")]) == []
-    assert tools.confirmations_declined([asked, HumanMessage("certosa la sede? studio fisica")]) == [1]
-    assert tools.confirmations_declined([asked, HumanMessage("no, sono iscritto a fisica")]) == [1]
+    assert conversation.confirmations_declined([asked, HumanMessage("sì, ma sono iscritto a fisica")]) == []
+    assert conversation.confirmations_declined([asked, HumanMessage("Si, studio informatica")]) == []
+    assert conversation.confirmations_declined([asked, HumanMessage("certosa la sede? studio fisica")]) == [1]
+    assert conversation.confirmations_declined([asked, HumanMessage("no, sono iscritto a fisica")]) == [1]
     # "si" senza accento e senza punteggiatura è il pronome, non un sì.
-    assert tools.confirmations_declined([asked, HumanMessage("si tratta di un altro, studio fisica")]) == [1]
+    assert conversation.confirmations_declined([asked, HumanMessage("si tratta di un altro, studio fisica")]) == [1]
 
 
 def test_in_the_reply_a_one_word_course_drops_the_category_without_saying_it_is_studied():
     asked = answered({"action": "CONFIRM", "categories": [{"id": 1, "structure_name": "DiBEST"}]})
 
-    assert tools.confirmations_declined([asked, HumanMessage("quello di fisica")]) == [1]
-    assert tools.confirmations_declined([asked, HumanMessage("ho fatto chimica")]) == [1]
-    assert tools.confirmations_declined([asked, HumanMessage("in realtà farmacia")]) == [1]
+    assert conversation.confirmations_declined([asked, HumanMessage("quello di fisica")]) == [1]
+    assert conversation.confirmations_declined([asked, HumanMessage("ho fatto chimica")]) == [1]
+    assert conversation.confirmations_declined([asked, HumanMessage("in realtà farmacia")]) == [1]
 
 
 def test_a_no_drops_the_category_even_if_the_course_is_not_recognized():
     asked = answered({"action": "CONFIRM", "categories": [{"id": 1, "structure_name": "DiBEST"}]})
 
-    assert tools.confirmations_declined([asked, HumanMessage("no")]) == [1]
-    assert tools.confirmations_declined([asked, HumanMessage("No, ho fatto chimica")]) == [1]
-    assert tools.confirmations_declined([asked, HumanMessage("no, mi serve quello di chimica")]) == [1]
+    assert conversation.confirmations_declined([asked, HumanMessage("no")]) == [1]
+    assert conversation.confirmations_declined([asked, HumanMessage("No, ho fatto chimica")]) == [1]
+    assert conversation.confirmations_declined([asked, HumanMessage("no, mi serve quello di chimica")]) == [1]
     # "non" non è un no: chi non sa rispondere non ha rifiutato il dipartimento.
-    assert tools.confirmations_declined([asked, HumanMessage("non lo so")]) == []
+    assert conversation.confirmations_declined([asked, HumanMessage("non lo so")]) == []
 
 
 def test_a_department_named_in_a_later_request_does_not_drop_the_category(client):
@@ -163,4 +163,4 @@ def test_a_department_named_in_a_later_request_does_not_drop_the_category(client
     later = [asked, HumanMessage("sì"), proposed,
              HumanMessage("ora un esonero, seguo anche un corso di Giurisprudenza")]
 
-    assert tools.confirmations_declined(later) == []
+    assert conversation.confirmations_declined(later) == []

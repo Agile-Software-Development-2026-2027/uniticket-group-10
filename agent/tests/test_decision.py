@@ -146,8 +146,8 @@ def test_a_model_that_fails_is_logged(caplog):
 
 
 def test_a_question_says_if_no_match_is_the_most_probable_hypothesis():
-    assert decide(Estimate(categories=[(ESSE3, 0.3)], no_match=0.7)).unlikely
-    assert not decide(Estimate(categories=[(ESSE3, 0.6)], no_match=0.4)).unlikely
+    assert decide(Estimate(categories=[(ESSE3, 0.3)], no_match=0.7)).no_match_likely
+    assert not decide(Estimate(categories=[(ESSE3, 0.6)], no_match=0.4)).no_match_likely
 
 
 def test_after_a_question_a_still_unlikely_match_becomes_no_match():

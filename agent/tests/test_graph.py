@@ -84,3 +84,28 @@ def test_without_a_tool_call_the_assistant_just_answers(monkeypatch):
 
     assert tool_results(messages) == []
     assert messages[-1].content == "Ciao! Di cosa hai bisogno?"
+
+
+def test_the_cards_are_shown_even_if_another_tool_answered_last():
+    found = ToolMessage(content=json.dumps({"action": "PROPOSE", "categories": [{"id": 2}]}),
+                        name="find_ticket_categories", tool_call_id="call-find")
+    schema = ToolMessage(content="{}", name="get_form_schema", tool_call_id="call-schema")
+    calls = AIMessage(content="", tool_calls=[
+        {"name": "find_ticket_categories", "args": {"query": "laurea"}, "id": "call-find", "type": "tool_call"},
+        {"name": "get_form_schema", "args": {"ticket_id": 2}, "id": "call-schema", "type": "tool_call"}])
+
+    state = {"messages": [HumanMessage("certificato di laurea"), calls, found, schema]}
+
+    assert graph.after_tools(state) == "propose"
+    assert graph.propose(state)["messages"][0].tool_calls[0]["args"] == {"ticket_ids": [2]}
+
+
+def test_an_earlier_search_does_not_show_its_cards_again():
+    found = ToolMessage(content=json.dumps({"action": "PROPOSE", "categories": [{"id": 2}]}),
+                        name="find_ticket_categories", tool_call_id="call-find")
+    suggested = ToolMessage(content="{}", name="suggest_tickets", tool_call_id="call-suggest")
+    state = {"messages": [find_call(), found, AIMessage(content="", tool_calls=[
+        {"name": "suggest_tickets", "args": {"ticket_ids": [2]}, "id": "call-suggest", "type": "tool_call"}]),
+        suggested]}
+
+    assert graph.after_tools(state) == "assistant"

@@ -13,7 +13,7 @@ import json
 from typing import Literal
 from uuid import uuid4
 
-from langchain_core.messages import AIMessage, SystemMessage
+from langchain_core.messages import AIMessage, AnyMessage, SystemMessage, ToolMessage
 from langchain_core.runnables import RunnableConfig
 from langgraph.graph import START, MessagesState, StateGraph
 from langgraph.prebuilt import ToolNode, tools_condition
@@ -63,19 +63,30 @@ async def call_model(state: MessagesState, config: RunnableConfig) -> dict:
     return {"messages": [response]}
 
 
+def decided_categories(messages: list[AnyMessage]) -> list[dict]:
+    """Le categorie decise da find_ticket_categories nell'ultimo giro di tool; nessuna se non è stato chiamato.
+
+    L'assistente può chiamare più tool insieme: il risultato di find non è per forza l'ultimo messaggio.
+    """
+    for message in reversed(messages):
+        if not isinstance(message, ToolMessage):
+            break
+        if message.name == find_ticket_categories.name and message.status == "success":
+            return json.loads(message.content)["categories"]
+    return []
+
+
 def after_tools(state: MessagesState) -> Literal["propose", "assistant"]:
     """Se la decisione porta delle categorie se ne mostrano le card; altrimenti si torna dall'assistente.
 
     Vale anche per una domanda (ASK): l'utente che riconosce la sua richiesta tra le card la apre subito.
     """
-    last = state["messages"][-1]
-    decided = last.name == find_ticket_categories.name and last.status == "success"
-    return "propose" if decided and json.loads(last.content)["categories"] else "assistant"
+    return "propose" if decided_categories(state["messages"]) else "assistant"
 
 
 def propose(state: MessagesState) -> dict:
     """Chiama suggest_tickets con le categorie decise: la chiamata si costruisce qui, non la scrive l'LLM."""
-    ticket_ids = [category["id"] for category in json.loads(state["messages"][-1].content)["categories"]]
+    ticket_ids = [category["id"] for category in decided_categories(state["messages"])]
     call = {"name": suggest_tickets.name, "args": {"ticket_ids": ticket_ids}, "id": f"call_{uuid4().hex}",
             "type": "tool_call"}
     return {"messages": [AIMessage(content="", tool_calls=[call])]}

@@ -79,3 +79,25 @@ class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
             received = [event async for event in cloned.run(input_data)]
 
         self.assertEqual(received, [finished])
+
+    async def test_run_syncs_opened_form_state_into_runtime_context(self):
+        context = UserContext(uniticket=Mock(spec=UniTicketAPI))
+        request_agent = self.agent.for_request(context)
+        input_data = RunAgentInput(
+            thread_id="thread-1",
+            run_id="run-1",
+            messages=[],
+            state={"category_id": "12", "form_fields": {"subject": "Test"}},
+            tools=[],
+            context=[],
+            forwarded_props={},
+        )
+
+        async def events(agent, input):
+            yield RunFinishedEvent(type=EventType.RUN_FINISHED, thread_id="thread-1", run_id="run-1")
+
+        with patch.object(LangGraphAgent, "run", events):
+            _ = [event async for event in request_agent.run(input_data)]
+
+        self.assertEqual(context.category_id, 12)
+        self.assertEqual(context.form_fields, {"subject": "Test"})

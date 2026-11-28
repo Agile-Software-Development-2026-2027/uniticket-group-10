@@ -1,6 +1,5 @@
-"""Dati necessari ai nodi e ai tool durante il run."""
-
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import Any
 
 from .api import UniTicketAPI
 
@@ -16,4 +15,5 @@ class UserContext:
 class ConversationContext:
     uniticket: UniTicketAPI
     user: UserContext
-    selected_form: int
+    category_id: int | None = None
+    form_fields: dict[str, Any] = field(default_factory=dict)

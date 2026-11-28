@@ -1,7 +1,8 @@
 import logging
+from typing import Any
 
+from ag_ui.core import EventType, RunAgentInput, RunErrorEvent, StateSnapshotEvent
 from ag_ui_langgraph import LangGraphAgent
-from ag_ui.core import EventType, RunAgentInput, RunErrorEvent
 
 from ..client.context import ConversationContext
 
@@ -15,9 +16,24 @@ ALLOWED_EVENTS = {
     EventType.TOOL_CALL_START,
     EventType.TOOL_CALL_END,
     EventType.TOOL_CALL_RESULT,
+    EventType.STATE_SNAPSHOT,
 }
 
 logger = logging.getLogger(__name__)
+
+
+def _parse_category_id(state: Any) -> int | None:
+    if not isinstance(state, dict):
+        return None
+    raw = state.get("category_id")
+    if raw in (None, "") or isinstance(raw, bool):
+        return None
+    try:
+        parsed = int(raw)
+    except (TypeError, ValueError):
+        return None
+    return parsed if parsed > 0 else None
+
 
 class SaferAgent(LangGraphAgent):
     def __init__(self, *, allow_events: set[EventType] | None = ALLOWED_EVENTS, **kwargs):
@@ -39,13 +55,10 @@ class SaferAgent(LangGraphAgent):
             else:
                 yield event
 
-# Propone "configurable" per passare il contesto https://github.com/CopilotKit/CopilotKit/issues/3177#issuecomment-5360877173
-# poi si rimangia la parola... e dice di aprire una nuova issue. In ogni caso la documentazione è fatta male.
-# Configurable sembra servire per altre robe che non ho ancora capito, non è compito suo ricevere roba del RuntimeContext...
-# Alla fine ho usato questo approccio: https://github.com/CopilotKit/CopilotKit/issues/2646#issuecomment-3965644665 
+
 class UniTicketAgent(SaferAgent):
-    _runtime_context: ConversationContext = None
-    
+    _runtime_context: ConversationContext | None = None
+
     def for_request(self, context: ConversationContext) -> "UniTicketAgent":
         """Crea una nuova istanza dell'agente con il contesto runtime nuovo."""
         agent = self.clone()
@@ -54,7 +67,7 @@ class UniTicketAgent(SaferAgent):
 
         if context is self._runtime_context:
             raise ValueError("Runtime context must be a new instance")
-            
+
         agent._runtime_context = context
         return agent
 
@@ -65,3 +78,30 @@ class UniTicketAgent(SaferAgent):
         options = super().get_stream_kwargs(**kwargs)
         options["context"] = self._runtime_context
         return options
+
+    async def run(self, input: RunAgentInput):
+        if self._runtime_context is not None and isinstance(input.state, dict):
+            self._runtime_context.category_id = _parse_category_id(input.state)
+
+            raw_fields = input.state.get("form_fields")
+            if isinstance(raw_fields, dict):
+                self._runtime_context.form_fields = dict(raw_fields)
+
+        async for event in super().run(input):
+            yield event
+
+        if (
+            self._runtime_context is not None
+            and (
+                self._runtime_context.category_id is not None
+                or self._runtime_context.form_fields
+            )
+            and (self.allow_events is None or EventType.STATE_SNAPSHOT in self.allow_events)
+        ):
+            yield StateSnapshotEvent(
+                type=EventType.STATE_SNAPSHOT,
+                snapshot={
+                    "category_id": self._runtime_context.category_id,
+                    "form_fields": dict(self._runtime_context.form_fields),
+                },
+            )

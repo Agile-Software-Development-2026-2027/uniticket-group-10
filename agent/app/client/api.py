@@ -2,10 +2,12 @@ from typing import Any, Protocol, runtime_checkable
 from pydantic import BaseModel, Field, JsonValue
 
 
+
 class Structure(BaseModel):
     id: int
     name: str
     description: str | None
+
 
 
 class Catalog(BaseModel):
@@ -15,6 +17,7 @@ class Catalog(BaseModel):
     structure_id: int = Field(gt=0, strict=True)
     structure_name: str
     url: str
+
 
 
 # Descrive i dati ricevuti, senza applicare nuove validazioni ai valori del modulo.

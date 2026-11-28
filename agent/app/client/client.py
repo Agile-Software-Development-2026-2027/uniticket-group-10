@@ -6,6 +6,13 @@ import httpx
 from .api import Catalog, FormSchema, FormValidationResult, Structure, UniTicketAPI
 from pydantic import TypeAdapter
 
+from .api import (
+    Catalog,
+    FormSchema,
+    Structure,
+    UniTicketAPI,
+)
+
 
 class UniTicketClient(UniTicketAPI):
     # https://pydantic.dev/docs/validation/latest/concepts/type_adapter/
@@ -34,6 +41,7 @@ class UniTicketClient(UniTicketAPI):
         response = await self._client.get("assistant/structures/")
         response.raise_for_status()
         return self._structure_adapter.validate_python(response.json())
+
 
     async def get_ticket_categories(self) -> list[Catalog]:
         response = await self._client.get("assistant/categories/")

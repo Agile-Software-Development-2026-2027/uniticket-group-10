@@ -1,7 +1,7 @@
 """Strumenti che l'agente può chiamare durante la conversazione."""
 
 from asyncio import to_thread
-from typing import Annotated
+from typing import Annotated, Any
 
 import httpx
 from pydantic import Field
@@ -13,6 +13,7 @@ from .decision import decide_with
 from .decision.jev import jev
 
 decision_model = jev
+
 
 @tool(parse_docstring=True)
 async def search_ticket_categories(
@@ -127,4 +128,77 @@ async def suggest_tickets(
         for ticket_id in ticket_ids if ticket_id in categories
     ]}
 
-tools = [get_structures, search_ticket_categories, get_form_schema, suggest_tickets]
+
+@tool(parse_docstring=True)
+async def set_field(
+    field_id: str | int,
+    value: Any,
+    runtime: ToolRuntime[UserContext],
+) -> dict[str, Any]:
+    """Aggiorna il valore di un campo nel form del ticket attualmente aperto senza inviare il ticket.
+
+    Usa solo gli identificativi dei campi appartenenti al form aperto.
+
+    Args:
+        field_id: Identificativo del campo da aggiornare nel form aperto.
+        value: Valore da assegnare al campo.
+    """
+    normalized_field_id = str(field_id)
+    category_id = runtime.context.category_id
+
+    if category_id is None:
+        return {
+            "ok": False,
+            "field_id": normalized_field_id,
+            "error": "Nessun form ticket è attualmente aperto.",
+        }
+
+    try:
+        schema = await runtime.context.uniticket.get_form_schema(category_id)
+    except ValueError as exc:
+        return {
+            "ok": False,
+            "field_id": normalized_field_id,
+            "error": str(exc),
+        }
+    except httpx.HTTPStatusError as exc:
+        return {
+            "ok": False,
+            "field_id": normalized_field_id,
+            "error": f"Impossibile leggere lo schema del form (HTTP {exc.response.status_code}).",
+        }
+    except httpx.HTTPError as exc:
+        return {
+            "ok": False,
+            "field_id": normalized_field_id,
+            "error": f"Errore di comunicazione con UniTicket: {exc}",
+        }
+
+    editable_fields = {f.id: f for f in schema.fields if not f.disabled}
+    if normalized_field_id not in editable_fields:
+        return {
+            "ok": False,
+            "field_id": normalized_field_id,
+            "error": (
+                f"Il campo '{normalized_field_id}' non appartiene ai campi modificabili "
+                f"del form aperto (categoria {category_id})."
+            ),
+            "available_fields": [
+                {"id": f.id, "label": f.label, "type": f.type, "required": f.required}
+                for f in editable_fields.values()
+            ],
+        }
+
+    runtime.context.form_fields[normalized_field_id] = value
+
+    return {
+        "ok": True,
+        "category_id": category_id,
+        "field_id": normalized_field_id,
+        "value": value,
+    }
+
+
+triage_tools = [get_structures, search_ticket_categories, get_form_schema, suggest_tickets]
+form_filler_tools = [get_form_schema, set_field]
+tools = [get_structures, search_ticket_categories, get_form_schema, suggest_tickets, set_field]

@@ -6,7 +6,8 @@ from langchain.agents import create_agent
 from langchain_core.messages import SystemMessage
 from langgraph.graph import END, START, MessagesState, StateGraph
 
-from .client.context import UserContext
+from .client.context import ConversationContext
+
 from .llm import llm
 from .tools import form_filler_tools, triage_tools
 
@@ -64,7 +65,11 @@ def create_graph(checkpointer=None):
         new_messages = result["messages"][len(state["messages"]) + 1 :]
         return {"messages": new_messages}
 
-    workflow = StateGraph(UniTicketState, context_schema=UserContext)
+    workflow = StateGraph(
+        UniTicketState,
+        # Same problem as before...
+        #context_schema=ConversationContext
+        )
     workflow.add_node("triage_agent", triage_agent)
     workflow.add_node("form_filler_agent", form_filler_node)
 

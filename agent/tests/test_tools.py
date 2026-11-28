@@ -11,7 +11,7 @@ from langgraph.prebuilt import ToolNode
 
 from app import tools
 from app.client.api import FormField, FormSchema, UniTicketAPI
-from app.client.context import UserContext
+from app.client.context import UserContext, ConversationContext
 from helpers import FirstCandidateModel, make_category
 
 
@@ -25,7 +25,7 @@ def fake_decision_model(monkeypatch):
 
 @pytest.fixture
 def decision_graph():
-    workflow = StateGraph(MessagesState, context_schema=UserContext)
+    workflow = StateGraph(MessagesState, context_schema=ConversationContext)
     workflow.add_node("tools", ToolNode([tools.decide_ticket_categories]))
     workflow.add_edge(START, "tools")
     workflow.add_edge("tools", END)
@@ -34,7 +34,7 @@ def decision_graph():
 
 @pytest.fixture
 def set_field_graph():
-    workflow = StateGraph(MessagesState, context_schema=UserContext)
+    workflow = StateGraph(MessagesState, context_schema=ConversationContext)
     workflow.add_node("tools", ToolNode([tools.set_field]))
     workflow.add_edge(START, "tools")
     workflow.add_edge("tools", END)
@@ -51,14 +51,30 @@ def run_decision(graph, catalog, candidate_ids):
     }
     state = asyncio.run(graph.ainvoke(
         {"messages": [AIMessage(content="", tool_calls=[call])]},
-        context=UserContext(uniticket=client),
+        context=ConversationContext(
+                uniticket=client,
+                user=UserContext(
+                    first_name="Ciccio",
+                    last_name="Pasticcio",
+                    email="ciccio.pasticcio@unical.it",
+                    identifier=676767,
+                    is_employee=True,
+                ),
+            )
     ))
     return json.loads(state["messages"][-1].content)
 
 
 def run_set_field(graph, client, field_id, value, category_id=10, form_fields=None):
-    context = UserContext(
+    context = ConversationContext(
         uniticket=client,
+        user=UserContext(
+            first_name="Ciccio",
+            last_name="Pasticcio",
+            email="ciccio.pasticcio@unical.it",
+            identifier=676767,
+            is_employee=True,
+        ),
         category_id=category_id,
         form_fields=form_fields if form_fields is not None else {},
     )

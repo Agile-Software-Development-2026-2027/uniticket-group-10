@@ -9,7 +9,7 @@ from fastapi.responses import StreamingResponse
 from langgraph.checkpoint.memory import InMemorySaver
 
 from .client.client import UniTicketClient
-from .client.context import UserContext
+from .client.context import UserContext, ConversationContext
 
 from .graph import create_graph
 from .ag_ui.agent import UniTicketAgent
@@ -40,14 +40,33 @@ async def run_agent(input_data: RunAgentInput, request: Request, session_cookie:
     accept_header = request.headers.get("accept")
     encoder = EventEncoder(accept=accept_header)
 
+    request_data = await request.json()
+    user_ctx_data = request_data["user"]
+
+    # Set an invalid form id if not available.
+    if "selected_form" in request_data:
+        selected_form = int(request_data["selected_form"])
+    else:
+        selected_form = None
+
     async def event_generator():
         async with UniTicketClient(session_cookie=session_cookie) as client:
-            request_agent = agent.for_request(UserContext(uniticket=client)) # Clona agent e le assegna il context
+            # Create context.
+            user_ctx = UserContext(
+                first_name=user_ctx_data["first_name"],
+                last_name=user_ctx_data["last_name"],
+                email=user_ctx_data["email"],
+                identifier=user_ctx_data["identifier"],
+                is_employee=user_ctx_data["is_employee"],
+            )
+
+            ctx = ConversationContext(uniticket=client, user=user_ctx, category_id=selected_form)
+
+            request_agent = agent.for_request(ctx) # Clona agent e le assegna il context
             async for event in request_agent.run(input_data):
                 yield encoder.encode(event)
 
     return StreamingResponse(event_generator(), media_type=encoder.get_content_type())
-
 
 @app.get("/health")
 def health():

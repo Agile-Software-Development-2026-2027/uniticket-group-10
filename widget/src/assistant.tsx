@@ -1,11 +1,11 @@
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useRef, useEffect, useMemo, useState, type ReactNode } from "react";
 import { AssistantRuntimeProvider, AuiConfig, Tools } from "@assistant-ui/react";
 import { useAgUiRuntime } from "@assistant-ui/react-ag-ui";
 import { HttpAgent } from "@ag-ui/client";
 
 import { createI18n, I18nContext } from "./i18n";
 import { createDjangoFetch } from "./django/fetch";
-import { TicketFormContext, useTicketForm } from "./django/use-ticket-form";
+import { TicketFormContext, useTicketForm, useTicketFormContext } from "./django/use-ticket-form";
 import { assistantToolkit } from "./tools";
 import { Widget } from "./components/widget";
 import "./styles/widget.css";
@@ -88,6 +88,7 @@ function AssistantSession({ apiUrl = "/api/assistant", csrfToken = "", children 
   }
 
   return (
+    <TicketForm>
     <ActiveAssistantSession
       key={url.href}
       url={url.href}
@@ -96,6 +97,7 @@ function AssistantSession({ apiUrl = "/api/assistant", csrfToken = "", children 
     >
       {children}
     </ActiveAssistantSession>
+    </TicketForm>
   );
 }
 
@@ -112,11 +114,29 @@ function ActiveAssistantSession({
 }) {
   const [threadId, setThreadId] = useState(initialThreadId);
 
+  const { selectedCategory } = useTicketFormContext();
+  const selectedCategoryRef = useRef(selectedCategory);
+  selectedCategoryRef.current = selectedCategory;
+
   const agent = useMemo(
     () =>
       new HttpAgent({
         url,
-        fetch: request,
+       fetch: async (input, init) => {
+          const body = JSON.parse(String(init?.body ?? "{}"));
+          const selectedForm = selectedCategoryRef.current;
+
+          return request(input, {
+            ...init,
+            body: JSON.stringify({
+              ...body,
+              ...(selectedForm!== null &&
+                selectedForm !== "" &&
+                Number.isFinite(Number(selectedForm)) &&
+                { selected_form: Number(selectedForm) }),
+            }),
+          });
+        },
         threadId,
       }),
     [url, request, threadId],
@@ -147,10 +167,8 @@ function ActiveAssistantSession({
         }),
       })}
     >
-      <TicketForm>
         {children}
         <Widget />
-      </TicketForm>
     </AssistantRuntimeProvider>
   );
 }

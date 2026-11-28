@@ -7,7 +7,7 @@ from langgraph.graph import END, START, StateGraph
 
 from app.ag_ui.agent import UniTicketAgent
 from app.client.api import UniTicketAPI
-from app.client.context import UserContext
+from app.client.context import UserContext, ConversationContext
 
 
 def make_graph():
@@ -21,7 +21,16 @@ def make_graph():
 class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
     def setUp(self):
         self.agent = UniTicketAgent(name="uniticket", graph=make_graph())
-        self.context = UserContext(uniticket=Mock(spec=UniTicketAPI))
+        self.context = ConversationContext(
+                uniticket=Mock(spec=UniTicketAPI),
+                user=UserContext(
+                    first_name="Ciccio",
+                    last_name="Pasticcio",
+                    email="ciccio.pasticcio@unical.it",
+                    identifier=676767,
+                    is_employee=True,
+                ),
+            )
         self.agent._runtime_context = self.context
 
     def test_clone_does_not_copy_runtime_context(self):
@@ -31,7 +40,16 @@ class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
         self.assertIs(self.agent._runtime_context, self.context)
 
     def test_for_request_uses_new_context_without_changing_original(self):
-        context = UserContext(uniticket=Mock(spec=UniTicketAPI))
+        context = ConversationContext(
+                uniticket=Mock(spec=UniTicketAPI),
+                user=UserContext(
+                    first_name="Ciccio",
+                    last_name="Pasticcio",
+                    email="ciccio.pasticcio@unical.it",
+                    identifier=676767,
+                    is_employee=True,
+                ),
+            )
 
         request_agent = self.agent.for_request(context)
 
@@ -61,7 +79,15 @@ class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(received, [finished])
 
     async def test_run_syncs_opened_form_state_into_runtime_context(self):
-        context = UserContext(uniticket=Mock(spec=UniTicketAPI))
+        context = ConversationContext(
+            uniticket=Mock(spec=UniTicketAPI),
+            user=UserContext(
+                first_name="Ciccio",
+                last_name="Pasticcio",
+                email="ciccio.pasticcio@unical.it",
+                identifier=676767,
+                is_employee=True,
+            ))
         request_agent = self.agent.for_request(context)
         input_data = RunAgentInput(
             thread_id="thread-1",

@@ -4,7 +4,7 @@ from typing import Any
 from ag_ui.core import EventType, RunAgentInput, RunErrorEvent, StateSnapshotEvent
 from ag_ui_langgraph import LangGraphAgent
 
-from ..client.context import UserContext
+from ..client.context import ConversationContext
 
 ALLOWED_EVENTS = {
     EventType.RUN_STARTED,
@@ -57,9 +57,9 @@ class SaferAgent(LangGraphAgent):
 
 
 class UniTicketAgent(SaferAgent):
-    _runtime_context: UserContext | None = None
+    _runtime_context: ConversationContext | None = None
 
-    def for_request(self, context: UserContext) -> "UniTicketAgent":
+    def for_request(self, context: ConversationContext) -> "UniTicketAgent":
         """Crea una nuova istanza dell'agente con il contesto runtime nuovo."""
         agent = self.clone()
         if agent is self:

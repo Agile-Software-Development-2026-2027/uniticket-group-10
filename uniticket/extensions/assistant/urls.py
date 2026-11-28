@@ -9,7 +9,6 @@ from .search import CategorySearchView
 from .form_schema_api import CategoryFormSchemaView
 from .form_validation_api import CategoryFormValidationView
 
-
 urlpatterns = [
     path("api/assistant", AgentProxyView.as_view(), name="assistant_agent"),
     path("api/assistant/structures/", AvailableStructuresView.as_view(), name="assistant_structures"),

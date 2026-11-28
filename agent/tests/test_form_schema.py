@@ -61,7 +61,6 @@ def run_tool(client, ticket_id=42):
                     identifier=676767,
                     is_employee=True,
                     ),
-                    selected_form=0,
                 ),
     ))
     return result["messages"][-1]
@@ -144,7 +143,6 @@ def test_suggestions_keep_the_existing_behavior():
                     identifier=676767,
                     is_employee=True,
                 ),
-                selected_form=0,
             )
         )
     result = asyncio.run(tools.suggest_tickets.coroutine([42], runtime))

@@ -65,7 +65,11 @@ def create_graph(checkpointer=None):
         new_messages = result["messages"][len(state["messages"]) + 1 :]
         return {"messages": new_messages}
 
-    workflow = StateGraph(UniTicketState, context_schema=ConversationContext)
+    workflow = StateGraph(
+        UniTicketState,
+        # Same problem as before...
+        #context_schema=ConversationContext
+        )
     workflow.add_node("triage_agent", triage_agent)
     workflow.add_node("form_filler_agent", form_filler_node)
 

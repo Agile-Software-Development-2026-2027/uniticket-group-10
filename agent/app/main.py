@@ -60,7 +60,7 @@ async def run_agent(input_data: RunAgentInput, request: Request, session_cookie:
                 is_employee=user_ctx_data["is_employee"],
             )
 
-            ctx = ConversationContext(uniticket=client, user=user_ctx, selected_form=selected_form)
+            ctx = ConversationContext(uniticket=client, user=user_ctx, category_id=selected_form)
 
             request_agent = agent.for_request(ctx) # Clona agent e le assegna il context
             async for event in request_agent.run(input_data):

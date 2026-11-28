@@ -30,7 +30,6 @@ class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
                     identifier=676767,
                     is_employee=True,
                 ),
-                selected_form=0,
             )
         self.agent._runtime_context = self.context
 
@@ -50,7 +49,6 @@ class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
                     identifier=676767,
                     is_employee=True,
                 ),
-                selected_form=0
             )
 
         request_agent = self.agent.for_request(context)
@@ -81,7 +79,15 @@ class UniTicketAgentTest(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(received, [finished])
 
     async def test_run_syncs_opened_form_state_into_runtime_context(self):
-        context = UserContext(uniticket=Mock(spec=UniTicketAPI))
+        context = ConversationContext(
+            uniticket=Mock(spec=UniTicketAPI),
+            user=UserContext(
+                first_name="Ciccio",
+                last_name="Pasticcio",
+                email="ciccio.pasticcio@unical.it",
+                identifier=676767,
+                is_employee=True,
+            ))
         request_agent = self.agent.for_request(context)
         input_data = RunAgentInput(
             thread_id="thread-1",

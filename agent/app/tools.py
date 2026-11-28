@@ -133,7 +133,7 @@ async def suggest_tickets(
 async def set_field(
     field_id: str | int,
     value: Any,
-    runtime: ToolRuntime[UserContext],
+    runtime: ToolRuntime[ConversationContext],
 ) -> dict[str, Any]:
     """Aggiorna il valore di un campo nel form del ticket attualmente aperto senza inviare il ticket.
 
